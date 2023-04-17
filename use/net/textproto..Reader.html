@@ -33,8 +33,8 @@
 		<a href="../../src/net/textproto/reader.go.html#line-428" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-428">#L428</a>: func (r *<b>Reader</b>) ReadDotBytes() ([]byte, error) {
 		<a href="../../src/net/textproto/reader.go.html#line-436" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-436">#L436</a>: func (r *<b>Reader</b>) ReadDotLines() ([]string, error) {
 		<a href="../../src/net/textproto/reader.go.html#line-485" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-485">#L485</a>: func (r *<b>Reader</b>) ReadMIMEHeader() (MIMEHeader, error) {
-		<a href="../../src/net/textproto/reader.go.html#line-491" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-491">#L491</a>: func readMIMEHeader(r *<b>Reader</b>, lim int64) (MIMEHeader, error) {
-		<a href="../../src/net/textproto/reader.go.html#line-582" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-582">#L582</a>: func (r *<b>Reader</b>) upcomingHeaderNewlines() (n int) {
+		<a href="../../src/net/textproto/reader.go.html#line-491" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-491">#L491</a>: func readMIMEHeader(r *<b>Reader</b>, maxMemory, maxHeaders int64) (MIMEHeader, error) {
+		<a href="../../src/net/textproto/reader.go.html#line-596" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-596">#L596</a>: func (r *<b>Reader</b>) upcomingHeaderKeys() (n int) {
 		<a href="../../src/net/textproto/textproto.go.html#line-58">textproto.go#L58</a>: 	<b>Reader</b>
 		<a href="../../src/net/textproto/textproto.go.html#line-67" class="path-duplicate">textproto.go</a><a href="../../src/net/textproto/textproto.go.html#line-67">#L67</a>: 		Reader: <b>Reader</b>{R: bufio.NewReader(conn)},
 
@@ -44,7 +44,7 @@
 		<a href="../../src/net/http/request.go.html#line-1009" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1009">#L1009</a>: func putTextprotoReader(r *textproto.<b>Reader</b>) {
 
 	<a href="../../pkg/mime/multipart.html">mime/multipart</a>
-		<a href="../../src/mime/multipart/readmimeheader.go.html#line-14">readmimeheader.go#L14</a>: func readMIMEHeader(r *textproto.<b>Reader</b>, lim int64) (textproto.MIMEHeader, error)
+		<a href="../../src/mime/multipart/readmimeheader.go.html#line-14">readmimeheader.go#L14</a>: func readMIMEHeader(r *textproto.<b>Reader</b>, maxMemory, maxHeaders int64) (textproto.MIMEHeader, error)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
