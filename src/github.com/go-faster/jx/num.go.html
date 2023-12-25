@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: num.go in package github.com/go-faster/jx</title>
-<link href="../../../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.6.4.js"></script>
+<link href="../../../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -254,7 +254,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-112"><code><span class="comment">// Float64 decodes number as 64-bit floating point.</span></code></span>
 <span class="codeline" id="line-113"><code><span class="keyword">func</span> (<label for="r27" class="ident">n</label> <a href="#line-21" class="ident">Num</a>) <label for="r28" class="ident"><a href="../../../../use/github.com/go-faster/jx..Num.Float64.html" class="ident">Float64</a></label>() (<a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a>, <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
 <span class="codeline" id="line-114"><code>	<label for="r29" class="ident">d</label> := <label for="r27" class="ident">n</label>.<a href="#line-23" class="ident">dec</a>()</code></span>
-<span class="codeline" id="line-115"><code>	<span class="keyword">return</span> <label for="r29" class="ident">d</label>.<a href="dec_float.go.html#line-148" class="ident">Float64</a>()</code></span>
+<span class="codeline" id="line-115"><code>	<span class="keyword">return</span> <label for="r29" class="ident">d</label>.<a href="dec_float.go.html#line-149" class="ident">Float64</a>()</code></span>
 <span class="codeline" id="line-116"><code>}</code></span>
 <span class="codeline" id="line-117"><code></code></span>
 <span class="codeline" id="line-118"><code><span class="comment">// Equal reports whether numbers are strictly equal, including their formats.</span></code></span>
@@ -270,22 +270,22 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-128"><code>}</code></span>
 <span class="codeline" id="line-129"><code></code></span>
 <span class="codeline" id="line-130"><code><span class="comment">// Format implements fmt.Formatter.</span></code></span>
-<span class="codeline" id="line-131"><code><span class="keyword">func</span> (<label for="r35" class="ident">n</label> <a href="#line-21" class="ident">Num</a>) <label for="r36" class="ident"><a href="../../../../use/github.com/go-faster/jx..Num.Format.html" class="ident">Format</a></label>(<label for="r37" class="ident">f</label> <a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-38" class="ident">State</a>, <label for="r38" class="ident">verb</label> <a href="../../../../pkg/builtin.html#name-rune" class="ident">rune</a>) {</code></span>
+<span class="codeline" id="line-131"><code><span class="keyword">func</span> (<label for="r35" class="ident">n</label> <a href="#line-21" class="ident">Num</a>) <label for="r36" class="ident"><a href="../../../../use/github.com/go-faster/jx..Num.Format.html" class="ident">Format</a></label>(<label for="r37" class="ident">f</label> <a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-39" class="ident">State</a>, <label for="r38" class="ident">verb</label> <a href="../../../../pkg/builtin.html#name-rune" class="ident">rune</a>) {</code></span>
 <span class="codeline" id="line-132"><code>	<span class="keyword">switch</span> <label for="r38" class="ident">verb</label> {</code></span>
 <span class="codeline" id="line-133"><code>	<span class="keyword">case</span> <span class="lit-number">'s'</span>, <span class="lit-number">'v'</span>:</code></span>
-<span class="codeline" id="line-134"><code>		_, _ = <label for="r37" class="ident">f</label>.<a href="../../../fmt/print.go.html#line-40" class="ident">Write</a>(<label for="r35" class="ident">n</label>)</code></span>
+<span class="codeline" id="line-134"><code>		_, _ = <label for="r37" class="ident">f</label>.<a href="../../../fmt/print.go.html#line-41" class="ident">Write</a>(<label for="r35" class="ident">n</label>)</code></span>
 <span class="codeline" id="line-135"><code>	<span class="keyword">case</span> <span class="lit-number">'d'</span>:</code></span>
 <span class="codeline" id="line-136"><code>		<label for="r39" class="ident">d</label>, <label for="r40" class="ident">err</label> := <label for="r35" class="ident">n</label>.<a href="#line-64" class="ident">Int64</a>()</code></span>
 <span class="codeline" id="line-137"><code>		<span class="keyword">if</span> <label for="r40" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-138"><code>			<a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-202" class="ident">Fprintf</a>(<label for="r37" class="ident">f</label>, <span class="lit-string">"%%!invalid(Num=%s)"</span>, <label for="r35" class="ident">n</label>.<a href="#line-123" class="ident">String</a>())</code></span>
+<span class="codeline" id="line-138"><code>			<a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-222" class="ident">Fprintf</a>(<label for="r37" class="ident">f</label>, <span class="lit-string">"%%!invalid(Num=%s)"</span>, <label for="r35" class="ident">n</label>.<a href="#line-123" class="ident">String</a>())</code></span>
 <span class="codeline" id="line-139"><code>			<span class="keyword">return</span></code></span>
 <span class="codeline" id="line-140"><code>		}</code></span>
-<span class="codeline" id="line-141"><code>		<label for="r41" class="ident">v</label> := <a href="../../../../pkg/math/big.html" class="ident i2">big</a>.<a href="../../../math/big/int.go.html#line-67" class="ident">NewInt</a>(<label for="r39" class="ident">d</label>)</code></span>
+<span class="codeline" id="line-141"><code>		<label for="r41" class="ident">v</label> := <a href="../../../../pkg/math/big.html" class="ident i2">big</a>.<a href="../../../math/big/int.go.html#line-78" class="ident">NewInt</a>(<label for="r39" class="ident">d</label>)</code></span>
 <span class="codeline" id="line-142"><code>		<label for="r41" class="ident">v</label>.<a href="../../../math/big/intconv.go.html#line-66" class="ident">Format</a>(<label for="r37" class="ident">f</label>, <label for="r38" class="ident">verb</label>)</code></span>
 <span class="codeline" id="line-143"><code>	<span class="keyword">case</span> <span class="lit-number">'f'</span>:</code></span>
 <span class="codeline" id="line-144"><code>		<label for="r42" class="ident">d</label>, <label for="r43" class="ident">err</label> := <label for="r35" class="ident">n</label>.<a href="#line-113" class="ident">Float64</a>()</code></span>
 <span class="codeline" id="line-145"><code>		<span class="keyword">if</span> <label for="r43" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-146"><code>			<a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-202" class="ident">Fprintf</a>(<label for="r37" class="ident">f</label>, <span class="lit-string">"%%!invalid(Num=%s)"</span>, <label for="r35" class="ident">n</label>.<a href="#line-123" class="ident">String</a>())</code></span>
+<span class="codeline" id="line-146"><code>			<a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-222" class="ident">Fprintf</a>(<label for="r37" class="ident">f</label>, <span class="lit-string">"%%!invalid(Num=%s)"</span>, <label for="r35" class="ident">n</label>.<a href="#line-123" class="ident">String</a>())</code></span>
 <span class="codeline" id="line-147"><code>			<span class="keyword">return</span></code></span>
 <span class="codeline" id="line-148"><code>		}</code></span>
 <span class="codeline" id="line-149"><code>		<label for="r44" class="ident">v</label> := <a href="../../../../pkg/math/big.html" class="ident i2">big</a>.<a href="../../../math/big/float.go.html#line-88" class="ident">NewFloat</a>(<label for="r42" class="ident">d</label>)</code></span>
@@ -343,7 +343,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-201"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

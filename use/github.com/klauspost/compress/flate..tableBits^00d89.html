@@ -5,18 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: github.com/klauspost/compress/flate.tableBits</title>
-<link href="../../../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.6.4.js"></script>
+<link href="../../../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">const <b><a href="../../../../pkg/github.com/klauspost/compress/flate.html">github.com/klauspost/compress/flate</a>.<a href="../../../../src/github.com/klauspost/compress/flate/fast_encoder.go.html#line-39">tableBits</a></b></span>
+<pre><code><span style="font-size:x-large;">const <b><a href="../../../../pkg/github.com/klauspost/compress/flate.html">github.com/klauspost/compress/flate</a>.<a href="../../../../src/github.com/klauspost/compress/flate/fast_encoder.go.html#line-38">tableBits</a></b></span>
 
-<span class="title">44 uses</span>
+<span class="title">57 uses</span>
 
 	github.com/klauspost/compress/flate (current package)
-		<a href="../../../../src/github.com/klauspost/compress/flate/fast_encoder.go.html#line-39">fast_encoder.go#L39</a>: 	<b>tableBits</b>       = 15             // Bits used in the table
-		<a href="../../../../src/github.com/klauspost/compress/flate/fast_encoder.go.html#line-40" class="path-duplicate">fast_encoder.go</a><a href="../../../../src/github.com/klauspost/compress/flate/fast_encoder.go.html#line-40">#L40</a>: 	tableSize       = 1 &lt;&lt; <b>tableBits</b> // Size of the table
-		<a href="../../../../src/github.com/klauspost/compress/flate/fast_encoder.go.html#line-41" class="path-duplicate">fast_encoder.go</a><a href="../../../../src/github.com/klauspost/compress/flate/fast_encoder.go.html#line-41">#L41</a>: 	tableShift      = 32 - <b>tableBits</b> // Right-shift to get the tableBits most significant bits of a uint32.
+		<a href="../../../../src/github.com/klauspost/compress/flate/fast_encoder.go.html#line-38">fast_encoder.go#L38</a>: 	<b>tableBits</b>       = 15             // Bits used in the table
+		<a href="../../../../src/github.com/klauspost/compress/flate/fast_encoder.go.html#line-39" class="path-duplicate">fast_encoder.go</a><a href="../../../../src/github.com/klauspost/compress/flate/fast_encoder.go.html#line-39">#L39</a>: 	tableSize       = 1 &lt;&lt; <b>tableBits</b> // Size of the table
+		<a href="../../../../src/github.com/klauspost/compress/flate/fast_encoder.go.html#line-40" class="path-duplicate">fast_encoder.go</a><a href="../../../../src/github.com/klauspost/compress/flate/fast_encoder.go.html#line-40">#L40</a>: 	tableShift      = 32 - <b>tableBits</b> // Right-shift to get the tableBits most significant bits of a uint32.
 		<a href="../../../../src/github.com/klauspost/compress/flate/level1.go.html#line-81">level1.go#L81</a>: 			nextHash := hashLen(cv, <b>tableBits</b>, hashBytes)
 		<a href="../../../../src/github.com/klauspost/compress/flate/level1.go.html#line-90" class="path-duplicate">level1.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level1.go.html#line-90">#L90</a>: 			nextHash = hashLen(now, <b>tableBits</b>, hashBytes)
 		<a href="../../../../src/github.com/klauspost/compress/flate/level1.go.html#line-204" class="path-duplicate">level1.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level1.go.html#line-204">#L204</a>: 					e.table[hashLen(cv, <b>tableBits</b>, hashBytes)] = tableEntry{offset: s + e.cur}
@@ -48,6 +48,19 @@
 		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-284" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-284">#L284</a>: 					e.table[hashLen(cv&gt;&gt;8, <b>tableBits</b>, hashShortBytes)] = t2
 		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-293" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-293">#L293</a>: 		prevHashS := hashLen(x, <b>tableBits</b>, hashShortBytes)
 		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-294" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-294">#L294</a>: 		prevHashL := hash7(x, <b>tableBits</b>)
+		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-404" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-404">#L404</a>: 			nextHashS := hashLen(cv, <b>tableBits</b>, hashShortBytes)
+		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-405" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-405">#L405</a>: 			nextHashL := hash7(cv, <b>tableBits</b>)
+		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-421" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-421">#L421</a>: 			nextHashS = hashLen(next, <b>tableBits</b>, hashShortBytes)
+		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-422" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-422">#L422</a>: 			nextHashL = hash7(next, <b>tableBits</b>)
+		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-513" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-513">#L513</a>: 			eLong := e.bTable[hash7(load6432(src, sAt), <b>tableBits</b>)].Cur.offset
+		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-573" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-573">#L573</a>: 				e.table[hashLen(cv, <b>tableBits</b>, hashShortBytes)] = t
+		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-574" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-574">#L574</a>: 				eLong := &amp;e.bTable[hash7(cv, <b>tableBits</b>)]
+		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-580" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-580">#L580</a>: 				eLong = &amp;e.bTable[hash7(cv, <b>tableBits</b>)]
+		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-586" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-586">#L586</a>: 				e.table[hashLen(cv, <b>tableBits</b>, hashShortBytes)] = t
+		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-594" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-594">#L594</a>: 					eLong := &amp;e.bTable[hash7(cv, <b>tableBits</b>)]
+		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-596" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-596">#L596</a>: 					e.table[hashLen(cv&gt;&gt;8, <b>tableBits</b>, hashShortBytes)] = t2
+		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-605" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-605">#L605</a>: 		prevHashS := hashLen(x, <b>tableBits</b>, hashShortBytes)
+		<a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-606" class="path-duplicate">level5.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level5.go.html#line-606">#L606</a>: 		prevHashL := hash7(x, <b>tableBits</b>)
 		<a href="../../../../src/github.com/klauspost/compress/flate/level6.go.html#line-94">level6.go#L94</a>: 			nextHashS := hashLen(cv, <b>tableBits</b>, hashShortBytes)
 		<a href="../../../../src/github.com/klauspost/compress/flate/level6.go.html#line-95" class="path-duplicate">level6.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level6.go.html#line-95">#L95</a>: 			nextHashL := hash7(cv, <b>tableBits</b>)
 		<a href="../../../../src/github.com/klauspost/compress/flate/level6.go.html#line-111" class="path-duplicate">level6.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level6.go.html#line-111">#L111</a>: 			nextHashS = hashLen(next, <b>tableBits</b>, hashShortBytes)
@@ -60,7 +73,7 @@
 		<a href="../../../../src/github.com/klauspost/compress/flate/level6.go.html#line-305" class="path-duplicate">level6.go</a><a href="../../../../src/github.com/klauspost/compress/flate/level6.go.html#line-305">#L305</a>: 				e.table[hashLen(cv, <b>tableBits</b>, hashShortBytes)] = t
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

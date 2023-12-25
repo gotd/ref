@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net.netFD</title>
-<link href="../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.4.js"></script>
+<link href="../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../pkg/net.html">net</a>.<a href="../src/net/fd_posix.go.html#line-17">netFD</a></b></span>
 
-<span class="title">68 uses</span>
+<span class="title">71 uses</span>
 
 	net (current package)
 		<a href="../src/net/fd_posix.go.html#line-17">fd_posix.go#L17</a>: type <b>netFD</b> struct {
@@ -44,21 +44,24 @@
 		<a href="../src/net/fd_unix.go.html#line-44" class="path-duplicate">fd_unix.go</a><a href="../src/net/fd_unix.go.html#line-44">#L44</a>: func (fd *<b>netFD</b>) name() string {
 		<a href="../src/net/fd_unix.go.html#line-55" class="path-duplicate">fd_unix.go</a><a href="../src/net/fd_unix.go.html#line-55">#L55</a>: func (fd *<b>netFD</b>) connect(ctx context.Context, la, ra syscall.Sockaddr) (rsa syscall.Sockaddr, ret error) {
 		<a href="../src/net/fd_unix.go.html#line-171" class="path-duplicate">fd_unix.go</a><a href="../src/net/fd_unix.go.html#line-171">#L171</a>: func (fd *<b>netFD</b>) accept() (netfd *<b>netFD</b>, err error) {
-		<a href="../src/net/fd_unix.go.html#line-193" class="path-duplicate">fd_unix.go</a><a href="../src/net/fd_unix.go.html#line-193">#L193</a>: func (fd *<b>netFD</b>) dup() (f *os.File, err error) {
+		<a href="../src/net/fd_unix.go.html#line-196" class="path-duplicate">fd_unix.go</a><a href="../src/net/fd_unix.go.html#line-196">#L196</a>: func (fd *<b>netFD</b>) dup() (f *os.File, err error) {
 		<a href="../src/net/file_unix.go.html#line-30">file_unix.go#L30</a>: func newFileFD(f *os.File) (*<b>netFD</b>, error) {
 		<a href="../src/net/iprawsock.go.html#line-202">iprawsock.go#L202</a>: func newIPConn(fd *<b>netFD</b>) *IPConn { return &amp;IPConn{conn{fd}} }
-		<a href="../src/net/ipsock_posix.go.html#line-137">ipsock_posix.go#L137</a>: func internetSocket(ctx context.Context, net string, laddr, raddr sockaddr, sotype, proto int, mode string, ctrlFn func(string, string, syscall.RawConn) error) (fd *<b>netFD</b>, err error) {
-		<a href="../src/net/net.go.html#line-171">net.go#L171</a>: 	fd *<b>netFD</b>
-		<a href="../src/net/rawconn.go.html#line-22">rawconn.go#L22</a>: 	fd *<b>netFD</b>
-		<a href="../src/net/rawconn.go.html#line-63" class="path-duplicate">rawconn.go</a><a href="../src/net/rawconn.go.html#line-63">#L63</a>: func newRawConn(fd *<b>netFD</b>) (*rawConn, error) {
-		<a href="../src/net/rawconn.go.html#line-79" class="path-duplicate">rawconn.go</a><a href="../src/net/rawconn.go.html#line-79">#L79</a>: func newRawListener(fd *<b>netFD</b>) (*rawListener, error) {
+		<a href="../src/net/ipsock_posix.go.html#line-137">ipsock_posix.go#L137</a>: func internetSocket(ctx context.Context, net string, laddr, raddr sockaddr, sotype, proto int, mode string, ctrlCtxFn func(context.Context, string, string, syscall.RawConn) error) (fd *<b>netFD</b>, err error) {
+		<a href="../src/net/mptcpsock_linux.go.html#line-97">mptcpsock_linux.go#L97</a>: func hasFallenBack(fd *<b>netFD</b>) bool {
+		<a href="../src/net/mptcpsock_linux.go.html#line-111" class="path-duplicate">mptcpsock_linux.go</a><a href="../src/net/mptcpsock_linux.go.html#line-111">#L111</a>: func isUsingMPTCPProto(fd *<b>netFD</b>) bool {
+		<a href="../src/net/mptcpsock_linux.go.html#line-121" class="path-duplicate">mptcpsock_linux.go</a><a href="../src/net/mptcpsock_linux.go.html#line-121">#L121</a>: func isUsingMultipathTCP(fd *<b>netFD</b>) bool {
+		<a href="../src/net/net.go.html#line-167">net.go#L167</a>: 	fd *<b>netFD</b>
+		<a href="../src/net/rawconn.go.html#line-23">rawconn.go#L23</a>: 	fd *<b>netFD</b>
+		<a href="../src/net/rawconn.go.html#line-78" class="path-duplicate">rawconn.go</a><a href="../src/net/rawconn.go.html#line-78">#L78</a>: func newRawConn(fd *<b>netFD</b>) (*rawConn, error) {
+		<a href="../src/net/rawconn.go.html#line-94" class="path-duplicate">rawconn.go</a><a href="../src/net/rawconn.go.html#line-94">#L94</a>: func newRawListener(fd *<b>netFD</b>) (*rawListener, error) {
 		<a href="../src/net/sendfile_linux.go.html#line-20">sendfile_linux.go#L20</a>: func sendFile(c *<b>netFD</b>, r io.Reader) (written int64, err error, handled bool) {
-		<a href="../src/net/sock_posix.go.html#line-18">sock_posix.go#L18</a>: func socket(ctx context.Context, net string, family, sotype, proto int, ipv6only bool, laddr, raddr sockaddr, ctrlFn func(string, string, syscall.RawConn) error) (fd *<b>netFD</b>, err error) {
+		<a href="../src/net/sock_posix.go.html#line-18">sock_posix.go#L18</a>: func socket(ctx context.Context, net string, family, sotype, proto int, ipv6only bool, laddr, raddr sockaddr, ctrlCtxFn func(context.Context, string, string, syscall.RawConn) error) (fd *<b>netFD</b>, err error) {
 		<a href="../src/net/sock_posix.go.html#line-77" class="path-duplicate">sock_posix.go</a><a href="../src/net/sock_posix.go.html#line-77">#L77</a>: func (fd *<b>netFD</b>) ctrlNetwork() string {
 		<a href="../src/net/sock_posix.go.html#line-92" class="path-duplicate">sock_posix.go</a><a href="../src/net/sock_posix.go.html#line-92">#L92</a>: func (fd *<b>netFD</b>) addrFunc() func(syscall.Sockaddr) Addr {
-		<a href="../src/net/sock_posix.go.html#line-116" class="path-duplicate">sock_posix.go</a><a href="../src/net/sock_posix.go.html#line-116">#L116</a>: func (fd *<b>netFD</b>) dial(ctx context.Context, laddr, raddr sockaddr, ctrlFn func(string, string, syscall.RawConn) error) error {
-		<a href="../src/net/sock_posix.go.html#line-175" class="path-duplicate">sock_posix.go</a><a href="../src/net/sock_posix.go.html#line-175">#L175</a>: func (fd *<b>netFD</b>) listenStream(laddr sockaddr, backlog int, ctrlFn func(string, string, syscall.RawConn) error) error {
-		<a href="../src/net/sock_posix.go.html#line-207" class="path-duplicate">sock_posix.go</a><a href="../src/net/sock_posix.go.html#line-207">#L207</a>: func (fd *<b>netFD</b>) listenDatagram(laddr sockaddr, ctrlFn func(string, string, syscall.RawConn) error) error {
+		<a href="../src/net/sock_posix.go.html#line-116" class="path-duplicate">sock_posix.go</a><a href="../src/net/sock_posix.go.html#line-116">#L116</a>: func (fd *<b>netFD</b>) dial(ctx context.Context, laddr, raddr sockaddr, ctrlCtxFn func(context.Context, string, string, syscall.RawConn) error) error {
+		<a href="../src/net/sock_posix.go.html#line-177" class="path-duplicate">sock_posix.go</a><a href="../src/net/sock_posix.go.html#line-177">#L177</a>: func (fd *<b>netFD</b>) listenStream(ctx context.Context, laddr sockaddr, backlog int, ctrlCtxFn func(context.Context, string, string, syscall.RawConn) error) error {
+		<a href="../src/net/sock_posix.go.html#line-211" class="path-duplicate">sock_posix.go</a><a href="../src/net/sock_posix.go.html#line-211">#L211</a>: func (fd *<b>netFD</b>) listenDatagram(ctx context.Context, laddr sockaddr, ctrlCtxFn func(context.Context, string, string, syscall.RawConn) error) error {
 		<a href="../src/net/sockopt_posix.go.html#line-104">sockopt_posix.go#L104</a>: func setReadBuffer(fd *<b>netFD</b>, bytes int) error {
 		<a href="../src/net/sockopt_posix.go.html#line-110" class="path-duplicate">sockopt_posix.go</a><a href="../src/net/sockopt_posix.go.html#line-110">#L110</a>: func setWriteBuffer(fd *<b>netFD</b>, bytes int) error {
 		<a href="../src/net/sockopt_posix.go.html#line-116" class="path-duplicate">sockopt_posix.go</a><a href="../src/net/sockopt_posix.go.html#line-116">#L116</a>: func setKeepAlive(fd *<b>netFD</b>, keepalive bool) error {
@@ -71,19 +74,19 @@
 		<a href="../src/net/sockoptip_posix.go.html#line-40" class="path-duplicate">sockoptip_posix.go</a><a href="../src/net/sockoptip_posix.go.html#line-40">#L40</a>: func joinIPv6Group(fd *<b>netFD</b>, ifi *Interface, ip IP) error {
 		<a href="../src/net/splice_linux.go.html#line-17">splice_linux.go#L17</a>: func splice(c *<b>netFD</b>, r io.Reader) (written int64, err error, handled bool) {
 		<a href="../src/net/splice_linux.go.html#line-27" class="path-duplicate">splice_linux.go</a><a href="../src/net/splice_linux.go.html#line-27">#L27</a>: 	var s *<b>netFD</b>
-		<a href="../src/net/tcpsock.go.html#line-220">tcpsock.go#L220</a>: func newTCPConn(fd *<b>netFD</b>) *TCPConn {
-		<a href="../src/net/tcpsock.go.html#line-253" class="path-duplicate">tcpsock.go</a><a href="../src/net/tcpsock.go.html#line-253">#L253</a>: 	fd *<b>netFD</b>
-		<a href="../src/net/tcpsock_posix.go.html#line-107">tcpsock_posix.go#L107</a>: func selfConnect(fd *<b>netFD</b>, err error) bool {
+		<a href="../src/net/tcpsock.go.html#line-238">tcpsock.go#L238</a>: func newTCPConn(fd *<b>netFD</b>, keepAlive time.Duration, keepAliveHook func(time.Duration)) *TCPConn {
+		<a href="../src/net/tcpsock.go.html#line-280" class="path-duplicate">tcpsock.go</a><a href="../src/net/tcpsock.go.html#line-280">#L280</a>: 	fd *<b>netFD</b>
+		<a href="../src/net/tcpsock_posix.go.html#line-117">tcpsock_posix.go#L117</a>: func selfConnect(fd *<b>netFD</b>, err error) bool {
 		<a href="../src/net/tcpsockopt_posix.go.html#line-14">tcpsockopt_posix.go#L14</a>: func setNoDelay(fd *<b>netFD</b>, noDelay bool) error {
 		<a href="../src/net/tcpsockopt_unix.go.html#line-15">tcpsockopt_unix.go#L15</a>: func setKeepAlivePeriod(fd *<b>netFD</b>, d time.Duration) error {
 		<a href="../src/net/udpsock.go.html#line-281">udpsock.go#L281</a>: func newUDPConn(fd *<b>netFD</b>) *UDPConn { return &amp;UDPConn{conn{fd}} }
 		<a href="../src/net/unixsock.go.html#line-195">unixsock.go#L195</a>: func newUnixConn(fd *<b>netFD</b>) *UnixConn { return &amp;UnixConn{conn{fd}} }
 		<a href="../src/net/unixsock.go.html#line-221" class="path-duplicate">unixsock.go</a><a href="../src/net/unixsock.go.html#line-221">#L221</a>: 	fd         *<b>netFD</b>
-		<a href="../src/net/unixsock_posix.go.html#line-16">unixsock_posix.go#L16</a>: func unixSocket(ctx context.Context, net string, laddr, raddr sockaddr, mode string, ctrlFn func(string, string, syscall.RawConn) error) (*<b>netFD</b>, error) {
+		<a href="../src/net/unixsock_posix.go.html#line-16">unixsock_posix.go#L16</a>: func unixSocket(ctx context.Context, net string, laddr, raddr sockaddr, mode string, ctxCtrlFn func(context.Context, string, string, syscall.RawConn) error) (*<b>netFD</b>, error) {
 		<a href="../src/net/writev_unix.go.html#line-25">writev_unix.go#L25</a>: func (fd *<b>netFD</b>) writeBuffers(v *Buffers) (n int64, err error) {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

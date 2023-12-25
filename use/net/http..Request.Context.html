@@ -5,50 +5,47 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.Request.Context</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/request.go.html#line-103">Request</a>.<a href="../../src/net/http/request.go.html#line-337">Context</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/request.go.html#line-111">Request</a>.<a href="../../src/net/http/request.go.html#line-345">Context</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">30 uses</span>
+<span class="title">27 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/client.go.html#line-348">client.go#L348</a>: 	oldCtx := req.<b>Context</b>()
-		<a href="../../src/net/http/client.go.html#line-364" class="path-duplicate">client.go</a><a href="../../src/net/http/client.go.html#line-364">#L364</a>: 	if oldCtx := req.<b>Context</b>(); timeBeforeContextDeadline(deadline, oldCtx) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-789">h2_bundle.go#L789</a>: 		cc, err := p.t.dialClientConn(req.<b>Context</b>(), addr, singleUse)
-		<a href="../../src/net/http/h2_bundle.go.html#line-815" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-815">#L815</a>: 		call := p.getStartDialLocked(req.<b>Context</b>(), addr)
-		<a href="../../src/net/http/h2_bundle.go.html#line-1016" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1016">#L1016</a>: 	if call.ctx == req.<b>Context</b>() {
-		<a href="../../src/net/http/h2_bundle.go.html#line-7263" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7263">#L7263</a>: 				case &lt;-req.<b>Context</b>().Done():
-		<a href="../../src/net/http/h2_bundle.go.html#line-7264" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7264">#L7264</a>: 					err = req.<b>Context</b>().Err()
-		<a href="../../src/net/http/h2_bundle.go.html#line-7872" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7872">#L7872</a>: 	ctx := req.<b>Context</b>()
-		<a href="../../src/net/http/h2_bundle.go.html#line-8632" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-8632">#L8632</a>: 	trace := httptrace.ContextClientTrace(req.<b>Context</b>())
-		<a href="../../src/net/http/h2_bundle.go.html#line-9757" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9757">#L9757</a>: 	trace := httptrace.ContextClientTrace(req.<b>Context</b>())
-		<a href="../../src/net/http/h2_bundle.go.html#line-9765" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9765">#L9765</a>: 	trace := httptrace.ContextClientTrace(req.<b>Context</b>())
-		<a href="../../src/net/http/request.go.html#line-337">request.go#L337</a>: func (r *Request) <b>Context</b>() context.Context {
-		<a href="../../src/net/http/request.go.html#line-552" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-552">#L552</a>: 	trace := httptrace.ContextClientTrace(r.<b>Context</b>())
-		<a href="../../src/net/http/server.go.html#line-2937">server.go#L2937</a>: 		req = req.WithContext(context.WithValue(req.<b>Context</b>(), silenceSemWarnContextKey, func() {
-		<a href="../../src/net/http/server.go.html#line-2963" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2963">#L2963</a>: 		if silenceSemicolonsWarning, ok := r.<b>Context</b>().Value(silenceSemWarnContextKey).(func()); ok {
-		<a href="../../src/net/http/server.go.html#line-3238" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3238">#L3238</a>: 	s, _ := r.<b>Context</b>().Value(ServerContextKey).(*Server)
-		<a href="../../src/net/http/server.go.html#line-3390" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3390">#L3390</a>: 		ctx, cancelCtx = context.WithTimeout(r.<b>Context</b>(), h.dt)
-		<a href="../../src/net/http/transport.go.html#line-506">transport.go#L506</a>: 	ctx := req.<b>Context</b>()
-		<a href="../../src/net/http/transport.go.html#line-1335" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-1335">#L1335</a>: 	ctx := req.<b>Context</b>()
-		<a href="../../src/net/http/transport.go.html#line-1390" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-1390">#L1390</a>: 			case &lt;-req.<b>Context</b>().Done():
-		<a href="../../src/net/http/transport.go.html#line-1391" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-1391">#L1391</a>: 				return nil, req.<b>Context</b>().Err()
-		<a href="../../src/net/http/transport.go.html#line-1404" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-1404">#L1404</a>: 	case &lt;-req.<b>Context</b>().Done():
-		<a href="../../src/net/http/transport.go.html#line-1405" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-1405">#L1405</a>: 		return nil, req.<b>Context</b>().Err()
-		<a href="../../src/net/http/transport.go.html#line-2104" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2104">#L2104</a>: 		trace := httptrace.ContextClientTrace(rc.req.<b>Context</b>())
-		<a href="../../src/net/http/transport.go.html#line-2227" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2227">#L2227</a>: 		case &lt;-rc.req.<b>Context</b>().Done():
-		<a href="../../src/net/http/transport.go.html#line-2229" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2229">#L2229</a>: 			pc.t.cancelRequest(rc.cancelKey, rc.req.<b>Context</b>().Err())
-		<a href="../../src/net/http/transport.go.html#line-2615" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2615">#L2615</a>: 	ctxDoneChan := req.<b>Context</b>().Done()
-		<a href="../../src/net/http/transport.go.html#line-2666" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2666">#L2666</a>: 			canceled = pc.t.cancelRequest(req.cancelKey, req.<b>Context</b>().Err())
-		<a href="../../src/net/http/transport.go.html#line-2678" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2678">#L2678</a>: 	if logf, ok := tr.Request.<b>Context</b>().Value(tLogKey{}).(func(string, ...any)); ok {
+		<a href="../../src/net/http/client.go.html#line-357">client.go#L357</a>: 	oldCtx := req.<b>Context</b>()
+		<a href="../../src/net/http/h2_bundle.go.html#line-790">h2_bundle.go#L790</a>: 		cc, err := p.t.dialClientConn(req.<b>Context</b>(), addr, singleUse)
+		<a href="../../src/net/http/h2_bundle.go.html#line-816" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-816">#L816</a>: 		call := p.getStartDialLocked(req.<b>Context</b>(), addr)
+		<a href="../../src/net/http/h2_bundle.go.html#line-1018" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1018">#L1018</a>: 	if call.ctx == req.<b>Context</b>() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-7666" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7666">#L7666</a>: 				case &lt;-req.<b>Context</b>().Done():
+		<a href="../../src/net/http/h2_bundle.go.html#line-7668" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7668">#L7668</a>: 					err = req.<b>Context</b>().Err()
+		<a href="../../src/net/http/h2_bundle.go.html#line-8303" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-8303">#L8303</a>: 	ctx := req.<b>Context</b>()
+		<a href="../../src/net/http/h2_bundle.go.html#line-9097" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9097">#L9097</a>: 	trace := httptrace.ContextClientTrace(req.<b>Context</b>())
+		<a href="../../src/net/http/h2_bundle.go.html#line-10218" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10218">#L10218</a>: 	trace := httptrace.ContextClientTrace(req.<b>Context</b>())
+		<a href="../../src/net/http/h2_bundle.go.html#line-10226" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10226">#L10226</a>: 	trace := httptrace.ContextClientTrace(req.<b>Context</b>())
+		<a href="../../src/net/http/request.go.html#line-345">request.go#L345</a>: func (r *Request) <b>Context</b>() context.Context {
+		<a href="../../src/net/http/request.go.html#line-561" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-561">#L561</a>: 	trace := httptrace.ContextClientTrace(r.<b>Context</b>())
+		<a href="../../src/net/http/server.go.html#line-3222">server.go#L3222</a>: 	s, _ := r.<b>Context</b>().Value(ServerContextKey).(*Server)
+		<a href="../../src/net/http/server.go.html#line-3380" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3380">#L3380</a>: 		ctx, cancelCtx = context.WithTimeout(r.<b>Context</b>(), h.dt)
+		<a href="../../src/net/http/transport.go.html#line-515">transport.go#L515</a>: 	ctx := req.<b>Context</b>()
+		<a href="../../src/net/http/transport.go.html#line-1352" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-1352">#L1352</a>: 	ctx := req.<b>Context</b>()
+		<a href="../../src/net/http/transport.go.html#line-1407" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-1407">#L1407</a>: 			case &lt;-req.<b>Context</b>().Done():
+		<a href="../../src/net/http/transport.go.html#line-1408" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-1408">#L1408</a>: 				return nil, req.<b>Context</b>().Err()
+		<a href="../../src/net/http/transport.go.html#line-1421" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-1421">#L1421</a>: 	case &lt;-req.<b>Context</b>().Done():
+		<a href="../../src/net/http/transport.go.html#line-1422" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-1422">#L1422</a>: 		return nil, req.<b>Context</b>().Err()
+		<a href="../../src/net/http/transport.go.html#line-2129" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2129">#L2129</a>: 		trace := httptrace.ContextClientTrace(rc.req.<b>Context</b>())
+		<a href="../../src/net/http/transport.go.html#line-2252" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2252">#L2252</a>: 		case &lt;-rc.req.<b>Context</b>().Done():
+		<a href="../../src/net/http/transport.go.html#line-2254" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2254">#L2254</a>: 			pc.t.cancelRequest(rc.cancelKey, rc.req.<b>Context</b>().Err())
+		<a href="../../src/net/http/transport.go.html#line-2647" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2647">#L2647</a>: 	ctxDoneChan := req.<b>Context</b>().Done()
+		<a href="../../src/net/http/transport.go.html#line-2698" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2698">#L2698</a>: 			canceled = pc.t.cancelRequest(req.cancelKey, req.<b>Context</b>().Err())
+		<a href="../../src/net/http/transport.go.html#line-2710" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2710">#L2710</a>: 	if logf, ok := tr.Request.<b>Context</b>().Value(tLogKey{}).(func(string, ...any)); ok {
 
 	<a href="../../pkg/github.com/gotd/td/transport.html">github.com/gotd/td/transport</a>
 		<a href="../../src/github.com/gotd/td/transport/websocket.go.html#line-69">websocket.go#L69</a>: 	reqCtx := r.<b>Context</b>().Done()
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

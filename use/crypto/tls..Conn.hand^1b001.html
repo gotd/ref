@@ -5,27 +5,35 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto/tls.Conn.hand</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/crypto/tls.html">crypto/tls</a>.<a href="../../src/crypto/tls/conn.go.html#line-27">Conn</a>.<a href="../../src/crypto/tls/conn.go.html#line-99">hand</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/crypto/tls.html">crypto/tls</a>.<a href="../../src/crypto/tls/conn.go.html#line-27">Conn</a>.<a href="../../src/crypto/tls/conn.go.html#line-103">hand</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">9 uses</span>
+<span class="title">17 uses</span>
 
 	crypto/tls (current package)
-		<a href="../../src/crypto/tls/conn.go.html#line-99">conn.go#L99</a>: 	<b>hand</b>      bytes.Buffer // handshake data waiting to be read
-		<a href="../../src/crypto/tls/conn.go.html#line-689" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-689">#L689</a>: 	if c.vers == VersionTLS13 &amp;&amp; typ != recordTypeHandshake &amp;&amp; c.<b>hand</b>.Len() &gt; 0 {
-		<a href="../../src/crypto/tls/conn.go.html#line-722" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-722">#L722</a>: 		if c.<b>hand</b>.Len() &gt; 0 {
-		<a href="../../src/crypto/tls/conn.go.html#line-758" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-758">#L758</a>: 		c.<b>hand</b>.Write(data)
-		<a href="../../src/crypto/tls/conn.go.html#line-1037" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1037">#L1037</a>: 	for c.<b>hand</b>.Len() &lt; 4 {
-		<a href="../../src/crypto/tls/conn.go.html#line-1043" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1043">#L1043</a>: 	data := c.<b>hand</b>.Bytes()
-		<a href="../../src/crypto/tls/conn.go.html#line-1049" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1049">#L1049</a>: 	for c.<b>hand</b>.Len() &lt; 4+n {
-		<a href="../../src/crypto/tls/conn.go.html#line-1054" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1054">#L1054</a>: 	data = c.<b>hand</b>.Next(4 + n)
-		<a href="../../src/crypto/tls/conn.go.html#line-1318" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1318">#L1318</a>: 		for c.<b>hand</b>.Len() &gt; 0 {
+		<a href="../../src/crypto/tls/conn.go.html#line-103">conn.go#L103</a>: 	<b>hand</b>      bytes.Buffer // handshake data waiting to be read
+		<a href="../../src/crypto/tls/conn.go.html#line-704" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-704">#L704</a>: 	if c.vers == VersionTLS13 &amp;&amp; typ != recordTypeHandshake &amp;&amp; c.<b>hand</b>.Len() &gt; 0 {
+		<a href="../../src/crypto/tls/conn.go.html#line-740" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-740">#L740</a>: 		if c.<b>hand</b>.Len() &gt; 0 {
+		<a href="../../src/crypto/tls/conn.go.html#line-776" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-776">#L776</a>: 		c.<b>hand</b>.Write(data)
+		<a href="../../src/crypto/tls/conn.go.html#line-1073" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1073">#L1073</a>: 	for c.<b>hand</b>.Len() &lt; n {
+		<a href="../../src/crypto/tls/conn.go.html#line-1088" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1088">#L1088</a>: 	data := c.<b>hand</b>.Bytes()
+		<a href="../../src/crypto/tls/conn.go.html#line-1097" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1097">#L1097</a>: 	data = c.<b>hand</b>.Next(4 + n)
+		<a href="../../src/crypto/tls/conn.go.html#line-1372" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1372">#L1372</a>: 		for c.<b>hand</b>.Len() &gt; 0 {
+		<a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-402">handshake_client_tls13.go#L402</a>: 		if c.<b>hand</b>.Len() != 0 {
+		<a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-713" class="path-duplicate">handshake_client_tls13.go</a><a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-713">#L713</a>: 		if c.<b>hand</b>.Len() != 0 {
+		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-619">handshake_server_tls13.go#L619</a>: 		if c.<b>hand</b>.Len() != 0 {
+		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-750" class="path-duplicate">handshake_server_tls13.go</a><a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-750">#L750</a>: 		if c.<b>hand</b>.Len() != 0 {
+		<a href="../../src/crypto/tls/quic.go.html#line-233">quic.go#L233</a>: 	c.<b>hand</b>.Write(c.quic.readbuf)
+		<a href="../../src/crypto/tls/quic.go.html#line-235" class="path-duplicate">quic.go</a><a href="../../src/crypto/tls/quic.go.html#line-235">#L235</a>: 	for q.conn.<b>hand</b>.Len() &gt;= 4 &amp;&amp; q.conn.handshakeErr == nil {
+		<a href="../../src/crypto/tls/quic.go.html#line-236" class="path-duplicate">quic.go</a><a href="../../src/crypto/tls/quic.go.html#line-236">#L236</a>: 		b := q.conn.<b>hand</b>.Bytes()
+		<a href="../../src/crypto/tls/quic.go.html#line-318" class="path-duplicate">quic.go</a><a href="../../src/crypto/tls/quic.go.html#line-318">#L318</a>: 	for c.<b>hand</b>.Len() &lt; n {
+		<a href="../../src/crypto/tls/quic.go.html#line-415" class="path-duplicate">quic.go</a><a href="../../src/crypto/tls/quic.go.html#line-415">#L415</a>: 		c.<b>hand</b>.Write(c.quic.readbuf)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

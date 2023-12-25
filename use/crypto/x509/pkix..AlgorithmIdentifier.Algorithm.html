@@ -5,49 +5,55 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto/x509/pkix.AlgorithmIdentifier.Algorithm</title>
-<link href="../../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.4.js"></script>
+<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/crypto/x509/pkix.html">crypto/x509/pkix</a>.<a href="../../../src/crypto/x509/pkix/pkix.go.html#line-19">AlgorithmIdentifier</a>.<a href="../../../src/crypto/x509/pkix/pkix.go.html#line-20">Algorithm</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">30 uses</span>
+<span class="title">36 uses</span>
 
 	crypto/x509/pkix (current package)
 		<a href="../../../src/crypto/x509/pkix/pkix.go.html#line-20">pkix.go#L20</a>: 	<b>Algorithm</b>  asn1.ObjectIdentifier
 
 	<a href="../../../pkg/crypto/x509.html">crypto/x509</a>
-		<a href="../../../src/crypto/x509/parser.go.html#line-151">parser.go#L151</a>: 	if !der.ReadASN1ObjectIdentifier(&amp;ai.<b>Algorithm</b>) {
-		<a href="../../../src/crypto/x509/parser.go.html#line-906" class="path-duplicate">parser.go</a><a href="../../../src/crypto/x509/parser.go.html#line-906">#L906</a>: 	cert.PublicKeyAlgorithm = getPublicKeyAlgorithmFromOID(pkAI.<b>Algorithm</b>)
-		<a href="../../../src/crypto/x509/pkcs8.go.html#line-45">pkcs8.go#L45</a>: 	case privKey.Algo.<b>Algorithm</b>.Equal(oidPublicKeyRSA):
-		<a href="../../../src/crypto/x509/pkcs8.go.html#line-52" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-52">#L52</a>: 	case privKey.Algo.<b>Algorithm</b>.Equal(oidPublicKeyECDSA):
-		<a href="../../../src/crypto/x509/pkcs8.go.html#line-64" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-64">#L64</a>: 	case privKey.Algo.<b>Algorithm</b>.Equal(oidPublicKeyEd25519):
-		<a href="../../../src/crypto/x509/pkcs8.go.html#line-78" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-78">#L78</a>: 		return nil, fmt.Errorf("x509: PKCS#8 wrapping contained private key with unknown algorithm: %v", privKey.Algo.<b>Algorithm</b>)
-		<a href="../../../src/crypto/x509/pkcs8.go.html#line-94" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-94">#L94</a>: 			<b>Algorithm</b>:  oidPublicKeyRSA,
-		<a href="../../../src/crypto/x509/pkcs8.go.html#line-111" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-111">#L111</a>: 			<b>Algorithm</b>: oidPublicKeyECDSA,
-		<a href="../../../src/crypto/x509/pkcs8.go.html#line-123" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-123">#L123</a>: 			<b>Algorithm</b>: oidPublicKeyEd25519,
-		<a href="../../../src/crypto/x509/x509.go.html#line-65">x509.go#L65</a>: 	algo := getPublicKeyAlgorithmFromOID(pki.Algorithm.<b>Algorithm</b>)
-		<a href="../../../src/crypto/x509/x509.go.html#line-82" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-82">#L82</a>: 		publicKeyAlgorithm.<b>Algorithm</b> = oidPublicKeyRSA
-		<a href="../../../src/crypto/x509/x509.go.html#line-95" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-95">#L95</a>: 		publicKeyAlgorithm.<b>Algorithm</b> = oidPublicKeyECDSA
-		<a href="../../../src/crypto/x509/x509.go.html#line-104" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-104">#L104</a>: 		publicKeyAlgorithm.<b>Algorithm</b> = oidPublicKeyEd25519
-		<a href="../../../src/crypto/x509/x509.go.html#line-378" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-378">#L378</a>: 	if ai.<b>Algorithm</b>.Equal(oidSignatureEd25519) {
-		<a href="../../../src/crypto/x509/x509.go.html#line-386" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-386">#L386</a>: 	if !ai.<b>Algorithm</b>.Equal(oidSignatureRSAPSS) {
-		<a href="../../../src/crypto/x509/x509.go.html#line-388" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-388">#L388</a>: 			if ai.<b>Algorithm</b>.Equal(details.oid) {
-		<a href="../../../src/crypto/x509/x509.go.html#line-414" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-414">#L414</a>: 		!params.MGF.<b>Algorithm</b>.Equal(oidMGF1) ||
-		<a href="../../../src/crypto/x509/x509.go.html#line-415" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-415">#L415</a>: 		!mgf1HashFunc.<b>Algorithm</b>.Equal(params.Hash.<b>Algorithm</b>) ||
-		<a href="../../../src/crypto/x509/x509.go.html#line-422" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-422">#L422</a>: 	case params.Hash.<b>Algorithm</b>.Equal(oidSHA256) &amp;&amp; params.SaltLength == 32:
-		<a href="../../../src/crypto/x509/x509.go.html#line-424" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-424">#L424</a>: 	case params.Hash.<b>Algorithm</b>.Equal(oidSHA384) &amp;&amp; params.SaltLength == 48:
-		<a href="../../../src/crypto/x509/x509.go.html#line-426" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-426">#L426</a>: 	case params.Hash.<b>Algorithm</b>.Equal(oidSHA512) &amp;&amp; params.SaltLength == 64:
-		<a href="../../../src/crypto/x509/x509.go.html#line-1353" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1353">#L1353</a>: 		sigAlgo.<b>Algorithm</b> = oidSignatureSHA256WithRSA
-		<a href="../../../src/crypto/x509/x509.go.html#line-1362" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1362">#L1362</a>: 			sigAlgo.<b>Algorithm</b> = oidSignatureECDSAWithSHA256
-		<a href="../../../src/crypto/x509/x509.go.html#line-1365" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1365">#L1365</a>: 			sigAlgo.<b>Algorithm</b> = oidSignatureECDSAWithSHA384
-		<a href="../../../src/crypto/x509/x509.go.html#line-1368" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1368">#L1368</a>: 			sigAlgo.<b>Algorithm</b> = oidSignatureECDSAWithSHA512
-		<a href="../../../src/crypto/x509/x509.go.html#line-1375" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1375">#L1375</a>: 		sigAlgo.<b>Algorithm</b> = oidSignatureEd25519
-		<a href="../../../src/crypto/x509/x509.go.html#line-1396" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1396">#L1396</a>: 			sigAlgo.<b>Algorithm</b>, hashFunc = details.oid, details.hash
-		<a href="../../../src/crypto/x509/x509.go.html#line-2049" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-2049">#L2049</a>: 		PublicKeyAlgorithm: getPublicKeyAlgorithmFromOID(in.TBSCSR.PublicKey.Algorithm.<b>Algorithm</b>),
+		<a href="../../../src/crypto/x509/parser.go.html#line-153">parser.go#L153</a>: 	if !der.ReadASN1ObjectIdentifier(&amp;ai.<b>Algorithm</b>) {
+		<a href="../../../src/crypto/x509/parser.go.html#line-218" class="path-duplicate">parser.go</a><a href="../../../src/crypto/x509/parser.go.html#line-218">#L218</a>: 	oid := keyData.Algorithm.<b>Algorithm</b>
+		<a href="../../../src/crypto/x509/parser.go.html#line-917" class="path-duplicate">parser.go</a><a href="../../../src/crypto/x509/parser.go.html#line-917">#L917</a>: 	cert.PublicKeyAlgorithm = getPublicKeyAlgorithmFromOID(pkAI.<b>Algorithm</b>)
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-47">pkcs8.go#L47</a>: 	case privKey.Algo.<b>Algorithm</b>.Equal(oidPublicKeyRSA):
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-54" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-54">#L54</a>: 	case privKey.Algo.<b>Algorithm</b>.Equal(oidPublicKeyECDSA):
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-66" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-66">#L66</a>: 	case privKey.Algo.<b>Algorithm</b>.Equal(oidPublicKeyEd25519):
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-79" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-79">#L79</a>: 	case privKey.Algo.<b>Algorithm</b>.Equal(oidPublicKeyX25519):
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-90" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-90">#L90</a>: 		return nil, fmt.Errorf("x509: PKCS#8 wrapping contained private key with unknown algorithm: %v", privKey.Algo.<b>Algorithm</b>)
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-107" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-107">#L107</a>: 			<b>Algorithm</b>:  oidPublicKeyRSA,
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-122" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-122">#L122</a>: 			<b>Algorithm</b>: oidPublicKeyECDSA,
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-133" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-133">#L133</a>: 			<b>Algorithm</b>: oidPublicKeyEd25519,
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-144" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-144">#L144</a>: 				<b>Algorithm</b>: oidPublicKeyX25519,
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-160" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-160">#L160</a>: 				<b>Algorithm</b>: oidPublicKeyECDSA,
+		<a href="../../../src/crypto/x509/x509.go.html#line-94">x509.go#L94</a>: 		publicKeyAlgorithm.<b>Algorithm</b> = oidPublicKeyRSA
+		<a href="../../../src/crypto/x509/x509.go.html#line-107" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-107">#L107</a>: 		publicKeyAlgorithm.<b>Algorithm</b> = oidPublicKeyECDSA
+		<a href="../../../src/crypto/x509/x509.go.html#line-116" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-116">#L116</a>: 		publicKeyAlgorithm.<b>Algorithm</b> = oidPublicKeyEd25519
+		<a href="../../../src/crypto/x509/x509.go.html#line-120" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-120">#L120</a>: 			publicKeyAlgorithm.<b>Algorithm</b> = oidPublicKeyX25519
+		<a href="../../../src/crypto/x509/x509.go.html#line-126" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-126">#L126</a>: 			publicKeyAlgorithm.<b>Algorithm</b> = oidPublicKeyECDSA
+		<a href="../../../src/crypto/x509/x509.go.html#line-407" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-407">#L407</a>: 	if ai.<b>Algorithm</b>.Equal(oidSignatureEd25519) {
+		<a href="../../../src/crypto/x509/x509.go.html#line-415" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-415">#L415</a>: 	if !ai.<b>Algorithm</b>.Equal(oidSignatureRSAPSS) {
+		<a href="../../../src/crypto/x509/x509.go.html#line-417" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-417">#L417</a>: 			if ai.<b>Algorithm</b>.Equal(details.oid) {
+		<a href="../../../src/crypto/x509/x509.go.html#line-443" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-443">#L443</a>: 		!params.MGF.<b>Algorithm</b>.Equal(oidMGF1) ||
+		<a href="../../../src/crypto/x509/x509.go.html#line-444" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-444">#L444</a>: 		!mgf1HashFunc.<b>Algorithm</b>.Equal(params.Hash.<b>Algorithm</b>) ||
+		<a href="../../../src/crypto/x509/x509.go.html#line-451" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-451">#L451</a>: 	case params.Hash.<b>Algorithm</b>.Equal(oidSHA256) &amp;&amp; params.SaltLength == 32:
+		<a href="../../../src/crypto/x509/x509.go.html#line-453" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-453">#L453</a>: 	case params.Hash.<b>Algorithm</b>.Equal(oidSHA384) &amp;&amp; params.SaltLength == 48:
+		<a href="../../../src/crypto/x509/x509.go.html#line-455" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-455">#L455</a>: 	case params.Hash.<b>Algorithm</b>.Equal(oidSHA512) &amp;&amp; params.SaltLength == 64:
+		<a href="../../../src/crypto/x509/x509.go.html#line-1415" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1415">#L1415</a>: 		sigAlgo.<b>Algorithm</b> = oidSignatureSHA256WithRSA
+		<a href="../../../src/crypto/x509/x509.go.html#line-1424" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1424">#L1424</a>: 			sigAlgo.<b>Algorithm</b> = oidSignatureECDSAWithSHA256
+		<a href="../../../src/crypto/x509/x509.go.html#line-1427" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1427">#L1427</a>: 			sigAlgo.<b>Algorithm</b> = oidSignatureECDSAWithSHA384
+		<a href="../../../src/crypto/x509/x509.go.html#line-1430" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1430">#L1430</a>: 			sigAlgo.<b>Algorithm</b> = oidSignatureECDSAWithSHA512
+		<a href="../../../src/crypto/x509/x509.go.html#line-1437" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1437">#L1437</a>: 		sigAlgo.<b>Algorithm</b> = oidSignatureEd25519
+		<a href="../../../src/crypto/x509/x509.go.html#line-1458" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1458">#L1458</a>: 			sigAlgo.<b>Algorithm</b>, hashFunc = details.oid, details.hash
+		<a href="../../../src/crypto/x509/x509.go.html#line-1570" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1570">#L1570</a>: 	if getPublicKeyAlgorithmFromOID(publicKeyAlgorithm.<b>Algorithm</b>) == UnknownPublicKeyAlgorithm {
+		<a href="../../../src/crypto/x509/x509.go.html#line-2113" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-2113">#L2113</a>: 		PublicKeyAlgorithm: getPublicKeyAlgorithmFromOID(in.TBSCSR.PublicKey.Algorithm.<b>Algorithm</b>),
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

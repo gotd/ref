@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: doc.go in package go.opentelemetry.io/otel/trace</title>
-<link href="../../../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.6.4.js"></script>
+<link href="../../../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -81,10 +81,74 @@
 <span class="codeline" id="line-62"><code><span class="comment">		defer span.End()</span></code></span>
 <span class="codeline" id="line-63"><code><span class="comment">		// ...</span></code></span>
 <span class="codeline" id="line-64"><code><span class="comment">	}</span></code></span>
-<span class="codeline" id="line-65"><code><span class="comment">*/</span></code></span></div><span class="codeline" id="line-66"><code><span class="keyword">package</span> trace <span class="comment">// import "go.opentelemetry.io/otel/trace"</span></code></span>
+<span class="codeline" id="line-65"><code></code></span>
+<span class="codeline" id="line-66"><code><span class="comment"># API Implementations</span></code></span>
+<span class="codeline" id="line-67"><code></code></span>
+<span class="codeline" id="line-68"><code><span class="comment">This package does not conform to the standard Go versioning policy; all of its</span></code></span>
+<span class="codeline" id="line-69"><code><span class="comment">interfaces may have methods added to them without a package major version bump.</span></code></span>
+<span class="codeline" id="line-70"><code><span class="comment">This non-standard API evolution could surprise an uninformed implementation</span></code></span>
+<span class="codeline" id="line-71"><code><span class="comment">author. They could unknowingly build their implementation in a way that would</span></code></span>
+<span class="codeline" id="line-72"><code><span class="comment">result in a runtime panic for their users that update to the new API.</span></code></span>
+<span class="codeline" id="line-73"><code></code></span>
+<span class="codeline" id="line-74"><code><span class="comment">The API is designed to help inform an instrumentation author about this</span></code></span>
+<span class="codeline" id="line-75"><code><span class="comment">non-standard API evolution. It requires them to choose a default behavior for</span></code></span>
+<span class="codeline" id="line-76"><code><span class="comment">unimplemented interface methods. There are three behavior choices they can</span></code></span>
+<span class="codeline" id="line-77"><code><span class="comment">make:</span></code></span>
+<span class="codeline" id="line-78"><code></code></span>
+<span class="codeline" id="line-79"><code><span class="comment">  - Compilation failure</span></code></span>
+<span class="codeline" id="line-80"><code><span class="comment">  - Panic</span></code></span>
+<span class="codeline" id="line-81"><code><span class="comment">  - Default to another implementation</span></code></span>
+<span class="codeline" id="line-82"><code></code></span>
+<span class="codeline" id="line-83"><code><span class="comment">All interfaces in this API embed a corresponding interface from</span></code></span>
+<span class="codeline" id="line-84"><code><span class="comment">[go.opentelemetry.io/otel/trace/embedded]. If an author wants the default</span></code></span>
+<span class="codeline" id="line-85"><code><span class="comment">behavior of their implementations to be a compilation failure, signaling to</span></code></span>
+<span class="codeline" id="line-86"><code><span class="comment">their users they need to update to the latest version of that implementation,</span></code></span>
+<span class="codeline" id="line-87"><code><span class="comment">they need to embed the corresponding interface from</span></code></span>
+<span class="codeline" id="line-88"><code><span class="comment">[go.opentelemetry.io/otel/trace/embedded] in their implementation. For</span></code></span>
+<span class="codeline" id="line-89"><code><span class="comment">example,</span></code></span>
+<span class="codeline" id="line-90"><code></code></span>
+<span class="codeline" id="line-91"><code><span class="comment">	import "go.opentelemetry.io/otel/trace/embedded"</span></code></span>
+<span class="codeline" id="line-92"><code></code></span>
+<span class="codeline" id="line-93"><code><span class="comment">	type TracerProvider struct {</span></code></span>
+<span class="codeline" id="line-94"><code><span class="comment">		embedded.TracerProvider</span></code></span>
+<span class="codeline" id="line-95"><code><span class="comment">		// ...</span></code></span>
+<span class="codeline" id="line-96"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-97"><code></code></span>
+<span class="codeline" id="line-98"><code><span class="comment">If an author wants the default behavior of their implementations to panic, they</span></code></span>
+<span class="codeline" id="line-99"><code><span class="comment">can embed the API interface directly.</span></code></span>
+<span class="codeline" id="line-100"><code></code></span>
+<span class="codeline" id="line-101"><code><span class="comment">	import "go.opentelemetry.io/otel/trace"</span></code></span>
+<span class="codeline" id="line-102"><code></code></span>
+<span class="codeline" id="line-103"><code><span class="comment">	type TracerProvider struct {</span></code></span>
+<span class="codeline" id="line-104"><code><span class="comment">		trace.TracerProvider</span></code></span>
+<span class="codeline" id="line-105"><code><span class="comment">		// ...</span></code></span>
+<span class="codeline" id="line-106"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-107"><code></code></span>
+<span class="codeline" id="line-108"><code><span class="comment">This option is not recommended. It will lead to publishing packages that</span></code></span>
+<span class="codeline" id="line-109"><code><span class="comment">contain runtime panics when users update to newer versions of</span></code></span>
+<span class="codeline" id="line-110"><code><span class="comment">[go.opentelemetry.io/otel/trace], which may be done with a trasitive</span></code></span>
+<span class="codeline" id="line-111"><code><span class="comment">dependency.</span></code></span>
+<span class="codeline" id="line-112"><code></code></span>
+<span class="codeline" id="line-113"><code><span class="comment">Finally, an author can embed another implementation in theirs. The embedded</span></code></span>
+<span class="codeline" id="line-114"><code><span class="comment">implementation will be used for methods not defined by the author. For example,</span></code></span>
+<span class="codeline" id="line-115"><code><span class="comment">an author who wants to default to silently dropping the call can use</span></code></span>
+<span class="codeline" id="line-116"><code><span class="comment">[go.opentelemetry.io/otel/trace/noop]:</span></code></span>
+<span class="codeline" id="line-117"><code></code></span>
+<span class="codeline" id="line-118"><code><span class="comment">	import "go.opentelemetry.io/otel/trace/noop"</span></code></span>
+<span class="codeline" id="line-119"><code></code></span>
+<span class="codeline" id="line-120"><code><span class="comment">	type TracerProvider struct {</span></code></span>
+<span class="codeline" id="line-121"><code><span class="comment">		noop.TracerProvider</span></code></span>
+<span class="codeline" id="line-122"><code><span class="comment">		// ...</span></code></span>
+<span class="codeline" id="line-123"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-124"><code></code></span>
+<span class="codeline" id="line-125"><code><span class="comment">It is strongly recommended that authors only embed</span></code></span>
+<span class="codeline" id="line-126"><code><span class="comment">[go.opentelemetry.io/otel/trace/noop] if they choose this default behavior.</span></code></span>
+<span class="codeline" id="line-127"><code><span class="comment">That implementation is the only one OpenTelemetry authors can guarantee will</span></code></span>
+<span class="codeline" id="line-128"><code><span class="comment">fully implement all the API interfaces when a user updates their API.</span></code></span>
+<span class="codeline" id="line-129"><code><span class="comment">*/</span></code></span></div><span class="codeline" id="line-130"><code><span class="keyword">package</span> trace <span class="comment">// import "go.opentelemetry.io/otel/trace"</span></code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,19 +5,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: time.AfterFunc</title>
-<link href="../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.4.js"></script>
+<link href="../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../pkg/time.html">time</a>.<a href="../src/time/sleep.go.html#line-163">AfterFunc</a></b></span>
 
-<span class="title">16 uses</span>
+<span class="title">19 uses</span>
 
 	time (current package)
 		<a href="../src/time/sleep.go.html#line-163">sleep.go#L163</a>: func <b>AfterFunc</b>(d Duration, f func()) *Timer {
 
 	<a href="../pkg/context.html">context</a>
-		<a href="../src/context/context.go.html#line-455">context.go#L455</a>: 		c.timer = time.<b>AfterFunc</b>(dur, func() {
+		<a href="../src/context/context.go.html#line-633">context.go#L633</a>: 		c.timer = time.<b>AfterFunc</b>(dur, func() {
 
 	<a href="../pkg/crypto/rand.html">crypto/rand</a>
 		<a href="../src/crypto/rand/rand_unix.go.html#line-53">rand_unix.go#L53</a>: 		t := time.<b>AfterFunc</b>(time.Minute, warnBlocked)
@@ -26,23 +26,26 @@
 		<a href="../src/net/pipe.go.html#line-54">pipe.go#L54</a>: 		d.timer = time.<b>AfterFunc</b>(dur, func() {
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/h2_bundle.go.html#line-4580">h2_bundle.go#L4580</a>: 		sc.idleTimer = time.<b>AfterFunc</b>(sc.srv.IdleTimeout, sc.onIdleTimer)
-		<a href="../src/net/http/h2_bundle.go.html#line-4586" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-4586">#L4586</a>: 	settingsTimer := time.<b>AfterFunc</b>(http2firstSettingsTimeout, sc.onSettingsTimer)
-		<a href="../src/net/http/h2_bundle.go.html#line-5078" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-5078">#L5078</a>: 	sc.shutdownTimer = time.<b>AfterFunc</b>(d, sc.onShutdownTimer)
-		<a href="../src/net/http/h2_bundle.go.html#line-5721" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-5721">#L5721</a>: 		st.writeDeadline = time.<b>AfterFunc</b>(sc.hs.WriteTimeout, st.onWriteTimeout)
-		<a href="../src/net/http/h2_bundle.go.html#line-7422" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-7422">#L7422</a>: 		cc.idleTimer = time.<b>AfterFunc</b>(d, cc.onIdleTimeout)
-		<a href="../src/net/http/h2_bundle.go.html#line-7665" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-7665">#L7665</a>: 	t := time.<b>AfterFunc</b>(250*time.Millisecond, cc.forceCloseConn)
-		<a href="../src/net/http/h2_bundle.go.html#line-8870" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8870">#L8870</a>: 		t = time.<b>AfterFunc</b>(readIdleTimeout, cc.healthCheck)
-		<a href="../src/net/http/transport.go.html#line-998">transport.go#L998</a>: 			pconn.idleTimer = time.<b>AfterFunc</b>(t.IdleConnTimeout, pconn.closeConnIfStillIdle)
-		<a href="../src/net/http/transport.go.html#line-1530" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1530">#L1530</a>: 		timer = time.<b>AfterFunc</b>(d, func() {
+		<a href="../src/net/http/h2_bundle.go.html#line-4743">h2_bundle.go#L4743</a>: 		sc.idleTimer = time.<b>AfterFunc</b>(sc.srv.IdleTimeout, sc.onIdleTimer)
+		<a href="../src/net/http/h2_bundle.go.html#line-4749" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-4749">#L4749</a>: 	settingsTimer := time.<b>AfterFunc</b>(http2firstSettingsTimeout, sc.onSettingsTimer)
+		<a href="../src/net/http/h2_bundle.go.html#line-5256" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-5256">#L5256</a>: 	sc.shutdownTimer = time.<b>AfterFunc</b>(d, sc.onShutdownTimer)
+		<a href="../src/net/http/h2_bundle.go.html#line-5846" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-5846">#L5846</a>: 			st.readDeadline = time.<b>AfterFunc</b>(sc.hs.ReadTimeout, st.onReadTimeout)
+		<a href="../src/net/http/h2_bundle.go.html#line-5945" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-5945">#L5945</a>: 		st.writeDeadline = time.<b>AfterFunc</b>(sc.hs.WriteTimeout, st.onWriteTimeout)
+		<a href="../src/net/http/h2_bundle.go.html#line-6609" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6609">#L6609</a>: 			st.readDeadline = time.<b>AfterFunc</b>(deadline.Sub(time.Now()), st.onReadTimeout)
+		<a href="../src/net/http/h2_bundle.go.html#line-6635" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6635">#L6635</a>: 			st.writeDeadline = time.<b>AfterFunc</b>(deadline.Sub(time.Now()), st.onWriteTimeout)
+		<a href="../src/net/http/h2_bundle.go.html#line-7841" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-7841">#L7841</a>: 		cc.idleTimer = time.<b>AfterFunc</b>(d, cc.onIdleTimeout)
+		<a href="../src/net/http/h2_bundle.go.html#line-8094" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8094">#L8094</a>: 	t := time.<b>AfterFunc</b>(250*time.Millisecond, cc.forceCloseConn)
+		<a href="../src/net/http/h2_bundle.go.html#line-9335" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-9335">#L9335</a>: 		t = time.<b>AfterFunc</b>(readIdleTimeout, cc.healthCheck)
+		<a href="../src/net/http/transport.go.html#line-1011">transport.go#L1011</a>: 			pconn.idleTimer = time.<b>AfterFunc</b>(t.IdleConnTimeout, pconn.closeConnIfStillIdle)
+		<a href="../src/net/http/transport.go.html#line-1547" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1547">#L1547</a>: 		timer = time.<b>AfterFunc</b>(d, func() {
 
 	<a href="../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../src/nhooyr.io/websocket/dial.go.html#line-112">dial.go#L112</a>: 			timer := time.<b>AfterFunc</b>(time.Second*3, func() {
-		<a href="../src/nhooyr.io/websocket/netconn.go.html#line-48">netconn.go#L48</a>: 	nc.writeTimer = time.<b>AfterFunc</b>(math.MaxInt64, cancel)
-		<a href="../src/nhooyr.io/websocket/netconn.go.html#line-54" class="path-duplicate">netconn.go</a><a href="../src/nhooyr.io/websocket/netconn.go.html#line-54">#L54</a>: 	nc.readTimer = time.<b>AfterFunc</b>(math.MaxInt64, cancel)
+		<a href="../src/nhooyr.io/websocket/dial.go.html#line-139">dial.go#L139</a>: 			timer := time.<b>AfterFunc</b>(time.Second*3, func() {
+		<a href="../src/nhooyr.io/websocket/netconn.go.html#line-61">netconn.go#L61</a>: 	nc.writeTimer = time.<b>AfterFunc</b>(math.MaxInt64, func() {
+		<a href="../src/nhooyr.io/websocket/netconn.go.html#line-77" class="path-duplicate">netconn.go</a><a href="../src/nhooyr.io/websocket/netconn.go.html#line-77">#L77</a>: 	nc.readTimer = time.<b>AfterFunc</b>(math.MaxInt64, func() {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

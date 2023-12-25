@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto/x509/pkix.AlgorithmIdentifier</title>
-<link href="../../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.4.js"></script>
+<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../../../pkg/crypto/x509/pkix.html">crypto/x509/pkix</a>.<a href="../../../src/crypto/x509/pkix/pkix.go.html#line-19">AlgorithmIdentifier</a></b></span>
 
-<span class="title">27 uses</span>
+<span class="title">32 uses</span>
 
 	crypto/x509/pkix (current package)
 		<a href="../../../src/crypto/x509/pkix/pkix.go.html#line-19">pkix.go#L19</a>: type <b>AlgorithmIdentifier</b> struct {
@@ -19,33 +19,38 @@
 		<a href="../../../src/crypto/x509/pkix/pkix.go.html#line-306" class="path-duplicate">pkix.go</a><a href="../../../src/crypto/x509/pkix/pkix.go.html#line-306">#L306</a>: 	Signature           <b>AlgorithmIdentifier</b>
 
 	<a href="../../../pkg/crypto/x509.html">crypto/x509</a>
-		<a href="../../../src/crypto/x509/parser.go.html#line-149">parser.go#L149</a>: func parseAI(der cryptobyte.String) (pkix.<b>AlgorithmIdentifier</b>, error) {
-		<a href="../../../src/crypto/x509/parser.go.html#line-150" class="path-duplicate">parser.go</a><a href="../../../src/crypto/x509/parser.go.html#line-150">#L150</a>: 	ai := pkix.<b>AlgorithmIdentifier</b>{}
-		<a href="../../../src/crypto/x509/pkcs8.go.html#line-22">pkcs8.go#L22</a>: 	Algo       pkix.<b>AlgorithmIdentifier</b>
-		<a href="../../../src/crypto/x509/pkcs8.go.html#line-93" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-93">#L93</a>: 		privKey.Algo = pkix.<b>AlgorithmIdentifier</b>{
-		<a href="../../../src/crypto/x509/pkcs8.go.html#line-110" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-110">#L110</a>: 		privKey.Algo = pkix.<b>AlgorithmIdentifier</b>{
-		<a href="../../../src/crypto/x509/pkcs8.go.html#line-122" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-122">#L122</a>: 		privKey.Algo = pkix.<b>AlgorithmIdentifier</b>{
-		<a href="../../../src/crypto/x509/x509.go.html#line-43">x509.go#L43</a>: 	Algo      pkix.<b>AlgorithmIdentifier</b>
-		<a href="../../../src/crypto/x509/x509.go.html#line-72" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-72">#L72</a>: func marshalPublicKey(pub any) (publicKeyBytes []byte, publicKeyAlgorithm pkix.<b>AlgorithmIdentifier</b>, err error) {
-		<a href="../../../src/crypto/x509/x509.go.html#line-80" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-80">#L80</a>: 			return nil, pkix.<b>AlgorithmIdentifier</b>{}, err
-		<a href="../../../src/crypto/x509/x509.go.html#line-89" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-89">#L89</a>: 			return nil, pkix.<b>AlgorithmIdentifier</b>{}, errors.New("x509: unsupported elliptic curve")
-		<a href="../../../src/crypto/x509/x509.go.html#line-92" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-92">#L92</a>: 			return nil, pkix.<b>AlgorithmIdentifier</b>{}, errors.New("x509: invalid elliptic curve public key")
-		<a href="../../../src/crypto/x509/x509.go.html#line-106" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-106">#L106</a>: 		return nil, pkix.<b>AlgorithmIdentifier</b>{}, fmt.Errorf("x509: unsupported public key type: %T", pub)
-		<a href="../../../src/crypto/x509/x509.go.html#line-122" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-122">#L122</a>: 	var publicKeyAlgorithm pkix.<b>AlgorithmIdentifier</b>
-		<a href="../../../src/crypto/x509/x509.go.html#line-146" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-146">#L146</a>: 	SignatureAlgorithm pkix.<b>AlgorithmIdentifier</b>
-		<a href="../../../src/crypto/x509/x509.go.html#line-154" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-154">#L154</a>: 	SignatureAlgorithm pkix.<b>AlgorithmIdentifier</b>
-		<a href="../../../src/crypto/x509/x509.go.html#line-174" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-174">#L174</a>: 	Algorithm pkix.<b>AlgorithmIdentifier</b>
-		<a href="../../../src/crypto/x509/x509.go.html#line-371" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-371">#L371</a>: 	Hash         pkix.<b>AlgorithmIdentifier</b> `asn1:"explicit,tag:0"`
-		<a href="../../../src/crypto/x509/x509.go.html#line-372" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-372">#L372</a>: 	MGF          pkix.<b>AlgorithmIdentifier</b> `asn1:"explicit,tag:1"`
-		<a href="../../../src/crypto/x509/x509.go.html#line-377" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-377">#L377</a>: func getSignatureAlgorithmFromAI(ai pkix.<b>AlgorithmIdentifier</b>) SignatureAlgorithm {
-		<a href="../../../src/crypto/x509/x509.go.html#line-403" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-403">#L403</a>: 	var mgf1HashFunc pkix.<b>AlgorithmIdentifier</b>
-		<a href="../../../src/crypto/x509/x509.go.html#line-1346" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1346">#L1346</a>: func signingParamsForPublicKey(pub any, requestedSigAlgo SignatureAlgorithm) (hashFunc crypto.Hash, sigAlgo pkix.<b>AlgorithmIdentifier</b>, err error) {
-		<a href="../../../src/crypto/x509/x509.go.html#line-1768" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1768">#L1768</a>: 	SignatureAlgorithm pkix.<b>AlgorithmIdentifier</b>
-		<a href="../../../src/crypto/x509/x509.go.html#line-1874" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1874">#L1874</a>: 	var sigAlgo pkix.<b>AlgorithmIdentifier</b>
-		<a href="../../../src/crypto/x509/x509.go.html#line-1881" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1881">#L1881</a>: 	var publicKeyAlgorithm pkix.<b>AlgorithmIdentifier</b>
+		<a href="../../../src/crypto/x509/parser.go.html#line-151">parser.go#L151</a>: func parseAI(der cryptobyte.String) (pkix.<b>AlgorithmIdentifier</b>, error) {
+		<a href="../../../src/crypto/x509/parser.go.html#line-152" class="path-duplicate">parser.go</a><a href="../../../src/crypto/x509/parser.go.html#line-152">#L152</a>: 	ai := pkix.<b>AlgorithmIdentifier</b>{}
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-23">pkcs8.go#L23</a>: 	Algo       pkix.<b>AlgorithmIdentifier</b>
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-106" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-106">#L106</a>: 		privKey.Algo = pkix.<b>AlgorithmIdentifier</b>{
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-121" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-121">#L121</a>: 		privKey.Algo = pkix.<b>AlgorithmIdentifier</b>{
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-132" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-132">#L132</a>: 		privKey.Algo = pkix.<b>AlgorithmIdentifier</b>{
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-143" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-143">#L143</a>: 			privKey.Algo = pkix.<b>AlgorithmIdentifier</b>{
+		<a href="../../../src/crypto/x509/pkcs8.go.html#line-159" class="path-duplicate">pkcs8.go</a><a href="../../../src/crypto/x509/pkcs8.go.html#line-159">#L159</a>: 			privKey.Algo = pkix.<b>AlgorithmIdentifier</b>{
+		<a href="../../../src/crypto/x509/x509.go.html#line-59">x509.go#L59</a>: 	Algo      pkix.<b>AlgorithmIdentifier</b>
+		<a href="../../../src/crypto/x509/x509.go.html#line-84" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-84">#L84</a>: func marshalPublicKey(pub any) (publicKeyBytes []byte, publicKeyAlgorithm pkix.<b>AlgorithmIdentifier</b>, err error) {
+		<a href="../../../src/crypto/x509/x509.go.html#line-92" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-92">#L92</a>: 			return nil, pkix.<b>AlgorithmIdentifier</b>{}, err
+		<a href="../../../src/crypto/x509/x509.go.html#line-101" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-101">#L101</a>: 			return nil, pkix.<b>AlgorithmIdentifier</b>{}, errors.New("x509: unsupported elliptic curve")
+		<a href="../../../src/crypto/x509/x509.go.html#line-104" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-104">#L104</a>: 			return nil, pkix.<b>AlgorithmIdentifier</b>{}, errors.New("x509: invalid elliptic curve public key")
+		<a href="../../../src/crypto/x509/x509.go.html#line-124" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-124">#L124</a>: 				return nil, pkix.<b>AlgorithmIdentifier</b>{}, errors.New("x509: unsupported elliptic curve")
+		<a href="../../../src/crypto/x509/x509.go.html#line-135" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-135">#L135</a>: 		return nil, pkix.<b>AlgorithmIdentifier</b>{}, fmt.Errorf("x509: unsupported public key type: %T", pub)
+		<a href="../../../src/crypto/x509/x509.go.html#line-152" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-152">#L152</a>: 	var publicKeyAlgorithm pkix.<b>AlgorithmIdentifier</b>
+		<a href="../../../src/crypto/x509/x509.go.html#line-175" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-175">#L175</a>: 	SignatureAlgorithm pkix.<b>AlgorithmIdentifier</b>
+		<a href="../../../src/crypto/x509/x509.go.html#line-183" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-183">#L183</a>: 	SignatureAlgorithm pkix.<b>AlgorithmIdentifier</b>
+		<a href="../../../src/crypto/x509/x509.go.html#line-203" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-203">#L203</a>: 	Algorithm pkix.<b>AlgorithmIdentifier</b>
+		<a href="../../../src/crypto/x509/x509.go.html#line-400" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-400">#L400</a>: 	Hash         pkix.<b>AlgorithmIdentifier</b> `asn1:"explicit,tag:0"`
+		<a href="../../../src/crypto/x509/x509.go.html#line-401" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-401">#L401</a>: 	MGF          pkix.<b>AlgorithmIdentifier</b> `asn1:"explicit,tag:1"`
+		<a href="../../../src/crypto/x509/x509.go.html#line-406" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-406">#L406</a>: func getSignatureAlgorithmFromAI(ai pkix.<b>AlgorithmIdentifier</b>) SignatureAlgorithm {
+		<a href="../../../src/crypto/x509/x509.go.html#line-432" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-432">#L432</a>: 	var mgf1HashFunc pkix.<b>AlgorithmIdentifier</b>
+		<a href="../../../src/crypto/x509/x509.go.html#line-1408" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1408">#L1408</a>: func signingParamsForPublicKey(pub any, requestedSigAlgo SignatureAlgorithm) (hashFunc crypto.Hash, sigAlgo pkix.<b>AlgorithmIdentifier</b>, err error) {
+		<a href="../../../src/crypto/x509/x509.go.html#line-1832" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1832">#L1832</a>: 	SignatureAlgorithm pkix.<b>AlgorithmIdentifier</b>
+		<a href="../../../src/crypto/x509/x509.go.html#line-1938" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1938">#L1938</a>: 	var sigAlgo pkix.<b>AlgorithmIdentifier</b>
+		<a href="../../../src/crypto/x509/x509.go.html#line-1945" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1945">#L1945</a>: 	var publicKeyAlgorithm pkix.<b>AlgorithmIdentifier</b>
+		<a href="../../../src/crypto/x509/x509.go.html#line-2265" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-2265">#L2265</a>: 	SignatureAlgorithm pkix.<b>AlgorithmIdentifier</b>
+		<a href="../../../src/crypto/x509/x509.go.html#line-2272" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-2272">#L2272</a>: 	Signature           pkix.<b>AlgorithmIdentifier</b>
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

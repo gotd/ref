@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Package: regexp</title>
-<link href="../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.4.js"></script>
+<link href="../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="package-details"><code><span style="font-size:xx-large;">package <b>regexp</b></span>
@@ -640,7 +640,7 @@
 </div>
 <div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 18, in which 1 is exported)</i></span></span>
 
-<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Regexp" data-popularity="3015">	<input type='checkbox' class="fold" id="Regexp-fold-content"><label for="Regexp-fold-content"> <a href="../use/regexp..Regexp.html">type</a> <a href="../src/regexp/regexp.go.html#line-86">Regexp</a> <i>(struct)</i></label><span id='Regexp-fold-content-docs' class="fold-docs">
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Regexp" data-popularity="3215">	<input type='checkbox' class="fold" id="Regexp-fold-content"><label for="Regexp-fold-content"> <a href="../use/regexp..Regexp.html">type</a> <a href="../src/regexp/regexp.go.html#line-86">Regexp</a> <i>(struct)</i></label><span id='Regexp-fold-content-docs' class="fold-docs">
 <span class="md-text">		Regexp is the representation of a compiled regular expression.
 		A Regexp is safe for concurrent use by multiple goroutines,
 		except for configuration methods, such as Longest.</span>
@@ -691,7 +691,7 @@
 <span class="md-text">				// compiled program</span>
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs"><a href="../src/regexp/regexp.go.html#line-92">subexpNames</a> <i>[]<a href="builtin.html#name-string">string</a></i></span></i></span></span>
-		<input type='checkbox' class="fold" id="Regexp-fold-methods"><label for="Regexp-fold-methods">Methods (<i>total 48, in which 37 are exported</i>)</label><span id='Regexp-fold-methods-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Regexp-fold-methods"><label for="Regexp-fold-methods">Methods (<i>total 50, in which 39 are exported</i>)</label><span id='Regexp-fold-methods-items' class="fold-items"><span>
 			<input type='checkbox' class="fold" id="Regexp-fold-method-Copy"><label for="Regexp-fold-method-Copy">(*Regexp) <a href="../src/regexp/regexp.go.html#line-121">Copy</a>() *<b>Regexp</b></label><span id='Regexp-fold-method-Copy-docs' class="fold-docs">
 <span class="md-text">				Copy returns a new Regexp object copied from re.
 				Calling Longest on one copy does not affect another.
@@ -853,6 +853,14 @@
 				This method modifies the Regexp and may not be called concurrently
 				with any other methods.</span>
 </span></span><span>
+			<input type='checkbox' class="fold" id="Regexp-fold-method-MarshalText"><label for="Regexp-fold-method-MarshalText">(*Regexp) <a href="../src/regexp/regexp.go.html#line-1293">MarshalText</a>() ([]<a href="builtin.html#name-byte">byte</a>, <a href="builtin.html#name-error">error</a>)</label><span id='Regexp-fold-method-MarshalText-docs' class="fold-docs">
+<span class="md-text">				MarshalText implements [encoding.TextMarshaler]. The output
+				matches that of calling the [Regexp.String] method.
+				
+				Note that the output is lossy in some cases: This method does not indicate
+				POSIX regular expressions (i.e. those compiled by calling [CompilePOSIX]), or
+				those for which the [Regexp.Longest] method has been called.</span>
+</span></span><span>
 			<input type='checkbox' class="fold" id="Regexp-fold-method-Match"><label for="Regexp-fold-method-Match">(*Regexp) <a href="../src/regexp/regexp.go.html#line-538">Match</a>(b []<a href="builtin.html#name-byte">byte</a>) <a href="builtin.html#name-bool">bool</a></label><span id='Regexp-fold-method-Match-docs' class="fold-docs">
 <span class="md-text">				Match reports whether the byte slice b
 				contains any match of the regular expression re.</span>
@@ -937,6 +945,10 @@
 				so that if m is a match slice, the name for m[i] is SubexpNames()[i].
 				Since the Regexp as a whole cannot be named, names[0] is always
 				the empty string. The slice should not be modified.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Regexp-fold-method-UnmarshalText"><label for="Regexp-fold-method-UnmarshalText">(*Regexp) <a href="../src/regexp/regexp.go.html#line-1299">UnmarshalText</a>(text []<a href="builtin.html#name-byte">byte</a>) <a href="builtin.html#name-error">error</a></label><span id='Regexp-fold-method-UnmarshalText-docs' class="fold-docs">
+<span class="md-text">				UnmarshalText implements [encoding.TextUnmarshaler] by calling
+				[Compile] on the encoded value.</span>
 </span></span>
 			<input type='checkbox' class="showhide" id="Regexp-showhide-methods"><i><label for="Regexp-showhide-methods" class="show-inline">/* 11 unexporteds ... */</label><label for="Regexp-showhide-methods" class="hide-inline">/* 11 unexporteds: */</label></i><span class="hidden"><i>
 			<input type='checkbox' class="fold" id="Regexp-fold-method-allMatches"><label for="Regexp-fold-method-allMatches">(*Regexp) <a href="../src/regexp/regexp.go.html#line-775">allMatches</a>(s <a href="builtin.html#name-string">string</a>, b []<a href="builtin.html#name-byte">byte</a>, n <a href="builtin.html#name-int">int</a>, deliver func([]<a href="builtin.html#name-int">int</a>))</label><span id='Regexp-fold-method-allMatches-docs' class="fold-docs">
@@ -979,7 +991,9 @@
 			<input type='checkbox' class="fold" id="Regexp-fold-method-tryBacktrack"><label for="Regexp-fold-method-tryBacktrack">(*Regexp) <a href="../src/regexp/backtrack.go.html#line-140">tryBacktrack</a>(b *<a href="#name-bitState">bitState</a>, i <a href="#name-input">input</a>, pc <a href="builtin.html#name-uint32">uint32</a>, pos <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-bool">bool</a></label><span id='Regexp-fold-method-tryBacktrack-docs' class="fold-docs">
 <span class="md-text">				tryBacktrack runs a backtracking search starting at pos.</span>
 </span></i></span></span>
-		<input type='checkbox' class="fold" id="Regexp-fold-impls"><label for="Regexp-fold-impls">Implements (<i>at least 3, in which 1 is exported</i>)</label><span id='Regexp-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Regexp-fold-impls"><label for="Regexp-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='Regexp-fold-impls-items' class="fold-items"><span>
+			*Regexp : encoding.<a href="encoding.html#name-TextMarshaler">TextMarshaler</a></span><span>
+			*Regexp : encoding.<a href="encoding.html#name-TextUnmarshaler">TextUnmarshaler</a></span><span>
 			*Regexp : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span>
 			<input type='checkbox' class="showhide" id="Regexp-showhide-impls"><i><label for="Regexp-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Regexp-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
 			*Regexp : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
@@ -992,11 +1006,12 @@
 			func (*Regexp).<a href="../src/regexp/regexp.go.html#line-121">Copy</a>() *<b>Regexp</b></span>
 			<input type='checkbox' class="showhide" id="Regexp-showhide-inputofs"><i><label for="Regexp-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="Regexp-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-compile">compile</a>(expr <a href="builtin.html#name-string">string</a>, mode <a href="regexp/syntax.html">syntax</a>.<a href="regexp/syntax.html#name-Flags">Flags</a>, longest <a href="builtin.html#name-bool">bool</a>) (*<b>Regexp</b>, <a href="builtin.html#name-error">error</a>)</i></span></span>
-		<input type='checkbox' class="fold" id="Regexp-fold-values"><label for="Regexp-fold-values">As Types Of (<i>total 3, none are exported</i>)</label><span id='Regexp-fold-values-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="Regexp-showhide-values"><i><label for="Regexp-showhide-values" class="show-inline">/* 3 unexporteds ... */</label><label for="Regexp-showhide-values" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
-			  var go.opentelemetry.io/otel/trace.<a href="go.opentelemetry.io/otel/trace.html#name-keyRe">keyRe</a> *Regexp</i></span><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="Regexp-fold-values"><label for="Regexp-fold-values">As Types Of (<i>total 4, none are exported</i>)</label><span id='Regexp-fold-values-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Regexp-showhide-values"><i><label for="Regexp-showhide-values" class="show-inline">/* 4 unexporteds ... */</label><label for="Regexp-showhide-values" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
 			  var go.opentelemetry.io/otel/trace.<a href="go.opentelemetry.io/otel/trace.html#name-memberRe">memberRe</a> *Regexp</i></span><span class="hidden"><i>
-			  var go.opentelemetry.io/otel/trace.<a href="go.opentelemetry.io/otel/trace.html#name-valueRe">valueRe</a> *Regexp</i></span></span>
+			  var go.opentelemetry.io/otel/trace.<a href="go.opentelemetry.io/otel/trace.html#name-noTenantKeyRe">noTenantKeyRe</a> *Regexp</i></span><span class="hidden"><i>
+			  var go.opentelemetry.io/otel/trace.<a href="go.opentelemetry.io/otel/trace.html#name-valueRe">valueRe</a> *Regexp</i></span><span class="hidden"><i>
+			  var go.opentelemetry.io/otel/trace.<a href="go.opentelemetry.io/otel/trace.html#name-withTenantKeyRe">withTenantKeyRe</a> *Regexp</i></span></span>
 
 </span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 17 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 17 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-bitState" data-popularity="295">	<input type='checkbox' class="fold" id="bitState-fold-content"><label for="bitState-fold-content"> <a href="../use/regexp..bitState^090aa.html">type</a> <a href="../src/regexp/backtrack.go.html#line-37">bitState</a> <i>(struct)</i></label><span id='bitState-fold-content-docs' class="fold-docs">
 <span class="md-text">		bitState holds state for the backtracker.</span>
@@ -1229,35 +1244,35 @@
 
 		<input type='checkbox' class="fold" id="onePassInst-fold-fields"><label for="onePassInst-fold-fields">Fields (<i>total 6, all are exported</i>)</label><span id='onePassInst-fold-fields-items' class="fold-items"><span>
 			<span class="nodocs"><a href="../src/regexp/onepass.go.html#line-32">Inst</a> <i><a href="regexp/syntax.html">syntax</a>.<a href="regexp/syntax.html#name-Inst">Inst</a></i></span></span><span>
-			<input type='checkbox' class="fold" id="onePassInst-fold-field-Arg"><label for="onePassInst-fold-field-Arg"><a href="../src/regexp/onepass.go.html#line-32" class="path-duplicate">Inst</a>.<a href="../src/regexp/syntax/prog.go.html#line-116">Arg</a> <i><a href="builtin.html#name-uint32">uint32</a></i></label><span id='onePassInst-fold-field-Arg-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="onePassInst-fold-field-Arg"><label for="onePassInst-fold-field-Arg"><a href="../src/regexp/onepass.go.html#line-32" class="path-duplicate">Inst</a>.<a href="../src/regexp/syntax/prog.go.html#line-118">Arg</a> <i><a href="builtin.html#name-uint32">uint32</a></i></label><span id='onePassInst-fold-field-Arg-docs' class="fold-docs">
 <span class="md-text">				// InstAlt, InstAltMatch, InstCapture, InstEmptyWidth</span>
 </span></span><span>
-			<span class="nodocs"><a href="../src/regexp/onepass.go.html#line-32" class="path-duplicate">Inst</a>.<a href="../src/regexp/syntax/prog.go.html#line-114">Op</a> <i><a href="regexp/syntax.html">syntax</a>.<a href="regexp/syntax.html#name-InstOp">InstOp</a></i></span></span><span>
-			<input type='checkbox' class="fold" id="onePassInst-fold-field-Out"><label for="onePassInst-fold-field-Out"><a href="../src/regexp/onepass.go.html#line-32" class="path-duplicate">Inst</a>.<a href="../src/regexp/syntax/prog.go.html#line-115">Out</a> <i><a href="builtin.html#name-uint32">uint32</a></i></label><span id='onePassInst-fold-field-Out-docs' class="fold-docs">
+			<span class="nodocs"><a href="../src/regexp/onepass.go.html#line-32" class="path-duplicate">Inst</a>.<a href="../src/regexp/syntax/prog.go.html#line-116">Op</a> <i><a href="regexp/syntax.html">syntax</a>.<a href="regexp/syntax.html#name-InstOp">InstOp</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="onePassInst-fold-field-Out"><label for="onePassInst-fold-field-Out"><a href="../src/regexp/onepass.go.html#line-32" class="path-duplicate">Inst</a>.<a href="../src/regexp/syntax/prog.go.html#line-117">Out</a> <i><a href="builtin.html#name-uint32">uint32</a></i></label><span id='onePassInst-fold-field-Out-docs' class="fold-docs">
 <span class="md-text">				// all but InstMatch, InstFail</span>
 </span></span><span>
-			<span class="nodocs"><a href="../src/regexp/onepass.go.html#line-32" class="path-duplicate">Inst</a>.<a href="../src/regexp/syntax/prog.go.html#line-117">Rune</a> <i>[]<a href="builtin.html#name-rune">rune</a></i></span></span><span>
+			<span class="nodocs"><a href="../src/regexp/onepass.go.html#line-32" class="path-duplicate">Inst</a>.<a href="../src/regexp/syntax/prog.go.html#line-119">Rune</a> <i>[]<a href="builtin.html#name-rune">rune</a></i></span></span><span>
 			<span class="nodocs"><a href="../src/regexp/onepass.go.html#line-33">Next</a> <i>[]<a href="builtin.html#name-uint32">uint32</a></i></span></span></span>
 		<input type='checkbox' class="fold" id="onePassInst-fold-methods"><label for="onePassInst-fold-methods">Methods (<i>total 5, in which 4 are exported</i>)</label><span id='onePassInst-fold-methods-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="onePassInst-fold-method-MatchEmptyWidth"><label for="onePassInst-fold-method-MatchEmptyWidth">(*onePassInst) <a href="../src/regexp/syntax/prog.go.html#line-264">MatchEmptyWidth</a>(before <a href="builtin.html#name-rune">rune</a>, after <a href="builtin.html#name-rune">rune</a>) <a href="builtin.html#name-bool">bool</a></label><span id='onePassInst-fold-method-MatchEmptyWidth-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="onePassInst-fold-method-MatchEmptyWidth"><label for="onePassInst-fold-method-MatchEmptyWidth">(*onePassInst) <a href="../src/regexp/syntax/prog.go.html#line-266">MatchEmptyWidth</a>(before <a href="builtin.html#name-rune">rune</a>, after <a href="builtin.html#name-rune">rune</a>) <a href="builtin.html#name-bool">bool</a></label><span id='onePassInst-fold-method-MatchEmptyWidth-docs' class="fold-docs">
 <span class="md-text">				MatchEmptyWidth reports whether the instruction matches
 				an empty string between the runes before and after.
 				It should only be called when i.Op == InstEmptyWidth.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="onePassInst-fold-method-MatchRune"><label for="onePassInst-fold-method-MatchRune">(*onePassInst) <a href="../src/regexp/syntax/prog.go.html#line-193">MatchRune</a>(r <a href="builtin.html#name-rune">rune</a>) <a href="builtin.html#name-bool">bool</a></label><span id='onePassInst-fold-method-MatchRune-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="onePassInst-fold-method-MatchRune"><label for="onePassInst-fold-method-MatchRune">(*onePassInst) <a href="../src/regexp/syntax/prog.go.html#line-195">MatchRune</a>(r <a href="builtin.html#name-rune">rune</a>) <a href="builtin.html#name-bool">bool</a></label><span id='onePassInst-fold-method-MatchRune-docs' class="fold-docs">
 <span class="md-text">				MatchRune reports whether the instruction matches (and consumes) r.
 				It should only be called when i.Op == InstRune.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="onePassInst-fold-method-MatchRunePos"><label for="onePassInst-fold-method-MatchRunePos">(*onePassInst) <a href="../src/regexp/syntax/prog.go.html#line-202">MatchRunePos</a>(r <a href="builtin.html#name-rune">rune</a>) <a href="builtin.html#name-int">int</a></label><span id='onePassInst-fold-method-MatchRunePos-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="onePassInst-fold-method-MatchRunePos"><label for="onePassInst-fold-method-MatchRunePos">(*onePassInst) <a href="../src/regexp/syntax/prog.go.html#line-204">MatchRunePos</a>(r <a href="builtin.html#name-rune">rune</a>) <a href="builtin.html#name-int">int</a></label><span id='onePassInst-fold-method-MatchRunePos-docs' class="fold-docs">
 <span class="md-text">				MatchRunePos checks whether the instruction matches (and consumes) r.
 				If so, MatchRunePos returns the index of the matching rune pair
 				(or, when len(i.Rune) == 1, rune singleton).
 				If not, MatchRunePos returns -1.
 				MatchRunePos should only be called when i.Op == InstRune.</span>
 </span></span><span>
-			<span class="nodocs">(*onePassInst) <a href="../src/regexp/syntax/prog.go.html#line-282">String</a>() <a href="builtin.html#name-string">string</a></span></span>
+			<span class="nodocs">(*onePassInst) <a href="../src/regexp/syntax/prog.go.html#line-284">String</a>() <a href="builtin.html#name-string">string</a></span></span>
 			<input type='checkbox' checked class="showhide" id="onePassInst-showhide-methods"><i><label for="onePassInst-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="onePassInst-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="onePassInst-fold-method-op"><label for="onePassInst-fold-method-op">(*onePassInst) <a href="../src/regexp/syntax/prog.go.html#line-136">op</a>() <a href="regexp/syntax.html">syntax</a>.<a href="regexp/syntax.html#name-InstOp">InstOp</a></label><span id='onePassInst-fold-method-op-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="onePassInst-fold-method-op"><label for="onePassInst-fold-method-op">(*onePassInst) <a href="../src/regexp/syntax/prog.go.html#line-138">op</a>() <a href="regexp/syntax.html">syntax</a>.<a href="regexp/syntax.html#name-InstOp">InstOp</a></label><span id='onePassInst-fold-method-op-docs' class="fold-docs">
 <span class="md-text">				op returns i.Op but merges all the Rune special cases into InstRune</span>
 </span></i></span></span>
 		<input type='checkbox' class="fold" id="onePassInst-fold-impls"><label for="onePassInst-fold-impls">Implements (<i>at least 3, in which 1 is exported</i>)</label><span id='onePassInst-fold-impls-items' class="fold-items"><span>
@@ -1446,23 +1461,23 @@
 		the backtracker using prog.</span>
 
 </span></i></div><div class="anchor value-res hidden" id="name-mergeRuneSets"><i>	<span class="nodocs"> <a href="../use/regexp..mergeRuneSets^31a69.html">func</a> <a href="../src/regexp/onepass.go.html#line-158">mergeRuneSets</a>(leftRunes, rightRunes *[]<a href="builtin.html#name-rune">rune</a>, leftPC, rightPC <a href="builtin.html#name-uint32">uint32</a>) ([]<a href="builtin.html#name-rune">rune</a>, []<a href="builtin.html#name-uint32">uint32</a>)</span></i></div><div class="anchor value-res hidden" id="name-minInputLen"><i>	<input type='checkbox' class="fold" id="minInputLen-fold-content"><label for="minInputLen-fold-content"> <a href="../use/regexp..minInputLen^47ee2.html">func</a> <a href="../src/regexp/regexp.go.html#line-274">minInputLen</a>(re *<a href="regexp/syntax.html">syntax</a>.<a href="regexp/syntax.html#name-Regexp">Regexp</a>) <a href="builtin.html#name-int">int</a></label><span id='minInputLen-fold-content-docs' class="fold-docs">
-<span class="md-text">		minInputLen walks the regexp to find the minimum length of any matchable input</span>
+<span class="md-text">		minInputLen walks the regexp to find the minimum length of any matchable input.</span>
 
 </span></i></div><div class="anchor value-res hidden" id="name-newBitState"><i>	<span class="nodocs"> <a href="../use/regexp..newBitState^c4fa6.html">func</a> <a href="../src/regexp/backtrack.go.html#line-49">newBitState</a>() *<a href="#name-bitState">bitState</a></span></i></div><div class="anchor value-res hidden" id="name-newLazyFlag"><i>	<span class="nodocs"> <a href="../use/regexp..newLazyFlag^deebb.html">func</a> <a href="../src/regexp/exec.go.html#line-124">newLazyFlag</a>(r1, r2 <a href="builtin.html#name-rune">rune</a>) <a href="#name-lazyFlag">lazyFlag</a></span></i></div><div class="anchor value-res hidden" id="name-newOnePassMachine"><i>	<span class="nodocs"> <a href="../use/regexp..newOnePassMachine^ae1d7.html">func</a> <a href="../src/regexp/exec.go.html#line-383">newOnePassMachine</a>() *<a href="#name-onePassMachine">onePassMachine</a></span></i></div><div class="anchor value-res hidden" id="name-newQueue"><i>	<span class="nodocs"> <a href="../use/regexp..newQueue^b26b1.html">func</a> <a href="../src/regexp/onepass.go.html#line-139">newQueue</a>(size <a href="builtin.html#name-int">int</a>) (q *<a href="#name-queueOnePass">queueOnePass</a>)</span></i></div><div class="anchor value-res hidden" id="name-onePassCopy"><i>	<input type='checkbox' class="fold" id="onePassCopy-fold-content"><label for="onePassCopy-fold-content"> <a href="../use/regexp..onePassCopy^5dec4.html">func</a> <a href="../src/regexp/onepass.go.html#line-222">onePassCopy</a>(prog *<a href="regexp/syntax.html">syntax</a>.<a href="regexp/syntax.html#name-Prog">Prog</a>) *<a href="#name-onePassProg">onePassProg</a></label><span id='onePassCopy-fold-content-docs' class="fold-docs">
-<span class="md-text">		onePassCopy creates a copy of the original Prog, as we'll be modifying it</span>
+<span class="md-text">		onePassCopy creates a copy of the original Prog, as we'll be modifying it.</span>
 
 </span></i></div><div class="anchor value-res hidden" id="name-onePassNext"><i>	<input type='checkbox' class="fold" id="onePassNext-fold-content"><label for="onePassNext-fold-content"> <a href="../use/regexp..onePassNext^3ee55.html">func</a> <a href="../src/regexp/onepass.go.html#line-75">onePassNext</a>(i *<a href="#name-onePassInst">onePassInst</a>, r <a href="builtin.html#name-rune">rune</a>) <a href="builtin.html#name-uint32">uint32</a></label><span id='onePassNext-fold-content-docs' class="fold-docs">
-<span class="md-text">		OnePassNext selects the next actionable state of the prog, based on the input character.
+<span class="md-text">		onePassNext selects the next actionable state of the prog, based on the input character.
 		It should only be called when i.Op == InstAlt or InstAltMatch, and from the one-pass machine.
 		One of the alternates may ultimately lead without input to end of line. If the instruction
 		is InstAltMatch the path to the InstMatch is in i.Out, the normal node in i.Next.</span>
 
 </span></i></div><div class="anchor value-res hidden" id="name-onePassPrefix"><i>	<input type='checkbox' class="fold" id="onePassPrefix-fold-content"><label for="onePassPrefix-fold-content"> <a href="../use/regexp..onePassPrefix^aeafc.html">func</a> <a href="../src/regexp/onepass.go.html#line-41">onePassPrefix</a>(p *<a href="regexp/syntax.html">syntax</a>.<a href="regexp/syntax.html#name-Prog">Prog</a>) (prefix <a href="builtin.html#name-string">string</a>, complete <a href="builtin.html#name-bool">bool</a>, pc <a href="builtin.html#name-uint32">uint32</a>)</label><span id='onePassPrefix-fold-content-docs' class="fold-docs">
-<span class="md-text">		OnePassPrefix returns a literal string that all matches for the
+<span class="md-text">		onePassPrefix returns a literal string that all matches for the
 		regexp must start with. Complete is true if the prefix
 		is the entire match. Pc is the index of the last rune instruction
-		in the string. The OnePassPrefix skips over the mandatory
-		EmptyBeginText</span>
+		in the string. The onePassPrefix skips over the mandatory
+		EmptyBeginText.</span>
 
 </span></i></div><div class="anchor value-res hidden" id="name-quote"><i>	<span class="nodocs"> <a href="../use/regexp..quote^63272.html">func</a> <a href="../src/regexp/regexp.go.html#line-335">quote</a>(s <a href="builtin.html#name-string">string</a>) <a href="builtin.html#name-string">string</a></span></i></div><div class="anchor value-res hidden" id="name-shouldBacktrack"><i>	<input type='checkbox' class="fold" id="shouldBacktrack-fold-content"><label for="shouldBacktrack-fold-content"> <a href="../use/regexp..shouldBacktrack^e78cc.html">func</a> <a href="../src/regexp/backtrack.go.html#line-73">shouldBacktrack</a>(prog *<a href="regexp/syntax.html">syntax</a>.<a href="regexp/syntax.html#name-Prog">Prog</a>) <a href="builtin.html#name-bool">bool</a></label><span id='shouldBacktrack-fold-content-docs' class="fold-docs">
 <span class="md-text">		shouldBacktrack reports whether the program is too
@@ -1509,7 +1524,7 @@
 
 </span></i></div><div class="anchor value-res hidden" id="name-startSize"><i>	<span class="nodocs"><a href="../use/regexp..startSize^d354b.html">const</a> <a href="../src/regexp/regexp.go.html#line-1077">startSize</a> = 10 // <span class="md-text">The size at which to start a slice in the 'All' routines.</span></span></i></div><div class="anchor value-res hidden" id="name-visitedBits"><i>	<span class="nodocs"><a href="../use/regexp..visitedBits^2a7a9.html">const</a> <a href="../src/regexp/backtrack.go.html#line-31">visitedBits</a> = 32</span></i></div></div></code></pre><pre id="footer">
 <table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

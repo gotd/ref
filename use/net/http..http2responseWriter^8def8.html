@@ -5,36 +5,42 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.http2responseWriter</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-6085">http2responseWriter</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-6349">http2responseWriter</a></b></span>
 
-<span class="title">18 uses</span>
+<span class="title">24 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/h2_bundle.go.html#line-5738">h2_bundle.go#L5738</a>: func (sc *http2serverConn) newWriterAndRequest(st *http2stream, f *http2MetaHeadersFrame) (*<b>http2responseWriter</b>, *Request, error) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5803" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5803">#L5803</a>: func (sc *http2serverConn) newWriterAndRequestNoBody(st *http2stream, rp http2requestParam) (*<b>http2responseWriter</b>, *Request, error) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5884" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5884">#L5884</a>: 	rw := &amp;<b>http2responseWriter</b>{rws: rws}
-		<a href="../../src/net/http/h2_bundle.go.html#line-5889" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5889">#L5889</a>: func (sc *http2serverConn) runHandler(rw *<b>http2responseWriter</b>, req *Request, handler func(ResponseWriter, *Request)) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6085" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6085">#L6085</a>: type <b>http2responseWriter</b> struct {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6091" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6091">#L6091</a>: 	_ CloseNotifier     = (*<b>http2responseWriter</b>)(nil)
-		<a href="../../src/net/http/h2_bundle.go.html#line-6092" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6092">#L6092</a>: 	_ Flusher           = (*<b>http2responseWriter</b>)(nil)
-		<a href="../../src/net/http/h2_bundle.go.html#line-6093" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6093">#L6093</a>: 	_ http2stringWriter = (*<b>http2responseWriter</b>)(nil)
-		<a href="../../src/net/http/h2_bundle.go.html#line-6319" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6319">#L6319</a>: func (w *<b>http2responseWriter</b>) Flush() {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6338" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6338">#L6338</a>: func (w *<b>http2responseWriter</b>) CloseNotify() &lt;-chan bool {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6358" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6358">#L6358</a>: func (w *<b>http2responseWriter</b>) Header() Header {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6386" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6386">#L6386</a>: func (w *<b>http2responseWriter</b>) WriteHeader(code int) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6451" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6451">#L6451</a>: func (w *<b>http2responseWriter</b>) Write(p []byte) (n int, err error) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6455" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6455">#L6455</a>: func (w *<b>http2responseWriter</b>) WriteString(s string) (n int, err error) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6460" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6460">#L6460</a>: func (w *<b>http2responseWriter</b>) write(lenData int, dataB []byte, dataS string) (n int, err error) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6484" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6484">#L6484</a>: func (w *<b>http2responseWriter</b>) handlerDone() {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6507" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6507">#L6507</a>: var _ Pusher = (*<b>http2responseWriter</b>)(nil)
-		<a href="../../src/net/http/h2_bundle.go.html#line-6509" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6509">#L6509</a>: func (w *<b>http2responseWriter</b>) Push(target string, opts *PushOptions) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5962">h2_bundle.go#L5962</a>: func (sc *http2serverConn) newWriterAndRequest(st *http2stream, f *http2MetaHeadersFrame) (*<b>http2responseWriter</b>, *Request, error) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6027" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6027">#L6027</a>: func (sc *http2serverConn) newWriterAndRequestNoBody(st *http2stream, rp http2requestParam) (*<b>http2responseWriter</b>, *Request, error) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6102" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6102">#L6102</a>: func (sc *http2serverConn) newResponseWriter(st *http2stream, req *Request) *<b>http2responseWriter</b> {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6111" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6111">#L6111</a>: 	return &amp;<b>http2responseWriter</b>{rws: rws}
+		<a href="../../src/net/http/h2_bundle.go.html#line-6116" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6116">#L6116</a>: 	rw       *<b>http2responseWriter</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-6123" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6123">#L6123</a>: func (sc *http2serverConn) scheduleHandler(streamID uint32, rw *<b>http2responseWriter</b>, req *Request, handler func(ResponseWriter, *Request)) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6168" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6168">#L6168</a>: func (sc *http2serverConn) runHandler(rw *<b>http2responseWriter</b>, req *Request, handler func(ResponseWriter, *Request)) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6349" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6349">#L6349</a>: type <b>http2responseWriter</b> struct {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6355" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6355">#L6355</a>: 	_ CloseNotifier     = (*<b>http2responseWriter</b>)(nil)
+		<a href="../../src/net/http/h2_bundle.go.html#line-6356" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6356">#L6356</a>: 	_ Flusher           = (*<b>http2responseWriter</b>)(nil)
+		<a href="../../src/net/http/h2_bundle.go.html#line-6357" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6357">#L6357</a>: 	_ http2stringWriter = (*<b>http2responseWriter</b>)(nil)
+		<a href="../../src/net/http/h2_bundle.go.html#line-6591" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6591">#L6591</a>: func (w *<b>http2responseWriter</b>) SetReadDeadline(deadline time.Time) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6617" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6617">#L6617</a>: func (w *<b>http2responseWriter</b>) SetWriteDeadline(deadline time.Time) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6643" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6643">#L6643</a>: func (w *<b>http2responseWriter</b>) Flush() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6647" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6647">#L6647</a>: func (w *<b>http2responseWriter</b>) FlushError() error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6672" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6672">#L6672</a>: func (w *<b>http2responseWriter</b>) CloseNotify() &lt;-chan bool {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6692" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6692">#L6692</a>: func (w *<b>http2responseWriter</b>) Header() Header {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6720" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6720">#L6720</a>: func (w *<b>http2responseWriter</b>) WriteHeader(code int) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6785" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6785">#L6785</a>: func (w *<b>http2responseWriter</b>) Write(p []byte) (n int, err error) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6789" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6789">#L6789</a>: func (w *<b>http2responseWriter</b>) WriteString(s string) (n int, err error) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6794" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6794">#L6794</a>: func (w *<b>http2responseWriter</b>) write(lenData int, dataB []byte, dataS string) (n int, err error) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6818" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6818">#L6818</a>: func (w *<b>http2responseWriter</b>) handlerDone() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6841" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6841">#L6841</a>: var _ Pusher = (*<b>http2responseWriter</b>)(nil)
+		<a href="../../src/net/http/h2_bundle.go.html#line-6843" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6843">#L6843</a>: func (w *<b>http2responseWriter</b>) Push(target string, opts *PushOptions) error {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

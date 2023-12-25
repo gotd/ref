@@ -5,16 +5,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: strings.Cut</title>
-<link href="../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.4.js"></script>
+<link href="../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/strings.html">strings</a>.<a href="../src/strings/strings.go.html#line-1187">Cut</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/strings.html">strings</a>.<a href="../src/strings/strings.go.html#line-1278">Cut</a></b></span>
 
-<span class="title">33 uses</span>
+<span class="title">34 uses</span>
 
 	strings (current package)
-		<a href="../src/strings/strings.go.html#line-1187">strings.go#L1187</a>: func <b>Cut</b>(s, sep string) (before, after string, found bool) {
+		<a href="../src/strings/strings.go.html#line-1278">strings.go#L1278</a>: func <b>Cut</b>(s, sep string) (before, after string, found bool) {
 
 	<a href="../pkg/crypto/x509.html">crypto/x509</a>
 		<a href="../src/crypto/x509/pem_decrypt.go.html#line-130">pem_decrypt.go#L130</a>: 	mode, hexIV, ok := strings.<b>Cut</b>(dek, ",")
@@ -35,39 +35,42 @@
 
 	<a href="../pkg/net/http.html">net/http</a>
 		<a href="../src/net/http/cookie.go.html#line-72">cookie.go#L72</a>: 		name, value, ok := strings.<b>Cut</b>(parts[0], "=")
-		<a href="../src/net/http/cookie.go.html#line-94" class="path-duplicate">cookie.go</a><a href="../src/net/http/cookie.go.html#line-94">#L94</a>: 			attr, val, _ := strings.<b>Cut</b>(parts[i], "=")
-		<a href="../src/net/http/cookie.go.html#line-288" class="path-duplicate">cookie.go</a><a href="../src/net/http/cookie.go.html#line-288">#L288</a>: 			part, line, _ = strings.<b>Cut</b>(line, ";")
-		<a href="../src/net/http/cookie.go.html#line-293" class="path-duplicate">cookie.go</a><a href="../src/net/http/cookie.go.html#line-293">#L293</a>: 			name, val, _ := strings.<b>Cut</b>(part, "=")
-		<a href="../src/net/http/fs.go.html#line-888">fs.go#L888</a>: 		start, end, ok := strings.<b>Cut</b>(ra, "-")
-		<a href="../src/net/http/request.go.html#line-966">request.go#L966</a>: 	username, password, ok = strings.<b>Cut</b>(cs, ":")
-		<a href="../src/net/http/request.go.html#line-990" class="path-duplicate">request.go</a><a href="../src/net/http/request.go.html#line-990">#L990</a>: 	method, rest, ok1 := strings.<b>Cut</b>(line, " ")
-		<a href="../src/net/http/request.go.html#line-991" class="path-duplicate">request.go</a><a href="../src/net/http/request.go.html#line-991">#L991</a>: 	requestURI, proto, ok2 := strings.<b>Cut</b>(rest, " ")
+		<a href="../src/net/http/cookie.go.html#line-95" class="path-duplicate">cookie.go</a><a href="../src/net/http/cookie.go.html#line-95">#L95</a>: 			attr, val, _ := strings.<b>Cut</b>(parts[i], "=")
+		<a href="../src/net/http/cookie.go.html#line-289" class="path-duplicate">cookie.go</a><a href="../src/net/http/cookie.go.html#line-289">#L289</a>: 			part, line, _ = strings.<b>Cut</b>(line, ";")
+		<a href="../src/net/http/cookie.go.html#line-294" class="path-duplicate">cookie.go</a><a href="../src/net/http/cookie.go.html#line-294">#L294</a>: 			name, val, _ := strings.<b>Cut</b>(part, "=")
+		<a href="../src/net/http/fs.go.html#line-902">fs.go#L902</a>: 		start, end, ok := strings.<b>Cut</b>(ra, "-")
+		<a href="../src/net/http/request.go.html#line-969">request.go#L969</a>: 	username, password, ok = strings.<b>Cut</b>(cs, ":")
+		<a href="../src/net/http/request.go.html#line-993" class="path-duplicate">request.go</a><a href="../src/net/http/request.go.html#line-993">#L993</a>: 	method, rest, ok1 := strings.<b>Cut</b>(line, " ")
+		<a href="../src/net/http/request.go.html#line-994" class="path-duplicate">request.go</a><a href="../src/net/http/request.go.html#line-994">#L994</a>: 	requestURI, proto, ok2 := strings.<b>Cut</b>(rest, " ")
 		<a href="../src/net/http/response.go.html#line-168">response.go#L168</a>: 	proto, status, ok := strings.<b>Cut</b>(line, " ")
 		<a href="../src/net/http/response.go.html#line-175" class="path-duplicate">response.go</a><a href="../src/net/http/response.go.html#line-175">#L175</a>: 	statusCode, _, _ := strings.<b>Cut</b>(resp.Status, " ")
-		<a href="../src/net/http/transport.go.html#line-1722">transport.go#L1722</a>: 			_, text, ok := strings.<b>Cut</b>(resp.Status, " ")
+		<a href="../src/net/http/transport.go.html#line-1747">transport.go#L1747</a>: 			_, text, ok := strings.<b>Cut</b>(resp.Status, " ")
 
 	<a href="../pkg/net/url.html">net/url</a>
-		<a href="../src/net/url/url.go.html#line-465">url.go#L465</a>: 	u, frag, _ := strings.<b>Cut</b>(rawURL, "#")
-		<a href="../src/net/url/url.go.html#line-525" class="path-duplicate">url.go</a><a href="../src/net/url/url.go.html#line-525">#L525</a>: 		rest, url.RawQuery, _ = strings.<b>Cut</b>(rest, "?")
-		<a href="../src/net/url/url.go.html#line-544" class="path-duplicate">url.go</a><a href="../src/net/url/url.go.html#line-544">#L544</a>: 		if segment, _, _ := strings.<b>Cut</b>(rest, "/"); strings.Contains(segment, ":") {
-		<a href="../src/net/url/url.go.html#line-599" class="path-duplicate">url.go</a><a href="../src/net/url/url.go.html#line-599">#L599</a>: 		username, password, _ := strings.<b>Cut</b>(userinfo, ":")
-		<a href="../src/net/url/url.go.html#line-841" class="path-duplicate">url.go</a><a href="../src/net/url/url.go.html#line-841">#L841</a>: 			if segment, _, _ := strings.<b>Cut</b>(path, "/"); strings.Contains(segment, ":") {
+		<a href="../src/net/url/url.go.html#line-468">url.go#L468</a>: 	u, frag, _ := strings.<b>Cut</b>(rawURL, "#")
+		<a href="../src/net/url/url.go.html#line-528" class="path-duplicate">url.go</a><a href="../src/net/url/url.go.html#line-528">#L528</a>: 		rest, url.RawQuery, _ = strings.<b>Cut</b>(rest, "?")
+		<a href="../src/net/url/url.go.html#line-547" class="path-duplicate">url.go</a><a href="../src/net/url/url.go.html#line-547">#L547</a>: 		if segment, _, _ := strings.<b>Cut</b>(rest, "/"); strings.Contains(segment, ":") {
+		<a href="../src/net/url/url.go.html#line-602" class="path-duplicate">url.go</a><a href="../src/net/url/url.go.html#line-602">#L602</a>: 		username, password, _ := strings.<b>Cut</b>(userinfo, ":")
+		<a href="../src/net/url/url.go.html#line-844" class="path-duplicate">url.go</a><a href="../src/net/url/url.go.html#line-844">#L844</a>: 			if segment, _, _ := strings.<b>Cut</b>(path, "/"); strings.Contains(segment, ":") {
 		<a href="../src/net/url/url.go.html#line-935" class="path-duplicate">url.go</a><a href="../src/net/url/url.go.html#line-935">#L935</a>: 		key, query, _ = strings.<b>Cut</b>(query, "&amp;")
 		<a href="../src/net/url/url.go.html#line-943" class="path-duplicate">url.go</a><a href="../src/net/url/url.go.html#line-943">#L943</a>: 		key, value, _ := strings.<b>Cut</b>(key, "=")
 		<a href="../src/net/url/url.go.html#line-1016" class="path-duplicate">url.go</a><a href="../src/net/url/url.go.html#line-1016">#L1016</a>: 		elem, remaining, found = strings.<b>Cut</b>(remaining, "/")
+
+	<a href="../pkg/path/filepath.html">path/filepath</a>
+		<a href="../src/path/filepath/path.go.html#line-198">path.go#L198</a>: 		part, p, _ = strings.<b>Cut</b>(p, "/")
 
 	<a href="../pkg/regexp.html">regexp</a>
 		<a href="../src/regexp/regexp.go.html#line-934">regexp.go#L934</a>: 		before, after, ok := strings.<b>Cut</b>(template, "$")
 
 	<a href="../pkg/regexp/syntax.html">regexp/syntax</a>
-		<a href="../src/regexp/syntax/parse.go.html#line-1037">parse.go#L1037</a>: 					lit, t, _ = strings.<b>Cut</b>(t[2:], `\E`)
+		<a href="../src/regexp/syntax/parse.go.html#line-1038">parse.go#L1038</a>: 					lit, t, _ = strings.<b>Cut</b>(t[2:], `\E`)
 
 	<a href="../pkg/runtime/debug.html">runtime/debug</a>
-		<a href="../src/runtime/debug/mod.go.html#line-163">mod.go#L163</a>: 		line, data, ok = strings.<b>Cut</b>(data, newline)
-		<a href="../src/runtime/debug/mod.go.html#line-227" class="path-duplicate">mod.go</a><a href="../src/runtime/debug/mod.go.html#line-227">#L227</a>: 				key, rawValue, ok = strings.<b>Cut</b>(kv, "=")
+		<a href="../src/runtime/debug/mod.go.html#line-191">mod.go#L191</a>: 		line, data, ok = strings.<b>Cut</b>(data, newline)
+		<a href="../src/runtime/debug/mod.go.html#line-255" class="path-duplicate">mod.go</a><a href="../src/runtime/debug/mod.go.html#line-255">#L255</a>: 				key, rawValue, ok = strings.<b>Cut</b>(kv, "=")
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

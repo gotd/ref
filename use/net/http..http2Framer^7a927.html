@@ -5,55 +5,56 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.http2Framer</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-1593">http2Framer</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-1663">http2Framer</a></b></span>
 
-<span class="title">37 uses</span>
+<span class="title">38 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/h2_bundle.go.html#line-1593">h2_bundle.go#L1593</a>: type <b>http2Framer</b> struct {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1655" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1655">#L1655</a>: 	debugFramer       *<b>http2Framer</b> // only use for logging written writes
-		<a href="../../src/net/http/h2_bundle.go.html#line-1663" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1663">#L1663</a>: func (fr *<b>http2Framer</b>) maxHeaderListSize() uint32 {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1670" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1670">#L1670</a>: func (f *<b>http2Framer</b>) startWrite(ftype http2FrameType, flags http2Flags, streamID uint32) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1684" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1684">#L1684</a>: func (f *<b>http2Framer</b>) endWrite() error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1706" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1706">#L1706</a>: func (f *<b>http2Framer</b>) logWrite() {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1724" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1724">#L1724</a>: func (f *<b>http2Framer</b>) writeByte(v byte) { f.wbuf = append(f.wbuf, v) }
-		<a href="../../src/net/http/h2_bundle.go.html#line-1726" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1726">#L1726</a>: func (f *<b>http2Framer</b>) writeBytes(v []byte) { f.wbuf = append(f.wbuf, v...) }
-		<a href="../../src/net/http/h2_bundle.go.html#line-1728" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1728">#L1728</a>: func (f *<b>http2Framer</b>) writeUint16(v uint16) { f.wbuf = append(f.wbuf, byte(v&gt;&gt;8), byte(v)) }
-		<a href="../../src/net/http/h2_bundle.go.html#line-1730" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1730">#L1730</a>: func (f *<b>http2Framer</b>) writeUint32(v uint32) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1742" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1742">#L1742</a>: func (fr *<b>http2Framer</b>) SetReuseFrames() {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1761" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1761">#L1761</a>: func http2NewFramer(w io.Writer, r io.Reader) *<b>http2Framer</b> {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1762" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1762">#L1762</a>: 	fr := &amp;<b>http2Framer</b>{
-		<a href="../../src/net/http/h2_bundle.go.html#line-1786" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1786">#L1786</a>: func (fr *<b>http2Framer</b>) SetMaxReadFrameSize(v uint32) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1800" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1800">#L1800</a>: func (fr *<b>http2Framer</b>) ErrorDetail() error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1824" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1824">#L1824</a>: func (fr *<b>http2Framer</b>) ReadFrame() (http2Frame, error) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1863" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1863">#L1863</a>: func (fr *<b>http2Framer</b>) connError(code http2ErrCode, reason string) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1871" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1871">#L1871</a>: func (fr *<b>http2Framer</b>) checkFrameOrder(f http2Frame) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1982" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1982">#L1982</a>: func (f *<b>http2Framer</b>) WriteData(streamID uint32, endStream bool, data []byte) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1995" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1995">#L1995</a>: func (f *<b>http2Framer</b>) WriteDataPadded(streamID uint32, endStream bool, data, pad []byte) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2150" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2150">#L2150</a>: func (f *<b>http2Framer</b>) WriteSettings(settings ...http2Setting) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2163" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2163">#L2163</a>: func (f *<b>http2Framer</b>) WriteSettingsAck() error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2193" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2193">#L2193</a>: func (f *<b>http2Framer</b>) WritePing(ack bool, data [8]byte) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2238" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2238">#L2238</a>: func (f *<b>http2Framer</b>) WriteGoAway(maxStreamID uint32, code http2ErrCode, debugData []byte) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2304" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2304">#L2304</a>: func (f *<b>http2Framer</b>) WriteWindowUpdate(streamID, incr uint32) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2419" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2419">#L2419</a>: func (f *<b>http2Framer</b>) WriteHeaders(p http2HeadersFrameParam) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2509" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2509">#L2509</a>: func (f *<b>http2Framer</b>) WritePriority(streamID uint32, p http2PriorityParam) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2549" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2549">#L2549</a>: func (f *<b>http2Framer</b>) WriteRSTStream(streamID uint32, code http2ErrCode) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2586" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2586">#L2586</a>: func (f *<b>http2Framer</b>) WriteContinuation(streamID uint32, endHeaders bool, headerBlockFragment []byte) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2685" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2685">#L2685</a>: func (f *<b>http2Framer</b>) WritePushPromise(p http2PushPromiseParam) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2711" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2711">#L2711</a>: func (f *<b>http2Framer</b>) WriteRawFrame(t http2FrameType, flags http2Flags, streamID uint32, payload []byte) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2834" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2834">#L2834</a>: func (fr *<b>http2Framer</b>) maxHeaderStringLen() int {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2847" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2847">#L2847</a>: func (fr *<b>http2Framer</b>) readMetaFrame(hf *http2HeadersFrame) (*http2MetaHeadersFrame, error) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4218" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4218">#L4218</a>: 	framer           *<b>http2Framer</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-4317" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4317">#L4317</a>: func (sc *http2serverConn) Framer() *<b>http2Framer</b> { return sc.framer }
-		<a href="../../src/net/http/h2_bundle.go.html#line-7049" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7049">#L7049</a>: 	fr   *<b>http2Framer</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-9832" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9832">#L9832</a>: 	Framer() *<b>http2Framer</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-1663">h2_bundle.go#L1663</a>: type <b>http2Framer</b> struct {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1725" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1725">#L1725</a>: 	debugFramer       *<b>http2Framer</b> // only use for logging written writes
+		<a href="../../src/net/http/h2_bundle.go.html#line-1733" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1733">#L1733</a>: func (fr *<b>http2Framer</b>) maxHeaderListSize() uint32 {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1740" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1740">#L1740</a>: func (f *<b>http2Framer</b>) startWrite(ftype http2FrameType, flags http2Flags, streamID uint32) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1754" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1754">#L1754</a>: func (f *<b>http2Framer</b>) endWrite() error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1776" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1776">#L1776</a>: func (f *<b>http2Framer</b>) logWrite() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1794" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1794">#L1794</a>: func (f *<b>http2Framer</b>) writeByte(v byte) { f.wbuf = append(f.wbuf, v) }
+		<a href="../../src/net/http/h2_bundle.go.html#line-1796" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1796">#L1796</a>: func (f *<b>http2Framer</b>) writeBytes(v []byte) { f.wbuf = append(f.wbuf, v...) }
+		<a href="../../src/net/http/h2_bundle.go.html#line-1798" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1798">#L1798</a>: func (f *<b>http2Framer</b>) writeUint16(v uint16) { f.wbuf = append(f.wbuf, byte(v&gt;&gt;8), byte(v)) }
+		<a href="../../src/net/http/h2_bundle.go.html#line-1800" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1800">#L1800</a>: func (f *<b>http2Framer</b>) writeUint32(v uint32) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1812" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1812">#L1812</a>: func (fr *<b>http2Framer</b>) SetReuseFrames() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1831" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1831">#L1831</a>: func http2NewFramer(w io.Writer, r io.Reader) *<b>http2Framer</b> {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1832" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1832">#L1832</a>: 	fr := &amp;<b>http2Framer</b>{
+		<a href="../../src/net/http/h2_bundle.go.html#line-1856" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1856">#L1856</a>: func (fr *<b>http2Framer</b>) SetMaxReadFrameSize(v uint32) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1870" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1870">#L1870</a>: func (fr *<b>http2Framer</b>) ErrorDetail() error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1894" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1894">#L1894</a>: func (fr *<b>http2Framer</b>) ReadFrame() (http2Frame, error) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1933" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1933">#L1933</a>: func (fr *<b>http2Framer</b>) connError(code http2ErrCode, reason string) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1941" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1941">#L1941</a>: func (fr *<b>http2Framer</b>) checkFrameOrder(f http2Frame) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2052" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2052">#L2052</a>: func (f *<b>http2Framer</b>) WriteData(streamID uint32, endStream bool, data []byte) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2065" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2065">#L2065</a>: func (f *<b>http2Framer</b>) WriteDataPadded(streamID uint32, endStream bool, data, pad []byte) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2074" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2074">#L2074</a>: func (f *<b>http2Framer</b>) startWriteDataPadded(streamID uint32, endStream bool, data, pad []byte) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2229" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2229">#L2229</a>: func (f *<b>http2Framer</b>) WriteSettings(settings ...http2Setting) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2242" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2242">#L2242</a>: func (f *<b>http2Framer</b>) WriteSettingsAck() error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2272" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2272">#L2272</a>: func (f *<b>http2Framer</b>) WritePing(ack bool, data [8]byte) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2317" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2317">#L2317</a>: func (f *<b>http2Framer</b>) WriteGoAway(maxStreamID uint32, code http2ErrCode, debugData []byte) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2383" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2383">#L2383</a>: func (f *<b>http2Framer</b>) WriteWindowUpdate(streamID, incr uint32) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2498" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2498">#L2498</a>: func (f *<b>http2Framer</b>) WriteHeaders(p http2HeadersFrameParam) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2588" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2588">#L2588</a>: func (f *<b>http2Framer</b>) WritePriority(streamID uint32, p http2PriorityParam) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2628" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2628">#L2628</a>: func (f *<b>http2Framer</b>) WriteRSTStream(streamID uint32, code http2ErrCode) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2665" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2665">#L2665</a>: func (f *<b>http2Framer</b>) WriteContinuation(streamID uint32, endHeaders bool, headerBlockFragment []byte) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2764" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2764">#L2764</a>: func (f *<b>http2Framer</b>) WritePushPromise(p http2PushPromiseParam) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2790" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2790">#L2790</a>: func (f *<b>http2Framer</b>) WriteRawFrame(t http2FrameType, flags http2Flags, streamID uint32, payload []byte) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2913" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2913">#L2913</a>: func (fr *<b>http2Framer</b>) maxHeaderStringLen() int {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2926" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2926">#L2926</a>: func (fr *<b>http2Framer</b>) readMetaFrame(hf *http2HeadersFrame) (*http2MetaHeadersFrame, error) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4371" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4371">#L4371</a>: 	framer           *<b>http2Framer</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-4474" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4474">#L4474</a>: func (sc *http2serverConn) Framer() *<b>http2Framer</b> { return sc.framer }
+		<a href="../../src/net/http/h2_bundle.go.html#line-7427" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7427">#L7427</a>: 	fr   *<b>http2Framer</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-10293" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10293">#L10293</a>: 	Framer() *<b>http2Framer</b>
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

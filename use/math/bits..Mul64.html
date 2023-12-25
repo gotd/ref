@@ -5,22 +5,104 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: math/bits.Mul64</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../../pkg/math/bits.html">math/bits</a>.<a href="../../src/math/bits/bits.go.html#line-464">Mul64</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../../pkg/math/bits.html">math/bits</a>.<a href="../../src/math/bits/bits.go.html#line-470">Mul64</a></b></span>
 
-<span class="title">980 uses</span>
+<span class="title">1057 uses</span>
 
 	math/bits (current package)
-		<a href="../../src/math/bits/bits.go.html#line-444">bits.go#L444</a>: 	h, l := <b>Mul64</b>(uint64(x), uint64(y))
-		<a href="../../src/math/bits/bits.go.html#line-464" class="path-duplicate">bits.go</a><a href="../../src/math/bits/bits.go.html#line-464">#L464</a>: func <b>Mul64</b>(x, y uint64) (hi, lo uint64) {
+		<a href="../../src/math/bits/bits.go.html#line-450">bits.go#L450</a>: 	h, l := <b>Mul64</b>(uint64(x), uint64(y))
+		<a href="../../src/math/bits/bits.go.html#line-470" class="path-duplicate">bits.go</a><a href="../../src/math/bits/bits.go.html#line-470">#L470</a>: func <b>Mul64</b>(x, y uint64) (hi, lo uint64) {
 
 	<a href="../../pkg/math.html">math</a>
 		<a href="../../src/math/fma.go.html#line-121">fma.go#L121</a>: 	pm1, pm2 := bits.<b>Mul64</b>(xm&lt;&lt;10, ym&lt;&lt;11)
 		<a href="../../src/math/trig_reduce.go.html#line-50">trig_reduce.go#L50</a>: 	z2hi, _ := bits.<b>Mul64</b>(z2, ix)
 		<a href="../../src/math/trig_reduce.go.html#line-51" class="path-duplicate">trig_reduce.go</a><a href="../../src/math/trig_reduce.go.html#line-51">#L51</a>: 	z1hi, z1lo := bits.<b>Mul64</b>(z1, ix)
+
+	<a href="../../pkg/crypto/internal/edwards25519.html">crypto/internal/edwards25519</a>
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-95">scalar_fiat.go#L95</a>: 	x6, x5 = bits.<b>Mul64</b>(x4, arg2[3])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-98" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-98">#L98</a>: 	x8, x7 = bits.<b>Mul64</b>(x4, arg2[2])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-101" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-101">#L101</a>: 	x10, x9 = bits.<b>Mul64</b>(x4, arg2[1])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-104" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-104">#L104</a>: 	x12, x11 = bits.<b>Mul64</b>(x4, arg2[0])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-116" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-116">#L116</a>: 	_, x20 = bits.<b>Mul64</b>(x11, 0xd2b51da312547e1b)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-119" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-119">#L119</a>: 	x23, x22 = bits.<b>Mul64</b>(x20, 0x1000000000000000)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-122" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-122">#L122</a>: 	x25, x24 = bits.<b>Mul64</b>(x20, 0x14def9dea2f79cd6)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-125" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-125">#L125</a>: 	x27, x26 = bits.<b>Mul64</b>(x20, 0x5812631a5cf5d3ed)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-146" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-146">#L146</a>: 	x42, x41 = bits.<b>Mul64</b>(x1, arg2[3])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-149" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-149">#L149</a>: 	x44, x43 = bits.<b>Mul64</b>(x1, arg2[2])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-152" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-152">#L152</a>: 	x46, x45 = bits.<b>Mul64</b>(x1, arg2[1])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-155" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-155">#L155</a>: 	x48, x47 = bits.<b>Mul64</b>(x1, arg2[0])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-182" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-182">#L182</a>: 	_, x66 = bits.<b>Mul64</b>(x56, 0xd2b51da312547e1b)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-185" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-185">#L185</a>: 	x69, x68 = bits.<b>Mul64</b>(x66, 0x1000000000000000)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-188" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-188">#L188</a>: 	x71, x70 = bits.<b>Mul64</b>(x66, 0x14def9dea2f79cd6)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-191" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-191">#L191</a>: 	x73, x72 = bits.<b>Mul64</b>(x66, 0x5812631a5cf5d3ed)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-213" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-213">#L213</a>: 	x89, x88 = bits.<b>Mul64</b>(x2, arg2[3])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-216" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-216">#L216</a>: 	x91, x90 = bits.<b>Mul64</b>(x2, arg2[2])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-219" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-219">#L219</a>: 	x93, x92 = bits.<b>Mul64</b>(x2, arg2[1])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-222" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-222">#L222</a>: 	x95, x94 = bits.<b>Mul64</b>(x2, arg2[0])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-249" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-249">#L249</a>: 	_, x113 = bits.<b>Mul64</b>(x103, 0xd2b51da312547e1b)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-252" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-252">#L252</a>: 	x116, x115 = bits.<b>Mul64</b>(x113, 0x1000000000000000)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-255" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-255">#L255</a>: 	x118, x117 = bits.<b>Mul64</b>(x113, 0x14def9dea2f79cd6)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-258" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-258">#L258</a>: 	x120, x119 = bits.<b>Mul64</b>(x113, 0x5812631a5cf5d3ed)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-280" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-280">#L280</a>: 	x136, x135 = bits.<b>Mul64</b>(x3, arg2[3])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-283" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-283">#L283</a>: 	x138, x137 = bits.<b>Mul64</b>(x3, arg2[2])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-286" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-286">#L286</a>: 	x140, x139 = bits.<b>Mul64</b>(x3, arg2[1])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-289" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-289">#L289</a>: 	x142, x141 = bits.<b>Mul64</b>(x3, arg2[0])
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-316" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-316">#L316</a>: 	_, x160 = bits.<b>Mul64</b>(x150, 0xd2b51da312547e1b)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-319" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-319">#L319</a>: 	x163, x162 = bits.<b>Mul64</b>(x160, 0x1000000000000000)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-322" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-322">#L322</a>: 	x165, x164 = bits.<b>Mul64</b>(x160, 0x14def9dea2f79cd6)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-325" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-325">#L325</a>: 	x167, x166 = bits.<b>Mul64</b>(x160, 0x5812631a5cf5d3ed)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-545" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-545">#L545</a>: 	_, x2 = bits.<b>Mul64</b>(x1, 0xd2b51da312547e1b)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-548" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-548">#L548</a>: 	x5, x4 = bits.<b>Mul64</b>(x2, 0x1000000000000000)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-551" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-551">#L551</a>: 	x7, x6 = bits.<b>Mul64</b>(x2, 0x14def9dea2f79cd6)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-554" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-554">#L554</a>: 	x9, x8 = bits.<b>Mul64</b>(x2, 0x5812631a5cf5d3ed)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-567" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-567">#L567</a>: 	_, x18 = bits.<b>Mul64</b>(x16, 0xd2b51da312547e1b)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-570" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-570">#L570</a>: 	x21, x20 = bits.<b>Mul64</b>(x18, 0x1000000000000000)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-573" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-573">#L573</a>: 	x23, x22 = bits.<b>Mul64</b>(x18, 0x14def9dea2f79cd6)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-576" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-576">#L576</a>: 	x25, x24 = bits.<b>Mul64</b>(x18, 0x5812631a5cf5d3ed)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-601" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-601">#L601</a>: 	_, x42 = bits.<b>Mul64</b>(x36, 0xd2b51da312547e1b)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-604" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-604">#L604</a>: 	x45, x44 = bits.<b>Mul64</b>(x42, 0x1000000000000000)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-607" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-607">#L607</a>: 	x47, x46 = bits.<b>Mul64</b>(x42, 0x14def9dea2f79cd6)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-610" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-610">#L610</a>: 	x49, x48 = bits.<b>Mul64</b>(x42, 0x5812631a5cf5d3ed)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-635" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-635">#L635</a>: 	_, x66 = bits.<b>Mul64</b>(x60, 0xd2b51da312547e1b)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-638" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-638">#L638</a>: 	x69, x68 = bits.<b>Mul64</b>(x66, 0x1000000000000000)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-641" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-641">#L641</a>: 	x71, x70 = bits.<b>Mul64</b>(x66, 0x14def9dea2f79cd6)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-644" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-644">#L644</a>: 	x73, x72 = bits.<b>Mul64</b>(x66, 0x5812631a5cf5d3ed)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-705" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-705">#L705</a>: 	x6, x5 = bits.<b>Mul64</b>(x4, 0x399411b7c309a3d)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-708" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-708">#L708</a>: 	x8, x7 = bits.<b>Mul64</b>(x4, 0xceec73d217f5be65)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-711" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-711">#L711</a>: 	x10, x9 = bits.<b>Mul64</b>(x4, 0xd00e1ba768859347)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-714" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-714">#L714</a>: 	x12, x11 = bits.<b>Mul64</b>(x4, 0xa40611e3449c0f01)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-725" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-725">#L725</a>: 	_, x19 = bits.<b>Mul64</b>(x11, 0xd2b51da312547e1b)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-728" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-728">#L728</a>: 	x22, x21 = bits.<b>Mul64</b>(x19, 0x1000000000000000)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-731" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-731">#L731</a>: 	x24, x23 = bits.<b>Mul64</b>(x19, 0x14def9dea2f79cd6)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-734" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-734">#L734</a>: 	x26, x25 = bits.<b>Mul64</b>(x19, 0x5812631a5cf5d3ed)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-751" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-751">#L751</a>: 	x38, x37 = bits.<b>Mul64</b>(x1, 0x399411b7c309a3d)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-754" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-754">#L754</a>: 	x40, x39 = bits.<b>Mul64</b>(x1, 0xceec73d217f5be65)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-757" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-757">#L757</a>: 	x42, x41 = bits.<b>Mul64</b>(x1, 0xd00e1ba768859347)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-760" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-760">#L760</a>: 	x44, x43 = bits.<b>Mul64</b>(x1, 0xa40611e3449c0f01)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-783" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-783">#L783</a>: 	_, x59 = bits.<b>Mul64</b>(x51, 0xd2b51da312547e1b)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-786" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-786">#L786</a>: 	x62, x61 = bits.<b>Mul64</b>(x59, 0x1000000000000000)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-789" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-789">#L789</a>: 	x64, x63 = bits.<b>Mul64</b>(x59, 0x14def9dea2f79cd6)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-792" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-792">#L792</a>: 	x66, x65 = bits.<b>Mul64</b>(x59, 0x5812631a5cf5d3ed)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-809" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-809">#L809</a>: 	x78, x77 = bits.<b>Mul64</b>(x2, 0x399411b7c309a3d)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-812" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-812">#L812</a>: 	x80, x79 = bits.<b>Mul64</b>(x2, 0xceec73d217f5be65)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-815" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-815">#L815</a>: 	x82, x81 = bits.<b>Mul64</b>(x2, 0xd00e1ba768859347)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-818" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-818">#L818</a>: 	x84, x83 = bits.<b>Mul64</b>(x2, 0xa40611e3449c0f01)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-841" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-841">#L841</a>: 	_, x99 = bits.<b>Mul64</b>(x91, 0xd2b51da312547e1b)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-844" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-844">#L844</a>: 	x102, x101 = bits.<b>Mul64</b>(x99, 0x1000000000000000)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-847" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-847">#L847</a>: 	x104, x103 = bits.<b>Mul64</b>(x99, 0x14def9dea2f79cd6)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-850" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-850">#L850</a>: 	x106, x105 = bits.<b>Mul64</b>(x99, 0x5812631a5cf5d3ed)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-867" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-867">#L867</a>: 	x118, x117 = bits.<b>Mul64</b>(x3, 0x399411b7c309a3d)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-870" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-870">#L870</a>: 	x120, x119 = bits.<b>Mul64</b>(x3, 0xceec73d217f5be65)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-873" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-873">#L873</a>: 	x122, x121 = bits.<b>Mul64</b>(x3, 0xd00e1ba768859347)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-876" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-876">#L876</a>: 	x124, x123 = bits.<b>Mul64</b>(x3, 0xa40611e3449c0f01)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-899" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-899">#L899</a>: 	_, x139 = bits.<b>Mul64</b>(x131, 0xd2b51da312547e1b)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-902" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-902">#L902</a>: 	x142, x141 = bits.<b>Mul64</b>(x139, 0x1000000000000000)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-905" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-905">#L905</a>: 	x144, x143 = bits.<b>Mul64</b>(x139, 0x14def9dea2f79cd6)
+		<a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-908" class="path-duplicate">scalar_fiat.go</a><a href="../../src/crypto/internal/edwards25519/scalar_fiat.go.html#line-908">#L908</a>: 	x146, x145 = bits.<b>Mul64</b>(x139, 0x5812631a5cf5d3ed)
 
 	<a href="../../pkg/crypto/internal/edwards25519/field.html">crypto/internal/edwards25519/field</a>
 		<a href="../../src/crypto/internal/edwards25519/field/fe.go.html#line-332">fe.go#L332</a>: 	mh, ml := bits.<b>Mul64</b>(a, uint64(b))
@@ -1001,16 +1083,11 @@
 		<a href="../../src/strconv/ftoaryu.go.html#line-540" class="path-duplicate">ftoaryu.go</a><a href="../../src/strconv/ftoaryu.go.html#line-540">#L540</a>: 	h1, h0 := bits.<b>Mul64</b>(m, pow[1])
 		<a href="../../src/strconv/ftoaryu.go.html#line-566" class="path-duplicate">ftoaryu.go</a><a href="../../src/strconv/ftoaryu.go.html#line-566">#L566</a>: 	hi, _ := bits.<b>Mul64</b>(x&gt;&gt;1, 0x89705f4136b4a598) // binary digits of 1e-9
 
-	<a href="../../pkg/vendor/golang.org/x/crypto/curve25519/internal/field.html">vendor/golang.org/x/crypto/curve25519/internal/field</a>
-		<a href="../../src/vendor/golang.org/x/crypto/curve25519/internal/field/fe.go.html#line-328">fe.go#L328</a>: 	mh, ml := bits.<b>Mul64</b>(a, uint64(b))
-		<a href="../../src/vendor/golang.org/x/crypto/curve25519/internal/field/fe_generic.go.html#line-17">fe_generic.go#L17</a>: 	hi, lo := bits.<b>Mul64</b>(a, b)
-		<a href="../../src/vendor/golang.org/x/crypto/curve25519/internal/field/fe_generic.go.html#line-23" class="path-duplicate">fe_generic.go</a><a href="../../src/vendor/golang.org/x/crypto/curve25519/internal/field/fe_generic.go.html#line-23">#L23</a>: 	hi, lo := bits.<b>Mul64</b>(a, b)
-
 	<a href="../../pkg/vendor/golang.org/x/crypto/internal/poly1305.html">vendor/golang.org/x/crypto/internal/poly1305</a>
 		<a href="../../src/vendor/golang.org/x/crypto/internal/poly1305/bits_go1.13.go.html#line-21">bits_go1.13.go#L21</a>: 	return bits.<b>Mul64</b>(x, y)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

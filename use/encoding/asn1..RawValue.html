@@ -5,58 +5,61 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: encoding/asn1.RawValue</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/encoding/asn1.html">encoding/asn1</a>.<a href="../../src/encoding/asn1/asn1.go.html#line-509">RawValue</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/encoding/asn1.html">encoding/asn1</a>.<a href="../../src/encoding/asn1/asn1.go.html#line-512">RawValue</a></b></span>
 
-<span class="title">36 uses</span>
+<span class="title">39 uses</span>
 
 	encoding/asn1 (current package)
-		<a href="../../src/encoding/asn1/asn1.go.html#line-214">asn1.go#L214</a>: var NullRawValue = <b>RawValue</b>{Tag: TagNull}
-		<a href="../../src/encoding/asn1/asn1.go.html#line-509" class="path-duplicate">asn1.go</a><a href="../../src/encoding/asn1/asn1.go.html#line-509">#L509</a>: type <b>RawValue</b> struct {
-		<a href="../../src/encoding/asn1/asn1.go.html#line-661" class="path-duplicate">asn1.go</a><a href="../../src/encoding/asn1/asn1.go.html#line-661">#L661</a>: 	rawValueType         = reflect.TypeOf(<b>RawValue</b>{})
-		<a href="../../src/encoding/asn1/asn1.go.html#line-855" class="path-duplicate">asn1.go</a><a href="../../src/encoding/asn1/asn1.go.html#line-855">#L855</a>: 	case *<b>RawValue</b>:
-		<a href="../../src/encoding/asn1/asn1.go.html#line-856" class="path-duplicate">asn1.go</a><a href="../../src/encoding/asn1/asn1.go.html#line-856">#L856</a>: 		*v = <b>RawValue</b>{t.class, t.tag, t.isCompound, innerBytes, bytes[initOffset:offset]}
+		<a href="../../src/encoding/asn1/asn1.go.html#line-215">asn1.go#L215</a>: var NullRawValue = <b>RawValue</b>{Tag: TagNull}
+		<a href="../../src/encoding/asn1/asn1.go.html#line-512" class="path-duplicate">asn1.go</a><a href="../../src/encoding/asn1/asn1.go.html#line-512">#L512</a>: type <b>RawValue</b> struct {
+		<a href="../../src/encoding/asn1/asn1.go.html#line-664" class="path-duplicate">asn1.go</a><a href="../../src/encoding/asn1/asn1.go.html#line-664">#L664</a>: 	rawValueType         = reflect.TypeOf(<b>RawValue</b>{})
+		<a href="../../src/encoding/asn1/asn1.go.html#line-858" class="path-duplicate">asn1.go</a><a href="../../src/encoding/asn1/asn1.go.html#line-858">#L858</a>: 	case *<b>RawValue</b>:
+		<a href="../../src/encoding/asn1/asn1.go.html#line-859" class="path-duplicate">asn1.go</a><a href="../../src/encoding/asn1/asn1.go.html#line-859">#L859</a>: 		*v = <b>RawValue</b>{t.class, t.tag, t.isCompound, innerBytes, bytes[initOffset:offset]}
 		<a href="../../src/encoding/asn1/marshal.go.html#line-611">marshal.go#L611</a>: 		rv := v.Interface().(<b>RawValue</b>)
 
 	<a href="../../pkg/crypto/x509.html">crypto/x509</a>
-		<a href="../../src/crypto/x509/pkcs8.go.html#line-112">pkcs8.go#L112</a>: 			Parameters: asn1.<b>RawValue</b>{
-		<a href="../../src/crypto/x509/x509.go.html#line-155">x509.go#L155</a>: 	Issuer             asn1.<b>RawValue</b>
-		<a href="../../src/crypto/x509/x509.go.html#line-157" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-157">#L157</a>: 	Subject            asn1.<b>RawValue</b>
-		<a href="../../src/crypto/x509/x509.go.html#line-359" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-359">#L359</a>: var hashToPSSParameters = map[crypto.Hash]asn1.<b>RawValue</b>{
-		<a href="../../src/crypto/x509/x509.go.html#line-360" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-360">#L360</a>: 	crypto.SHA256: asn1.<b>RawValue</b>{FullBytes: []byte{48, 52, 160, 15, 48, 13, 6, 9, 96, 134, 72, 1, 101, 3, 4, 2, 1, 5, 0, 161, 28, 48, 26, 6, 9, 42, 134, 72, 134, 247, 13, 1, 1, 8, 48, 13, 6, 9, 96, 134, 72, 1, 101, 3, 4, 2, 1, 5, 0, 162, 3, 2, 1, 32}},
-		<a href="../../src/crypto/x509/x509.go.html#line-361" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-361">#L361</a>: 	crypto.SHA384: asn1.<b>RawValue</b>{FullBytes: []byte{48, 52, 160, 15, 48, 13, 6, 9, 96, 134, 72, 1, 101, 3, 4, 2, 2, 5, 0, 161, 28, 48, 26, 6, 9, 42, 134, 72, 134, 247, 13, 1, 1, 8, 48, 13, 6, 9, 96, 134, 72, 1, 101, 3, 4, 2, 2, 5, 0, 162, 3, 2, 1, 48}},
-		<a href="../../src/crypto/x509/x509.go.html#line-362" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-362">#L362</a>: 	crypto.SHA512: asn1.<b>RawValue</b>{FullBytes: []byte{48, 52, 160, 15, 48, 13, 6, 9, 96, 134, 72, 1, 101, 3, 4, 2, 3, 5, 0, 161, 28, 48, 26, 6, 9, 42, 134, 72, 134, 247, 13, 1, 1, 8, 48, 13, 6, 9, 96, 134, 72, 1, 101, 3, 4, 2, 3, 5, 0, 162, 3, 2, 1, 64}},
-		<a href="../../src/crypto/x509/x509.go.html#line-916" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-916">#L916</a>: 	Location asn1.<b>RawValue</b>
-		<a href="../../src/crypto/x509/x509.go.html#line-923" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-923">#L923</a>: 	CRLIssuer         asn1.<b>RawValue</b>         `asn1:"optional,tag:2"`
-		<a href="../../src/crypto/x509/x509.go.html#line-927" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-927">#L927</a>: 	FullName     []asn1.<b>RawValue</b>  `asn1:"optional,tag:0"`
-		<a href="../../src/crypto/x509/x509.go.html#line-991" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-991">#L991</a>: 	var rawValues []asn1.<b>RawValue</b>
-		<a href="../../src/crypto/x509/x509.go.html#line-996" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-996">#L996</a>: 		rawValues = append(rawValues, asn1.<b>RawValue</b>{Tag: nameTypeDNS, Class: 2, Bytes: []byte(name)})
-		<a href="../../src/crypto/x509/x509.go.html#line-1002" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1002">#L1002</a>: 		rawValues = append(rawValues, asn1.<b>RawValue</b>{Tag: nameTypeEmail, Class: 2, Bytes: []byte(email)})
-		<a href="../../src/crypto/x509/x509.go.html#line-1010" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1010">#L1010</a>: 		rawValues = append(rawValues, asn1.<b>RawValue</b>{Tag: nameTypeIP, Class: 2, Bytes: ip})
-		<a href="../../src/crypto/x509/x509.go.html#line-1017" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1017">#L1017</a>: 		rawValues = append(rawValues, asn1.<b>RawValue</b>{Tag: nameTypeURI, Class: 2, Bytes: []byte(uriStr)})
-		<a href="../../src/crypto/x509/x509.go.html#line-1088" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1088">#L1088</a>: 				Location: asn1.<b>RawValue</b>{Tag: 6, Class: 2, Bytes: []byte(name)},
-		<a href="../../src/crypto/x509/x509.go.html#line-1094" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1094">#L1094</a>: 				Location: asn1.<b>RawValue</b>{Tag: 6, Class: 2, Bytes: []byte(name)},
-		<a href="../../src/crypto/x509/x509.go.html#line-1233" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1233">#L1233</a>: 					FullName: []asn1.<b>RawValue</b>{
-		<a href="../../src/crypto/x509/x509.go.html#line-1554" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1554">#L1554</a>: 		Issuer:             asn1.<b>RawValue</b>{FullBytes: asn1Issuer},
-		<a href="../../src/crypto/x509/x509.go.html#line-1556" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1556">#L1556</a>: 		Subject:            asn1.<b>RawValue</b>{FullBytes: asn1Subject},
-		<a href="../../src/crypto/x509/x509.go.html#line-1760" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1760">#L1760</a>: 	Subject       asn1.<b>RawValue</b>
-		<a href="../../src/crypto/x509/x509.go.html#line-1762" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1762">#L1762</a>: 	RawAttributes []asn1.<b>RawValue</b> `asn1:"tag:0"`
-		<a href="../../src/crypto/x509/x509.go.html#line-1778" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1778">#L1778</a>: func newRawAttributes(attributes []pkix.AttributeTypeAndValueSET) ([]asn1.<b>RawValue</b>, error) {
-		<a href="../../src/crypto/x509/x509.go.html#line-1779" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1779">#L1779</a>: 	var rawAttributes []asn1.<b>RawValue</b>
-		<a href="../../src/crypto/x509/x509.go.html#line-1795" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1795">#L1795</a>: func parseRawAttributes(rawAttributes []asn1.<b>RawValue</b>) []pkix.AttributeTypeAndValueSET {
-		<a href="../../src/crypto/x509/x509.go.html#line-1811" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1811">#L1811</a>: func parseCSRExtensions(rawAttributes []asn1.<b>RawValue</b>) ([]pkix.Extension, error) {
-		<a href="../../src/crypto/x509/x509.go.html#line-1815" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1815">#L1815</a>: 		Values []asn1.<b>RawValue</b> `asn1:"set"`
-		<a href="../../src/crypto/x509/x509.go.html#line-1966" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1966">#L1966</a>: 		var rawValue asn1.<b>RawValue</b>
-		<a href="../../src/crypto/x509/x509.go.html#line-1984" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1984">#L1984</a>: 		Subject: asn1.<b>RawValue</b>{FullBytes: asn1Subject},
+		<a href="../../src/crypto/x509/pkcs8.go.html#line-123">pkcs8.go#L123</a>: 			Parameters: asn1.<b>RawValue</b>{
+		<a href="../../src/crypto/x509/pkcs8.go.html#line-161" class="path-duplicate">pkcs8.go</a><a href="../../src/crypto/x509/pkcs8.go.html#line-161">#L161</a>: 				Parameters: asn1.<b>RawValue</b>{
+		<a href="../../src/crypto/x509/x509.go.html#line-184">x509.go#L184</a>: 	Issuer             asn1.<b>RawValue</b>
+		<a href="../../src/crypto/x509/x509.go.html#line-186" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-186">#L186</a>: 	Subject            asn1.<b>RawValue</b>
+		<a href="../../src/crypto/x509/x509.go.html#line-388" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-388">#L388</a>: var hashToPSSParameters = map[crypto.Hash]asn1.<b>RawValue</b>{
+		<a href="../../src/crypto/x509/x509.go.html#line-389" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-389">#L389</a>: 	crypto.SHA256: asn1.<b>RawValue</b>{FullBytes: []byte{48, 52, 160, 15, 48, 13, 6, 9, 96, 134, 72, 1, 101, 3, 4, 2, 1, 5, 0, 161, 28, 48, 26, 6, 9, 42, 134, 72, 134, 247, 13, 1, 1, 8, 48, 13, 6, 9, 96, 134, 72, 1, 101, 3, 4, 2, 1, 5, 0, 162, 3, 2, 1, 32}},
+		<a href="../../src/crypto/x509/x509.go.html#line-390" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-390">#L390</a>: 	crypto.SHA384: asn1.<b>RawValue</b>{FullBytes: []byte{48, 52, 160, 15, 48, 13, 6, 9, 96, 134, 72, 1, 101, 3, 4, 2, 2, 5, 0, 161, 28, 48, 26, 6, 9, 42, 134, 72, 134, 247, 13, 1, 1, 8, 48, 13, 6, 9, 96, 134, 72, 1, 101, 3, 4, 2, 2, 5, 0, 162, 3, 2, 1, 48}},
+		<a href="../../src/crypto/x509/x509.go.html#line-391" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-391">#L391</a>: 	crypto.SHA512: asn1.<b>RawValue</b>{FullBytes: []byte{48, 52, 160, 15, 48, 13, 6, 9, 96, 134, 72, 1, 101, 3, 4, 2, 3, 5, 0, 161, 28, 48, 26, 6, 9, 42, 134, 72, 134, 247, 13, 1, 1, 8, 48, 13, 6, 9, 96, 134, 72, 1, 101, 3, 4, 2, 3, 5, 0, 162, 3, 2, 1, 64}},
+		<a href="../../src/crypto/x509/x509.go.html#line-977" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-977">#L977</a>: 	Location asn1.<b>RawValue</b>
+		<a href="../../src/crypto/x509/x509.go.html#line-984" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-984">#L984</a>: 	CRLIssuer         asn1.<b>RawValue</b>         `asn1:"optional,tag:2"`
+		<a href="../../src/crypto/x509/x509.go.html#line-988" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-988">#L988</a>: 	FullName     []asn1.<b>RawValue</b>  `asn1:"optional,tag:0"`
+		<a href="../../src/crypto/x509/x509.go.html#line-1053" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1053">#L1053</a>: 	var rawValues []asn1.<b>RawValue</b>
+		<a href="../../src/crypto/x509/x509.go.html#line-1058" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1058">#L1058</a>: 		rawValues = append(rawValues, asn1.<b>RawValue</b>{Tag: nameTypeDNS, Class: 2, Bytes: []byte(name)})
+		<a href="../../src/crypto/x509/x509.go.html#line-1064" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1064">#L1064</a>: 		rawValues = append(rawValues, asn1.<b>RawValue</b>{Tag: nameTypeEmail, Class: 2, Bytes: []byte(email)})
+		<a href="../../src/crypto/x509/x509.go.html#line-1072" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1072">#L1072</a>: 		rawValues = append(rawValues, asn1.<b>RawValue</b>{Tag: nameTypeIP, Class: 2, Bytes: ip})
+		<a href="../../src/crypto/x509/x509.go.html#line-1079" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1079">#L1079</a>: 		rawValues = append(rawValues, asn1.<b>RawValue</b>{Tag: nameTypeURI, Class: 2, Bytes: []byte(uriStr)})
+		<a href="../../src/crypto/x509/x509.go.html#line-1150" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1150">#L1150</a>: 				Location: asn1.<b>RawValue</b>{Tag: 6, Class: 2, Bytes: []byte(name)},
+		<a href="../../src/crypto/x509/x509.go.html#line-1156" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1156">#L1156</a>: 				Location: asn1.<b>RawValue</b>{Tag: 6, Class: 2, Bytes: []byte(name)},
+		<a href="../../src/crypto/x509/x509.go.html#line-1295" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1295">#L1295</a>: 					FullName: []asn1.<b>RawValue</b>{
+		<a href="../../src/crypto/x509/x509.go.html#line-1619" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1619">#L1619</a>: 		Issuer:             asn1.<b>RawValue</b>{FullBytes: asn1Issuer},
+		<a href="../../src/crypto/x509/x509.go.html#line-1621" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1621">#L1621</a>: 		Subject:            asn1.<b>RawValue</b>{FullBytes: asn1Subject},
+		<a href="../../src/crypto/x509/x509.go.html#line-1824" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1824">#L1824</a>: 	Subject       asn1.<b>RawValue</b>
+		<a href="../../src/crypto/x509/x509.go.html#line-1826" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1826">#L1826</a>: 	RawAttributes []asn1.<b>RawValue</b> `asn1:"tag:0"`
+		<a href="../../src/crypto/x509/x509.go.html#line-1842" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1842">#L1842</a>: func newRawAttributes(attributes []pkix.AttributeTypeAndValueSET) ([]asn1.<b>RawValue</b>, error) {
+		<a href="../../src/crypto/x509/x509.go.html#line-1843" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1843">#L1843</a>: 	var rawAttributes []asn1.<b>RawValue</b>
+		<a href="../../src/crypto/x509/x509.go.html#line-1859" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1859">#L1859</a>: func parseRawAttributes(rawAttributes []asn1.<b>RawValue</b>) []pkix.AttributeTypeAndValueSET {
+		<a href="../../src/crypto/x509/x509.go.html#line-1875" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1875">#L1875</a>: func parseCSRExtensions(rawAttributes []asn1.<b>RawValue</b>) ([]pkix.Extension, error) {
+		<a href="../../src/crypto/x509/x509.go.html#line-1879" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1879">#L1879</a>: 		Values []asn1.<b>RawValue</b> `asn1:"set"`
+		<a href="../../src/crypto/x509/x509.go.html#line-2030" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2030">#L2030</a>: 		var rawValue asn1.<b>RawValue</b>
+		<a href="../../src/crypto/x509/x509.go.html#line-2048" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2048">#L2048</a>: 		Subject: asn1.<b>RawValue</b>{FullBytes: asn1Subject},
+		<a href="../../src/crypto/x509/x509.go.html#line-2273" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2273">#L2273</a>: 	Issuer              asn1.<b>RawValue</b>
+		<a href="../../src/crypto/x509/x509.go.html#line-2397" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2397">#L2397</a>: 		Issuer:     asn1.<b>RawValue</b>{FullBytes: issuerSubject},
 
 	<a href="../../pkg/crypto/x509/pkix.html">crypto/x509/pkix</a>
 		<a href="../../src/crypto/x509/pkix/pkix.go.html#line-21">pkix.go#L21</a>: 	Parameters asn1.<b>RawValue</b> `asn1:"optional"`
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: encoding/asn1.Marshal</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../../pkg/encoding/asn1.html">encoding/asn1</a>.<a href="../../src/encoding/asn1/marshal.go.html#line-733">Marshal</a></b></span>
 
-<span class="title">36 uses</span>
+<span class="title">41 uses</span>
 
 	encoding/asn1 (current package)
 		<a href="../../src/encoding/asn1/marshal.go.html#line-733">marshal.go#L733</a>: func <b>Marshal</b>(val any) ([]byte, error) {
@@ -19,37 +19,42 @@
 	<a href="../../pkg/crypto/x509.html">crypto/x509</a>
 		<a href="../../src/crypto/x509/pkcs1.go.html#line-131">pkcs1.go#L131</a>: 	b, _ := asn1.<b>Marshal</b>(priv)
 		<a href="../../src/crypto/x509/pkcs1.go.html#line-168" class="path-duplicate">pkcs1.go</a><a href="../../src/crypto/x509/pkcs1.go.html#line-168">#L168</a>: 	derBytes, _ := asn1.<b>Marshal</b>(pkcs1PublicKey{
-		<a href="../../src/crypto/x509/pkcs8.go.html#line-105">pkcs8.go#L105</a>: 		oidBytes, err := asn1.<b>Marshal</b>(oid)
-		<a href="../../src/crypto/x509/pkcs8.go.html#line-125" class="path-duplicate">pkcs8.go</a><a href="../../src/crypto/x509/pkcs8.go.html#line-125">#L125</a>: 		curvePrivateKey, err := asn1.<b>Marshal</b>(k.Seed())
-		<a href="../../src/crypto/x509/pkcs8.go.html#line-135" class="path-duplicate">pkcs8.go</a><a href="../../src/crypto/x509/pkcs8.go.html#line-135">#L135</a>: 	return asn1.<b>Marshal</b>(privKey)
-		<a href="../../src/crypto/x509/sec1.go.html#line-61">sec1.go#L61</a>: 	return asn1.<b>Marshal</b>(ecPrivateKey{
-		<a href="../../src/crypto/x509/x509.go.html#line-75">x509.go#L75</a>: 		publicKeyBytes, err = asn1.<b>Marshal</b>(pkcs1PublicKey{
-		<a href="../../src/crypto/x509/x509.go.html#line-97" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-97">#L97</a>: 		paramBytes, err = asn1.<b>Marshal</b>(oid)
-		<a href="../../src/crypto/x509/x509.go.html#line-137" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-137">#L137</a>: 	ret, _ := asn1.<b>Marshal</b>(pkix)
-		<a href="../../src/crypto/x509/x509.go.html#line-1019" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1019">#L1019</a>: 	return asn1.<b>Marshal</b>(rawValues)
-		<a href="../../src/crypto/x509/x509.go.html#line-1065" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1065">#L1065</a>: 		ret[n].Value, err = asn1.<b>Marshal</b>(subjectKeyId)
-		<a href="../../src/crypto/x509/x509.go.html#line-1074" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1074">#L1074</a>: 		ret[n].Value, err = asn1.<b>Marshal</b>(authKeyId{authorityKeyId})
-		<a href="../../src/crypto/x509/x509.go.html#line-1097" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1097">#L1097</a>: 		ret[n].Value, err = asn1.<b>Marshal</b>(aiaValues)
-		<a href="../../src/crypto/x509/x509.go.html#line-1241" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1241">#L1241</a>: 		ret[n].Value, err = asn1.<b>Marshal</b>(crlDp)
-		<a href="../../src/crypto/x509/x509.go.html#line-1269" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1269">#L1269</a>: 	ext.Value, err = asn1.<b>Marshal</b>(asn1.BitString{Bytes: bitString, BitLength: asn1BitLength(bitString)})
-		<a href="../../src/crypto/x509/x509.go.html#line-1288" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1288">#L1288</a>: 	ext.Value, err = asn1.<b>Marshal</b>(oids)
-		<a href="../../src/crypto/x509/x509.go.html#line-1301" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1301">#L1301</a>: 	ext.Value, err = asn1.<b>Marshal</b>(basicConstraints{isCA, maxPathLen})
-		<a href="../../src/crypto/x509/x509.go.html#line-1312" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1312">#L1312</a>: 	ext.Value, err = asn1.<b>Marshal</b>(policies)
-		<a href="../../src/crypto/x509/x509.go.html#line-1340" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1340">#L1340</a>: 	return asn1.<b>Marshal</b>(cert.Subject.ToRDNSequence())
-		<a href="../../src/crypto/x509/x509.go.html#line-1561" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1561">#L1561</a>: 	tbsCertContents, err := asn1.<b>Marshal</b>(c)
-		<a href="../../src/crypto/x509/x509.go.html#line-1588" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1588">#L1588</a>: 	signedCert, err := asn1.<b>Marshal</b>(certificate{
-		<a href="../../src/crypto/x509/x509.go.html#line-1678" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1678">#L1678</a>: 		aki.Value, err = asn1.<b>Marshal</b>(authKeyId{Id: c.SubjectKeyId})
-		<a href="../../src/crypto/x509/x509.go.html#line-1685" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1685">#L1685</a>: 	tbsCertListContents, err := asn1.<b>Marshal</b>(tbsCertList)
-		<a href="../../src/crypto/x509/x509.go.html#line-1703" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1703">#L1703</a>: 	return asn1.<b>Marshal</b>(pkix.CertificateList{
-		<a href="../../src/crypto/x509/x509.go.html#line-1780" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1780">#L1780</a>: 	b, err := asn1.<b>Marshal</b>(attributes)
-		<a href="../../src/crypto/x509/x509.go.html#line-1961" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1961">#L1961</a>: 		b, err := asn1.<b>Marshal</b>(attr)
-		<a href="../../src/crypto/x509/x509.go.html#line-1976" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1976">#L1976</a>: 		asn1Subject, err = asn1.<b>Marshal</b>(template.Subject.ToRDNSequence())
-		<a href="../../src/crypto/x509/x509.go.html#line-1995" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1995">#L1995</a>: 	tbsCSRContents, err := asn1.<b>Marshal</b>(tbsCSR)
-		<a href="../../src/crypto/x509/x509.go.html#line-2014" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2014">#L2014</a>: 	return asn1.<b>Marshal</b>(certificateRequest{
-		<a href="../../src/crypto/x509/x509.go.html#line-2190" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2190">#L2190</a>: 	aki, err := asn1.<b>Marshal</b>(authKeyId{Id: issuer.SubjectKeyId})
-		<a href="../../src/crypto/x509/x509.go.html#line-2198" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2198">#L2198</a>: 	crlNum, err := asn1.<b>Marshal</b>(template.Number)
-		<a href="../../src/crypto/x509/x509.go.html#line-2228" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2228">#L2228</a>: 	tbsCertListContents, err := asn1.<b>Marshal</b>(tbsCertList)
-		<a href="../../src/crypto/x509/x509.go.html#line-2252" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2252">#L2252</a>: 	return asn1.<b>Marshal</b>(pkix.CertificateList{
+		<a href="../../src/crypto/x509/pkcs8.go.html#line-117">pkcs8.go#L117</a>: 		oidBytes, err := asn1.<b>Marshal</b>(oid)
+		<a href="../../src/crypto/x509/pkcs8.go.html#line-135" class="path-duplicate">pkcs8.go</a><a href="../../src/crypto/x509/pkcs8.go.html#line-135">#L135</a>: 		curvePrivateKey, err := asn1.<b>Marshal</b>(k.Seed())
+		<a href="../../src/crypto/x509/pkcs8.go.html#line-147" class="path-duplicate">pkcs8.go</a><a href="../../src/crypto/x509/pkcs8.go.html#line-147">#L147</a>: 			if privKey.PrivateKey, err = asn1.<b>Marshal</b>(k.Bytes()); err != nil {
+		<a href="../../src/crypto/x509/pkcs8.go.html#line-155" class="path-duplicate">pkcs8.go</a><a href="../../src/crypto/x509/pkcs8.go.html#line-155">#L155</a>: 			oidBytes, err := asn1.<b>Marshal</b>(oid)
+		<a href="../../src/crypto/x509/pkcs8.go.html#line-174" class="path-duplicate">pkcs8.go</a><a href="../../src/crypto/x509/pkcs8.go.html#line-174">#L174</a>: 	return asn1.<b>Marshal</b>(privKey)
+		<a href="../../src/crypto/x509/sec1.go.html#line-62">sec1.go#L62</a>: 	return asn1.<b>Marshal</b>(ecPrivateKey{
+		<a href="../../src/crypto/x509/sec1.go.html#line-73" class="path-duplicate">sec1.go</a><a href="../../src/crypto/x509/sec1.go.html#line-73">#L73</a>: 	return asn1.<b>Marshal</b>(ecPrivateKey{
+		<a href="../../src/crypto/x509/x509.go.html#line-87">x509.go#L87</a>: 		publicKeyBytes, err = asn1.<b>Marshal</b>(pkcs1PublicKey{
+		<a href="../../src/crypto/x509/x509.go.html#line-109" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-109">#L109</a>: 		paramBytes, err = asn1.<b>Marshal</b>(oid)
+		<a href="../../src/crypto/x509/x509.go.html#line-128" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-128">#L128</a>: 			paramBytes, err = asn1.<b>Marshal</b>(oid)
+		<a href="../../src/crypto/x509/x509.go.html#line-167" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-167">#L167</a>: 	ret, _ := asn1.<b>Marshal</b>(pkix)
+		<a href="../../src/crypto/x509/x509.go.html#line-1081" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1081">#L1081</a>: 	return asn1.<b>Marshal</b>(rawValues)
+		<a href="../../src/crypto/x509/x509.go.html#line-1127" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1127">#L1127</a>: 		ret[n].Value, err = asn1.<b>Marshal</b>(subjectKeyId)
+		<a href="../../src/crypto/x509/x509.go.html#line-1136" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1136">#L1136</a>: 		ret[n].Value, err = asn1.<b>Marshal</b>(authKeyId{authorityKeyId})
+		<a href="../../src/crypto/x509/x509.go.html#line-1159" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1159">#L1159</a>: 		ret[n].Value, err = asn1.<b>Marshal</b>(aiaValues)
+		<a href="../../src/crypto/x509/x509.go.html#line-1303" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1303">#L1303</a>: 		ret[n].Value, err = asn1.<b>Marshal</b>(crlDp)
+		<a href="../../src/crypto/x509/x509.go.html#line-1331" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1331">#L1331</a>: 	ext.Value, err = asn1.<b>Marshal</b>(asn1.BitString{Bytes: bitString, BitLength: asn1BitLength(bitString)})
+		<a href="../../src/crypto/x509/x509.go.html#line-1350" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1350">#L1350</a>: 	ext.Value, err = asn1.<b>Marshal</b>(oids)
+		<a href="../../src/crypto/x509/x509.go.html#line-1363" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1363">#L1363</a>: 	ext.Value, err = asn1.<b>Marshal</b>(basicConstraints{isCA, maxPathLen})
+		<a href="../../src/crypto/x509/x509.go.html#line-1374" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1374">#L1374</a>: 	ext.Value, err = asn1.<b>Marshal</b>(policies)
+		<a href="../../src/crypto/x509/x509.go.html#line-1402" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1402">#L1402</a>: 	return asn1.<b>Marshal</b>(cert.Subject.ToRDNSequence())
+		<a href="../../src/crypto/x509/x509.go.html#line-1626" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1626">#L1626</a>: 	tbsCertContents, err := asn1.<b>Marshal</b>(c)
+		<a href="../../src/crypto/x509/x509.go.html#line-1653" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1653">#L1653</a>: 	signedCert, err := asn1.<b>Marshal</b>(certificate{
+		<a href="../../src/crypto/x509/x509.go.html#line-1742" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1742">#L1742</a>: 		aki.Value, err = asn1.<b>Marshal</b>(authKeyId{Id: c.SubjectKeyId})
+		<a href="../../src/crypto/x509/x509.go.html#line-1749" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1749">#L1749</a>: 	tbsCertListContents, err := asn1.<b>Marshal</b>(tbsCertList)
+		<a href="../../src/crypto/x509/x509.go.html#line-1767" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1767">#L1767</a>: 	return asn1.<b>Marshal</b>(pkix.CertificateList{
+		<a href="../../src/crypto/x509/x509.go.html#line-1844" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-1844">#L1844</a>: 	b, err := asn1.<b>Marshal</b>(attributes)
+		<a href="../../src/crypto/x509/x509.go.html#line-2025" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2025">#L2025</a>: 		b, err := asn1.<b>Marshal</b>(attr)
+		<a href="../../src/crypto/x509/x509.go.html#line-2040" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2040">#L2040</a>: 		asn1Subject, err = asn1.<b>Marshal</b>(template.Subject.ToRDNSequence())
+		<a href="../../src/crypto/x509/x509.go.html#line-2059" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2059">#L2059</a>: 	tbsCSRContents, err := asn1.<b>Marshal</b>(tbsCSR)
+		<a href="../../src/crypto/x509/x509.go.html#line-2078" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2078">#L2078</a>: 	return asn1.<b>Marshal</b>(certificateRequest{
+		<a href="../../src/crypto/x509/x509.go.html#line-2357" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2357">#L2357</a>: 				reasonBytes, err := asn1.<b>Marshal</b>(asn1.Enumerated(rce.ReasonCode))
+		<a href="../../src/crypto/x509/x509.go.html#line-2375" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2375">#L2375</a>: 	aki, err := asn1.<b>Marshal</b>(authKeyId{Id: issuer.SubjectKeyId})
+		<a href="../../src/crypto/x509/x509.go.html#line-2383" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2383">#L2383</a>: 	crlNum, err := asn1.<b>Marshal</b>(template.Number)
+		<a href="../../src/crypto/x509/x509.go.html#line-2419" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2419">#L2419</a>: 	tbsCertListContents, err := asn1.<b>Marshal</b>(tbsCertList)
+		<a href="../../src/crypto/x509/x509.go.html#line-2447" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2447">#L2447</a>: 	return asn1.<b>Marshal</b>(certificateList{
 
 	<a href="../../pkg/crypto/x509/pkix.html">crypto/x509/pkix</a>
 		<a href="../../src/crypto/x509/pkix/pkix.go.html#line-55">pkix.go#L55</a>: 				derBytes, err := asn1.<b>Marshal</b>(tv.Value)
@@ -58,7 +63,7 @@
 		<a href="../../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-218">asn1.go#L218</a>: 	bytes, err := encoding_asn1.<b>Marshal</b>(v)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,28 +5,37 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto/tls.Conn.handshakeErr</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../pkg/crypto/tls.html">crypto/tls</a>.<a href="../../src/crypto/tls/conn.go.html#line-27">Conn</a>.<a href="../../src/crypto/tls/conn.go.html#line-40">handshakeErr</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">11 uses</span>
+<span class="title">21 uses</span>
 
 	crypto/tls (current package)
 		<a href="../../src/crypto/tls/conn.go.html#line-40">conn.go#L40</a>: 	<b>handshakeErr</b>   error   // error resulting from handshake
-		<a href="../../src/crypto/tls/conn.go.html#line-1228" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1228">#L1228</a>: 	if c.<b>handshakeErr</b> = c.clientHandshake(context.Background()); c.<b>handshakeErr</b> == nil {
-		<a href="../../src/crypto/tls/conn.go.html#line-1231" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1231">#L1231</a>: 	return c.<b>handshakeErr</b>
-		<a href="../../src/crypto/tls/conn.go.html#line-1480" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1480">#L1480</a>: 	if err := c.<b>handshakeErr</b>; err != nil {
-		<a href="../../src/crypto/tls/conn.go.html#line-1490" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1490">#L1490</a>: 	c.<b>handshakeErr</b> = c.handshakeFn(handshakeCtx)
-		<a href="../../src/crypto/tls/conn.go.html#line-1491" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1491">#L1491</a>: 	if c.<b>handshakeErr</b> == nil {
-		<a href="../../src/crypto/tls/conn.go.html#line-1499" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1499">#L1499</a>: 	if c.<b>handshakeErr</b> == nil &amp;&amp; !c.handshakeComplete() {
-		<a href="../../src/crypto/tls/conn.go.html#line-1500" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1500">#L1500</a>: 		c.<b>handshakeErr</b> = errors.New("tls: internal error: handshake should have had a result")
-		<a href="../../src/crypto/tls/conn.go.html#line-1502" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1502">#L1502</a>: 	if c.<b>handshakeErr</b> != nil &amp;&amp; c.handshakeComplete() {
-		<a href="../../src/crypto/tls/conn.go.html#line-1506" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1506">#L1506</a>: 	return c.<b>handshakeErr</b>
+		<a href="../../src/crypto/tls/conn.go.html#line-1275" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1275">#L1275</a>: 	if c.<b>handshakeErr</b> = c.clientHandshake(context.Background()); c.<b>handshakeErr</b> == nil {
+		<a href="../../src/crypto/tls/conn.go.html#line-1278" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1278">#L1278</a>: 	return c.<b>handshakeErr</b>
+		<a href="../../src/crypto/tls/conn.go.html#line-1542" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1542">#L1542</a>: 	if err := c.<b>handshakeErr</b>; err != nil {
+		<a href="../../src/crypto/tls/conn.go.html#line-1552" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1552">#L1552</a>: 	c.<b>handshakeErr</b> = c.handshakeFn(handshakeCtx)
+		<a href="../../src/crypto/tls/conn.go.html#line-1553" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1553">#L1553</a>: 	if c.<b>handshakeErr</b> == nil {
+		<a href="../../src/crypto/tls/conn.go.html#line-1561" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1561">#L1561</a>: 	if c.<b>handshakeErr</b> == nil &amp;&amp; !c.isHandshakeComplete.Load() {
+		<a href="../../src/crypto/tls/conn.go.html#line-1562" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1562">#L1562</a>: 		c.<b>handshakeErr</b> = errors.New("tls: internal error: handshake should have had a result")
+		<a href="../../src/crypto/tls/conn.go.html#line-1564" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1564">#L1564</a>: 	if c.<b>handshakeErr</b> != nil &amp;&amp; c.isHandshakeComplete.Load() {
+		<a href="../../src/crypto/tls/conn.go.html#line-1569" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1569">#L1569</a>: 		if c.<b>handshakeErr</b> == nil {
+		<a href="../../src/crypto/tls/conn.go.html#line-1586" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1586">#L1586</a>: 			c.<b>handshakeErr</b> = fmt.Errorf("%w%.0w", c.<b>handshakeErr</b>, AlertError(a))
+		<a href="../../src/crypto/tls/conn.go.html#line-1592" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1592">#L1592</a>: 	return c.<b>handshakeErr</b>
+		<a href="../../src/crypto/tls/quic.go.html#line-179">quic.go#L179</a>: 		return q.conn.<b>handshakeErr</b>
+		<a href="../../src/crypto/tls/quic.go.html#line-213" class="path-duplicate">quic.go</a><a href="../../src/crypto/tls/quic.go.html#line-213">#L213</a>: 	return q.conn.<b>handshakeErr</b>
+		<a href="../../src/crypto/tls/quic.go.html#line-235" class="path-duplicate">quic.go</a><a href="../../src/crypto/tls/quic.go.html#line-235">#L235</a>: 	for q.conn.hand.Len() &gt;= 4 &amp;&amp; q.conn.<b>handshakeErr</b> == nil {
+		<a href="../../src/crypto/tls/quic.go.html#line-239" class="path-duplicate">quic.go</a><a href="../../src/crypto/tls/quic.go.html#line-239">#L239</a>: 			q.conn.<b>handshakeErr</b> = fmt.Errorf("tls: handshake message of length %d bytes exceeds maximum of %d bytes", n, maxHandshake)
+		<a href="../../src/crypto/tls/quic.go.html#line-246" class="path-duplicate">quic.go</a><a href="../../src/crypto/tls/quic.go.html#line-246">#L246</a>: 			q.conn.<b>handshakeErr</b> = err
+		<a href="../../src/crypto/tls/quic.go.html#line-249" class="path-duplicate">quic.go</a><a href="../../src/crypto/tls/quic.go.html#line-249">#L249</a>: 	if q.conn.<b>handshakeErr</b> != nil {
+		<a href="../../src/crypto/tls/quic.go.html#line-250" class="path-duplicate">quic.go</a><a href="../../src/crypto/tls/quic.go.html#line-250">#L250</a>: 		return quicError(q.conn.<b>handshakeErr</b>)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

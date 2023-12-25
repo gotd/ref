@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: decoder.go in package github.com/gotd/td/tdjson</title>
-<link href="../../../../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.6.4.js"></script>
+<link href="../../../../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -313,7 +313,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-127"><code></code></span>
 <span class="codeline" id="line-128"><code><span class="comment">// Double deserializes 64-bit floating point.</span></code></span>
 <span class="codeline" id="line-129"><code><span class="keyword">func</span> (<label for="r49" class="ident">b</label> <a href="#line-14" class="ident">Decoder</a>) <label for="r50" class="ident"><a href="../../../../../use/github.com/gotd/td/tdjson..Decoder.Double.html" class="ident">Double</a></label>() (<a href="../../../../../pkg/builtin.html#name-float64" class="ident">float64</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-130"><code>	<span class="keyword">return</span> <label for="r49" class="ident">b</label>.<a href="#line-15" class="ident">Decoder</a>.<a href="../../../go-faster/jx/dec_float.go.html#line-148" class="ident">Float64</a>()</code></span>
+<span class="codeline" id="line-130"><code>	<span class="keyword">return</span> <label for="r49" class="ident">b</label>.<a href="#line-15" class="ident">Decoder</a>.<a href="../../../go-faster/jx/dec_float.go.html#line-149" class="ident">Float64</a>()</code></span>
 <span class="codeline" id="line-131"><code>}</code></span>
 <span class="codeline" id="line-132"><code></code></span>
 <span class="codeline" id="line-133"><code><span class="comment">// Int128 deserializes 128-bit signed integer.</span></code></span>
@@ -368,15 +368,15 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-182"><code>	<span class="comment">// See https://core.telegram.org/tdlib/docs/td__json__client_8h.html</span></code></span>
 <span class="codeline" id="line-183"><code><span class="comment">	//</span></code></span>
 <span class="codeline" id="line-184"><code><span class="comment">	// ... fields of bytes type are base64 encoded and then stored as String ...</span></code></span>
-<span class="codeline" id="line-185"><code>	<label for="r71" class="ident">enc</label> := <a href="../../../../../pkg/encoding/base64.html" class="ident i0">base64</a>.<a href="../../../../encoding/base64/base64.go.html#line-108" class="ident">RawStdEncoding</a></code></span>
+<span class="codeline" id="line-185"><code>	<label for="r71" class="ident">enc</label> := <a href="../../../../../pkg/encoding/base64.html" class="ident i0">base64</a>.<a href="../../../../encoding/base64/base64.go.html#line-126" class="ident">RawStdEncoding</a></code></span>
 <span class="codeline" id="line-186"><code></code></span>
 <span class="codeline" id="line-187"><code>	<label for="r72" class="ident">v</label>, <label for="r73" class="ident">err</label> := <label for="r69" class="ident">b</label>.<a href="#line-15" class="ident">Decoder</a>.<a href="../../../go-faster/jx/dec_str.go.html#line-230" class="ident">StrBytes</a>()</code></span>
 <span class="codeline" id="line-188"><code>	<span class="keyword">if</span> <label for="r73" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-189"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r73" class="ident">err</label></code></span>
 <span class="codeline" id="line-190"><code>	}</code></span>
 <span class="codeline" id="line-191"><code></code></span>
-<span class="codeline" id="line-192"><code>	<label for="r74" class="ident">result</label> := <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r71" class="ident">enc</label>.<a href="../../../../encoding/base64/base64.go.html#line-605" class="ident">DecodedLen</a>(<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r72" class="ident">v</label>)))</code></span>
-<span class="codeline" id="line-193"><code>	<span class="keyword">if</span> <label for="r75" class="ident">_</label>, <label for="r76" class="ident">err</label> := <label for="r71" class="ident">enc</label>.<a href="../../../../encoding/base64/base64.go.html#line-469" class="ident">Decode</a>(<label for="r74" class="ident">result</label>, <label for="r72" class="ident">v</label>); <label for="r76" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-192"><code>	<label for="r74" class="ident">result</label> := <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r71" class="ident">enc</label>.<a href="../../../../encoding/base64/base64.go.html#line-623" class="ident">DecodedLen</a>(<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r72" class="ident">v</label>)))</code></span>
+<span class="codeline" id="line-193"><code>	<span class="keyword">if</span> <label for="r75" class="ident">_</label>, <label for="r76" class="ident">err</label> := <label for="r71" class="ident">enc</label>.<a href="../../../../encoding/base64/base64.go.html#line-487" class="ident">Decode</a>(<label for="r74" class="ident">result</label>, <label for="r72" class="ident">v</label>); <label for="r76" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-194"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r76" class="ident">err</label></code></span>
 <span class="codeline" id="line-195"><code>	}</code></span>
 <span class="codeline" id="line-196"><code></code></span>
@@ -384,7 +384,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-198"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

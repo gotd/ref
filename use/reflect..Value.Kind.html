@@ -5,42 +5,50 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: reflect.Value.Kind</title>
-<link href="../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.4.js"></script>
+<link href="../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../pkg/reflect.html">reflect</a>.<a href="../src/reflect/value.go.html#line-39">Value</a>.<a href="../src/reflect/value.go.html#line-1608">Kind</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/reflect.html">reflect</a>.<a href="../src/reflect/value.go.html#line-39">Value</a>.<a href="../src/reflect/value.go.html#line-1698">Kind</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">70 uses</span>
+<span class="title">77 uses</span>
 
 	reflect (current package)
 		<a href="../src/reflect/deepequal.go.html#line-40">deepequal.go#L40</a>: 		switch v1.<b>Kind</b>() {
 		<a href="../src/reflect/deepequal.go.html#line-64" class="path-duplicate">deepequal.go</a><a href="../src/reflect/deepequal.go.html#line-64">#L64</a>: 			switch v.<b>Kind</b>() {
 		<a href="../src/reflect/deepequal.go.html#line-90" class="path-duplicate">deepequal.go</a><a href="../src/reflect/deepequal.go.html#line-90">#L90</a>: 	switch v1.<b>Kind</b>() {
-		<a href="../src/reflect/swapper.go.html#line-19">swapper.go#L19</a>: 	if v.<b>Kind</b>() != Slice {
-		<a href="../src/reflect/swapper.go.html#line-20" class="path-duplicate">swapper.go</a><a href="../src/reflect/swapper.go.html#line-20">#L20</a>: 		panic(&amp;ValueError{Method: "Swapper", Kind: v.<b>Kind</b>()})
-		<a href="../src/reflect/value.go.html#line-434">value.go#L434</a>: 		if x.<b>Kind</b>() == Invalid {
-		<a href="../src/reflect/value.go.html#line-1304" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-1304">#L1304</a>: 			if v.<b>Kind</b>() == Pointer &amp;&amp; v.typ.Elem().Kind() == Struct {
-		<a href="../src/reflect/value.go.html#line-1327" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-1327">#L1327</a>: 			if v.<b>Kind</b>() == Ptr &amp;&amp; v.typ.Elem().Kind() == Struct {
-		<a href="../src/reflect/value.go.html#line-1602" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-1602">#L1602</a>: 		panic(&amp;ValueError{"reflect.Value.IsZero", v.<b>Kind</b>()})
-		<a href="../src/reflect/value.go.html#line-1608" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-1608">#L1608</a>: func (v Value) <b>Kind</b>() Kind {
-		<a href="../src/reflect/value.go.html#line-3031" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-3031">#L3031</a>: 	if v.<b>Kind</b>() != Pointer {
-		<a href="../src/reflect/value.go.html#line-3126" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-3126">#L3126</a>: 		if v.<b>Kind</b>() == Interface &amp;&amp; v.IsNil() {
+		<a href="../src/reflect/swapper.go.html#line-20">swapper.go#L20</a>: 	if v.<b>Kind</b>() != Slice {
+		<a href="../src/reflect/swapper.go.html#line-21" class="path-duplicate">swapper.go</a><a href="../src/reflect/swapper.go.html#line-21">#L21</a>: 		panic(&amp;ValueError{Method: "Swapper", Kind: v.<b>Kind</b>()})
+		<a href="../src/reflect/value.go.html#line-446">value.go#L446</a>: 		if x.<b>Kind</b>() == Invalid {
+		<a href="../src/reflect/value.go.html#line-1316" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-1316">#L1316</a>: 			if v.<b>Kind</b>() == Pointer &amp;&amp; v.typ().Elem().Kind() == abi.Struct {
+		<a href="../src/reflect/value.go.html#line-1339" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-1339">#L1339</a>: 			if v.<b>Kind</b>() == Ptr &amp;&amp; v.typ().Elem().Kind() == abi.Struct {
+		<a href="../src/reflect/value.go.html#line-1638" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-1638">#L1638</a>: 		panic(&amp;ValueError{"reflect.Value.IsZero", v.<b>Kind</b>()})
+		<a href="../src/reflect/value.go.html#line-1692" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-1692">#L1692</a>: 		panic(&amp;ValueError{"reflect.Value.SetZero", v.<b>Kind</b>()})
+		<a href="../src/reflect/value.go.html#line-1698" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-1698">#L1698</a>: func (v Value) <b>Kind</b>() Kind {
+		<a href="../src/reflect/value.go.html#line-2862" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-2862">#L2862</a>: 	switch v.<b>Kind</b>() {
+		<a href="../src/reflect/value.go.html#line-2870" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-2870">#L2870</a>: 		panic(&amp;ValueError{"reflect.Value.Clear", v.<b>Kind</b>()})
+		<a href="../src/reflect/value.go.html#line-3187" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-3187">#L3187</a>: 	if v.<b>Kind</b>() != Pointer {
+		<a href="../src/reflect/value.go.html#line-3288" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-3288">#L3288</a>: 		if v.<b>Kind</b>() == Interface &amp;&amp; v.IsNil() {
+		<a href="../src/reflect/value.go.html#line-3352" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-3352">#L3352</a>: 	k := v.<b>Kind</b>()
+		<a href="../src/reflect/value.go.html#line-3394" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-3394">#L3394</a>: 	if v.<b>Kind</b>() == Interface {
+		<a href="../src/reflect/value.go.html#line-3397" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-3397">#L3397</a>: 	if u.<b>Kind</b>() == Interface {
+		<a href="../src/reflect/value.go.html#line-3405" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-3405">#L3405</a>: 	if v.<b>Kind</b>() != u.<b>Kind</b>() || v.Type() != u.Type() {
+		<a href="../src/reflect/value.go.html#line-3411" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-3411">#L3411</a>: 	switch v.<b>Kind</b>() {
 
 	<a href="../pkg/encoding/asn1.html">encoding/asn1</a>
-		<a href="../src/encoding/asn1/asn1.go.html#line-889">asn1.go#L889</a>: 	switch val := v; val.<b>Kind</b>() {
-		<a href="../src/encoding/asn1/asn1.go.html#line-1013" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-1013">#L1013</a>: 	if canHaveDefaultValue(v.<b>Kind</b>()) {
-		<a href="../src/encoding/asn1/asn1.go.html#line-1114" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-1114">#L1114</a>: 	if v.<b>Kind</b>() != reflect.Pointer || v.IsNil() {
+		<a href="../src/encoding/asn1/asn1.go.html#line-892">asn1.go#L892</a>: 	switch val := v; val.<b>Kind</b>() {
+		<a href="../src/encoding/asn1/asn1.go.html#line-1016" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-1016">#L1016</a>: 	if canHaveDefaultValue(v.<b>Kind</b>()) {
+		<a href="../src/encoding/asn1/asn1.go.html#line-1117" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-1117">#L1117</a>: 	if v.<b>Kind</b>() != reflect.Pointer || v.IsNil() {
 		<a href="../src/encoding/asn1/marshal.go.html#line-479">marshal.go#L479</a>: 	switch v := value; v.<b>Kind</b>() {
 		<a href="../src/encoding/asn1/marshal.go.html#line-584" class="path-duplicate">marshal.go</a><a href="../src/encoding/asn1/marshal.go.html#line-584">#L584</a>: 	if v.<b>Kind</b>() == reflect.Interface &amp;&amp; v.Type().NumMethod() == 0 {
 		<a href="../src/encoding/asn1/marshal.go.html#line-588" class="path-duplicate">marshal.go</a><a href="../src/encoding/asn1/marshal.go.html#line-588">#L588</a>: 	if v.<b>Kind</b>() == reflect.Slice &amp;&amp; v.Len() == 0 &amp;&amp; params.omitEmpty {
 		<a href="../src/encoding/asn1/marshal.go.html#line-592" class="path-duplicate">marshal.go</a><a href="../src/encoding/asn1/marshal.go.html#line-592">#L592</a>: 	if params.optional &amp;&amp; params.defaultValue != nil &amp;&amp; canHaveDefaultValue(v.<b>Kind</b>()) {
 
 	<a href="../pkg/encoding/binary.html">encoding/binary</a>
-		<a href="../src/encoding/binary/binary.go.html#line-312">binary.go#L312</a>: 	switch v.<b>Kind</b>() {
-		<a href="../src/encoding/binary/binary.go.html#line-473" class="path-duplicate">binary.go</a><a href="../src/encoding/binary/binary.go.html#line-473">#L473</a>: 	switch v.<b>Kind</b>() {
-		<a href="../src/encoding/binary/binary.go.html#line-608" class="path-duplicate">binary.go</a><a href="../src/encoding/binary/binary.go.html#line-608">#L608</a>: 	switch v.<b>Kind</b>() {
-		<a href="../src/encoding/binary/binary.go.html#line-677" class="path-duplicate">binary.go</a><a href="../src/encoding/binary/binary.go.html#line-677">#L677</a>: 	switch v.<b>Kind</b>() {
+		<a href="../src/encoding/binary/binary.go.html#line-316">binary.go#L316</a>: 	switch v.<b>Kind</b>() {
+		<a href="../src/encoding/binary/binary.go.html#line-477" class="path-duplicate">binary.go</a><a href="../src/encoding/binary/binary.go.html#line-477">#L477</a>: 	switch v.<b>Kind</b>() {
+		<a href="../src/encoding/binary/binary.go.html#line-615" class="path-duplicate">binary.go</a><a href="../src/encoding/binary/binary.go.html#line-615">#L615</a>: 	switch v.<b>Kind</b>() {
+		<a href="../src/encoding/binary/binary.go.html#line-684" class="path-duplicate">binary.go</a><a href="../src/encoding/binary/binary.go.html#line-684">#L684</a>: 	switch v.<b>Kind</b>() {
 
 	<a href="../pkg/encoding/json.html">encoding/json</a>
 		<a href="../src/encoding/json/decode.go.html#line-173">decode.go#L173</a>: 	if rv.<b>Kind</b>() != reflect.Pointer || rv.IsNil() {
@@ -51,39 +59,39 @@
 		<a href="../src/encoding/json/decode.go.html#line-471" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-471">#L471</a>: 		if v.Elem().<b>Kind</b>() == reflect.Interface &amp;&amp; v.Elem().Elem() == v {
 		<a href="../src/encoding/json/decode.go.html#line-517" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-517">#L517</a>: 	switch v.<b>Kind</b>() {
 		<a href="../src/encoding/json/decode.go.html#line-544" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-544">#L544</a>: 		if v.<b>Kind</b>() == reflect.Slice {
-		<a href="../src/encoding/json/decode.go.html#line-586" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-586">#L586</a>: 		if v.<b>Kind</b>() == reflect.Array {
-		<a href="../src/encoding/json/decode.go.html#line-596" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-596">#L596</a>: 	if i == 0 &amp;&amp; v.<b>Kind</b>() == reflect.Slice {
-		<a href="../src/encoding/json/decode.go.html#line-624" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-624">#L624</a>: 	if v.<b>Kind</b>() == reflect.Interface &amp;&amp; v.NumMethod() == 0 {
-		<a href="../src/encoding/json/decode.go.html#line-636" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-636">#L636</a>: 	switch v.<b>Kind</b>() {
-		<a href="../src/encoding/json/decode.go.html#line-693" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-693">#L693</a>: 		if v.<b>Kind</b>() == reflect.Map {
-		<a href="../src/encoding/json/decode.go.html#line-721" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-721">#L721</a>: 					if subv.<b>Kind</b>() == reflect.Pointer {
-		<a href="../src/encoding/json/decode.go.html#line-782" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-782">#L782</a>: 		if v.<b>Kind</b>() == reflect.Map {
-		<a href="../src/encoding/json/decode.go.html#line-910" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-910">#L910</a>: 		switch v.<b>Kind</b>() {
-		<a href="../src/encoding/json/decode.go.html#line-923" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-923">#L923</a>: 		switch v.<b>Kind</b>() {
-		<a href="../src/encoding/json/decode.go.html#line-948" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-948">#L948</a>: 		switch v.<b>Kind</b>() {
-		<a href="../src/encoding/json/decode.go.html#line-984" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-984">#L984</a>: 		switch v.<b>Kind</b>() {
-		<a href="../src/encoding/json/decode.go.html#line-986" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-986">#L986</a>: 			if v.<b>Kind</b>() == reflect.String &amp;&amp; v.Type() == numberType {
-		<a href="../src/encoding/json/encode.go.html#line-341">encode.go#L341</a>: 	switch v.<b>Kind</b>() {
-		<a href="../src/encoding/json/encode.go.html#line-469" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-469">#L469</a>: 	if v.<b>Kind</b>() == reflect.Pointer &amp;&amp; v.IsNil() {
-		<a href="../src/encoding/json/encode.go.html#line-506" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-506">#L506</a>: 	if v.<b>Kind</b>() == reflect.Pointer &amp;&amp; v.IsNil() {
-		<a href="../src/encoding/json/encode.go.html#line-740" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-740">#L740</a>: 			if fv.<b>Kind</b>() == reflect.Pointer {
-		<a href="../src/encoding/json/encode.go.html#line-1006" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-1006">#L1006</a>: 	if w.k.<b>Kind</b>() == reflect.String {
-		<a href="../src/encoding/json/encode.go.html#line-1011" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-1011">#L1011</a>: 		if w.k.<b>Kind</b>() == reflect.Pointer &amp;&amp; w.k.IsNil() {
-		<a href="../src/encoding/json/encode.go.html#line-1018" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-1018">#L1018</a>: 	switch w.k.<b>Kind</b>() {
+		<a href="../src/encoding/json/decode.go.html#line-579" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-579">#L579</a>: 		if v.<b>Kind</b>() == reflect.Array {
+		<a href="../src/encoding/json/decode.go.html#line-587" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-587">#L587</a>: 	if i == 0 &amp;&amp; v.<b>Kind</b>() == reflect.Slice {
+		<a href="../src/encoding/json/decode.go.html#line-615" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-615">#L615</a>: 	if v.<b>Kind</b>() == reflect.Interface &amp;&amp; v.NumMethod() == 0 {
+		<a href="../src/encoding/json/decode.go.html#line-627" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-627">#L627</a>: 	switch v.<b>Kind</b>() {
+		<a href="../src/encoding/json/decode.go.html#line-684" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-684">#L684</a>: 		if v.<b>Kind</b>() == reflect.Map {
+		<a href="../src/encoding/json/decode.go.html#line-701" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-701">#L701</a>: 					if subv.<b>Kind</b>() == reflect.Pointer {
+		<a href="../src/encoding/json/decode.go.html#line-762" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-762">#L762</a>: 		if v.<b>Kind</b>() == reflect.Map {
+		<a href="../src/encoding/json/decode.go.html#line-890" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-890">#L890</a>: 		switch v.<b>Kind</b>() {
+		<a href="../src/encoding/json/decode.go.html#line-903" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-903">#L903</a>: 		switch v.<b>Kind</b>() {
+		<a href="../src/encoding/json/decode.go.html#line-928" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-928">#L928</a>: 		switch v.<b>Kind</b>() {
+		<a href="../src/encoding/json/decode.go.html#line-964" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-964">#L964</a>: 		switch v.<b>Kind</b>() {
+		<a href="../src/encoding/json/decode.go.html#line-966" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-966">#L966</a>: 			if v.<b>Kind</b>() == reflect.String &amp;&amp; v.Type() == numberType {
+		<a href="../src/encoding/json/encode.go.html#line-305">encode.go#L305</a>: 	switch v.<b>Kind</b>() {
+		<a href="../src/encoding/json/encode.go.html#line-433" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-433">#L433</a>: 	if v.<b>Kind</b>() == reflect.Pointer &amp;&amp; v.IsNil() {
+		<a href="../src/encoding/json/encode.go.html#line-474" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-474">#L474</a>: 	if v.<b>Kind</b>() == reflect.Pointer &amp;&amp; v.IsNil() {
+		<a href="../src/encoding/json/encode.go.html#line-686" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-686">#L686</a>: 			if fv.<b>Kind</b>() == reflect.Pointer {
+		<a href="../src/encoding/json/encode.go.html#line-940" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-940">#L940</a>: 	if w.k.<b>Kind</b>() == reflect.String {
+		<a href="../src/encoding/json/encode.go.html#line-945" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-945">#L945</a>: 		if w.k.<b>Kind</b>() == reflect.Pointer &amp;&amp; w.k.IsNil() {
+		<a href="../src/encoding/json/encode.go.html#line-952" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-952">#L952</a>: 	switch w.k.<b>Kind</b>() {
 
 	<a href="../pkg/flag.html">flag</a>
-		<a href="../src/flag/flag.go.html#line-302">flag.go#L302</a>: 	if ptrVal.<b>Kind</b>() != reflect.Ptr {
-		<a href="../src/flag/flag.go.html#line-306" class="path-duplicate">flag.go</a><a href="../src/flag/flag.go.html#line-306">#L306</a>: 	if defVal.<b>Kind</b>() == reflect.Ptr {
+		<a href="../src/flag/flag.go.html#line-303">flag.go#L303</a>: 	if ptrVal.<b>Kind</b>() != reflect.Ptr {
+		<a href="../src/flag/flag.go.html#line-307" class="path-duplicate">flag.go</a><a href="../src/flag/flag.go.html#line-307">#L307</a>: 	if defVal.<b>Kind</b>() == reflect.Ptr {
 
 	<a href="../pkg/fmt.html">fmt</a>
-		<a href="../src/fmt/print.go.html#line-323">print.go#L323</a>: 	if val.<b>Kind</b>() == reflect.Interface &amp;&amp; !val.IsNil() {
-		<a href="../src/fmt/print.go.html#line-531" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-531">#L531</a>: 	switch value.<b>Kind</b>() {
-		<a href="../src/fmt/print.go.html#line-572" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-572">#L572</a>: 		if v := reflect.ValueOf(arg); v.<b>Kind</b>() == reflect.Pointer &amp;&amp; v.IsNil() {
-		<a href="../src/fmt/print.go.html#line-761" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-761">#L761</a>: 	switch f := value; value.<b>Kind</b>() {
-		<a href="../src/fmt/print.go.html#line-859" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-859">#L859</a>: 				if f.<b>Kind</b>() == reflect.Slice {
-		<a href="../src/fmt/print.go.html#line-878" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-878">#L878</a>: 			if f.<b>Kind</b>() == reflect.Slice &amp;&amp; f.IsNil() {
-		<a href="../src/fmt/print.go.html#line-904" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-904">#L904</a>: 			switch a := f.Elem(); a.<b>Kind</b>() {
-		<a href="../src/fmt/print.go.html#line-926" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-926">#L926</a>: 			switch v := reflect.ValueOf(a[argNum]); v.<b>Kind</b>() {
+		<a href="../src/fmt/print.go.html#line-343">print.go#L343</a>: 	if val.<b>Kind</b>() == reflect.Interface &amp;&amp; !val.IsNil() {
+		<a href="../src/fmt/print.go.html#line-551" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-551">#L551</a>: 	switch value.<b>Kind</b>() {
+		<a href="../src/fmt/print.go.html#line-592" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-592">#L592</a>: 		if v := reflect.ValueOf(arg); v.<b>Kind</b>() == reflect.Pointer &amp;&amp; v.IsNil() {
+		<a href="../src/fmt/print.go.html#line-777" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-777">#L777</a>: 	switch f := value; value.<b>Kind</b>() {
+		<a href="../src/fmt/print.go.html#line-875" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-875">#L875</a>: 				if f.<b>Kind</b>() == reflect.Slice {
+		<a href="../src/fmt/print.go.html#line-894" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-894">#L894</a>: 			if f.<b>Kind</b>() == reflect.Slice &amp;&amp; f.IsNil() {
+		<a href="../src/fmt/print.go.html#line-920" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-920">#L920</a>: 			switch a := f.Elem(); a.<b>Kind</b>() {
+		<a href="../src/fmt/print.go.html#line-942" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-942">#L942</a>: 			switch v := reflect.ValueOf(a[argNum]); v.<b>Kind</b>() {
 		<a href="../src/fmt/scan.go.html#line-1020">scan.go#L1020</a>: 		if ptr.<b>Kind</b>() != reflect.Pointer {
 		<a href="../src/fmt/scan.go.html#line-1024" class="path-duplicate">scan.go</a><a href="../src/fmt/scan.go.html#line-1024">#L1024</a>: 		switch v := ptr.Elem(); v.<b>Kind</b>() {
 
@@ -91,21 +99,17 @@
 		<a href="../src/github.com/gotd/td/tdp/tdp.go.html#line-33">tdp.go#L33</a>: 	switch v.<b>Kind</b>() {
 
 	<a href="../pkg/go.uber.org/zap/zapcore.html">go.uber.org/zap/zapcore</a>
-		<a href="../src/go.uber.org/zap/zapcore/error.go.html#line-54">error.go#L54</a>: 			if v := reflect.ValueOf(err); v.<b>Kind</b>() == reflect.Ptr &amp;&amp; v.IsNil() {
+		<a href="../src/go.uber.org/zap/zapcore/error.go.html#line-55">error.go#L55</a>: 			if v := reflect.ValueOf(err); v.<b>Kind</b>() == reflect.Ptr &amp;&amp; v.IsNil() {
 		<a href="../src/go.uber.org/zap/zapcore/field.go.html#line-222">field.go#L222</a>: 			if v := reflect.ValueOf(stringer); v.<b>Kind</b>() == reflect.Ptr &amp;&amp; v.IsNil() {
 
 	<a href="../pkg/internal/fmtsort.html">internal/fmtsort</a>
 		<a href="../src/internal/fmtsort/sort.go.html#line-83">sort.go#L83</a>: 	switch aVal.<b>Kind</b>() {
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/h2_bundle.go.html#line-4379">h2_bundle.go#L4379</a>: 	if rv := reflect.ValueOf(v); rv.<b>Kind</b>() == reflect.Uintptr {
-
-	<a href="../pkg/vendor/golang.org/x/crypto/cryptobyte.html">vendor/golang.org/x/crypto/cryptobyte</a>
-		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-276">asn1.go#L276</a>: 	switch reflect.ValueOf(out).Elem().<b>Kind</b>() {
-		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-672" class="path-duplicate">asn1.go</a><a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-672">#L672</a>: 		switch reflect.ValueOf(out).Elem().<b>Kind</b>() {
+		<a href="../src/net/http/h2_bundle.go.html#line-4536">h2_bundle.go#L4536</a>: 	if rv := reflect.ValueOf(v); rv.<b>Kind</b>() == reflect.Uintptr {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

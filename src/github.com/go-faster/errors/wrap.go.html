@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: wrap.go in package github.com/go-faster/errors</title>
-<link href="../../../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.6.4.js"></script>
+<link href="../../../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -152,7 +152,7 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-38"><code><span class="comment">// type contains an Unwrap method returning error.</span></code></span>
 <span class="codeline" id="line-39"><code><span class="comment">// Otherwise, Unwrap returns nil.</span></code></span>
 <span class="codeline" id="line-40"><code><span class="keyword">func</span> <label for="r8" class="ident"><a href="../../../../pkg/github.com/go-faster/errors.html#name-Unwrap" class="ident">Unwrap</a></label>(<label for="r9" class="ident">err</label> <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-41"><code>	<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/wrap.go.html#line-14" class="ident">Unwrap</a>(<label for="r9" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-41"><code>	<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/wrap.go.html#line-17" class="ident">Unwrap</a>(<label for="r9" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-42"><code>}</code></span>
 <span class="codeline" id="line-43"><code></code></span>
 <span class="codeline" id="line-44"><code><span class="comment">// Cause returns first recorded Frame.</span></code></span>
@@ -176,10 +176,10 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-62"><code>}</code></span>
 <span class="codeline" id="line-63"><code></code></span>
 <span class="codeline" id="line-64"><code><span class="keyword">func</span> (<label for="r16" class="ident">e</label> *<a href="#line-58" class="ident">wrapError</a>) <label for="r17" class="ident"><a href="../../../../use/github.com/go-faster/errors..wrapError^63633.Error.html" class="ident">Error</a></label>() <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
-<span class="codeline" id="line-65"><code>	<span class="keyword">return</span> <a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-257" class="ident">Sprint</a>(<label for="r16" class="ident">e</label>)</code></span>
+<span class="codeline" id="line-65"><code>	<span class="keyword">return</span> <a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-277" class="ident">Sprint</a>(<label for="r16" class="ident">e</label>)</code></span>
 <span class="codeline" id="line-66"><code>}</code></span>
 <span class="codeline" id="line-67"><code></code></span>
-<span class="codeline" id="line-68"><code><span class="keyword">func</span> (<label for="r18" class="ident">e</label> *<a href="#line-58" class="ident">wrapError</a>) <label for="r19" class="ident"><a href="../../../../use/github.com/go-faster/errors..wrapError^63633.Format.html" class="ident">Format</a></label>(<label for="r20" class="ident">s</label> <a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-38" class="ident">State</a>, <label for="r21" class="ident">v</label> <a href="../../../../pkg/builtin.html#name-rune" class="ident">rune</a>) { <a href="adaptor.go.html#line-17" class="ident">FormatError</a>(<label for="r18" class="ident">e</label>, <label for="r20" class="ident">s</label>, <label for="r21" class="ident">v</label>) }</code></span>
+<span class="codeline" id="line-68"><code><span class="keyword">func</span> (<label for="r18" class="ident">e</label> *<a href="#line-58" class="ident">wrapError</a>) <label for="r19" class="ident"><a href="../../../../use/github.com/go-faster/errors..wrapError^63633.Format.html" class="ident">Format</a></label>(<label for="r20" class="ident">s</label> <a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-39" class="ident">State</a>, <label for="r21" class="ident">v</label> <a href="../../../../pkg/builtin.html#name-rune" class="ident">rune</a>) { <a href="adaptor.go.html#line-17" class="ident">FormatError</a>(<label for="r18" class="ident">e</label>, <label for="r20" class="ident">s</label>, <label for="r21" class="ident">v</label>) }</code></span>
 <span class="codeline" id="line-69"><code></code></span>
 <span class="codeline" id="line-70"><code><span class="keyword">func</span> (<label for="r22" class="ident">e</label> *<a href="#line-58" class="ident">wrapError</a>) <label for="r23" class="ident"><a href="../../../../use/github.com/go-faster/errors..wrapError^63633.FormatError.html" class="ident">FormatError</a></label>(<label for="r24" class="ident">p</label> <a href="format.go.html#line-26" class="ident">Printer</a>) (<label for="r25" class="ident">next</label> <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
 <span class="codeline" id="line-71"><code>	<label for="r24" class="ident">p</label>.<a href="format.go.html#line-28" class="ident">Print</a>(<label for="r22" class="ident">e</label>.<a href="#line-59" class="ident">msg</a>)</code></span>
@@ -206,7 +206,7 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-92"><code>	<span class="keyword">if</span> <a href="trace.go.html#line-35" class="ident">Trace</a>() {</code></span>
 <span class="codeline" id="line-93"><code>		<label for="r36" class="ident">frame</label> = <a href="frame.go.html#line-22" class="ident">Caller</a>(<span class="lit-number">1</span>)</code></span>
 <span class="codeline" id="line-94"><code>	}</code></span>
-<span class="codeline" id="line-95"><code>	<label for="r37" class="ident">msg</label> := <a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-217" class="ident">Sprintf</a>(<label for="r34" class="ident">format</label>, <label for="r35" class="ident">a</label>...)</code></span>
+<span class="codeline" id="line-95"><code>	<label for="r37" class="ident">msg</label> := <a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<label for="r34" class="ident">format</label>, <label for="r35" class="ident">a</label>...)</code></span>
 <span class="codeline" id="line-96"><code>	<span class="keyword">return</span> &amp;<a href="#line-58" class="ident">wrapError</a>{<a href="#line-59" class="ident">msg</a>: <label for="r37" class="ident">msg</label>, <a href="#line-60" class="ident">err</a>: <label for="r33" class="ident">err</label>, <a href="#line-61" class="ident">frame</a>: <label for="r36" class="ident">frame</label>}</code></span>
 <span class="codeline" id="line-97"><code>}</code></span>
 <span class="codeline" id="line-98"><code></code></span>
@@ -226,7 +226,7 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-112"><code><span class="comment">// then Is(MyError{}, fs.ErrExist) returns true. See syscall.Errno.Is for</span></code></span>
 <span class="codeline" id="line-113"><code><span class="comment">// an example in the standard library.</span></code></span>
 <span class="codeline" id="line-114"><code><span class="keyword">func</span> <label for="r38" class="ident"><a href="../../../../pkg/github.com/go-faster/errors.html#name-Is" class="ident">Is</a></label>(<label for="r39" class="ident">err</label>, <label for="r40" class="ident">target</label> <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
-<span class="codeline" id="line-115"><code>	<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/wrap.go.html#line-40" class="ident">Is</a>(<label for="r39" class="ident">err</label>, <label for="r40" class="ident">target</label>)</code></span>
+<span class="codeline" id="line-115"><code>	<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/wrap.go.html#line-44" class="ident">Is</a>(<label for="r39" class="ident">err</label>, <label for="r40" class="ident">target</label>)</code></span>
 <span class="codeline" id="line-116"><code>}</code></span>
 <span class="codeline" id="line-117"><code></code></span>
 <span class="codeline" id="line-118"><code><span class="comment">// As finds the first error in err's chain that matches target, and if so, sets</span></code></span>
@@ -245,10 +245,10 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-131"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-132"><code><span class="comment">// As panics if target is not a non-nil pointer to either a type that implements</span></code></span>
 <span class="codeline" id="line-133"><code><span class="comment">// error, or to any interface type.</span></code></span>
-<span class="codeline" id="line-134"><code><span class="keyword">func</span> <label for="r41" class="ident"><a href="../../../../pkg/github.com/go-faster/errors.html#name-As" class="ident">As</a></label>(<label for="r42" class="ident">err</label> <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>, <label for="r43" class="ident">target</label> <span class="keyword">interface</span>{}) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> { <span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/wrap.go.html#line-78" class="ident">As</a>(<label for="r42" class="ident">err</label>, <label for="r43" class="ident">target</label>) }</code></span>
+<span class="codeline" id="line-134"><code><span class="keyword">func</span> <label for="r41" class="ident"><a href="../../../../pkg/github.com/go-faster/errors.html#name-As" class="ident">As</a></label>(<label for="r42" class="ident">err</label> <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>, <label for="r43" class="ident">target</label> <span class="keyword">interface</span>{}) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> { <span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/wrap.go.html#line-93" class="ident">As</a>(<label for="r42" class="ident">err</label>, <label for="r43" class="ident">target</label>) }</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

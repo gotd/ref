@@ -5,55 +5,54 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.ResponseWriter.Header</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/server.go.html#line-95">ResponseWriter</a>.<a href="../../src/net/http/server.go.html#line-116">Header</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">35 uses</span>
+<span class="title">34 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/cookie.go.html#line-170">cookie.go#L170</a>: 		w.<b>Header</b>().Add("Set-Cookie", v)
+		<a href="../../src/net/http/cookie.go.html#line-171">cookie.go#L171</a>: 		w.<b>Header</b>().Add("Set-Cookie", v)
 		<a href="../../src/net/http/fs.go.html#line-153">fs.go#L153</a>: 	w.<b>Header</b>().Set("Content-Type", "text/html; charset=utf-8")
 		<a href="../../src/net/http/fs.go.html#line-234" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-234">#L234</a>: 	ctypes, haveType := w.<b>Header</b>()["Content-Type"]
 		<a href="../../src/net/http/fs.go.html#line-249" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-249">#L249</a>: 		w.<b>Header</b>().Set("Content-Type", ctype)
-		<a href="../../src/net/http/fs.go.html#line-267" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-267">#L267</a>: 				w.<b>Header</b>().Set("Content-Range", fmt.Sprintf("bytes */%d", size))
-		<a href="../../src/net/http/fs.go.html#line-299" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-299">#L299</a>: 			w.<b>Header</b>().Set("Content-Range", ra.contentRange(size))
-		<a href="../../src/net/http/fs.go.html#line-306" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-306">#L306</a>: 			w.<b>Header</b>().Set("Content-Type", "multipart/byteranges; boundary="+mw.Boundary())
-		<a href="../../src/net/http/fs.go.html#line-330" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-330">#L330</a>: 		w.<b>Header</b>().Set("Accept-Ranges", "bytes")
-		<a href="../../src/net/http/fs.go.html#line-331" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-331">#L331</a>: 		if w.<b>Header</b>().Get("Content-Encoding") == "" {
-		<a href="../../src/net/http/fs.go.html#line-332" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-332">#L332</a>: 			w.<b>Header</b>().Set("Content-Length", strconv.FormatInt(sendSize, 10))
-		<a href="../../src/net/http/fs.go.html#line-414" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-414">#L414</a>: 		if etagStrongMatch(etag, w.<b>Header</b>().get("Etag")) {
-		<a href="../../src/net/http/fs.go.html#line-464" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-464">#L464</a>: 		if etagWeakMatch(etag, w.<b>Header</b>().get("Etag")) {
-		<a href="../../src/net/http/fs.go.html#line-503" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-503">#L503</a>: 		if etagStrongMatch(etag, w.<b>Header</b>().Get("Etag")) {
-		<a href="../../src/net/http/fs.go.html#line-533" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-533">#L533</a>: 		w.<b>Header</b>().Set("Last-Modified", modtime.UTC().Format(TimeFormat))
-		<a href="../../src/net/http/fs.go.html#line-543" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-543">#L543</a>: 	h := w.<b>Header</b>()
-		<a href="../../src/net/http/fs.go.html#line-692" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-692">#L692</a>: 	w.<b>Header</b>().Set("Location", newPath)
+		<a href="../../src/net/http/fs.go.html#line-280" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-280">#L280</a>: 		w.<b>Header</b>().Set("Content-Range", fmt.Sprintf("bytes */%d", size))
+		<a href="../../src/net/http/fs.go.html#line-314" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-314">#L314</a>: 		w.<b>Header</b>().Set("Content-Range", ra.contentRange(size))
+		<a href="../../src/net/http/fs.go.html#line-321" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-321">#L321</a>: 		w.<b>Header</b>().Set("Content-Type", "multipart/byteranges; boundary="+mw.Boundary())
+		<a href="../../src/net/http/fs.go.html#line-345" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-345">#L345</a>: 	w.<b>Header</b>().Set("Accept-Ranges", "bytes")
+		<a href="../../src/net/http/fs.go.html#line-346" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-346">#L346</a>: 	if w.<b>Header</b>().Get("Content-Encoding") == "" {
+		<a href="../../src/net/http/fs.go.html#line-347" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-347">#L347</a>: 		w.<b>Header</b>().Set("Content-Length", strconv.FormatInt(sendSize, 10))
+		<a href="../../src/net/http/fs.go.html#line-428" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-428">#L428</a>: 		if etagStrongMatch(etag, w.<b>Header</b>().get("Etag")) {
+		<a href="../../src/net/http/fs.go.html#line-478" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-478">#L478</a>: 		if etagWeakMatch(etag, w.<b>Header</b>().get("Etag")) {
+		<a href="../../src/net/http/fs.go.html#line-517" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-517">#L517</a>: 		if etagStrongMatch(etag, w.<b>Header</b>().Get("Etag")) {
+		<a href="../../src/net/http/fs.go.html#line-547" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-547">#L547</a>: 		w.<b>Header</b>().Set("Last-Modified", modtime.UTC().Format(TimeFormat))
+		<a href="../../src/net/http/fs.go.html#line-557" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-557">#L557</a>: 	h := w.<b>Header</b>()
+		<a href="../../src/net/http/fs.go.html#line-705" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-705">#L705</a>: 	w.<b>Header</b>().Set("Location", newPath)
 		<a href="../../src/net/http/server.go.html#line-116">server.go#L116</a>: 	<b>Header</b>() Header
-		<a href="../../src/net/http/server.go.html#line-2119" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2119">#L2119</a>: 	w.<b>Header</b>().Set("Content-Type", "text/plain; charset=utf-8")
-		<a href="../../src/net/http/server.go.html#line-2120" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2120">#L2120</a>: 	w.<b>Header</b>().Set("X-Content-Type-Options", "nosniff")
-		<a href="../../src/net/http/server.go.html#line-2204" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2204">#L2204</a>: 	h := w.<b>Header</b>()
-		<a href="../../src/net/http/server.go.html#line-2481" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2481">#L2481</a>: 			w.<b>Header</b>().Set("Connection", "close")
-		<a href="../../src/net/http/server.go.html#line-3416" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3416">#L3416</a>: 		dst := w.<b>Header</b>()
-		<a href="../../src/net/http/server.go.html#line-3518" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3518">#L3518</a>: 	w.<b>Header</b>().Set("Content-Length", "0")
+		<a href="../../src/net/http/server.go.html#line-2146" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2146">#L2146</a>: 	w.<b>Header</b>().Set("Content-Type", "text/plain; charset=utf-8")
+		<a href="../../src/net/http/server.go.html#line-2147" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2147">#L2147</a>: 	w.<b>Header</b>().Set("X-Content-Type-Options", "nosniff")
+		<a href="../../src/net/http/server.go.html#line-2231" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2231">#L2231</a>: 	h := w.<b>Header</b>()
+		<a href="../../src/net/http/server.go.html#line-2508" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2508">#L2508</a>: 			w.<b>Header</b>().Set("Connection", "close")
+		<a href="../../src/net/http/server.go.html#line-3406" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3406">#L3406</a>: 		dst := w.<b>Header</b>()
+		<a href="../../src/net/http/server.go.html#line-3508" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3508">#L3508</a>: 	w.<b>Header</b>().Set("Content-Length", "0")
 
 	<a href="../../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-110">accept.go#L110</a>: 	w.<b>Header</b>().Set("Upgrade", "websocket")
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-111" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-111">#L111</a>: 	w.<b>Header</b>().Set("Connection", "Upgrade")
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-114" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-114">#L114</a>: 	w.<b>Header</b>().Set("Sec-WebSocket-Accept", secWebSocketAccept(key))
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-118" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-118">#L118</a>: 		w.<b>Header</b>().Set("Sec-WebSocket-Protocol", subproto)
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-146" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-146">#L146</a>: 		subprotocol:    w.<b>Header</b>().Get("Sec-WebSocket-Protocol"),
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-163" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-163">#L163</a>: 		w.<b>Header</b>().Set("Connection", "Upgrade")
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-164" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-164">#L164</a>: 		w.<b>Header</b>().Set("Upgrade", "websocket")
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-169" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-169">#L169</a>: 		w.<b>Header</b>().Set("Connection", "Upgrade")
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-170" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-170">#L170</a>: 		w.<b>Header</b>().Set("Upgrade", "websocket")
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-179" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-179">#L179</a>: 		w.<b>Header</b>().Set("Sec-WebSocket-Version", "13")
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-273" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-273">#L273</a>: 	copts.setHeader(w.<b>Header</b>())
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-307" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-307">#L307</a>: 	w.<b>Header</b>().Set("Sec-WebSocket-Extensions", s)
+		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-115">accept.go#L115</a>: 	w.<b>Header</b>().Set("Upgrade", "websocket")
+		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-116" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-116">#L116</a>: 	w.<b>Header</b>().Set("Connection", "Upgrade")
+		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-119" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-119">#L119</a>: 	w.<b>Header</b>().Set("Sec-WebSocket-Accept", secWebSocketAccept(key))
+		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-123" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-123">#L123</a>: 		w.<b>Header</b>().Set("Sec-WebSocket-Protocol", subproto)
+		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-128" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-128">#L128</a>: 		w.<b>Header</b>().Set("Sec-WebSocket-Extensions", copts.String())
+		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-151" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-151">#L151</a>: 		subprotocol:    w.<b>Header</b>().Get("Sec-WebSocket-Protocol"),
+		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-168" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-168">#L168</a>: 		w.<b>Header</b>().Set("Connection", "Upgrade")
+		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-169" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-169">#L169</a>: 		w.<b>Header</b>().Set("Upgrade", "websocket")
+		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-174" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-174">#L174</a>: 		w.<b>Header</b>().Set("Connection", "Upgrade")
+		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-175" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-175">#L175</a>: 		w.<b>Header</b>().Set("Upgrade", "websocket")
+		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-184" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-184">#L184</a>: 		w.<b>Header</b>().Set("Sec-WebSocket-Version", "13")
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

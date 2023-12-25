@@ -5,27 +5,31 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto/x509/pkix.RevokedCertificate</title>
-<link href="../../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.4.js"></script>
+<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../../../pkg/crypto/x509/pkix.html">crypto/x509/pkix</a>.<a href="../../../src/crypto/x509/pkix/pkix.go.html#line-316">RevokedCertificate</a></b></span>
 
-<span class="title">7 uses</span>
+<span class="title">11 uses</span>
 
 	crypto/x509/pkix (current package)
 		<a href="../../../src/crypto/x509/pkix/pkix.go.html#line-310">pkix.go#L310</a>: 	RevokedCertificates []<b>RevokedCertificate</b> `asn1:"optional"`
 		<a href="../../../src/crypto/x509/pkix/pkix.go.html#line-316" class="path-duplicate">pkix.go</a><a href="../../../src/crypto/x509/pkix/pkix.go.html#line-316">#L316</a>: type <b>RevokedCertificate</b> struct {
 
 	<a href="../../../pkg/crypto/x509.html">crypto/x509</a>
-		<a href="../../../src/crypto/x509/parser.go.html#line-1098">parser.go#L1098</a>: 			rc := pkix.<b>RevokedCertificate</b>{}
-		<a href="../../../src/crypto/x509/x509.go.html#line-1647">x509.go#L1647</a>: func (c *Certificate) CreateCRL(rand io.Reader, priv any, revokedCerts []pkix.<b>RevokedCertificate</b>, now, expiry time.Time) (crlBytes []byte, err error) {
-		<a href="../../../src/crypto/x509/x509.go.html#line-1659" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1659">#L1659</a>: 	revokedCertsUTC := make([]pkix.<b>RevokedCertificate</b>, len(revokedCerts))
-		<a href="../../../src/crypto/x509/x509.go.html#line-2121" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-2121">#L2121</a>: 	RevokedCertificates []pkix.<b>RevokedCertificate</b>
-		<a href="../../../src/crypto/x509/x509.go.html#line-2184" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-2184">#L2184</a>: 	revokedCertsUTC := make([]pkix.<b>RevokedCertificate</b>, len(template.RevokedCertificates))
+		<a href="../../../src/crypto/x509/parser.go.html#line-1152">parser.go#L1152</a>: 			rcDeprecated := pkix.<b>RevokedCertificate</b>{
+		<a href="../../../src/crypto/x509/x509.go.html#line-1711">x509.go#L1711</a>: func (c *Certificate) CreateCRL(rand io.Reader, priv any, revokedCerts []pkix.<b>RevokedCertificate</b>, now, expiry time.Time) (crlBytes []byte, err error) {
+		<a href="../../../src/crypto/x509/x509.go.html#line-1723" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-1723">#L1723</a>: 	revokedCertsUTC := make([]pkix.<b>RevokedCertificate</b>, len(revokedCerts))
+		<a href="../../../src/crypto/x509/x509.go.html#line-2232" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-2232">#L2232</a>: 	RevokedCertificates []pkix.<b>RevokedCertificate</b>
+		<a href="../../../src/crypto/x509/x509.go.html#line-2276" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-2276">#L2276</a>: 	RevokedCertificates []pkix.<b>RevokedCertificate</b> `asn1:"optional"`
+		<a href="../../../src/crypto/x509/x509.go.html#line-2317" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-2317">#L2317</a>: 	var revokedCerts []pkix.<b>RevokedCertificate</b>
+		<a href="../../../src/crypto/x509/x509.go.html#line-2322" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-2322">#L2322</a>: 		revokedCerts = make([]pkix.<b>RevokedCertificate</b>, len(template.RevokedCertificates))
+		<a href="../../../src/crypto/x509/x509.go.html#line-2330" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-2330">#L2330</a>: 		revokedCerts = make([]pkix.<b>RevokedCertificate</b>, len(template.RevokedCertificateEntries))
+		<a href="../../../src/crypto/x509/x509.go.html#line-2339" class="path-duplicate">x509.go</a><a href="../../../src/crypto/x509/x509.go.html#line-2339">#L2339</a>: 			rc := pkix.<b>RevokedCertificate</b>{
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

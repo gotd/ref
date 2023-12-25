@@ -5,27 +5,28 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: time.Now</title>
-<link href="../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.4.js"></script>
+<link href="../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/time.html">time</a>.<a href="../src/time/time.go.html#line-1089">Now</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/time.html">time</a>.<a href="../src/time/time.go.html#line-1110">Now</a></b></span>
 
-<span class="title">44 uses</span>
+<span class="title">50 uses</span>
 
 	time (current package)
 		<a href="../src/time/sleep.go.html#line-145">sleep.go#L145</a>: 	case c.(chan Time) &lt;- <b>Now</b>():
-		<a href="../src/time/time.go.html#line-896">time.go#L896</a>: 		now = <b>Now</b>()
-		<a href="../src/time/time.go.html#line-909" class="path-duplicate">time.go</a><a href="../src/time/time.go.html#line-909">#L909</a>: 		now = <b>Now</b>()
-		<a href="../src/time/time.go.html#line-1089" class="path-duplicate">time.go</a><a href="../src/time/time.go.html#line-1089">#L1089</a>: func <b>Now</b>() Time {
+		<a href="../src/time/time.go.html#line-917">time.go#L917</a>: 		now = <b>Now</b>()
+		<a href="../src/time/time.go.html#line-930" class="path-duplicate">time.go</a><a href="../src/time/time.go.html#line-930">#L930</a>: 		now = <b>Now</b>()
+		<a href="../src/time/time.go.html#line-1110" class="path-duplicate">time.go</a><a href="../src/time/time.go.html#line-1110">#L1110</a>: func <b>Now</b>() Time {
 
 	<a href="../pkg/context.html">context</a>
-		<a href="../src/context/context.go.html#line-507">context.go#L507</a>: 	return WithDeadline(parent, time.<b>Now</b>().Add(timeout))
+		<a href="../src/context/context.go.html#line-685">context.go#L685</a>: 	return WithDeadline(parent, time.<b>Now</b>().Add(timeout))
+		<a href="../src/context/context.go.html#line-692" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-692">#L692</a>: 	return WithDeadlineCause(parent, time.<b>Now</b>().Add(timeout), cause)
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/common.go.html#line-957">common.go#L957</a>: 		t = time.<b>Now</b>
-		<a href="../src/crypto/tls/conn.go.html#line-1399">conn.go#L1399</a>: 		c.SetWriteDeadline(time.<b>Now</b>().Add(time.Second * 5))
-		<a href="../src/crypto/tls/conn.go.html#line-1403" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-1403">#L1403</a>: 		c.SetWriteDeadline(time.<b>Now</b>())
+		<a href="../src/crypto/tls/common.go.html#line-1004">common.go#L1004</a>: 		t = time.<b>Now</b>
+		<a href="../src/crypto/tls/conn.go.html#line-1453">conn.go#L1453</a>: 		c.SetWriteDeadline(time.<b>Now</b>().Add(time.Second * 5))
+		<a href="../src/crypto/tls/conn.go.html#line-1457" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-1457">#L1457</a>: 		c.SetWriteDeadline(time.<b>Now</b>())
 
 	<a href="../pkg/crypto/x509.html">crypto/x509</a>
 		<a href="../src/crypto/x509/verify.go.html#line-572">verify.go#L572</a>: 		now = time.<b>Now</b>()
@@ -50,43 +51,46 @@
 		<a href="../src/go.uber.org/zap/zapcore/clock.go.html#line-43">clock.go#L43</a>: 	return time.<b>Now</b>()
 
 	<a href="../pkg/log.html">log</a>
-		<a href="../src/log/log.go.html#line-176">log.go#L176</a>: 	now := time.<b>Now</b>() // get this early.
+		<a href="../src/log/log.go.html#line-207">log.go#L207</a>: 	now := time.<b>Now</b>() // get this early.
 
 	<a href="../pkg/net.html">net</a>
-		<a href="../src/net/dial.go.html#line-380">dial.go#L380</a>: 	deadline := d.deadline(ctx, time.<b>Now</b>())
-		<a href="../src/net/dial.go.html#line-535" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-535">#L535</a>: 			partialDeadline, err := partialDeadline(time.<b>Now</b>(), deadline, len(ras)-i)
+		<a href="../src/net/dial.go.html#line-458">dial.go#L458</a>: 	deadline := d.deadline(ctx, time.<b>Now</b>())
+		<a href="../src/net/dial.go.html#line-599" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-599">#L599</a>: 			partialDeadline, err := partialDeadline(time.<b>Now</b>(), deadline, len(ras)-i)
 		<a href="../src/net/dnsclient_unix.go.html#line-174">dnsclient_unix.go#L174</a>: 		ctx, cancel := context.WithDeadline(ctx, time.<b>Now</b>().Add(timeout))
-		<a href="../src/net/dnsclient_unix.go.html#line-360" class="path-duplicate">dnsclient_unix.go</a><a href="../src/net/dnsclient_unix.go.html#line-360">#L360</a>: 	conf.lastChecked = time.<b>Now</b>()
-		<a href="../src/net/dnsclient_unix.go.html#line-379" class="path-duplicate">dnsclient_unix.go</a><a href="../src/net/dnsclient_unix.go.html#line-379">#L379</a>: 	now := time.<b>Now</b>()
+		<a href="../src/net/dnsclient_unix.go.html#line-361" class="path-duplicate">dnsclient_unix.go</a><a href="../src/net/dnsclient_unix.go.html#line-361">#L361</a>: 	conf.lastChecked = time.<b>Now</b>()
+		<a href="../src/net/dnsclient_unix.go.html#line-384" class="path-duplicate">dnsclient_unix.go</a><a href="../src/net/dnsclient_unix.go.html#line-384">#L384</a>: 	now := time.<b>Now</b>()
 		<a href="../src/net/hosts.go.html#line-53">hosts.go#L53</a>: 	now := time.<b>Now</b>()
-		<a href="../src/net/interface.go.html#line-197">interface.go#L197</a>: 	now := time.<b>Now</b>()
+		<a href="../src/net/interface.go.html#line-199">interface.go#L199</a>: 	now := time.<b>Now</b>()
+		<a href="../src/net/nss.go.html#line-44">nss.go#L44</a>: 	conf.lastChecked = time.<b>Now</b>()
+		<a href="../src/net/nss.go.html#line-58" class="path-duplicate">nss.go</a><a href="../src/net/nss.go.html#line-58">#L58</a>: 	now := time.<b>Now</b>()
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/client.go.html#line-189">client.go#L189</a>: 		return time.<b>Now</b>().Add(c.Timeout)
-		<a href="../src/net/http/client.go.html#line-359" class="path-duplicate">client.go</a><a href="../src/net/http/client.go.html#line-359">#L359</a>: 		return cancelCtx, func() bool { return time.<b>Now</b>().After(deadline) }
-		<a href="../src/net/http/h2_bundle.go.html#line-6190">h2_bundle.go#L6190</a>: 			date = time.<b>Now</b>().UTC().Format(TimeFormat)
-		<a href="../src/net/http/h2_bundle.go.html#line-7162" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-7162">#L7162</a>: 			sew.conn.SetWriteDeadline(time.<b>Now</b>().Add(sew.timeout))
-		<a href="../src/net/http/h2_bundle.go.html#line-8226" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8226">#L8226</a>: 		cc.lastActive = time.<b>Now</b>()
-		<a href="../src/net/http/h2_bundle.go.html#line-8739" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8739">#L8739</a>: 	cc.lastActive = time.<b>Now</b>()
-		<a href="../src/net/http/h2_bundle.go.html#line-8742" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8742">#L8742</a>: 		cc.lastIdle = time.<b>Now</b>()
-		<a href="../src/net/http/h2_bundle.go.html#line-9774" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-9774">#L9774</a>: 		ci.IdleTime = time.<b>Now</b>().Sub(cc.lastActive)
-		<a href="../src/net/http/server.go.html#line-974">server.go#L974</a>: 	t0 := time.<b>Now</b>()
-		<a href="../src/net/http/server.go.html#line-984" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-984">#L984</a>: 			c.rwc.SetWriteDeadline(time.<b>Now</b>().Add(d))
-		<a href="../src/net/http/server.go.html#line-1442" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-1442">#L1442</a>: 		setHeader.date = appendTime(cw.res.dateBuf[:0], time.<b>Now</b>())
-		<a href="../src/net/http/server.go.html#line-1789" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-1789">#L1789</a>: 	packedState := uint64(time.<b>Now</b>().Unix()&lt;&lt;8) | uint64(state)
-		<a href="../src/net/http/server.go.html#line-1869" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-1869">#L1869</a>: 			dl := time.<b>Now</b>().Add(tlsTO)
-		<a href="../src/net/http/server.go.html#line-2016" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-2016">#L2016</a>: 			c.rwc.SetReadDeadline(time.<b>Now</b>().Add(d))
-		<a href="../src/net/http/server.go.html#line-2843" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-2843">#L2843</a>: 		if st == StateNew &amp;&amp; unixSec &lt; time.<b>Now</b>().Unix()-5 {
-		<a href="../src/net/http/transport.go.html#line-1001">transport.go#L1001</a>: 	pconn.idleAt = time.<b>Now</b>()
-		<a href="../src/net/http/transport.go.html#line-1030" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1030">#L1030</a>: 		oldTime = time.<b>Now</b>().Add(-t.IdleConnTimeout)
-		<a href="../src/net/http/transport.go.html#line-2679" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-2679">#L2679</a>: 		logf(time.<b>Now</b>().Format(time.RFC3339Nano)+": "+format, args...)
-
-	<a href="../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../src/nhooyr.io/websocket/netconn.go.html#line-154">netconn.go#L154</a>: 		c.writeTimer.Reset(t.Sub(time.<b>Now</b>()))
-		<a href="../src/nhooyr.io/websocket/netconn.go.html#line-163" class="path-duplicate">netconn.go</a><a href="../src/nhooyr.io/websocket/netconn.go.html#line-163">#L163</a>: 		c.readTimer.Reset(t.Sub(time.<b>Now</b>()))
+		<a href="../src/net/http/client.go.html#line-195">client.go#L195</a>: 		return time.<b>Now</b>().Add(c.Timeout)
+		<a href="../src/net/http/client.go.html#line-368" class="path-duplicate">client.go</a><a href="../src/net/http/client.go.html#line-368">#L368</a>: 		return cancelCtx, func() bool { return time.<b>Now</b>().After(deadline) }
+		<a href="../src/net/http/h2_bundle.go.html#line-6466">h2_bundle.go#L6466</a>: 			date = time.<b>Now</b>().UTC().Format(TimeFormat)
+		<a href="../src/net/http/h2_bundle.go.html#line-6593" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6593">#L6593</a>: 	if !deadline.IsZero() &amp;&amp; deadline.Before(time.<b>Now</b>()) {
+		<a href="../src/net/http/h2_bundle.go.html#line-6609" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6609">#L6609</a>: 			st.readDeadline = time.AfterFunc(deadline.Sub(time.<b>Now</b>()), st.onReadTimeout)
+		<a href="../src/net/http/h2_bundle.go.html#line-6611" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6611">#L6611</a>: 			st.readDeadline.Reset(deadline.Sub(time.<b>Now</b>()))
+		<a href="../src/net/http/h2_bundle.go.html#line-6619" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6619">#L6619</a>: 	if !deadline.IsZero() &amp;&amp; deadline.Before(time.<b>Now</b>()) {
+		<a href="../src/net/http/h2_bundle.go.html#line-6635" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6635">#L6635</a>: 			st.writeDeadline = time.AfterFunc(deadline.Sub(time.<b>Now</b>()), st.onWriteTimeout)
+		<a href="../src/net/http/h2_bundle.go.html#line-6637" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6637">#L6637</a>: 			st.writeDeadline.Reset(deadline.Sub(time.<b>Now</b>()))
+		<a href="../src/net/http/h2_bundle.go.html#line-7550" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-7550">#L7550</a>: 			sew.conn.SetWriteDeadline(time.<b>Now</b>().Add(sew.timeout))
+		<a href="../src/net/http/h2_bundle.go.html#line-8688" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8688">#L8688</a>: 		cc.lastActive = time.<b>Now</b>()
+		<a href="../src/net/http/h2_bundle.go.html#line-9203" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-9203">#L9203</a>: 	cc.lastActive = time.<b>Now</b>()
+		<a href="../src/net/http/h2_bundle.go.html#line-9206" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-9206">#L9206</a>: 		cc.lastIdle = time.<b>Now</b>()
+		<a href="../src/net/http/server.go.html#line-979">server.go#L979</a>: 	t0 := time.<b>Now</b>()
+		<a href="../src/net/http/server.go.html#line-989" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-989">#L989</a>: 			c.rwc.SetWriteDeadline(time.<b>Now</b>().Add(d))
+		<a href="../src/net/http/server.go.html#line-1450" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-1450">#L1450</a>: 		setHeader.date = appendTime(cw.res.dateBuf[:0], time.<b>Now</b>())
+		<a href="../src/net/http/server.go.html#line-1805" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-1805">#L1805</a>: 	packedState := uint64(time.<b>Now</b>().Unix()&lt;&lt;8) | uint64(state)
+		<a href="../src/net/http/server.go.html#line-1887" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-1887">#L1887</a>: 			dl := time.<b>Now</b>().Add(tlsTO)
+		<a href="../src/net/http/server.go.html#line-2035" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-2035">#L2035</a>: 			c.rwc.SetReadDeadline(time.<b>Now</b>().Add(d))
+		<a href="../src/net/http/server.go.html#line-2846" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-2846">#L2846</a>: 		if st == StateNew &amp;&amp; unixSec &lt; time.<b>Now</b>().Unix()-5 {
+		<a href="../src/net/http/transport.go.html#line-1014">transport.go#L1014</a>: 	pconn.idleAt = time.<b>Now</b>()
+		<a href="../src/net/http/transport.go.html#line-1043" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1043">#L1043</a>: 		oldTime = time.<b>Now</b>().Add(-t.IdleConnTimeout)
+		<a href="../src/net/http/transport.go.html#line-2711" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-2711">#L2711</a>: 		logf(time.<b>Now</b>().Format(time.RFC3339Nano)+": "+format, args...)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,25 +5,25 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: time.Time.Format</title>
-<link href="../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.4.js"></script>
+<link href="../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../pkg/time.html">time</a>.<a href="../src/time/time.go.html#line-129">Time</a>.<a href="../src/time/format.go.html#line-598">Format</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/time.html">time</a>.<a href="../src/time/time.go.html#line-129">Time</a>.<a href="../src/time/format.go.html#line-620">Format</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">18 uses</span>
+<span class="title">19 uses</span>
 
 	time (current package)
-		<a href="../src/time/format.go.html#line-509">format.go#L509</a>: 	s := t.<b>Format</b>("2006-01-02 15:04:05.999999999 -0700 MST")
-		<a href="../src/time/format.go.html#line-598" class="path-duplicate">format.go</a><a href="../src/time/format.go.html#line-598">#L598</a>: func (t Time) <b>Format</b>(layout string) string {
+		<a href="../src/time/format.go.html#line-528">format.go#L528</a>: 	s := t.<b>Format</b>("2006-01-02 15:04:05.999999999 -0700 MST")
+		<a href="../src/time/format.go.html#line-620" class="path-duplicate">format.go</a><a href="../src/time/format.go.html#line-620">#L620</a>: func (t Time) <b>Format</b>(layout string) string {
 
 	<a href="../pkg/crypto/x509.html">crypto/x509</a>
 		<a href="../src/crypto/x509/verify.go.html#line-578">verify.go#L578</a>: 			Detail: fmt.Sprintf("current time %s is before %s", now.<b>Format</b>(time.RFC3339), c.NotBefore.<b>Format</b>(time.RFC3339)),
 		<a href="../src/crypto/x509/verify.go.html#line-584" class="path-duplicate">verify.go</a><a href="../src/crypto/x509/verify.go.html#line-584">#L584</a>: 			Detail: fmt.Sprintf("current time %s is after %s", now.<b>Format</b>(time.RFC3339), c.NotAfter.<b>Format</b>(time.RFC3339)),
 
 	<a href="../pkg/encoding/asn1.html">encoding/asn1</a>
-		<a href="../src/encoding/asn1/asn1.go.html#line-352">asn1.go#L352</a>: 	if serialized := ret.<b>Format</b>(formatStr); serialized != s {
-		<a href="../src/encoding/asn1/asn1.go.html#line-375" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-375">#L375</a>: 	if serialized := ret.<b>Format</b>(formatStr); serialized != s {
+		<a href="../src/encoding/asn1/asn1.go.html#line-355">asn1.go#L355</a>: 	if serialized := ret.<b>Format</b>(formatStr); serialized != s {
+		<a href="../src/encoding/asn1/asn1.go.html#line-378" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-378">#L378</a>: 	if serialized := ret.<b>Format</b>(formatStr); serialized != s {
 
 	<a href="../pkg/github.com/gotd/td/internal/proto.html">github.com/gotd/td/internal/proto</a>
 		<a href="../src/github.com/gotd/td/internal/proto/message_id.go.html#line-44">message_id.go#L44</a>: 		int64(id), id.Type(), id.Time().<b>Format</b>(time.RFC3339),
@@ -34,19 +34,22 @@
 	<a href="../pkg/go.uber.org/zap/zapcore.html">go.uber.org/zap/zapcore</a>
 		<a href="../src/go.uber.org/zap/zapcore/encoder.go.html#line-127">encoder.go#L127</a>: 	enc.AppendString(t.<b>Format</b>(layout))
 
+	<a href="../pkg/io/fs.html">io/fs</a>
+		<a href="../src/io/fs/format.go.html#line-43">format.go#L43</a>: 	b = append(b, info.ModTime().<b>Format</b>(time.DateTime)...)
+
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/fs.go.html#line-533">fs.go#L533</a>: 		w.Header().Set("Last-Modified", modtime.UTC().<b>Format</b>(TimeFormat))
-		<a href="../src/net/http/h2_bundle.go.html#line-6190">h2_bundle.go#L6190</a>: 			date = time.Now().UTC().<b>Format</b>(TimeFormat)
-		<a href="../src/net/http/transport.go.html#line-2679">transport.go#L2679</a>: 		logf(time.Now().<b>Format</b>(time.RFC3339Nano)+": "+format, args...)
+		<a href="../src/net/http/fs.go.html#line-547">fs.go#L547</a>: 		w.Header().Set("Last-Modified", modtime.UTC().<b>Format</b>(TimeFormat))
+		<a href="../src/net/http/h2_bundle.go.html#line-6466">h2_bundle.go#L6466</a>: 			date = time.Now().UTC().<b>Format</b>(TimeFormat)
+		<a href="../src/net/http/transport.go.html#line-2711">transport.go#L2711</a>: 		logf(time.Now().<b>Format</b>(time.RFC3339Nano)+": "+format, args...)
 
 	<a href="../pkg/vendor/golang.org/x/crypto/cryptobyte.html">vendor/golang.org/x/crypto/cryptobyte</a>
 		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-116">asn1.go#L116</a>: 		c.AddBytes([]byte(t.<b>Format</b>(generalizedTimeFormatStr)))
 		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-129" class="path-duplicate">asn1.go</a><a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-129">#L129</a>: 		c.AddBytes([]byte(t.<b>Format</b>(defaultUTCTimeFormatStr)))
-		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-480" class="path-duplicate">asn1.go</a><a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-480">#L480</a>: 	if serialized := res.<b>Format</b>(generalizedTimeFormatStr); serialized != t {
-		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-512" class="path-duplicate">asn1.go</a><a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-512">#L512</a>: 	if serialized := res.<b>Format</b>(formatStr); serialized != t {
+		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-502" class="path-duplicate">asn1.go</a><a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-502">#L502</a>: 	if serialized := res.<b>Format</b>(generalizedTimeFormatStr); serialized != t {
+		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-534" class="path-duplicate">asn1.go</a><a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-534">#L534</a>: 	if serialized := res.<b>Format</b>(formatStr); serialized != t {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,50 +5,51 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: runtime.mspan.allocCount</title>
-<link href="../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.4.js"></script>
+<link href="../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/mheap.go.html#line-377">mspan</a>.<a href="../src/runtime/mheap.go.html#line-450">allocCount</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/mheap.go.html#line-410">mspan</a>.<a href="../src/runtime/mheap.go.html#line-485">allocCount</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">32 uses</span>
+<span class="title">33 uses</span>
 
 	runtime (current package)
-		<a href="../src/runtime/malloc.go.html#line-793">malloc.go#L793</a>: 			s.<b>allocCount</b>++
-		<a href="../src/runtime/malloc.go.html#line-815" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-815">#L815</a>: 		if uintptr(s.<b>allocCount</b>) != s.nelems {
-		<a href="../src/runtime/malloc.go.html#line-816" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-816">#L816</a>: 			println("runtime: s.allocCount=", s.<b>allocCount</b>, "s.nelems=", s.nelems)
-		<a href="../src/runtime/malloc.go.html#line-831" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-831">#L831</a>: 	s.<b>allocCount</b>++
-		<a href="../src/runtime/malloc.go.html#line-832" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-832">#L832</a>: 	if uintptr(s.<b>allocCount</b>) &gt; s.nelems {
-		<a href="../src/runtime/malloc.go.html#line-833" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-833">#L833</a>: 		println("s.allocCount=", s.<b>allocCount</b>, "s.nelems=", s.nelems)
-		<a href="../src/runtime/malloc.go.html#line-1031" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1031">#L1031</a>: 		span.<b>allocCount</b> = 1
-		<a href="../src/runtime/mcache.go.html#line-150">mcache.go#L150</a>: 	if uintptr(s.<b>allocCount</b>) != s.nelems {
-		<a href="../src/runtime/mcache.go.html#line-162" class="path-duplicate">mcache.go</a><a href="../src/runtime/mcache.go.html#line-162">#L162</a>: 		slotsUsed := int64(s.<b>allocCount</b>) - int64(s.allocCountBeforeCache)
-		<a href="../src/runtime/mcache.go.html#line-186" class="path-duplicate">mcache.go</a><a href="../src/runtime/mcache.go.html#line-186">#L186</a>: 	if uintptr(s.<b>allocCount</b>) == s.nelems {
-		<a href="../src/runtime/mcache.go.html#line-195" class="path-duplicate">mcache.go</a><a href="../src/runtime/mcache.go.html#line-195">#L195</a>: 	s.allocCountBeforeCache = s.<b>allocCount</b>
-		<a href="../src/runtime/mcache.go.html#line-210" class="path-duplicate">mcache.go</a><a href="../src/runtime/mcache.go.html#line-210">#L210</a>: 	usedBytes := uintptr(s.<b>allocCount</b>) * s.elemsize
-		<a href="../src/runtime/mcache.go.html#line-268" class="path-duplicate">mcache.go</a><a href="../src/runtime/mcache.go.html#line-268">#L268</a>: 			slotsUsed := int64(s.<b>allocCount</b>) - int64(s.allocCountBeforeCache)
-		<a href="../src/runtime/mcache.go.html#line-286" class="path-duplicate">mcache.go</a><a href="../src/runtime/mcache.go.html#line-286">#L286</a>: 				dHeapLive -= int64(uintptr(s.nelems)-uintptr(s.<b>allocCount</b>)) * int64(s.elemsize)
-		<a href="../src/runtime/mcentral.go.html#line-174">mcentral.go#L174</a>: 	n := int(s.nelems) - int(s.<b>allocCount</b>)
-		<a href="../src/runtime/mcentral.go.html#line-175" class="path-duplicate">mcentral.go</a><a href="../src/runtime/mcentral.go.html#line-175">#L175</a>: 	if n == 0 || s.freeindex == s.nelems || uintptr(s.<b>allocCount</b>) == s.nelems {
-		<a href="../src/runtime/mcentral.go.html#line-195" class="path-duplicate">mcentral.go</a><a href="../src/runtime/mcentral.go.html#line-195">#L195</a>: 	if s.<b>allocCount</b> == 0 {
-		<a href="../src/runtime/mcentral.go.html#line-228" class="path-duplicate">mcentral.go</a><a href="../src/runtime/mcentral.go.html#line-228">#L228</a>: 		if int(s.nelems)-int(s.<b>allocCount</b>) &gt; 0 {
-		<a href="../src/runtime/mgcsweep.go.html#line-618">mgcsweep.go#L618</a>: 	nfreed := s.<b>allocCount</b> - nalloc
-		<a href="../src/runtime/mgcsweep.go.html#line-619" class="path-duplicate">mgcsweep.go</a><a href="../src/runtime/mgcsweep.go.html#line-619">#L619</a>: 	if nalloc &gt; s.<b>allocCount</b> {
-		<a href="../src/runtime/mgcsweep.go.html#line-622" class="path-duplicate">mgcsweep.go</a><a href="../src/runtime/mgcsweep.go.html#line-622">#L622</a>: 		print("runtime: nelems=", s.nelems, " nalloc=", nalloc, " previous allocCount=", s.<b>allocCount</b>, " nfreed=", nfreed, "\n")
-		<a href="../src/runtime/mgcsweep.go.html#line-626" class="path-duplicate">mgcsweep.go</a><a href="../src/runtime/mgcsweep.go.html#line-626">#L626</a>: 	s.<b>allocCount</b> = nalloc
-		<a href="../src/runtime/mheap.go.html#line-450">mheap.go#L450</a>: 	<b>allocCount</b>            uint16        // number of allocated objects
-		<a href="../src/runtime/mheap.go.html#line-1527" class="path-duplicate">mheap.go</a><a href="../src/runtime/mheap.go.html#line-1527">#L1527</a>: 		if s.<b>allocCount</b> != 0 {
-		<a href="../src/runtime/mheap.go.html#line-1531" class="path-duplicate">mheap.go</a><a href="../src/runtime/mheap.go.html#line-1531">#L1531</a>: 		if s.<b>allocCount</b> != 0 || s.sweepgen != h.sweepgen {
-		<a href="../src/runtime/mheap.go.html#line-1532" class="path-duplicate">mheap.go</a><a href="../src/runtime/mheap.go.html#line-1532">#L1532</a>: 			print("mheap.freeSpanLocked - span ", s, " ptr ", hex(s.base()), " allocCount ", s.<b>allocCount</b>, " sweepgen ", s.sweepgen, "/", h.sweepgen, "\n")
-		<a href="../src/runtime/mheap.go.html#line-1607" class="path-duplicate">mheap.go</a><a href="../src/runtime/mheap.go.html#line-1607">#L1607</a>: 	span.<b>allocCount</b> = 0
-		<a href="../src/runtime/stack.go.html#line-211">stack.go#L211</a>: 		if s.<b>allocCount</b> != 0 {
-		<a href="../src/runtime/stack.go.html#line-231" class="path-duplicate">stack.go</a><a href="../src/runtime/stack.go.html#line-231">#L231</a>: 	s.<b>allocCount</b>++
-		<a href="../src/runtime/stack.go.html#line-251" class="path-duplicate">stack.go</a><a href="../src/runtime/stack.go.html#line-251">#L251</a>: 	s.<b>allocCount</b>--
-		<a href="../src/runtime/stack.go.html#line-252" class="path-duplicate">stack.go</a><a href="../src/runtime/stack.go.html#line-252">#L252</a>: 	if gcphase == _GCoff &amp;&amp; s.<b>allocCount</b> == 0 {
-		<a href="../src/runtime/stack.go.html#line-1225" class="path-duplicate">stack.go</a><a href="../src/runtime/stack.go.html#line-1225">#L1225</a>: 			if s.<b>allocCount</b> == 0 {
+		<a href="../src/runtime/arena.go.html#line-980">arena.go#L980</a>: 	s.<b>allocCount</b> = 1
+		<a href="../src/runtime/malloc.go.html#line-903">malloc.go#L903</a>: 			s.<b>allocCount</b>++
+		<a href="../src/runtime/malloc.go.html#line-925" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-925">#L925</a>: 		if uintptr(s.<b>allocCount</b>) != s.nelems {
+		<a href="../src/runtime/malloc.go.html#line-926" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-926">#L926</a>: 			println("runtime: s.allocCount=", s.<b>allocCount</b>, "s.nelems=", s.nelems)
+		<a href="../src/runtime/malloc.go.html#line-941" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-941">#L941</a>: 	s.<b>allocCount</b>++
+		<a href="../src/runtime/malloc.go.html#line-942" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-942">#L942</a>: 	if uintptr(s.<b>allocCount</b>) &gt; s.nelems {
+		<a href="../src/runtime/malloc.go.html#line-943" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-943">#L943</a>: 		println("s.allocCount=", s.<b>allocCount</b>, "s.nelems=", s.nelems)
+		<a href="../src/runtime/malloc.go.html#line-1129" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1129">#L1129</a>: 		span.<b>allocCount</b> = 1
+		<a href="../src/runtime/mcache.go.html#line-151">mcache.go#L151</a>: 	if uintptr(s.<b>allocCount</b>) != s.nelems {
+		<a href="../src/runtime/mcache.go.html#line-163" class="path-duplicate">mcache.go</a><a href="../src/runtime/mcache.go.html#line-163">#L163</a>: 		slotsUsed := int64(s.<b>allocCount</b>) - int64(s.allocCountBeforeCache)
+		<a href="../src/runtime/mcache.go.html#line-187" class="path-duplicate">mcache.go</a><a href="../src/runtime/mcache.go.html#line-187">#L187</a>: 	if uintptr(s.<b>allocCount</b>) == s.nelems {
+		<a href="../src/runtime/mcache.go.html#line-196" class="path-duplicate">mcache.go</a><a href="../src/runtime/mcache.go.html#line-196">#L196</a>: 	s.allocCountBeforeCache = s.<b>allocCount</b>
+		<a href="../src/runtime/mcache.go.html#line-211" class="path-duplicate">mcache.go</a><a href="../src/runtime/mcache.go.html#line-211">#L211</a>: 	usedBytes := uintptr(s.<b>allocCount</b>) * s.elemsize
+		<a href="../src/runtime/mcache.go.html#line-269" class="path-duplicate">mcache.go</a><a href="../src/runtime/mcache.go.html#line-269">#L269</a>: 			slotsUsed := int64(s.<b>allocCount</b>) - int64(s.allocCountBeforeCache)
+		<a href="../src/runtime/mcache.go.html#line-287" class="path-duplicate">mcache.go</a><a href="../src/runtime/mcache.go.html#line-287">#L287</a>: 				dHeapLive -= int64(uintptr(s.nelems)-uintptr(s.<b>allocCount</b>)) * int64(s.elemsize)
+		<a href="../src/runtime/mcentral.go.html#line-176">mcentral.go#L176</a>: 	n := int(s.nelems) - int(s.<b>allocCount</b>)
+		<a href="../src/runtime/mcentral.go.html#line-177" class="path-duplicate">mcentral.go</a><a href="../src/runtime/mcentral.go.html#line-177">#L177</a>: 	if n == 0 || s.freeindex == s.nelems || uintptr(s.<b>allocCount</b>) == s.nelems {
+		<a href="../src/runtime/mcentral.go.html#line-197" class="path-duplicate">mcentral.go</a><a href="../src/runtime/mcentral.go.html#line-197">#L197</a>: 	if s.<b>allocCount</b> == 0 {
+		<a href="../src/runtime/mcentral.go.html#line-230" class="path-duplicate">mcentral.go</a><a href="../src/runtime/mcentral.go.html#line-230">#L230</a>: 		if int(s.nelems)-int(s.<b>allocCount</b>) &gt; 0 {
+		<a href="../src/runtime/mgcsweep.go.html#line-651">mgcsweep.go#L651</a>: 	nfreed := s.<b>allocCount</b> - nalloc
+		<a href="../src/runtime/mgcsweep.go.html#line-652" class="path-duplicate">mgcsweep.go</a><a href="../src/runtime/mgcsweep.go.html#line-652">#L652</a>: 	if nalloc &gt; s.<b>allocCount</b> {
+		<a href="../src/runtime/mgcsweep.go.html#line-655" class="path-duplicate">mgcsweep.go</a><a href="../src/runtime/mgcsweep.go.html#line-655">#L655</a>: 		print("runtime: nelems=", s.nelems, " nalloc=", nalloc, " previous allocCount=", s.<b>allocCount</b>, " nfreed=", nfreed, "\n")
+		<a href="../src/runtime/mgcsweep.go.html#line-659" class="path-duplicate">mgcsweep.go</a><a href="../src/runtime/mgcsweep.go.html#line-659">#L659</a>: 	s.<b>allocCount</b> = nalloc
+		<a href="../src/runtime/mheap.go.html#line-485">mheap.go#L485</a>: 	<b>allocCount</b>            uint16        // number of allocated objects
+		<a href="../src/runtime/mheap.go.html#line-1596" class="path-duplicate">mheap.go</a><a href="../src/runtime/mheap.go.html#line-1596">#L1596</a>: 		if s.<b>allocCount</b> != 0 {
+		<a href="../src/runtime/mheap.go.html#line-1603" class="path-duplicate">mheap.go</a><a href="../src/runtime/mheap.go.html#line-1603">#L1603</a>: 		if s.<b>allocCount</b> != 0 || s.sweepgen != h.sweepgen {
+		<a href="../src/runtime/mheap.go.html#line-1604" class="path-duplicate">mheap.go</a><a href="../src/runtime/mheap.go.html#line-1604">#L1604</a>: 			print("mheap.freeSpanLocked - span ", s, " ptr ", hex(s.base()), " allocCount ", s.<b>allocCount</b>, " sweepgen ", s.sweepgen, "/", h.sweepgen, "\n")
+		<a href="../src/runtime/mheap.go.html#line-1684" class="path-duplicate">mheap.go</a><a href="../src/runtime/mheap.go.html#line-1684">#L1684</a>: 	span.<b>allocCount</b> = 0
+		<a href="../src/runtime/stack.go.html#line-203">stack.go#L203</a>: 		if s.<b>allocCount</b> != 0 {
+		<a href="../src/runtime/stack.go.html#line-223" class="path-duplicate">stack.go</a><a href="../src/runtime/stack.go.html#line-223">#L223</a>: 	s.<b>allocCount</b>++
+		<a href="../src/runtime/stack.go.html#line-243" class="path-duplicate">stack.go</a><a href="../src/runtime/stack.go.html#line-243">#L243</a>: 	s.<b>allocCount</b>--
+		<a href="../src/runtime/stack.go.html#line-244" class="path-duplicate">stack.go</a><a href="../src/runtime/stack.go.html#line-244">#L244</a>: 	if gcphase == _GCoff &amp;&amp; s.<b>allocCount</b> == 0 {
+		<a href="../src/runtime/stack.go.html#line-1229" class="path-duplicate">stack.go</a><a href="../src/runtime/stack.go.html#line-1229">#L1229</a>: 			if s.<b>allocCount</b> == 0 {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

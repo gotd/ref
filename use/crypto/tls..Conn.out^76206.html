@@ -5,56 +5,61 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto/tls.Conn.out</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/crypto/tls.html">crypto/tls</a>.<a href="../../src/crypto/tls/conn.go.html#line-27">Conn</a>.<a href="../../src/crypto/tls/conn.go.html#line-96">out</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/crypto/tls.html">crypto/tls</a>.<a href="../../src/crypto/tls/conn.go.html#line-27">Conn</a>.<a href="../../src/crypto/tls/conn.go.html#line-100">out</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">38 uses</span>
+<span class="title">43 uses</span>
 
 	crypto/tls (current package)
-		<a href="../../src/crypto/tls/conn.go.html#line-96">conn.go#L96</a>: 	in, <b>out</b>   halfConn
-		<a href="../../src/crypto/tls/conn.go.html#line-829" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-829">#L829</a>: 	return c.<b>out</b>.setErrorLocked(&amp;net.OpError{Op: "local error", Err: err})
-		<a href="../../src/crypto/tls/conn.go.html#line-834" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-834">#L834</a>: 	c.<b>out</b>.Lock()
-		<a href="../../src/crypto/tls/conn.go.html#line-835" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-835">#L835</a>: 	defer c.<b>out</b>.Unlock()
-		<a href="../../src/crypto/tls/conn.go.html#line-879" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-879">#L879</a>: 	payloadBytes := tcpMSSEstimate - recordHeaderLen - c.<b>out</b>.explicitNonceLen()
-		<a href="../../src/crypto/tls/conn.go.html#line-880" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-880">#L880</a>: 	if c.<b>out</b>.cipher != nil {
-		<a href="../../src/crypto/tls/conn.go.html#line-881" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-881">#L881</a>: 		switch ciph := c.<b>out</b>.cipher.(type) {
-		<a href="../../src/crypto/tls/conn.go.html#line-883" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-883">#L883</a>: 			payloadBytes -= c.<b>out</b>.mac.Size()
-		<a href="../../src/crypto/tls/conn.go.html#line-893" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-893">#L893</a>: 			payloadBytes -= c.<b>out</b>.mac.Size()
-		<a href="../../src/crypto/tls/conn.go.html#line-986" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-986">#L986</a>: 		outBuf, err = c.<b>out</b>.encrypt(outBuf, data[:m], c.config.rand())
-		<a href="../../src/crypto/tls/conn.go.html#line-998" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-998">#L998</a>: 		if err := c.<b>out</b>.changeCipherSpec(); err != nil {
-		<a href="../../src/crypto/tls/conn.go.html#line-1010" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1010">#L1010</a>: 	c.<b>out</b>.Lock()
-		<a href="../../src/crypto/tls/conn.go.html#line-1011" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1011">#L1011</a>: 	defer c.<b>out</b>.Unlock()
-		<a href="../../src/crypto/tls/conn.go.html#line-1027" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1027">#L1027</a>: 	c.<b>out</b>.Lock()
-		<a href="../../src/crypto/tls/conn.go.html#line-1028" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1028">#L1028</a>: 	defer c.<b>out</b>.Unlock()
-		<a href="../../src/crypto/tls/conn.go.html#line-1150" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1150">#L1150</a>: 	c.<b>out</b>.Lock()
-		<a href="../../src/crypto/tls/conn.go.html#line-1151" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1151">#L1151</a>: 	defer c.<b>out</b>.Unlock()
-		<a href="../../src/crypto/tls/conn.go.html#line-1153" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1153">#L1153</a>: 	if err := c.<b>out</b>.err; err != nil {
-		<a href="../../src/crypto/tls/conn.go.html#line-1176" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1176">#L1176</a>: 		if _, ok := c.<b>out</b>.cipher.(cipher.BlockMode); ok {
-		<a href="../../src/crypto/tls/conn.go.html#line-1179" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1179">#L1179</a>: 				return n, c.<b>out</b>.setErrorLocked(err)
-		<a href="../../src/crypto/tls/conn.go.html#line-1186" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1186">#L1186</a>: 	return n + m, c.<b>out</b>.setErrorLocked(err)
-		<a href="../../src/crypto/tls/conn.go.html#line-1273" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1273">#L1273</a>: 		c.<b>out</b>.Lock()
-		<a href="../../src/crypto/tls/conn.go.html#line-1274" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1274">#L1274</a>: 		defer c.<b>out</b>.Unlock()
-		<a href="../../src/crypto/tls/conn.go.html#line-1284" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1284">#L1284</a>: 			c.<b>out</b>.setErrorLocked(err)
-		<a href="../../src/crypto/tls/conn.go.html#line-1288" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1288">#L1288</a>: 		newSecret := cipherSuite.nextTrafficSecret(c.<b>out</b>.trafficSecret)
-		<a href="../../src/crypto/tls/conn.go.html#line-1289" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1289">#L1289</a>: 		c.<b>out</b>.setTrafficSecret(cipherSuite, newSecret)
-		<a href="../../src/crypto/tls/conn.go.html#line-1394" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1394">#L1394</a>: 	c.<b>out</b>.Lock()
-		<a href="../../src/crypto/tls/conn.go.html#line-1395" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1395">#L1395</a>: 	defer c.<b>out</b>.Unlock()
-		<a href="../../src/crypto/tls/handshake_client.go.html#line-389">handshake_client.go#L389</a>: 	c.<b>out</b>.version = vers
-		<a href="../../src/crypto/tls/handshake_client.go.html#line-684" class="path-duplicate">handshake_client.go</a><a href="../../src/crypto/tls/handshake_client.go.html#line-684">#L684</a>: 	c.<b>out</b>.prepareCipherSpec(c.vers, clientCipher, clientHash)
-		<a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-381">handshake_client_tls13.go#L381</a>: 	c.<b>out</b>.setTrafficSecret(hs.suite, clientSecret)
-		<a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-639" class="path-duplicate">handshake_client_tls13.go</a><a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-639">#L639</a>: 		verifyData: hs.suite.finishedHash(c.<b>out</b>.trafficSecret, hs.transcript),
-		<a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-646" class="path-duplicate">handshake_client_tls13.go</a><a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-646">#L646</a>: 	c.<b>out</b>.setTrafficSecret(hs.suite, hs.trafficSecret)
-		<a href="../../src/crypto/tls/handshake_server.go.html#line-168">handshake_server.go#L168</a>: 	c.<b>out</b>.version = c.vers
-		<a href="../../src/crypto/tls/handshake_server.go.html#line-707" class="path-duplicate">handshake_server.go</a><a href="../../src/crypto/tls/handshake_server.go.html#line-707">#L707</a>: 	c.<b>out</b>.prepareCipherSpec(c.vers, serverCipher, serverHash)
-		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-550">handshake_server_tls13.go#L550</a>: 	c.<b>out</b>.setTrafficSecret(hs.suite, serverSecret)
-		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-655" class="path-duplicate">handshake_server_tls13.go</a><a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-655">#L655</a>: 		verifyData: hs.suite.finishedHash(c.<b>out</b>.trafficSecret, hs.transcript),
-		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-671" class="path-duplicate">handshake_server_tls13.go</a><a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-671">#L671</a>: 	c.<b>out</b>.setTrafficSecret(hs.suite, serverSecret)
+		<a href="../../src/crypto/tls/conn.go.html#line-100">conn.go#L100</a>: 	in, <b>out</b>   halfConn
+		<a href="../../src/crypto/tls/conn.go.html#line-834" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-834">#L834</a>: 		return c.<b>out</b>.setErrorLocked(&amp;net.OpError{Op: "local error", Err: err})
+		<a href="../../src/crypto/tls/conn.go.html#line-851" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-851">#L851</a>: 	return c.<b>out</b>.setErrorLocked(&amp;net.OpError{Op: "local error", Err: err})
+		<a href="../../src/crypto/tls/conn.go.html#line-856" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-856">#L856</a>: 	c.<b>out</b>.Lock()
+		<a href="../../src/crypto/tls/conn.go.html#line-857" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-857">#L857</a>: 	defer c.<b>out</b>.Unlock()
+		<a href="../../src/crypto/tls/conn.go.html#line-901" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-901">#L901</a>: 	payloadBytes := tcpMSSEstimate - recordHeaderLen - c.<b>out</b>.explicitNonceLen()
+		<a href="../../src/crypto/tls/conn.go.html#line-902" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-902">#L902</a>: 	if c.<b>out</b>.cipher != nil {
+		<a href="../../src/crypto/tls/conn.go.html#line-903" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-903">#L903</a>: 		switch ciph := c.<b>out</b>.cipher.(type) {
+		<a href="../../src/crypto/tls/conn.go.html#line-905" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-905">#L905</a>: 			payloadBytes -= c.<b>out</b>.mac.Size()
+		<a href="../../src/crypto/tls/conn.go.html#line-915" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-915">#L915</a>: 			payloadBytes -= c.<b>out</b>.mac.Size()
+		<a href="../../src/crypto/tls/conn.go.html#line-975" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-975">#L975</a>: 		c.quicWriteCryptoData(c.<b>out</b>.level, data)
+		<a href="../../src/crypto/tls/conn.go.html#line-1021" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1021">#L1021</a>: 		outBuf, err = c.<b>out</b>.encrypt(outBuf, data[:m], c.config.rand())
+		<a href="../../src/crypto/tls/conn.go.html#line-1033" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1033">#L1033</a>: 		if err := c.<b>out</b>.changeCipherSpec(); err != nil {
+		<a href="../../src/crypto/tls/conn.go.html#line-1045" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1045">#L1045</a>: 	c.<b>out</b>.Lock()
+		<a href="../../src/crypto/tls/conn.go.html#line-1046" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1046">#L1046</a>: 	defer c.<b>out</b>.Unlock()
+		<a href="../../src/crypto/tls/conn.go.html#line-1062" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1062">#L1062</a>: 	c.<b>out</b>.Lock()
+		<a href="../../src/crypto/tls/conn.go.html#line-1063" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1063">#L1063</a>: 	defer c.<b>out</b>.Unlock()
+		<a href="../../src/crypto/tls/conn.go.html#line-1197" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1197">#L1197</a>: 	c.<b>out</b>.Lock()
+		<a href="../../src/crypto/tls/conn.go.html#line-1198" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1198">#L1198</a>: 	defer c.<b>out</b>.Unlock()
+		<a href="../../src/crypto/tls/conn.go.html#line-1200" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1200">#L1200</a>: 	if err := c.<b>out</b>.err; err != nil {
+		<a href="../../src/crypto/tls/conn.go.html#line-1223" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1223">#L1223</a>: 		if _, ok := c.<b>out</b>.cipher.(cipher.BlockMode); ok {
+		<a href="../../src/crypto/tls/conn.go.html#line-1226" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1226">#L1226</a>: 				return n, c.<b>out</b>.setErrorLocked(err)
+		<a href="../../src/crypto/tls/conn.go.html#line-1233" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1233">#L1233</a>: 	return n + m, c.<b>out</b>.setErrorLocked(err)
+		<a href="../../src/crypto/tls/conn.go.html#line-1327" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1327">#L1327</a>: 		c.<b>out</b>.Lock()
+		<a href="../../src/crypto/tls/conn.go.html#line-1328" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1328">#L1328</a>: 		defer c.<b>out</b>.Unlock()
+		<a href="../../src/crypto/tls/conn.go.html#line-1338" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1338">#L1338</a>: 			c.<b>out</b>.setErrorLocked(err)
+		<a href="../../src/crypto/tls/conn.go.html#line-1342" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1342">#L1342</a>: 		newSecret := cipherSuite.nextTrafficSecret(c.<b>out</b>.trafficSecret)
+		<a href="../../src/crypto/tls/conn.go.html#line-1343" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1343">#L1343</a>: 		c.<b>out</b>.setTrafficSecret(cipherSuite, QUICEncryptionLevelInitial, newSecret)
+		<a href="../../src/crypto/tls/conn.go.html#line-1448" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1448">#L1448</a>: 	c.<b>out</b>.Lock()
+		<a href="../../src/crypto/tls/conn.go.html#line-1449" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1449">#L1449</a>: 	defer c.<b>out</b>.Unlock()
+		<a href="../../src/crypto/tls/conn.go.html#line-1577" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1577">#L1577</a>: 			c.<b>out</b>.Lock()
+		<a href="../../src/crypto/tls/conn.go.html#line-1578" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1578">#L1578</a>: 			if !errors.As(c.<b>out</b>.err, &amp;a) {
+		<a href="../../src/crypto/tls/conn.go.html#line-1581" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1581">#L1581</a>: 			c.<b>out</b>.Unlock()
+		<a href="../../src/crypto/tls/handshake_client.go.html#line-432">handshake_client.go#L432</a>: 	c.<b>out</b>.version = vers
+		<a href="../../src/crypto/tls/handshake_client.go.html#line-737" class="path-duplicate">handshake_client.go</a><a href="../../src/crypto/tls/handshake_client.go.html#line-737">#L737</a>: 	c.<b>out</b>.prepareCipherSpec(c.vers, clientCipher, clientHash)
+		<a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-396">handshake_client_tls13.go#L396</a>: 	c.<b>out</b>.setTrafficSecret(hs.suite, QUICEncryptionLevelHandshake, clientSecret)
+		<a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-698" class="path-duplicate">handshake_client_tls13.go</a><a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-698">#L698</a>: 		verifyData: hs.suite.finishedHash(c.<b>out</b>.trafficSecret, hs.transcript),
+		<a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-705" class="path-duplicate">handshake_client_tls13.go</a><a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-705">#L705</a>: 	c.<b>out</b>.setTrafficSecret(hs.suite, QUICEncryptionLevelApplication, hs.trafficSecret)
+		<a href="../../src/crypto/tls/handshake_server.go.html#line-169">handshake_server.go#L169</a>: 	c.<b>out</b>.version = c.vers
+		<a href="../../src/crypto/tls/handshake_server.go.html#line-757" class="path-duplicate">handshake_server.go</a><a href="../../src/crypto/tls/handshake_server.go.html#line-757">#L757</a>: 	c.<b>out</b>.prepareCipherSpec(c.vers, serverCipher, serverHash)
+		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-616">handshake_server_tls13.go#L616</a>: 	c.<b>out</b>.setTrafficSecret(hs.suite, QUICEncryptionLevelHandshake, serverSecret)
+		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-731" class="path-duplicate">handshake_server_tls13.go</a><a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-731">#L731</a>: 		verifyData: hs.suite.finishedHash(c.<b>out</b>.trafficSecret, hs.transcript),
+		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-747" class="path-duplicate">handshake_server_tls13.go</a><a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-747">#L747</a>: 	c.<b>out</b>.setTrafficSecret(hs.suite, QUICEncryptionLevelApplication, serverSecret)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

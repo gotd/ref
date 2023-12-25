@@ -5,17 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: sync/atomic.StoreInt64</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../../pkg/sync/atomic.html">sync/atomic</a>.<a href="../../src/sync/atomic/doc.go.html#line-141">StoreInt64</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../../pkg/sync/atomic.html">sync/atomic</a>.<a href="../../src/sync/atomic/doc.go.html#line-175">StoreInt64</a></b></span>
 
-<span class="title">5 uses</span>
+<span class="title">9 uses</span>
 
 	sync/atomic (current package)
-		<a href="../../src/sync/atomic/doc.go.html#line-141">doc.go#L141</a>: func <b>StoreInt64</b>(addr *int64, val int64)
-		<a href="../../src/sync/atomic/type.go.html#line-97">type.go#L97</a>: func (x *Int64) Store(val int64) { <b>StoreInt64</b>(&amp;x.v, val) }
+		<a href="../../src/sync/atomic/doc.go.html#line-175">doc.go#L175</a>: func <b>StoreInt64</b>(addr *int64, val int64)
+		<a href="../../src/sync/atomic/type.go.html#line-101">type.go#L101</a>: func (x *Int64) Store(val int64) { <b>StoreInt64</b>(&amp;x.v, val) }
 
 	<a href="../../pkg/github.com/go-faster/errors.html">github.com/go-faster/errors</a>
 		<a href="../../src/github.com/go-faster/errors/trace.go.html#line-20">trace.go#L20</a>: 		atomic.<b>StoreInt64</b>(&amp;traceFlag, traceEnabled)
@@ -23,9 +23,15 @@
 
 	<a href="../../pkg/go.uber.org/atomic.html">go.uber.org/atomic</a>
 		<a href="../../src/go.uber.org/atomic/int64.go.html#line-82">int64.go#L82</a>: 	atomic.<b>StoreInt64</b>(&amp;i.v, val)
+
+	<a href="../../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
+		<a href="../../src/nhooyr.io/websocket/netconn.go.html#line-71">netconn.go#L71</a>: 		atomic.<b>StoreInt64</b>(&amp;nc.writeExpired, 1)
+		<a href="../../src/nhooyr.io/websocket/netconn.go.html#line-87" class="path-duplicate">netconn.go</a><a href="../../src/nhooyr.io/websocket/netconn.go.html#line-87">#L87</a>: 		atomic.<b>StoreInt64</b>(&amp;nc.readExpired, 1)
+		<a href="../../src/nhooyr.io/websocket/netconn.go.html#line-209" class="path-duplicate">netconn.go</a><a href="../../src/nhooyr.io/websocket/netconn.go.html#line-209">#L209</a>: 	atomic.<b>StoreInt64</b>(&amp;nc.writeExpired, 0)
+		<a href="../../src/nhooyr.io/websocket/netconn.go.html#line-223" class="path-duplicate">netconn.go</a><a href="../../src/nhooyr.io/websocket/netconn.go.html#line-223">#L223</a>: 	atomic.<b>StoreInt64</b>(&amp;nc.readExpired, 0)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

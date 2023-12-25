@@ -5,38 +5,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: nhooyr.io/websocket.header.payloadLength</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>.<a href="../../src/nhooyr.io/websocket/frame.go.html#line-36">header</a>.<a href="../../src/nhooyr.io/websocket/frame.go.html#line-43">payloadLength</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>.<a href="../../src/nhooyr.io/websocket/frame.go.html#line-38">header</a>.<a href="../../src/nhooyr.io/websocket/frame.go.html#line-45">payloadLength</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
 <span class="title">21 uses</span>
 
 	nhooyr.io/websocket (current package)
-		<a href="../../src/nhooyr.io/websocket/close_notjs.go.html#line-113">close_notjs.go#L113</a>: 		for i := int64(0); i &lt; h.<b>payloadLength</b>; i++ {
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-43">frame.go#L43</a>: 	<b>payloadLength</b> int64
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-76" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-76">#L76</a>: 		h.<b>payloadLength</b> = int64(payloadLength)
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-79" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-79">#L79</a>: 		h.<b>payloadLength</b> = int64(binary.BigEndian.Uint16(readBuf))
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-82" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-82">#L82</a>: 		h.<b>payloadLength</b> = int64(binary.BigEndian.Uint64(readBuf))
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-88" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-88">#L88</a>: 	if h.<b>payloadLength</b> &lt; 0 {
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-89" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-89">#L89</a>: 		return header{}, fmt.Errorf("received negative payload length: %v", h.<b>payloadLength</b>)
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-139" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-139">#L139</a>: 	case h.<b>payloadLength</b> &gt; math.MaxUint16:
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-141" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-141">#L141</a>: 	case h.<b>payloadLength</b> &gt; 125:
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-143" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-143">#L143</a>: 	case h.<b>payloadLength</b> &gt;= 0:
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-144" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-144">#L144</a>: 		lengthByte |= byte(h.<b>payloadLength</b>)
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-152" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-152">#L152</a>: 	case h.<b>payloadLength</b> &gt; math.MaxUint16:
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-153" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-153">#L153</a>: 		binary.BigEndian.PutUint64(buf, uint64(h.<b>payloadLength</b>))
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-155" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-155">#L155</a>: 	case h.<b>payloadLength</b> &gt; 125:
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-156" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-156">#L156</a>: 		binary.BigEndian.PutUint16(buf, uint16(h.<b>payloadLength</b>))
-		<a href="../../src/nhooyr.io/websocket/read.go.html#line-241">read.go#L241</a>: 	if h.<b>payloadLength</b> &lt; 0 || h.<b>payloadLength</b> &gt; maxControlPayload {
-		<a href="../../src/nhooyr.io/websocket/read.go.html#line-242" class="path-duplicate">read.go</a><a href="../../src/nhooyr.io/websocket/read.go.html#line-242">#L242</a>: 		err := fmt.Errorf("received control frame payload with invalid length: %d", h.<b>payloadLength</b>)
-		<a href="../../src/nhooyr.io/websocket/read.go.html#line-256" class="path-duplicate">read.go</a><a href="../../src/nhooyr.io/websocket/read.go.html#line-256">#L256</a>: 	b := c.readControlBuf[:h.<b>payloadLength</b>]
-		<a href="../../src/nhooyr.io/websocket/read.go.html#line-364" class="path-duplicate">read.go</a><a href="../../src/nhooyr.io/websocket/read.go.html#line-364">#L364</a>: 	mr.payloadLength = h.<b>payloadLength</b>
-		<a href="../../src/nhooyr.io/websocket/write.go.html#line-289">write.go#L289</a>: 	c.writeHeader.<b>payloadLength</b> = int64(len(p))
+		<a href="../../src/nhooyr.io/websocket/close.go.html#line-201">close.go#L201</a>: 		for i := int64(0); i &lt; h.<b>payloadLength</b>; i++ {
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-45">frame.go#L45</a>: 	<b>payloadLength</b> int64
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-78" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-78">#L78</a>: 		h.<b>payloadLength</b> = int64(payloadLength)
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-81" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-81">#L81</a>: 		h.<b>payloadLength</b> = int64(binary.BigEndian.Uint16(readBuf))
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-84" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-84">#L84</a>: 		h.<b>payloadLength</b> = int64(binary.BigEndian.Uint64(readBuf))
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-90" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-90">#L90</a>: 	if h.<b>payloadLength</b> &lt; 0 {
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-91" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-91">#L91</a>: 		return header{}, fmt.Errorf("received negative payload length: %v", h.<b>payloadLength</b>)
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-141" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-141">#L141</a>: 	case h.<b>payloadLength</b> &gt; math.MaxUint16:
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-143" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-143">#L143</a>: 	case h.<b>payloadLength</b> &gt; 125:
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-145" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-145">#L145</a>: 	case h.<b>payloadLength</b> &gt;= 0:
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-146" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-146">#L146</a>: 		lengthByte |= byte(h.<b>payloadLength</b>)
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-154" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-154">#L154</a>: 	case h.<b>payloadLength</b> &gt; math.MaxUint16:
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-155" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-155">#L155</a>: 		binary.BigEndian.PutUint64(buf, uint64(h.<b>payloadLength</b>))
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-157" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-157">#L157</a>: 	case h.<b>payloadLength</b> &gt; 125:
+		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-158" class="path-duplicate">frame.go</a><a href="../../src/nhooyr.io/websocket/frame.go.html#line-158">#L158</a>: 		binary.BigEndian.PutUint16(buf, uint16(h.<b>payloadLength</b>))
+		<a href="../../src/nhooyr.io/websocket/read.go.html#line-270">read.go#L270</a>: 	if h.<b>payloadLength</b> &lt; 0 || h.<b>payloadLength</b> &gt; maxControlPayload {
+		<a href="../../src/nhooyr.io/websocket/read.go.html#line-271" class="path-duplicate">read.go</a><a href="../../src/nhooyr.io/websocket/read.go.html#line-271">#L271</a>: 		err := fmt.Errorf("received control frame payload with invalid length: %d", h.<b>payloadLength</b>)
+		<a href="../../src/nhooyr.io/websocket/read.go.html#line-285" class="path-duplicate">read.go</a><a href="../../src/nhooyr.io/websocket/read.go.html#line-285">#L285</a>: 	b := c.readControlBuf[:h.<b>payloadLength</b>]
+		<a href="../../src/nhooyr.io/websocket/read.go.html#line-393" class="path-duplicate">read.go</a><a href="../../src/nhooyr.io/websocket/read.go.html#line-393">#L393</a>: 	mr.payloadLength = h.<b>payloadLength</b>
+		<a href="../../src/nhooyr.io/websocket/write.go.html#line-293">write.go#L293</a>: 	c.writeHeader.<b>payloadLength</b> = int64(len(p))
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

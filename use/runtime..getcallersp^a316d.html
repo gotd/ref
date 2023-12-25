@@ -5,45 +5,45 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: runtime.getcallersp</title>
-<link href="../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.4.js"></script>
+<link href="../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/stubs.go.html#line-346">getcallersp</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/stubs.go.html#line-358">getcallersp</a></b></span>
 
 <span class="title">27 uses</span>
 
 	runtime (current package)
-		<a href="../src/runtime/debugcall.go.html#line-31">debugcall.go#L31</a>: 	if sp := <b>getcallersp</b>(); !(getg().stack.lo &lt; sp &amp;&amp; sp &lt;= getg().stack.hi) {
-		<a href="../src/runtime/mprof.go.html#line-934">mprof.go#L934</a>: 	sp := <b>getcallersp</b>()
-		<a href="../src/runtime/mprof.go.html#line-1126" class="path-duplicate">mprof.go</a><a href="../src/runtime/mprof.go.html#line-1126">#L1126</a>: 		sp := <b>getcallersp</b>()
-		<a href="../src/runtime/mprof.go.html#line-1201" class="path-duplicate">mprof.go</a><a href="../src/runtime/mprof.go.html#line-1201">#L1201</a>: 		sp := <b>getcallersp</b>()
-		<a href="../src/runtime/mprof.go.html#line-1243" class="path-duplicate">mprof.go</a><a href="../src/runtime/mprof.go.html#line-1243">#L1243</a>: 		sp := <b>getcallersp</b>()
-		<a href="../src/runtime/mprof.go.html#line-1263" class="path-duplicate">mprof.go</a><a href="../src/runtime/mprof.go.html#line-1263">#L1263</a>: 	sp := <b>getcallersp</b>()
-		<a href="../src/runtime/panic.go.html#line-288">panic.go#L288</a>: 	d.sp = <b>getcallersp</b>()
-		<a href="../src/runtime/panic.go.html#line-319" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-319">#L319</a>: 	d.sp = <b>getcallersp</b>()
-		<a href="../src/runtime/panic.go.html#line-455" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-455">#L455</a>: 		sp := <b>getcallersp</b>()
-		<a href="../src/runtime/panic.go.html#line-501" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-501">#L501</a>: 	addOneOpenDeferFrame(gp, getcallerpc(), unsafe.Pointer(<b>getcallersp</b>()))
-		<a href="../src/runtime/panic.go.html#line-533" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-533">#L533</a>: 				addOneOpenDeferFrame(gp, getcallerpc(), unsafe.Pointer(<b>getcallersp</b>()))
-		<a href="../src/runtime/panic.go.html#line-794" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-794">#L794</a>: 		p.sp = unsafe.Pointer(<b>getcallersp</b>())
-		<a href="../src/runtime/panic.go.html#line-844" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-844">#L844</a>: 	addOneOpenDeferFrame(gp, getcallerpc(), unsafe.Pointer(<b>getcallersp</b>()))
-		<a href="../src/runtime/panic.go.html#line-997" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-997">#L997</a>: 	return <b>getcallersp</b>() + sys.MinFrameSize
-		<a href="../src/runtime/panic.go.html#line-1113" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-1113">#L1113</a>: 	sp := <b>getcallersp</b>()
-		<a href="../src/runtime/panic.go.html#line-1145" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-1145">#L1145</a>: 	sp := <b>getcallersp</b>()
-		<a href="../src/runtime/proc.go.html#line-1413">proc.go#L1413</a>: 	_g_.sched.sp = <b>getcallersp</b>()
-		<a href="../src/runtime/proc.go.html#line-1871" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1871">#L1871</a>: 	_g_.stack.hi = <b>getcallersp</b>() + 1024
-		<a href="../src/runtime/proc.go.html#line-1872" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1872">#L1872</a>: 	_g_.stack.lo = <b>getcallersp</b>() - 32*1024
-		<a href="../src/runtime/proc.go.html#line-3679" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-3679">#L3679</a>: 	reentersyscall(getcallerpc(), <b>getcallersp</b>())
-		<a href="../src/runtime/proc.go.html#line-3724" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-3724">#L3724</a>: 	sp := <b>getcallersp</b>()
-		<a href="../src/runtime/proc.go.html#line-3748" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-3748">#L3748</a>: 	save(getcallerpc(), <b>getcallersp</b>())
-		<a href="../src/runtime/proc.go.html#line-3777" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-3777">#L3777</a>: 	if <b>getcallersp</b>() &gt; _g_.syscallsp {
+		<a href="../src/runtime/debugcall.go.html#line-34">debugcall.go#L34</a>: 	if sp := <b>getcallersp</b>(); !(getg().stack.lo &lt; sp &amp;&amp; sp &lt;= getg().stack.hi) {
+		<a href="../src/runtime/mprof.go.html#line-927">mprof.go#L927</a>: 	sp := <b>getcallersp</b>()
+		<a href="../src/runtime/mprof.go.html#line-1119" class="path-duplicate">mprof.go</a><a href="../src/runtime/mprof.go.html#line-1119">#L1119</a>: 		sp := <b>getcallersp</b>()
+		<a href="../src/runtime/mprof.go.html#line-1196" class="path-duplicate">mprof.go</a><a href="../src/runtime/mprof.go.html#line-1196">#L1196</a>: 		sp := <b>getcallersp</b>()
+		<a href="../src/runtime/mprof.go.html#line-1238" class="path-duplicate">mprof.go</a><a href="../src/runtime/mprof.go.html#line-1238">#L1238</a>: 		sp := <b>getcallersp</b>()
+		<a href="../src/runtime/mprof.go.html#line-1258" class="path-duplicate">mprof.go</a><a href="../src/runtime/mprof.go.html#line-1258">#L1258</a>: 	sp := <b>getcallersp</b>()
+		<a href="../src/runtime/panic.go.html#line-289">panic.go#L289</a>: 	d.sp = <b>getcallersp</b>()
+		<a href="../src/runtime/panic.go.html#line-320" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-320">#L320</a>: 	d.sp = <b>getcallersp</b>()
+		<a href="../src/runtime/panic.go.html#line-456" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-456">#L456</a>: 		sp := <b>getcallersp</b>()
+		<a href="../src/runtime/panic.go.html#line-502" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-502">#L502</a>: 	addOneOpenDeferFrame(gp, getcallerpc(), unsafe.Pointer(<b>getcallersp</b>()))
+		<a href="../src/runtime/panic.go.html#line-534" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-534">#L534</a>: 				addOneOpenDeferFrame(gp, getcallerpc(), unsafe.Pointer(<b>getcallersp</b>()))
+		<a href="../src/runtime/panic.go.html#line-796" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-796">#L796</a>: 		p.sp = unsafe.Pointer(<b>getcallersp</b>())
+		<a href="../src/runtime/panic.go.html#line-874" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-874">#L874</a>: 	addOneOpenDeferFrame(gp, getcallerpc(), unsafe.Pointer(<b>getcallersp</b>()))
+		<a href="../src/runtime/panic.go.html#line-1027" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-1027">#L1027</a>: 	return <b>getcallersp</b>() + sys.MinFrameSize
+		<a href="../src/runtime/panic.go.html#line-1154" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-1154">#L1154</a>: 	sp := <b>getcallersp</b>()
+		<a href="../src/runtime/panic.go.html#line-1190" class="path-duplicate">panic.go</a><a href="../src/runtime/panic.go.html#line-1190">#L1190</a>: 	sp := <b>getcallersp</b>()
+		<a href="../src/runtime/proc.go.html#line-1588">proc.go#L1588</a>: 	gp.sched.sp = <b>getcallersp</b>()
+		<a href="../src/runtime/proc.go.html#line-2047" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-2047">#L2047</a>: 	gp.stack.hi = <b>getcallersp</b>() + 1024
+		<a href="../src/runtime/proc.go.html#line-2048" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-2048">#L2048</a>: 	gp.stack.lo = <b>getcallersp</b>() - 32*1024
+		<a href="../src/runtime/proc.go.html#line-4064" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-4064">#L4064</a>: 	reentersyscall(getcallerpc(), <b>getcallersp</b>())
+		<a href="../src/runtime/proc.go.html#line-4108" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-4108">#L4108</a>: 	sp := <b>getcallersp</b>()
+		<a href="../src/runtime/proc.go.html#line-4132" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-4132">#L4132</a>: 	save(getcallerpc(), <b>getcallersp</b>())
+		<a href="../src/runtime/proc.go.html#line-4161" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-4161">#L4161</a>: 	if <b>getcallersp</b>() &gt; gp.syscallsp {
 		<a href="../src/runtime/signal_unix.go.html#line-408">signal_unix.go#L408</a>: 			sp := <b>getcallersp</b>()
-		<a href="../src/runtime/signal_unix.go.html#line-471" class="path-duplicate">signal_unix.go</a><a href="../src/runtime/signal_unix.go.html#line-471">#L471</a>: 		g.m.gsignal.stktopsp = <b>getcallersp</b>()
-		<a href="../src/runtime/stubs.go.html#line-346">stubs.go#L346</a>: func <b>getcallersp</b>() uintptr // implemented as an intrinsic on all platforms
-		<a href="../src/runtime/traceback.go.html#line-920">traceback.go#L920</a>: 	sp := <b>getcallersp</b>()
+		<a href="../src/runtime/signal_unix.go.html#line-482" class="path-duplicate">signal_unix.go</a><a href="../src/runtime/signal_unix.go.html#line-482">#L482</a>: 		gp.m.gsignal.stktopsp = <b>getcallersp</b>()
+		<a href="../src/runtime/stubs.go.html#line-358">stubs.go#L358</a>: func <b>getcallersp</b>() uintptr // implemented as an intrinsic on all platforms
+		<a href="../src/runtime/traceback.go.html#line-1103">traceback.go#L1103</a>: 	sp := <b>getcallersp</b>()
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Package: github.com/go-faster/errors</title>
-<link href="../../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.4.js"></script>
+<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="package-details"><code><span style="font-size:xx-large;">package <b>errors</b></span>
@@ -30,6 +30,7 @@
 	<span class="nodocs">    <a href="../../../src/github.com/go-faster/errors/format.go.html">format.go</a></span>
 	<span class="nodocs">    <a href="../../../src/github.com/go-faster/errors/frame.go.html">frame.go</a></span>
 	<span class="nodocs">    <a href="../../../src/github.com/go-faster/errors/into.go.html">into.go</a></span>
+	<span class="nodocs">    <a href="../../../src/github.com/go-faster/errors/join_go120.go.html">join_go120.go</a></span>
 	<span class="nodocs">    <a href="../../../src/github.com/go-faster/errors/must.go.html">must.go</a></span>
 	<span class="nodocs">    <a href="../../../src/github.com/go-faster/errors/trace.go.html">trace.go</a></span>
 	<span class="nodocs">    <a href="../../../src/github.com/go-faster/errors/wrap.go.html">wrap.go</a></span></div>
@@ -235,7 +236,7 @@
 			func <a href="#name-Formatter">Formatter</a>.<a href="../../../src/github.com/go-faster/errors/format.go.html#line-18">FormatError</a>(p <b>Printer</b>) (next <a href="../../builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-Frame">Frame</a>.<a href="../../../src/github.com/go-faster/errors/frame.go.html#line-46">Format</a>(p <b>Printer</b>)</span></span>
 
-</span></div><div class="anchor type-res" id="name-Wrapper" data-popularity="2300">	<input type='checkbox' class="fold" id="Wrapper-fold-content"><label for="Wrapper-fold-content"> <a href="../../../use/github.com/go-faster/errors..Wrapper.html">type</a> <a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-13">Wrapper</a> <b><i>(interface)</i></b></label><span id='Wrapper-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Wrapper" data-popularity="2600">	<input type='checkbox' class="fold" id="Wrapper-fold-content"><label for="Wrapper-fold-content"> <a href="../../../use/github.com/go-faster/errors..Wrapper.html">type</a> <a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-13">Wrapper</a> <b><i>(interface)</i></b></label><span id='Wrapper-fold-content-docs' class="fold-docs">
 <span class="md-text">		A Wrapper provides context around another error.</span>
 
 		<input type='checkbox' class="fold" id="Wrapper-fold-methods"><label for="Wrapper-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Wrapper-fold-methods-items' class="fold-items"><span>
@@ -243,9 +244,10 @@
 <span class="md-text">				Unwrap returns the next error in the error chain.
 				If there is no next error, Unwrap returns nil.</span>
 </span></span></span>
-		<input type='checkbox' class="fold" id="Wrapper-fold-impledby"><label for="Wrapper-fold-impledby">Implemented By (<i>at least 15, in which 11 are exported</i>)</label><span id='Wrapper-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Wrapper-fold-impledby"><label for="Wrapper-fold-impledby">Implemented By (<i>at least 17, in which 12 are exported</i>)</label><span id='Wrapper-fold-impledby-items' class="fold-items"><span>
 			*github.com/cenkalti/backoff/v4.<a href="../cenkalti/backoff/v4.html#name-PermanentError">PermanentError</a></span><span>
 			*github.com/gotd/td/internal/exchange.<a href="../gotd/td/internal/exchange.html#name-ServerExchangeError">ServerExchangeError</a></span><span>
+			*crypto/tls.<a href="../../crypto/tls.html#name-CertificateVerificationError">CertificateVerificationError</a></span><span>
 			 crypto/x509.<a href="../../crypto/x509.html#name-SystemRootsError">SystemRootsError</a></span><span>
 			*encoding/json.<a href="../../encoding/json.html#name-MarshalerError">MarshalerError</a></span><span>
 			*io/fs.<a href="../../io/fs.html#name-PathError">PathError</a></span><span>
@@ -255,10 +257,11 @@
 			*os.<a href="../../os.html#name-LinkError">LinkError</a></span><span>
 			*os.<a href="../../os.html#name-SyscallError">SyscallError</a></span><span>
 			*strconv.<a href="../../strconv.html#name-NumError">NumError</a></span>
-			<input type='checkbox' class="showhide" id="Wrapper-showhide-impedBys"><i><label for="Wrapper-showhide-impedBys" class="show-inline">/* 4+ unexporteds ... */</label><label for="Wrapper-showhide-impedBys" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Wrapper-showhide-impedBys"><i><label for="Wrapper-showhide-impedBys" class="show-inline">/* 5+ unexporteds ... */</label><label for="Wrapper-showhide-impedBys" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
 			*<a href="#name-wrapError">wrapError</a></i></span><span class="hidden"><i>
 			*crypto/tls.<a href="../../crypto/tls.html#name-permanentError">permanentError</a></i></span><span class="hidden"><i>
 			*fmt.<a href="../../fmt.html#name-wrapError">wrapError</a></i></span><span class="hidden"><i>
+			 net/http.<a href="../../net/http.html#name-nothingWrittenError">nothingWrittenError</a></i></span><span class="hidden"><i>
 			 net/http.<a href="../../net/http.html#name-transportReadFromServerError">transportReadFromServerError</a></i></span></span>
 
 </span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 5 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 5 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-errorString" data-popularity="300">	<input type='checkbox' class="fold" id="errorString-fold-content"><label for="errorString-fold-content"> <a href="../../../use/github.com/go-faster/errors..errorString^4118a.html">type</a> <a href="../../../src/github.com/go-faster/errors/errors.go.html#line-13">errorString</a> <i>(struct)</i></label><span id='errorString-fold-content-docs' class="fold-docs">
@@ -289,7 +292,7 @@
 			 noWrapper : <a href="#name-Formatter">Formatter</a></span><span>
 			 noWrapper : <a href="../../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-printer" data-popularity="550">	<input type='checkbox' class="fold" id="printer-fold-content"><label for="printer-fold-content"> <a href="../../../use/github.com/go-faster/errors..printer^ba70e.html">type</a> <a href="../../../src/github.com/go-faster/errors/adaptor.go.html#line-176">printer</a> <a href="#name-state">state</a> <i>(struct)</i></label><span id='printer-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-printer" data-popularity="600">	<input type='checkbox' class="fold" id="printer-fold-content"><label for="printer-fold-content"> <a href="../../../use/github.com/go-faster/errors..printer^ba70e.html">type</a> <a href="../../../src/github.com/go-faster/errors/adaptor.go.html#line-176">printer</a> <a href="#name-state">state</a> <i>(struct)</i></label><span id='printer-fold-content-docs' class="fold-docs">
 <span class="md-text">		printer wraps a state to implement an xerrors.Printer.</span>
 
 		<input type='checkbox' class="fold" id="printer-fold-fields"><label for="printer-fold-fields">Fields (<i>total 6, in which 1 is exported</i>)</label><span id='printer-fold-fields-items' class="fold-items"><span>
@@ -302,28 +305,29 @@
 			<span class="nodocs"><a href="../../../src/github.com/go-faster/errors/adaptor.go.html#line-132">printDetail</a> <i><a href="../../builtin.html#name-bool">bool</a></i></span></i></span></span>
 		<input type='checkbox' class="fold" id="printer-fold-methods"><label for="printer-fold-methods">Methods (<i>total 7, all are exported</i>)</label><span id='printer-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">(*printer) <a href="../../../src/github.com/go-faster/errors/adaptor.go.html#line-190">Detail</a>() <a href="../../builtin.html#name-bool">bool</a></span></span><span>
-			<input type='checkbox' class="fold" id="printer-fold-method-Flag"><label for="printer-fold-method-Flag">( printer) <a href="../../../src/fmt/print.go.html#line-47">Flag</a>(c <a href="../../builtin.html#name-int">int</a>) <a href="../../builtin.html#name-bool">bool</a></label><span id='printer-fold-method-Flag-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="printer-fold-method-Flag"><label for="printer-fold-method-Flag">( printer) <a href="../../../src/fmt/print.go.html#line-48">Flag</a>(c <a href="../../builtin.html#name-int">int</a>) <a href="../../builtin.html#name-bool">bool</a></label><span id='printer-fold-method-Flag-docs' class="fold-docs">
 <span class="md-text">				Flag reports whether the flag c, a character, has been set.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="printer-fold-method-Precision"><label for="printer-fold-method-Precision">( printer) <a href="../../../src/fmt/print.go.html#line-44">Precision</a>() (prec <a href="../../builtin.html#name-int">int</a>, ok <a href="../../builtin.html#name-bool">bool</a>)</label><span id='printer-fold-method-Precision-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="printer-fold-method-Precision"><label for="printer-fold-method-Precision">( printer) <a href="../../../src/fmt/print.go.html#line-45">Precision</a>() (prec <a href="../../builtin.html#name-int">int</a>, ok <a href="../../builtin.html#name-bool">bool</a>)</label><span id='printer-fold-method-Precision-docs' class="fold-docs">
 <span class="md-text">				Precision returns the value of the precision option and whether it has been set.</span>
 </span></span><span>
 			<span class="nodocs">(*printer) <a href="../../../src/github.com/go-faster/errors/adaptor.go.html#line-178">Print</a>(args ...interface{})</span></span><span>
 			<span class="nodocs">(*printer) <a href="../../../src/github.com/go-faster/errors/adaptor.go.html#line-184">Printf</a>(format <a href="../../builtin.html#name-string">string</a>, args ...interface{})</span></span><span>
-			<input type='checkbox' class="fold" id="printer-fold-method-Width"><label for="printer-fold-method-Width">( printer) <a href="../../../src/fmt/print.go.html#line-42">Width</a>() (wid <a href="../../builtin.html#name-int">int</a>, ok <a href="../../builtin.html#name-bool">bool</a>)</label><span id='printer-fold-method-Width-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="printer-fold-method-Width"><label for="printer-fold-method-Width">( printer) <a href="../../../src/fmt/print.go.html#line-43">Width</a>() (wid <a href="../../builtin.html#name-int">int</a>, ok <a href="../../builtin.html#name-bool">bool</a>)</label><span id='printer-fold-method-Width-docs' class="fold-docs">
 <span class="md-text">				Width returns the value of the width option and whether it has been set.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="printer-fold-method-Write"><label for="printer-fold-method-Write">( printer) <a href="../../../src/fmt/print.go.html#line-40">Write</a>(b []<a href="../../builtin.html#name-byte">byte</a>) (n <a href="../../builtin.html#name-int">int</a>, err <a href="../../builtin.html#name-error">error</a>)</label><span id='printer-fold-method-Write-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="printer-fold-method-Write"><label for="printer-fold-method-Write">( printer) <a href="../../../src/fmt/print.go.html#line-41">Write</a>(b []<a href="../../builtin.html#name-byte">byte</a>) (n <a href="../../builtin.html#name-int">int</a>, err <a href="../../builtin.html#name-error">error</a>)</label><span id='printer-fold-method-Write-docs' class="fold-docs">
 <span class="md-text">				Write is the function to call to emit formatted output to be printed.</span>
 </span></span></span>
-		<input type='checkbox' class="fold" id="printer-fold-impls"><label for="printer-fold-impls">Implements (<i>at least 4, in which 3 are exported</i>)</label><span id='printer-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="printer-fold-impls"><label for="printer-fold-impls">Implements (<i>at least 5, in which 4 are exported</i>)</label><span id='printer-fold-impls-items' class="fold-items"><span>
 			*printer : <a href="#name-Printer">Printer</a></span><span>
 			 printer : fmt.<a href="../../fmt.html#name-State">State</a></span><span>
+			 printer : internal/bisect.<a href="../../internal/bisect.html#name-Writer">Writer</a></span><span>
 			 printer : io.<a href="../../io.html#name-Writer">Writer</a></span>
 			<input type='checkbox' checked class="showhide" id="printer-showhide-impls"><i><label for="printer-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="printer-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			 printer : crypto/tls.<a href="../../crypto/tls.html#name-transcriptHash">transcriptHash</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-state" data-popularity="350">	<input type='checkbox' class="fold" id="state-fold-content"><label for="state-fold-content"> <a href="../../../use/github.com/go-faster/errors..state^4ba69.html">type</a> <a href="../../../src/github.com/go-faster/errors/adaptor.go.html#line-128">state</a> <i>(struct)</i></label><span id='state-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-state" data-popularity="400">	<input type='checkbox' class="fold" id="state-fold-content"><label for="state-fold-content"> <a href="../../../use/github.com/go-faster/errors..state^4ba69.html">type</a> <a href="../../../src/github.com/go-faster/errors/adaptor.go.html#line-128">state</a> <i>(struct)</i></label><span id='state-fold-content-docs' class="fold-docs">
 <span class="md-text">		state tracks error printing state. It implements fmt.State.</span>
 
 		<input type='checkbox' class="fold" id="state-fold-fields"><label for="state-fold-fields">Fields (<i>total 6, in which 1 is exported</i>)</label><span id='state-fold-fields-items' class="fold-items"><span>
@@ -335,18 +339,19 @@
 			<span class="nodocs"><a href="../../../src/github.com/go-faster/errors/adaptor.go.html#line-135">needNewline</a> <i><a href="../../builtin.html#name-bool">bool</a></i></span></i></span><span class="hidden"><i>
 			<span class="nodocs"><a href="../../../src/github.com/go-faster/errors/adaptor.go.html#line-132">printDetail</a> <i><a href="../../builtin.html#name-bool">bool</a></i></span></i></span></span>
 		<input type='checkbox' class="fold" id="state-fold-methods"><label for="state-fold-methods">Methods (<i>total 4, all are exported</i>)</label><span id='state-fold-methods-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="state-fold-method-Flag"><label for="state-fold-method-Flag">( state) <a href="../../../src/fmt/print.go.html#line-47">Flag</a>(c <a href="../../builtin.html#name-int">int</a>) <a href="../../builtin.html#name-bool">bool</a></label><span id='state-fold-method-Flag-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="state-fold-method-Flag"><label for="state-fold-method-Flag">( state) <a href="../../../src/fmt/print.go.html#line-48">Flag</a>(c <a href="../../builtin.html#name-int">int</a>) <a href="../../builtin.html#name-bool">bool</a></label><span id='state-fold-method-Flag-docs' class="fold-docs">
 <span class="md-text">				Flag reports whether the flag c, a character, has been set.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="state-fold-method-Precision"><label for="state-fold-method-Precision">( state) <a href="../../../src/fmt/print.go.html#line-44">Precision</a>() (prec <a href="../../builtin.html#name-int">int</a>, ok <a href="../../builtin.html#name-bool">bool</a>)</label><span id='state-fold-method-Precision-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="state-fold-method-Precision"><label for="state-fold-method-Precision">( state) <a href="../../../src/fmt/print.go.html#line-45">Precision</a>() (prec <a href="../../builtin.html#name-int">int</a>, ok <a href="../../builtin.html#name-bool">bool</a>)</label><span id='state-fold-method-Precision-docs' class="fold-docs">
 <span class="md-text">				Precision returns the value of the precision option and whether it has been set.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="state-fold-method-Width"><label for="state-fold-method-Width">( state) <a href="../../../src/fmt/print.go.html#line-42">Width</a>() (wid <a href="../../builtin.html#name-int">int</a>, ok <a href="../../builtin.html#name-bool">bool</a>)</label><span id='state-fold-method-Width-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="state-fold-method-Width"><label for="state-fold-method-Width">( state) <a href="../../../src/fmt/print.go.html#line-43">Width</a>() (wid <a href="../../builtin.html#name-int">int</a>, ok <a href="../../builtin.html#name-bool">bool</a>)</label><span id='state-fold-method-Width-docs' class="fold-docs">
 <span class="md-text">				Width returns the value of the width option and whether it has been set.</span>
 </span></span><span>
 			<span class="nodocs">(*state) <a href="../../../src/github.com/go-faster/errors/adaptor.go.html#line-138">Write</a>(b []<a href="../../builtin.html#name-byte">byte</a>) (n <a href="../../builtin.html#name-int">int</a>, err <a href="../../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="state-fold-impls"><label for="state-fold-impls">Implements (<i>at least 3, in which 2 are exported</i>)</label><span id='state-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="state-fold-impls"><label for="state-fold-impls">Implements (<i>at least 4, in which 3 are exported</i>)</label><span id='state-fold-impls-items' class="fold-items"><span>
 			*state : fmt.<a href="../../fmt.html#name-State">State</a></span><span>
+			*state : internal/bisect.<a href="../../internal/bisect.html#name-Writer">Writer</a></span><span>
 			*state : io.<a href="../../io.html#name-Writer">Writer</a></span>
 			<input type='checkbox' checked class="showhide" id="state-showhide-impls"><i><label for="state-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="state-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			*state : crypto/tls.<a href="../../crypto/tls.html#name-transcriptHash">transcriptHash</a></i></span></span>
@@ -370,7 +375,7 @@
 			*wrapError : fmt.<a href="../../fmt.html#name-Formatter">Formatter</a></span></span>
 
 </span></div></div>
-<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 17, in which 15 are exported)</i></span></span>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 18, in which 16 are exported)</i></span></span>
 
 <div class="anchor value-res" id="name-As">	<input type='checkbox' class="fold" id="As-fold-content"><label for="As-fold-content"> <a href="../../../use/github.com/go-faster/errors..As.html">func</a> <a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-134">As</a>(err <a href="../../builtin.html#name-error">error</a>, target interface{}) <a href="../../builtin.html#name-bool">bool</a></label><span id='As-fold-content-docs' class="fold-docs">
 <span class="md-text">		As finds the first error in err's chain that matches target, and if so, sets
@@ -434,6 +439,18 @@
 		then Is(MyError{}, fs.ErrExist) returns true. See syscall.Errno.Is for
 		an example in the standard library.</span>
 
+</span></div><div class="anchor value-res" id="name-Join">	<input type='checkbox' class="fold" id="Join-fold-content"><label for="Join-fold-content"> <a href="../../../use/github.com/go-faster/errors..Join.html">func</a> <a href="../../../src/github.com/go-faster/errors/join_go120.go.html#line-18">Join</a>(errs ...<a href="../../builtin.html#name-error">error</a>) <a href="../../builtin.html#name-error">error</a></label><span id='Join-fold-content-docs' class="fold-docs">
+<span class="md-text">		Join returns an error that wraps the given errors.
+		Any nil error values are discarded.
+		Join returns nil if every value in errs is nil.
+		The error formats as the concatenation of the strings obtained
+		by calling the Error method of each element of errs, with a newline
+		between each string.
+		
+		A non-nil error returned by Join implements the Unwrap() []error method.
+		
+		Available only for go 1.20 or superior.</span>
+
 </span></div><div class="anchor value-res" id="name-Must">	<input type='checkbox' class="fold" id="Must-fold-content"><label for="Must-fold-content"> <a href="../../../use/github.com/go-faster/errors..Must.html">func</a> <a href="../../../src/github.com/go-faster/errors/must.go.html#line-7">Must</a>[T](val T, err <a href="../../builtin.html#name-error">error</a>) T</label><span id='Must-fold-content-docs' class="fold-docs">
 
 		Type Parameters:
@@ -482,7 +499,7 @@
 
 	<input type='checkbox' class="showhide" id="unexported-constants-showhide"><i><label for="unexported-constants-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-constants-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-traceDisabled"><i>	<span class="nodocs"><a href="../../../use/github.com/go-faster/errors..traceDisabled^bba08.html">const</a> <a href="../../../src/github.com/go-faster/errors/trace.go.html#line-14">traceDisabled</a> = 1</span></i></div><div class="anchor value-res hidden" id="name-traceEnabled"><i>	<span class="nodocs"><a href="../../../use/github.com/go-faster/errors..traceEnabled^a7986.html">const</a> <a href="../../../src/github.com/go-faster/errors/trace.go.html#line-13">traceEnabled</a> = 0 // <span class="md-text">enabled by default</span></span></i></div></div></code></pre><pre id="footer">
 <table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

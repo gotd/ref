@@ -5,24 +5,25 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.http2serverConn.inflow</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4210">http2serverConn</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4226">inflow</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4363">http2serverConn</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4379">inflow</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">6 uses</span>
+<span class="title">7 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/h2_bundle.go.html#line-4129">h2_bundle.go#L4129</a>: 	sc.<b>inflow</b>.add(http2initialWindowSize)
-		<a href="../../src/net/http/h2_bundle.go.html#line-4226" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4226">#L4226</a>: 	<b>inflow</b>           http2flow                   // conn-wide inbound flow control
-		<a href="../../src/net/http/h2_bundle.go.html#line-5422" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5422">#L5422</a>: 		if sc.<b>inflow</b>.available() &lt; int32(f.Length) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5429" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5429">#L5429</a>: 		sc.<b>inflow</b>.take(int32(f.Length))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5718" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5718">#L5718</a>: 	st.inflow.conn = &amp;sc.<b>inflow</b> // link to conn-level counter
-		<a href="../../src/net/http/h2_bundle.go.html#line-6030" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6030">#L6030</a>: 		ok = sc.<b>inflow</b>.add(n)
+		<a href="../../src/net/http/h2_bundle.go.html#line-4263">h2_bundle.go#L4263</a>: 	sc.<b>inflow</b>.init(http2initialWindowSize)
+		<a href="../../src/net/http/h2_bundle.go.html#line-4379" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4379">#L4379</a>: 	<b>inflow</b>           http2inflow                 // conn-wide inbound flow control
+		<a href="../../src/net/http/h2_bundle.go.html#line-5340" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5340">#L5340</a>: 			if !sc.<b>inflow</b>.take(f.Length) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5612" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5612">#L5612</a>: 		if !sc.<b>inflow</b>.take(f.Length) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5629" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5629">#L5629</a>: 		if !sc.<b>inflow</b>.take(f.Length) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5642" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5642">#L5642</a>: 		if !http2takeInflows(&amp;sc.<b>inflow</b>, &amp;st.inflow, f.Length) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6289" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6289">#L6289</a>: 		send = sc.<b>inflow</b>.add(n)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

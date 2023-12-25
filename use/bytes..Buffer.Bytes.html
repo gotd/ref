@@ -5,33 +5,34 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: bytes.Buffer.Bytes</title>
-<link href="../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.4.js"></script>
+<link href="../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;"><b><a href="../pkg/bytes.html">bytes</a>.<a href="../src/bytes/buffer.go.html#line-20">Buffer</a>.<a href="../src/bytes/buffer.go.html#line-54">Bytes</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">27 uses</span>
+<span class="title">26 uses</span>
 
 	bytes (current package)
 		<a href="../src/bytes/buffer.go.html#line-54">buffer.go#L54</a>: func (b *Buffer) <b>Bytes</b>() []byte { return b.buf[b.off:] }
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
 		<a href="../src/crypto/tls/auth.go.html#line-87">auth.go#L87</a>: 		return b.<b>Bytes</b>()
-		<a href="../src/crypto/tls/conn.go.html#line-577">conn.go#L577</a>: 	copy(err.RecordHeader[:], c.rawInput.<b>Bytes</b>())
-		<a href="../src/crypto/tls/conn.go.html#line-628" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-628">#L628</a>: 	hdr := c.rawInput.<b>Bytes</b>()[:recordHeaderLen]
-		<a href="../src/crypto/tls/conn.go.html#line-1043" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-1043">#L1043</a>: 	data := c.hand.<b>Bytes</b>()
-		<a href="../src/crypto/tls/conn.go.html#line-1335" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-1335">#L1335</a>: 		recordType(c.rawInput.<b>Bytes</b>()[0]) == recordTypeAlert {
+		<a href="../src/crypto/tls/conn.go.html#line-582">conn.go#L582</a>: 	copy(err.RecordHeader[:], c.rawInput.<b>Bytes</b>())
+		<a href="../src/crypto/tls/conn.go.html#line-637" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-637">#L637</a>: 	hdr := c.rawInput.<b>Bytes</b>()[:recordHeaderLen]
+		<a href="../src/crypto/tls/conn.go.html#line-1088" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-1088">#L1088</a>: 	data := c.hand.<b>Bytes</b>()
+		<a href="../src/crypto/tls/conn.go.html#line-1389" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-1389">#L1389</a>: 		recordType(c.rawInput.<b>Bytes</b>()[0]) == recordTypeAlert {
+		<a href="../src/crypto/tls/quic.go.html#line-236">quic.go#L236</a>: 		b := q.conn.hand.<b>Bytes</b>()
 
 	<a href="../pkg/encoding/json.html">encoding/json</a>
-		<a href="../src/encoding/json/encode.go.html#line-164">encode.go#L164</a>: 	buf := append([]byte(nil), e.<b>Bytes</b>()...)
-		<a href="../src/encoding/json/encode.go.html#line-184" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-184">#L184</a>: 	return buf.<b>Bytes</b>(), nil
-		<a href="../src/encoding/json/encode.go.html#line-643" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-643">#L643</a>: 		e.stringBytes(e2.<b>Bytes</b>(), false)
-		<a href="../src/encoding/json/stream.go.html#line-219">stream.go#L219</a>: 	b := e.<b>Bytes</b>()
-		<a href="../src/encoding/json/stream.go.html#line-229" class="path-duplicate">stream.go</a><a href="../src/encoding/json/stream.go.html#line-229">#L229</a>: 		b = enc.indentBuf.<b>Bytes</b>()
+		<a href="../src/encoding/json/encode.go.html#line-166">encode.go#L166</a>: 	buf := append([]byte(nil), e.<b>Bytes</b>()...)
+		<a href="../src/encoding/json/stream.go.html#line-222">stream.go#L222</a>: 	b := e.<b>Bytes</b>()
 
 	<a href="../pkg/encoding/pem.html">encoding/pem</a>
 		<a href="../src/encoding/pem/pem.go.html#line-315">pem.go#L315</a>: 	return buf.<b>Bytes</b>()
+
+	<a href="../pkg/github.com/go-faster/jx.html">github.com/go-faster/jx</a>
+		<a href="../src/github.com/go-faster/jx/w.go.html#line-63">w.go#L63</a>: 	w.Buf = buf.<b>Bytes</b>()
 
 	<a href="../pkg/github.com/gotd/td/internal/mtproxy/faketls.html">github.com/gotd/td/internal/mtproxy/faketls</a>
 		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/server_hello.go.html#line-45">server_hello.go#L45</a>: 	packet := packetBuf.<b>Bytes</b>()
@@ -40,17 +41,17 @@
 		<a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-107">gzip.go#L107</a>: 	b.PutBytes(buf.<b>Bytes</b>())
 
 	<a href="../pkg/mime/multipart.html">mime/multipart</a>
-		<a href="../src/mime/multipart/formdata.go.html#line-172">formdata.go#L172</a>: 			if _, err := file.Write(b.<b>Bytes</b>()); err != nil {
-		<a href="../src/mime/multipart/formdata.go.html#line-195" class="path-duplicate">formdata.go</a><a href="../src/mime/multipart/formdata.go.html#line-195">#L195</a>: 			fh.content = b.<b>Bytes</b>()
+		<a href="../src/mime/multipart/formdata.go.html#line-183">formdata.go#L183</a>: 			if _, err := file.Write(b.<b>Bytes</b>()); err != nil {
+		<a href="../src/mime/multipart/formdata.go.html#line-206" class="path-duplicate">formdata.go</a><a href="../src/mime/multipart/formdata.go.html#line-206">#L206</a>: 			fh.content = b.<b>Bytes</b>()
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/h2_bundle.go.html#line-8649">h2_bundle.go#L8649</a>: 	return cc.hbuf.<b>Bytes</b>(), nil
-		<a href="../src/net/http/h2_bundle.go.html#line-8702" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8702">#L8702</a>: 	return cc.hbuf.<b>Bytes</b>(), nil
-		<a href="../src/net/http/h2_bundle.go.html#line-10024" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10024">#L10024</a>: 	headerBlock := buf.<b>Bytes</b>()
-		<a href="../src/net/http/h2_bundle.go.html#line-10073" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10073">#L10073</a>: 	headerBlock := buf.<b>Bytes</b>()
-		<a href="../src/net/http/h2_bundle.go.html#line-10104" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10104">#L10104</a>: 		BlockFragment: buf.<b>Bytes</b>(),
-		<a href="../src/net/http/request.go.html#line-899">request.go#L899</a>: 			buf := v.<b>Bytes</b>()
-		<a href="../src/net/http/server.go.html#line-3424">server.go#L3424</a>: 		w.Write(tw.wbuf.<b>Bytes</b>())
+		<a href="../src/net/http/h2_bundle.go.html#line-9114">h2_bundle.go#L9114</a>: 	return cc.hbuf.<b>Bytes</b>(), nil
+		<a href="../src/net/http/h2_bundle.go.html#line-9167" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-9167">#L9167</a>: 	return cc.hbuf.<b>Bytes</b>(), nil
+		<a href="../src/net/http/h2_bundle.go.html#line-10485" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10485">#L10485</a>: 	headerBlock := buf.<b>Bytes</b>()
+		<a href="../src/net/http/h2_bundle.go.html#line-10534" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10534">#L10534</a>: 	headerBlock := buf.<b>Bytes</b>()
+		<a href="../src/net/http/h2_bundle.go.html#line-10565" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10565">#L10565</a>: 		BlockFragment: buf.<b>Bytes</b>(),
+		<a href="../src/net/http/request.go.html#line-902">request.go#L902</a>: 			buf := v.<b>Bytes</b>()
+		<a href="../src/net/http/server.go.html#line-3414">server.go#L3414</a>: 		w.Write(tw.wbuf.<b>Bytes</b>())
 
 	<a href="../pkg/rsc.io/qr.html">rsc.io/qr</a>
 		<a href="../src/rsc.io/qr/png.go.html#line-61">png.go#L61</a>: 	w.writeChunk("IDAT", w.zlib.bytes.<b>Bytes</b>())
@@ -61,7 +62,7 @@
 		<a href="../src/vendor/golang.org/x/net/http2/hpack/huffman.go.html#line-28">huffman.go#L28</a>: 	return w.Write(buf.<b>Bytes</b>())
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

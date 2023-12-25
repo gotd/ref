@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: encoder.go in package github.com/gotd/td/tdjson</title>
-<link href="../../../../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.6.4.js"></script>
+<link href="../../../../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -138,12 +138,12 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-12"><code></code></span>
 <span class="codeline" id="line-13"><code><span class="comment">// Encoder is a simple wrapper around jx.Encoder to conform TL type system.</span></code></span>
 <span class="codeline" id="line-14"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/tdjson.html#name-Encoder" class="ident">Encoder</a> <span class="keyword">struct</span> {</code></span>
-<span class="codeline" id="line-15"><code>	*<a href="../../../../../pkg/github.com/go-faster/jx.html" class="ident i3">jx</a>.<a href="../../../go-faster/jx/w.go.html#line-8" class="ident">Writer</a></code></span>
+<span class="codeline" id="line-15"><code>	*<a href="../../../../../pkg/github.com/go-faster/jx.html" class="ident i3">jx</a>.<a href="../../../go-faster/jx/w.go.html#line-11" class="ident">Writer</a></code></span>
 <span class="codeline" id="line-16"><code>}</code></span>
 <span class="codeline" id="line-17"><code></code></span>
 <span class="codeline" id="line-18"><code><span class="comment">// PutID serializes given typeID.</span></code></span>
 <span class="codeline" id="line-19"><code><span class="keyword">func</span> (<label for="r0" class="ident">b</label> <a href="#line-14" class="ident">Encoder</a>) <label for="r1" class="ident"><a href="../../../../../use/github.com/gotd/td/tdjson..Encoder.PutID.html" class="ident">PutID</a></label>(<label for="r2" class="ident">typeID</label> <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>) {</code></span>
-<span class="codeline" id="line-20"><code>	<label for="r0" class="ident">b</label>.<a href="#line-15" class="ident">Writer</a>.<a href="../../../go-faster/jx/w.go.html#line-106" class="ident">FieldStart</a>(<a href="tdjson.go.html#line-5" class="ident">TypeField</a>)</code></span>
+<span class="codeline" id="line-20"><code>	<label for="r0" class="ident">b</label>.<a href="#line-15" class="ident">Writer</a>.<a href="../../../go-faster/jx/w.go.html#line-126" class="ident">FieldStart</a>(<a href="tdjson.go.html#line-5" class="ident">TypeField</a>)</code></span>
 <span class="codeline" id="line-21"><code>	<label for="r0" class="ident">b</label>.<a href="#line-15" class="ident">Writer</a>.<a href="../../../go-faster/jx/w_str.go.html#line-29" class="ident">Str</a>(<label for="r2" class="ident">typeID</label>)</code></span>
 <span class="codeline" id="line-22"><code>}</code></span>
 <span class="codeline" id="line-23"><code></code></span>
@@ -154,7 +154,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-28"><code></code></span>
 <span class="codeline" id="line-29"><code><span class="comment">// PutBool serializes boolean.</span></code></span>
 <span class="codeline" id="line-30"><code><span class="keyword">func</span> (<label for="r6" class="ident">b</label> <a href="#line-14" class="ident">Encoder</a>) <label for="r7" class="ident"><a href="../../../../../use/github.com/gotd/td/tdjson..Encoder.PutBool.html" class="ident">PutBool</a></label>(<label for="r8" class="ident">v</label> <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
-<span class="codeline" id="line-31"><code>	<label for="r6" class="ident">b</label>.<a href="#line-15" class="ident">Writer</a>.<a href="../../../go-faster/jx/w.go.html#line-93" class="ident">Bool</a>(<label for="r8" class="ident">v</label>)</code></span>
+<span class="codeline" id="line-31"><code>	<label for="r6" class="ident">b</label>.<a href="#line-15" class="ident">Writer</a>.<a href="../../../go-faster/jx/w.go.html#line-113" class="ident">Bool</a>(<label for="r8" class="ident">v</label>)</code></span>
 <span class="codeline" id="line-32"><code>}</code></span>
 <span class="codeline" id="line-33"><code></code></span>
 <span class="codeline" id="line-34"><code><span class="comment">// PutUint16 serializes unsigned 16-bit integer.</span></code></span>
@@ -183,7 +183,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-57"><code>	<label for="r25" class="ident">r</label> := <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r24" class="ident">buf</label>[:<span class="lit-number">0</span>], <span class="lit-number">'"'</span>)</code></span>
 <span class="codeline" id="line-58"><code>	<label for="r25" class="ident">r</label> = <a href="../../../../../pkg/strconv.html" class="ident i2">strconv</a>.<a href="../../../../strconv/itoa.go.html#line-40" class="ident">AppendInt</a>(<label for="r25" class="ident">r</label>, <label for="r23" class="ident">v</label>, <span class="lit-number">10</span>)</code></span>
 <span class="codeline" id="line-59"><code>	<label for="r25" class="ident">r</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r25" class="ident">r</label>, <span class="lit-number">'"'</span>)</code></span>
-<span class="codeline" id="line-60"><code>	<label for="r21" class="ident">b</label>.<a href="#line-15" class="ident">Writer</a>.<a href="../../../go-faster/jx/w.go.html#line-73" class="ident">Raw</a>(<label for="r25" class="ident">r</label>)</code></span>
+<span class="codeline" id="line-60"><code>	<label for="r21" class="ident">b</label>.<a href="#line-15" class="ident">Writer</a>.<a href="../../../go-faster/jx/w.go.html#line-93" class="ident">Raw</a>(<label for="r25" class="ident">r</label>)</code></span>
 <span class="codeline" id="line-61"><code>}</code></span>
 <span class="codeline" id="line-62"><code></code></span>
 <span class="codeline" id="line-63"><code><span class="comment">// PutUint64 serializes v as unsigned 64-bit integer.</span></code></span>
@@ -222,20 +222,20 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-96"><code>	<span class="comment">// See https://core.telegram.org/tdlib/docs/td__json__client_8h.html</span></code></span>
 <span class="codeline" id="line-97"><code><span class="comment">	//</span></code></span>
 <span class="codeline" id="line-98"><code><span class="comment">	// ... fields of bytes type are base64 encoded and then stored as String ...</span></code></span>
-<span class="codeline" id="line-99"><code>	<label for="r41" class="ident">b</label>.<a href="#line-15" class="ident">Writer</a>.<a href="../../../go-faster/jx/w_str.go.html#line-29" class="ident">Str</a>(<a href="../../../../../pkg/encoding/base64.html" class="ident i0">base64</a>.<a href="../../../../encoding/base64/base64.go.html#line-113" class="ident">RawURLEncoding</a>.<a href="../../../../encoding/base64/base64.go.html#line-177" class="ident">EncodeToString</a>(<label for="r43" class="ident">v</label>))</code></span>
+<span class="codeline" id="line-99"><code>	<label for="r41" class="ident">b</label>.<a href="#line-15" class="ident">Writer</a>.<a href="../../../go-faster/jx/w_str.go.html#line-29" class="ident">Str</a>(<a href="../../../../../pkg/encoding/base64.html" class="ident i0">base64</a>.<a href="../../../../encoding/base64/base64.go.html#line-131" class="ident">RawURLEncoding</a>.<a href="../../../../encoding/base64/base64.go.html#line-195" class="ident">EncodeToString</a>(<label for="r43" class="ident">v</label>))</code></span>
 <span class="codeline" id="line-100"><code>}</code></span>
 <span class="codeline" id="line-101"><code></code></span>
 <span class="codeline" id="line-102"><code><span class="comment">// StripComma deletes last comma, if any.</span></code></span>
 <span class="codeline" id="line-103"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-104"><code><span class="comment">// Useful for code generation to avoid last field/element tracking.</span></code></span>
 <span class="codeline" id="line-105"><code><span class="keyword">func</span> (<label for="r44" class="ident">b</label> <a href="#line-14" class="ident">Encoder</a>) <label for="r45" class="ident"><a href="../../../../../use/github.com/gotd/td/tdjson..Encoder.StripComma.html" class="ident">StripComma</a></label>() {</code></span>
-<span class="codeline" id="line-106"><code>	<span class="keyword">if</span> <label for="r46" class="ident">l</label> := <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r44" class="ident">b</label>.<a href="../../../go-faster/jx/w.go.html#line-9" class="ident">Buf</a>); <label for="r46" class="ident">l</label> &gt; <span class="lit-number">0</span> &amp;&amp; <label for="r44" class="ident">b</label>.<a href="../../../go-faster/jx/w.go.html#line-9" class="ident">Buf</a>[<label for="r46" class="ident">l</label>-<span class="lit-number">1</span>] == <span class="lit-number">','</span> {</code></span>
-<span class="codeline" id="line-107"><code>		<label for="r44" class="ident">b</label>.<a href="../../../go-faster/jx/w.go.html#line-9" class="ident">Buf</a> = <label for="r44" class="ident">b</label>.<a href="../../../go-faster/jx/w.go.html#line-9" class="ident">Buf</a>[:<label for="r46" class="ident">l</label>-<span class="lit-number">1</span>]</code></span>
+<span class="codeline" id="line-106"><code>	<span class="keyword">if</span> <label for="r46" class="ident">l</label> := <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r44" class="ident">b</label>.<a href="../../../go-faster/jx/w.go.html#line-12" class="ident">Buf</a>); <label for="r46" class="ident">l</label> &gt; <span class="lit-number">0</span> &amp;&amp; <label for="r44" class="ident">b</label>.<a href="../../../go-faster/jx/w.go.html#line-12" class="ident">Buf</a>[<label for="r46" class="ident">l</label>-<span class="lit-number">1</span>] == <span class="lit-number">','</span> {</code></span>
+<span class="codeline" id="line-107"><code>		<label for="r44" class="ident">b</label>.<a href="../../../go-faster/jx/w.go.html#line-12" class="ident">Buf</a> = <label for="r44" class="ident">b</label>.<a href="../../../go-faster/jx/w.go.html#line-12" class="ident">Buf</a>[:<label for="r46" class="ident">l</label>-<span class="lit-number">1</span>]</code></span>
 <span class="codeline" id="line-108"><code>	}</code></span>
 <span class="codeline" id="line-109"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,30 +5,31 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.http2responseWriterState.snapHeader</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-6096">http2responseWriterState</a>.<a href="../../src/net/http/h2_bundle.go.html#line-6108">snapHeader</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-6360">http2responseWriterState</a>.<a href="../../src/net/http/h2_bundle.go.html#line-6371">snapHeader</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">12 uses</span>
+<span class="title">13 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/h2_bundle.go.html#line-6108">h2_bundle.go#L6108</a>: 	<b>snapHeader</b>    Header   // snapshot of handlerHeader at WriteHeader time
-		<a href="../../src/net/http/h2_bundle.go.html#line-6168" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6168">#L6168</a>: 		if clen = rws.<b>snapHeader</b>.Get("Content-Length"); clen != "" {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6169" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6169">#L6169</a>: 			rws.<b>snapHeader</b>.Del("Content-Length")
-		<a href="../../src/net/http/h2_bundle.go.html#line-6179" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6179">#L6179</a>: 		_, hasContentType := rws.<b>snapHeader</b>["Content-Type"]
-		<a href="../../src/net/http/h2_bundle.go.html#line-6182" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6182">#L6182</a>: 		ce := rws.<b>snapHeader</b>.Get("Content-Encoding")
-		<a href="../../src/net/http/h2_bundle.go.html#line-6188" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6188">#L6188</a>: 		if _, ok := rws.<b>snapHeader</b>["Date"]; !ok {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6193" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6193">#L6193</a>: 		for _, v := range rws.<b>snapHeader</b>["Trailer"] {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6202" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6202">#L6202</a>: 		if _, ok := rws.<b>snapHeader</b>["Connection"]; ok {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6203" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6203">#L6203</a>: 			v := rws.<b>snapHeader</b>.Get("Connection")
-		<a href="../../src/net/http/h2_bundle.go.html#line-6204" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6204">#L6204</a>: 			delete(rws.<b>snapHeader</b>, "Connection")
-		<a href="../../src/net/http/h2_bundle.go.html#line-6214" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6214">#L6214</a>: 			h:             rws.<b>snapHeader</b>,
-		<a href="../../src/net/http/h2_bundle.go.html#line-6429" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6429">#L6429</a>: 		rws.<b>snapHeader</b> = http2cloneHeader(rws.handlerHeader)
+		<a href="../../src/net/http/h2_bundle.go.html#line-6371">h2_bundle.go#L6371</a>: 	<b>snapHeader</b>    Header   // snapshot of handlerHeader at WriteHeader time
+		<a href="../../src/net/http/h2_bundle.go.html#line-6443" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6443">#L6443</a>: 		if clen = rws.<b>snapHeader</b>.Get("Content-Length"); clen != "" {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6444" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6444">#L6444</a>: 			rws.<b>snapHeader</b>.Del("Content-Length")
+		<a href="../../src/net/http/h2_bundle.go.html#line-6451" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6451">#L6451</a>: 		_, hasContentLength := rws.<b>snapHeader</b>["Content-Length"]
+		<a href="../../src/net/http/h2_bundle.go.html#line-6455" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6455">#L6455</a>: 		_, hasContentType := rws.<b>snapHeader</b>["Content-Type"]
+		<a href="../../src/net/http/h2_bundle.go.html#line-6458" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6458">#L6458</a>: 		ce := rws.<b>snapHeader</b>.Get("Content-Encoding")
+		<a href="../../src/net/http/h2_bundle.go.html#line-6464" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6464">#L6464</a>: 		if _, ok := rws.<b>snapHeader</b>["Date"]; !ok {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6469" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6469">#L6469</a>: 		for _, v := range rws.<b>snapHeader</b>["Trailer"] {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6478" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6478">#L6478</a>: 		if _, ok := rws.<b>snapHeader</b>["Connection"]; ok {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6479" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6479">#L6479</a>: 			v := rws.<b>snapHeader</b>.Get("Connection")
+		<a href="../../src/net/http/h2_bundle.go.html#line-6480" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6480">#L6480</a>: 			delete(rws.<b>snapHeader</b>, "Connection")
+		<a href="../../src/net/http/h2_bundle.go.html#line-6490" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6490">#L6490</a>: 			h:             rws.<b>snapHeader</b>,
+		<a href="../../src/net/http/h2_bundle.go.html#line-6763" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6763">#L6763</a>: 		rws.<b>snapHeader</b> = http2cloneHeader(rws.handlerHeader)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

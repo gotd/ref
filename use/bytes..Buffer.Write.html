@@ -5,39 +5,41 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: bytes.Buffer.Write</title>
-<link href="../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.4.js"></script>
+<link href="../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../pkg/bytes.html">bytes</a>.<a href="../src/bytes/buffer.go.html#line-20">Buffer</a>.<a href="../src/bytes/buffer.go.html#line-166">Write</a></b></span><span style="font-size: large;"><i> (method, <a href="../imp/bytes.Buffer.html#name-Write">view implemented interface methods</a>)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/bytes.html">bytes</a>.<a href="../src/bytes/buffer.go.html#line-20">Buffer</a>.<a href="../src/bytes/buffer.go.html#line-175">Write</a></b></span><span style="font-size: large;"><i> (method, <a href="../imp/bytes.Buffer.html#name-Write">view implemented interface methods</a>)</i></span>
 
-<span class="title">36 uses</span>
+<span class="title">38 uses</span>
 
 	bytes (current package)
-		<a href="../src/bytes/buffer.go.html#line-166">buffer.go#L166</a>: func (b *Buffer) <b>Write</b>(p []byte) (n int, err error) {
+		<a href="../src/bytes/buffer.go.html#line-175">buffer.go#L175</a>: func (b *Buffer) <b>Write</b>(p []byte) (n int, err error) {
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
 		<a href="../src/crypto/tls/auth.go.html#line-84">auth.go#L84</a>: 		b.<b>Write</b>(signaturePadding)
 		<a href="../src/crypto/tls/auth.go.html#line-86" class="path-duplicate">auth.go</a><a href="../src/crypto/tls/auth.go.html#line-86">#L86</a>: 		b.<b>Write</b>(transcript.Sum(nil))
-		<a href="../src/crypto/tls/conn.go.html#line-758">conn.go#L758</a>: 		c.hand.<b>Write</b>(data)
+		<a href="../src/crypto/tls/conn.go.html#line-776">conn.go#L776</a>: 		c.hand.<b>Write</b>(data)
+		<a href="../src/crypto/tls/quic.go.html#line-233">quic.go#L233</a>: 	c.hand.<b>Write</b>(c.quic.readbuf)
+		<a href="../src/crypto/tls/quic.go.html#line-415" class="path-duplicate">quic.go</a><a href="../src/crypto/tls/quic.go.html#line-415">#L415</a>: 		c.hand.<b>Write</b>(c.quic.readbuf)
 
 	<a href="../pkg/encoding/json.html">encoding/json</a>
-		<a href="../src/encoding/json/encode.go.html#line-200">encode.go#L200</a>: 				dst.<b>Write</b>(src[start:i])
-		<a href="../src/encoding/json/encode.go.html#line-210" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-210">#L210</a>: 				dst.<b>Write</b>(src[start:i])
-		<a href="../src/encoding/json/encode.go.html#line-218" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-218">#L218</a>: 		dst.<b>Write</b>(src[start:])
-		<a href="../src/encoding/json/encode.go.html#line-555" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-555">#L555</a>: 	e.<b>Write</b>(b)
-		<a href="../src/encoding/json/encode.go.html#line-566" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-566">#L566</a>: 	e.<b>Write</b>(b)
-		<a href="../src/encoding/json/encode.go.html#line-607" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-607">#L607</a>: 	e.<b>Write</b>(b)
-		<a href="../src/encoding/json/encode.go.html#line-846" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-846">#L846</a>: 		e.<b>Write</b>(dst)
-		<a href="../src/encoding/json/encode.go.html#line-852" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-852">#L852</a>: 		e.<b>Write</b>(dst)
-		<a href="../src/encoding/json/encode.go.html#line-1112" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-1112">#L1112</a>: 				e.<b>Write</b>(s[start:i])
-		<a href="../src/encoding/json/encode.go.html#line-1141" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-1141">#L1141</a>: 				e.<b>Write</b>(s[start:i])
-		<a href="../src/encoding/json/encode.go.html#line-1157" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-1157">#L1157</a>: 				e.<b>Write</b>(s[start:i])
-		<a href="../src/encoding/json/encode.go.html#line-1168" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-1168">#L1168</a>: 		e.<b>Write</b>(s[start:])
-		<a href="../src/encoding/json/indent.go.html#line-25">indent.go#L25</a>: 				dst.<b>Write</b>(src[start:i])
-		<a href="../src/encoding/json/indent.go.html#line-35" class="path-duplicate">indent.go</a><a href="../src/encoding/json/indent.go.html#line-35">#L35</a>: 				dst.<b>Write</b>(src[start:i])
-		<a href="../src/encoding/json/indent.go.html#line-47" class="path-duplicate">indent.go</a><a href="../src/encoding/json/indent.go.html#line-47">#L47</a>: 				dst.<b>Write</b>(src[start:i])
-		<a href="../src/encoding/json/indent.go.html#line-57" class="path-duplicate">indent.go</a><a href="../src/encoding/json/indent.go.html#line-57">#L57</a>: 		dst.<b>Write</b>(src[start:])
+		<a href="../src/encoding/json/encode.go.html#line-447">encode.go#L447</a>: 		e.Buffer.<b>Write</b>(out)
+		<a href="../src/encoding/json/encode.go.html#line-466" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-466">#L466</a>: 		e.Buffer.<b>Write</b>(out)
+		<a href="../src/encoding/json/encode.go.html#line-487" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-487">#L487</a>: 	e.<b>Write</b>(appendString(e.AvailableBuffer(), b, opts.escapeHTML))
+		<a href="../src/encoding/json/encode.go.html#line-501" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-501">#L501</a>: 	e.<b>Write</b>(appendString(e.AvailableBuffer(), b, opts.escapeHTML))
+		<a href="../src/encoding/json/encode.go.html#line-509" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-509">#L509</a>: 	e.<b>Write</b>(b)
+		<a href="../src/encoding/json/encode.go.html#line-517" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-517">#L517</a>: 	e.<b>Write</b>(b)
+		<a href="../src/encoding/json/encode.go.html#line-525" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-525">#L525</a>: 	e.<b>Write</b>(b)
+		<a href="../src/encoding/json/encode.go.html#line-561" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-561">#L561</a>: 	e.<b>Write</b>(b)
+		<a href="../src/encoding/json/encode.go.html#line-584" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-584">#L584</a>: 		e.<b>Write</b>(b)
+		<a href="../src/encoding/json/encode.go.html#line-589" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-589">#L589</a>: 		e.<b>Write</b>(appendString(e.AvailableBuffer(), b, false)) // no need to escape again since it is already escaped
+		<a href="../src/encoding/json/encode.go.html#line-591" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-591">#L591</a>: 		e.<b>Write</b>(appendString(e.AvailableBuffer(), v.String(), opts.escapeHTML))
+		<a href="../src/encoding/json/encode.go.html#line-757" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-757">#L757</a>: 		e.<b>Write</b>(appendString(e.AvailableBuffer(), kv.ks, opts.escapeHTML))
+		<a href="../src/encoding/json/encode.go.html#line-794" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-794">#L794</a>: 	e.<b>Write</b>(b)
+		<a href="../src/encoding/json/indent.go.html#line-16">indent.go#L16</a>: 	dst.<b>Write</b>(appendHTMLEscape(dst.AvailableBuffer(), src))
+		<a href="../src/encoding/json/indent.go.html#line-45" class="path-duplicate">indent.go</a><a href="../src/encoding/json/indent.go.html#line-45">#L45</a>: 	dst.<b>Write</b>(b)
+		<a href="../src/encoding/json/indent.go.html#line-114" class="path-duplicate">indent.go</a><a href="../src/encoding/json/indent.go.html#line-114">#L114</a>: 	dst.<b>Write</b>(b)
 
 	<a href="../pkg/github.com/go-faster/errors.html">github.com/go-faster/errors</a>
 		<a href="../src/github.com/go-faster/errors/adaptor.go.html#line-156">adaptor.go#L156</a>: 				s.buf.<b>Write</b>(detailSep)
@@ -49,8 +51,8 @@
 		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/faketls.go.html#line-109">faketls.go#L109</a>: 	o.readBuf.<b>Write</b>(rec.Data)
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/h2_bundle.go.html#line-1715">h2_bundle.go#L1715</a>: 	f.debugFramerBuf.<b>Write</b>(f.wbuf)
-		<a href="../src/net/http/server.go.html#line-3473">server.go#L3473</a>: 	return tw.wbuf.<b>Write</b>(p)
+		<a href="../src/net/http/h2_bundle.go.html#line-1785">h2_bundle.go#L1785</a>: 	f.debugFramerBuf.<b>Write</b>(f.wbuf)
+		<a href="../src/net/http/server.go.html#line-3463">server.go#L3463</a>: 	return tw.wbuf.<b>Write</b>(p)
 
 	<a href="../pkg/rsc.io/qr.html">rsc.io/qr</a>
 		<a href="../src/rsc.io/qr/png.go.html#line-44">png.go#L44</a>: 	w.buf.<b>Write</b>(pngHeader)
@@ -66,7 +68,7 @@
 		<a href="../src/vendor/golang.org/x/net/http2/hpack/hpack.go.html#line-273" class="path-duplicate">hpack.go</a><a href="../src/vendor/golang.org/x/net/http2/hpack/hpack.go.html#line-273">#L273</a>: 			d.saveBuf.<b>Write</b>(d.buf)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

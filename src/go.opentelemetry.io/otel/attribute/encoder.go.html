@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: encoder.go in package go.opentelemetry.io/otel/attribute</title>
-<link href="../../../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.6.4.js"></script>
+<link href="../../../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -135,7 +135,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-75"><code><span class="comment">// once per each type of attribute encoder. Preferably in init() or in var</span></code></span>
 <span class="codeline" id="line-76"><code><span class="comment">// definition.</span></code></span>
 <span class="codeline" id="line-77"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-NewEncoderID" class="ident">NewEncoderID</a></label>() <a href="#line-40" class="ident">EncoderID</a> {</code></span>
-<span class="codeline" id="line-78"><code>	<span class="keyword">return</span> <a href="#line-40" class="ident">EncoderID</a>{<a href="#line-41" class="ident">value</a>: <a href="../../../../pkg/sync/atomic.html" class="ident i2">atomic</a>.<a href="../../../sync/atomic/doc.go.html#line-114" class="ident">AddUint64</a>(&amp;<a href="#line-67" class="ident">encoderIDCounter</a>, <span class="lit-number">1</span>)}</code></span>
+<span class="codeline" id="line-78"><code>	<span class="keyword">return</span> <a href="#line-40" class="ident">EncoderID</a>{<a href="#line-41" class="ident">value</a>: <a href="../../../../pkg/sync/atomic.html" class="ident i2">atomic</a>.<a href="../../../sync/atomic/doc.go.html#line-136" class="ident">AddUint64</a>(&amp;<a href="#line-67" class="ident">encoderIDCounter</a>, <span class="lit-number">1</span>)}</code></span>
 <span class="codeline" id="line-79"><code>}</code></span>
 <span class="codeline" id="line-80"><code></code></span>
 <span class="codeline" id="line-81"><code><span class="comment">// DefaultEncoder returns an attribute encoder that encodes attributes in such</span></code></span>
@@ -162,24 +162,24 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-102"><code><span class="keyword">func</span> (<label for="r2" class="ident">d</label> *<a href="#line-48" class="ident">defaultAttrEncoder</a>) <label for="r3" class="ident"><a href="../../../../use/go.opentelemetry.io/otel/attribute..defaultAttrEncoder^3d163.Encode.html" class="ident">Encode</a></label>(<label for="r4" class="ident">iter</label> <a href="iterator.go.html#line-19" class="ident">Iterator</a>) <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
 <span class="codeline" id="line-103"><code>	<label for="r5" class="ident">buf</label> := <label for="r2" class="ident">d</label>.<a href="#line-52" class="ident">pool</a>.<a href="../../../sync/pool.go.html#line-127" class="ident">Get</a>().(*<a href="../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../bytes/buffer.go.html#line-20" class="ident">Buffer</a>)</code></span>
 <span class="codeline" id="line-104"><code>	<span class="keyword">defer</span> <label for="r2" class="ident">d</label>.<a href="#line-52" class="ident">pool</a>.<a href="../../../sync/pool.go.html#line-95" class="ident">Put</a>(<label for="r5" class="ident">buf</label>)</code></span>
-<span class="codeline" id="line-105"><code>	<label for="r5" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-97" class="ident">Reset</a>()</code></span>
+<span class="codeline" id="line-105"><code>	<label for="r5" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-106" class="ident">Reset</a>()</code></span>
 <span class="codeline" id="line-106"><code></code></span>
 <span class="codeline" id="line-107"><code>	<span class="keyword">for</span> <label for="r4" class="ident">iter</label>.<a href="iterator.go.html#line-41" class="ident">Next</a>() {</code></span>
 <span class="codeline" id="line-108"><code>		<label for="r6" class="ident">i</label>, <label for="r7" class="ident">keyValue</label> := <label for="r4" class="ident">iter</label>.<a href="iterator.go.html#line-71" class="ident">IndexedAttribute</a>()</code></span>
 <span class="codeline" id="line-109"><code>		<span class="keyword">if</span> <label for="r6" class="ident">i</label> &gt; <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-110"><code>			_, _ = <label for="r5" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-290" class="ident">WriteRune</a>(<span class="lit-number">','</span>)</code></span>
+<span class="codeline" id="line-110"><code>			_, _ = <label for="r5" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-299" class="ident">WriteRune</a>(<span class="lit-number">','</span>)</code></span>
 <span class="codeline" id="line-111"><code>		}</code></span>
 <span class="codeline" id="line-112"><code>		<a href="#line-132" class="ident">copyAndEscape</a>(<label for="r5" class="ident">buf</label>, <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>(<label for="r7" class="ident">keyValue</label>.<a href="kv.go.html#line-23" class="ident">Key</a>))</code></span>
 <span class="codeline" id="line-113"><code></code></span>
-<span class="codeline" id="line-114"><code>		_, _ = <label for="r5" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-290" class="ident">WriteRune</a>(<span class="lit-number">'='</span>)</code></span>
+<span class="codeline" id="line-114"><code>		_, _ = <label for="r5" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-299" class="ident">WriteRune</a>(<span class="lit-number">'='</span>)</code></span>
 <span class="codeline" id="line-115"><code></code></span>
 <span class="codeline" id="line-116"><code>		<span class="keyword">if</span> <label for="r7" class="ident">keyValue</label>.<a href="kv.go.html#line-24" class="ident">Value</a>.<a href="value.go.html#line-132" class="ident">Type</a>() == <a href="value.go.html#line-50" class="ident">STRING</a> {</code></span>
 <span class="codeline" id="line-117"><code>			<a href="#line-132" class="ident">copyAndEscape</a>(<label for="r5" class="ident">buf</label>, <label for="r7" class="ident">keyValue</label>.<a href="kv.go.html#line-24" class="ident">Value</a>.<a href="value.go.html#line-195" class="ident">AsString</a>())</code></span>
 <span class="codeline" id="line-118"><code>		} <span class="keyword">else</span> {</code></span>
-<span class="codeline" id="line-119"><code>			_, _ = <label for="r5" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-178" class="ident">WriteString</a>(<label for="r7" class="ident">keyValue</label>.<a href="kv.go.html#line-24" class="ident">Value</a>.<a href="value.go.html#line-238" class="ident">Emit</a>())</code></span>
+<span class="codeline" id="line-119"><code>			_, _ = <label for="r5" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-187" class="ident">WriteString</a>(<label for="r7" class="ident">keyValue</label>.<a href="kv.go.html#line-24" class="ident">Value</a>.<a href="value.go.html#line-238" class="ident">Emit</a>())</code></span>
 <span class="codeline" id="line-120"><code>		}</code></span>
 <span class="codeline" id="line-121"><code>	}</code></span>
-<span class="codeline" id="line-122"><code>	<span class="keyword">return</span> <label for="r5" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-60" class="ident">String</a>()</code></span>
+<span class="codeline" id="line-122"><code>	<span class="keyword">return</span> <label for="r5" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-66" class="ident">String</a>()</code></span>
 <span class="codeline" id="line-123"><code>}</code></span>
 <span class="codeline" id="line-124"><code></code></span>
 <span class="codeline" id="line-125"><code><span class="comment">// ID is a part of an implementation of the AttributeEncoder interface.</span></code></span>
@@ -193,9 +193,9 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-133"><code>	<span class="keyword">for</span> <label for="r12" class="ident">_</label>, <label for="r13" class="ident">ch</label> := <span class="keyword">range</span> <label for="r11" class="ident">val</label> {</code></span>
 <span class="codeline" id="line-134"><code>		<span class="keyword">switch</span> <label for="r13" class="ident">ch</label> {</code></span>
 <span class="codeline" id="line-135"><code>		<span class="keyword">case</span> <span class="lit-number">'='</span>, <span class="lit-number">','</span>, <a href="#line-61" class="ident">escapeChar</a>:</code></span>
-<span class="codeline" id="line-136"><code>			_, _ = <label for="r10" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-290" class="ident">WriteRune</a>(<a href="#line-61" class="ident">escapeChar</a>)</code></span>
+<span class="codeline" id="line-136"><code>			_, _ = <label for="r10" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-299" class="ident">WriteRune</a>(<a href="#line-61" class="ident">escapeChar</a>)</code></span>
 <span class="codeline" id="line-137"><code>		}</code></span>
-<span class="codeline" id="line-138"><code>		_, _ = <label for="r10" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-290" class="ident">WriteRune</a>(<label for="r13" class="ident">ch</label>)</code></span>
+<span class="codeline" id="line-138"><code>		_, _ = <label for="r10" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-299" class="ident">WriteRune</a>(<label for="r13" class="ident">ch</label>)</code></span>
 <span class="codeline" id="line-139"><code>	}</code></span>
 <span class="codeline" id="line-140"><code>}</code></span>
 <span class="codeline" id="line-141"><code></code></span>
@@ -206,7 +206,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-146"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

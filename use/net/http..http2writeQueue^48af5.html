@@ -5,31 +5,36 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.http2writeQueue</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-10344">http2writeQueue</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-10805">http2writeQueue</a></b></span>
 
-<span class="title">13 uses</span>
+<span class="title">18 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/h2_bundle.go.html#line-10344">h2_bundle.go#L10344</a>: type <b>http2writeQueue</b> struct {
-		<a href="../../src/net/http/h2_bundle.go.html#line-10348" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10348">#L10348</a>: func (q *<b>http2writeQueue</b>) empty() bool { return len(q.s) == 0 }
-		<a href="../../src/net/http/h2_bundle.go.html#line-10350" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10350">#L10350</a>: func (q *<b>http2writeQueue</b>) push(wr http2FrameWriteRequest) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-10354" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10354">#L10354</a>: func (q *<b>http2writeQueue</b>) shift() http2FrameWriteRequest {
-		<a href="../../src/net/http/h2_bundle.go.html#line-10370" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10370">#L10370</a>: func (q *<b>http2writeQueue</b>) consume(n int32) (http2FrameWriteRequest, bool) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-10386" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10386">#L10386</a>: type http2writeQueuePool []*<b>http2writeQueue</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-10391" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10391">#L10391</a>: func (p *http2writeQueuePool) put(q *<b>http2writeQueue</b>) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-10400" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10400">#L10400</a>: func (p *http2writeQueuePool) get() *<b>http2writeQueue</b> {
-		<a href="../../src/net/http/h2_bundle.go.html#line-10403" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10403">#L10403</a>: 		return new(<b>http2writeQueue</b>)
-		<a href="../../src/net/http/h2_bundle.go.html#line-10495" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10495">#L10495</a>: 	q            <b>http2writeQueue</b>        // queue of pending frames to write
-		<a href="../../src/net/http/h2_bundle.go.html#line-10860" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10860">#L10860</a>: 	return &amp;http2randomWriteScheduler{sq: make(map[uint32]*<b>http2writeQueue</b>)}
-		<a href="../../src/net/http/h2_bundle.go.html#line-10865" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10865">#L10865</a>: 	zero <b>http2writeQueue</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-10870" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10870">#L10870</a>: 	sq map[uint32]*<b>http2writeQueue</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-10805">h2_bundle.go#L10805</a>: type <b>http2writeQueue</b> struct {
+		<a href="../../src/net/http/h2_bundle.go.html#line-10807" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10807">#L10807</a>: 	prev, next *<b>http2writeQueue</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-10810" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10810">#L10810</a>: func (q *<b>http2writeQueue</b>) empty() bool { return len(q.s) == 0 }
+		<a href="../../src/net/http/h2_bundle.go.html#line-10812" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10812">#L10812</a>: func (q *<b>http2writeQueue</b>) push(wr http2FrameWriteRequest) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-10816" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10816">#L10816</a>: func (q *<b>http2writeQueue</b>) shift() http2FrameWriteRequest {
+		<a href="../../src/net/http/h2_bundle.go.html#line-10832" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10832">#L10832</a>: func (q *<b>http2writeQueue</b>) consume(n int32) (http2FrameWriteRequest, bool) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-10848" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10848">#L10848</a>: type http2writeQueuePool []*<b>http2writeQueue</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-10853" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10853">#L10853</a>: func (p *http2writeQueuePool) put(q *<b>http2writeQueue</b>) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-10862" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10862">#L10862</a>: func (p *http2writeQueuePool) get() *<b>http2writeQueue</b> {
+		<a href="../../src/net/http/h2_bundle.go.html#line-10865" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10865">#L10865</a>: 		return new(<b>http2writeQueue</b>)
+		<a href="../../src/net/http/h2_bundle.go.html#line-10957" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10957">#L10957</a>: 	q            <b>http2writeQueue</b>        // queue of pending frames to write
+		<a href="../../src/net/http/h2_bundle.go.html#line-11321" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-11321">#L11321</a>: 	return &amp;http2randomWriteScheduler{sq: make(map[uint32]*<b>http2writeQueue</b>)}
+		<a href="../../src/net/http/h2_bundle.go.html#line-11326" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-11326">#L11326</a>: 	zero <b>http2writeQueue</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-11331" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-11331">#L11331</a>: 	sq map[uint32]*<b>http2writeQueue</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-11388" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-11388">#L11388</a>: 	control <b>http2writeQueue</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-11391" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-11391">#L11391</a>: 	streams map[uint32]*<b>http2writeQueue</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-11395" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-11395">#L11395</a>: 	head *<b>http2writeQueue</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-11408" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-11408">#L11408</a>: 		streams: make(map[uint32]*<b>http2writeQueue</b>),
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

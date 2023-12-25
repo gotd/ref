@@ -5,44 +5,46 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.http2stream</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4293">http2stream</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4448">http2stream</a></b></span>
 
-<span class="title">26 uses</span>
+<span class="title">28 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/h2_bundle.go.html#line-4091">h2_bundle.go#L4091</a>: 		streams:                     make(map[uint32]*<b>http2stream</b>),
-		<a href="../../src/net/http/h2_bundle.go.html#line-4244" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4244">#L4244</a>: 	streams                     map[uint32]*<b>http2stream</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-4293" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4293">#L4293</a>: type <b>http2stream</b> struct {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4327" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4327">#L4327</a>: func (sc *http2serverConn) state(streamID uint32) (http2streamState, *<b>http2stream</b>) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4742" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4742">#L4742</a>: func (sc *http2serverConn) writeDataFromHandler(stream *<b>http2stream</b>, data []byte, endStream bool) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5255" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5255">#L5255</a>: func (sc *http2serverConn) closeStream(st *<b>http2stream</b>, err error) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5497" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5497">#L5497</a>: func (st *<b>http2stream</b>) isPushed() bool {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5503" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5503">#L5503</a>: func (st *<b>http2stream</b>) endStream() {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5519" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5519">#L5519</a>: func (st *<b>http2stream</b>) copyTrailersToHandlerRequest() {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5530" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5530">#L5530</a>: func (st *<b>http2stream</b>) onWriteTimeout() {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5649" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5649">#L5649</a>: func (st *<b>http2stream</b>) processTrailerHeaders(f *http2MetaHeadersFrame) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5701" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5701">#L5701</a>: func (sc *http2serverConn) newStream(id, pusherID uint32, state http2streamState) *<b>http2stream</b> {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5708" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5708">#L5708</a>: 	st := &amp;<b>http2stream</b>{
-		<a href="../../src/net/http/h2_bundle.go.html#line-5738" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5738">#L5738</a>: func (sc *http2serverConn) newWriterAndRequest(st *<b>http2stream</b>, f *http2MetaHeadersFrame) (*http2responseWriter, *Request, error) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5803" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5803">#L5803</a>: func (sc *http2serverConn) newWriterAndRequestNoBody(st *<b>http2stream</b>, rp http2requestParam) (*http2responseWriter, *Request, error) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5926" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5926">#L5926</a>: func (sc *http2serverConn) writeHeaders(st *<b>http2stream</b>, headerData *http2writeResHeaders) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5958" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5958">#L5958</a>: func (sc *http2serverConn) write100ContinueHeaders(st *<b>http2stream</b>) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5968" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5968">#L5968</a>: 	st *<b>http2stream</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-5975" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5975">#L5975</a>: func (sc *http2serverConn) noteBodyReadFromHandler(st *<b>http2stream</b>, n int, err error) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5985" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5985">#L5985</a>: func (sc *http2serverConn) noteBodyRead(st *<b>http2stream</b>, n int) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5996" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5996">#L5996</a>: func (sc *http2serverConn) sendWindowUpdate(st *<b>http2stream</b>, n int) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6012" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6012">#L6012</a>: func (sc *http2serverConn) sendWindowUpdate32(st *<b>http2stream</b>, n int32) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6043" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6043">#L6043</a>: 	stream        *<b>http2stream</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-6098" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6098">#L6098</a>: 	stream *<b>http2stream</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-6611" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6611">#L6611</a>: 	parent *<b>http2stream</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-10215" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10215">#L10215</a>: 	stream *<b>http2stream</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-4225">h2_bundle.go#L4225</a>: 		streams:                     make(map[uint32]*<b>http2stream</b>),
+		<a href="../../src/net/http/h2_bundle.go.html#line-4399" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4399">#L4399</a>: 	streams                     map[uint32]*<b>http2stream</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-4448" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4448">#L4448</a>: type <b>http2stream</b> struct {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4484" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4484">#L4484</a>: func (sc *http2serverConn) state(streamID uint32) (http2streamState, *<b>http2stream</b>) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4913" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4913">#L4913</a>: func (sc *http2serverConn) writeDataFromHandler(stream *<b>http2stream</b>, data []byte, endStream bool) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5445" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5445">#L5445</a>: func (sc *http2serverConn) closeStream(st *<b>http2stream</b>, err error) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5691" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5691">#L5691</a>: func (st *<b>http2stream</b>) isPushed() bool {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5697" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5697">#L5697</a>: func (st *<b>http2stream</b>) endStream() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5713" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5713">#L5713</a>: func (st *<b>http2stream</b>) copyTrailersToHandlerRequest() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5724" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5724">#L5724</a>: func (st *<b>http2stream</b>) onReadTimeout() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5732" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5732">#L5732</a>: func (st *<b>http2stream</b>) onWriteTimeout() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5877" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5877">#L5877</a>: func (st *<b>http2stream</b>) processTrailerHeaders(f *http2MetaHeadersFrame) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5926" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5926">#L5926</a>: func (sc *http2serverConn) newStream(id, pusherID uint32, state http2streamState) *<b>http2stream</b> {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5933" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5933">#L5933</a>: 	st := &amp;<b>http2stream</b>{
+		<a href="../../src/net/http/h2_bundle.go.html#line-5962" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5962">#L5962</a>: func (sc *http2serverConn) newWriterAndRequest(st *<b>http2stream</b>, f *http2MetaHeadersFrame) (*http2responseWriter, *Request, error) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6027" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6027">#L6027</a>: func (sc *http2serverConn) newWriterAndRequestNoBody(st *<b>http2stream</b>, rp http2requestParam) (*http2responseWriter, *Request, error) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6102" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6102">#L6102</a>: func (sc *http2serverConn) newResponseWriter(st *<b>http2stream</b>, req *Request) *http2responseWriter {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6209" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6209">#L6209</a>: func (sc *http2serverConn) writeHeaders(st *<b>http2stream</b>, headerData *http2writeResHeaders) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6241" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6241">#L6241</a>: func (sc *http2serverConn) write100ContinueHeaders(st *<b>http2stream</b>) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6251" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6251">#L6251</a>: 	st *<b>http2stream</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-6258" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6258">#L6258</a>: func (sc *http2serverConn) noteBodyReadFromHandler(st *<b>http2stream</b>, n int, err error) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6268" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6268">#L6268</a>: func (sc *http2serverConn) noteBodyRead(st *<b>http2stream</b>, n int) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6279" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6279">#L6279</a>: func (sc *http2serverConn) sendWindowUpdate32(st *<b>http2stream</b>, n int32) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6284" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6284">#L6284</a>: func (sc *http2serverConn) sendWindowUpdate(st *<b>http2stream</b>, n int) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6307" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6307">#L6307</a>: 	stream        *<b>http2stream</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-6362" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6362">#L6362</a>: 	stream *<b>http2stream</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-6945" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6945">#L6945</a>: 	parent *<b>http2stream</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-10676" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10676">#L10676</a>: 	stream *<b>http2stream</b>
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: w_stream.go in package github.com/go-faster/jx</title>
-<link href="../../../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.6.4.js"></script>
+<link href="../../../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -45,7 +45,11 @@ input[id=r25]:checked ~pre label[for=r25],
 input[id=r26]:checked ~pre label[for=r26],
 input[id=r27]:checked ~pre label[for=r27],
 input[id=r28]:checked ~pre label[for=r28],
-input[id=r29]:checked ~pre label[for=r29]
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
 input[id=i1]:checked ~pre .i1,
@@ -81,6 +85,10 @@ input[id=i2]:checked ~pre .i2
 <input id="r27" type="radio" name="g"/>
 <input id="r28" type="radio" name="g"/>
 <input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
 <input id="i2" type="radio" name="i"/>
@@ -97,25 +105,25 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-9"><code></code></span>
 <span class="codeline" id="line-10"><code><span class="comment">// Close flushes underlying buffer to writer in streaming mode.</span></code></span>
 <span class="codeline" id="line-11"><code><span class="comment">// Otherwise, it does nothing.</span></code></span>
-<span class="codeline" id="line-12"><code><span class="keyword">func</span> (<label for="r0" class="ident">w</label> *<a href="w.go.html#line-8" class="ident">Writer</a>) <label for="r1" class="ident"><a href="../../../../use/github.com/go-faster/jx..Writer.Close.html" class="ident">Close</a></label>() <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-13"><code>	<span class="keyword">if</span> <label for="r0" class="ident">w</label>.<a href="w.go.html#line-10" class="ident">stream</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-12"><code><span class="keyword">func</span> (<label for="r0" class="ident">w</label> *<a href="w.go.html#line-11" class="ident">Writer</a>) <label for="r1" class="ident"><a href="../../../../use/github.com/go-faster/jx..Writer.Close.html" class="ident">Close</a></label>() <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-13"><code>	<span class="keyword">if</span> <label for="r0" class="ident">w</label>.<a href="w.go.html#line-13" class="ident">stream</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-14"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
 <span class="codeline" id="line-15"><code>	}</code></span>
-<span class="codeline" id="line-16"><code>	<label for="r2" class="ident">_</label>, <label for="r3" class="ident">fail</label> := <label for="r0" class="ident">w</label>.<a href="w.go.html#line-10" class="ident">stream</a>.<a href="#line-55" class="ident">flush</a>(<label for="r0" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a>)</code></span>
+<span class="codeline" id="line-16"><code>	<label for="r2" class="ident">_</label>, <label for="r3" class="ident">fail</label> := <label for="r0" class="ident">w</label>.<a href="w.go.html#line-13" class="ident">stream</a>.<a href="#line-55" class="ident">flush</a>(<label for="r0" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a>)</code></span>
 <span class="codeline" id="line-17"><code>	<span class="keyword">if</span> <label for="r3" class="ident">fail</label> {</code></span>
-<span class="codeline" id="line-18"><code>		<span class="keyword">return</span> <label for="r0" class="ident">w</label>.<a href="w.go.html#line-10" class="ident">stream</a>.<a href="#line-27" class="ident">writeErr</a></code></span>
+<span class="codeline" id="line-18"><code>		<span class="keyword">return</span> <label for="r0" class="ident">w</label>.<a href="w.go.html#line-13" class="ident">stream</a>.<a href="#line-27" class="ident">writeErr</a></code></span>
 <span class="codeline" id="line-19"><code>	}</code></span>
 <span class="codeline" id="line-20"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
 <span class="codeline" id="line-21"><code>}</code></span>
 <span class="codeline" id="line-22"><code></code></span>
-<span class="codeline" id="line-23"><code><span class="keyword">var</span> <a href="../../../../pkg/github.com/go-faster/jx.html#name-errStreaming" class="ident">errStreaming</a> = <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"unexpected call in streaming mode"</span>)</code></span>
+<span class="codeline" id="line-23"><code><span class="keyword">var</span> <a href="../../../../pkg/github.com/go-faster/jx.html#name-errStreaming" class="ident">errStreaming</a> = <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/errors.go.html#line-61" class="ident">New</a>(<span class="lit-string">"unexpected call in streaming mode"</span>)</code></span>
 <span class="codeline" id="line-24"><code></code></span>
 <span class="codeline" id="line-25"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/go-faster/jx.html#name-streamState" class="ident">streamState</a> <span class="keyword">struct</span> {</code></span>
-<span class="codeline" id="line-26"><code>	<a href="../../../../use/github.com/go-faster/jx..streamState^5fd78.writer^b9300.html" class="ident">writer</a>   <a href="../../../../pkg/io.html" class="ident i1">io</a>.<a href="../../../io/io.go.html#line-96" class="ident">Writer</a></code></span>
+<span class="codeline" id="line-26"><code>	<a href="../../../../use/github.com/go-faster/jx..streamState^5fd78.writer^b9300.html" class="ident">writer</a>   <a href="../../../../pkg/io.html" class="ident i1">io</a>.<a href="../../../io/io.go.html#line-99" class="ident">Writer</a></code></span>
 <span class="codeline" id="line-27"><code>	<a href="../../../../use/github.com/go-faster/jx..streamState^5fd78.writeErr^843d8.html" class="ident">writeErr</a> <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
 <span class="codeline" id="line-28"><code>}</code></span>
 <span class="codeline" id="line-29"><code></code></span>
-<span class="codeline" id="line-30"><code><span class="keyword">func</span> <label for="r4" class="ident"><a href="../../../../pkg/github.com/go-faster/jx.html#name-newStreamState" class="ident">newStreamState</a></label>(<label for="r5" class="ident">w</label> <a href="../../../../pkg/io.html" class="ident i1">io</a>.<a href="../../../io/io.go.html#line-96" class="ident">Writer</a>) *<a href="#line-25" class="ident">streamState</a> {</code></span>
+<span class="codeline" id="line-30"><code><span class="keyword">func</span> <label for="r4" class="ident"><a href="../../../../pkg/github.com/go-faster/jx.html#name-newStreamState" class="ident">newStreamState</a></label>(<label for="r5" class="ident">w</label> <a href="../../../../pkg/io.html" class="ident i1">io</a>.<a href="../../../io/io.go.html#line-99" class="ident">Writer</a>) *<a href="#line-25" class="ident">streamState</a> {</code></span>
 <span class="codeline" id="line-31"><code>	<span class="keyword">return</span> &amp;<a href="#line-25" class="ident">streamState</a>{</code></span>
 <span class="codeline" id="line-32"><code>		<a href="#line-26" class="ident">writer</a>: <label for="r5" class="ident">w</label>,</code></span>
 <span class="codeline" id="line-33"><code>	}</code></span>
@@ -127,7 +135,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-39"><code>	}</code></span>
 <span class="codeline" id="line-40"><code>}</code></span>
 <span class="codeline" id="line-41"><code></code></span>
-<span class="codeline" id="line-42"><code><span class="keyword">func</span> (<label for="r8" class="ident">s</label> *<a href="#line-25" class="ident">streamState</a>) <label for="r9" class="ident"><a href="../../../../use/github.com/go-faster/jx..streamState^5fd78.Reset.html" class="ident">Reset</a></label>(<label for="r10" class="ident">w</label> <a href="../../../../pkg/io.html" class="ident i1">io</a>.<a href="../../../io/io.go.html#line-96" class="ident">Writer</a>) {</code></span>
+<span class="codeline" id="line-42"><code><span class="keyword">func</span> (<label for="r8" class="ident">s</label> *<a href="#line-25" class="ident">streamState</a>) <label for="r9" class="ident"><a href="../../../../use/github.com/go-faster/jx..streamState^5fd78.Reset.html" class="ident">Reset</a></label>(<label for="r10" class="ident">w</label> <a href="../../../../pkg/io.html" class="ident i1">io</a>.<a href="../../../io/io.go.html#line-99" class="ident">Writer</a>) {</code></span>
 <span class="codeline" id="line-43"><code>	<label for="r8" class="ident">s</label>.<a href="#line-26" class="ident">writer</a> = <label for="r10" class="ident">w</label></code></span>
 <span class="codeline" id="line-44"><code>	<label for="r8" class="ident">s</label>.<a href="#line-27" class="ident">writeErr</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
 <span class="codeline" id="line-45"><code>}</code></span>
@@ -145,7 +153,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-57"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
 <span class="codeline" id="line-58"><code>	}</code></span>
 <span class="codeline" id="line-59"><code></code></span>
-<span class="codeline" id="line-60"><code>	<label for="r19" class="ident">n</label>, <label for="r20" class="ident">err</label> := <label for="r16" class="ident">s</label>.<a href="#line-26" class="ident">writer</a>.<a href="../../../io/io.go.html#line-97" class="ident">Write</a>(<label for="r18" class="ident">buf</label>)</code></span>
+<span class="codeline" id="line-60"><code>	<label for="r19" class="ident">n</label>, <label for="r20" class="ident">err</label> := <label for="r16" class="ident">s</label>.<a href="#line-26" class="ident">writer</a>.<a href="../../../io/io.go.html#line-100" class="ident">Write</a>(<label for="r18" class="ident">buf</label>)</code></span>
 <span class="codeline" id="line-61"><code>	<span class="keyword">switch</span> {</code></span>
 <span class="codeline" id="line-62"><code>	<span class="keyword">case</span> <label for="r20" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>:</code></span>
 <span class="codeline" id="line-63"><code>		<label for="r16" class="ident">s</label>.<a href="#line-47" class="ident">setError</a>(<label for="r20" class="ident">err</label>)</code></span>
@@ -159,37 +167,40 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-71"><code>	}</code></span>
 <span class="codeline" id="line-72"><code>}</code></span>
 <span class="codeline" id="line-73"><code></code></span>
-<span class="codeline" id="line-74"><code><span class="keyword">func</span> <label for="r21" class="ident"><a href="../../../../pkg/github.com/go-faster/jx.html#name-writeStreamBytes" class="ident">writeStreamBytes</a></label>(<label for="r22" class="ident">w</label> *<a href="w.go.html#line-8" class="ident">Writer</a>, <label for="r23" class="ident">s</label> ...<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-74"><code><span class="keyword">func</span> <label for="r21" class="ident"><a href="../../../../pkg/github.com/go-faster/jx.html#name-writeStreamBytes" class="ident">writeStreamBytes</a></label>(<label for="r22" class="ident">w</label> *<a href="w.go.html#line-11" class="ident">Writer</a>, <label for="r23" class="ident">s</label> ...<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
 <span class="codeline" id="line-75"><code>	<span class="keyword">return</span> <a href="#line-78" class="ident">writeStreamByteseq</a>(<label for="r22" class="ident">w</label>, <label for="r23" class="ident">s</label>)</code></span>
 <span class="codeline" id="line-76"><code>}</code></span>
 <span class="codeline" id="line-77"><code></code></span>
-<span class="codeline" id="line-78"><code><span class="keyword">func</span> <label for="r24" class="ident"><a href="../../../../pkg/github.com/go-faster/jx.html#name-writeStreamByteseq" class="ident">writeStreamByteseq</a></label>[<label for="r25" class="ident">S</label> <a href="../../../../pkg/github.com/go-faster/jx/internal/byteseq.html" class="ident i2">byteseq</a>.<a href="internal/byteseq/byteseq.go.html#line-7" class="ident">Byteseq</a>](<label for="r26" class="ident">w</label> *<a href="w.go.html#line-8" class="ident">Writer</a>, <label for="r27" class="ident">s</label> <label for="r25" class="ident">S</label>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
-<span class="codeline" id="line-79"><code>	<span class="keyword">if</span> <label for="r26" class="ident">w</label>.<a href="w.go.html#line-10" class="ident">stream</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-80"><code>		<label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a>, <label for="r27" class="ident">s</label>...)</code></span>
+<span class="codeline" id="line-78"><code><span class="keyword">func</span> <label for="r24" class="ident"><a href="../../../../pkg/github.com/go-faster/jx.html#name-writeStreamByteseq" class="ident">writeStreamByteseq</a></label>[<label for="r25" class="ident">S</label> <a href="../../../../pkg/github.com/go-faster/jx/internal/byteseq.html" class="ident i2">byteseq</a>.<a href="internal/byteseq/byteseq.go.html#line-7" class="ident">Byteseq</a>](<label for="r26" class="ident">w</label> *<a href="w.go.html#line-11" class="ident">Writer</a>, <label for="r27" class="ident">s</label> <label for="r25" class="ident">S</label>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-79"><code>	<span class="keyword">if</span> <label for="r26" class="ident">w</label>.<a href="w.go.html#line-13" class="ident">stream</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-80"><code>		<label for="r26" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r26" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a>, <label for="r27" class="ident">s</label>...)</code></span>
 <span class="codeline" id="line-81"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
 <span class="codeline" id="line-82"><code>	}</code></span>
-<span class="codeline" id="line-83"><code></code></span>
-<span class="codeline" id="line-84"><code>	<span class="keyword">if</span> <label for="r26" class="ident">w</label>.<a href="w.go.html#line-10" class="ident">stream</a>.<a href="#line-51" class="ident">fail</a>() {</code></span>
-<span class="codeline" id="line-85"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-86"><code>	}</code></span>
-<span class="codeline" id="line-87"><code></code></span>
-<span class="codeline" id="line-88"><code>	<span class="keyword">for</span> <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a>)+<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r27" class="ident">s</label>) &gt; <a href="../../../../pkg/builtin.html#name-cap" class="ident">cap</a>(<label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a>) {</code></span>
-<span class="codeline" id="line-89"><code>		<span class="keyword">var</span> <label for="r28" class="ident">fail</label> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
-<span class="codeline" id="line-90"><code>		<label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a>, <label for="r28" class="ident">fail</label> = <label for="r26" class="ident">w</label>.<a href="w.go.html#line-10" class="ident">stream</a>.<a href="#line-55" class="ident">flush</a>(<label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a>)</code></span>
-<span class="codeline" id="line-91"><code>		<span class="keyword">if</span> <label for="r28" class="ident">fail</label> {</code></span>
-<span class="codeline" id="line-92"><code>			<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-93"><code>		}</code></span>
-<span class="codeline" id="line-94"><code></code></span>
-<span class="codeline" id="line-95"><code>		<label for="r29" class="ident">n</label> := <a href="../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a>[<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a>):<a href="../../../../pkg/builtin.html#name-cap" class="ident">cap</a>(<label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a>)], <label for="r27" class="ident">s</label>)</code></span>
-<span class="codeline" id="line-96"><code>		<label for="r27" class="ident">s</label> = <label for="r27" class="ident">s</label>[<label for="r29" class="ident">n</label>:]</code></span>
-<span class="codeline" id="line-97"><code>		<label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a> = <label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a>[:<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a>)+<label for="r29" class="ident">n</label>]</code></span>
-<span class="codeline" id="line-98"><code>	}</code></span>
-<span class="codeline" id="line-99"><code>	<label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r26" class="ident">w</label>.<a href="w.go.html#line-9" class="ident">Buf</a>, <label for="r27" class="ident">s</label>...)</code></span>
-<span class="codeline" id="line-100"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
-<span class="codeline" id="line-101"><code>}</code></span>
+<span class="codeline" id="line-83"><code>	<span class="keyword">return</span> <a href="#line-86" class="ident">writeStreamByteseqSlow</a>(<label for="r26" class="ident">w</label>, <label for="r27" class="ident">s</label>)</code></span>
+<span class="codeline" id="line-84"><code>}</code></span>
+<span class="codeline" id="line-85"><code></code></span>
+<span class="codeline" id="line-86"><code><span class="keyword">func</span> <label for="r28" class="ident"><a href="../../../../pkg/github.com/go-faster/jx.html#name-writeStreamByteseqSlow" class="ident">writeStreamByteseqSlow</a></label>[<label for="r29" class="ident">S</label> <a href="../../../../pkg/github.com/go-faster/jx/internal/byteseq.html" class="ident i2">byteseq</a>.<a href="internal/byteseq/byteseq.go.html#line-7" class="ident">Byteseq</a>](<label for="r30" class="ident">w</label> *<a href="w.go.html#line-11" class="ident">Writer</a>, <label for="r31" class="ident">s</label> <label for="r29" class="ident">S</label>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-87"><code>	<span class="keyword">if</span> <label for="r30" class="ident">w</label>.<a href="w.go.html#line-13" class="ident">stream</a>.<a href="#line-51" class="ident">fail</a>() {</code></span>
+<span class="codeline" id="line-88"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-89"><code>	}</code></span>
+<span class="codeline" id="line-90"><code></code></span>
+<span class="codeline" id="line-91"><code>	<span class="keyword">for</span> <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r30" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a>)+<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r31" class="ident">s</label>) &gt; <a href="../../../../pkg/builtin.html#name-cap" class="ident">cap</a>(<label for="r30" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a>) {</code></span>
+<span class="codeline" id="line-92"><code>		<span class="keyword">var</span> <label for="r32" class="ident">fail</label> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-93"><code>		<label for="r30" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a>, <label for="r32" class="ident">fail</label> = <label for="r30" class="ident">w</label>.<a href="w.go.html#line-13" class="ident">stream</a>.<a href="#line-55" class="ident">flush</a>(<label for="r30" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a>)</code></span>
+<span class="codeline" id="line-94"><code>		<span class="keyword">if</span> <label for="r32" class="ident">fail</label> {</code></span>
+<span class="codeline" id="line-95"><code>			<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-96"><code>		}</code></span>
+<span class="codeline" id="line-97"><code></code></span>
+<span class="codeline" id="line-98"><code>		<label for="r33" class="ident">n</label> := <a href="../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r30" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a>[<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r30" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a>):<a href="../../../../pkg/builtin.html#name-cap" class="ident">cap</a>(<label for="r30" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a>)], <label for="r31" class="ident">s</label>)</code></span>
+<span class="codeline" id="line-99"><code>		<label for="r31" class="ident">s</label> = <label for="r31" class="ident">s</label>[<label for="r33" class="ident">n</label>:]</code></span>
+<span class="codeline" id="line-100"><code>		<label for="r30" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a> = <label for="r30" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a>[:<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r30" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a>)+<label for="r33" class="ident">n</label>]</code></span>
+<span class="codeline" id="line-101"><code>	}</code></span>
+<span class="codeline" id="line-102"><code>	<label for="r30" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r30" class="ident">w</label>.<a href="w.go.html#line-12" class="ident">Buf</a>, <label for="r31" class="ident">s</label>...)</code></span>
+<span class="codeline" id="line-103"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-104"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

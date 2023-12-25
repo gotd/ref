@@ -5,22 +5,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto/x509.RevocationList.RevokedCertificates</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/crypto/x509.html">crypto/x509</a>.<a href="../../src/crypto/x509/x509.go.html#line-2094">RevocationList</a>.<a href="../../src/crypto/x509/x509.go.html#line-2121">RevokedCertificates</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/crypto/x509.html">crypto/x509</a>.<a href="../../src/crypto/x509/x509.go.html#line-2197">RevocationList</a>.<a href="../../src/crypto/x509/x509.go.html#line-2232">RevokedCertificates</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">5 uses</span>
+<span class="title">6 uses</span>
 
 	crypto/x509 (current package)
-		<a href="../../src/crypto/x509/parser.go.html#line-1126">parser.go#L1126</a>: 			rl.<b>RevokedCertificates</b> = append(rl.<b>RevokedCertificates</b>, rc)
-		<a href="../../src/crypto/x509/x509.go.html#line-2121">x509.go#L2121</a>: 	<b>RevokedCertificates</b> []pkix.RevokedCertificate
-		<a href="../../src/crypto/x509/x509.go.html#line-2184" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2184">#L2184</a>: 	revokedCertsUTC := make([]pkix.RevokedCertificate, len(template.<b>RevokedCertificates</b>))
-		<a href="../../src/crypto/x509/x509.go.html#line-2185" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2185">#L2185</a>: 	for i, rc := range template.<b>RevokedCertificates</b> {
+		<a href="../../src/crypto/x509/parser.go.html#line-1157">parser.go#L1157</a>: 			rl.<b>RevokedCertificates</b> = append(rl.<b>RevokedCertificates</b>, rcDeprecated)
+		<a href="../../src/crypto/x509/x509.go.html#line-2232">x509.go#L2232</a>: 	<b>RevokedCertificates</b> []pkix.RevokedCertificate
+		<a href="../../src/crypto/x509/x509.go.html#line-2320" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2320">#L2320</a>: 	if len(template.<b>RevokedCertificates</b>) &gt; 0 &amp;&amp; len(template.RevokedCertificateEntries) == 0 {
+		<a href="../../src/crypto/x509/x509.go.html#line-2322" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2322">#L2322</a>: 		revokedCerts = make([]pkix.RevokedCertificate, len(template.<b>RevokedCertificates</b>))
+		<a href="../../src/crypto/x509/x509.go.html#line-2323" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-2323">#L2323</a>: 		for i, rc := range template.<b>RevokedCertificates</b> {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

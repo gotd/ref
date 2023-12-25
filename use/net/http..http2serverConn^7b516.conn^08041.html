@@ -5,36 +5,37 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.http2serverConn.conn</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4210">http2serverConn</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4214">conn</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4363">http2serverConn</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4367">conn</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">18 uses</span>
+<span class="title">19 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/h2_bundle.go.html#line-4086">h2_bundle.go#L4086</a>: 		<b>conn</b>:                        c,
-		<a href="../../src/net/http/h2_bundle.go.html#line-4116" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4116">#L4116</a>: 		sc.<b>conn</b>.SetWriteDeadline(time.Time{})
-		<a href="../../src/net/http/h2_bundle.go.html#line-4207" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4207">#L4207</a>: 	sc.<b>conn</b>.Close()
-		<a href="../../src/net/http/h2_bundle.go.html#line-4214" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4214">#L4214</a>: 	<b>conn</b>             net.Conn
-		<a href="../../src/net/http/h2_bundle.go.html#line-4319" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4319">#L4319</a>: func (sc *http2serverConn) CloseConn() error { return sc.<b>conn</b>.Close() }
-		<a href="../../src/net/http/h2_bundle.go.html#line-4356" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4356">#L4356</a>: 		sc.hs.ConnState(sc.<b>conn</b>, state)
-		<a href="../../src/net/http/h2_bundle.go.html#line-4543" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4543">#L4543</a>: 	defer sc.<b>conn</b>.Close()
-		<a href="../../src/net/http/h2_bundle.go.html#line-4549" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4549">#L4549</a>: 		sc.vlogf("http2: server connection from %v on %p", sc.<b>conn</b>.RemoteAddr(), sc.hs)
-		<a href="../../src/net/http/h2_bundle.go.html#line-4569" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4569">#L4569</a>: 		sc.condlogf(err, "http2: server: error reading preface from client %v: %v", sc.<b>conn</b>.RemoteAddr(), err)
-		<a href="../../src/net/http/h2_bundle.go.html#line-4628" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4628">#L4628</a>: 					sc.logf("timeout waiting for SETTINGS frames from %v", sc.<b>conn</b>.RemoteAddr())
-		<a href="../../src/net/http/h2_bundle.go.html#line-4634" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4634">#L4634</a>: 					sc.vlogf("GOAWAY close timer fired; closing conn from %v", sc.<b>conn</b>.RemoteAddr())
-		<a href="../../src/net/http/h2_bundle.go.html#line-4709" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4709">#L4709</a>: 		if _, err := io.ReadFull(sc.<b>conn</b>, buf); err != nil {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4725" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4725">#L4725</a>: 				sc.vlogf("http2: server: client %v said hello", sc.<b>conn</b>.RemoteAddr())
-		<a href="../../src/net/http/h2_bundle.go.html#line-4862" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4862">#L4862</a>: 				sc.<b>conn</b>.Close()
-		<a href="../../src/net/http/h2_bundle.go.html#line-5131" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5131">#L5131</a>: 		sc.logf("http2: server connection error from %v: %v", sc.<b>conn</b>.RemoteAddr(), ev)
-		<a href="../../src/net/http/h2_bundle.go.html#line-5136" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5136">#L5136</a>: 			sc.vlogf("http2: server closing client connection; error reading frame from client %s: %v", sc.<b>conn</b>.RemoteAddr(), err)
-		<a href="../../src/net/http/h2_bundle.go.html#line-5642" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5642">#L5642</a>: 		sc.<b>conn</b>.SetReadDeadline(time.Time{})
-		<a href="../../src/net/http/h2_bundle.go.html#line-5904" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5904">#L5904</a>: 				sc.logf("http2: panic serving %v: %v\n%s", sc.<b>conn</b>.RemoteAddr(), e, buf)
+		<a href="../../src/net/http/h2_bundle.go.html#line-4220">h2_bundle.go#L4220</a>: 		<b>conn</b>:                        c,
+		<a href="../../src/net/http/h2_bundle.go.html#line-4250" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4250">#L4250</a>: 		sc.<b>conn</b>.SetWriteDeadline(time.Time{})
+		<a href="../../src/net/http/h2_bundle.go.html#line-4360" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4360">#L4360</a>: 	sc.<b>conn</b>.Close()
+		<a href="../../src/net/http/h2_bundle.go.html#line-4367" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4367">#L4367</a>: 	<b>conn</b>             net.Conn
+		<a href="../../src/net/http/h2_bundle.go.html#line-4476" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4476">#L4476</a>: func (sc *http2serverConn) CloseConn() error { return sc.<b>conn</b>.Close() }
+		<a href="../../src/net/http/h2_bundle.go.html#line-4513" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4513">#L4513</a>: 		sc.hs.ConnState(sc.<b>conn</b>, state)
+		<a href="../../src/net/http/h2_bundle.go.html#line-4705" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4705">#L4705</a>: 	defer sc.<b>conn</b>.Close()
+		<a href="../../src/net/http/h2_bundle.go.html#line-4711" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4711">#L4711</a>: 		sc.vlogf("http2: server connection from %v on %p", sc.<b>conn</b>.RemoteAddr(), sc.hs)
+		<a href="../../src/net/http/h2_bundle.go.html#line-4732" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4732">#L4732</a>: 		sc.condlogf(err, "http2: server: error reading preface from client %v: %v", sc.<b>conn</b>.RemoteAddr(), err)
+		<a href="../../src/net/http/h2_bundle.go.html#line-4791" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4791">#L4791</a>: 					sc.logf("timeout waiting for SETTINGS frames from %v", sc.<b>conn</b>.RemoteAddr())
+		<a href="../../src/net/http/h2_bundle.go.html#line-4797" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4797">#L4797</a>: 					sc.vlogf("GOAWAY close timer fired; closing conn from %v", sc.<b>conn</b>.RemoteAddr())
+		<a href="../../src/net/http/h2_bundle.go.html#line-4880" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4880">#L4880</a>: 		if _, err := io.ReadFull(sc.<b>conn</b>, buf); err != nil {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4896" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4896">#L4896</a>: 				sc.vlogf("http2: server: client %v said hello", sc.<b>conn</b>.RemoteAddr())
+		<a href="../../src/net/http/h2_bundle.go.html#line-5033" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5033">#L5033</a>: 				sc.<b>conn</b>.Close()
+		<a href="../../src/net/http/h2_bundle.go.html#line-5309" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5309">#L5309</a>: 		sc.logf("http2: server connection error from %v: %v", sc.<b>conn</b>.RemoteAddr(), ev)
+		<a href="../../src/net/http/h2_bundle.go.html#line-5314" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5314">#L5314</a>: 			sc.vlogf("http2: server closing client connection; error reading frame from client %s: %v", sc.<b>conn</b>.RemoteAddr(), err)
+		<a href="../../src/net/http/h2_bundle.go.html#line-5844" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5844">#L5844</a>: 		sc.<b>conn</b>.SetReadDeadline(time.Time{})
+		<a href="../../src/net/http/h2_bundle.go.html#line-5867" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5867">#L5867</a>: 		sc.<b>conn</b>.SetReadDeadline(time.Time{})
+		<a href="../../src/net/http/h2_bundle.go.html#line-6187" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6187">#L6187</a>: 				sc.logf("http2: panic serving %v: %v\n%s", sc.<b>conn</b>.RemoteAddr(), e, buf)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

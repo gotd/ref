@@ -5,41 +5,41 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.http2streamError</title>
-<link href="../../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.4.js"></script>
+<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-1239">http2streamError</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-1241">http2streamError</a></b></span>
 
 <span class="title">23 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/h2_bundle.go.html#line-1239">h2_bundle.go#L1239</a>: func <b>http2streamError</b>(id uint32, code http2ErrCode) http2StreamError {
-		<a href="../../src/net/http/h2_bundle.go.html#line-2292" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2292">#L2292</a>: 		return nil, <b>http2streamError</b>(fh.StreamID, http2ErrCodeProtocol)
-		<a href="../../src/net/http/h2_bundle.go.html#line-2378" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2378">#L2378</a>: 		return nil, <b>http2streamError</b>(fh.StreamID, http2ErrCodeProtocol)
-		<a href="../../src/net/http/h2_bundle.go.html#line-4955" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4955">#L4955</a>: 			sc.resetStream(<b>http2streamError</b>(st.id, http2ErrCodeNo))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5225" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5225">#L5225</a>: 			return sc.countError("bad_flow", <b>http2streamError</b>(f.StreamID, http2ErrCodeFlowControl))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5250" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5250">#L5250</a>: 		sc.closeStream(st, <b>http2streamError</b>(f.StreamID, f.ErrCode))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5423" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5423">#L5423</a>: 			return sc.countError("data_flow", <b>http2streamError</b>(id, http2ErrCodeFlowControl))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5436" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5436">#L5436</a>: 		return sc.countError("closed", <b>http2streamError</b>(id, http2ErrCodeStreamClosed))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5448" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5448">#L5448</a>: 		return sc.countError("send_too_much", <b>http2streamError</b>(id, http2ErrCodeProtocol))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5453" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5453">#L5453</a>: 			return sc.countError("flow_on_data_length", <b>http2streamError</b>(id, http2ErrCodeFlowControl))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5461" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5461">#L5461</a>: 				return sc.countError("body_write_err", <b>http2streamError</b>(id, http2ErrCodeStreamClosed))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5531" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5531">#L5531</a>: 	st.sc.writeFrameFromHandler(http2FrameWriteRequest{write: <b>http2streamError</b>(st.id, http2ErrCodeInternal)})
-		<a href="../../src/net/http/h2_bundle.go.html#line-5564" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5564">#L5564</a>: 			return sc.countError("headers_half_closed", <b>http2streamError</b>(id, http2ErrCodeStreamClosed))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5592" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5592">#L5592</a>: 			return sc.countError("over_max_streams", <b>http2streamError</b>(id, http2ErrCodeProtocol))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5599" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5599">#L5599</a>: 		return sc.countError("over_max_streams_race", <b>http2streamError</b>(id, http2ErrCodeRefusedStream))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5657" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5657">#L5657</a>: 		return sc.countError("trailers_not_ended", <b>http2streamError</b>(st.id, http2ErrCodeProtocol))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5661" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5661">#L5661</a>: 		return sc.countError("trailers_pseudo", <b>http2streamError</b>(st.id, http2ErrCodeProtocol))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5670" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5670">#L5670</a>: 				return sc.countError("trailers_bogus", <b>http2streamError</b>(st.id, http2ErrCodeProtocol))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5685" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5685">#L5685</a>: 		return sc.countError("priority", <b>http2streamError</b>(streamID, http2ErrCodeProtocol))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5751" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5751">#L5751</a>: 			return nil, nil, sc.countError("bad_connect", <b>http2streamError</b>(f.StreamID, http2ErrCodeProtocol))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5764" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5764">#L5764</a>: 		return nil, nil, sc.countError("bad_path_method", <b>http2streamError</b>(f.StreamID, http2ErrCodeProtocol))
-		<a href="../../src/net/http/h2_bundle.go.html#line-5848" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5848">#L5848</a>: 			return nil, nil, sc.countError("bad_path", <b>http2streamError</b>(st.id, http2ErrCodeProtocol))
-		<a href="../../src/net/http/h2_bundle.go.html#line-9533" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9533">#L9533</a>: 	serr := <b>http2streamError</b>(cs.ID, f.ErrCode)
+		<a href="../../src/net/http/h2_bundle.go.html#line-1241">h2_bundle.go#L1241</a>: func <b>http2streamError</b>(id uint32, code http2ErrCode) http2StreamError {
+		<a href="../../src/net/http/h2_bundle.go.html#line-2371" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2371">#L2371</a>: 		return nil, <b>http2streamError</b>(fh.StreamID, http2ErrCodeProtocol)
+		<a href="../../src/net/http/h2_bundle.go.html#line-2457" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-2457">#L2457</a>: 		return nil, <b>http2streamError</b>(fh.StreamID, http2ErrCodeProtocol)
+		<a href="../../src/net/http/h2_bundle.go.html#line-5133" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5133">#L5133</a>: 			sc.resetStream(<b>http2streamError</b>(st.id, http2ErrCodeNo))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5341" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5341">#L5341</a>: 				return sc.countError("data_flow", <b>http2streamError</b>(f.Header().StreamID, http2ErrCodeFlowControl))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5415" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5415">#L5415</a>: 			return sc.countError("bad_flow", <b>http2streamError</b>(f.StreamID, http2ErrCodeFlowControl))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5440" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5440">#L5440</a>: 		sc.closeStream(st, <b>http2streamError</b>(f.StreamID, f.ErrCode))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5613" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5613">#L5613</a>: 			return sc.countError("data_flow", <b>http2streamError</b>(id, http2ErrCodeFlowControl))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5621" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5621">#L5621</a>: 		return sc.countError("closed", <b>http2streamError</b>(id, http2ErrCodeStreamClosed))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5630" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5630">#L5630</a>: 			return sc.countError("data_flow", <b>http2streamError</b>(id, http2ErrCodeFlowControl))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5638" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5638">#L5638</a>: 		return sc.countError("send_too_much", <b>http2streamError</b>(id, http2ErrCodeProtocol))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5643" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5643">#L5643</a>: 			return sc.countError("flow_on_data_length", <b>http2streamError</b>(id, http2ErrCodeFlowControl))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5766" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5766">#L5766</a>: 			return sc.countError("headers_half_closed", <b>http2streamError</b>(id, http2ErrCodeStreamClosed))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5794" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5794">#L5794</a>: 			return sc.countError("over_max_streams", <b>http2streamError</b>(id, http2ErrCodeProtocol))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5801" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5801">#L5801</a>: 		return sc.countError("over_max_streams_race", <b>http2streamError</b>(id, http2ErrCodeRefusedStream))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5885" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5885">#L5885</a>: 		return sc.countError("trailers_not_ended", <b>http2streamError</b>(st.id, http2ErrCodeProtocol))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5889" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5889">#L5889</a>: 		return sc.countError("trailers_pseudo", <b>http2streamError</b>(st.id, http2ErrCodeProtocol))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5898" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5898">#L5898</a>: 				return sc.countError("trailers_bogus", <b>http2streamError</b>(st.id, http2ErrCodeProtocol))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5913" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5913">#L5913</a>: 		return sc.countError("priority", <b>http2streamError</b>(streamID, http2ErrCodeProtocol))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5975" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5975">#L5975</a>: 			return nil, nil, sc.countError("bad_connect", <b>http2streamError</b>(f.StreamID, http2ErrCodeProtocol))
+		<a href="../../src/net/http/h2_bundle.go.html#line-5988" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5988">#L5988</a>: 		return nil, nil, sc.countError("bad_path_method", <b>http2streamError</b>(f.StreamID, http2ErrCodeProtocol))
+		<a href="../../src/net/http/h2_bundle.go.html#line-6072" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6072">#L6072</a>: 			return nil, nil, sc.countError("bad_path", <b>http2streamError</b>(st.id, http2ErrCodeProtocol))
+		<a href="../../src/net/http/h2_bundle.go.html#line-9990" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9990">#L9990</a>: 	serr := <b>http2streamError</b>(cs.ID, f.ErrCode)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

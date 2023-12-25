@@ -5,47 +5,50 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto.Hash.New</title>
-<link href="../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.4.js"></script>
+<link href="../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;"><b><a href="../pkg/crypto.html">crypto</a>.<a href="../src/crypto/crypto.go.html#line-16">Hash</a>.<a href="../src/crypto/crypto.go.html#line-127">New</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">24 uses</span>
+<span class="title">29 uses</span>
 
 	crypto (current package)
 		<a href="../src/crypto/crypto.go.html#line-127">crypto.go#L127</a>: func (h Hash) <b>New</b>() hash.Hash {
 
 	<a href="../pkg/crypto/rsa.html">crypto/rsa</a>
-		<a href="../src/crypto/rsa/pss.go.html#line-213">pss.go#L213</a>: 	em, err := emsaPSSEncode(hashed, emBits, salt, hash.<b>New</b>())
-		<a href="../src/crypto/rsa/pss.go.html#line-337" class="path-duplicate">pss.go</a><a href="../src/crypto/rsa/pss.go.html#line-337">#L337</a>: 	return emsaPSSVerify(digest, em, emBits, opts.saltLength(), hash.<b>New</b>())
-		<a href="../src/crypto/rsa/rsa.go.html#line-163">rsa.go#L163</a>: 		return DecryptOAEP(opts.Hash.<b>New</b>(), rand, priv, ciphertext, opts.Label)
+		<a href="../src/crypto/rsa/pss.go.html#line-212">pss.go#L212</a>: 	em, err := emsaPSSEncode(hashed, emBits, salt, hash.<b>New</b>())
+		<a href="../src/crypto/rsa/pss.go.html#line-381" class="path-duplicate">pss.go</a><a href="../src/crypto/rsa/pss.go.html#line-381">#L381</a>: 	return emsaPSSVerify(digest, em, emBits, opts.saltLength(), hash.<b>New</b>())
+		<a href="../src/crypto/rsa/rsa.go.html#line-179">rsa.go#L179</a>: 			return decryptOAEP(opts.Hash.<b>New</b>(), opts.Hash.<b>New</b>(), rand, priv, ciphertext, opts.Label)
+		<a href="../src/crypto/rsa/rsa.go.html#line-181" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-181">#L181</a>: 			return decryptOAEP(opts.Hash.<b>New</b>(), opts.MGFHash.<b>New</b>(), rand, priv, ciphertext, opts.Label)
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
 		<a href="../src/crypto/tls/auth.go.html#line-89">auth.go#L89</a>: 	h := sigHash.<b>New</b>()
-		<a href="../src/crypto/tls/handshake_client.go.html#line-360">handshake_client.go#L360</a>: 	transcript := cipherSuite.hash.<b>New</b>()
+		<a href="../src/crypto/tls/handshake_client.go.html#line-214">handshake_client.go#L214</a>: 		transcript := suite.hash.<b>New</b>()
+		<a href="../src/crypto/tls/handshake_client.go.html#line-403" class="path-duplicate">handshake_client.go</a><a href="../src/crypto/tls/handshake_client.go.html#line-403">#L403</a>: 	transcript := cipherSuite.hash.<b>New</b>()
 		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-64">handshake_client_tls13.go#L64</a>: 	hs.transcript = hs.suite.hash.<b>New</b>()
-		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-259" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/crypto/tls/handshake_client_tls13.go.html#line-259">#L259</a>: 			transcript := hs.suite.hash.<b>New</b>()
-		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-173">handshake_server_tls13.go#L173</a>: 	hs.transcript = hs.suite.hash.<b>New</b>()
-		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-348" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-348">#L348</a>: 	out := h.<b>New</b>()
-		<a href="../src/crypto/tls/key_agreement.go.html#line-140">key_agreement.go#L140</a>: 		h := hashFunc.<b>New</b>()
-		<a href="../src/crypto/tls/key_schedule.go.html#line-63">key_schedule.go#L63</a>: 	n, err := hkdf.Expand(c.hash.<b>New</b>, secret, hkdfLabelBytes).Read(out)
-		<a href="../src/crypto/tls/key_schedule.go.html#line-73" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-73">#L73</a>: 		transcript = c.hash.<b>New</b>()
-		<a href="../src/crypto/tls/key_schedule.go.html#line-83" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-83">#L83</a>: 	return hkdf.Extract(c.hash.<b>New</b>, newSecret, currentSecret)
-		<a href="../src/crypto/tls/key_schedule.go.html#line-104" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-104">#L104</a>: 	verifyData := hmac.New(c.hash.<b>New</b>, finishedKey)
-		<a href="../src/crypto/tls/key_schedule.go.html#line-115" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-115">#L115</a>: 		h := c.hash.<b>New</b>()
-		<a href="../src/crypto/tls/prf.go.html#line-151">prf.go#L151</a>: 		return finishedHash{hash.<b>New</b>(), hash.<b>New</b>(), nil, nil, buffer, version, prf}
-		<a href="../src/crypto/tls/prf.go.html#line-228" class="path-duplicate">prf.go</a><a href="../src/crypto/tls/prf.go.html#line-228">#L228</a>: 		hash := hashAlg.<b>New</b>()
+		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-263" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/crypto/tls/handshake_client_tls13.go.html#line-263">#L263</a>: 			transcript := hs.suite.hash.<b>New</b>()
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-178">handshake_server_tls13.go#L178</a>: 	hs.transcript = hs.suite.hash.<b>New</b>()
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-371" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-371">#L371</a>: 			transcript := hs.suite.hash.<b>New</b>()
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-411" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-411">#L411</a>: 	out := h.<b>New</b>()
+		<a href="../src/crypto/tls/key_agreement.go.html#line-141">key_agreement.go#L141</a>: 		h := hashFunc.<b>New</b>()
+		<a href="../src/crypto/tls/key_schedule.go.html#line-62">key_schedule.go#L62</a>: 	n, err := hkdf.Expand(c.hash.<b>New</b>, secret, hkdfLabelBytes).Read(out)
+		<a href="../src/crypto/tls/key_schedule.go.html#line-72" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-72">#L72</a>: 		transcript = c.hash.<b>New</b>()
+		<a href="../src/crypto/tls/key_schedule.go.html#line-82" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-82">#L82</a>: 	return hkdf.Extract(c.hash.<b>New</b>, newSecret, currentSecret)
+		<a href="../src/crypto/tls/key_schedule.go.html#line-103" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-103">#L103</a>: 	verifyData := hmac.New(c.hash.<b>New</b>, finishedKey)
+		<a href="../src/crypto/tls/key_schedule.go.html#line-114" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-114">#L114</a>: 		h := c.hash.<b>New</b>()
+		<a href="../src/crypto/tls/prf.go.html#line-160">prf.go#L160</a>: 		return finishedHash{hash.<b>New</b>(), hash.<b>New</b>(), nil, nil, buffer, version, prf}
+		<a href="../src/crypto/tls/prf.go.html#line-237" class="path-duplicate">prf.go</a><a href="../src/crypto/tls/prf.go.html#line-237">#L237</a>: 		hash := hashAlg.<b>New</b>()
 
 	<a href="../pkg/crypto/x509.html">crypto/x509</a>
-		<a href="../src/crypto/x509/x509.go.html#line-846">x509.go#L846</a>: 		h := hashType.<b>New</b>()
-		<a href="../src/crypto/x509/x509.go.html#line-1569" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1569">#L1569</a>: 		h := hashFunc.<b>New</b>()
-		<a href="../src/crypto/x509/x509.go.html#line-1692" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1692">#L1692</a>: 		h := hashFunc.<b>New</b>()
-		<a href="../src/crypto/x509/x509.go.html#line-2003" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-2003">#L2003</a>: 		h := hashFunc.<b>New</b>()
-		<a href="../src/crypto/x509/x509.go.html#line-2235" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-2235">#L2235</a>: 		h := hashFunc.<b>New</b>()
+		<a href="../src/crypto/x509/x509.go.html#line-907">x509.go#L907</a>: 		h := hashType.<b>New</b>()
+		<a href="../src/crypto/x509/x509.go.html#line-1634" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1634">#L1634</a>: 		h := hashFunc.<b>New</b>()
+		<a href="../src/crypto/x509/x509.go.html#line-1756" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1756">#L1756</a>: 		h := hashFunc.<b>New</b>()
+		<a href="../src/crypto/x509/x509.go.html#line-2067" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-2067">#L2067</a>: 		h := hashFunc.<b>New</b>()
+		<a href="../src/crypto/x509/x509.go.html#line-2430" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-2430">#L2430</a>: 		h := hashFunc.<b>New</b>()
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

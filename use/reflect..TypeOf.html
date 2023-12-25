@@ -5,60 +5,59 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: reflect.TypeOf</title>
-<link href="../css/auto-v0.6.4.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.4.js"></script>
+<link href="../css/auto-v0.6.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.6.7.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/reflect.html">reflect</a>.<a href="../src/reflect/type.go.html#line-1431">TypeOf</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/reflect.html">reflect</a>.<a href="../src/reflect/type.go.html#line-1153">TypeOf</a></b></span>
 
-<span class="title">51 uses</span>
+<span class="title">43 uses</span>
 
 	reflect (current package)
-		<a href="../src/reflect/type.go.html#line-1431">type.go#L1431</a>: func <b>TypeOf</b>(i any) Type {
-		<a href="../src/reflect/type.go.html#line-2683" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-2683">#L2683</a>: 			{Name: "S", Type: <b>TypeOf</b>(structType{})},
-		<a href="../src/reflect/type.go.html#line-2684" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-2684">#L2684</a>: 			{Name: "U", Type: <b>TypeOf</b>(uncommonType{})},
-		<a href="../src/reflect/type.go.html#line-2685" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-2685">#L2685</a>: 			{Name: "M", Type: ArrayOf(len(methods), <b>TypeOf</b>(methods[0]))},
-		<a href="../src/reflect/value.go.html#line-293">value.go#L293</a>: var bytesType = <b>TypeOf</b>(([]byte)(nil)).(*rtype)
-		<a href="../src/reflect/value.go.html#line-1384" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-1384">#L1384</a>: var uint8Type = <b>TypeOf</b>(uint8(0)).(*rtype)
-		<a href="../src/reflect/value.go.html#line-1643" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-1643">#L1643</a>: var stringType = <b>TypeOf</b>("").(*rtype)
+		<a href="../src/reflect/type.go.html#line-1153">type.go#L1153</a>: func <b>TypeOf</b>(i any) Type {
+		<a href="../src/reflect/type.go.html#line-1734" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-1734">#L1734</a>: 			Type: <b>TypeOf</b>(funcType{}),
+		<a href="../src/reflect/type.go.html#line-1738" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-1738">#L1738</a>: 			Type: ArrayOf(n, <b>TypeOf</b>(&amp;rtype{})),
+		<a href="../src/reflect/type.go.html#line-2400" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-2400">#L2400</a>: 			{Name: "S", Type: <b>TypeOf</b>(structType{})},
+		<a href="../src/reflect/type.go.html#line-2401" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-2401">#L2401</a>: 			{Name: "U", Type: <b>TypeOf</b>(uncommonType{})},
+		<a href="../src/reflect/type.go.html#line-2402" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-2402">#L2402</a>: 			{Name: "M", Type: ArrayOf(len(methods), <b>TypeOf</b>(methods[0]))},
 
 	<a href="../pkg/encoding/asn1.html">encoding/asn1</a>
-		<a href="../src/encoding/asn1/asn1.go.html#line-656">asn1.go#L656</a>: 	bitStringType        = reflect.<b>TypeOf</b>(BitString{})
-		<a href="../src/encoding/asn1/asn1.go.html#line-657" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-657">#L657</a>: 	objectIdentifierType = reflect.<b>TypeOf</b>(ObjectIdentifier{})
-		<a href="../src/encoding/asn1/asn1.go.html#line-658" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-658">#L658</a>: 	enumeratedType       = reflect.<b>TypeOf</b>(Enumerated(0))
-		<a href="../src/encoding/asn1/asn1.go.html#line-659" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-659">#L659</a>: 	flagType             = reflect.<b>TypeOf</b>(Flag(false))
-		<a href="../src/encoding/asn1/asn1.go.html#line-660" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-660">#L660</a>: 	timeType             = reflect.<b>TypeOf</b>(time.Time{})
-		<a href="../src/encoding/asn1/asn1.go.html#line-661" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-661">#L661</a>: 	rawValueType         = reflect.<b>TypeOf</b>(RawValue{})
-		<a href="../src/encoding/asn1/asn1.go.html#line-662" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-662">#L662</a>: 	rawContentsType      = reflect.<b>TypeOf</b>(RawContent(nil))
-		<a href="../src/encoding/asn1/asn1.go.html#line-663" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-663">#L663</a>: 	bigIntType           = reflect.<b>TypeOf</b>(new(big.Int))
-		<a href="../src/encoding/asn1/asn1.go.html#line-1115" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-1115">#L1115</a>: 		return nil, &amp;invalidUnmarshalError{reflect.<b>TypeOf</b>(val)}
+		<a href="../src/encoding/asn1/asn1.go.html#line-659">asn1.go#L659</a>: 	bitStringType        = reflect.<b>TypeOf</b>(BitString{})
+		<a href="../src/encoding/asn1/asn1.go.html#line-660" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-660">#L660</a>: 	objectIdentifierType = reflect.<b>TypeOf</b>(ObjectIdentifier{})
+		<a href="../src/encoding/asn1/asn1.go.html#line-661" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-661">#L661</a>: 	enumeratedType       = reflect.<b>TypeOf</b>(Enumerated(0))
+		<a href="../src/encoding/asn1/asn1.go.html#line-662" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-662">#L662</a>: 	flagType             = reflect.<b>TypeOf</b>(Flag(false))
+		<a href="../src/encoding/asn1/asn1.go.html#line-663" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-663">#L663</a>: 	timeType             = reflect.<b>TypeOf</b>(time.Time{})
+		<a href="../src/encoding/asn1/asn1.go.html#line-664" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-664">#L664</a>: 	rawValueType         = reflect.<b>TypeOf</b>(RawValue{})
+		<a href="../src/encoding/asn1/asn1.go.html#line-665" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-665">#L665</a>: 	rawContentsType      = reflect.<b>TypeOf</b>(RawContent(nil))
+		<a href="../src/encoding/asn1/asn1.go.html#line-666" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-666">#L666</a>: 	bigIntType           = reflect.<b>TypeOf</b>((*big.Int)(nil))
+		<a href="../src/encoding/asn1/asn1.go.html#line-1118" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-1118">#L1118</a>: 		return nil, &amp;invalidUnmarshalError{reflect.<b>TypeOf</b>(val)}
 
 	<a href="../pkg/encoding/binary.html">encoding/binary</a>
-		<a href="../src/encoding/binary/binary.go.html#line-320">binary.go#L320</a>: 		return errors.New("binary.Read: invalid type " + reflect.<b>TypeOf</b>(data).String())
-		<a href="../src/encoding/binary/binary.go.html#line-450" class="path-duplicate">binary.go</a><a href="../src/encoding/binary/binary.go.html#line-450">#L450</a>: 		return errors.New("binary.Write: invalid type " + reflect.<b>TypeOf</b>(data).String())
+		<a href="../src/encoding/binary/binary.go.html#line-324">binary.go#L324</a>: 		return errors.New("binary.Read: invalid type " + reflect.<b>TypeOf</b>(data).String())
+		<a href="../src/encoding/binary/binary.go.html#line-454" class="path-duplicate">binary.go</a><a href="../src/encoding/binary/binary.go.html#line-454">#L454</a>: 		return errors.New("binary.Write: some values are not fixed-sized in type " + reflect.<b>TypeOf</b>(data).String())
 
 	<a href="../pkg/encoding/json.html">encoding/json</a>
 		<a href="../src/encoding/json/decode.go.html#line-174">decode.go#L174</a>: 		return &amp;InvalidUnmarshalError{reflect.<b>TypeOf</b>(v)}
-		<a href="../src/encoding/json/decode.go.html#line-603" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-603">#L603</a>: var textUnmarshalerType = reflect.<b>TypeOf</b>((*encoding.TextUnmarshaler)(nil)).Elem()
-		<a href="../src/encoding/json/decode.go.html#line-850" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-850">#L850</a>: 		return nil, &amp;UnmarshalTypeError{Value: "number " + s, Type: reflect.<b>TypeOf</b>(0.0), Offset: int64(d.off)}
-		<a href="../src/encoding/json/decode.go.html#line-855" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-855">#L855</a>: var numberType = reflect.<b>TypeOf</b>(Number(""))
-		<a href="../src/encoding/json/encode.go.html#line-410">encode.go#L410</a>: 	marshalerType     = reflect.<b>TypeOf</b>((*Marshaler)(nil)).Elem()
-		<a href="../src/encoding/json/encode.go.html#line-411" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-411">#L411</a>: 	textMarshalerType = reflect.<b>TypeOf</b>((*encoding.TextMarshaler)(nil)).Elem()
+		<a href="../src/encoding/json/decode.go.html#line-594" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-594">#L594</a>: var textUnmarshalerType = reflect.<b>TypeOf</b>((*encoding.TextUnmarshaler)(nil)).Elem()
+		<a href="../src/encoding/json/decode.go.html#line-830" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-830">#L830</a>: 		return nil, &amp;UnmarshalTypeError{Value: "number " + s, Type: reflect.<b>TypeOf</b>(0.0), Offset: int64(d.off)}
+		<a href="../src/encoding/json/decode.go.html#line-835" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-835">#L835</a>: var numberType = reflect.<b>TypeOf</b>(Number(""))
+		<a href="../src/encoding/json/encode.go.html#line-374">encode.go#L374</a>: 	marshalerType     = reflect.<b>TypeOf</b>((*Marshaler)(nil)).Elem()
+		<a href="../src/encoding/json/encode.go.html#line-375" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-375">#L375</a>: 	textMarshalerType = reflect.<b>TypeOf</b>((*encoding.TextMarshaler)(nil)).Elem()
 
 	<a href="../pkg/flag.html">flag</a>
-		<a href="../src/flag/flag.go.html#line-510">flag.go#L510</a>: 	typ := reflect.<b>TypeOf</b>(flag.Value)
+		<a href="../src/flag/flag.go.html#line-542">flag.go#L542</a>: 	typ := reflect.<b>TypeOf</b>(flag.Value)
 
 	<a href="../pkg/fmt.html">fmt</a>
-		<a href="../src/fmt/print.go.html#line-368">print.go#L368</a>: 		p.buf.writeString(reflect.<b>TypeOf</b>(p.arg).String())
-		<a href="../src/fmt/print.go.html#line-683" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-683">#L683</a>: 		p.fmt.fmtS(reflect.<b>TypeOf</b>(arg).String())
-		<a href="../src/fmt/print.go.html#line-1171" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-1171">#L1171</a>: 				p.buf.writeString(reflect.<b>TypeOf</b>(arg).String())
-		<a href="../src/fmt/print.go.html#line-1183" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-1183">#L1183</a>: 		isString := arg != nil &amp;&amp; reflect.<b>TypeOf</b>(arg).Kind() == reflect.String
+		<a href="../src/fmt/print.go.html#line-388">print.go#L388</a>: 		p.buf.writeString(reflect.<b>TypeOf</b>(p.arg).String())
+		<a href="../src/fmt/print.go.html#line-699" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-699">#L699</a>: 		p.fmt.fmtS(reflect.<b>TypeOf</b>(arg).String())
+		<a href="../src/fmt/print.go.html#line-1194" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-1194">#L1194</a>: 				p.buf.writeString(reflect.<b>TypeOf</b>(arg).String())
+		<a href="../src/fmt/print.go.html#line-1206" class="path-duplicate">print.go</a><a href="../src/fmt/print.go.html#line-1206">#L1206</a>: 		isString := arg != nil &amp;&amp; reflect.<b>TypeOf</b>(arg).Kind() == reflect.String
 
 	<a href="../pkg/github.com/go-faster/errors.html">github.com/go-faster/errors</a>
 		<a href="../src/github.com/go-faster/errors/adaptor.go.html#line-62">adaptor.go#L62</a>: 			p.buf.WriteString(reflect.<b>TypeOf</b>(f).String())
 
 	<a href="../pkg/go.opentelemetry.io/otel/attribute.html">go.opentelemetry.io/otel/attribute</a>
-		<a href="../src/go.opentelemetry.io/otel/attribute/set.go.html#line-57">set.go#L57</a>: 	keyValueType = reflect.<b>TypeOf</b>(KeyValue{})
+		<a href="../src/go.opentelemetry.io/otel/attribute/set.go.html#line-51">set.go#L51</a>: 	keyValueType = reflect.<b>TypeOf</b>(KeyValue{})
 		<a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-82">value.go#L82</a>: 	cp := reflect.New(reflect.ArrayOf(len(v), reflect.<b>TypeOf</b>(int64Val)))
 
 	<a href="../pkg/go.opentelemetry.io/otel/internal/attribute.html">go.opentelemetry.io/otel/internal/attribute</a>
@@ -72,22 +71,13 @@
 		<a href="../src/go.opentelemetry.io/otel/internal/attribute/attribute.go.html#line-107" class="path-duplicate">attribute.go</a><a href="../src/go.opentelemetry.io/otel/internal/attribute/attribute.go.html#line-107">#L107</a>: 	correctType := reflect.ArrayOf(correctLen, reflect.<b>TypeOf</b>(zero))
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/client.go.html#line-328">client.go#L328</a>: 	if reflect.<b>TypeOf</b>(rt).String() == "*http2.Transport" {
+		<a href="../src/net/http/client.go.html#line-337">client.go#L337</a>: 	if reflect.<b>TypeOf</b>(rt).String() == "*http2.Transport" {
 		<a href="../src/net/http/transfer.go.html#line-1077">transfer.go#L1077</a>: var nopCloserType = reflect.<b>TypeOf</b>(io.NopCloser(nil))
 		<a href="../src/net/http/transfer.go.html#line-1078" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-1078">#L1078</a>: var nopCloserWriterToType = reflect.<b>TypeOf</b>(io.NopCloser(struct {
 		<a href="../src/net/http/transfer.go.html#line-1086" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-1086">#L1086</a>: 	switch reflect.<b>TypeOf</b>(r) {
-
-	<a href="../pkg/vendor/golang.org/x/crypto/cryptobyte.html">vendor/golang.org/x/crypto/cryptobyte</a>
-		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-267">asn1.go#L267</a>: var bigIntType = reflect.<b>TypeOf</b>((*big.Int)(nil)).Elem()
-		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-273" class="path-duplicate">asn1.go</a><a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-273">#L273</a>: 	if reflect.<b>TypeOf</b>(out).Kind() != reflect.Ptr {
-		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-292" class="path-duplicate">asn1.go</a><a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-292">#L292</a>: 		if reflect.<b>TypeOf</b>(out).Elem() == bigIntType {
-		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-663" class="path-duplicate">asn1.go</a><a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-663">#L663</a>: 	if reflect.<b>TypeOf</b>(out).Kind() != reflect.Ptr {
-		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-677" class="path-duplicate">asn1.go</a><a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-677">#L677</a>: 			if reflect.<b>TypeOf</b>(out).Elem() != bigIntType {
-		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-680" class="path-duplicate">asn1.go</a><a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-680">#L680</a>: 			if reflect.<b>TypeOf</b>(defaultValue).Kind() != reflect.Ptr ||
-		<a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-681" class="path-duplicate">asn1.go</a><a href="../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-681">#L681</a>: 				reflect.<b>TypeOf</b>(defaultValue).Elem() != bigIntType {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.4</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
