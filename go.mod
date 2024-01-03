@@ -6,7 +6,7 @@ toolchain go1.21.5
 
 require (
 	github.com/gotd/td v0.93.0
-	go101.org/golds v0.6.7
+	go101.org/golds v0.6.8
 )
 
 require (
