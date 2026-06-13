@@ -5,24 +5,34 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: runtime.traceBuf.byte</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/trace.go.html#line-238">traceBuf</a>.<a href="../src/runtime/trace.go.html#line-1181">byte</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/tracebuf.go.html#line-269">traceBuf</a>.<a href="../src/runtime/tracebuf.go.html#line-281">byte</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">6 uses</span>
+<span class="title">16 uses</span>
 
 	runtime (current package)
-		<a href="../src/runtime/trace.go.html#line-638">trace.go#L638</a>: 		buf.<b>byte</b>(traceEvFrequency | 0&lt;&lt;traceArgCountShift)
-		<a href="../src/runtime/trace.go.html#line-818" class="path-duplicate">trace.go</a><a href="../src/runtime/trace.go.html#line-818">#L818</a>: 	buf.<b>byte</b>(ev | narg&lt;&lt;traceArgCountShift)
-		<a href="../src/runtime/trace.go.html#line-1083" class="path-duplicate">trace.go</a><a href="../src/runtime/trace.go.html#line-1083">#L1083</a>: 	bufp.<b>byte</b>(traceEvBatch | 1&lt;&lt;traceArgCountShift)
-		<a href="../src/runtime/trace.go.html#line-1135" class="path-duplicate">trace.go</a><a href="../src/runtime/trace.go.html#line-1135">#L1135</a>: 	buf.<b>byte</b>(traceEvString)
-		<a href="../src/runtime/trace.go.html#line-1181" class="path-duplicate">trace.go</a><a href="../src/runtime/trace.go.html#line-1181">#L1181</a>: func (buf *traceBuf) <b>byte</b>(v byte) {
-		<a href="../src/runtime/trace.go.html#line-1312" class="path-duplicate">trace.go</a><a href="../src/runtime/trace.go.html#line-1312">#L1312</a>: 			buf.<b>byte</b>(traceEvStack | 3&lt;&lt;traceArgCountShift)
+		<a href="../src/runtime/traceallocfree.go.html#line-36">traceallocfree.go#L36</a>: 		w.<b>byte</b>(byte(traceAllocFreeInfoBatch))
+		<a href="../src/runtime/tracebuf.go.html#line-90">tracebuf.go#L90</a>: 	w.<b>byte</b>(byte(ev))
+		<a href="../src/runtime/tracebuf.go.html#line-191" class="path-duplicate">tracebuf.go</a><a href="../src/runtime/tracebuf.go.html#line-191">#L191</a>: 		w.<b>byte</b>(byte(tracev2.EvEventBatch))
+		<a href="../src/runtime/tracebuf.go.html#line-193" class="path-duplicate">tracebuf.go</a><a href="../src/runtime/tracebuf.go.html#line-193">#L193</a>: 		w.<b>byte</b>(byte(tracev2.EvExperimentalBatch))
+		<a href="../src/runtime/tracebuf.go.html#line-194" class="path-duplicate">tracebuf.go</a><a href="../src/runtime/tracebuf.go.html#line-194">#L194</a>: 		w.<b>byte</b>(byte(w.exp))
+		<a href="../src/runtime/tracebuf.go.html#line-281" class="path-duplicate">tracebuf.go</a><a href="../src/runtime/tracebuf.go.html#line-281">#L281</a>: func (buf *traceBuf) <b>byte</b>(v byte) {
+		<a href="../src/runtime/tracecpu.go.html#line-177">tracecpu.go#L177</a>: 			w.<b>byte</b>(byte(tracev2.EvCPUSamples))
+		<a href="../src/runtime/tracecpu.go.html#line-184" class="path-duplicate">tracecpu.go</a><a href="../src/runtime/tracecpu.go.html#line-184">#L184</a>: 		w.<b>byte</b>(byte(tracev2.EvCPUSample))
+		<a href="../src/runtime/tracestack.go.html#line-191">tracestack.go#L191</a>: 		w.<b>byte</b>(byte(tracev2.EvStacks))
+		<a href="../src/runtime/tracestack.go.html#line-195" class="path-duplicate">tracestack.go</a><a href="../src/runtime/tracestack.go.html#line-195">#L195</a>: 	w.<b>byte</b>(byte(tracev2.EvStack))
+		<a href="../src/runtime/tracestring.go.html#line-72">tracestring.go#L72</a>: 		w.<b>byte</b>(byte(tracev2.EvStrings))
+		<a href="../src/runtime/tracestring.go.html#line-76" class="path-duplicate">tracestring.go</a><a href="../src/runtime/tracestring.go.html#line-76">#L76</a>: 	w.<b>byte</b>(byte(tracev2.EvString))
+		<a href="../src/runtime/tracetime.go.html#line-86">tracetime.go#L86</a>: 	w.<b>byte</b>(byte(tracev2.EvSync))
+		<a href="../src/runtime/tracetime.go.html#line-89" class="path-duplicate">tracetime.go</a><a href="../src/runtime/tracetime.go.html#line-89">#L89</a>: 	w.<b>byte</b>(byte(tracev2.EvFrequency))
+		<a href="../src/runtime/tracetime.go.html#line-100" class="path-duplicate">tracetime.go</a><a href="../src/runtime/tracetime.go.html#line-100">#L100</a>: 	w.<b>byte</b>(byte(tracev2.EvClockSnapshot))
+		<a href="../src/runtime/tracetype.go.html#line-63">tracetype.go#L63</a>: 		w.<b>byte</b>(byte(traceAllocFreeTypesBatch))
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

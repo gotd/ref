@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: github.com/cenkalti/backoff/v4.BackOff</title>
-<link href="../../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../../../../pkg/github.com/cenkalti/backoff/v4.html">github.com/cenkalti/backoff/v4</a>.<a href="../../../../src/github.com/cenkalti/backoff/v4/backoff.go.html#line-16">BackOff</a></b></span>
 
-<span class="title">29 uses</span>
+<span class="title">30 uses</span>
 
 	github.com/cenkalti/backoff/v4 (current package)
 		<a href="../../../../src/github.com/cenkalti/backoff/v4/backoff.go.html#line-16">backoff.go#L16</a>: type <b>BackOff</b> interface {
@@ -32,24 +32,25 @@
 		<a href="../../../../src/github.com/cenkalti/backoff/v4/tries.go.html#line-12">tries.go#L12</a>: func WithMaxRetries(b <b>BackOff</b>, max uint64) <b>BackOff</b> {
 		<a href="../../../../src/github.com/cenkalti/backoff/v4/tries.go.html#line-17" class="path-duplicate">tries.go</a><a href="../../../../src/github.com/cenkalti/backoff/v4/tries.go.html#line-17">#L17</a>: 	delegate <b>BackOff</b>
 
-	<a href="../../../../pkg/github.com/gotd/td/internal/tdsync.html">github.com/gotd/td/internal/tdsync</a>
-		<a href="../../../../src/github.com/gotd/td/internal/tdsync/backoff.go.html#line-11">backoff.go#L11</a>: 	b   backoff.<b>BackOff</b>
-		<a href="../../../../src/github.com/gotd/td/internal/tdsync/backoff.go.html#line-29" class="path-duplicate">backoff.go</a><a href="../../../../src/github.com/gotd/td/internal/tdsync/backoff.go.html#line-29">#L29</a>: func SyncBackoff(from backoff.<b>BackOff</b>) backoff.<b>BackOff</b> {
+	<a href="../../../../pkg/github.com/gotd/td/tdsync.html">github.com/gotd/td/tdsync</a>
+		<a href="../../../../src/github.com/gotd/td/tdsync/backoff.go.html#line-11">backoff.go#L11</a>: 	b   backoff.<b>BackOff</b>
+		<a href="../../../../src/github.com/gotd/td/tdsync/backoff.go.html#line-29" class="path-duplicate">backoff.go</a><a href="../../../../src/github.com/gotd/td/tdsync/backoff.go.html#line-29">#L29</a>: func SyncBackoff(from backoff.<b>BackOff</b>) backoff.<b>BackOff</b> {
 
 	<a href="../../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
-		<a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-92">client.go#L92</a>: 	connBackoff  func() backoff.<b>BackOff</b> // immutable
-		<a href="../../../../src/github.com/gotd/td/telegram/options.go.html#line-50">options.go#L50</a>: 	ReconnectionBackoff func() backoff.<b>BackOff</b>
-		<a href="../../../../src/github.com/gotd/td/telegram/options.go.html#line-145" class="path-duplicate">options.go</a><a href="../../../../src/github.com/gotd/td/telegram/options.go.html#line-145">#L145</a>: func defaultBackoff(c clock.Clock) func() backoff.<b>BackOff</b> {
-		<a href="../../../../src/github.com/gotd/td/telegram/options.go.html#line-146" class="path-duplicate">options.go</a><a href="../../../../src/github.com/gotd/td/telegram/options.go.html#line-146">#L146</a>: 	return func() backoff.<b>BackOff</b> {
+		<a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-68">client.go#L68</a>: 	newConnBackoff func() backoff.<b>BackOff</b> // immutable
+		<a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-103" class="path-duplicate">client.go</a><a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-103">#L103</a>: 	connBackoff atomic.Pointer[backoff.<b>BackOff</b>]
+		<a href="../../../../src/github.com/gotd/td/telegram/options.go.html#line-59">options.go#L59</a>: 	ReconnectionBackoff func() backoff.<b>BackOff</b>
+		<a href="../../../../src/github.com/gotd/td/telegram/options.go.html#line-199" class="path-duplicate">options.go</a><a href="../../../../src/github.com/gotd/td/telegram/options.go.html#line-199">#L199</a>: func defaultBackoff(c clock.Clock) func() backoff.<b>BackOff</b> {
+		<a href="../../../../src/github.com/gotd/td/telegram/options.go.html#line-200" class="path-duplicate">options.go</a><a href="../../../../src/github.com/gotd/td/telegram/options.go.html#line-200">#L200</a>: 	return func() backoff.<b>BackOff</b> {
 
 	<a href="../../../../pkg/github.com/gotd/td/telegram/internal/manager.html">github.com/gotd/td/telegram/internal/manager</a>
-		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-74">conn.go#L74</a>: 	connBackoff func(ctx context.Context) backoff.<b>BackOff</b> // immutable
-		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/create.go.html#line-25">create.go#L25</a>: 	Backoff func(ctx context.Context) backoff.<b>BackOff</b>
-		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/create.go.html#line-28" class="path-duplicate">create.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/create.go.html#line-28">#L28</a>: func defaultBackoff(c clock.Clock) func(ctx context.Context) backoff.<b>BackOff</b> {
-		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/create.go.html#line-29" class="path-duplicate">create.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/create.go.html#line-29">#L29</a>: 	return func(ctx context.Context) backoff.<b>BackOff</b> {
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-84">conn.go#L84</a>: 	connBackoff func(ctx context.Context) backoff.<b>BackOff</b> // immutable
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/create.go.html#line-27">create.go#L27</a>: 	Backoff func(ctx context.Context) backoff.<b>BackOff</b>
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/create.go.html#line-30" class="path-duplicate">create.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/create.go.html#line-30">#L30</a>: func defaultBackoff(c clock.Clock) func(ctx context.Context) backoff.<b>BackOff</b> {
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/create.go.html#line-31" class="path-duplicate">create.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/create.go.html#line-31">#L31</a>: 	return func(ctx context.Context) backoff.<b>BackOff</b> {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

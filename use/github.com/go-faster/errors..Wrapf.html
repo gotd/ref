@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: github.com/go-faster/errors.Wrapf</title>
-<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../../../pkg/github.com/go-faster/errors.html">github.com/go-faster/errors</a>.<a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-90">Wrapf</a></b></span>
 
-<span class="title">18 uses</span>
+<span class="title">44 uses</span>
 
 	github.com/go-faster/errors (current package)
 		<a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-90">wrap.go#L90</a>: func <b>Wrapf</b>(err error, format string, a ...interface{}) error {
@@ -21,36 +21,66 @@
 		<a href="../../../src/github.com/go-faster/jx/dec_float.go.html#line-181" class="path-duplicate">dec_float.go</a><a href="../../../src/github.com/go-faster/jx/dec_float.go.html#line-181">#L181</a>: 		return 0, errors.<b>Wrapf</b>(err, "leading %q", c)
 		<a href="../../../src/github.com/go-faster/jx/dec_float.go.html#line-294" class="path-duplicate">dec_float.go</a><a href="../../../src/github.com/go-faster/jx/dec_float.go.html#line-294">#L294</a>: 		return errors.<b>Wrapf</b>(err, "leading %q", c)
 
-	<a href="../../../pkg/github.com/gotd/td/internal/mtproto.html">github.com/gotd/td/internal/mtproto</a>
-		<a href="../../../src/github.com/gotd/td/internal/mtproto/read.go.html#line-38">read.go#L38</a>: 		return errors.<b>Wrapf</b>(errRejected, "unexpected type %s", id.Type())
-		<a href="../../../src/github.com/gotd/td/internal/mtproto/read.go.html#line-61" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/internal/mtproto/read.go.html#line-61">#L61</a>: 		return nil, errors.<b>Wrapf</b>(errRejected, "invalid session (got %d, expected %d)", msg.SessionID, session.ID)
-		<a href="../../../src/github.com/gotd/td/internal/mtproto/read.go.html#line-64" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/internal/mtproto/read.go.html#line-64">#L64</a>: 		return nil, errors.<b>Wrapf</b>(err, "bad message id %d", msg.MessageID)
-		<a href="../../../src/github.com/gotd/td/internal/mtproto/read.go.html#line-67" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/internal/mtproto/read.go.html#line-67">#L67</a>: 		return nil, errors.<b>Wrapf</b>(errRejected, "duplicate or too low message id %d", msg.MessageID)
-
-	<a href="../../../pkg/github.com/gotd/td/internal/tdsync.html">github.com/gotd/td/internal/tdsync</a>
-		<a href="../../../src/github.com/gotd/td/internal/tdsync/log_group.go.html#line-48">log_group.go#L48</a>: 			return errors.<b>Wrapf</b>(err, "task %s", taskName)
+	<a href="../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-38">read.go#L38</a>: 		return errors.<b>Wrapf</b>(errRejected, "unexpected type %s", id.Type())
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-61" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-61">#L61</a>: 		return nil, errors.<b>Wrapf</b>(errRejected, "invalid session (got %d, expected %d)", msg.SessionID, session.ID)
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-64" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-64">#L64</a>: 		return nil, errors.<b>Wrapf</b>(err, "bad message id %d", msg.MessageID)
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-67" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-67">#L67</a>: 		return nil, errors.<b>Wrapf</b>(errRejected, "duplicate or too low message id %d", msg.MessageID)
 
 	<a href="../../../pkg/github.com/gotd/td/session.html">github.com/gotd/td/session</a>
 		<a href="../../../src/github.com/gotd/td/session/session.go.html#line-139">session.go#L139</a>: 		return nil, errors.<b>Wrapf</b>(ErrNotFound, "version mismatch (%d != %d)", v.Version, latestVersion)
 
 	<a href="../../../pkg/github.com/gotd/td/session/tdesktop.html">github.com/gotd/td/session/tdesktop</a>
 		<a href="../../../src/github.com/gotd/td/session/tdesktop/mtp_authorization.go.html#line-108">mtp_authorization.go#L108</a>: 			return errors.<b>Wrapf</b>(err, "read key %d", i)
+		<a href="../../../src/github.com/gotd/td/session/tdesktop/mtp_dcoptions.go.html#line-121">mtp_dcoptions.go#L121</a>: 			return errors.<b>Wrapf</b>(err, "read option %d", i)
 
 	<a href="../../../pkg/github.com/gotd/td/tdjson.html">github.com/gotd/td/tdjson</a>
 		<a href="../../../src/github.com/gotd/td/tdjson/decoder.go.html#line-144">decoder.go#L144</a>: 		return bin.Int128{}, errors.<b>Wrapf</b>(err, "invalid length %d", l)
 		<a href="../../../src/github.com/gotd/td/tdjson/decoder.go.html#line-165" class="path-duplicate">decoder.go</a><a href="../../../src/github.com/gotd/td/tdjson/decoder.go.html#line-165">#L165</a>: 		return bin.Int256{}, errors.<b>Wrapf</b>(err, "invalid length %d", l)
 
+	<a href="../../../pkg/github.com/gotd/td/tdsync.html">github.com/gotd/td/tdsync</a>
+		<a href="../../../src/github.com/gotd/td/tdsync/log_group.go.html#line-48">log_group.go#L48</a>: 			return errors.<b>Wrapf</b>(err, "task %s", taskName)
+
 	<a href="../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
-		<a href="../../../src/github.com/gotd/td/telegram/sub_conns.go.html#line-23">sub_conns.go#L23</a>: 		return errors.<b>Wrapf</b>(err, "create connection to DC %d", dc)
+		<a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-97">pool.go#L97</a>: 				return nil, errors.<b>Wrapf</b>(err, "fetch CDN public keys for DC %d", dcID)
+		<a href="../../../src/github.com/gotd/td/telegram/sub_conns.go.html#line-25">sub_conns.go#L25</a>: 		return errors.<b>Wrapf</b>(err, "create connection to DC %d", dc)
+		<a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-123">tdlib_json.go#L123</a>: 		return "", errors.<b>Wrapf</b>(err, "decode TDLib JSON for %q", telegramName)
 		<a href="../../../src/github.com/gotd/td/telegram/transfer.go.html#line-14">transfer.go#L14</a>: 		return nil, errors.<b>Wrapf</b>(err, "export auth to %d", dcID)
-		<a href="../../../src/github.com/gotd/td/telegram/transfer.go.html#line-25" class="path-duplicate">transfer.go</a><a href="../../../src/github.com/gotd/td/telegram/transfer.go.html#line-25">#L25</a>: 		return nil, errors.<b>Wrapf</b>(err, "export to %d", dc)
-		<a href="../../../src/github.com/gotd/td/telegram/transfer.go.html#line-32" class="path-duplicate">transfer.go</a><a href="../../../src/github.com/gotd/td/telegram/transfer.go.html#line-32">#L32</a>: 		return nil, errors.<b>Wrapf</b>(err, "import from %d", dc)
+		<a href="../../../src/github.com/gotd/td/telegram/transfer.go.html#line-39" class="path-duplicate">transfer.go</a><a href="../../../src/github.com/gotd/td/telegram/transfer.go.html#line-39">#L39</a>: 			return errors.<b>Wrapf</b>(err, "export to %d", dc)
+		<a href="../../../src/github.com/gotd/td/telegram/transfer.go.html#line-46" class="path-duplicate">transfer.go</a><a href="../../../src/github.com/gotd/td/telegram/transfer.go.html#line-46">#L46</a>: 			return errors.<b>Wrapf</b>(err, "import from %d", dc)
 
 	<a href="../../../pkg/github.com/gotd/td/telegram/dcs.html">github.com/gotd/td/telegram/dcs</a>
 		<a href="../../../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html#line-48">mtproxy.go#L48</a>: 		return nil, errors.<b>Wrapf</b>(err, "connect to the MTProxy %q", m.addr)
+
+	<a href="../../../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-127">cdn_state_machine.go#L127</a>: 				return nil, errors.<b>Wrapf</b>(err, "create CDN client for DC %d", redirectErr.Redirect.DCID)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-134" class="path-duplicate">cdn_state_machine.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-134">#L134</a>: 			return nil, errors.<b>Wrapf</b>(err, "create CDN client for DC %d", redirectErr.Redirect.DCID)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-164" class="path-duplicate">cdn_state_machine.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-164">#L164</a>: 						return chunk{}, errors.<b>Wrapf</b>(err, "create CDN client for DC %d", redirectErr.Redirect.DCID)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-173" class="path-duplicate">cdn_state_machine.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-173">#L173</a>: 					return chunk{}, errors.<b>Wrapf</b>(err, "create CDN client for DC %d", redirectErr.Redirect.DCID)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-178" class="path-duplicate">cdn_state_machine.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-178">#L178</a>: 			return chunk{}, errors.<b>Wrapf</b>(err, "master chunk offset=%d limit=%d", offset, limit)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-189" class="path-duplicate">cdn_state_machine.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-189">#L189</a>: 					return chunk{}, errors.<b>Wrapf</b>(err, "create CDN client for DC %d", redirect.DCID)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-197" class="path-duplicate">cdn_state_machine.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-197">#L197</a>: 				return chunk{}, errors.<b>Wrapf</b>(err, "create CDN client for DC %d", redirect.DCID)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-202" class="path-duplicate">cdn_state_machine.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-202">#L202</a>: 				return chunk{}, errors.<b>Wrapf</b>(err, "cdn request plan offset=%d limit=%d", offset, limit)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-231" class="path-duplicate">cdn_state_machine.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-231">#L231</a>: 					return chunk{}, errors.<b>Wrapf</b>(
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-272" class="path-duplicate">cdn_state_machine.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-272">#L272</a>: 						return chunk{}, errors.<b>Wrapf</b>(
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-316" class="path-duplicate">cdn_state_machine.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-316">#L316</a>: 				return nil, errors.<b>Wrapf</b>(err, "master hashes offset=%d", offset)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-342" class="path-duplicate">cdn_state_machine.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-342">#L342</a>: 				return nil, errors.<b>Wrapf</b>(err, "cdn hashes dc=%d offset=%d", redirect.DCID, offset)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-154">cdn_verify.go#L154</a>: 			return tg.FileHash{}, errors.<b>Wrapf</b>(err, "load CDN hashes at offset=%d", offset)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-196" class="path-duplicate">cdn_verify.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-196">#L196</a>: 			return nil, errors.<b>Wrapf</b>(err, "load full hash window at offset=%d limit=%d", hash.Offset, hash.Limit)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-205" class="path-duplicate">cdn_verify.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-205">#L205</a>: 			return nil, errors.<b>Wrapf</b>(
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-257" class="path-duplicate">cdn_verify.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-257">#L257</a>: 				return errors.<b>Wrapf</b>(
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/retry.go.html#line-17">retry.go#L17</a>: 	return errors.<b>Wrapf</b>(err, "%s: retry limit reached (%d)", op, attempts)
+
+	<a href="../../../pkg/github.com/gotd/td/tg.html">github.com/gotd/td/tg</a>
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-214">json_invoke.go#L214</a>: 			return errors.<b>Wrapf</b>(err, "encode field %s", field.SchemaName)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-253" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-253">#L253</a>: 			return errors.<b>Wrapf</b>(err, "parse field %s", keyStr)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-283" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-283">#L283</a>: 				return errors.<b>Wrapf</b>(err, "parse field %s", keyStr)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-480" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-480">#L480</a>: 			return errors.<b>Wrapf</b>(err, "encode field %s", field.SchemaName)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-530" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-530">#L530</a>: 			return errors.<b>Wrapf</b>(err, "encode field %s", field.SchemaName)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-539" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-539">#L539</a>: 		return errors.<b>Wrapf</b>(err, "retry decode failed for type %q", typeName)
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

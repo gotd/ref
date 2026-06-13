@@ -5,32 +5,36 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: encoding/binary.bigEndian.Uint16</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/encoding/binary.html">encoding/binary</a>.<a href="../../src/encoding/binary/binary.go.html#line-136">bigEndian</a>.<a href="../../src/encoding/binary/binary.go.html#line-138">Uint16</a></b></span><span style="font-size: large;"><i> (method, <a href="../../imp/encoding/binary.bigEndian^1e7dc.html#name-Uint16">view implemented interface methods</a>)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/encoding/binary.html">encoding/binary</a>.<a href="../../src/encoding/binary/binary.go.html#line-152">bigEndian</a>.<a href="../../src/encoding/binary/binary.go.html#line-155">Uint16</a></b></span><span style="font-size: large;"><i> (method, <a href="../../imp/encoding/binary.bigEndian^1e7dc.html#name-Uint16">view implemented interface methods</a>)</i></span>
 
-<span class="title">6 uses</span>
+<span class="title">8 uses</span>
 
 	encoding/binary (current package)
-		<a href="../../src/encoding/binary/binary.go.html#line-138">binary.go#L138</a>: func (bigEndian) <b>Uint16</b>(b []byte) uint16 {
+		<a href="../../src/encoding/binary/binary.go.html#line-155">binary.go#L155</a>: func (bigEndian) <b>Uint16</b>(b []byte) uint16 {
 
-	<a href="../../pkg/github.com/gotd/td/internal/mtproxy/faketls.html">github.com/gotd/td/internal/mtproxy/faketls</a>
-		<a href="../../src/github.com/gotd/td/internal/mtproxy/faketls/record.go.html#line-42">record.go#L42</a>: 	length := binary.BigEndian.<b>Uint16</b>(buf[3:])
+	<a href="../../pkg/compress/zlib.html">compress/zlib</a>
+		<a href="../../src/compress/zlib/reader.go.html#line-149">reader.go#L149</a>: 	h := binary.BigEndian.<b>Uint16</b>(z.scratch[:2])
+		<a href="../../src/compress/zlib/writer.go.html#line-118">writer.go#L118</a>: 	z.scratch[1] += uint8(31 - binary.BigEndian.<b>Uint16</b>(z.scratch[:2])%31)
+
+	<a href="../../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../../src/github.com/coder/websocket/close.go.html#line-266">close.go#L266</a>: 		Code:   StatusCode(binary.BigEndian.<b>Uint16</b>(p)),
+		<a href="../../src/github.com/coder/websocket/frame.go.html#line-80">frame.go#L80</a>: 		h.payloadLength = int64(binary.BigEndian.<b>Uint16</b>(readBuf))
+
+	<a href="../../pkg/github.com/gotd/td/mtproxy/faketls.html">github.com/gotd/td/mtproxy/faketls</a>
+		<a href="../../src/github.com/gotd/td/mtproxy/faketls/record.go.html#line-45">record.go#L45</a>: 	length := binary.BigEndian.<b>Uint16</b>(buf[3:])
 
 	<a href="../../pkg/github.com/gotd/td/session.html">github.com/gotd/td/session</a>
 		<a href="../../src/github.com/gotd/td/session/telethon.go.html#line-74">telethon.go#L74</a>: 	port := binary.BigEndian.<b>Uint16</b>(data[1+ipLength : 3+ipLength])
 
 	<a href="../../pkg/net/http.html">net/http</a>
-		<a href="../../src/net/http/h2_bundle.go.html#line-2174">h2_bundle.go#L2174</a>: 		ID:  http2SettingID(binary.BigEndian.<b>Uint16</b>(buf[i*6 : i*6+2])),
-
-	<a href="../../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../../src/nhooyr.io/websocket/close.go.html#line-222">close.go#L222</a>: 		Code:   StatusCode(binary.BigEndian.<b>Uint16</b>(p)),
-		<a href="../../src/nhooyr.io/websocket/frame.go.html#line-81">frame.go#L81</a>: 		h.payloadLength = int64(binary.BigEndian.<b>Uint16</b>(readBuf))
+		<a href="../../src/net/http/h2_bundle.go.html#line-2381">h2_bundle.go#L2381</a>: 		ID:  http2SettingID(binary.BigEndian.<b>Uint16</b>(buf[i*6 : i*6+2])),
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

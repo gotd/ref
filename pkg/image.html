@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Package: image</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="package-details"><code><span style="font-size:xx-large;">package <b>image</b></span>
@@ -24,11 +24,11 @@
 	<input type='checkbox' checked class="fold" id="file-2-fold-content"><label for="file-2-fold-content">  <a href="../src/image/image.go.html#doc">d</a> <a href="../src/image/image.go.html">image.go</a></label><span id='file-2-fold-content-items' class="fold-items">
 <span class="md-text">		Package image implements a basic 2-D image library.
 		
-		The fundamental interface is called Image. An Image contains colors, which
+		The fundamental interface is called [Image]. An [Image] contains colors, which
 		are described in the image/color package.
 		
-		Values of the Image interface are created either by calling functions such
-		as NewRGBA and NewPaletted, or by calling Decode on an io.Reader containing
+		Values of the [Image] interface are created either by calling functions such
+		as [NewRGBA] and [NewPaletted], or by calling [Decode] on an [io.Reader] containing
 		image data in a format such as GIF, JPEG or PNG. Decoding any particular
 		image format requires the prior registration of a decoder function.
 		Registration is typically automatic as a side effect of initializing that
@@ -40,43 +40,59 @@
 		initialization side effects.
 		
 		See "The Go image package" for more details:
-		https://golang.org/doc/articles/image_package.html</span>
+		https://golang.org/doc/articles/image_package.html
+		
+		# Security Considerations
+		
+		The image package can be used to parse arbitrarily large images, which can
+		cause resource exhaustion on machines which do not have enough memory to
+		store them. When operating on arbitrary images, [DecodeConfig] should be called
+		before [Decode], so that the program can decide whether the image, as defined
+		in the returned header, can be safely decoded with the available resources. A
+		call to [Decode] which produces an extremely large image, as defined in the
+		header returned by [DecodeConfig], is not considered a security issue,
+		regardless of whether the image is itself malformed or not. A call to
+		[DecodeConfig] which returns a header which does not match the image returned
+		by [Decode] may be considered a security issue, and should be reported per the
+		[Go Security Policy].
+		
+		[Go Security Policy]: https://go.dev/security/policy</span>
 </span>
 	<span class="nodocs">    <a href="../src/image/names.go.html">names.go</a></span>
 	<span class="nodocs">    <a href="../src/image/ycbcr.go.html">ycbcr.go</a></span></div>
 <div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 22, in which 20 are exported)</i></span></span>
 
-<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Alpha" data-popularity="725">	<input type='checkbox' class="fold" id="Alpha-fold-content"><label for="Alpha-fold-content"> <a href="../use/image..Alpha.html">type</a> <a href="../src/image/image.go.html#line-610">Alpha</a> <i>(struct)</i></label><span id='Alpha-fold-content-docs' class="fold-docs">
-<span class="md-text">		Alpha is an in-memory image whose At method returns color.Alpha values.</span>
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Alpha" data-popularity="725">	<input type='checkbox' class="fold" id="Alpha-fold-content"><label for="Alpha-fold-content"> <a href="../use/image..Alpha.html">type</a> <a href="../src/image/image.go.html#line-626">Alpha</a> <i>(struct)</i></label><span id='Alpha-fold-content-docs' class="fold-docs">
+<span class="md-text">		Alpha is an in-memory image whose At method returns [color.Alpha] values.</span>
 
 		<input type='checkbox' class="fold" id="Alpha-fold-fields"><label for="Alpha-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='Alpha-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="Alpha-fold-field-Pix"><label for="Alpha-fold-field-Pix"><a href="../src/image/image.go.html#line-91">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='Alpha-fold-field-Pix-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Alpha-fold-field-Pix"><label for="Alpha-fold-field-Pix"><a href="../src/image/image.go.html#line-107">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='Alpha-fold-field-Pix-docs' class="fold-docs">
 <span class="md-text">				Pix holds the image's pixels, in R, G, B, A order. The pixel at
 				(x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*4].</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Alpha-fold-field-Rect"><label for="Alpha-fold-field-Rect"><a href="../src/image/image.go.html#line-95">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='Alpha-fold-field-Rect-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Alpha-fold-field-Rect"><label for="Alpha-fold-field-Rect"><a href="../src/image/image.go.html#line-111">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='Alpha-fold-field-Rect-docs' class="fold-docs">
 <span class="md-text">				Rect is the image's bounds.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Alpha-fold-field-Stride"><label for="Alpha-fold-field-Stride"><a href="../src/image/image.go.html#line-93">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='Alpha-fold-field-Stride-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Alpha-fold-field-Stride"><label for="Alpha-fold-field-Stride"><a href="../src/image/image.go.html#line-109">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='Alpha-fold-field-Stride-docs' class="fold-docs">
 <span class="md-text">				Stride is the Pix stride (in bytes) between vertically adjacent pixels.</span>
 </span></span></span>
 		<input type='checkbox' class="fold" id="Alpha-fold-methods"><label for="Alpha-fold-methods">Methods (<i>total 11, all are exported</i>)</label><span id='Alpha-fold-methods-items' class="fold-items"><span>
-			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-634">AlphaAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Alpha">Alpha</a></span></span><span>
-			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-624">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
-			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-622">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
-			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-620">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
-			<input type='checkbox' class="fold" id="Alpha-fold-method-Opaque"><label for="Alpha-fold-method-Opaque">(*Alpha) <a href="../src/image/image.go.html#line-691">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='Alpha-fold-method-Opaque-docs' class="fold-docs">
+			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-650">AlphaAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Alpha">Alpha</a></span></span><span>
+			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-640">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
+			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-638">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
+			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-636">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
+			<input type='checkbox' class="fold" id="Alpha-fold-method-Opaque"><label for="Alpha-fold-method-Opaque">(*Alpha) <a href="../src/image/image.go.html#line-707">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='Alpha-fold-method-Opaque-docs' class="fold-docs">
 <span class="md-text">				Opaque scans the entire image and reports whether it is fully opaque.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Alpha-fold-method-PixOffset"><label for="Alpha-fold-method-PixOffset">(*Alpha) <a href="../src/image/image.go.html#line-644">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='Alpha-fold-method-PixOffset-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Alpha-fold-method-PixOffset"><label for="Alpha-fold-method-PixOffset">(*Alpha) <a href="../src/image/image.go.html#line-660">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='Alpha-fold-method-PixOffset-docs' class="fold-docs">
 <span class="md-text">				PixOffset returns the index of the first element of Pix that corresponds to
 				the pixel at (x, y).</span>
 </span></span><span>
-			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-628">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
-			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-648">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
-			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-664">SetAlpha</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Alpha">Alpha</a>)</span></span><span>
-			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-656">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
-			<input type='checkbox' class="fold" id="Alpha-fold-method-SubImage"><label for="Alpha-fold-method-SubImage">(*Alpha) <a href="../src/image/image.go.html#line-674">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='Alpha-fold-method-SubImage-docs' class="fold-docs">
+			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-644">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
+			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-664">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
+			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-680">SetAlpha</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Alpha">Alpha</a>)</span></span><span>
+			<span class="nodocs">(*Alpha) <a href="../src/image/image.go.html#line-672">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="Alpha-fold-method-SubImage"><label for="Alpha-fold-method-SubImage">(*Alpha) <a href="../src/image/image.go.html#line-690">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='Alpha-fold-method-SubImage-docs' class="fold-docs">
 <span class="md-text">				SubImage returns an image representing the portion of the image p visible
 				through r. The returned value shares pixels with the original image.</span>
 </span></span></span>
@@ -86,37 +102,37 @@
 		<input type='checkbox' class="fold" id="Alpha-fold-results"><label for="Alpha-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Alpha-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewAlpha">NewAlpha</a>(r <a href="#name-Rectangle">Rectangle</a>) *<b>Alpha</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-Alpha16" data-popularity="725">	<input type='checkbox' class="fold" id="Alpha16-fold-content"><label for="Alpha16-fold-content"> <a href="../use/image..Alpha16.html">type</a> <a href="../src/image/image.go.html#line-718">Alpha16</a> <i>(struct)</i></label><span id='Alpha16-fold-content-docs' class="fold-docs">
-<span class="md-text">		Alpha16 is an in-memory image whose At method returns color.Alpha16 values.</span>
+</span></div><div class="anchor type-res" id="name-Alpha16" data-popularity="725">	<input type='checkbox' class="fold" id="Alpha16-fold-content"><label for="Alpha16-fold-content"> <a href="../use/image..Alpha16.html">type</a> <a href="../src/image/image.go.html#line-734">Alpha16</a> <i>(struct)</i></label><span id='Alpha16-fold-content-docs' class="fold-docs">
+<span class="md-text">		Alpha16 is an in-memory image whose At method returns [color.Alpha16] values.</span>
 
 		<input type='checkbox' class="fold" id="Alpha16-fold-fields"><label for="Alpha16-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='Alpha16-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="Alpha16-fold-field-Pix"><label for="Alpha16-fold-field-Pix"><a href="../src/image/image.go.html#line-91">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='Alpha16-fold-field-Pix-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Alpha16-fold-field-Pix"><label for="Alpha16-fold-field-Pix"><a href="../src/image/image.go.html#line-107">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='Alpha16-fold-field-Pix-docs' class="fold-docs">
 <span class="md-text">				Pix holds the image's pixels, in R, G, B, A order. The pixel at
 				(x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*4].</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Alpha16-fold-field-Rect"><label for="Alpha16-fold-field-Rect"><a href="../src/image/image.go.html#line-95">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='Alpha16-fold-field-Rect-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Alpha16-fold-field-Rect"><label for="Alpha16-fold-field-Rect"><a href="../src/image/image.go.html#line-111">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='Alpha16-fold-field-Rect-docs' class="fold-docs">
 <span class="md-text">				Rect is the image's bounds.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Alpha16-fold-field-Stride"><label for="Alpha16-fold-field-Stride"><a href="../src/image/image.go.html#line-93">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='Alpha16-fold-field-Stride-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Alpha16-fold-field-Stride"><label for="Alpha16-fold-field-Stride"><a href="../src/image/image.go.html#line-109">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='Alpha16-fold-field-Stride-docs' class="fold-docs">
 <span class="md-text">				Stride is the Pix stride (in bytes) between vertically adjacent pixels.</span>
 </span></span></span>
 		<input type='checkbox' class="fold" id="Alpha16-fold-methods"><label for="Alpha16-fold-methods">Methods (<i>total 11, all are exported</i>)</label><span id='Alpha16-fold-methods-items' class="fold-items"><span>
-			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-741">Alpha16At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Alpha16">Alpha16</a></span></span><span>
-			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-732">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
-			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-730">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
-			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-728">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
-			<input type='checkbox' class="fold" id="Alpha16-fold-method-Opaque"><label for="Alpha16-fold-method-Opaque">(*Alpha16) <a href="../src/image/image.go.html#line-802">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='Alpha16-fold-method-Opaque-docs' class="fold-docs">
+			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-757">Alpha16At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Alpha16">Alpha16</a></span></span><span>
+			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-748">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
+			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-746">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
+			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-744">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
+			<input type='checkbox' class="fold" id="Alpha16-fold-method-Opaque"><label for="Alpha16-fold-method-Opaque">(*Alpha16) <a href="../src/image/image.go.html#line-818">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='Alpha16-fold-method-Opaque-docs' class="fold-docs">
 <span class="md-text">				Opaque scans the entire image and reports whether it is fully opaque.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Alpha16-fold-method-PixOffset"><label for="Alpha16-fold-method-PixOffset">(*Alpha16) <a href="../src/image/image.go.html#line-751">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='Alpha16-fold-method-PixOffset-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Alpha16-fold-method-PixOffset"><label for="Alpha16-fold-method-PixOffset">(*Alpha16) <a href="../src/image/image.go.html#line-767">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='Alpha16-fold-method-PixOffset-docs' class="fold-docs">
 <span class="md-text">				PixOffset returns the index of the first element of Pix that corresponds to
 				the pixel at (x, y).</span>
 </span></span><span>
-			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-736">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
-			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-755">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
-			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-774">SetAlpha16</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Alpha16">Alpha16</a>)</span></span><span>
-			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-765">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
-			<input type='checkbox' class="fold" id="Alpha16-fold-method-SubImage"><label for="Alpha16-fold-method-SubImage">(*Alpha16) <a href="../src/image/image.go.html#line-785">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='Alpha16-fold-method-SubImage-docs' class="fold-docs">
+			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-752">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
+			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-771">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
+			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-790">SetAlpha16</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Alpha16">Alpha16</a>)</span></span><span>
+			<span class="nodocs">(*Alpha16) <a href="../src/image/image.go.html#line-781">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="Alpha16-fold-method-SubImage"><label for="Alpha16-fold-method-SubImage">(*Alpha16) <a href="../src/image/image.go.html#line-801">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='Alpha16-fold-method-SubImage-docs' class="fold-docs">
 <span class="md-text">				SubImage returns an image representing the portion of the image p visible
 				through r. The returned value shares pixels with the original image.</span>
 </span></span></span>
@@ -126,37 +142,37 @@
 		<input type='checkbox' class="fold" id="Alpha16-fold-results"><label for="Alpha16-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Alpha16-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewAlpha16">NewAlpha16</a>(r <a href="#name-Rectangle">Rectangle</a>) *<b>Alpha16</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-CMYK" data-popularity="725">	<input type='checkbox' class="fold" id="CMYK-fold-content"><label for="CMYK-fold-content"> <a href="../use/image..CMYK.html">type</a> <a href="../src/image/image.go.html#line-1026">CMYK</a> <i>(struct)</i></label><span id='CMYK-fold-content-docs' class="fold-docs">
-<span class="md-text">		CMYK is an in-memory image whose At method returns color.CMYK values.</span>
+</span></div><div class="anchor type-res" id="name-CMYK" data-popularity="725">	<input type='checkbox' class="fold" id="CMYK-fold-content"><label for="CMYK-fold-content"> <a href="../use/image..CMYK.html">type</a> <a href="../src/image/image.go.html#line-1042">CMYK</a> <i>(struct)</i></label><span id='CMYK-fold-content-docs' class="fold-docs">
+<span class="md-text">		CMYK is an in-memory image whose At method returns [color.CMYK] values.</span>
 
 		<input type='checkbox' class="fold" id="CMYK-fold-fields"><label for="CMYK-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='CMYK-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="CMYK-fold-field-Pix"><label for="CMYK-fold-field-Pix"><a href="../src/image/image.go.html#line-91">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='CMYK-fold-field-Pix-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="CMYK-fold-field-Pix"><label for="CMYK-fold-field-Pix"><a href="../src/image/image.go.html#line-107">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='CMYK-fold-field-Pix-docs' class="fold-docs">
 <span class="md-text">				Pix holds the image's pixels, in R, G, B, A order. The pixel at
 				(x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*4].</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="CMYK-fold-field-Rect"><label for="CMYK-fold-field-Rect"><a href="../src/image/image.go.html#line-95">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='CMYK-fold-field-Rect-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="CMYK-fold-field-Rect"><label for="CMYK-fold-field-Rect"><a href="../src/image/image.go.html#line-111">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='CMYK-fold-field-Rect-docs' class="fold-docs">
 <span class="md-text">				Rect is the image's bounds.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="CMYK-fold-field-Stride"><label for="CMYK-fold-field-Stride"><a href="../src/image/image.go.html#line-93">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='CMYK-fold-field-Stride-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="CMYK-fold-field-Stride"><label for="CMYK-fold-field-Stride"><a href="../src/image/image.go.html#line-109">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='CMYK-fold-field-Stride-docs' class="fold-docs">
 <span class="md-text">				Stride is the Pix stride (in bytes) between vertically adjacent pixels.</span>
 </span></span></span>
 		<input type='checkbox' class="fold" id="CMYK-fold-methods"><label for="CMYK-fold-methods">Methods (<i>total 11, all are exported</i>)</label><span id='CMYK-fold-methods-items' class="fold-items"><span>
-			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1040">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
-			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1038">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
-			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1049">CMYKAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-CMYK">CMYK</a></span></span><span>
-			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1036">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
-			<input type='checkbox' class="fold" id="CMYK-fold-method-Opaque"><label for="CMYK-fold-method-Opaque">(*CMYK) <a href="../src/image/image.go.html#line-1121">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='CMYK-fold-method-Opaque-docs' class="fold-docs">
+			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1056">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
+			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1054">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
+			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1065">CMYKAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-CMYK">CMYK</a></span></span><span>
+			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1052">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
+			<input type='checkbox' class="fold" id="CMYK-fold-method-Opaque"><label for="CMYK-fold-method-Opaque">(*CMYK) <a href="../src/image/image.go.html#line-1137">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='CMYK-fold-method-Opaque-docs' class="fold-docs">
 <span class="md-text">				Opaque scans the entire image and reports whether it is fully opaque.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="CMYK-fold-method-PixOffset"><label for="CMYK-fold-method-PixOffset">(*CMYK) <a href="../src/image/image.go.html#line-1060">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='CMYK-fold-method-PixOffset-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="CMYK-fold-method-PixOffset"><label for="CMYK-fold-method-PixOffset">(*CMYK) <a href="../src/image/image.go.html#line-1076">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='CMYK-fold-method-PixOffset-docs' class="fold-docs">
 <span class="md-text">				PixOffset returns the index of the first element of Pix that corresponds to
 				the pixel at (x, y).</span>
 </span></span><span>
-			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1044">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
-			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1064">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
-			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1090">SetCMYK</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-CMYK">CMYK</a>)</span></span><span>
-			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1077">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
-			<input type='checkbox' class="fold" id="CMYK-fold-method-SubImage"><label for="CMYK-fold-method-SubImage">(*CMYK) <a href="../src/image/image.go.html#line-1104">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='CMYK-fold-method-SubImage-docs' class="fold-docs">
+			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1060">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
+			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1080">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
+			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1106">SetCMYK</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-CMYK">CMYK</a>)</span></span><span>
+			<span class="nodocs">(*CMYK) <a href="../src/image/image.go.html#line-1093">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="CMYK-fold-method-SubImage"><label for="CMYK-fold-method-SubImage">(*CMYK) <a href="../src/image/image.go.html#line-1120">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='CMYK-fold-method-SubImage-docs' class="fold-docs">
 <span class="md-text">				SubImage returns an image representing the portion of the image p visible
 				through r. The returned value shares pixels with the original image.</span>
 </span></span></span>
@@ -166,47 +182,47 @@
 		<input type='checkbox' class="fold" id="CMYK-fold-results"><label for="CMYK-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='CMYK-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewCMYK">NewCMYK</a>(r <a href="#name-Rectangle">Rectangle</a>) *<b>CMYK</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-Config" data-popularity="75">	<input type='checkbox' class="fold" id="Config-fold-content"><label for="Config-fold-content"> <a href="../use/image..Config.html">type</a> <a href="../src/image/image.go.html#line-31">Config</a> <i>(struct)</i></label><span id='Config-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Config" data-popularity="75">	<input type='checkbox' class="fold" id="Config-fold-content"><label for="Config-fold-content"> <a href="../use/image..Config.html">type</a> <a href="../src/image/image.go.html#line-47">Config</a> <i>(struct)</i></label><span id='Config-fold-content-docs' class="fold-docs">
 <span class="md-text">		Config holds an image's color model and dimensions.</span>
 
 		<input type='checkbox' class="fold" id="Config-fold-fields"><label for="Config-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='Config-fold-fields-items' class="fold-items"><span>
-			<span class="nodocs"><a href="../src/image/image.go.html#line-32">ColorModel</a> <i><a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></i></span></span><span>
-			<span class="nodocs"><a href="../src/image/image.go.html#line-33">Height</a> <i><a href="builtin.html#name-int">int</a></i></span></span><span>
-			<span class="nodocs"><a href="../src/image/image.go.html#line-33">Width</a> <i><a href="builtin.html#name-int">int</a></i></span></span></span>
+			<span class="nodocs"><a href="../src/image/image.go.html#line-48">ColorModel</a> <i><a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></i></span></span><span>
+			<span class="nodocs"><a href="../src/image/image.go.html#line-49">Height</a> <i><a href="builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../src/image/image.go.html#line-49">Width</a> <i><a href="builtin.html#name-int">int</a></i></span></span></span>
 		<input type='checkbox' class="fold" id="Config-fold-results"><label for="Config-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Config-fold-results-items' class="fold-items"><span>
 			func <a href="#name-DecodeConfig">DecodeConfig</a>(r <a href="io.html">io</a>.<a href="io.html#name-Reader">Reader</a>) (<b>Config</b>, <a href="builtin.html#name-string">string</a>, <a href="builtin.html#name-error">error</a>)</span></span>
 
-</span></div><div class="anchor type-res" id="name-Gray" data-popularity="725">	<input type='checkbox' class="fold" id="Gray-fold-content"><label for="Gray-fold-content"> <a href="../use/image..Gray.html">type</a> <a href="../src/image/image.go.html#line-829">Gray</a> <i>(struct)</i></label><span id='Gray-fold-content-docs' class="fold-docs">
-<span class="md-text">		Gray is an in-memory image whose At method returns color.Gray values.</span>
+</span></div><div class="anchor type-res" id="name-Gray" data-popularity="725">	<input type='checkbox' class="fold" id="Gray-fold-content"><label for="Gray-fold-content"> <a href="../use/image..Gray.html">type</a> <a href="../src/image/image.go.html#line-845">Gray</a> <i>(struct)</i></label><span id='Gray-fold-content-docs' class="fold-docs">
+<span class="md-text">		Gray is an in-memory image whose At method returns [color.Gray] values.</span>
 
 		<input type='checkbox' class="fold" id="Gray-fold-fields"><label for="Gray-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='Gray-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="Gray-fold-field-Pix"><label for="Gray-fold-field-Pix"><a href="../src/image/image.go.html#line-91">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='Gray-fold-field-Pix-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Gray-fold-field-Pix"><label for="Gray-fold-field-Pix"><a href="../src/image/image.go.html#line-107">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='Gray-fold-field-Pix-docs' class="fold-docs">
 <span class="md-text">				Pix holds the image's pixels, in R, G, B, A order. The pixel at
 				(x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*4].</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Gray-fold-field-Rect"><label for="Gray-fold-field-Rect"><a href="../src/image/image.go.html#line-95">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='Gray-fold-field-Rect-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Gray-fold-field-Rect"><label for="Gray-fold-field-Rect"><a href="../src/image/image.go.html#line-111">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='Gray-fold-field-Rect-docs' class="fold-docs">
 <span class="md-text">				Rect is the image's bounds.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Gray-fold-field-Stride"><label for="Gray-fold-field-Stride"><a href="../src/image/image.go.html#line-93">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='Gray-fold-field-Stride-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Gray-fold-field-Stride"><label for="Gray-fold-field-Stride"><a href="../src/image/image.go.html#line-109">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='Gray-fold-field-Stride-docs' class="fold-docs">
 <span class="md-text">				Stride is the Pix stride (in bytes) between vertically adjacent pixels.</span>
 </span></span></span>
 		<input type='checkbox' class="fold" id="Gray-fold-methods"><label for="Gray-fold-methods">Methods (<i>total 11, all are exported</i>)</label><span id='Gray-fold-methods-items' class="fold-items"><span>
-			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-843">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
-			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-841">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
-			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-839">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
-			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-853">GrayAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Gray">Gray</a></span></span><span>
-			<input type='checkbox' class="fold" id="Gray-fold-method-Opaque"><label for="Gray-fold-method-Opaque">(*Gray) <a href="../src/image/image.go.html#line-912">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='Gray-fold-method-Opaque-docs' class="fold-docs">
+			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-859">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
+			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-857">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
+			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-855">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
+			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-869">GrayAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Gray">Gray</a></span></span><span>
+			<input type='checkbox' class="fold" id="Gray-fold-method-Opaque"><label for="Gray-fold-method-Opaque">(*Gray) <a href="../src/image/image.go.html#line-928">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='Gray-fold-method-Opaque-docs' class="fold-docs">
 <span class="md-text">				Opaque scans the entire image and reports whether it is fully opaque.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Gray-fold-method-PixOffset"><label for="Gray-fold-method-PixOffset">(*Gray) <a href="../src/image/image.go.html#line-863">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='Gray-fold-method-PixOffset-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Gray-fold-method-PixOffset"><label for="Gray-fold-method-PixOffset">(*Gray) <a href="../src/image/image.go.html#line-879">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='Gray-fold-method-PixOffset-docs' class="fold-docs">
 <span class="md-text">				PixOffset returns the index of the first element of Pix that corresponds to
 				the pixel at (x, y).</span>
 </span></span><span>
-			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-847">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
-			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-867">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
-			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-885">SetGray</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Gray">Gray</a>)</span></span><span>
-			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-875">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
-			<input type='checkbox' class="fold" id="Gray-fold-method-SubImage"><label for="Gray-fold-method-SubImage">(*Gray) <a href="../src/image/image.go.html#line-895">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='Gray-fold-method-SubImage-docs' class="fold-docs">
+			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-863">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
+			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-883">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
+			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-901">SetGray</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Gray">Gray</a>)</span></span><span>
+			<span class="nodocs">(*Gray) <a href="../src/image/image.go.html#line-891">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="Gray-fold-method-SubImage"><label for="Gray-fold-method-SubImage">(*Gray) <a href="../src/image/image.go.html#line-911">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='Gray-fold-method-SubImage-docs' class="fold-docs">
 <span class="md-text">				SubImage returns an image representing the portion of the image p visible
 				through r. The returned value shares pixels with the original image.</span>
 </span></span></span>
@@ -216,37 +232,37 @@
 		<input type='checkbox' class="fold" id="Gray-fold-results"><label for="Gray-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Gray-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewGray">NewGray</a>(r <a href="#name-Rectangle">Rectangle</a>) *<b>Gray</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-Gray16" data-popularity="725">	<input type='checkbox' class="fold" id="Gray16-fold-content"><label for="Gray16-fold-content"> <a href="../use/image..Gray16.html">type</a> <a href="../src/image/image.go.html#line-926">Gray16</a> <i>(struct)</i></label><span id='Gray16-fold-content-docs' class="fold-docs">
-<span class="md-text">		Gray16 is an in-memory image whose At method returns color.Gray16 values.</span>
+</span></div><div class="anchor type-res" id="name-Gray16" data-popularity="725">	<input type='checkbox' class="fold" id="Gray16-fold-content"><label for="Gray16-fold-content"> <a href="../use/image..Gray16.html">type</a> <a href="../src/image/image.go.html#line-942">Gray16</a> <i>(struct)</i></label><span id='Gray16-fold-content-docs' class="fold-docs">
+<span class="md-text">		Gray16 is an in-memory image whose At method returns [color.Gray16] values.</span>
 
 		<input type='checkbox' class="fold" id="Gray16-fold-fields"><label for="Gray16-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='Gray16-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="Gray16-fold-field-Pix"><label for="Gray16-fold-field-Pix"><a href="../src/image/image.go.html#line-91">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='Gray16-fold-field-Pix-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Gray16-fold-field-Pix"><label for="Gray16-fold-field-Pix"><a href="../src/image/image.go.html#line-107">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='Gray16-fold-field-Pix-docs' class="fold-docs">
 <span class="md-text">				Pix holds the image's pixels, in R, G, B, A order. The pixel at
 				(x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*4].</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Gray16-fold-field-Rect"><label for="Gray16-fold-field-Rect"><a href="../src/image/image.go.html#line-95">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='Gray16-fold-field-Rect-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Gray16-fold-field-Rect"><label for="Gray16-fold-field-Rect"><a href="../src/image/image.go.html#line-111">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='Gray16-fold-field-Rect-docs' class="fold-docs">
 <span class="md-text">				Rect is the image's bounds.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Gray16-fold-field-Stride"><label for="Gray16-fold-field-Stride"><a href="../src/image/image.go.html#line-93">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='Gray16-fold-field-Stride-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Gray16-fold-field-Stride"><label for="Gray16-fold-field-Stride"><a href="../src/image/image.go.html#line-109">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='Gray16-fold-field-Stride-docs' class="fold-docs">
 <span class="md-text">				Stride is the Pix stride (in bytes) between vertically adjacent pixels.</span>
 </span></span></span>
 		<input type='checkbox' class="fold" id="Gray16-fold-methods"><label for="Gray16-fold-methods">Methods (<i>total 11, all are exported</i>)</label><span id='Gray16-fold-methods-items' class="fold-items"><span>
-			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-940">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
-			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-938">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
-			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-936">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
-			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-949">Gray16At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Gray16">Gray16</a></span></span><span>
-			<input type='checkbox' class="fold" id="Gray16-fold-method-Opaque"><label for="Gray16-fold-method-Opaque">(*Gray16) <a href="../src/image/image.go.html#line-1012">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='Gray16-fold-method-Opaque-docs' class="fold-docs">
+			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-956">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
+			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-954">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
+			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-952">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
+			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-965">Gray16At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Gray16">Gray16</a></span></span><span>
+			<input type='checkbox' class="fold" id="Gray16-fold-method-Opaque"><label for="Gray16-fold-method-Opaque">(*Gray16) <a href="../src/image/image.go.html#line-1028">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='Gray16-fold-method-Opaque-docs' class="fold-docs">
 <span class="md-text">				Opaque scans the entire image and reports whether it is fully opaque.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Gray16-fold-method-PixOffset"><label for="Gray16-fold-method-PixOffset">(*Gray16) <a href="../src/image/image.go.html#line-959">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='Gray16-fold-method-PixOffset-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Gray16-fold-method-PixOffset"><label for="Gray16-fold-method-PixOffset">(*Gray16) <a href="../src/image/image.go.html#line-975">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='Gray16-fold-method-PixOffset-docs' class="fold-docs">
 <span class="md-text">				PixOffset returns the index of the first element of Pix that corresponds to
 				the pixel at (x, y).</span>
 </span></span><span>
-			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-944">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
-			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-963">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
-			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-984">SetGray16</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Gray16">Gray16</a>)</span></span><span>
-			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-973">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
-			<input type='checkbox' class="fold" id="Gray16-fold-method-SubImage"><label for="Gray16-fold-method-SubImage">(*Gray16) <a href="../src/image/image.go.html#line-995">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='Gray16-fold-method-SubImage-docs' class="fold-docs">
+			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-960">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
+			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-979">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
+			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-1000">SetGray16</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Gray16">Gray16</a>)</span></span><span>
+			<span class="nodocs">(*Gray16) <a href="../src/image/image.go.html#line-989">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="Gray16-fold-method-SubImage"><label for="Gray16-fold-method-SubImage">(*Gray16) <a href="../src/image/image.go.html#line-1011">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='Gray16-fold-method-SubImage-docs' class="fold-docs">
 <span class="md-text">				SubImage returns an image representing the portion of the image p visible
 				through r. The returned value shares pixels with the original image.</span>
 </span></span></span>
@@ -256,21 +272,21 @@
 		<input type='checkbox' class="fold" id="Gray16-fold-results"><label for="Gray16-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Gray16-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewGray16">NewGray16</a>(r <a href="#name-Rectangle">Rectangle</a>) *<b>Gray16</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-Image" data-popularity="3825">	<input type='checkbox' class="fold" id="Image-fold-content"><label for="Image-fold-content"> <a href="../use/image..Image.html">type</a> <a href="../src/image/image.go.html#line-38">Image</a> <b><i>(interface)</i></b></label><span id='Image-fold-content-docs' class="fold-docs">
-<span class="md-text">		Image is a finite rectangular grid of color.Color values taken from a color
+</span></div><div class="anchor type-res" id="name-Image" data-popularity="3825">	<input type='checkbox' class="fold" id="Image-fold-content"><label for="Image-fold-content"> <a href="../use/image..Image.html">type</a> <a href="../src/image/image.go.html#line-54">Image</a> <b><i>(interface)</i></b></label><span id='Image-fold-content-docs' class="fold-docs">
+<span class="md-text">		Image is a finite rectangular grid of [color.Color] values taken from a color
 		model.</span>
 
 		<input type='checkbox' class="fold" id="Image-fold-methods"><label for="Image-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='Image-fold-methods-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="Image-fold-method-At"><label for="Image-fold-method-At">( Image) <a href="../src/image/image.go.html#line-47">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></label><span id='Image-fold-method-At-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Image-fold-method-At"><label for="Image-fold-method-At">( Image) <a href="../src/image/image.go.html#line-63">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></label><span id='Image-fold-method-At-docs' class="fold-docs">
 <span class="md-text">				At returns the color of the pixel at (x, y).
 				At(Bounds().Min.X, Bounds().Min.Y) returns the upper-left pixel of the grid.
 				At(Bounds().Max.X-1, Bounds().Max.Y-1) returns the lower-right one.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Image-fold-method-Bounds"><label for="Image-fold-method-Bounds">( Image) <a href="../src/image/image.go.html#line-43">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></label><span id='Image-fold-method-Bounds-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Image-fold-method-Bounds"><label for="Image-fold-method-Bounds">( Image) <a href="../src/image/image.go.html#line-59">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></label><span id='Image-fold-method-Bounds-docs' class="fold-docs">
 <span class="md-text">				Bounds returns the domain for which At can return non-zero color.
 				The bounds do not necessarily contain the point (0, 0).</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Image-fold-method-ColorModel"><label for="Image-fold-method-ColorModel">( Image) <a href="../src/image/image.go.html#line-40">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></label><span id='Image-fold-method-ColorModel-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Image-fold-method-ColorModel"><label for="Image-fold-method-ColorModel">( Image) <a href="../src/image/image.go.html#line-56">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></label><span id='Image-fold-method-ColorModel-docs' class="fold-docs">
 <span class="md-text">				ColorModel returns the Image's color model.</span>
 </span></span></span>
 		<input type='checkbox' class="fold" id="Image-fold-impledby"><label for="Image-fold-impledby">Implemented By (<i>at least 17, in which 16 are exported</i>)</label><span id='Image-fold-impledby-items' class="fold-items"><span>
@@ -294,52 +310,52 @@
 			*rsc.io/qr.<a href="rsc.io/qr.html#name-codeImage">codeImage</a></i></span></span>
 		<input type='checkbox' class="fold" id="Image-fold-results"><label for="Image-fold-results">As Outputs Of (<i>at least 15, all are exported</i>)</label><span id='Image-fold-results-items' class="fold-items"><span>
 			func <a href="#name-Decode">Decode</a>(r <a href="io.html">io</a>.<a href="io.html#name-Reader">Reader</a>) (<b>Image</b>, <a href="builtin.html#name-string">string</a>, <a href="builtin.html#name-error">error</a>)</span><span>
-			func (*<a href="#name-Alpha">Alpha</a>).<a href="../src/image/image.go.html#line-674">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
-			func (*<a href="#name-Alpha16">Alpha16</a>).<a href="../src/image/image.go.html#line-785">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
-			func (*<a href="#name-CMYK">CMYK</a>).<a href="../src/image/image.go.html#line-1104">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
-			func (*<a href="#name-Gray">Gray</a>).<a href="../src/image/image.go.html#line-895">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
-			func (*<a href="#name-Gray16">Gray16</a>).<a href="../src/image/image.go.html#line-995">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
-			func (*<a href="#name-NRGBA">NRGBA</a>).<a href="../src/image/image.go.html#line-422">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
-			func (*<a href="#name-NRGBA64">NRGBA64</a>).<a href="../src/image/image.go.html#line-566">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
+			func (*<a href="#name-Alpha">Alpha</a>).<a href="../src/image/image.go.html#line-690">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
+			func (*<a href="#name-Alpha16">Alpha16</a>).<a href="../src/image/image.go.html#line-801">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
+			func (*<a href="#name-CMYK">CMYK</a>).<a href="../src/image/image.go.html#line-1120">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
+			func (*<a href="#name-Gray">Gray</a>).<a href="../src/image/image.go.html#line-911">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
+			func (*<a href="#name-Gray16">Gray16</a>).<a href="../src/image/image.go.html#line-1011">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
+			func (*<a href="#name-NRGBA">NRGBA</a>).<a href="../src/image/image.go.html#line-438">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
+			func (*<a href="#name-NRGBA64">NRGBA64</a>).<a href="../src/image/image.go.html#line-582">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
 			func (*<a href="#name-NYCbCrA">NYCbCrA</a>).<a href="../src/image/ycbcr.go.html#line-249">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
-			func (*<a href="#name-Paletted">Paletted</a>).<a href="../src/image/image.go.html#line-1222">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
-			func (*<a href="#name-RGBA">RGBA</a>).<a href="../src/image/image.go.html#line-178">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
-			func (*<a href="#name-RGBA64">RGBA64</a>).<a href="../src/image/image.go.html#line-295">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
+			func (*<a href="#name-Paletted">Paletted</a>).<a href="../src/image/image.go.html#line-1238">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
+			func (*<a href="#name-RGBA">RGBA</a>).<a href="../src/image/image.go.html#line-194">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
+			func (*<a href="#name-RGBA64">RGBA64</a>).<a href="../src/image/image.go.html#line-311">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
 			func (*<a href="#name-YCbCr">YCbCr</a>).<a href="../src/image/ycbcr.go.html#line-120">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <b>Image</b></span><span>
-			func github.com/gotd/td/telegram/auth/qrlogin.<a href="github.com/gotd/td/telegram/auth/qrlogin.html#name-Token">Token</a>.<a href="../src/github.com/gotd/td/telegram/auth/qrlogin/token.go.html#line-70">Image</a>(level <a href="rsc.io/qr.html">qr</a>.<a href="rsc.io/qr.html#name-Level">Level</a>) (<b>Image</b>, <a href="builtin.html#name-error">error</a>)</span><span>
+			func github.com/gotd/td/telegram/auth/qrlogin.<a href="github.com/gotd/td/telegram/auth/qrlogin.html#name-Token">Token</a>.<a href="../src/github.com/gotd/td/telegram/auth/qrlogin/token.go.html#line-75">Image</a>(level <a href="rsc.io/qr.html">qr</a>.<a href="rsc.io/qr.html#name-Level">Level</a>) (<b>Image</b>, <a href="builtin.html#name-error">error</a>)</span><span>
 			func rsc.io/qr.(*<a href="rsc.io/qr.html#name-Code">Code</a>).<a href="../src/rsc.io/qr/qr.go.html#line-87">Image</a>() <b>Image</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-NRGBA" data-popularity="725">	<input type='checkbox' class="fold" id="NRGBA-fold-content"><label for="NRGBA-fold-content"> <a href="../use/image..NRGBA.html">type</a> <a href="../src/image/image.go.html#line-339">NRGBA</a> <i>(struct)</i></label><span id='NRGBA-fold-content-docs' class="fold-docs">
-<span class="md-text">		NRGBA is an in-memory image whose At method returns color.NRGBA values.</span>
+</span></div><div class="anchor type-res" id="name-NRGBA" data-popularity="725">	<input type='checkbox' class="fold" id="NRGBA-fold-content"><label for="NRGBA-fold-content"> <a href="../use/image..NRGBA.html">type</a> <a href="../src/image/image.go.html#line-355">NRGBA</a> <i>(struct)</i></label><span id='NRGBA-fold-content-docs' class="fold-docs">
+<span class="md-text">		NRGBA is an in-memory image whose At method returns [color.NRGBA] values.</span>
 
 		<input type='checkbox' class="fold" id="NRGBA-fold-fields"><label for="NRGBA-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='NRGBA-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="NRGBA-fold-field-Pix"><label for="NRGBA-fold-field-Pix"><a href="../src/image/image.go.html#line-91">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='NRGBA-fold-field-Pix-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="NRGBA-fold-field-Pix"><label for="NRGBA-fold-field-Pix"><a href="../src/image/image.go.html#line-107">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='NRGBA-fold-field-Pix-docs' class="fold-docs">
 <span class="md-text">				Pix holds the image's pixels, in R, G, B, A order. The pixel at
 				(x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*4].</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="NRGBA-fold-field-Rect"><label for="NRGBA-fold-field-Rect"><a href="../src/image/image.go.html#line-95">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='NRGBA-fold-field-Rect-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="NRGBA-fold-field-Rect"><label for="NRGBA-fold-field-Rect"><a href="../src/image/image.go.html#line-111">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='NRGBA-fold-field-Rect-docs' class="fold-docs">
 <span class="md-text">				Rect is the image's bounds.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="NRGBA-fold-field-Stride"><label for="NRGBA-fold-field-Stride"><a href="../src/image/image.go.html#line-93">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='NRGBA-fold-field-Stride-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="NRGBA-fold-field-Stride"><label for="NRGBA-fold-field-Stride"><a href="../src/image/image.go.html#line-109">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='NRGBA-fold-field-Stride-docs' class="fold-docs">
 <span class="md-text">				Stride is the Pix stride (in bytes) between vertically adjacent pixels.</span>
 </span></span></span>
 		<input type='checkbox' class="fold" id="NRGBA-fold-methods"><label for="NRGBA-fold-methods">Methods (<i>total 11, all are exported</i>)</label><span id='NRGBA-fold-methods-items' class="fold-items"><span>
-			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-353">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
-			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-351">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
-			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-349">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
-			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-362">NRGBAAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-NRGBA">NRGBA</a></span></span><span>
-			<input type='checkbox' class="fold" id="NRGBA-fold-method-Opaque"><label for="NRGBA-fold-method-Opaque">(*NRGBA) <a href="../src/image/image.go.html#line-439">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='NRGBA-fold-method-Opaque-docs' class="fold-docs">
+			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-369">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
+			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-367">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
+			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-365">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
+			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-378">NRGBAAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-NRGBA">NRGBA</a></span></span><span>
+			<input type='checkbox' class="fold" id="NRGBA-fold-method-Opaque"><label for="NRGBA-fold-method-Opaque">(*NRGBA) <a href="../src/image/image.go.html#line-455">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='NRGBA-fold-method-Opaque-docs' class="fold-docs">
 <span class="md-text">				Opaque scans the entire image and reports whether it is fully opaque.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="NRGBA-fold-method-PixOffset"><label for="NRGBA-fold-method-PixOffset">(*NRGBA) <a href="../src/image/image.go.html#line-373">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='NRGBA-fold-method-PixOffset-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="NRGBA-fold-method-PixOffset"><label for="NRGBA-fold-method-PixOffset">(*NRGBA) <a href="../src/image/image.go.html#line-389">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='NRGBA-fold-method-PixOffset-docs' class="fold-docs">
 <span class="md-text">				PixOffset returns the index of the first element of Pix that corresponds to
 				the pixel at (x, y).</span>
 </span></span><span>
-			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-357">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
-			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-377">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
-			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-408">SetNRGBA</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-NRGBA">NRGBA</a>)</span></span><span>
-			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-390">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
-			<input type='checkbox' class="fold" id="NRGBA-fold-method-SubImage"><label for="NRGBA-fold-method-SubImage">(*NRGBA) <a href="../src/image/image.go.html#line-422">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='NRGBA-fold-method-SubImage-docs' class="fold-docs">
+			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-373">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
+			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-393">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
+			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-424">SetNRGBA</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-NRGBA">NRGBA</a>)</span></span><span>
+			<span class="nodocs">(*NRGBA) <a href="../src/image/image.go.html#line-406">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="NRGBA-fold-method-SubImage"><label for="NRGBA-fold-method-SubImage">(*NRGBA) <a href="../src/image/image.go.html#line-438">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='NRGBA-fold-method-SubImage-docs' class="fold-docs">
 <span class="md-text">				SubImage returns an image representing the portion of the image p visible
 				through r. The returned value shares pixels with the original image.</span>
 </span></span></span>
@@ -349,37 +365,37 @@
 		<input type='checkbox' class="fold" id="NRGBA-fold-results"><label for="NRGBA-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='NRGBA-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewNRGBA">NewNRGBA</a>(r <a href="#name-Rectangle">Rectangle</a>) *<b>NRGBA</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-NRGBA64" data-popularity="725">	<input type='checkbox' class="fold" id="NRGBA64-fold-content"><label for="NRGBA64-fold-content"> <a href="../use/image..NRGBA64.html">type</a> <a href="../src/image/image.go.html#line-466">NRGBA64</a> <i>(struct)</i></label><span id='NRGBA64-fold-content-docs' class="fold-docs">
-<span class="md-text">		NRGBA64 is an in-memory image whose At method returns color.NRGBA64 values.</span>
+</span></div><div class="anchor type-res" id="name-NRGBA64" data-popularity="725">	<input type='checkbox' class="fold" id="NRGBA64-fold-content"><label for="NRGBA64-fold-content"> <a href="../use/image..NRGBA64.html">type</a> <a href="../src/image/image.go.html#line-482">NRGBA64</a> <i>(struct)</i></label><span id='NRGBA64-fold-content-docs' class="fold-docs">
+<span class="md-text">		NRGBA64 is an in-memory image whose At method returns [color.NRGBA64] values.</span>
 
 		<input type='checkbox' class="fold" id="NRGBA64-fold-fields"><label for="NRGBA64-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='NRGBA64-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="NRGBA64-fold-field-Pix"><label for="NRGBA64-fold-field-Pix"><a href="../src/image/image.go.html#line-91">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='NRGBA64-fold-field-Pix-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="NRGBA64-fold-field-Pix"><label for="NRGBA64-fold-field-Pix"><a href="../src/image/image.go.html#line-107">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='NRGBA64-fold-field-Pix-docs' class="fold-docs">
 <span class="md-text">				Pix holds the image's pixels, in R, G, B, A order. The pixel at
 				(x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*4].</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="NRGBA64-fold-field-Rect"><label for="NRGBA64-fold-field-Rect"><a href="../src/image/image.go.html#line-95">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='NRGBA64-fold-field-Rect-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="NRGBA64-fold-field-Rect"><label for="NRGBA64-fold-field-Rect"><a href="../src/image/image.go.html#line-111">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='NRGBA64-fold-field-Rect-docs' class="fold-docs">
 <span class="md-text">				Rect is the image's bounds.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="NRGBA64-fold-field-Stride"><label for="NRGBA64-fold-field-Stride"><a href="../src/image/image.go.html#line-93">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='NRGBA64-fold-field-Stride-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="NRGBA64-fold-field-Stride"><label for="NRGBA64-fold-field-Stride"><a href="../src/image/image.go.html#line-109">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='NRGBA64-fold-field-Stride-docs' class="fold-docs">
 <span class="md-text">				Stride is the Pix stride (in bytes) between vertically adjacent pixels.</span>
 </span></span></span>
 		<input type='checkbox' class="fold" id="NRGBA64-fold-methods"><label for="NRGBA64-fold-methods">Methods (<i>total 11, all are exported</i>)</label><span id='NRGBA64-fold-methods-items' class="fold-items"><span>
-			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-480">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
-			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-478">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
-			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-476">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
-			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-489">NRGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-NRGBA64">NRGBA64</a></span></span><span>
-			<input type='checkbox' class="fold" id="NRGBA64-fold-method-Opaque"><label for="NRGBA64-fold-method-Opaque">(*NRGBA64) <a href="../src/image/image.go.html#line-583">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='NRGBA64-fold-method-Opaque-docs' class="fold-docs">
+			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-496">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
+			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-494">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
+			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-492">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
+			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-505">NRGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-NRGBA64">NRGBA64</a></span></span><span>
+			<input type='checkbox' class="fold" id="NRGBA64-fold-method-Opaque"><label for="NRGBA64-fold-method-Opaque">(*NRGBA64) <a href="../src/image/image.go.html#line-599">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='NRGBA64-fold-method-Opaque-docs' class="fold-docs">
 <span class="md-text">				Opaque scans the entire image and reports whether it is fully opaque.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="NRGBA64-fold-method-PixOffset"><label for="NRGBA64-fold-method-PixOffset">(*NRGBA64) <a href="../src/image/image.go.html#line-505">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='NRGBA64-fold-method-PixOffset-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="NRGBA64-fold-method-PixOffset"><label for="NRGBA64-fold-method-PixOffset">(*NRGBA64) <a href="../src/image/image.go.html#line-521">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='NRGBA64-fold-method-PixOffset-docs' class="fold-docs">
 <span class="md-text">				PixOffset returns the index of the first element of Pix that corresponds to
 				the pixel at (x, y).</span>
 </span></span><span>
-			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-484">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
-			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-509">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
-			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-548">SetNRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-NRGBA64">NRGBA64</a>)</span></span><span>
-			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-526">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
-			<input type='checkbox' class="fold" id="NRGBA64-fold-method-SubImage"><label for="NRGBA64-fold-method-SubImage">(*NRGBA64) <a href="../src/image/image.go.html#line-566">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='NRGBA64-fold-method-SubImage-docs' class="fold-docs">
+			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-500">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
+			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-525">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
+			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-564">SetNRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-NRGBA64">NRGBA64</a>)</span></span><span>
+			<span class="nodocs">(*NRGBA64) <a href="../src/image/image.go.html#line-542">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="NRGBA64-fold-method-SubImage"><label for="NRGBA64-fold-method-SubImage">(*NRGBA64) <a href="../src/image/image.go.html#line-582">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='NRGBA64-fold-method-SubImage-docs' class="fold-docs">
 <span class="md-text">				SubImage returns an image representing the portion of the image p visible
 				through r. The returned value shares pixels with the original image.</span>
 </span></span></span>
@@ -437,40 +453,40 @@
 		<input type='checkbox' class="fold" id="NYCbCrA-fold-results"><label for="NYCbCrA-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='NYCbCrA-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewNYCbCrA">NewNYCbCrA</a>(r <a href="#name-Rectangle">Rectangle</a>, subsampleRatio <a href="#name-YCbCrSubsampleRatio">YCbCrSubsampleRatio</a>) *<b>NYCbCrA</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-Paletted" data-popularity="775">	<input type='checkbox' class="fold" id="Paletted-fold-content"><label for="Paletted-fold-content"> <a href="../use/image..Paletted.html">type</a> <a href="../src/image/image.go.html#line-1135">Paletted</a> <i>(struct)</i></label><span id='Paletted-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Paletted" data-popularity="775">	<input type='checkbox' class="fold" id="Paletted-fold-content"><label for="Paletted-fold-content"> <a href="../use/image..Paletted.html">type</a> <a href="../src/image/image.go.html#line-1151">Paletted</a> <i>(struct)</i></label><span id='Paletted-fold-content-docs' class="fold-docs">
 <span class="md-text">		Paletted is an in-memory image of uint8 indices into a given palette.</span>
 
 		<input type='checkbox' class="fold" id="Paletted-fold-fields"><label for="Paletted-fold-fields">Fields (<i>total 4, all are exported</i>)</label><span id='Paletted-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="Paletted-fold-field-Palette"><label for="Paletted-fold-field-Palette"><a href="../src/image/image.go.html#line-1144">Palette</a> <i><a href="image/color.html">color</a>.<a href="image/color.html#name-Palette">Palette</a></i></label><span id='Paletted-fold-field-Palette-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Paletted-fold-field-Palette"><label for="Paletted-fold-field-Palette"><a href="../src/image/image.go.html#line-1160">Palette</a> <i><a href="image/color.html">color</a>.<a href="image/color.html#name-Palette">Palette</a></i></label><span id='Paletted-fold-field-Palette-docs' class="fold-docs">
 <span class="md-text">				Palette is the image's palette.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Paletted-fold-field-Pix"><label for="Paletted-fold-field-Pix"><a href="../src/image/image.go.html#line-1138">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='Paletted-fold-field-Pix-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Paletted-fold-field-Pix"><label for="Paletted-fold-field-Pix"><a href="../src/image/image.go.html#line-1154">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='Paletted-fold-field-Pix-docs' class="fold-docs">
 <span class="md-text">				Pix holds the image's pixels, as palette indices. The pixel at
 				(x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*1].</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Paletted-fold-field-Rect"><label for="Paletted-fold-field-Rect"><a href="../src/image/image.go.html#line-1142">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='Paletted-fold-field-Rect-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Paletted-fold-field-Rect"><label for="Paletted-fold-field-Rect"><a href="../src/image/image.go.html#line-1158">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='Paletted-fold-field-Rect-docs' class="fold-docs">
 <span class="md-text">				Rect is the image's bounds.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Paletted-fold-field-Stride"><label for="Paletted-fold-field-Stride"><a href="../src/image/image.go.html#line-1140">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='Paletted-fold-field-Stride-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Paletted-fold-field-Stride"><label for="Paletted-fold-field-Stride"><a href="../src/image/image.go.html#line-1156">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='Paletted-fold-field-Stride-docs' class="fold-docs">
 <span class="md-text">				Stride is the Pix stride (in bytes) between vertically adjacent pixels.</span>
 </span></span></span>
 		<input type='checkbox' class="fold" id="Paletted-fold-methods"><label for="Paletted-fold-methods">Methods (<i>total 11, all are exported</i>)</label><span id='Paletted-fold-methods-items' class="fold-items"><span>
-			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1151">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
-			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1149">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
-			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1204">ColorIndexAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-uint8">uint8</a></span></span><span>
-			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1147">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
-			<input type='checkbox' class="fold" id="Paletted-fold-method-Opaque"><label for="Paletted-fold-method-Opaque">(*Paletted) <a href="../src/image/image.go.html#line-1242">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='Paletted-fold-method-Opaque-docs' class="fold-docs">
+			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1167">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
+			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1165">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
+			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1220">ColorIndexAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-uint8">uint8</a></span></span><span>
+			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1163">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
+			<input type='checkbox' class="fold" id="Paletted-fold-method-Opaque"><label for="Paletted-fold-method-Opaque">(*Paletted) <a href="../src/image/image.go.html#line-1258">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='Paletted-fold-method-Opaque-docs' class="fold-docs">
 <span class="md-text">				Opaque scans the entire image and reports whether it is fully opaque.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Paletted-fold-method-PixOffset"><label for="Paletted-fold-method-PixOffset">(*Paletted) <a href="../src/image/image.go.html#line-1184">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='Paletted-fold-method-PixOffset-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Paletted-fold-method-PixOffset"><label for="Paletted-fold-method-PixOffset">(*Paletted) <a href="../src/image/image.go.html#line-1200">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='Paletted-fold-method-PixOffset-docs' class="fold-docs">
 <span class="md-text">				PixOffset returns the index of the first element of Pix that corresponds to
 				the pixel at (x, y).</span>
 </span></span><span>
-			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1162">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
-			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1188">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
-			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1212">SetColorIndex</a>(x, y <a href="builtin.html#name-int">int</a>, index <a href="builtin.html#name-uint8">uint8</a>)</span></span><span>
-			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1196">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
-			<input type='checkbox' class="fold" id="Paletted-fold-method-SubImage"><label for="Paletted-fold-method-SubImage">(*Paletted) <a href="../src/image/image.go.html#line-1222">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='Paletted-fold-method-SubImage-docs' class="fold-docs">
+			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1178">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
+			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1204">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
+			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1228">SetColorIndex</a>(x, y <a href="builtin.html#name-int">int</a>, index <a href="builtin.html#name-uint8">uint8</a>)</span></span><span>
+			<span class="nodocs">(*Paletted) <a href="../src/image/image.go.html#line-1212">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="Paletted-fold-method-SubImage"><label for="Paletted-fold-method-SubImage">(*Paletted) <a href="../src/image/image.go.html#line-1238">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='Paletted-fold-method-SubImage-docs' class="fold-docs">
 <span class="md-text">				SubImage returns an image representing the portion of the image p visible
 				through r. The returned value shares pixels with the original image.</span>
 </span></span></span>
@@ -481,27 +497,27 @@
 		<input type='checkbox' class="fold" id="Paletted-fold-results"><label for="Paletted-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Paletted-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewPaletted">NewPaletted</a>(r <a href="#name-Rectangle">Rectangle</a>, p <a href="image/color.html">color</a>.<a href="image/color.html#name-Palette">Palette</a>) *<b>Paletted</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-PalettedImage" data-popularity="400">	<input type='checkbox' class="fold" id="PalettedImage-fold-content"><label for="PalettedImage-fold-content"> <a href="../use/image..PalettedImage.html">type</a> <a href="../src/image/image.go.html#line-66">PalettedImage</a> <b><i>(interface)</i></b></label><span id='PalettedImage-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-PalettedImage" data-popularity="400">	<input type='checkbox' class="fold" id="PalettedImage-fold-content"><label for="PalettedImage-fold-content"> <a href="../use/image..PalettedImage.html">type</a> <a href="../src/image/image.go.html#line-82">PalettedImage</a> <b><i>(interface)</i></b></label><span id='PalettedImage-fold-content-docs' class="fold-docs">
 <span class="md-text">		PalettedImage is an image whose colors may come from a limited palette.
-		If m is a PalettedImage and m.ColorModel() returns a color.Palette p,
+		If m is a PalettedImage and m.ColorModel() returns a [color.Palette] p,
 		then m.At(x, y) should be equivalent to p[m.ColorIndexAt(x, y)]. If m's
 		color model is not a color.Palette, then ColorIndexAt's behavior is
 		undefined.</span>
 
 		<input type='checkbox' class="fold" id="PalettedImage-fold-methods"><label for="PalettedImage-fold-methods">Methods (<i>total 4, all are exported</i>)</label><span id='PalettedImage-fold-methods-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="PalettedImage-fold-method-At"><label for="PalettedImage-fold-method-At">( PalettedImage) <a href="../src/image/image.go.html#line-47">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></label><span id='PalettedImage-fold-method-At-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="PalettedImage-fold-method-At"><label for="PalettedImage-fold-method-At">( PalettedImage) <a href="../src/image/image.go.html#line-63">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></label><span id='PalettedImage-fold-method-At-docs' class="fold-docs">
 <span class="md-text">				At returns the color of the pixel at (x, y).
 				At(Bounds().Min.X, Bounds().Min.Y) returns the upper-left pixel of the grid.
 				At(Bounds().Max.X-1, Bounds().Max.Y-1) returns the lower-right one.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="PalettedImage-fold-method-Bounds"><label for="PalettedImage-fold-method-Bounds">( PalettedImage) <a href="../src/image/image.go.html#line-43">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></label><span id='PalettedImage-fold-method-Bounds-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="PalettedImage-fold-method-Bounds"><label for="PalettedImage-fold-method-Bounds">( PalettedImage) <a href="../src/image/image.go.html#line-59">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></label><span id='PalettedImage-fold-method-Bounds-docs' class="fold-docs">
 <span class="md-text">				Bounds returns the domain for which At can return non-zero color.
 				The bounds do not necessarily contain the point (0, 0).</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="PalettedImage-fold-method-ColorIndexAt"><label for="PalettedImage-fold-method-ColorIndexAt">( PalettedImage) <a href="../src/image/image.go.html#line-68">ColorIndexAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-uint8">uint8</a></label><span id='PalettedImage-fold-method-ColorIndexAt-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="PalettedImage-fold-method-ColorIndexAt"><label for="PalettedImage-fold-method-ColorIndexAt">( PalettedImage) <a href="../src/image/image.go.html#line-84">ColorIndexAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-uint8">uint8</a></label><span id='PalettedImage-fold-method-ColorIndexAt-docs' class="fold-docs">
 <span class="md-text">				ColorIndexAt returns the palette index of the pixel at (x, y).</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="PalettedImage-fold-method-ColorModel"><label for="PalettedImage-fold-method-ColorModel">( PalettedImage) <a href="../src/image/image.go.html#line-40">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></label><span id='PalettedImage-fold-method-ColorModel-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="PalettedImage-fold-method-ColorModel"><label for="PalettedImage-fold-method-ColorModel">( PalettedImage) <a href="../src/image/image.go.html#line-56">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></label><span id='PalettedImage-fold-method-ColorModel-docs' class="fold-docs">
 <span class="md-text">				ColorModel returns the Image's color model.</span>
 </span></span></span>
 		<input type='checkbox' class="fold" id="PalettedImage-fold-impledby"><label for="PalettedImage-fold-impledby">Implemented By (<i>at least one exported</i>)</label><span id='PalettedImage-fold-impledby-items' class="fold-items"><span>
@@ -569,7 +585,7 @@
 		well-formed. A rectangle's methods always return well-formed outputs for
 		well-formed inputs.
 		
-		A Rectangle is also an Image whose bounds are the rectangle itself. At
+		A Rectangle is also an [Image] whose bounds are the rectangle itself. At
 		returns color.Opaque for points in the rectangle and color.Transparent
 		otherwise.</span>
 
@@ -581,17 +597,17 @@
 <span class="md-text">				Add returns the rectangle r translated by p.</span>
 </span></span><span>
 			<input type='checkbox' class="fold" id="Rectangle-fold-method-At"><label for="Rectangle-fold-method-At">( Rectangle) <a href="../src/image/geom.go.html#line-242">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></label><span id='Rectangle-fold-method-At-docs' class="fold-docs">
-<span class="md-text">				At implements the Image interface.</span>
+<span class="md-text">				At implements the [Image] interface.</span>
 </span></span><span>
 			<input type='checkbox' class="fold" id="Rectangle-fold-method-Bounds"><label for="Rectangle-fold-method-Bounds">( Rectangle) <a href="../src/image/geom.go.html#line-258">Bounds</a>() <b>Rectangle</b></label><span id='Rectangle-fold-method-Bounds-docs' class="fold-docs">
-<span class="md-text">				Bounds implements the Image interface.</span>
+<span class="md-text">				Bounds implements the [Image] interface.</span>
 </span></span><span>
 			<input type='checkbox' class="fold" id="Rectangle-fold-method-Canon"><label for="Rectangle-fold-method-Canon">( Rectangle) <a href="../src/image/geom.go.html#line-231">Canon</a>() <b>Rectangle</b></label><span id='Rectangle-fold-method-Canon-docs' class="fold-docs">
 <span class="md-text">				Canon returns the canonical version of r. The returned rectangle has minimum
 				and maximum coordinates swapped if necessary so that it is well-formed.</span>
 </span></span><span>
 			<input type='checkbox' class="fold" id="Rectangle-fold-method-ColorModel"><label for="Rectangle-fold-method-ColorModel">( Rectangle) <a href="../src/image/geom.go.html#line-263">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></label><span id='Rectangle-fold-method-ColorModel-docs' class="fold-docs">
-<span class="md-text">				ColorModel implements the Image interface.</span>
+<span class="md-text">				ColorModel implements the [Image] interface.</span>
 </span></span><span>
 			<input type='checkbox' class="fold" id="Rectangle-fold-method-Dx"><label for="Rectangle-fold-method-Dx">( Rectangle) <a href="../src/image/geom.go.html#line-98">Dx</a>() <a href="builtin.html#name-int">int</a></label><span id='Rectangle-fold-method-Dx-docs' class="fold-docs">
 <span class="md-text">				Dx returns r's width.</span>
@@ -622,7 +638,7 @@
 <span class="md-text">				Overlaps reports whether r and s have a non-empty intersection.</span>
 </span></span><span>
 			<input type='checkbox' class="fold" id="Rectangle-fold-method-RGBA64At"><label for="Rectangle-fold-method-RGBA64At">( Rectangle) <a href="../src/image/geom.go.html#line-250">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></label><span id='Rectangle-fold-method-RGBA64At-docs' class="fold-docs">
-<span class="md-text">				RGBA64At implements the RGBA64Image interface.</span>
+<span class="md-text">				RGBA64At implements the [RGBA64Image] interface.</span>
 </span></span><span>
 			<input type='checkbox' class="fold" id="Rectangle-fold-method-Size"><label for="Rectangle-fold-method-Size">( Rectangle) <a href="../src/image/geom.go.html#line-108">Size</a>() <a href="#name-Point">Point</a></label><span id='Rectangle-fold-method-Size-docs' class="fold-docs">
 <span class="md-text">				Size returns r's width and height.</span>
@@ -645,16 +661,16 @@
 			 Rectangle : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="Rectangle-fold-results"><label for="Rectangle-fold-results">As Outputs Of (<i>at least 23, all are exported</i>)</label><span id='Rectangle-fold-results-items' class="fold-items"><span>
 			func <a href="#name-Rect">Rect</a>(x0, y0, x1, y1 <a href="builtin.html#name-int">int</a>) <b>Rectangle</b></span><span>
-			func (*<a href="#name-Alpha">Alpha</a>).<a href="../src/image/image.go.html#line-622">Bounds</a>() <b>Rectangle</b></span><span>
-			func (*<a href="#name-Alpha16">Alpha16</a>).<a href="../src/image/image.go.html#line-730">Bounds</a>() <b>Rectangle</b></span><span>
-			func (*<a href="#name-CMYK">CMYK</a>).<a href="../src/image/image.go.html#line-1038">Bounds</a>() <b>Rectangle</b></span><span>
-			func (*<a href="#name-Gray">Gray</a>).<a href="../src/image/image.go.html#line-841">Bounds</a>() <b>Rectangle</b></span><span>
-			func (*<a href="#name-Gray16">Gray16</a>).<a href="../src/image/image.go.html#line-938">Bounds</a>() <b>Rectangle</b></span><span>
-			func <a href="#name-Image">Image</a>.<a href="../src/image/image.go.html#line-43">Bounds</a>() <b>Rectangle</b></span><span>
-			func (*<a href="#name-NRGBA">NRGBA</a>).<a href="../src/image/image.go.html#line-351">Bounds</a>() <b>Rectangle</b></span><span>
-			func (*<a href="#name-NRGBA64">NRGBA64</a>).<a href="../src/image/image.go.html#line-478">Bounds</a>() <b>Rectangle</b></span><span>
-			func (*<a href="#name-Paletted">Paletted</a>).<a href="../src/image/image.go.html#line-1149">Bounds</a>() <b>Rectangle</b></span><span>
-			func <a href="#name-PalettedImage">PalettedImage</a>.<a href="../src/image/image.go.html#line-43">Bounds</a>() <b>Rectangle</b></span><span>
+			func (*<a href="#name-Alpha">Alpha</a>).<a href="../src/image/image.go.html#line-638">Bounds</a>() <b>Rectangle</b></span><span>
+			func (*<a href="#name-Alpha16">Alpha16</a>).<a href="../src/image/image.go.html#line-746">Bounds</a>() <b>Rectangle</b></span><span>
+			func (*<a href="#name-CMYK">CMYK</a>).<a href="../src/image/image.go.html#line-1054">Bounds</a>() <b>Rectangle</b></span><span>
+			func (*<a href="#name-Gray">Gray</a>).<a href="../src/image/image.go.html#line-857">Bounds</a>() <b>Rectangle</b></span><span>
+			func (*<a href="#name-Gray16">Gray16</a>).<a href="../src/image/image.go.html#line-954">Bounds</a>() <b>Rectangle</b></span><span>
+			func <a href="#name-Image">Image</a>.<a href="../src/image/image.go.html#line-59">Bounds</a>() <b>Rectangle</b></span><span>
+			func (*<a href="#name-NRGBA">NRGBA</a>).<a href="../src/image/image.go.html#line-367">Bounds</a>() <b>Rectangle</b></span><span>
+			func (*<a href="#name-NRGBA64">NRGBA64</a>).<a href="../src/image/image.go.html#line-494">Bounds</a>() <b>Rectangle</b></span><span>
+			func (*<a href="#name-Paletted">Paletted</a>).<a href="../src/image/image.go.html#line-1165">Bounds</a>() <b>Rectangle</b></span><span>
+			func <a href="#name-PalettedImage">PalettedImage</a>.<a href="../src/image/image.go.html#line-59">Bounds</a>() <b>Rectangle</b></span><span>
 			func Rectangle.<a href="../src/image/geom.go.html#line-116">Add</a>(p <a href="#name-Point">Point</a>) <b>Rectangle</b></span><span>
 			func Rectangle.<a href="../src/image/geom.go.html#line-258">Bounds</a>() <b>Rectangle</b></span><span>
 			func Rectangle.<a href="../src/image/geom.go.html#line-231">Canon</a>() <b>Rectangle</b></span><span>
@@ -662,9 +678,9 @@
 			func Rectangle.<a href="../src/image/geom.go.html#line-154">Intersect</a>(s <b>Rectangle</b>) <b>Rectangle</b></span><span>
 			func Rectangle.<a href="../src/image/geom.go.html#line-124">Sub</a>(p <a href="#name-Point">Point</a>) <b>Rectangle</b></span><span>
 			func Rectangle.<a href="../src/image/geom.go.html#line-178">Union</a>(s <b>Rectangle</b>) <b>Rectangle</b></span><span>
-			func (*<a href="#name-RGBA">RGBA</a>).<a href="../src/image/image.go.html#line-100">Bounds</a>() <b>Rectangle</b></span><span>
-			func (*<a href="#name-RGBA64">RGBA64</a>).<a href="../src/image/image.go.html#line-234">Bounds</a>() <b>Rectangle</b></span><span>
-			func <a href="#name-RGBA64Image">RGBA64Image</a>.<a href="../src/image/image.go.html#line-43">Bounds</a>() <b>Rectangle</b></span><span>
+			func (*<a href="#name-RGBA">RGBA</a>).<a href="../src/image/image.go.html#line-116">Bounds</a>() <b>Rectangle</b></span><span>
+			func (*<a href="#name-RGBA64">RGBA64</a>).<a href="../src/image/image.go.html#line-250">Bounds</a>() <b>Rectangle</b></span><span>
+			func <a href="#name-RGBA64Image">RGBA64Image</a>.<a href="../src/image/image.go.html#line-59">Bounds</a>() <b>Rectangle</b></span><span>
 			func (*<a href="#name-Uniform">Uniform</a>).<a href="../src/image/names.go.html#line-40">Bounds</a>() <b>Rectangle</b></span><span>
 			func (*<a href="#name-YCbCr">YCbCr</a>).<a href="../src/image/ycbcr.go.html#line-67">Bounds</a>() <b>Rectangle</b></span></span>
 		<input type='checkbox' class="fold" id="Rectangle-fold-params"><label for="Rectangle-fold-params">As Inputs Of (<i>at least 33, in which 31 are exported</i>)</label><span id='Rectangle-fold-params-items' class="fold-items"><span>
@@ -680,15 +696,15 @@
 			func <a href="#name-NewRGBA">NewRGBA</a>(r <b>Rectangle</b>) *<a href="#name-RGBA">RGBA</a></span><span>
 			func <a href="#name-NewRGBA64">NewRGBA64</a>(r <b>Rectangle</b>) *<a href="#name-RGBA64">RGBA64</a></span><span>
 			func <a href="#name-NewYCbCr">NewYCbCr</a>(r <b>Rectangle</b>, subsampleRatio <a href="#name-YCbCrSubsampleRatio">YCbCrSubsampleRatio</a>) *<a href="#name-YCbCr">YCbCr</a></span><span>
-			func (*<a href="#name-Alpha">Alpha</a>).<a href="../src/image/image.go.html#line-674">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
-			func (*<a href="#name-Alpha16">Alpha16</a>).<a href="../src/image/image.go.html#line-785">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
-			func (*<a href="#name-CMYK">CMYK</a>).<a href="../src/image/image.go.html#line-1104">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
-			func (*<a href="#name-Gray">Gray</a>).<a href="../src/image/image.go.html#line-895">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
-			func (*<a href="#name-Gray16">Gray16</a>).<a href="../src/image/image.go.html#line-995">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
-			func (*<a href="#name-NRGBA">NRGBA</a>).<a href="../src/image/image.go.html#line-422">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
-			func (*<a href="#name-NRGBA64">NRGBA64</a>).<a href="../src/image/image.go.html#line-566">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
+			func (*<a href="#name-Alpha">Alpha</a>).<a href="../src/image/image.go.html#line-690">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
+			func (*<a href="#name-Alpha16">Alpha16</a>).<a href="../src/image/image.go.html#line-801">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
+			func (*<a href="#name-CMYK">CMYK</a>).<a href="../src/image/image.go.html#line-1120">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
+			func (*<a href="#name-Gray">Gray</a>).<a href="../src/image/image.go.html#line-911">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
+			func (*<a href="#name-Gray16">Gray16</a>).<a href="../src/image/image.go.html#line-1011">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
+			func (*<a href="#name-NRGBA">NRGBA</a>).<a href="../src/image/image.go.html#line-438">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
+			func (*<a href="#name-NRGBA64">NRGBA64</a>).<a href="../src/image/image.go.html#line-582">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
 			func (*<a href="#name-NYCbCrA">NYCbCrA</a>).<a href="../src/image/ycbcr.go.html#line-249">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
-			func (*<a href="#name-Paletted">Paletted</a>).<a href="../src/image/image.go.html#line-1222">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
+			func (*<a href="#name-Paletted">Paletted</a>).<a href="../src/image/image.go.html#line-1238">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
 			func <a href="#name-Point">Point</a>.<a href="../src/image/geom.go.html#line-44">In</a>(r <b>Rectangle</b>) <a href="builtin.html#name-bool">bool</a></span><span>
 			func <a href="#name-Point">Point</a>.<a href="../src/image/geom.go.html#line-51">Mod</a>(r <b>Rectangle</b>) <a href="#name-Point">Point</a></span><span>
 			func Rectangle.<a href="../src/image/geom.go.html#line-207">Eq</a>(s <b>Rectangle</b>) <a href="builtin.html#name-bool">bool</a></span><span>
@@ -696,8 +712,8 @@
 			func Rectangle.<a href="../src/image/geom.go.html#line-154">Intersect</a>(s <b>Rectangle</b>) <b>Rectangle</b></span><span>
 			func Rectangle.<a href="../src/image/geom.go.html#line-212">Overlaps</a>(s <b>Rectangle</b>) <a href="builtin.html#name-bool">bool</a></span><span>
 			func Rectangle.<a href="../src/image/geom.go.html#line-178">Union</a>(s <b>Rectangle</b>) <b>Rectangle</b></span><span>
-			func (*<a href="#name-RGBA">RGBA</a>).<a href="../src/image/image.go.html#line-178">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
-			func (*<a href="#name-RGBA64">RGBA64</a>).<a href="../src/image/image.go.html#line-295">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
+			func (*<a href="#name-RGBA">RGBA</a>).<a href="../src/image/image.go.html#line-194">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
+			func (*<a href="#name-RGBA64">RGBA64</a>).<a href="../src/image/image.go.html#line-311">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span><span>
 			func (*<a href="#name-YCbCr">YCbCr</a>).<a href="../src/image/ycbcr.go.html#line-120">SubImage</a>(r <b>Rectangle</b>) <a href="#name-Image">Image</a></span>
 			<input type='checkbox' class="showhide" id="Rectangle-showhide-outputofs"><i><label for="Rectangle-showhide-outputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="Rectangle-showhide-outputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-pixelBufferLength">pixelBufferLength</a>(bytesPerPixel <a href="builtin.html#name-int">int</a>, r <b>Rectangle</b>, imageTypeName <a href="builtin.html#name-string">string</a>) <a href="builtin.html#name-int">int</a></i></span><span class="hidden"><i>
@@ -705,37 +721,37 @@
 		<input type='checkbox' class="fold" id="Rectangle-fold-values"><label for="Rectangle-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='Rectangle-fold-values-items' class="fold-items"><span>
 			  var <a href="#name-ZR">ZR</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-RGBA" data-popularity="725">	<input type='checkbox' class="fold" id="RGBA-fold-content"><label for="RGBA-fold-content"> <a href="../use/image..RGBA.html">type</a> <a href="../src/image/image.go.html#line-88">RGBA</a> <i>(struct)</i></label><span id='RGBA-fold-content-docs' class="fold-docs">
-<span class="md-text">		RGBA is an in-memory image whose At method returns color.RGBA values.</span>
+</span></div><div class="anchor type-res" id="name-RGBA" data-popularity="725">	<input type='checkbox' class="fold" id="RGBA-fold-content"><label for="RGBA-fold-content"> <a href="../use/image..RGBA.html">type</a> <a href="../src/image/image.go.html#line-104">RGBA</a> <i>(struct)</i></label><span id='RGBA-fold-content-docs' class="fold-docs">
+<span class="md-text">		RGBA is an in-memory image whose At method returns [color.RGBA] values.</span>
 
 		<input type='checkbox' class="fold" id="RGBA-fold-fields"><label for="RGBA-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='RGBA-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="RGBA-fold-field-Pix"><label for="RGBA-fold-field-Pix"><a href="../src/image/image.go.html#line-91">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='RGBA-fold-field-Pix-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RGBA-fold-field-Pix"><label for="RGBA-fold-field-Pix"><a href="../src/image/image.go.html#line-107">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='RGBA-fold-field-Pix-docs' class="fold-docs">
 <span class="md-text">				Pix holds the image's pixels, in R, G, B, A order. The pixel at
 				(x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*4].</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="RGBA-fold-field-Rect"><label for="RGBA-fold-field-Rect"><a href="../src/image/image.go.html#line-95">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='RGBA-fold-field-Rect-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RGBA-fold-field-Rect"><label for="RGBA-fold-field-Rect"><a href="../src/image/image.go.html#line-111">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='RGBA-fold-field-Rect-docs' class="fold-docs">
 <span class="md-text">				Rect is the image's bounds.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="RGBA-fold-field-Stride"><label for="RGBA-fold-field-Stride"><a href="../src/image/image.go.html#line-93">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='RGBA-fold-field-Stride-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RGBA-fold-field-Stride"><label for="RGBA-fold-field-Stride"><a href="../src/image/image.go.html#line-109">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='RGBA-fold-field-Stride-docs' class="fold-docs">
 <span class="md-text">				Stride is the Pix stride (in bytes) between vertically adjacent pixels.</span>
 </span></span></span>
 		<input type='checkbox' class="fold" id="RGBA-fold-methods"><label for="RGBA-fold-methods">Methods (<i>total 11, all are exported</i>)</label><span id='RGBA-fold-methods-items' class="fold-items"><span>
-			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-102">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
-			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-100">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
-			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-98">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
-			<input type='checkbox' class="fold" id="RGBA-fold-method-Opaque"><label for="RGBA-fold-method-Opaque">(*RGBA) <a href="../src/image/image.go.html#line-195">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='RGBA-fold-method-Opaque-docs' class="fold-docs">
+			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-118">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
+			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-116">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
+			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-114">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
+			<input type='checkbox' class="fold" id="RGBA-fold-method-Opaque"><label for="RGBA-fold-method-Opaque">(*RGBA) <a href="../src/image/image.go.html#line-211">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='RGBA-fold-method-Opaque-docs' class="fold-docs">
 <span class="md-text">				Opaque scans the entire image and reports whether it is fully opaque.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="RGBA-fold-method-PixOffset"><label for="RGBA-fold-method-PixOffset">(*RGBA) <a href="../src/image/image.go.html#line-135">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='RGBA-fold-method-PixOffset-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RGBA-fold-method-PixOffset"><label for="RGBA-fold-method-PixOffset">(*RGBA) <a href="../src/image/image.go.html#line-151">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='RGBA-fold-method-PixOffset-docs' class="fold-docs">
 <span class="md-text">				PixOffset returns the index of the first element of Pix that corresponds to
 				the pixel at (x, y).</span>
 </span></span><span>
-			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-106">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
-			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-124">RGBAAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA">RGBA</a></span></span><span>
-			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-139">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
-			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-164">SetRGBA</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA">RGBA</a>)</span></span><span>
-			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-152">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
-			<input type='checkbox' class="fold" id="RGBA-fold-method-SubImage"><label for="RGBA-fold-method-SubImage">(*RGBA) <a href="../src/image/image.go.html#line-178">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='RGBA-fold-method-SubImage-docs' class="fold-docs">
+			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-122">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
+			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-140">RGBAAt</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA">RGBA</a></span></span><span>
+			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-155">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
+			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-180">SetRGBA</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA">RGBA</a>)</span></span><span>
+			<span class="nodocs">(*RGBA) <a href="../src/image/image.go.html#line-168">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="RGBA-fold-method-SubImage"><label for="RGBA-fold-method-SubImage">(*RGBA) <a href="../src/image/image.go.html#line-194">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='RGBA-fold-method-SubImage-docs' class="fold-docs">
 <span class="md-text">				SubImage returns an image representing the portion of the image p visible
 				through r. The returned value shares pixels with the original image.</span>
 </span></span></span>
@@ -745,35 +761,35 @@
 		<input type='checkbox' class="fold" id="RGBA-fold-results"><label for="RGBA-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='RGBA-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewRGBA">NewRGBA</a>(r <a href="#name-Rectangle">Rectangle</a>) *<b>RGBA</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-RGBA64" data-popularity="625">	<input type='checkbox' class="fold" id="RGBA64-fold-content"><label for="RGBA64-fold-content"> <a href="../use/image..RGBA64.html">type</a> <a href="../src/image/image.go.html#line-222">RGBA64</a> <i>(struct)</i></label><span id='RGBA64-fold-content-docs' class="fold-docs">
-<span class="md-text">		RGBA64 is an in-memory image whose At method returns color.RGBA64 values.</span>
+</span></div><div class="anchor type-res" id="name-RGBA64" data-popularity="625">	<input type='checkbox' class="fold" id="RGBA64-fold-content"><label for="RGBA64-fold-content"> <a href="../use/image..RGBA64.html">type</a> <a href="../src/image/image.go.html#line-238">RGBA64</a> <i>(struct)</i></label><span id='RGBA64-fold-content-docs' class="fold-docs">
+<span class="md-text">		RGBA64 is an in-memory image whose At method returns [color.RGBA64] values.</span>
 
 		<input type='checkbox' class="fold" id="RGBA64-fold-fields"><label for="RGBA64-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='RGBA64-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="RGBA64-fold-field-Pix"><label for="RGBA64-fold-field-Pix"><a href="../src/image/image.go.html#line-91">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='RGBA64-fold-field-Pix-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RGBA64-fold-field-Pix"><label for="RGBA64-fold-field-Pix"><a href="../src/image/image.go.html#line-107">Pix</a> <i>[]<a href="builtin.html#name-uint8">uint8</a></i></label><span id='RGBA64-fold-field-Pix-docs' class="fold-docs">
 <span class="md-text">				Pix holds the image's pixels, in R, G, B, A order. The pixel at
 				(x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*4].</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="RGBA64-fold-field-Rect"><label for="RGBA64-fold-field-Rect"><a href="../src/image/image.go.html#line-95">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='RGBA64-fold-field-Rect-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RGBA64-fold-field-Rect"><label for="RGBA64-fold-field-Rect"><a href="../src/image/image.go.html#line-111">Rect</a> <i><a href="#name-Rectangle">Rectangle</a></i></label><span id='RGBA64-fold-field-Rect-docs' class="fold-docs">
 <span class="md-text">				Rect is the image's bounds.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="RGBA64-fold-field-Stride"><label for="RGBA64-fold-field-Stride"><a href="../src/image/image.go.html#line-93">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='RGBA64-fold-field-Stride-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RGBA64-fold-field-Stride"><label for="RGBA64-fold-field-Stride"><a href="../src/image/image.go.html#line-109">Stride</a> <i><a href="builtin.html#name-int">int</a></i></label><span id='RGBA64-fold-field-Stride-docs' class="fold-docs">
 <span class="md-text">				Stride is the Pix stride (in bytes) between vertically adjacent pixels.</span>
 </span></span></span>
 		<input type='checkbox' class="fold" id="RGBA64-fold-methods"><label for="RGBA64-fold-methods">Methods (<i>total 9, all are exported</i>)</label><span id='RGBA64-fold-methods-items' class="fold-items"><span>
-			<span class="nodocs">(*RGBA64) <a href="../src/image/image.go.html#line-236">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
-			<span class="nodocs">(*RGBA64) <a href="../src/image/image.go.html#line-234">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
-			<span class="nodocs">(*RGBA64) <a href="../src/image/image.go.html#line-232">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
-			<input type='checkbox' class="fold" id="RGBA64-fold-method-Opaque"><label for="RGBA64-fold-method-Opaque">(*RGBA64) <a href="../src/image/image.go.html#line-312">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='RGBA64-fold-method-Opaque-docs' class="fold-docs">
+			<span class="nodocs">(*RGBA64) <a href="../src/image/image.go.html#line-252">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></span></span><span>
+			<span class="nodocs">(*RGBA64) <a href="../src/image/image.go.html#line-250">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></span></span><span>
+			<span class="nodocs">(*RGBA64) <a href="../src/image/image.go.html#line-248">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></span></span><span>
+			<input type='checkbox' class="fold" id="RGBA64-fold-method-Opaque"><label for="RGBA64-fold-method-Opaque">(*RGBA64) <a href="../src/image/image.go.html#line-328">Opaque</a>() <a href="builtin.html#name-bool">bool</a></label><span id='RGBA64-fold-method-Opaque-docs' class="fold-docs">
 <span class="md-text">				Opaque scans the entire image and reports whether it is fully opaque.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="RGBA64-fold-method-PixOffset"><label for="RGBA64-fold-method-PixOffset">(*RGBA64) <a href="../src/image/image.go.html#line-256">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='RGBA64-fold-method-PixOffset-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RGBA64-fold-method-PixOffset"><label for="RGBA64-fold-method-PixOffset">(*RGBA64) <a href="../src/image/image.go.html#line-272">PixOffset</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='RGBA64-fold-method-PixOffset-docs' class="fold-docs">
 <span class="md-text">				PixOffset returns the index of the first element of Pix that corresponds to
 				the pixel at (x, y).</span>
 </span></span><span>
-			<span class="nodocs">(*RGBA64) <a href="../src/image/image.go.html#line-240">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
-			<span class="nodocs">(*RGBA64) <a href="../src/image/image.go.html#line-260">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
-			<span class="nodocs">(*RGBA64) <a href="../src/image/image.go.html#line-277">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
-			<input type='checkbox' class="fold" id="RGBA64-fold-method-SubImage"><label for="RGBA64-fold-method-SubImage">(*RGBA64) <a href="../src/image/image.go.html#line-295">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='RGBA64-fold-method-SubImage-docs' class="fold-docs">
+			<span class="nodocs">(*RGBA64) <a href="../src/image/image.go.html#line-256">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></span></span><span>
+			<span class="nodocs">(*RGBA64) <a href="../src/image/image.go.html#line-276">Set</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>)</span></span><span>
+			<span class="nodocs">(*RGBA64) <a href="../src/image/image.go.html#line-293">SetRGBA64</a>(x, y <a href="builtin.html#name-int">int</a>, c <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="RGBA64-fold-method-SubImage"><label for="RGBA64-fold-method-SubImage">(*RGBA64) <a href="../src/image/image.go.html#line-311">SubImage</a>(r <a href="#name-Rectangle">Rectangle</a>) <a href="#name-Image">Image</a></label><span id='RGBA64-fold-method-SubImage-docs' class="fold-docs">
 <span class="md-text">				SubImage returns an image representing the portion of the image p visible
 				through r. The returned value shares pixels with the original image.</span>
 </span></span></span>
@@ -783,24 +799,24 @@
 		<input type='checkbox' class="fold" id="RGBA64-fold-results"><label for="RGBA64-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='RGBA64-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewRGBA64">NewRGBA64</a>(r <a href="#name-Rectangle">Rectangle</a>) *<b>RGBA64</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-RGBA64Image" data-popularity="2350">	<input type='checkbox' class="fold" id="RGBA64Image-fold-content"><label for="RGBA64Image-fold-content"> <a href="../use/image..RGBA64Image.html">type</a> <a href="../src/image/image.go.html#line-52">RGBA64Image</a> <b><i>(interface)</i></b></label><span id='RGBA64Image-fold-content-docs' class="fold-docs">
-<span class="md-text">		RGBA64Image is an Image whose pixels can be converted directly to a
+</span></div><div class="anchor type-res" id="name-RGBA64Image" data-popularity="2350">	<input type='checkbox' class="fold" id="RGBA64Image-fold-content"><label for="RGBA64Image-fold-content"> <a href="../use/image..RGBA64Image.html">type</a> <a href="../src/image/image.go.html#line-68">RGBA64Image</a> <b><i>(interface)</i></b></label><span id='RGBA64Image-fold-content-docs' class="fold-docs">
+<span class="md-text">		RGBA64Image is an [Image] whose pixels can be converted directly to a
 		color.RGBA64.</span>
 
 		<input type='checkbox' class="fold" id="RGBA64Image-fold-methods"><label for="RGBA64Image-fold-methods">Methods (<i>total 4, all are exported</i>)</label><span id='RGBA64Image-fold-methods-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="RGBA64Image-fold-method-At"><label for="RGBA64Image-fold-method-At">( RGBA64Image) <a href="../src/image/image.go.html#line-47">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></label><span id='RGBA64Image-fold-method-At-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RGBA64Image-fold-method-At"><label for="RGBA64Image-fold-method-At">( RGBA64Image) <a href="../src/image/image.go.html#line-63">At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></label><span id='RGBA64Image-fold-method-At-docs' class="fold-docs">
 <span class="md-text">				At returns the color of the pixel at (x, y).
 				At(Bounds().Min.X, Bounds().Min.Y) returns the upper-left pixel of the grid.
 				At(Bounds().Max.X-1, Bounds().Max.Y-1) returns the lower-right one.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="RGBA64Image-fold-method-Bounds"><label for="RGBA64Image-fold-method-Bounds">( RGBA64Image) <a href="../src/image/image.go.html#line-43">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></label><span id='RGBA64Image-fold-method-Bounds-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RGBA64Image-fold-method-Bounds"><label for="RGBA64Image-fold-method-Bounds">( RGBA64Image) <a href="../src/image/image.go.html#line-59">Bounds</a>() <a href="#name-Rectangle">Rectangle</a></label><span id='RGBA64Image-fold-method-Bounds-docs' class="fold-docs">
 <span class="md-text">				Bounds returns the domain for which At can return non-zero color.
 				The bounds do not necessarily contain the point (0, 0).</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="RGBA64Image-fold-method-ColorModel"><label for="RGBA64Image-fold-method-ColorModel">( RGBA64Image) <a href="../src/image/image.go.html#line-40">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></label><span id='RGBA64Image-fold-method-ColorModel-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RGBA64Image-fold-method-ColorModel"><label for="RGBA64Image-fold-method-ColorModel">( RGBA64Image) <a href="../src/image/image.go.html#line-56">ColorModel</a>() <a href="image/color.html">color</a>.<a href="image/color.html#name-Model">Model</a></label><span id='RGBA64Image-fold-method-ColorModel-docs' class="fold-docs">
 <span class="md-text">				ColorModel returns the Image's color model.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="RGBA64Image-fold-method-RGBA64At"><label for="RGBA64Image-fold-method-RGBA64At">( RGBA64Image) <a href="../src/image/image.go.html#line-57">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></label><span id='RGBA64Image-fold-method-RGBA64At-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RGBA64Image-fold-method-RGBA64At"><label for="RGBA64Image-fold-method-RGBA64At">( RGBA64Image) <a href="../src/image/image.go.html#line-73">RGBA64At</a>(x, y <a href="builtin.html#name-int">int</a>) <a href="image/color.html">color</a>.<a href="image/color.html#name-RGBA64">RGBA64</a></label><span id='RGBA64Image-fold-method-RGBA64At-docs' class="fold-docs">
 <span class="md-text">				RGBA64At returns the RGBA64 color of the pixel at (x, y). It is
 				equivalent to calling At(x, y).RGBA() and converting the resulting
 				32-bit return values to a color.RGBA64, but it can avoid allocations
@@ -825,8 +841,8 @@
 			 RGBA64Image : <a href="#name-Image">Image</a></span></span>
 
 </span></div><div class="anchor type-res" id="name-Uniform" data-popularity="640">	<input type='checkbox' class="fold" id="Uniform-fold-content"><label for="Uniform-fold-content"> <a href="../use/image..Uniform.html">type</a> <a href="../src/image/names.go.html#line-24">Uniform</a> <i>(struct)</i></label><span id='Uniform-fold-content-docs' class="fold-docs">
-<span class="md-text">		Uniform is an infinite-sized Image of uniform color.
-		It implements the color.Color, color.Model, and Image interfaces.</span>
+<span class="md-text">		Uniform is an infinite-sized [Image] of uniform color.
+		It implements the [color.Color], [color.Model], and [Image] interfaces.</span>
 
 		<input type='checkbox' class="fold" id="Uniform-fold-fields"><label for="Uniform-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='Uniform-fold-fields-items' class="fold-items"><span>
 			<span class="nodocs"><a href="../src/image/names.go.html#line-25">C</a> <i><a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a></i></span></span></span>
@@ -938,15 +954,18 @@
 			<input type='checkbox' checked class="showhide" id="format-showhide-inputofs"><i><label for="format-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="format-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-sniff">sniff</a>(r <a href="#name-reader">reader</a>) <b>format</b></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-reader" data-popularity="560">	<input type='checkbox' class="fold" id="reader-fold-content"><label for="reader-fold-content"> <a href="../use/image..reader^3d094.html">type</a> <a href="../src/image/format.go.html#line-45">reader</a> <b><i>(interface)</i></b></label><span id='reader-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-reader" data-popularity="860">	<input type='checkbox' class="fold" id="reader-fold-content"><label for="reader-fold-content"> <a href="../use/image..reader^3d094.html">type</a> <a href="../src/image/format.go.html#line-45">reader</a> <b><i>(interface)</i></b></label><span id='reader-fold-content-docs' class="fold-docs">
 <span class="md-text">		A reader is an io.Reader that can also peek ahead.</span>
 
 		<input type='checkbox' class="fold" id="reader-fold-methods"><label for="reader-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='reader-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( reader) <a href="../src/image/format.go.html#line-47">Peek</a>(<a href="builtin.html#name-int">int</a>) ([]<a href="builtin.html#name-byte">byte</a>, <a href="builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( reader) <a href="../src/io/io.go.html#line-87">Read</a>(p []<a href="builtin.html#name-byte">byte</a>) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="reader-fold-impledby"><label for="reader-fold-impledby">Implemented By (<i>at least 2, both are exported</i>)</label><span id='reader-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="reader-fold-impledby"><label for="reader-fold-impledby">Implemented By (<i>at least 4, in which 3 are exported</i>)</label><span id='reader-fold-impledby-items' class="fold-items"><span>
 			*bufio.<a href="bufio.html#name-Reader">Reader</a></span><span>
-			 bufio.<a href="bufio.html#name-ReadWriter">ReadWriter</a></span></span>
+			 bufio.<a href="bufio.html#name-ReadWriter">ReadWriter</a></span><span>
+			*bytes.<a href="bytes.html#name-Buffer">Buffer</a></span>
+			<input type='checkbox' checked class="showhide" id="reader-showhide-impedBys"><i><label for="reader-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="reader-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*encoding/json.<a href="encoding/json.html#name-encodeState">encodeState</a></i></span></span>
 		<input type='checkbox' class="fold" id="reader-fold-impls"><label for="reader-fold-impls">Implements (<i>at least one exported</i>)</label><span id='reader-fold-impls-items' class="fold-items"><span>
 			 reader : io.<a href="io.html#name-Reader">Reader</a></span></span>
 		<input type='checkbox' class="fold" id="reader-fold-results"><label for="reader-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='reader-fold-results-items' class="fold-items">
@@ -971,63 +990,63 @@
 		used during format registration. Format registration is typically done by
 		an init function in the codec-specific package.</span>
 
-</span></div><div class="anchor value-res" id="name-NewAlpha">	<input type='checkbox' class="fold" id="NewAlpha-fold-content"><label for="NewAlpha-fold-content"> <a href="../use/image..NewAlpha.html">func</a> <a href="../src/image/image.go.html#line-709">NewAlpha</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-Alpha">Alpha</a></label><span id='NewAlpha-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewAlpha returns a new Alpha image with the given bounds.</span>
+</span></div><div class="anchor value-res" id="name-NewAlpha">	<input type='checkbox' class="fold" id="NewAlpha-fold-content"><label for="NewAlpha-fold-content"> <a href="../use/image..NewAlpha.html">func</a> <a href="../src/image/image.go.html#line-725">NewAlpha</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-Alpha">Alpha</a></label><span id='NewAlpha-fold-content-docs' class="fold-docs">
+<span class="md-text">		NewAlpha returns a new [Alpha] image with the given bounds.</span>
 
-</span></div><div class="anchor value-res" id="name-NewAlpha16">	<input type='checkbox' class="fold" id="NewAlpha16-fold-content"><label for="NewAlpha16-fold-content"> <a href="../use/image..NewAlpha16.html">func</a> <a href="../src/image/image.go.html#line-820">NewAlpha16</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-Alpha16">Alpha16</a></label><span id='NewAlpha16-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewAlpha16 returns a new Alpha16 image with the given bounds.</span>
+</span></div><div class="anchor value-res" id="name-NewAlpha16">	<input type='checkbox' class="fold" id="NewAlpha16-fold-content"><label for="NewAlpha16-fold-content"> <a href="../use/image..NewAlpha16.html">func</a> <a href="../src/image/image.go.html#line-836">NewAlpha16</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-Alpha16">Alpha16</a></label><span id='NewAlpha16-fold-content-docs' class="fold-docs">
+<span class="md-text">		NewAlpha16 returns a new [Alpha16] image with the given bounds.</span>
 
-</span></div><div class="anchor value-res" id="name-NewCMYK">	<input type='checkbox' class="fold" id="NewCMYK-fold-content"><label for="NewCMYK-fold-content"> <a href="../use/image..NewCMYK.html">func</a> <a href="../src/image/image.go.html#line-1126">NewCMYK</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-CMYK">CMYK</a></label><span id='NewCMYK-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor value-res" id="name-NewCMYK">	<input type='checkbox' class="fold" id="NewCMYK-fold-content"><label for="NewCMYK-fold-content"> <a href="../use/image..NewCMYK.html">func</a> <a href="../src/image/image.go.html#line-1142">NewCMYK</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-CMYK">CMYK</a></label><span id='NewCMYK-fold-content-docs' class="fold-docs">
 <span class="md-text">		NewCMYK returns a new CMYK image with the given bounds.</span>
 
-</span></div><div class="anchor value-res" id="name-NewGray">	<input type='checkbox' class="fold" id="NewGray-fold-content"><label for="NewGray-fold-content"> <a href="../use/image..NewGray.html">func</a> <a href="../src/image/image.go.html#line-917">NewGray</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-Gray">Gray</a></label><span id='NewGray-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewGray returns a new Gray image with the given bounds.</span>
+</span></div><div class="anchor value-res" id="name-NewGray">	<input type='checkbox' class="fold" id="NewGray-fold-content"><label for="NewGray-fold-content"> <a href="../use/image..NewGray.html">func</a> <a href="../src/image/image.go.html#line-933">NewGray</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-Gray">Gray</a></label><span id='NewGray-fold-content-docs' class="fold-docs">
+<span class="md-text">		NewGray returns a new [Gray] image with the given bounds.</span>
 
-</span></div><div class="anchor value-res" id="name-NewGray16">	<input type='checkbox' class="fold" id="NewGray16-fold-content"><label for="NewGray16-fold-content"> <a href="../use/image..NewGray16.html">func</a> <a href="../src/image/image.go.html#line-1017">NewGray16</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-Gray16">Gray16</a></label><span id='NewGray16-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewGray16 returns a new Gray16 image with the given bounds.</span>
+</span></div><div class="anchor value-res" id="name-NewGray16">	<input type='checkbox' class="fold" id="NewGray16-fold-content"><label for="NewGray16-fold-content"> <a href="../use/image..NewGray16.html">func</a> <a href="../src/image/image.go.html#line-1033">NewGray16</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-Gray16">Gray16</a></label><span id='NewGray16-fold-content-docs' class="fold-docs">
+<span class="md-text">		NewGray16 returns a new [Gray16] image with the given bounds.</span>
 
-</span></div><div class="anchor value-res" id="name-NewNRGBA">	<input type='checkbox' class="fold" id="NewNRGBA-fold-content"><label for="NewNRGBA-fold-content"> <a href="../use/image..NewNRGBA.html">func</a> <a href="../src/image/image.go.html#line-457">NewNRGBA</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-NRGBA">NRGBA</a></label><span id='NewNRGBA-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewNRGBA returns a new NRGBA image with the given bounds.</span>
+</span></div><div class="anchor value-res" id="name-NewNRGBA">	<input type='checkbox' class="fold" id="NewNRGBA-fold-content"><label for="NewNRGBA-fold-content"> <a href="../use/image..NewNRGBA.html">func</a> <a href="../src/image/image.go.html#line-473">NewNRGBA</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-NRGBA">NRGBA</a></label><span id='NewNRGBA-fold-content-docs' class="fold-docs">
+<span class="md-text">		NewNRGBA returns a new [NRGBA] image with the given bounds.</span>
 
-</span></div><div class="anchor value-res" id="name-NewNRGBA64">	<input type='checkbox' class="fold" id="NewNRGBA64-fold-content"><label for="NewNRGBA64-fold-content"> <a href="../use/image..NewNRGBA64.html">func</a> <a href="../src/image/image.go.html#line-601">NewNRGBA64</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-NRGBA64">NRGBA64</a></label><span id='NewNRGBA64-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewNRGBA64 returns a new NRGBA64 image with the given bounds.</span>
+</span></div><div class="anchor value-res" id="name-NewNRGBA64">	<input type='checkbox' class="fold" id="NewNRGBA64-fold-content"><label for="NewNRGBA64-fold-content"> <a href="../use/image..NewNRGBA64.html">func</a> <a href="../src/image/image.go.html#line-617">NewNRGBA64</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-NRGBA64">NRGBA64</a></label><span id='NewNRGBA64-fold-content-docs' class="fold-docs">
+<span class="md-text">		NewNRGBA64 returns a new [NRGBA64] image with the given bounds.</span>
 
 </span></div><div class="anchor value-res" id="name-NewNYCbCrA">	<input type='checkbox' class="fold" id="NewNYCbCrA-fold-content"><label for="NewNYCbCrA-fold-content"> <a href="../use/image..NewNYCbCrA.html">func</a> <a href="../src/image/ycbcr.go.html#line-299">NewNYCbCrA</a>(r <a href="#name-Rectangle">Rectangle</a>, subsampleRatio <a href="#name-YCbCrSubsampleRatio">YCbCrSubsampleRatio</a>) *<a href="#name-NYCbCrA">NYCbCrA</a></label><span id='NewNYCbCrA-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewNYCbCrA returns a new NYCbCrA image with the given bounds and subsample
+<span class="md-text">		NewNYCbCrA returns a new [NYCbCrA] image with the given bounds and subsample
 		ratio.</span>
 
-</span></div><div class="anchor value-res" id="name-NewPaletted">	<input type='checkbox' class="fold" id="NewPaletted-fold-content"><label for="NewPaletted-fold-content"> <a href="../use/image..NewPaletted.html">func</a> <a href="../src/image/image.go.html#line-1266">NewPaletted</a>(r <a href="#name-Rectangle">Rectangle</a>, p <a href="image/color.html">color</a>.<a href="image/color.html#name-Palette">Palette</a>) *<a href="#name-Paletted">Paletted</a></label><span id='NewPaletted-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewPaletted returns a new Paletted image with the given width, height and
+</span></div><div class="anchor value-res" id="name-NewPaletted">	<input type='checkbox' class="fold" id="NewPaletted-fold-content"><label for="NewPaletted-fold-content"> <a href="../use/image..NewPaletted.html">func</a> <a href="../src/image/image.go.html#line-1282">NewPaletted</a>(r <a href="#name-Rectangle">Rectangle</a>, p <a href="image/color.html">color</a>.<a href="image/color.html#name-Palette">Palette</a>) *<a href="#name-Paletted">Paletted</a></label><span id='NewPaletted-fold-content-docs' class="fold-docs">
+<span class="md-text">		NewPaletted returns a new [Paletted] image with the given width, height and
 		palette.</span>
 
-</span></div><div class="anchor value-res" id="name-NewRGBA">	<input type='checkbox' class="fold" id="NewRGBA-fold-content"><label for="NewRGBA-fold-content"> <a href="../use/image..NewRGBA.html">func</a> <a href="../src/image/image.go.html#line-213">NewRGBA</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-RGBA">RGBA</a></label><span id='NewRGBA-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewRGBA returns a new RGBA image with the given bounds.</span>
+</span></div><div class="anchor value-res" id="name-NewRGBA">	<input type='checkbox' class="fold" id="NewRGBA-fold-content"><label for="NewRGBA-fold-content"> <a href="../use/image..NewRGBA.html">func</a> <a href="../src/image/image.go.html#line-229">NewRGBA</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-RGBA">RGBA</a></label><span id='NewRGBA-fold-content-docs' class="fold-docs">
+<span class="md-text">		NewRGBA returns a new [RGBA] image with the given bounds.</span>
 
-</span></div><div class="anchor value-res" id="name-NewRGBA64">	<input type='checkbox' class="fold" id="NewRGBA64-fold-content"><label for="NewRGBA64-fold-content"> <a href="../use/image..NewRGBA64.html">func</a> <a href="../src/image/image.go.html#line-330">NewRGBA64</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-RGBA64">RGBA64</a></label><span id='NewRGBA64-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewRGBA64 returns a new RGBA64 image with the given bounds.</span>
+</span></div><div class="anchor value-res" id="name-NewRGBA64">	<input type='checkbox' class="fold" id="NewRGBA64-fold-content"><label for="NewRGBA64-fold-content"> <a href="../use/image..NewRGBA64.html">func</a> <a href="../src/image/image.go.html#line-346">NewRGBA64</a>(r <a href="#name-Rectangle">Rectangle</a>) *<a href="#name-RGBA64">RGBA64</a></label><span id='NewRGBA64-fold-content-docs' class="fold-docs">
+<span class="md-text">		NewRGBA64 returns a new [RGBA64] image with the given bounds.</span>
 
 </span></div><div class="anchor value-res" id="name-NewUniform">	<input type='checkbox' class="fold" id="NewUniform-fold-content"><label for="NewUniform-fold-content"> <a href="../use/image..NewUniform.html">func</a> <a href="../src/image/names.go.html#line-56">NewUniform</a>(c <a href="image/color.html">color</a>.<a href="image/color.html#name-Color">Color</a>) *<a href="#name-Uniform">Uniform</a></label><span id='NewUniform-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewUniform returns a new Uniform image of the given color.</span>
+<span class="md-text">		NewUniform returns a new [Uniform] image of the given color.</span>
 
 </span></div><div class="anchor value-res" id="name-NewYCbCr">	<input type='checkbox' class="fold" id="NewYCbCr-fold-content"><label for="NewYCbCr-fold-content"> <a href="../use/image..NewYCbCr.html">func</a> <a href="../src/image/ycbcr.go.html#line-175">NewYCbCr</a>(r <a href="#name-Rectangle">Rectangle</a>, subsampleRatio <a href="#name-YCbCrSubsampleRatio">YCbCrSubsampleRatio</a>) *<a href="#name-YCbCr">YCbCr</a></label><span id='NewYCbCr-fold-content-docs' class="fold-docs">
 <span class="md-text">		NewYCbCr returns a new YCbCr image with the given bounds and subsample
 		ratio.</span>
 
 </span></div><div class="anchor value-res" id="name-Pt">	<input type='checkbox' class="fold" id="Pt-fold-content"><label for="Pt-fold-content"> <a href="../use/image..Pt.html">func</a> <a href="../src/image/geom.go.html#line-76">Pt</a>(X, Y <a href="builtin.html#name-int">int</a>) <a href="#name-Point">Point</a></label><span id='Pt-fold-content-docs' class="fold-docs">
-<span class="md-text">		Pt is shorthand for Point{X, Y}.</span>
+<span class="md-text">		Pt is shorthand for [Point]{X, Y}.</span>
 
 </span></div><div class="anchor value-res" id="name-Rect">	<input type='checkbox' class="fold" id="Rect-fold-content"><label for="Rect-fold-content"> <a href="../use/image..Rect.html">func</a> <a href="../src/image/geom.go.html#line-275">Rect</a>(x0, y0, x1, y1 <a href="builtin.html#name-int">int</a>) <a href="#name-Rectangle">Rectangle</a></label><span id='Rect-fold-content-docs' class="fold-docs">
-<span class="md-text">		Rect is shorthand for Rectangle{Pt(x0, y0), Pt(x1, y1)}. The returned
+<span class="md-text">		Rect is shorthand for [Rectangle]{Pt(x0, y0), [Pt](x1, y1)}. The returned
 		rectangle has minimum and maximum coordinates swapped if necessary so that
 		it is well-formed.</span>
 
 </span></div><div class="anchor value-res" id="name-RegisterFormat">	<input type='checkbox' class="fold" id="RegisterFormat-fold-content"><label for="RegisterFormat-fold-content"> <a href="../use/image..RegisterFormat.html">func</a> <a href="../src/image/format.go.html#line-37">RegisterFormat</a>(name, magic <a href="builtin.html#name-string">string</a>, decode func(<a href="io.html">io</a>.<a href="io.html#name-Reader">Reader</a>) (<a href="#name-Image">Image</a>, <a href="builtin.html#name-error">error</a>), decodeConfig func(<a href="io.html">io</a>.<a href="io.html#name-Reader">Reader</a>) (<a href="#name-Config">Config</a>, <a href="builtin.html#name-error">error</a>))</label><span id='RegisterFormat-fold-content-docs' class="fold-docs">
-<span class="md-text">		RegisterFormat registers an image format for use by Decode.
+<span class="md-text">		RegisterFormat registers an image format for use by [Decode].
 		Name is the name of the format, like "jpeg" or "png".
 		Magic is the magic prefix that identifies the format's encoding. The magic
 		string can contain "?" wildcards that each match any one byte.
-		Decode is the function that decodes the encoded image.
-		DecodeConfig is the function that decodes just its configuration.</span>
+		[Decode] is the function that decodes the encoded image.
+		[DecodeConfig] is the function that decodes just its configuration.</span>
 
 </span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 7 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 7 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-add2NonNeg"><i>	<input type='checkbox' class="fold" id="add2NonNeg-fold-content"><label for="add2NonNeg-fold-content"> <a href="../use/image..add2NonNeg^72872.html">func</a> <a href="../src/image/geom.go.html#line-308">add2NonNeg</a>(x <a href="builtin.html#name-int">int</a>, y <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-int">int</a></label><span id='add2NonNeg-fold-content-docs' class="fold-docs">
 <span class="md-text">		add2NonNeg returns (x + y), unless at least one argument is negative or if
@@ -1043,7 +1062,7 @@
 <span class="md-text">		mul3NonNeg returns (x * y * z), unless at least one argument is negative or
 		if the computation overflows the int type, in which case it returns -1.</span>
 
-</span></i></div><div class="anchor value-res hidden" id="name-pixelBufferLength"><i>	<input type='checkbox' class="fold" id="pixelBufferLength-fold-content"><label for="pixelBufferLength-fold-content"> <a href="../use/image..pixelBufferLength^0b69b.html">func</a> <a href="../src/image/image.go.html#line-79">pixelBufferLength</a>(bytesPerPixel <a href="builtin.html#name-int">int</a>, r <a href="#name-Rectangle">Rectangle</a>, imageTypeName <a href="builtin.html#name-string">string</a>) <a href="builtin.html#name-int">int</a></label><span id='pixelBufferLength-fold-content-docs' class="fold-docs">
+</span></i></div><div class="anchor value-res hidden" id="name-pixelBufferLength"><i>	<input type='checkbox' class="fold" id="pixelBufferLength-fold-content"><label for="pixelBufferLength-fold-content"> <a href="../use/image..pixelBufferLength^0b69b.html">func</a> <a href="../src/image/image.go.html#line-95">pixelBufferLength</a>(bytesPerPixel <a href="builtin.html#name-int">int</a>, r <a href="#name-Rectangle">Rectangle</a>, imageTypeName <a href="builtin.html#name-string">string</a>) <a href="builtin.html#name-int">int</a></label><span id='pixelBufferLength-fold-content-docs' class="fold-docs">
 <span class="md-text">		pixelBufferLength returns the length of the []uint8 typed Pix slice field
 		for the NewXxx functions. Conceptually, this is just (bpp * width * height),
 		but this function panics if at least one of those is negative or if the
@@ -1074,14 +1093,14 @@
 <span class="md-text">		White is an opaque white uniform image.</span>
 
 </span></div><div class="anchor value-res" id="name-ZP">	<input type='checkbox' class="fold" id="ZP-fold-content"><label for="ZP-fold-content">  <a href="../use/image..ZP.html">var</a> <a href="../src/image/geom.go.html#line-73">ZP</a> <a href="#name-Point">Point</a></label><span id='ZP-fold-content-docs' class="fold-docs">
-<span class="md-text">		ZP is the zero Point.
+<span class="md-text">		ZP is the zero [Point].
 		
-		Deprecated: Use a literal image.Point{} instead.</span>
+		Deprecated: Use a literal [image.Point] instead.</span>
 
 </span></div><div class="anchor value-res" id="name-ZR">	<input type='checkbox' class="fold" id="ZR-fold-content"><label for="ZR-fold-content">  <a href="../use/image..ZR.html">var</a> <a href="../src/image/geom.go.html#line-270">ZR</a> <a href="#name-Rectangle">Rectangle</a></label><span id='ZR-fold-content-docs' class="fold-docs">
-<span class="md-text">		ZR is the zero Rectangle.
+<span class="md-text">		ZR is the zero [Rectangle].
 		
-		Deprecated: Use a literal image.Rectangle{} instead.</span>
+		Deprecated: Use a literal [image.Rectangle] instead.</span>
 
 </span></div>	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-atomicFormats"><i>	<input type='checkbox' class="fold" id="atomicFormats-fold-content"><label for="atomicFormats-fold-content">  <a href="../use/image..atomicFormats^2cb9f.html">var</a> <a href="../src/image/format.go.html#line-28">atomicFormats</a> <a href="sync/atomic.html">atomic</a>.<a href="sync/atomic.html#name-Value">Value</a></label><span id='atomicFormats-fold-content-docs' class="fold-docs">
 <span class="md-text">		Formats is the list of registered formats.</span>
@@ -1093,8 +1112,8 @@
 <div id="exported-constants"><span class="title">Package-Level Constants<span class="title-stat"><i> (total 6, all are exported)</i></span></span>
 
 <div class="anchor value-res" id="name-YCbCrSubsampleRatio410">	<span class="nodocs"><a href="../use/image..YCbCrSubsampleRatio410.html">const</a> <a href="../src/image/ycbcr.go.html#line-20">YCbCrSubsampleRatio410</a> <a href="#name-YCbCrSubsampleRatio">YCbCrSubsampleRatio</a> = 5</span></div><div class="anchor value-res" id="name-YCbCrSubsampleRatio411">	<span class="nodocs"><a href="../use/image..YCbCrSubsampleRatio411.html">const</a> <a href="../src/image/ycbcr.go.html#line-19">YCbCrSubsampleRatio411</a> <a href="#name-YCbCrSubsampleRatio">YCbCrSubsampleRatio</a> = 4</span></div><div class="anchor value-res" id="name-YCbCrSubsampleRatio420">	<span class="nodocs"><a href="../use/image..YCbCrSubsampleRatio420.html">const</a> <a href="../src/image/ycbcr.go.html#line-17">YCbCrSubsampleRatio420</a> <a href="#name-YCbCrSubsampleRatio">YCbCrSubsampleRatio</a> = 2</span></div><div class="anchor value-res" id="name-YCbCrSubsampleRatio422">	<span class="nodocs"><a href="../use/image..YCbCrSubsampleRatio422.html">const</a> <a href="../src/image/ycbcr.go.html#line-16">YCbCrSubsampleRatio422</a> <a href="#name-YCbCrSubsampleRatio">YCbCrSubsampleRatio</a> = 1</span></div><div class="anchor value-res" id="name-YCbCrSubsampleRatio440">	<span class="nodocs"><a href="../use/image..YCbCrSubsampleRatio440.html">const</a> <a href="../src/image/ycbcr.go.html#line-18">YCbCrSubsampleRatio440</a> <a href="#name-YCbCrSubsampleRatio">YCbCrSubsampleRatio</a> = 3</span></div><div class="anchor value-res" id="name-YCbCrSubsampleRatio444">	<span class="nodocs"><a href="../use/image..YCbCrSubsampleRatio444.html">const</a> <a href="../src/image/ycbcr.go.html#line-15">YCbCrSubsampleRatio444</a> <a href="#name-YCbCrSubsampleRatio">YCbCrSubsampleRatio</a> = 0</span></div></div></code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

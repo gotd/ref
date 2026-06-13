@@ -5,52 +5,64 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: github.com/gotd/td/clock.Clock.Now</title>
-<link href="../../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/gotd/td/clock.html">github.com/gotd/td/clock</a>.<a href="../../../../src/github.com/gotd/td/clock/clock.go.html#line-11">Clock</a>.<a href="../../../../src/github.com/gotd/td/clock/clock.go.html#line-12">Now</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">20 uses</span>
+<span class="title">32 uses</span>
 
 	github.com/gotd/td/clock (current package)
 		<a href="../../../../src/github.com/gotd/td/clock/clock.go.html#line-12">clock.go#L12</a>: 	<b>Now</b>() time.Time
 
-	<a href="../../../../pkg/github.com/gotd/td/internal/exchange.html">github.com/gotd/td/internal/exchange</a>
-		<a href="../../../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-69">client_flow.go#L69</a>: 	start := c.clock.<b>Now</b>()
-		<a href="../../../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-76" class="path-duplicate">client_flow.go</a><a href="../../../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-76">#L76</a>: 	c.log.Debug("PQ decomposing complete", zap.Duration("took", c.clock.<b>Now</b>().Sub(start)))
-		<a href="../../../../src/github.com/gotd/td/internal/exchange/proto.go.html#line-31">proto.go#L31</a>: 		MessageID:   int64(proto.NewMessageID(w.clock.<b>Now</b>(), w.output)),
-		<a href="../../../../src/github.com/gotd/td/internal/exchange/server_flow.go.html#line-206">server_flow.go#L206</a>: 		ServerTime:  int(s.clock.<b>Now</b>().Unix()),
+	<a href="../../../../pkg/github.com/gotd/td/exchange.html">github.com/gotd/td/exchange</a>
+		<a href="../../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-69">client_flow.go#L69</a>: 	start := c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-76" class="path-duplicate">client_flow.go</a><a href="../../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-76">#L76</a>: 	c.log.Debug(ctx, "PQ decomposing complete", log.Duration("took", c.clock.<b>Now</b>().Sub(start)))
+		<a href="../../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-289" class="path-duplicate">client_flow.go</a><a href="../../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-289">#L289</a>: 				result.ExpiresAt = c.clock.<b>Now</b>().Unix() + int64(c.expiresIn)
+		<a href="../../../../src/github.com/gotd/td/exchange/proto.go.html#line-31">proto.go#L31</a>: 		MessageID:   int64(proto.NewMessageID(w.clock.<b>Now</b>(), w.output)),
+		<a href="../../../../src/github.com/gotd/td/exchange/server_flow.go.html#line-219">server_flow.go#L219</a>: 		ServerTime:  int(s.clock.<b>Now</b>().Unix()),
 
-	<a href="../../../../pkg/github.com/gotd/td/internal/mtproto.html">github.com/gotd/td/internal/mtproto</a>
-		<a href="../../../../src/github.com/gotd/td/internal/mtproto/connect.go.html#line-33">connect.go#L33</a>: 		start := c.clock.<b>Now</b>()
-		<a href="../../../../src/github.com/gotd/td/internal/mtproto/connect.go.html#line-39" class="path-duplicate">connect.go</a><a href="../../../../src/github.com/gotd/td/internal/mtproto/connect.go.html#line-39">#L39</a>: 			zap.Duration("duration", c.clock.<b>Now</b>().Sub(start)),
-		<a href="../../../../src/github.com/gotd/td/internal/mtproto/handle_session_created.go.html#line-20">handle_session_created.go#L20</a>: 	now := c.clock.<b>Now</b>()
-		<a href="../../../../src/github.com/gotd/td/internal/mtproto/options.go.html#line-151">options.go#L151</a>: 		opt.MessageID = proto.NewMessageIDGen(opt.Clock.<b>Now</b>)
-		<a href="../../../../src/github.com/gotd/td/internal/mtproto/read.go.html#line-63">read.go#L63</a>: 	if err := checkMessageID(c.clock.<b>Now</b>(), msg.MessageID); err != nil {
-		<a href="../../../../src/github.com/gotd/td/internal/mtproto/salt.go.html#line-26">salt.go#L26</a>: 	salt, ok := c.salts.Get(c.clock.<b>Now</b>().Add(time.Minute * 5))
+	<a href="../../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../../../../src/github.com/gotd/td/mtproto/bind.go.html#line-61">bind.go#L61</a>: 		expiresAt = c.clock.<b>Now</b>().Unix() + int64(c.tempKeyTTL)
+		<a href="../../../../src/github.com/gotd/td/mtproto/bind.go.html#line-202" class="path-duplicate">bind.go</a><a href="../../../../src/github.com/gotd/td/mtproto/bind.go.html#line-202">#L202</a>: 	return c.clock.<b>Now</b>().Unix()-createdAt &gt; 60
+		<a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-54">connect.go#L54</a>: 		start := c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-60" class="path-duplicate">connect.go</a><a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-60">#L60</a>: 			log.Duration("duration", c.clock.<b>Now</b>().Sub(start)),
+		<a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-82" class="path-duplicate">connect.go</a><a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-82">#L82</a>: 		start := c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-87" class="path-duplicate">connect.go</a><a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-87">#L87</a>: 			log.Duration("duration", c.clock.<b>Now</b>().Sub(start)),
+		<a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-95" class="path-duplicate">connect.go</a><a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-95">#L95</a>: 	start := c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-100" class="path-duplicate">connect.go</a><a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-100">#L100</a>: 		log.Duration("duration", c.clock.<b>Now</b>().Sub(start)),
+		<a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-172" class="path-duplicate">connect.go</a><a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-172">#L172</a>: 	c.permKeyCreatedAt = c.clock.<b>Now</b>().Unix()
+		<a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-191" class="path-duplicate">connect.go</a><a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-191">#L191</a>: 		expiresAt = c.clock.<b>Now</b>().Unix() + int64(c.tempKeyTTL)
+		<a href="../../../../src/github.com/gotd/td/mtproto/handle_session_created.go.html#line-23">handle_session_created.go#L23</a>: 	now := c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/mtproto/options.go.html#line-168">options.go#L168</a>: 		opt.MessageID = proto.NewMessageIDGen(opt.Clock.<b>Now</b>)
+		<a href="../../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-33">pfs.go#L33</a>: 			expiresAt = c.clock.<b>Now</b>().Unix() + int64(c.tempKeyTTL)
+		<a href="../../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-38" class="path-duplicate">pfs.go</a><a href="../../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-38">#L38</a>: 		wait := time.Unix(renewAt, 0).Sub(c.clock.<b>Now</b>())
+		<a href="../../../../src/github.com/gotd/td/mtproto/read.go.html#line-63">read.go#L63</a>: 	if err := checkMessageID(c.clock.<b>Now</b>(), msg.MessageID); err != nil {
+		<a href="../../../../src/github.com/gotd/td/mtproto/salt.go.html#line-26">salt.go#L26</a>: 	salt, ok := c.salts.Get(c.clock.<b>Now</b>().Add(time.Minute * 5))
 
-	<a href="../../../../pkg/github.com/gotd/td/internal/mtproxy/faketls.html">github.com/gotd/td/internal/mtproxy/faketls</a>
-		<a href="../../../../src/github.com/gotd/td/internal/mtproxy/faketls/client_hello.go.html#line-117">client_hello.go#L117</a>: 	old ^= uint32(now.<b>Now</b>().Unix())
+	<a href="../../../../pkg/github.com/gotd/td/mtproxy/faketls.html">github.com/gotd/td/mtproxy/faketls</a>
+		<a href="../../../../src/github.com/gotd/td/mtproxy/faketls/client_hello.go.html#line-99">client_hello.go#L99</a>: 	old ^= uint32(now.<b>Now</b>().Unix())
 
-	<a href="../../../../pkg/github.com/gotd/td/internal/tdsync.html">github.com/gotd/td/internal/tdsync</a>
-		<a href="../../../../src/github.com/gotd/td/internal/tdsync/log_group.go.html#line-41">log_group.go#L41</a>: 		start := g.clock.<b>Now</b>()
-		<a href="../../../../src/github.com/gotd/td/internal/tdsync/log_group.go.html#line-46" class="path-duplicate">log_group.go</a><a href="../../../../src/github.com/gotd/td/internal/tdsync/log_group.go.html#line-46">#L46</a>: 			elapsed := g.clock.<b>Now</b>().Sub(start)
-		<a href="../../../../src/github.com/gotd/td/internal/tdsync/log_group.go.html#line-51" class="path-duplicate">log_group.go</a><a href="../../../../src/github.com/gotd/td/internal/tdsync/log_group.go.html#line-51">#L51</a>: 		elapsed := g.clock.<b>Now</b>().Sub(start)
+	<a href="../../../../pkg/github.com/gotd/td/tdsync.html">github.com/gotd/td/tdsync</a>
+		<a href="../../../../src/github.com/gotd/td/tdsync/log_group.go.html#line-41">log_group.go#L41</a>: 		start := g.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/tdsync/log_group.go.html#line-46" class="path-duplicate">log_group.go</a><a href="../../../../src/github.com/gotd/td/tdsync/log_group.go.html#line-46">#L46</a>: 			elapsed := g.clock.<b>Now</b>().Sub(start)
+		<a href="../../../../src/github.com/gotd/td/tdsync/log_group.go.html#line-51" class="path-duplicate">log_group.go</a><a href="../../../../src/github.com/gotd/td/tdsync/log_group.go.html#line-51">#L51</a>: 		elapsed := g.clock.<b>Now</b>().Sub(start)
 
 	<a href="../../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
-		<a href="../../../../src/github.com/gotd/td/telegram/options.go.html#line-131">options.go#L131</a>: 		opt.MessageID = proto.NewMessageIDGen(opt.Clock.<b>Now</b>)
+		<a href="../../../../src/github.com/gotd/td/telegram/options.go.html#line-182">options.go#L182</a>: 		opt.MessageID = proto.NewMessageIDGen(opt.Clock.<b>Now</b>)
 
 	<a href="../../../../pkg/github.com/gotd/td/telegram/auth/qrlogin.html">github.com/gotd/td/telegram/auth/qrlogin</a>
-		<a href="../../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-143">qrlogin.go#L143</a>: 		return token.Expires().Sub(q.clock.<b>Now</b>()).Truncate(time.Second)
+		<a href="../../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-153">qrlogin.go#L153</a>: 		return token.Expires().Sub(q.clock.<b>Now</b>()).Truncate(time.Second)
 
 	<a href="../../../../pkg/github.com/gotd/td/telegram/internal/manager.html">github.com/gotd/td/telegram/internal/manager</a>
-		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-97">conn.go#L97</a>: 	start := c.clock.<b>Now</b>()
-		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-110" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-110">#L110</a>: 		end := c.clock.<b>Now</b>()
-		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-240" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-240">#L240</a>: 	c.latest = c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-137">conn.go#L137</a>: 	start := c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-150" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-150">#L150</a>: 		end := c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-328" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-328">#L328</a>: 		c.latest = c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-382" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-382">#L382</a>: 	c.latest = c.clock.<b>Now</b>()
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

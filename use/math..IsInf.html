@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: math.IsInf</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../pkg/math.html">math</a>.<a href="../src/math/bits.go.html#line-46">IsInf</a></b></span>
 
-<span class="title">62 uses</span>
+<span class="title">63 uses</span>
 
 	math (current package)
 		<a href="../src/math/asinh.go.html#line-54">asinh.go#L54</a>: 	if IsNaN(x) || <b>IsInf</b>(x, 0) {
@@ -28,14 +28,9 @@
 		<a href="../src/math/erf.go.html#line-207" class="path-duplicate">erf.go</a><a href="../src/math/erf.go.html#line-207">#L207</a>: 	case <b>IsInf</b>(x, -1):
 		<a href="../src/math/erf.go.html#line-287" class="path-duplicate">erf.go</a><a href="../src/math/erf.go.html#line-287">#L287</a>: 	case <b>IsInf</b>(x, 1):
 		<a href="../src/math/erf.go.html#line-289" class="path-duplicate">erf.go</a><a href="../src/math/erf.go.html#line-289">#L289</a>: 	case <b>IsInf</b>(x, -1):
-		<a href="../src/math/exp.go.html#line-112">exp.go#L112</a>: 	case IsNaN(x) || <b>IsInf</b>(x, 1):
-		<a href="../src/math/exp.go.html#line-114" class="path-duplicate">exp.go</a><a href="../src/math/exp.go.html#line-114">#L114</a>: 	case <b>IsInf</b>(x, -1):
-		<a href="../src/math/exp.go.html#line-160" class="path-duplicate">exp.go</a><a href="../src/math/exp.go.html#line-160">#L160</a>: 	case IsNaN(x) || <b>IsInf</b>(x, 1):
-		<a href="../src/math/exp.go.html#line-162" class="path-duplicate">exp.go</a><a href="../src/math/exp.go.html#line-162">#L162</a>: 	case <b>IsInf</b>(x, -1):
 		<a href="../src/math/expm1.go.html#line-153">expm1.go#L153</a>: 	case <b>IsInf</b>(x, 1) || IsNaN(x):
 		<a href="../src/math/expm1.go.html#line-155" class="path-duplicate">expm1.go</a><a href="../src/math/expm1.go.html#line-155">#L155</a>: 	case <b>IsInf</b>(x, -1):
 		<a href="../src/math/floor.go.html#line-22">floor.go#L22</a>: 	if x == 0 || IsNaN(x) || <b>IsInf</b>(x, 0) {
-		<a href="../src/math/floor.go.html#line-69" class="path-duplicate">floor.go</a><a href="../src/math/floor.go.html#line-69">#L69</a>: 	if x == 0 || IsNaN(x) || <b>IsInf</b>(x, 0) {
 		<a href="../src/math/frexp.go.html#line-29">frexp.go#L29</a>: 	case <b>IsInf</b>(f, 0) || IsNaN(f):
 		<a href="../src/math/gamma.go.html#line-135">gamma.go#L135</a>: 	case isNegInt(x) || <b>IsInf</b>(x, -1) || IsNaN(x):
 		<a href="../src/math/gamma.go.html#line-137" class="path-duplicate">gamma.go</a><a href="../src/math/gamma.go.html#line-137">#L137</a>: 	case <b>IsInf</b>(x, 1):
@@ -68,22 +63,28 @@
 		<a href="../src/math/tan.go.html#line-100">tan.go#L100</a>: 	case <b>IsInf</b>(x, 0):
 
 	<a href="../pkg/math/big.html">math/big</a>
-		<a href="../src/math/big/float.go.html#line-565">float.go#L565</a>: 	if math.<b>IsInf</b>(x, 0) {
+		<a href="../src/math/big/float.go.html#line-564">float.go#L564</a>: 	if math.<b>IsInf</b>(x, 0) {
 		<a href="../src/math/big/rat.go.html#line-165">rat.go#L165</a>: 	if math.<b>IsInf</b>(float64(f), 0) {
 		<a href="../src/math/big/rat.go.html#line-263" class="path-duplicate">rat.go</a><a href="../src/math/big/rat.go.html#line-263">#L263</a>: 	if math.<b>IsInf</b>(f, 0) {
 
 	<a href="../pkg/encoding/json.html">encoding/json</a>
-		<a href="../src/encoding/json/encode.go.html#line-532">encode.go#L532</a>: 	if math.<b>IsInf</b>(f, 0) || math.IsNaN(f) {
+		<a href="../src/encoding/json/encode.go.html#line-573">encode.go#L573</a>: 	if math.<b>IsInf</b>(f, 0) || math.IsNaN(f) {
 
 	<a href="../pkg/github.com/go-faster/jx.html">github.com/go-faster/jx</a>
 		<a href="../src/github.com/go-faster/jx/w_float_bits.go.html#line-14">w_float_bits.go#L14</a>: 	if math.IsNaN(v) || math.<b>IsInf</b>(v, 0) {
 
-	<a href="../pkg/go.uber.org/zap/zapcore.html">go.uber.org/zap/zapcore</a>
-		<a href="../src/go.uber.org/zap/zapcore/json_encoder.go.html#line-476">json_encoder.go#L476</a>: 	case math.<b>IsInf</b>(val, 1):
-		<a href="../src/go.uber.org/zap/zapcore/json_encoder.go.html#line-478" class="path-duplicate">json_encoder.go</a><a href="../src/go.uber.org/zap/zapcore/json_encoder.go.html#line-478">#L478</a>: 	case math.<b>IsInf</b>(val, -1):
+	<a href="../pkg/go.opentelemetry.io/otel/attribute.html">go.opentelemetry.io/otel/attribute</a>
+		<a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-594">value.go#L594</a>: 	case math.<b>IsInf</b>(v, 1):
+		<a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-596" class="path-duplicate">value.go</a><a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-596">#L596</a>: 	case math.<b>IsInf</b>(v, -1):
+		<a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-658" class="path-duplicate">value.go</a><a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-658">#L658</a>: 		case math.<b>IsInf</b>(val, 1):
+		<a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-660" class="path-duplicate">value.go</a><a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-660">#L660</a>: 		case math.<b>IsInf</b>(val, -1):
+		<a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-684" class="path-duplicate">value.go</a><a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-684">#L684</a>: 		case math.<b>IsInf</b>(val, 1):
+		<a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-686" class="path-duplicate">value.go</a><a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-686">#L686</a>: 		case math.<b>IsInf</b>(val, -1):
+		<a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-876" class="path-duplicate">value.go</a><a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-876">#L876</a>: 		case math.<b>IsInf</b>(val, 1):
+		<a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-878" class="path-duplicate">value.go</a><a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-878">#L878</a>: 		case math.<b>IsInf</b>(val, -1):
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

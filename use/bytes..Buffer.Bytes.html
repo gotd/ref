@@ -5,53 +5,70 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: bytes.Buffer.Bytes</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../pkg/bytes.html">bytes</a>.<a href="../src/bytes/buffer.go.html#line-20">Buffer</a>.<a href="../src/bytes/buffer.go.html#line-54">Bytes</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/bytes.html">bytes</a>.<a href="../src/bytes/buffer.go.html#line-20">Buffer</a>.<a href="../src/bytes/buffer.go.html#line-60">Bytes</a></b></span><span style="font-size: large;"><i> (method, <a href="../imp/bytes.Buffer.html#name-Bytes">view implemented interface methods</a>)</i></span>
 
-<span class="title">26 uses</span>
+<span class="title">39 uses</span>
 
 	bytes (current package)
-		<a href="../src/bytes/buffer.go.html#line-54">buffer.go#L54</a>: func (b *Buffer) <b>Bytes</b>() []byte { return b.buf[b.off:] }
+		<a href="../src/bytes/buffer.go.html#line-60">buffer.go#L60</a>: func (b *Buffer) <b>Bytes</b>() []byte { return b.buf[b.off:] }
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/auth.go.html#line-87">auth.go#L87</a>: 		return b.<b>Bytes</b>()
-		<a href="../src/crypto/tls/conn.go.html#line-582">conn.go#L582</a>: 	copy(err.RecordHeader[:], c.rawInput.<b>Bytes</b>())
-		<a href="../src/crypto/tls/conn.go.html#line-637" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-637">#L637</a>: 	hdr := c.rawInput.<b>Bytes</b>()[:recordHeaderLen]
-		<a href="../src/crypto/tls/conn.go.html#line-1088" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-1088">#L1088</a>: 	data := c.hand.<b>Bytes</b>()
-		<a href="../src/crypto/tls/conn.go.html#line-1389" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-1389">#L1389</a>: 		recordType(c.rawInput.<b>Bytes</b>()[0]) == recordTypeAlert {
-		<a href="../src/crypto/tls/quic.go.html#line-236">quic.go#L236</a>: 		b := q.conn.hand.<b>Bytes</b>()
+		<a href="../src/crypto/tls/auth.go.html#line-118">auth.go#L118</a>: 	return b.<b>Bytes</b>()
+		<a href="../src/crypto/tls/conn.go.html#line-583">conn.go#L583</a>: 	copy(err.RecordHeader[:], c.rawInput.<b>Bytes</b>())
+		<a href="../src/crypto/tls/conn.go.html#line-638" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-638">#L638</a>: 	hdr := c.rawInput.<b>Bytes</b>()[:recordHeaderLen]
+		<a href="../src/crypto/tls/conn.go.html#line-1098" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-1098">#L1098</a>: 	data := c.hand.<b>Bytes</b>()
+		<a href="../src/crypto/tls/conn.go.html#line-1413" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-1413">#L1413</a>: 		recordType(c.rawInput.<b>Bytes</b>()[0]) == recordTypeAlert {
+		<a href="../src/crypto/tls/quic.go.html#line-295">quic.go#L295</a>: 		b := q.conn.hand.<b>Bytes</b>()
 
 	<a href="../pkg/encoding/json.html">encoding/json</a>
-		<a href="../src/encoding/json/encode.go.html#line-166">encode.go#L166</a>: 	buf := append([]byte(nil), e.<b>Bytes</b>()...)
-		<a href="../src/encoding/json/stream.go.html#line-222">stream.go#L222</a>: 	b := e.<b>Bytes</b>()
+		<a href="../src/encoding/json/encode.go.html#line-213">encode.go#L213</a>: 	buf := append([]byte(nil), e.<b>Bytes</b>()...)
+		<a href="../src/encoding/json/stream.go.html#line-225">stream.go#L225</a>: 	b := e.<b>Bytes</b>()
 
 	<a href="../pkg/encoding/pem.html">encoding/pem</a>
-		<a href="../src/encoding/pem/pem.go.html#line-315">pem.go#L315</a>: 	return buf.<b>Bytes</b>()
+		<a href="../src/encoding/pem/pem.go.html#line-330">pem.go#L330</a>: 	return buf.<b>Bytes</b>()
 
 	<a href="../pkg/github.com/go-faster/jx.html">github.com/go-faster/jx</a>
-		<a href="../src/github.com/go-faster/jx/w.go.html#line-63">w.go#L63</a>: 	w.Buf = buf.<b>Bytes</b>()
+		<a href="../src/github.com/go-faster/jx/w.go.html#line-68">w.go#L68</a>: 	w.Buf = buf.<b>Bytes</b>()
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproxy/faketls.html">github.com/gotd/td/internal/mtproxy/faketls</a>
-		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/server_hello.go.html#line-45">server_hello.go#L45</a>: 	packet := packetBuf.<b>Bytes</b>()
+	<a href="../pkg/github.com/gotd/td/mtproxy/faketls.html">github.com/gotd/td/mtproxy/faketls</a>
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/server_hello.go.html#line-69">server_hello.go#L69</a>: 	packet := packetBuf.<b>Bytes</b>()
 
-	<a href="../pkg/github.com/gotd/td/internal/proto.html">github.com/gotd/td/internal/proto</a>
-		<a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-107">gzip.go#L107</a>: 	b.PutBytes(buf.<b>Bytes</b>())
+	<a href="../pkg/github.com/gotd/td/proto.html">github.com/gotd/td/proto</a>
+		<a href="../src/github.com/gotd/td/proto/gzip.go.html#line-107">gzip.go#L107</a>: 	b.PutBytes(buf.<b>Bytes</b>())
+
+	<a href="../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>
+		<a href="../src/github.com/klauspost/compress/zstd/dict.go.html#line-520">dict.go#L520</a>: 		_, err := loadDict(out.<b>Bytes</b>())
+		<a href="../src/github.com/klauspost/compress/zstd/dict.go.html#line-524" class="path-duplicate">dict.go</a><a href="../src/github.com/klauspost/compress/zstd/dict.go.html#line-524">#L524</a>: 		i, err := InspectDictionary(out.<b>Bytes</b>())
+		<a href="../src/github.com/klauspost/compress/zstd/dict.go.html#line-552" class="path-duplicate">dict.go</a><a href="../src/github.com/klauspost/compress/zstd/dict.go.html#line-552">#L552</a>: 		withDict := encWith(WithEncoderLevel(o.Level), WithEncoderDict(out.<b>Bytes</b>()))
+		<a href="../src/github.com/klauspost/compress/zstd/dict.go.html#line-558" class="path-duplicate">dict.go</a><a href="../src/github.com/klauspost/compress/zstd/dict.go.html#line-558">#L558</a>: 	return out.<b>Bytes</b>(), nil
+
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/auth.go.html#line-87">auth.go#L87</a>: 		return b.<b>Bytes</b>()
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-587">conn.go#L587</a>: 	copy(err.RecordHeader[:], c.rawInput.<b>Bytes</b>())
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-642" class="path-duplicate">conn.go</a><a href="../src/github.com/refraction-networking/utls/conn.go.html#line-642">#L642</a>: 	hdr := c.rawInput.<b>Bytes</b>()[:recordHeaderLen]
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-1093" class="path-duplicate">conn.go</a><a href="../src/github.com/refraction-networking/utls/conn.go.html#line-1093">#L1093</a>: 	data := c.hand.<b>Bytes</b>()
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-1415" class="path-duplicate">conn.go</a><a href="../src/github.com/refraction-networking/utls/conn.go.html#line-1415">#L1415</a>: 		recordType(c.rawInput.<b>Bytes</b>()[0]) == recordTypeAlert {
+		<a href="../src/github.com/refraction-networking/utls/quic.go.html#line-275">quic.go#L275</a>: 		b := q.conn.hand.<b>Bytes</b>()
+		<a href="../src/github.com/refraction-networking/utls/u_conn.go.html#line-673">u_conn.go#L673</a>: 	hello.Raw = helloBuffer.<b>Bytes</b>()
+		<a href="../src/github.com/refraction-networking/utls/u_conn.go.html#line-895" class="path-duplicate">u_conn.go</a><a href="../src/github.com/refraction-networking/utls/u_conn.go.html#line-895">#L895</a>: 		recordType(c.rawInput.<b>Bytes</b>()[0]) == recordTypeAlert {
+		<a href="../src/github.com/refraction-networking/utls/u_quic.go.html#line-117">u_quic.go#L117</a>: 		b := q.conn.hand.<b>Bytes</b>()
 
 	<a href="../pkg/mime/multipart.html">mime/multipart</a>
 		<a href="../src/mime/multipart/formdata.go.html#line-183">formdata.go#L183</a>: 			if _, err := file.Write(b.<b>Bytes</b>()); err != nil {
 		<a href="../src/mime/multipart/formdata.go.html#line-206" class="path-duplicate">formdata.go</a><a href="../src/mime/multipart/formdata.go.html#line-206">#L206</a>: 			fh.content = b.<b>Bytes</b>()
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/h2_bundle.go.html#line-9114">h2_bundle.go#L9114</a>: 	return cc.hbuf.<b>Bytes</b>(), nil
-		<a href="../src/net/http/h2_bundle.go.html#line-9167" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-9167">#L9167</a>: 	return cc.hbuf.<b>Bytes</b>(), nil
-		<a href="../src/net/http/h2_bundle.go.html#line-10485" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10485">#L10485</a>: 	headerBlock := buf.<b>Bytes</b>()
-		<a href="../src/net/http/h2_bundle.go.html#line-10534" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10534">#L10534</a>: 	headerBlock := buf.<b>Bytes</b>()
-		<a href="../src/net/http/h2_bundle.go.html#line-10565" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10565">#L10565</a>: 		BlockFragment: buf.<b>Bytes</b>(),
-		<a href="../src/net/http/request.go.html#line-902">request.go#L902</a>: 			buf := v.<b>Bytes</b>()
-		<a href="../src/net/http/server.go.html#line-3414">server.go#L3414</a>: 		w.Write(tw.wbuf.<b>Bytes</b>())
+		<a href="../src/net/http/h2_bundle.go.html#line-8905">h2_bundle.go#L8905</a>: 	hdrs := cc.hbuf.<b>Bytes</b>()
+		<a href="../src/net/http/h2_bundle.go.html#line-9352" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-9352">#L9352</a>: 	return cc.hbuf.<b>Bytes</b>(), nil
+		<a href="../src/net/http/h2_bundle.go.html#line-10983" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10983">#L10983</a>: 	headerBlock := buf.<b>Bytes</b>()
+		<a href="../src/net/http/h2_bundle.go.html#line-11032" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-11032">#L11032</a>: 	headerBlock := buf.<b>Bytes</b>()
+		<a href="../src/net/http/h2_bundle.go.html#line-11063" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-11063">#L11063</a>: 		BlockFragment: buf.<b>Bytes</b>(),
+		<a href="../src/net/http/request.go.html#line-927">request.go#L927</a>: 			buf := v.<b>Bytes</b>()
+		<a href="../src/net/http/server.go.html#line-3852">server.go#L3852</a>: 		w.Write(tw.wbuf.<b>Bytes</b>())
 
 	<a href="../pkg/rsc.io/qr.html">rsc.io/qr</a>
 		<a href="../src/rsc.io/qr/png.go.html#line-61">png.go#L61</a>: 	w.writeChunk("IDAT", w.zlib.bytes.<b>Bytes</b>())
@@ -61,8 +78,8 @@
 		<a href="../src/vendor/golang.org/x/net/http2/hpack/hpack.go.html#line-257">hpack.go#L257</a>: 		d.buf = d.saveBuf.<b>Bytes</b>()
 		<a href="../src/vendor/golang.org/x/net/http2/hpack/huffman.go.html#line-28">huffman.go#L28</a>: 	return w.Write(buf.<b>Bytes</b>())
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

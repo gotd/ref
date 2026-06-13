@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/refraction-networking/utls/internal/quicvarint</title>
+<link href="../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>quicvarint</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../../../index.html#pkg-github.com/refraction-networking/utls/internal/quicvarint">github.com/refraction-networking/utls/internal/quicvarint</a><i> (on <a href="https://pkg.go.dev/github.com/refraction-networking/utls/internal/quicvarint" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../../../dep/github.com/refraction-networking/utls/internal/quicvarint.html">3 packages</a>, and imported by <a href="../../../../../dep/github.com/refraction-networking/utls/internal/quicvarint.html#imported-by">one package</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">    <a href="../../../../../src/github.com/refraction-networking/utls/internal/quicvarint/varint.go.html">varint.go</a></span></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 4, all are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-Append">	<input type='checkbox' class="fold" id="Append-fold-content"><label for="Append-fold-content"> <a href="../../../../../use/github.com/refraction-networking/utls/internal/quicvarint..Append.html">func</a> <a href="../../../../../src/github.com/refraction-networking/utls/internal/quicvarint/varint.go.html#line-79">Append</a>(b []<a href="../../../../builtin.html#name-byte">byte</a>, i <a href="../../../../builtin.html#name-uint64">uint64</a>) []<a href="../../../../builtin.html#name-byte">byte</a></label><span id='Append-fold-content-docs' class="fold-docs">
+<span class="md-text">		Append appends i in the QUIC varint format.</span>
+
+</span></div><div class="anchor value-res" id="name-AppendWithLen">	<input type='checkbox' class="fold" id="AppendWithLen-fold-content"><label for="AppendWithLen-fold-content"> <a href="../../../../../use/github.com/refraction-networking/utls/internal/quicvarint..AppendWithLen.html">func</a> <a href="../../../../../src/github.com/refraction-networking/utls/internal/quicvarint/varint.go.html#line-99">AppendWithLen</a>(b []<a href="../../../../builtin.html#name-byte">byte</a>, i <a href="../../../../builtin.html#name-uint64">uint64</a>, length <a href="quicvarint/protocol.html">protocol</a>.<a href="quicvarint/protocol.html#name-ByteCount">ByteCount</a>) []<a href="../../../../builtin.html#name-byte">byte</a></label><span id='AppendWithLen-fold-content-docs' class="fold-docs">
+<span class="md-text">		AppendWithLen append i in the QUIC varint format with the desired length.</span>
+
+</span></div><div class="anchor value-res" id="name-Len">	<input type='checkbox' class="fold" id="Len-fold-content"><label for="Len-fold-content"> <a href="../../../../../use/github.com/refraction-networking/utls/internal/quicvarint..Len.html">func</a> <a href="../../../../../src/github.com/refraction-networking/utls/internal/quicvarint/varint.go.html#line-127">Len</a>(i <a href="../../../../builtin.html#name-uint64">uint64</a>) <a href="quicvarint/protocol.html">protocol</a>.<a href="quicvarint/protocol.html#name-ByteCount">ByteCount</a></label><span id='Len-fold-content-docs' class="fold-docs">
+<span class="md-text">		Len determines the number of bytes that will be needed to write the number i.</span>
+
+</span></div><div class="anchor value-res" id="name-Read">	<input type='checkbox' class="fold" id="Read-fold-content"><label for="Read-fold-content"> <a href="../../../../../use/github.com/refraction-networking/utls/internal/quicvarint..Read.html">func</a> <a href="../../../../../src/github.com/refraction-networking/utls/internal/quicvarint/varint.go.html#line-30">Read</a>(r <a href="../../../../io.html">io</a>.<a href="../../../../io.html#name-ByteReader">ByteReader</a>) (<a href="../../../../builtin.html#name-uint64">uint64</a>, <a href="../../../../builtin.html#name-error">error</a>)</label><span id='Read-fold-content-docs' class="fold-docs">
+<span class="md-text">		Read reads a number in the QUIC varint format from r.</span>
+
+</span></div></div>
+<div id="exported-constants"><span class="title">Package-Level Constants<span class="title-stat"><i> (total 6, in which 2 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-Max">	<input type='checkbox' class="fold" id="Max-fold-content"><label for="Max-fold-content"><a href="../../../../../use/github.com/refraction-networking/utls/internal/quicvarint..Max.html">const</a> <a href="../../../../../src/github.com/refraction-networking/utls/internal/quicvarint/varint.go.html#line-21">Max</a> = 4611686018427387903</label><span id='Max-fold-content-docs' class="fold-docs">
+<span class="md-text">		Max is the maximum allowed value for a QUIC varint (2^62-1).</span>
+
+</span></div><div class="anchor value-res" id="name-Min">	<input type='checkbox' class="fold" id="Min-fold-content"><label for="Min-fold-content"><a href="../../../../../use/github.com/refraction-networking/utls/internal/quicvarint..Min.html">const</a> <a href="../../../../../src/github.com/refraction-networking/utls/internal/quicvarint/varint.go.html#line-18">Min</a> = 0</label><span id='Min-fold-content-docs' class="fold-docs">
+<span class="md-text">		Min is the minimum value allowed for a QUIC varint.</span>
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-constants-showhide"><i><label for="unexported-constants-showhide" class="show-inline">/* 4 unexporteds ... */</label><label for="unexported-constants-showhide" class="hide-inline">/* 4 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-maxVarInt1"><i>	<input type='checkbox' class="fold" id="maxVarInt1-fold-content"><label for="maxVarInt1-fold-content"><a href="../../../../../use/github.com/refraction-networking/utls/internal/quicvarint..maxVarInt1^49ca9.html">const</a> <a href="../../../../../src/github.com/refraction-networking/utls/internal/quicvarint/varint.go.html#line-23">maxVarInt1</a> = 63</label><span id='maxVarInt1-fold-content-docs' class="fold-docs">
+<span class="md-text">		taken from the QUIC draft</span>
+
+</span></i></div><div class="anchor value-res hidden" id="name-maxVarInt2"><i>	<input type='checkbox' class="fold" id="maxVarInt2-fold-content"><label for="maxVarInt2-fold-content"><a href="../../../../../use/github.com/refraction-networking/utls/internal/quicvarint..maxVarInt2^c9f8d.html">const</a> <a href="../../../../../src/github.com/refraction-networking/utls/internal/quicvarint/varint.go.html#line-24">maxVarInt2</a> = 16383</label><span id='maxVarInt2-fold-content-docs' class="fold-docs">
+<span class="md-text">		taken from the QUIC draft</span>
+
+</span></i></div><div class="anchor value-res hidden" id="name-maxVarInt4"><i>	<input type='checkbox' class="fold" id="maxVarInt4-fold-content"><label for="maxVarInt4-fold-content"><a href="../../../../../use/github.com/refraction-networking/utls/internal/quicvarint..maxVarInt4^6e457.html">const</a> <a href="../../../../../src/github.com/refraction-networking/utls/internal/quicvarint/varint.go.html#line-25">maxVarInt4</a> = 1073741823</label><span id='maxVarInt4-fold-content-docs' class="fold-docs">
+<span class="md-text">		taken from the QUIC draft</span>
+
+</span></i></div><div class="anchor value-res hidden" id="name-maxVarInt8"><i>	<input type='checkbox' class="fold" id="maxVarInt8-fold-content"><label for="maxVarInt8-fold-content"><a href="../../../../../use/github.com/refraction-networking/utls/internal/quicvarint..maxVarInt8^e7c57.html">const</a> <a href="../../../../../src/github.com/refraction-networking/utls/internal/quicvarint/varint.go.html#line-26">maxVarInt8</a> = 4611686018427387903</label><span id='maxVarInt8-fold-content-docs' class="fold-docs">
+<span class="md-text">		taken from the QUIC draft</span>
+
+</span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.sequenceDec.fse</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-46">sequenceDec</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-48">fse</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">46 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-574">blockdec.go#L574</a>: 				if seq.<b>fse</b> != nil &amp;&amp; !seq.<b>fse</b>.preDefined {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-575" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-575">#L575</a>: 					fseDecoderPool.Put(seq.<b>fse</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-577" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-577">#L577</a>: 				seq.<b>fse</b> = &amp;fsePredef[i]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-584" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-584">#L584</a>: 				if seq.<b>fse</b> == nil || seq.<b>fse</b>.preDefined {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-585" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-585">#L585</a>: 					seq.<b>fse</b> = fseDecoderPool.Get().(*fseDecoder)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-592" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-592">#L592</a>: 				seq.<b>fse</b>.setRLE(symb)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-600" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-600">#L600</a>: 				if seq.<b>fse</b> == nil || seq.<b>fse</b>.preDefined {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-601" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-601">#L601</a>: 					seq.<b>fse</b> = fseDecoderPool.Get().(*fseDecoder)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-603" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-603">#L603</a>: 				err := seq.<b>fse</b>.readNCount(&amp;br, uint16(maxTableSymbol[i]))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-608" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-608">#L608</a>: 				err = seq.<b>fse</b>.transform(symbolTableX[i])
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-614" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-614">#L614</a>: 					println("Read table ok", "symbolLen:", seq.<b>fse</b>.symbolLen)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-77">dict.go#L77</a>: 		llDec: sequenceDec{<b>fse</b>: &amp;fseDecoder{}},
+		<a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-78" class="path-duplicate">dict.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-78">#L78</a>: 		ofDec: sequenceDec{<b>fse</b>: &amp;fseDecoder{}},
+		<a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-79" class="path-duplicate">dict.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-79">#L79</a>: 		mlDec: sequenceDec{<b>fse</b>: &amp;fseDecoder{}},
+		<a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-121" class="path-duplicate">dict.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-121">#L121</a>: 	if err := readDec(tableOffsets, d.ofDec.<b>fse</b>); err != nil {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-124" class="path-duplicate">dict.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-124">#L124</a>: 	if err := readDec(tableMatchLengths, d.mlDec.<b>fse</b>); err != nil {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-127" class="path-duplicate">dict.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-127">#L127</a>: 	if err := readDec(tableLiteralLengths, d.llDec.<b>fse</b>); err != nil {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-48">seqdec.go#L48</a>: 	<b>fse</b>    *fseDecoder
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-55" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-55">#L55</a>: 	if s.<b>fse</b> == nil {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-58" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-58">#L58</a>: 	s.state.init(br, s.<b>fse</b>.actualTableLog, s.<b>fse</b>.dt[:1&lt;&lt;s.<b>fse</b>.actualTableLog])
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-92" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-92">#L92</a>: 	s.maxBits = s.litLengths.<b>fse</b>.maxBits + s.offsets.<b>fse</b>.maxBits + s.matchLengths.<b>fse</b>.maxBits
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-103" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-103">#L103</a>: 	if f := s.litLengths.<b>fse</b>; f != nil &amp;&amp; !f.preDefined {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-105" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-105">#L105</a>: 		s.litLengths.<b>fse</b> = nil
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-107" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-107">#L107</a>: 	if f := s.offsets.<b>fse</b>; f != nil &amp;&amp; !f.preDefined {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-109" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-109">#L109</a>: 		s.offsets.<b>fse</b> = nil
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-111" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-111">#L111</a>: 	if f := s.matchLengths.<b>fse</b>; f != nil &amp;&amp; !f.preDefined {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-113" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-113">#L113</a>: 		s.matchLengths.<b>fse</b> = nil
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-231" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-231">#L231</a>: 	llTable, mlTable, ofTable := s.litLengths.<b>fse</b>.dt[:maxTablesize], s.matchLengths.<b>fse</b>.dt[:maxTablesize], s.offsets.<b>fse</b>.dt[:maxTablesize]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-84">seqdec_amd64.go#L84</a>: 		llTable:     s.litLengths.<b>fse</b>.dt[:maxTablesize],
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-85" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-85">#L85</a>: 		mlTable:     s.matchLengths.<b>fse</b>.dt[:maxTablesize],
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-86" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-86">#L86</a>: 		ofTable:     s.offsets.<b>fse</b>.dt[:maxTablesize],
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-239" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-239">#L239</a>: 		llTable:   s.litLengths.<b>fse</b>.dt[:maxTablesize],
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-240" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-240">#L240</a>: 		mlTable:   s.matchLengths.<b>fse</b>.dt[:maxTablesize],
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-241" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-241">#L241</a>: 		ofTable:   s.offsets.<b>fse</b>.dt[:maxTablesize],
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-255" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-255">#L255</a>: 	lte56bits := s.maxBits+s.offsets.<b>fse</b>.actualTableLog+s.matchLengths.<b>fse</b>.actualTableLog+s.litLengths.<b>fse</b>.actualTableLog &lt;= 56
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

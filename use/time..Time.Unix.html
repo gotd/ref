@@ -5,33 +5,41 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: time.Time.Unix</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../pkg/time.html">time</a>.<a href="../src/time/time.go.html#line-129">Time</a>.<a href="../src/time/time.go.html#line-1192">Unix</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/time.html">time</a>.<a href="../src/time/time.go.html#line-140">Time</a>.<a href="../src/time/time.go.html#line-1432">Unix</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">15 uses</span>
+<span class="title">23 uses</span>
 
 	time (current package)
-		<a href="../src/time/time.go.html#line-1192">time.go#L1192</a>: func (t Time) <b>Unix</b>() int64 {
-		<a href="../src/time/time.go.html#line-1423" class="path-duplicate">time.go</a><a href="../src/time/time.go.html#line-1423">#L1423</a>: 	_, _, _, _, isDST := t.loc.lookup(t.<b>Unix</b>())
+		<a href="../src/time/time.go.html#line-1432">time.go#L1432</a>: func (t Time) <b>Unix</b>() int64 {
+		<a href="../src/time/time.go.html#line-1682" class="path-duplicate">time.go</a><a href="../src/time/time.go.html#line-1682">#L1682</a>: 	_, _, _, _, isDST := t.loc.lookup(t.<b>Unix</b>())
 
 	<a href="../pkg/compress/gzip.html">compress/gzip</a>
 		<a href="../src/compress/gzip/gzip.go.html#line-160">gzip.go#L160</a>: 			le.PutUint32(z.buf[4:8], uint32(z.ModTime.<b>Unix</b>()))
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-762">handshake_client_tls13.go#L762</a>: 	session.useBy = uint64(c.config.time().Add(lifetime).<b>Unix</b>())
-		<a href="../src/crypto/tls/ticket.go.html#line-296">ticket.go#L296</a>: 		createdAt:         uint64(c.config.time().<b>Unix</b>()),
+		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-873">handshake_client_tls13.go#L873</a>: 	session.useBy = uint64(c.config.time().Add(lifetime).<b>Unix</b>())
+		<a href="../src/crypto/tls/ticket.go.html#line-302">ticket.go#L302</a>: 		createdAt:        uint64(c.config.time().<b>Unix</b>()),
 
-	<a href="../pkg/github.com/gotd/td/internal/exchange.html">github.com/gotd/td/internal/exchange</a>
-		<a href="../src/github.com/gotd/td/internal/exchange/server_flow.go.html#line-206">server_flow.go#L206</a>: 		ServerTime:  int(s.clock.Now().<b>Unix</b>()),
+	<a href="../pkg/github.com/gotd/td/exchange.html">github.com/gotd/td/exchange</a>
+		<a href="../src/github.com/gotd/td/exchange/client_flow.go.html#line-289">client_flow.go#L289</a>: 				result.ExpiresAt = c.clock.Now().<b>Unix</b>() + int64(c.expiresIn)
+		<a href="../src/github.com/gotd/td/exchange/server_flow.go.html#line-219">server_flow.go#L219</a>: 		ServerTime:  int(s.clock.Now().<b>Unix</b>()),
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproto/salts.html">github.com/gotd/td/internal/mtproto/salts</a>
-		<a href="../src/github.com/gotd/td/internal/mtproto/salts/salts.go.html#line-29">salts.go#L29</a>: 	date := int(deadline.<b>Unix</b>())
+	<a href="../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../src/github.com/gotd/td/mtproto/bind.go.html#line-61">bind.go#L61</a>: 		expiresAt = c.clock.Now().<b>Unix</b>() + int64(c.tempKeyTTL)
+		<a href="../src/github.com/gotd/td/mtproto/bind.go.html#line-202" class="path-duplicate">bind.go</a><a href="../src/github.com/gotd/td/mtproto/bind.go.html#line-202">#L202</a>: 	return c.clock.Now().<b>Unix</b>()-createdAt &gt; 60
+		<a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-172">connect.go#L172</a>: 	c.permKeyCreatedAt = c.clock.Now().<b>Unix</b>()
+		<a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-191" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-191">#L191</a>: 		expiresAt = c.clock.Now().<b>Unix</b>() + int64(c.tempKeyTTL)
+		<a href="../src/github.com/gotd/td/mtproto/pfs.go.html#line-33">pfs.go#L33</a>: 			expiresAt = c.clock.Now().<b>Unix</b>() + int64(c.tempKeyTTL)
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproxy/faketls.html">github.com/gotd/td/internal/mtproxy/faketls</a>
-		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/client_hello.go.html#line-117">client_hello.go#L117</a>: 	old ^= uint32(now.Now().<b>Unix</b>())
+	<a href="../pkg/github.com/gotd/td/mtproto/salts.html">github.com/gotd/td/mtproto/salts</a>
+		<a href="../src/github.com/gotd/td/mtproto/salts/salts.go.html#line-29">salts.go#L29</a>: 	date := int(deadline.<b>Unix</b>())
+
+	<a href="../pkg/github.com/gotd/td/mtproxy/faketls.html">github.com/gotd/td/mtproxy/faketls</a>
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/client_hello.go.html#line-99">client_hello.go#L99</a>: 	old ^= uint32(now.Now().<b>Unix</b>())
 
 	<a href="../pkg/github.com/gotd/td/tdp.html">github.com/gotd/td/tdp</a>
 		<a href="../src/github.com/gotd/td/tdp/tdp.go.html#line-60">tdp.go#L60</a>: 			max = now.AddDate(0, 0, 7).<b>Unix</b>()
@@ -40,13 +48,17 @@
 	<a href="../pkg/github.com/klauspost/compress/gzip.html">github.com/klauspost/compress/gzip</a>
 		<a href="../src/github.com/klauspost/compress/gzip/gzip.go.html#line-192">gzip.go#L192</a>: 		le.PutUint32(z.buf[4:8], uint32(z.ModTime.<b>Unix</b>()))
 
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-1065">handshake_client_tls13.go#L1065</a>: 	session.useBy = uint64(c.config.time().Add(lifetime).<b>Unix</b>())
+		<a href="../src/github.com/refraction-networking/utls/ticket.go.html#line-297">ticket.go#L297</a>: 		createdAt:         uint64(c.config.time().<b>Unix</b>()),
+
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/fs.go.html#line-532">fs.go#L532</a>: 	if t.<b>Unix</b>() == modtime.<b>Unix</b>() {
-		<a href="../src/net/http/server.go.html#line-1805">server.go#L1805</a>: 	packedState := uint64(time.Now().<b>Unix</b>()&lt;&lt;8) | uint64(state)
-		<a href="../src/net/http/server.go.html#line-2846" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-2846">#L2846</a>: 		if st == StateNew &amp;&amp; unixSec &lt; time.Now().<b>Unix</b>()-5 {
+		<a href="../src/net/http/fs.go.html#line-608">fs.go#L608</a>: 	if t.<b>Unix</b>() == modtime.<b>Unix</b>() {
+		<a href="../src/net/http/server.go.html#line-1840">server.go#L1840</a>: 	packedState := uint64(time.Now().<b>Unix</b>()&lt;&lt;8) | uint64(state)
+		<a href="../src/net/http/server.go.html#line-3210" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-3210">#L3210</a>: 		if st == StateNew &amp;&amp; unixSec &lt; time.Now().<b>Unix</b>()-5 {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

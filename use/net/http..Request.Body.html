@@ -5,65 +5,65 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.Request.Body</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/request.go.html#line-111">Request</a>.<a href="../../src/net/http/request.go.html#line-190">Body</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/request.go.html#line-113">Request</a>.<a href="../../src/net/http/request.go.html#line-188">Body</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">56 uses</span>
+<span class="title">58 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/client.go.html#line-671">client.go#L671</a>: 				req.<b>Body</b>, err = ireq.GetBody()
-		<a href="../../src/net/http/h2_bundle.go.html#line-5825">h2_bundle.go#L5825</a>: 	st.body = req.<b>Body</b>.(*http2requestBody).pipe // may be nil
-		<a href="../../src/net/http/h2_bundle.go.html#line-6014" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6014">#L6014</a>: 		req.<b>Body</b>.(*http2requestBody).pipe = &amp;http2pipe{
-		<a href="../../src/net/http/h2_bundle.go.html#line-6093" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6093">#L6093</a>: 		<b>Body</b>:       body,
-		<a href="../../src/net/http/h2_bundle.go.html#line-7705" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7705">#L7705</a>: 	if req.<b>Body</b> == nil || req.<b>Body</b> == NoBody {
-		<a href="../../src/net/http/h2_bundle.go.html#line-7717" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7717">#L7717</a>: 		newReq.<b>Body</b> = body
-		<a href="../../src/net/http/h2_bundle.go.html#line-8281" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-8281">#L8281</a>: 	if req.<b>Body</b> == nil || req.<b>Body</b> == NoBody {
-		<a href="../../src/net/http/h2_bundle.go.html#line-8309" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-8309">#L8309</a>: 		reqBody:              req.<b>Body</b>,
-		<a href="../../src/net/http/request.go.html#line-190">request.go#L190</a>: 	<b>Body</b> io.ReadCloser
-		<a href="../../src/net/http/request.go.html#line-491" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-491">#L491</a>: 	if r.<b>Body</b> == nil {
-		<a href="../../src/net/http/request.go.html#line-502" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-502">#L502</a>: 	return multipart.NewReader(r.<b>Body</b>, boundary), nil
-		<a href="../../src/net/http/request.go.html#line-895" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-895">#L895</a>: 		<b>Body</b>:       rc,
-		<a href="../../src/net/http/request.go.html#line-937" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-937">#L937</a>: 			req.<b>Body</b> = NoBody
-		<a href="../../src/net/http/request.go.html#line-1218" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1218">#L1218</a>: 	if r.<b>Body</b> == nil {
-		<a href="../../src/net/http/request.go.html#line-1231" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1231">#L1231</a>: 		var reader io.Reader = r.<b>Body</b>
-		<a href="../../src/net/http/request.go.html#line-1233" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1233">#L1233</a>: 		if _, ok := r.<b>Body</b>.(*maxBytesReader); !ok {
-		<a href="../../src/net/http/request.go.html#line-1235" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1235">#L1235</a>: 			reader = io.LimitReader(r.<b>Body</b>, maxFormSize+1)
-		<a href="../../src/net/http/request.go.html#line-1434" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1434">#L1434</a>: 	if r.<b>Body</b> == nil {
-		<a href="../../src/net/http/request.go.html#line-1437" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1437">#L1437</a>: 	return r.<b>Body</b>.Close()
-		<a href="../../src/net/http/request.go.html#line-1441" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1441">#L1441</a>: 	if r.<b>Body</b> == nil || r.<b>Body</b> == NoBody || r.GetBody != nil {
-		<a href="../../src/net/http/request.go.html#line-1459" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1459">#L1459</a>: 	if r.<b>Body</b> == nil || r.<b>Body</b> == NoBody {
-		<a href="../../src/net/http/server.go.html#line-1038">server.go#L1038</a>: 	if body, ok := req.<b>Body</b>.(*body); ok {
-		<a href="../../src/net/http/server.go.html#line-1051" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1051">#L1051</a>: 		reqBody:       req.<b>Body</b>,
-		<a href="../../src/net/http/server.go.html#line-1365" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1365">#L1365</a>: 	if ecr, ok := w.req.<b>Body</b>.(*expectContinueReader); ok &amp;&amp; !ecr.sawEOF.Load() {
-		<a href="../../src/net/http/server.go.html#line-1379" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1379">#L1379</a>: 		switch bdy := w.req.<b>Body</b>.(type) {
-		<a href="../../src/net/http/server.go.html#line-1706" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1706">#L1706</a>: 	body, ok := w.req.<b>Body</b>.(*body)
-		<a href="../../src/net/http/server.go.html#line-1985" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1985">#L1985</a>: 				req.<b>Body</b> = &amp;expectContinueReader{readCloser: req.<b>Body</b>, resp: w}
-		<a href="../../src/net/http/server.go.html#line-1995" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1995">#L1995</a>: 		if requestBodyRemains(req.<b>Body</b>) {
-		<a href="../../src/net/http/server.go.html#line-1996" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1996">#L1996</a>: 			registerOnHitEOF(req.<b>Body</b>, w.conn.r.startBackgroundRead)
-		<a href="../../src/net/http/server.go.html#line-3515" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3515">#L3515</a>: 		mb := MaxBytesReader(w, r.<b>Body</b>, 4&lt;&lt;10)
-		<a href="../../src/net/http/server.go.html#line-3540" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3540">#L3540</a>: 	if req.<b>Body</b> == nil {
-		<a href="../../src/net/http/server.go.html#line-3541" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3541">#L3541</a>: 		req.<b>Body</b> = NoBody
-		<a href="../../src/net/http/server.go.html#line-3642" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3642">#L3642</a>: 		r2.<b>Body</b> = MaxBytesReader(w, r.<b>Body</b>, n)
-		<a href="../../src/net/http/transfer.go.html#line-83">transfer.go#L83</a>: 		if rr.ContentLength != 0 &amp;&amp; rr.<b>Body</b> == nil {
-		<a href="../../src/net/http/transfer.go.html#line-91" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-91">#L91</a>: 		t.Body = rr.<b>Body</b>
-		<a href="../../src/net/http/transfer.go.html#line-92" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-92">#L92</a>: 		t.BodyCloser = rr.<b>Body</b>
-		<a href="../../src/net/http/transfer.go.html#line-583" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-583">#L583</a>: 		rr.<b>Body</b> = t.Body
-		<a href="../../src/net/http/transport.go.html#line-625">transport.go#L625</a>: 			if b, ok := req.<b>Body</b>.(*readTrackingBody); ok &amp;&amp; !b.didClose {
-		<a href="../../src/net/http/transport.go.html#line-666" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-666">#L666</a>: 	if req.<b>Body</b> == nil || req.<b>Body</b> == NoBody {
-		<a href="../../src/net/http/transport.go.html#line-670" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-670">#L670</a>: 	newReq.<b>Body</b> = &amp;readTrackingBody{ReadCloser: req.<b>Body</b>}
-		<a href="../../src/net/http/transport.go.html#line-679" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-679">#L679</a>: 	if req.<b>Body</b> == nil || req.<b>Body</b> == NoBody || (!req.<b>Body</b>.(*readTrackingBody).didRead &amp;&amp; !req.<b>Body</b>.(*readTrackingBody).didClose) {
-		<a href="../../src/net/http/transport.go.html#line-682" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-682">#L682</a>: 	if !req.<b>Body</b>.(*readTrackingBody).didClose {
-		<a href="../../src/net/http/transport.go.html#line-693" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-693">#L693</a>: 	newReq.<b>Body</b> = &amp;readTrackingBody{ReadCloser: body}
-		<a href="../../src/net/http/transport.go.html#line-2607" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2607">#L2607</a>: 	if req.ProtoAtLeast(1, 1) &amp;&amp; req.<b>Body</b> != nil &amp;&amp; req.expectsContinue() {
-
-	<a href="../../pkg/go.uber.org/zap.html">go.uber.org/zap</a>
-		<a href="../../src/go.uber.org/zap/http_handler.go.html#line-114">http_handler.go#L114</a>: 	return decodePutJSON(r.<b>Body</b>)
+		<a href="../../src/net/http/client.go.html#line-675">client.go#L675</a>: 				req.<b>Body</b>, err = ireq.GetBody()
+		<a href="../../src/net/http/clientconn.go.html#line-145">clientconn.go#L145</a>: 			<b>Body</b>:       NoBody,
+		<a href="../../src/net/http/h2_bundle.go.html#line-6081">h2_bundle.go#L6081</a>: 	st.body = req.<b>Body</b>.(*http2requestBody).pipe // may be nil
+		<a href="../../src/net/http/h2_bundle.go.html#line-6278" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6278">#L6278</a>: 		req.<b>Body</b>.(*http2requestBody).pipe = &amp;http2pipe{
+		<a href="../../src/net/http/h2_bundle.go.html#line-6314" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6314">#L6314</a>: 		<b>Body</b>:       body,
+		<a href="../../src/net/http/h2_bundle.go.html#line-7975" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7975">#L7975</a>: 	if req.<b>Body</b> == nil || req.<b>Body</b> == NoBody {
+		<a href="../../src/net/http/h2_bundle.go.html#line-7987" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7987">#L7987</a>: 		newReq.<b>Body</b> = body
+		<a href="../../src/net/http/h2_bundle.go.html#line-8581" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-8581">#L8581</a>: 	if req.<b>Body</b> == nil || req.<b>Body</b> == NoBody {
+		<a href="../../src/net/http/h2_bundle.go.html#line-8613" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-8613">#L8613</a>: 		reqBody:              req.<b>Body</b>,
+		<a href="../../src/net/http/request.go.html#line-188">request.go#L188</a>: 	<b>Body</b> io.ReadCloser
+		<a href="../../src/net/http/request.go.html#line-513" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-513">#L513</a>: 	if r.<b>Body</b> == nil {
+		<a href="../../src/net/http/request.go.html#line-524" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-524">#L524</a>: 	return multipart.NewReader(r.<b>Body</b>, boundary), nil
+		<a href="../../src/net/http/request.go.html#line-920" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-920">#L920</a>: 		<b>Body</b>:       rc,
+		<a href="../../src/net/http/request.go.html#line-962" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-962">#L962</a>: 			req.<b>Body</b> = NoBody
+		<a href="../../src/net/http/request.go.html#line-1264" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1264">#L1264</a>: 	if r.<b>Body</b> == nil {
+		<a href="../../src/net/http/request.go.html#line-1277" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1277">#L1277</a>: 		var reader io.Reader = r.<b>Body</b>
+		<a href="../../src/net/http/request.go.html#line-1279" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1279">#L1279</a>: 		if _, ok := r.<b>Body</b>.(*maxBytesReader); !ok {
+		<a href="../../src/net/http/request.go.html#line-1281" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1281">#L1281</a>: 			reader = io.LimitReader(r.<b>Body</b>, maxFormSize+1)
+		<a href="../../src/net/http/request.go.html#line-1528" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1528">#L1528</a>: 	if r.<b>Body</b> == nil {
+		<a href="../../src/net/http/request.go.html#line-1531" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1531">#L1531</a>: 	return r.<b>Body</b>.Close()
+		<a href="../../src/net/http/request.go.html#line-1535" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1535">#L1535</a>: 	if r.<b>Body</b> == nil || r.<b>Body</b> == NoBody || r.GetBody != nil {
+		<a href="../../src/net/http/request.go.html#line-1553" class="path-duplicate">request.go</a><a href="../../src/net/http/request.go.html#line-1553">#L1553</a>: 	if r.<b>Body</b> == nil || r.<b>Body</b> == NoBody {
+		<a href="../../src/net/http/server.go.html#line-1044">server.go#L1044</a>: 	if body, ok := req.<b>Body</b>.(*body); ok {
+		<a href="../../src/net/http/server.go.html#line-1057" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1057">#L1057</a>: 		reqBody:       req.<b>Body</b>,
+		<a href="../../src/net/http/server.go.html#line-1374" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1374">#L1374</a>: 	if ecr, ok := w.req.<b>Body</b>.(*expectContinueReader); ok &amp;&amp; !ecr.sawEOF.Load() {
+		<a href="../../src/net/http/server.go.html#line-1395" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1395">#L1395</a>: 		switch bdy := w.req.<b>Body</b>.(type) {
+		<a href="../../src/net/http/server.go.html#line-1716" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1716">#L1716</a>: 	body, ok := w.req.<b>Body</b>.(*body)
+		<a href="../../src/net/http/server.go.html#line-2049" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2049">#L2049</a>: 				req.<b>Body</b> = &amp;expectContinueReader{readCloser: req.<b>Body</b>, resp: w}
+		<a href="../../src/net/http/server.go.html#line-2059" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2059">#L2059</a>: 		if requestBodyRemains(req.<b>Body</b>) {
+		<a href="../../src/net/http/server.go.html#line-2060" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2060">#L2060</a>: 			registerOnHitEOF(req.<b>Body</b>, w.conn.r.startBackgroundRead)
+		<a href="../../src/net/http/server.go.html#line-2130" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2130">#L2130</a>: 	if req.<b>Body</b> == nil {
+		<a href="../../src/net/http/server.go.html#line-2131" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2131">#L2131</a>: 		req.<b>Body</b> = NoBody
+		<a href="../../src/net/http/server.go.html#line-3953" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3953">#L3953</a>: 		mb := MaxBytesReader(w, r.<b>Body</b>, 4&lt;&lt;10)
+		<a href="../../src/net/http/server.go.html#line-3978" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3978">#L3978</a>: 	if req.<b>Body</b> == nil {
+		<a href="../../src/net/http/server.go.html#line-3979" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3979">#L3979</a>: 		req.<b>Body</b> = NoBody
+		<a href="../../src/net/http/server.go.html#line-4070" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-4070">#L4070</a>: 		r2.<b>Body</b> = MaxBytesReader(w, r.<b>Body</b>, n)
+		<a href="../../src/net/http/transfer.go.html#line-85">transfer.go#L85</a>: 		if rr.ContentLength != 0 &amp;&amp; rr.<b>Body</b> == nil {
+		<a href="../../src/net/http/transfer.go.html#line-93" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-93">#L93</a>: 		t.Body = rr.<b>Body</b>
+		<a href="../../src/net/http/transfer.go.html#line-94" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-94">#L94</a>: 		t.BodyCloser = rr.<b>Body</b>
+		<a href="../../src/net/http/transfer.go.html#line-588" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-588">#L588</a>: 		rr.<b>Body</b> = t.Body
+		<a href="../../src/net/http/transport.go.html#line-733">transport.go#L733</a>: 			if b, ok := req.<b>Body</b>.(*readTrackingBody); ok &amp;&amp; !b.didClose.Load() {
+		<a href="../../src/net/http/transport.go.html#line-784" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-784">#L784</a>: 	if req.<b>Body</b> == nil || req.<b>Body</b> == NoBody {
+		<a href="../../src/net/http/transport.go.html#line-788" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-788">#L788</a>: 	newReq.<b>Body</b> = &amp;readTrackingBody{ReadCloser: req.<b>Body</b>}
+		<a href="../../src/net/http/transport.go.html#line-797" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-797">#L797</a>: 	if req.<b>Body</b> == nil || req.<b>Body</b> == NoBody || (!req.<b>Body</b>.(*readTrackingBody).didRead &amp;&amp; !req.<b>Body</b>.(*readTrackingBody).didClose.Load()) {
+		<a href="../../src/net/http/transport.go.html#line-800" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-800">#L800</a>: 	if !req.<b>Body</b>.(*readTrackingBody).didClose.Load() {
+		<a href="../../src/net/http/transport.go.html#line-811" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-811">#L811</a>: 	newReq.<b>Body</b> = &amp;readTrackingBody{ReadCloser: body}
+		<a href="../../src/net/http/transport.go.html#line-2862" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2862">#L2862</a>: 	if req.ProtoAtLeast(1, 1) &amp;&amp; req.<b>Body</b> != nil &amp;&amp; req.expectsContinue() {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

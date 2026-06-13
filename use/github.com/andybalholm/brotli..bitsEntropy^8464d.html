@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/andybalholm/brotli.bitsEntropy</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">func <b><a href="../../../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>.<a href="../../../src/github.com/andybalholm/brotli/bit_cost.go.html#line-29">bitsEntropy</a></b></span>
+
+<span class="title">18 uses</span>
+
+	github.com/andybalholm/brotli (current package)
+		<a href="../../../src/github.com/andybalholm/brotli/bit_cost.go.html#line-29">bit_cost.go#L29</a>: func <b>bitsEntropy</b>(population []uint32, size uint) float64 {
+		<a href="../../../src/github.com/andybalholm/brotli/bit_cost.go.html#line-170" class="path-duplicate">bit_cost.go</a><a href="../../../src/github.com/andybalholm/brotli/bit_cost.go.html#line-170">#L170</a>: 		bits += <b>bitsEntropy</b>(depth_histo[:], codeLengthCodes)
+		<a href="../../../src/github.com/andybalholm/brotli/bit_cost.go.html#line-301" class="path-duplicate">bit_cost.go</a><a href="../../../src/github.com/andybalholm/brotli/bit_cost.go.html#line-301">#L301</a>: 		bits += <b>bitsEntropy</b>(depth_histo[:], codeLengthCodes)
+		<a href="../../../src/github.com/andybalholm/brotli/bit_cost.go.html#line-432" class="path-duplicate">bit_cost.go</a><a href="../../../src/github.com/andybalholm/brotli/bit_cost.go.html#line-432">#L432</a>: 		bits += <b>bitsEntropy</b>(depth_histo[:], codeLengthCodes)
+		<a href="../../../src/github.com/andybalholm/brotli/compress_fragment_two_pass.go.html#line-686">compress_fragment_two_pass.go#L686</a>: 		return <b>bitsEntropy</b>(literal_histo[:], 256) &lt; max_total_bit_cost
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-415">encode.go#L415</a>: 			if <b>bitsEntropy</b>(literal_histo[:], 256) &gt; bit_cost_threshold {
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-354">metablock.go#L354</a>: 			last_entropy[i] = <b>bitsEntropy</b>(histograms[i].data_[:], self.alphabet_size_)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-380" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-380">#L380</a>: 			entropy[i] = <b>bitsEntropy</b>(histograms[curr_histo_ix].data_[:], self.alphabet_size_)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-386" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-386">#L386</a>: 				combined_entropy[jx] = <b>bitsEntropy</b>(combined_histo[jx].data_[0:], self.alphabet_size_)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock_command.go.html#line-75">metablock_command.go#L75</a>: 		last_entropy[0] = <b>bitsEntropy</b>(histograms[0].data_[:], self.alphabet_size_)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock_command.go.html#line-85" class="path-duplicate">metablock_command.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock_command.go.html#line-85">#L85</a>: 		var entropy float64 = <b>bitsEntropy</b>(histograms[self.curr_histogram_ix_].data_[:], self.alphabet_size_)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock_command.go.html#line-94" class="path-duplicate">metablock_command.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock_command.go.html#line-94">#L94</a>: 			combined_entropy[j] = <b>bitsEntropy</b>(combined_histo[j].data_[0:], self.alphabet_size_)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock_distance.go.html#line-75">metablock_distance.go#L75</a>: 		last_entropy[0] = <b>bitsEntropy</b>(histograms[0].data_[:], self.alphabet_size_)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock_distance.go.html#line-85" class="path-duplicate">metablock_distance.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock_distance.go.html#line-85">#L85</a>: 		var entropy float64 = <b>bitsEntropy</b>(histograms[self.curr_histogram_ix_].data_[:], self.alphabet_size_)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock_distance.go.html#line-94" class="path-duplicate">metablock_distance.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock_distance.go.html#line-94">#L94</a>: 			combined_entropy[j] = <b>bitsEntropy</b>(combined_histo[j].data_[0:], self.alphabet_size_)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock_literal.go.html#line-75">metablock_literal.go#L75</a>: 		last_entropy[0] = <b>bitsEntropy</b>(histograms[0].data_[:], self.alphabet_size_)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock_literal.go.html#line-85" class="path-duplicate">metablock_literal.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock_literal.go.html#line-85">#L85</a>: 		var entropy float64 = <b>bitsEntropy</b>(histograms[self.curr_histogram_ix_].data_[:], self.alphabet_size_)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock_literal.go.html#line-94" class="path-duplicate">metablock_literal.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock_literal.go.html#line-94">#L94</a>: 			combined_entropy[j] = <b>bitsEntropy</b>(combined_histo[j].data_[0:], self.alphabet_size_)
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

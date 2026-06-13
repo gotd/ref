@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.blockDec.dst</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-66">blockDec</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-72">dst</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">38 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-72">blockdec.go#L72</a>: 	<b>dst</b> []byte
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-208" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-208">#L208</a>: 	if cap(b.<b>dst</b>) &lt;= maxSize {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-209" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-209">#L209</a>: 		b.<b>dst</b> = make([]byte, 0, maxSize+1)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-230" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-230">#L230</a>: 		if cap(b.<b>dst</b>) &lt; int(b.RLESize) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-232" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-232">#L232</a>: 				b.<b>dst</b> = make([]byte, b.RLESize)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-234" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-234">#L234</a>: 				b.<b>dst</b> = make([]byte, maxCompressedBlockSize)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-237" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-237">#L237</a>: 		b.<b>dst</b> = b.<b>dst</b>[:b.RLESize]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-239" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-239">#L239</a>: 		for i := range b.<b>dst</b> {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-240" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-240">#L240</a>: 			b.<b>dst</b>[i] = v
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-242" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-242">#L242</a>: 		hist.appendKeep(b.<b>dst</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-248" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-248">#L248</a>: 		saved := b.<b>dst</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-251" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-251">#L251</a>: 			b.<b>dst</b> = hist.b
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-254" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-254">#L254</a>: 			b.<b>dst</b> = b.<b>dst</b>[:0]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-258" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-258">#L258</a>: 			println("Decompressed to total", len(b.<b>dst</b>), "bytes, hash:", xxhash.Sum64(b.<b>dst</b>), "error:", err)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-261" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-261">#L261</a>: 			hist.b = b.<b>dst</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-262" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-262">#L262</a>: 			b.<b>dst</b> = saved
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-264" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-264">#L264</a>: 			hist.appendKeep(b.<b>dst</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-488" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-488">#L488</a>: 		b.<b>dst</b> = append(b.<b>dst</b>, hist.decoders.literals...)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-500" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-500">#L500</a>: 	b.<b>dst</b> = hist.decoders.out
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-643" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-643">#L643</a>: 	if err := seqs.initialize(br, hist, b.<b>dst</b>); err != nil {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-682" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-682">#L682</a>: 	hist.decoders.out = b.<b>dst</b>[:0]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-695" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-695">#L695</a>: 	b.<b>dst</b> = hist.decoders.out
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-704" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-704">#L704</a>: 		hist.append(b.<b>dst</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-706" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-706">#L706</a>: 			println("Finished block with ", len(b.sequence), "sequences. Added", len(b.<b>dst</b>), "to history, now length", len(hist.b))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-760">decoder.go#L760</a>: 				if cap(block.<b>dst</b>) &lt; int(block.RLESize) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-762" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-762">#L762</a>: 						block.<b>dst</b> = make([]byte, block.RLESize)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-764" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-764">#L764</a>: 						block.<b>dst</b> = make([]byte, maxCompressedBlockSize)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-767" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-767">#L767</a>: 				block.<b>dst</b> = block.<b>dst</b>[:block.RLESize]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-769" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-769">#L769</a>: 				for i := range block.<b>dst</b> {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-770" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-770">#L770</a>: 					block.<b>dst</b>[i] = v
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-772" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-772">#L772</a>: 				hist.append(block.<b>dst</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-773" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-773">#L773</a>: 				do.b = block.<b>dst</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-791" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-791">#L791</a>: 				do.b = block.<b>dst</b>
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

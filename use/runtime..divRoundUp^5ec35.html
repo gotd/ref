@@ -5,29 +5,35 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: runtime.divRoundUp</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/stubs.go.html#line-434">divRoundUp</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/stubs.go.html#line-388">divRoundUp</a></b></span>
 
-<span class="title">11 uses</span>
+<span class="title">17 uses</span>
 
 	runtime (current package)
-		<a href="../src/runtime/malloc.go.html#line-1107">malloc.go#L1107</a>: 				sizeclass = size_to_class8[<b>divRoundUp</b>(size, smallSizeDiv)]
-		<a href="../src/runtime/malloc.go.html#line-1109" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1109">#L1109</a>: 				sizeclass = size_to_class128[<b>divRoundUp</b>(size-smallSizeMax, largeSizeDiv)]
-		<a href="../src/runtime/mbitmap.go.html#line-754">mbitmap.go#L754</a>: 	bytes := <b>divRoundUp</b>(s.nelems, 8)
-		<a href="../src/runtime/mbitmap.go.html#line-1349" class="path-duplicate">mbitmap.go</a><a href="../src/runtime/mbitmap.go.html#line-1349">#L1349</a>: 	bitmapBytes := <b>divRoundUp</b>(ptrdata, 8*goarch.PtrSize)
-		<a href="../src/runtime/mbitmap.go.html#line-1351" class="path-duplicate">mbitmap.go</a><a href="../src/runtime/mbitmap.go.html#line-1351">#L1351</a>: 	pages := <b>divRoundUp</b>(bitmapBytes, pageSize)
-		<a href="../src/runtime/mgcmark.go.html#line-63">mgcmark.go#L63</a>: 		return int(<b>divRoundUp</b>(bytes, rootBlockBytes))
-		<a href="../src/runtime/mgcsweep.go.html#line-642">mgcsweep.go#L642</a>: 		for i := obj/8 + 1; i &lt; <b>divRoundUp</b>(s.nelems, 8); i++ {
-		<a href="../src/runtime/msize.go.html#line-16">msize.go#L16</a>: 			return uintptr(class_to_size[size_to_class8[<b>divRoundUp</b>(size, smallSizeDiv)]])
-		<a href="../src/runtime/msize.go.html#line-18" class="path-duplicate">msize.go</a><a href="../src/runtime/msize.go.html#line-18">#L18</a>: 			return uintptr(class_to_size[size_to_class128[<b>divRoundUp</b>(size-smallSizeMax, largeSizeDiv)]])
-		<a href="../src/runtime/pinner.go.html#line-268">pinner.go#L268</a>: 	return <b>divRoundUp</b>(s.nelems*2, 8)
-		<a href="../src/runtime/stubs.go.html#line-434">stubs.go#L434</a>: func <b>divRoundUp</b>(n, a uintptr) uintptr {
+		<a href="../src/runtime/malloc.go.html#line-1378">malloc.go#L1378</a>: 		sizeclass = gc.SizeToSizeClass8[<b>divRoundUp</b>(size, gc.SmallSizeDiv)]
+		<a href="../src/runtime/malloc.go.html#line-1380" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1380">#L1380</a>: 		sizeclass = gc.SizeToSizeClass128[<b>divRoundUp</b>(size-gc.SmallSizeMax, gc.LargeSizeDiv)]
+		<a href="../src/runtime/malloc.go.html#line-1524" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1524">#L1524</a>: 	sizeclass := gc.SizeToSizeClass8[<b>divRoundUp</b>(size, gc.SmallSizeDiv)]
+		<a href="../src/runtime/malloc.go.html#line-1618" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1618">#L1618</a>: 		sizeclass = gc.SizeToSizeClass8[<b>divRoundUp</b>(size, gc.SmallSizeDiv)]
+		<a href="../src/runtime/malloc.go.html#line-1620" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1620">#L1620</a>: 		sizeclass = gc.SizeToSizeClass128[<b>divRoundUp</b>(size-gc.SmallSizeMax, gc.LargeSizeDiv)]
+		<a href="../src/runtime/malloc.go.html#line-2010" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-2010">#L2010</a>: 		sizeclass = gc.SizeToSizeClass8[<b>divRoundUp</b>(size, gc.SmallSizeDiv)]
+		<a href="../src/runtime/malloc.go.html#line-2012" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-2012">#L2012</a>: 		sizeclass = gc.SizeToSizeClass128[<b>divRoundUp</b>(size-gc.SmallSizeMax, gc.LargeSizeDiv)]
+		<a href="../src/runtime/mbitmap.go.html#line-1497">mbitmap.go#L1497</a>: 	bytes := <b>divRoundUp</b>(uintptr(s.nelems), 8)
+		<a href="../src/runtime/mgcmark.go.html#line-114">mgcmark.go#L114</a>: 		return int(<b>divRoundUp</b>(bytes, rootBlockBytes))
+		<a href="../src/runtime/mgcmark_greenteagc.go.html#line-200">mgcmark_greenteagc.go#L200</a>: 	bytes := <b>divRoundUp</b>(uintptr(s.nelems), 8)
+		<a href="../src/runtime/mgcmark_greenteagc.go.html#line-942" class="path-duplicate">mgcmark_greenteagc.go</a><a href="../src/runtime/mgcmark_greenteagc.go.html#line-942">#L942</a>: 	bytes := <b>divRoundUp</b>(uintptr(nelems), 8)
+		<a href="../src/runtime/mgcsweep.go.html#line-671">mgcsweep.go#L671</a>: 		for i := obj/8 + 1; i &lt; <b>divRoundUp</b>(uintptr(s.nelems), 8); i++ {
+		<a href="../src/runtime/msize.go.html#line-26">msize.go#L26</a>: 			return uintptr(gc.SizeClassToSize[gc.SizeToSizeClass8[<b>divRoundUp</b>(reqSize, gc.SmallSizeDiv)]]) - (reqSize - size)
+		<a href="../src/runtime/msize.go.html#line-28" class="path-duplicate">msize.go</a><a href="../src/runtime/msize.go.html#line-28">#L28</a>: 		return uintptr(gc.SizeClassToSize[gc.SizeToSizeClass128[<b>divRoundUp</b>(reqSize-gc.SmallSizeMax, gc.LargeSizeDiv)]]) - (reqSize - size)
+		<a href="../src/runtime/pinner.go.html#line-291">pinner.go#L291</a>: 	return <b>divRoundUp</b>(uintptr(s.nelems)*2, 8)
+		<a href="../src/runtime/stubs.go.html#line-388">stubs.go#L388</a>: func <b>divRoundUp</b>(n, a uintptr) uintptr {
+		<a href="../src/runtime/type.go.html#line-133">type.go#L133</a>: 			bytes := goarch.PtrSize * <b>divRoundUp</b>(t.PtrBytes/goarch.PtrSize, 8*goarch.PtrSize)
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: xxhash_amd64.s in package github.com/klauspost/compress/zstd/internal/xxhash</title>
+<link href="../../../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	xxhash_amd64.s
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../../../pkg/github.com/klauspost/compress/zstd/internal/xxhash.html">github.com/klauspost/compress/zstd/internal/xxhash</a>
+</code></pre>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code>//go:build !appengine &amp;&amp; gc &amp;&amp; !purego &amp;&amp; !noasm</code></span>
+<span class="codeline" id="line-2"><code>// +build !appengine</code></span>
+<span class="codeline" id="line-3"><code>// +build gc</code></span>
+<span class="codeline" id="line-4"><code>// +build !purego</code></span>
+<span class="codeline" id="line-5"><code>// +build !noasm</code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code>#include "textflag.h"</code></span>
+<span class="codeline" id="line-8"><code></code></span>
+<span class="codeline" id="line-9"><code>// Registers:</code></span>
+<span class="codeline" id="line-10"><code>#define h      AX</code></span>
+<span class="codeline" id="line-11"><code>#define d      AX</code></span>
+<span class="codeline" id="line-12"><code>#define p      SI // pointer to advance through b</code></span>
+<span class="codeline" id="line-13"><code>#define n      DX</code></span>
+<span class="codeline" id="line-14"><code>#define end    BX // loop end</code></span>
+<span class="codeline" id="line-15"><code>#define v1     R8</code></span>
+<span class="codeline" id="line-16"><code>#define v2     R9</code></span>
+<span class="codeline" id="line-17"><code>#define v3     R10</code></span>
+<span class="codeline" id="line-18"><code>#define v4     R11</code></span>
+<span class="codeline" id="line-19"><code>#define x      R12</code></span>
+<span class="codeline" id="line-20"><code>#define prime1 R13</code></span>
+<span class="codeline" id="line-21"><code>#define prime2 R14</code></span>
+<span class="codeline" id="line-22"><code>#define prime4 DI</code></span>
+<span class="codeline" id="line-23"><code></code></span>
+<span class="codeline" id="line-24"><code>#define round(acc, x) \</code></span>
+<span class="codeline" id="line-25"><code>	IMULQ prime2, x   \</code></span>
+<span class="codeline" id="line-26"><code>	ADDQ  x, acc      \</code></span>
+<span class="codeline" id="line-27"><code>	ROLQ  $31, acc    \</code></span>
+<span class="codeline" id="line-28"><code>	IMULQ prime1, acc</code></span>
+<span class="codeline" id="line-29"><code></code></span>
+<span class="codeline" id="line-30"><code>// round0 performs the operation x = round(0, x).</code></span>
+<span class="codeline" id="line-31"><code>#define round0(x) \</code></span>
+<span class="codeline" id="line-32"><code>	IMULQ prime2, x \</code></span>
+<span class="codeline" id="line-33"><code>	ROLQ  $31, x    \</code></span>
+<span class="codeline" id="line-34"><code>	IMULQ prime1, x</code></span>
+<span class="codeline" id="line-35"><code></code></span>
+<span class="codeline" id="line-36"><code>// mergeRound applies a merge round on the two registers acc and x.</code></span>
+<span class="codeline" id="line-37"><code>// It assumes that prime1, prime2, and prime4 have been loaded.</code></span>
+<span class="codeline" id="line-38"><code>#define mergeRound(acc, x) \</code></span>
+<span class="codeline" id="line-39"><code>	round0(x)         \</code></span>
+<span class="codeline" id="line-40"><code>	XORQ  x, acc      \</code></span>
+<span class="codeline" id="line-41"><code>	IMULQ prime1, acc \</code></span>
+<span class="codeline" id="line-42"><code>	ADDQ  prime4, acc</code></span>
+<span class="codeline" id="line-43"><code></code></span>
+<span class="codeline" id="line-44"><code>// blockLoop processes as many 32-byte blocks as possible,</code></span>
+<span class="codeline" id="line-45"><code>// updating v1, v2, v3, and v4. It assumes that there is at least one block</code></span>
+<span class="codeline" id="line-46"><code>// to process.</code></span>
+<span class="codeline" id="line-47"><code>#define blockLoop() \</code></span>
+<span class="codeline" id="line-48"><code>loop:  \</code></span>
+<span class="codeline" id="line-49"><code>	MOVQ +0(p), x  \</code></span>
+<span class="codeline" id="line-50"><code>	round(v1, x)   \</code></span>
+<span class="codeline" id="line-51"><code>	MOVQ +8(p), x  \</code></span>
+<span class="codeline" id="line-52"><code>	round(v2, x)   \</code></span>
+<span class="codeline" id="line-53"><code>	MOVQ +16(p), x \</code></span>
+<span class="codeline" id="line-54"><code>	round(v3, x)   \</code></span>
+<span class="codeline" id="line-55"><code>	MOVQ +24(p), x \</code></span>
+<span class="codeline" id="line-56"><code>	round(v4, x)   \</code></span>
+<span class="codeline" id="line-57"><code>	ADDQ $32, p    \</code></span>
+<span class="codeline" id="line-58"><code>	CMPQ p, end    \</code></span>
+<span class="codeline" id="line-59"><code>	JLE  loop</code></span>
+<span class="codeline" id="line-60"><code></code></span>
+<span class="codeline" id="line-61"><code>// func Sum64(b []byte) uint64</code></span>
+<span class="codeline" id="line-62"><code>TEXT ·Sum64(SB), NOSPLIT|NOFRAME, $0-32</code></span>
+<span class="codeline" id="line-63"><code>	// Load fixed primes.</code></span>
+<span class="codeline" id="line-64"><code>	MOVQ ·primes+0(SB), prime1</code></span>
+<span class="codeline" id="line-65"><code>	MOVQ ·primes+8(SB), prime2</code></span>
+<span class="codeline" id="line-66"><code>	MOVQ ·primes+24(SB), prime4</code></span>
+<span class="codeline" id="line-67"><code></code></span>
+<span class="codeline" id="line-68"><code>	// Load slice.</code></span>
+<span class="codeline" id="line-69"><code>	MOVQ b_base+0(FP), p</code></span>
+<span class="codeline" id="line-70"><code>	MOVQ b_len+8(FP), n</code></span>
+<span class="codeline" id="line-71"><code>	LEAQ (p)(n*1), end</code></span>
+<span class="codeline" id="line-72"><code></code></span>
+<span class="codeline" id="line-73"><code>	// The first loop limit will be len(b)-32.</code></span>
+<span class="codeline" id="line-74"><code>	SUBQ $32, end</code></span>
+<span class="codeline" id="line-75"><code></code></span>
+<span class="codeline" id="line-76"><code>	// Check whether we have at least one block.</code></span>
+<span class="codeline" id="line-77"><code>	CMPQ n, $32</code></span>
+<span class="codeline" id="line-78"><code>	JLT  noBlocks</code></span>
+<span class="codeline" id="line-79"><code></code></span>
+<span class="codeline" id="line-80"><code>	// Set up initial state (v1, v2, v3, v4).</code></span>
+<span class="codeline" id="line-81"><code>	MOVQ prime1, v1</code></span>
+<span class="codeline" id="line-82"><code>	ADDQ prime2, v1</code></span>
+<span class="codeline" id="line-83"><code>	MOVQ prime2, v2</code></span>
+<span class="codeline" id="line-84"><code>	XORQ v3, v3</code></span>
+<span class="codeline" id="line-85"><code>	XORQ v4, v4</code></span>
+<span class="codeline" id="line-86"><code>	SUBQ prime1, v4</code></span>
+<span class="codeline" id="line-87"><code></code></span>
+<span class="codeline" id="line-88"><code>	blockLoop()</code></span>
+<span class="codeline" id="line-89"><code></code></span>
+<span class="codeline" id="line-90"><code>	MOVQ v1, h</code></span>
+<span class="codeline" id="line-91"><code>	ROLQ $1, h</code></span>
+<span class="codeline" id="line-92"><code>	MOVQ v2, x</code></span>
+<span class="codeline" id="line-93"><code>	ROLQ $7, x</code></span>
+<span class="codeline" id="line-94"><code>	ADDQ x, h</code></span>
+<span class="codeline" id="line-95"><code>	MOVQ v3, x</code></span>
+<span class="codeline" id="line-96"><code>	ROLQ $12, x</code></span>
+<span class="codeline" id="line-97"><code>	ADDQ x, h</code></span>
+<span class="codeline" id="line-98"><code>	MOVQ v4, x</code></span>
+<span class="codeline" id="line-99"><code>	ROLQ $18, x</code></span>
+<span class="codeline" id="line-100"><code>	ADDQ x, h</code></span>
+<span class="codeline" id="line-101"><code></code></span>
+<span class="codeline" id="line-102"><code>	mergeRound(h, v1)</code></span>
+<span class="codeline" id="line-103"><code>	mergeRound(h, v2)</code></span>
+<span class="codeline" id="line-104"><code>	mergeRound(h, v3)</code></span>
+<span class="codeline" id="line-105"><code>	mergeRound(h, v4)</code></span>
+<span class="codeline" id="line-106"><code></code></span>
+<span class="codeline" id="line-107"><code>	JMP afterBlocks</code></span>
+<span class="codeline" id="line-108"><code></code></span>
+<span class="codeline" id="line-109"><code>noBlocks:</code></span>
+<span class="codeline" id="line-110"><code>	MOVQ ·primes+32(SB), h</code></span>
+<span class="codeline" id="line-111"><code></code></span>
+<span class="codeline" id="line-112"><code>afterBlocks:</code></span>
+<span class="codeline" id="line-113"><code>	ADDQ n, h</code></span>
+<span class="codeline" id="line-114"><code></code></span>
+<span class="codeline" id="line-115"><code>	ADDQ $24, end</code></span>
+<span class="codeline" id="line-116"><code>	CMPQ p, end</code></span>
+<span class="codeline" id="line-117"><code>	JG   try4</code></span>
+<span class="codeline" id="line-118"><code></code></span>
+<span class="codeline" id="line-119"><code>loop8:</code></span>
+<span class="codeline" id="line-120"><code>	MOVQ  (p), x</code></span>
+<span class="codeline" id="line-121"><code>	ADDQ  $8, p</code></span>
+<span class="codeline" id="line-122"><code>	round0(x)</code></span>
+<span class="codeline" id="line-123"><code>	XORQ  x, h</code></span>
+<span class="codeline" id="line-124"><code>	ROLQ  $27, h</code></span>
+<span class="codeline" id="line-125"><code>	IMULQ prime1, h</code></span>
+<span class="codeline" id="line-126"><code>	ADDQ  prime4, h</code></span>
+<span class="codeline" id="line-127"><code></code></span>
+<span class="codeline" id="line-128"><code>	CMPQ p, end</code></span>
+<span class="codeline" id="line-129"><code>	JLE  loop8</code></span>
+<span class="codeline" id="line-130"><code></code></span>
+<span class="codeline" id="line-131"><code>try4:</code></span>
+<span class="codeline" id="line-132"><code>	ADDQ $4, end</code></span>
+<span class="codeline" id="line-133"><code>	CMPQ p, end</code></span>
+<span class="codeline" id="line-134"><code>	JG   try1</code></span>
+<span class="codeline" id="line-135"><code></code></span>
+<span class="codeline" id="line-136"><code>	MOVL  (p), x</code></span>
+<span class="codeline" id="line-137"><code>	ADDQ  $4, p</code></span>
+<span class="codeline" id="line-138"><code>	IMULQ prime1, x</code></span>
+<span class="codeline" id="line-139"><code>	XORQ  x, h</code></span>
+<span class="codeline" id="line-140"><code></code></span>
+<span class="codeline" id="line-141"><code>	ROLQ  $23, h</code></span>
+<span class="codeline" id="line-142"><code>	IMULQ prime2, h</code></span>
+<span class="codeline" id="line-143"><code>	ADDQ  ·primes+16(SB), h</code></span>
+<span class="codeline" id="line-144"><code></code></span>
+<span class="codeline" id="line-145"><code>try1:</code></span>
+<span class="codeline" id="line-146"><code>	ADDQ $4, end</code></span>
+<span class="codeline" id="line-147"><code>	CMPQ p, end</code></span>
+<span class="codeline" id="line-148"><code>	JGE  finalize</code></span>
+<span class="codeline" id="line-149"><code></code></span>
+<span class="codeline" id="line-150"><code>loop1:</code></span>
+<span class="codeline" id="line-151"><code>	MOVBQZX (p), x</code></span>
+<span class="codeline" id="line-152"><code>	ADDQ    $1, p</code></span>
+<span class="codeline" id="line-153"><code>	IMULQ   ·primes+32(SB), x</code></span>
+<span class="codeline" id="line-154"><code>	XORQ    x, h</code></span>
+<span class="codeline" id="line-155"><code>	ROLQ    $11, h</code></span>
+<span class="codeline" id="line-156"><code>	IMULQ   prime1, h</code></span>
+<span class="codeline" id="line-157"><code></code></span>
+<span class="codeline" id="line-158"><code>	CMPQ p, end</code></span>
+<span class="codeline" id="line-159"><code>	JL   loop1</code></span>
+<span class="codeline" id="line-160"><code></code></span>
+<span class="codeline" id="line-161"><code>finalize:</code></span>
+<span class="codeline" id="line-162"><code>	MOVQ  h, x</code></span>
+<span class="codeline" id="line-163"><code>	SHRQ  $33, x</code></span>
+<span class="codeline" id="line-164"><code>	XORQ  x, h</code></span>
+<span class="codeline" id="line-165"><code>	IMULQ prime2, h</code></span>
+<span class="codeline" id="line-166"><code>	MOVQ  h, x</code></span>
+<span class="codeline" id="line-167"><code>	SHRQ  $29, x</code></span>
+<span class="codeline" id="line-168"><code>	XORQ  x, h</code></span>
+<span class="codeline" id="line-169"><code>	IMULQ ·primes+16(SB), h</code></span>
+<span class="codeline" id="line-170"><code>	MOVQ  h, x</code></span>
+<span class="codeline" id="line-171"><code>	SHRQ  $32, x</code></span>
+<span class="codeline" id="line-172"><code>	XORQ  x, h</code></span>
+<span class="codeline" id="line-173"><code></code></span>
+<span class="codeline" id="line-174"><code>	MOVQ h, ret+24(FP)</code></span>
+<span class="codeline" id="line-175"><code>	RET</code></span>
+<span class="codeline" id="line-176"><code></code></span>
+<span class="codeline" id="line-177"><code>// func writeBlocks(d *Digest, b []byte) int</code></span>
+<span class="codeline" id="line-178"><code>TEXT ·writeBlocks(SB), NOSPLIT|NOFRAME, $0-40</code></span>
+<span class="codeline" id="line-179"><code>	// Load fixed primes needed for round.</code></span>
+<span class="codeline" id="line-180"><code>	MOVQ ·primes+0(SB), prime1</code></span>
+<span class="codeline" id="line-181"><code>	MOVQ ·primes+8(SB), prime2</code></span>
+<span class="codeline" id="line-182"><code></code></span>
+<span class="codeline" id="line-183"><code>	// Load slice.</code></span>
+<span class="codeline" id="line-184"><code>	MOVQ b_base+8(FP), p</code></span>
+<span class="codeline" id="line-185"><code>	MOVQ b_len+16(FP), n</code></span>
+<span class="codeline" id="line-186"><code>	LEAQ (p)(n*1), end</code></span>
+<span class="codeline" id="line-187"><code>	SUBQ $32, end</code></span>
+<span class="codeline" id="line-188"><code></code></span>
+<span class="codeline" id="line-189"><code>	// Load vN from d.</code></span>
+<span class="codeline" id="line-190"><code>	MOVQ s+0(FP), d</code></span>
+<span class="codeline" id="line-191"><code>	MOVQ 0(d), v1</code></span>
+<span class="codeline" id="line-192"><code>	MOVQ 8(d), v2</code></span>
+<span class="codeline" id="line-193"><code>	MOVQ 16(d), v3</code></span>
+<span class="codeline" id="line-194"><code>	MOVQ 24(d), v4</code></span>
+<span class="codeline" id="line-195"><code></code></span>
+<span class="codeline" id="line-196"><code>	// We don't need to check the loop condition here; this function is</code></span>
+<span class="codeline" id="line-197"><code>	// always called with at least one block of data to process.</code></span>
+<span class="codeline" id="line-198"><code>	blockLoop()</code></span>
+<span class="codeline" id="line-199"><code></code></span>
+<span class="codeline" id="line-200"><code>	// Copy vN back to d.</code></span>
+<span class="codeline" id="line-201"><code>	MOVQ v1, 0(d)</code></span>
+<span class="codeline" id="line-202"><code>	MOVQ v2, 8(d)</code></span>
+<span class="codeline" id="line-203"><code>	MOVQ v3, 16(d)</code></span>
+<span class="codeline" id="line-204"><code>	MOVQ v4, 24(d)</code></span>
+<span class="codeline" id="line-205"><code></code></span>
+<span class="codeline" id="line-206"><code>	// The number of bytes written is p minus the old base pointer.</code></span>
+<span class="codeline" id="line-207"><code>	SUBQ b_base+8(FP), p</code></span>
+<span class="codeline" id="line-208"><code>	MOVQ p, ret+32(FP)</code></span>
+<span class="codeline" id="line-209"><code></code></span>
+<span class="codeline" id="line-210"><code>	RET</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,61 +5,68 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: context.WithCancel</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/context.html">context</a>.<a href="../src/context/context.go.html#line-235">WithCancel</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/context.html">context</a>.<a href="../src/context/context.go.html#line-240">WithCancel</a></b></span>
 
-<span class="title">23 uses</span>
+<span class="title">26 uses</span>
 
 	context (current package)
-		<a href="../src/context/context.go.html#line-235">context.go#L235</a>: func <b>WithCancel</b>(parent Context) (ctx Context, cancel CancelFunc) {
-		<a href="../src/context/context.go.html#line-619" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-619">#L619</a>: 		return <b>WithCancel</b>(parent)
+		<a href="../src/context/context.go.html#line-240">context.go#L240</a>: func <b>WithCancel</b>(parent Context) (ctx Context, cancel CancelFunc) {
+		<a href="../src/context/context.go.html#line-638" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-638">#L638</a>: 		return <b>WithCancel</b>(parent)
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/conn.go.html#line-1503">conn.go#L1503</a>: 	handshakeCtx, cancel := context.<b>WithCancel</b>(ctx)
+		<a href="../src/crypto/tls/conn.go.html#line-1527">conn.go#L1527</a>: 	handshakeCtx, cancel := context.<b>WithCancel</b>(ctx)
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproto.html">github.com/gotd/td/internal/mtproto</a>
-		<a href="../src/github.com/gotd/td/internal/mtproto/conn.go.html#line-195">conn.go#L195</a>: 	ctx, cancel := context.<b>WithCancel</b>(ctx)
+	<a href="../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../src/github.com/coder/websocket/netconn.go.html#line-58">netconn.go#L58</a>: 	nc.writeCtx, nc.writeCancel = context.<b>WithCancel</b>(ctx)
+		<a href="../src/github.com/coder/websocket/netconn.go.html#line-59" class="path-duplicate">netconn.go</a><a href="../src/github.com/coder/websocket/netconn.go.html#line-59">#L59</a>: 	nc.readCtx, nc.readCancel = context.<b>WithCancel</b>(ctx)
+		<a href="../src/github.com/coder/websocket/read.go.html#line-71">read.go#L71</a>: 	ctx, cancel := context.<b>WithCancel</b>(ctx)
 
-	<a href="../pkg/github.com/gotd/td/internal/pool.html">github.com/gotd/td/internal/pool</a>
-		<a href="../src/github.com/gotd/td/internal/pool/pool.go.html#line-54">pool.go#L54</a>: 	ctx, cancel := context.<b>WithCancel</b>(ctx)
+	<a href="../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../src/github.com/gotd/td/mtproto/conn.go.html#line-216">conn.go#L216</a>: 	ctx, cancel := context.<b>WithCancel</b>(ctx)
 
-	<a href="../pkg/github.com/gotd/td/internal/rpc.html">github.com/gotd/td/internal/rpc</a>
-		<a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-47">engine.go#L47</a>: 	reqCtx, reqCancel := context.<b>WithCancel</b>(context.Background())
-		<a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-83" class="path-duplicate">engine.go</a><a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-83">#L83</a>: 	retryCtx, retryClose := context.<b>WithCancel</b>(ctx)
-		<a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-179" class="path-duplicate">engine.go</a><a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-179">#L179</a>: 	ctx, cancel := context.<b>WithCancel</b>(ctx)
+	<a href="../pkg/github.com/gotd/td/pool.html">github.com/gotd/td/pool</a>
+		<a href="../src/github.com/gotd/td/pool/pool.go.html#line-54">pool.go#L54</a>: 	ctx, cancel := context.<b>WithCancel</b>(ctx)
 
-	<a href="../pkg/github.com/gotd/td/internal/tdsync.html">github.com/gotd/td/internal/tdsync</a>
-		<a href="../src/github.com/gotd/td/internal/tdsync/cancel_group.go.html#line-32">cancel_group.go#L32</a>: 	ctx, cancel := context.<b>WithCancel</b>(parent)
-		<a href="../src/github.com/gotd/td/internal/tdsync/supervisor.go.html#line-23">supervisor.go#L23</a>: 	ctx, cancel := context.<b>WithCancel</b>(parent)
+	<a href="../pkg/github.com/gotd/td/rpc.html">github.com/gotd/td/rpc</a>
+		<a href="../src/github.com/gotd/td/rpc/engine.go.html#line-84">engine.go#L84</a>: 	retryCtx, retryClose := context.<b>WithCancel</b>(ctx)
+		<a href="../src/github.com/gotd/td/rpc/engine.go.html#line-190" class="path-duplicate">engine.go</a><a href="../src/github.com/gotd/td/rpc/engine.go.html#line-190">#L190</a>: 	ctx, cancel := context.<b>WithCancel</b>(ctx)
+
+	<a href="../pkg/github.com/gotd/td/tdsync.html">github.com/gotd/td/tdsync</a>
+		<a href="../src/github.com/gotd/td/tdsync/cancel_group.go.html#line-32">cancel_group.go#L32</a>: 	ctx, cancel := context.<b>WithCancel</b>(parent)
+		<a href="../src/github.com/gotd/td/tdsync/supervisor.go.html#line-23">supervisor.go#L23</a>: 	ctx, cancel := context.<b>WithCancel</b>(parent)
 
 	<a href="../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
-		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-112">connect.go#L112</a>: 	c.ctx, c.cancel = context.<b>WithCancel</b>(ctx)
+		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-169">connect.go#L169</a>: 	c.ctx, c.cancel = context.<b>WithCancel</b>(ctx)
 
 	<a href="../pkg/github.com/gotd/td/telegram/dcs.html">github.com/gotd/td/telegram/dcs</a>
-		<a href="../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-154">plain.go#L154</a>: 	dialCtx, dialCancel := context.<b>WithCancel</b>(ctx)
+		<a href="../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-179">plain.go#L179</a>: 	dialCtx, dialCancel := context.<b>WithCancel</b>(ctx)
+
+	<a href="../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>
+		<a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-228">decoder.go#L228</a>: 	ctx, cancel := context.<b>WithCancel</b>(context.Background())
+
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-1529">conn.go#L1529</a>: 	handshakeCtx, cancel := context.<b>WithCancel</b>(ctx)
+		<a href="../src/github.com/refraction-networking/utls/u_conn.go.html#line-325">u_conn.go#L325</a>: 	handshakeCtx, cancel := context.<b>WithCancel</b>(ctx)
 
 	<a href="../pkg/net.html">net</a>
-		<a href="../src/net/dial.go.html#line-467">dial.go#L467</a>: 		subCtx, cancel := context.<b>WithCancel</b>(ctx)
-		<a href="../src/net/dial.go.html#line-547" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-547">#L547</a>: 	primaryCtx, primaryCancel := context.<b>WithCancel</b>(ctx)
-		<a href="../src/net/dial.go.html#line-558" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-558">#L558</a>: 			fallbackCtx, fallbackCancel := context.<b>WithCancel</b>(ctx)
-		<a href="../src/net/lookup.go.html#line-319">lookup.go#L319</a>: 	lookupGroupCtx, lookupGroupCancel := context.<b>WithCancel</b>(withUnexpiredValuesPreserved(ctx))
+		<a href="../src/net/dial.go.html#line-575">dial.go#L575</a>: 		subCtx, cancel2 := context.<b>WithCancel</b>(ctx)
+		<a href="../src/net/dial.go.html#line-689" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-689">#L689</a>: 	primaryCtx, primaryCancel := context.<b>WithCancel</b>(ctx)
+		<a href="../src/net/dial.go.html#line-700" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-700">#L700</a>: 			fallbackCtx, fallbackCancel := context.<b>WithCancel</b>(ctx)
+		<a href="../src/net/lookup.go.html#line-330">lookup.go#L330</a>: 	lookupGroupCtx, lookupGroupCancel := context.<b>WithCancel</b>(withUnexpiredValuesPreserved(ctx))
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/h2_bundle.go.html#line-4347">h2_bundle.go#L4347</a>: 	ctx, cancel = context.<b>WithCancel</b>(opts.context())
-		<a href="../src/net/http/h2_bundle.go.html#line-5932" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-5932">#L5932</a>: 	ctx, cancelCtx := context.<b>WithCancel</b>(sc.baseCtx)
-		<a href="../src/net/http/server.go.html#line-1034">server.go#L1034</a>: 	ctx, cancelCtx := context.<b>WithCancel</b>(ctx)
-		<a href="../src/net/http/server.go.html#line-1925" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-1925">#L1925</a>: 	ctx, cancelCtx := context.<b>WithCancel</b>(ctx)
-
-	<a href="../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../src/nhooyr.io/websocket/netconn.go.html#line-58">netconn.go#L58</a>: 	nc.writeCtx, nc.writeCancel = context.<b>WithCancel</b>(ctx)
-		<a href="../src/nhooyr.io/websocket/netconn.go.html#line-59" class="path-duplicate">netconn.go</a><a href="../src/nhooyr.io/websocket/netconn.go.html#line-59">#L59</a>: 	nc.readCtx, nc.readCancel = context.<b>WithCancel</b>(ctx)
-		<a href="../src/nhooyr.io/websocket/read.go.html#line-64">read.go#L64</a>: 	ctx, cancel := context.<b>WithCancel</b>(ctx)
+		<a href="../src/net/http/h2_bundle.go.html#line-4551">h2_bundle.go#L4551</a>: 	ctx, cancel = context.<b>WithCancel</b>(opts.context())
+		<a href="../src/net/http/h2_bundle.go.html#line-6186" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6186">#L6186</a>: 	ctx, cancelCtx := context.<b>WithCancel</b>(sc.baseCtx)
+		<a href="../src/net/http/server.go.html#line-1040">server.go#L1040</a>: 	ctx, cancelCtx := context.<b>WithCancel</b>(ctx)
+		<a href="../src/net/http/server.go.html#line-1976" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-1976">#L1976</a>: 	ctx, cancelCtx := context.<b>WithCancel</b>(ctx)
+		<a href="../src/net/http/transport.go.html#line-1529">transport.go#L1529</a>: 	dialCtx, dialCancel := context.<b>WithCancel</b>(context.WithoutCancel(ctx))
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

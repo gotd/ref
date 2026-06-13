@@ -5,47 +5,42 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: runtime.SetFinalizer</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/mfinal.go.html#line-388">SetFinalizer</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/mfinal.go.html#line-432">SetFinalizer</a></b></span>
 
-<span class="title">17 uses</span>
+<span class="title">14 uses</span>
 
 	runtime (current package)
-		<a href="../src/runtime/arena.go.html#line-252">arena.go#L252</a>: 	<b>SetFinalizer</b>(a, func(a *userArena) {
-		<a href="../src/runtime/arena.go.html#line-311" class="path-duplicate">arena.go</a><a href="../src/runtime/arena.go.html#line-311">#L311</a>: 	<b>SetFinalizer</b>(a, nil)
-		<a href="../src/runtime/mfinal.go.html#line-388">mfinal.go#L388</a>: func <b>SetFinalizer</b>(obj any, finalizer any) {
-		<a href="../src/runtime/pinner.go.html#line-53">pinner.go#L53</a>: 			<b>SetFinalizer</b>(p.pinner, func(i *pinner) {
+		<a href="../src/runtime/arena.go.html#line-264">arena.go#L264</a>: 	<b>SetFinalizer</b>(a, func(a *userArena) {
+		<a href="../src/runtime/arena.go.html#line-323" class="path-duplicate">arena.go</a><a href="../src/runtime/arena.go.html#line-323">#L323</a>: 	<b>SetFinalizer</b>(a, nil)
+		<a href="../src/runtime/mfinal.go.html#line-432">mfinal.go#L432</a>: func <b>SetFinalizer</b>(obj any, finalizer any) {
+		<a href="../src/runtime/pinner.go.html#line-70">pinner.go#L70</a>: 			<b>SetFinalizer</b>(p.pinner, func(i *pinner) {
 
-	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/cache.go.html#line-63">cache.go#L63</a>: 	runtime.<b>SetFinalizer</b>(a, func(_ *activeCert) {
+	<a href="../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../src/github.com/coder/websocket/conn.go.html#line-138">conn.go#L138</a>: 	runtime.<b>SetFinalizer</b>(c, func(c *Conn) {
+		<a href="../src/github.com/coder/websocket/conn.go.html#line-158" class="path-duplicate">conn.go</a><a href="../src/github.com/coder/websocket/conn.go.html#line-158">#L158</a>: 	runtime.<b>SetFinalizer</b>(c, nil)
 
-	<a href="../pkg/internal/intern.html">internal/intern</a>
-		<a href="../src/internal/intern/intern.go.html#line-120">intern.go#L120</a>: 		runtime.<b>SetFinalizer</b>(v, finalize)
-		<a href="../src/internal/intern/intern.go.html#line-133" class="path-duplicate">intern.go</a><a href="../src/internal/intern/intern.go.html#line-133">#L133</a>: 		runtime.<b>SetFinalizer</b>(v, finalize)
+	<a href="../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>
+		<a href="../src/github.com/klauspost/compress/zstd/simple_go124.go.html#line-49">simple_go124.go#L49</a>: 		runtime.<b>SetFinalizer</b>(dec, func(d *Decoder) {
 
-	<a href="../pkg/internal/poll.html">internal/poll</a>
-		<a href="../src/internal/poll/splice_linux.go.html#line-202">splice_linux.go#L202</a>: 	runtime.<b>SetFinalizer</b>(p, destroyPipe)
-		<a href="../src/internal/poll/splice_linux.go.html#line-222" class="path-duplicate">splice_linux.go</a><a href="../src/internal/poll/splice_linux.go.html#line-222">#L222</a>: 		runtime.<b>SetFinalizer</b>(p, nil)
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/cache.go.html#line-63">cache.go#L63</a>: 	runtime.<b>SetFinalizer</b>(a, func(_ *activeCert) {
 
 	<a href="../pkg/net.html">net</a>
-		<a href="../src/net/fd_posix.go.html#line-32">fd_posix.go#L32</a>: 	runtime.<b>SetFinalizer</b>(fd, (*netFD).Close)
-		<a href="../src/net/fd_posix.go.html#line-36" class="path-duplicate">fd_posix.go</a><a href="../src/net/fd_posix.go.html#line-36">#L36</a>: 	runtime.<b>SetFinalizer</b>(fd, nil)
-
-	<a href="../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../src/nhooyr.io/websocket/conn.go.html#line-130">conn.go#L130</a>: 	runtime.<b>SetFinalizer</b>(c, func(c *Conn) {
-		<a href="../src/nhooyr.io/websocket/conn.go.html#line-162" class="path-duplicate">conn.go</a><a href="../src/nhooyr.io/websocket/conn.go.html#line-162">#L162</a>: 	runtime.<b>SetFinalizer</b>(c, nil)
+		<a href="../src/net/fd_posix.go.html#line-44">fd_posix.go#L44</a>: 	runtime.<b>SetFinalizer</b>(fd, (*netFD).Close)
+		<a href="../src/net/fd_posix.go.html#line-49" class="path-duplicate">fd_posix.go</a><a href="../src/net/fd_posix.go.html#line-49">#L49</a>: 	runtime.<b>SetFinalizer</b>(fd, nil)
 
 	<a href="../pkg/os.html">os</a>
-		<a href="../src/os/exec.go.html#line-30">exec.go#L30</a>: 	runtime.<b>SetFinalizer</b>(p, (*Process).Release)
-		<a href="../src/os/exec_unix.go.html#line-91">exec_unix.go#L91</a>: 	runtime.<b>SetFinalizer</b>(p, nil)
-		<a href="../src/os/file_unix.go.html#line-239">file_unix.go#L239</a>: 	runtime.<b>SetFinalizer</b>(f.file, (*file).close)
+		<a href="../src/os/file_unix.go.html#line-225">file_unix.go#L225</a>: 	runtime.<b>SetFinalizer</b>(f.file, (*file).close)
 		<a href="../src/os/file_unix.go.html#line-323" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-323">#L323</a>: 	runtime.<b>SetFinalizer</b>(file, nil)
+		<a href="../src/os/root_openat.go.html#line-38">root_openat.go#L38</a>: 	runtime.<b>SetFinalizer</b>(r, nil) // no need for a finalizer any more
+		<a href="../src/os/root_unix.go.html#line-59">root_unix.go#L59</a>: 	runtime.<b>SetFinalizer</b>(r.root, (*root).Close)
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

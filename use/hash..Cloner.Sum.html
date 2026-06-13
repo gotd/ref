@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: hash.Cloner.Sum</title>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/hash.html">hash</a>.<a href="../src/hash/hash.go.html#line-69">Cloner</a>.<a href="../src/hash/hash.go.html#line-33">Sum</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+
+<span class="title">93 uses</span>
+
+	hash (current package)
+		<a href="../src/hash/hash.go.html#line-33">hash.go#L33</a>: 	<b>Sum</b>(b []byte) []byte
+
+	<a href="../pkg/crypto.html">crypto</a>
+		<a href="../src/crypto/crypto.go.html#line-252">crypto.go#L252</a>: 		msg = h.<b>Sum</b>(nil)
+
+	<a href="../pkg/crypto/internal/fips140/hmac.html">crypto/internal/fips140/hmac</a>
+		<a href="../src/crypto/internal/fips140/hmac/hmac.go.html#line-61">hmac.go#L61</a>: 	in = h.inner.<b>Sum</b>(in)
+		<a href="../src/crypto/internal/fips140/hmac/hmac.go.html#line-72" class="path-duplicate">hmac.go</a><a href="../src/crypto/internal/fips140/hmac/hmac.go.html#line-72">#L72</a>: 	return h.outer.<b>Sum</b>(in[:origLen])
+		<a href="../src/crypto/internal/fips140/hmac/hmac.go.html#line-191" class="path-duplicate">hmac.go</a><a href="../src/crypto/internal/fips140/hmac/hmac.go.html#line-191">#L191</a>: 		key = hm.outer.<b>Sum</b>(nil)
+
+	<a href="../pkg/crypto/internal/fips140/rsa.html">crypto/internal/fips140/rsa</a>
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-62">pkcs1v22.go#L62</a>: 		digest = hash.<b>Sum</b>(digest[:0])
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-118" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-118">#L118</a>: 	h = hash.<b>Sum</b>(h[:0])
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-244" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-244">#L244</a>: 	h0 := hash.<b>Sum</b>(nil)
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-395" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-395">#L395</a>: 	lHash := hash.<b>Sum</b>(nil)
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-434" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-434">#L434</a>: 	lHash := hash.<b>Sum</b>(nil)
+
+	<a href="../pkg/crypto/internal/fips140/tls13.html">crypto/internal/fips140/tls13</a>
+		<a href="../src/crypto/internal/fips140/tls13/tls13.go.html#line-53">tls13.go#L53</a>: 	return ExpandLabel(hash, secret, label, transcript.<b>Sum</b>(nil), transcript.Size())
+		<a href="../src/crypto/internal/fips140/tls13/tls13.go.html#line-173" class="path-duplicate">tls13.go</a><a href="../src/crypto/internal/fips140/tls13/tls13.go.html#line-173">#L173</a>: 	return ExpandLabel(s.hash, secret, "exporter", h.<b>Sum</b>(nil), length)
+
+	<a href="../pkg/crypto/sha256.html">crypto/sha256</a>
+		<a href="../src/crypto/sha256/sha256.go.html#line-60">sha256.go#L60</a>: 	h.<b>Sum</b>(sum[:0])
+		<a href="../src/crypto/sha256/sha256.go.html#line-72" class="path-duplicate">sha256.go</a><a href="../src/crypto/sha256/sha256.go.html#line-72">#L72</a>: 	h.<b>Sum</b>(sum[:0])
+
+	<a href="../pkg/crypto/sha512.html">crypto/sha512</a>
+		<a href="../src/crypto/sha512/sha512.go.html#line-91">sha512.go#L91</a>: 	h.<b>Sum</b>(sum[:0])
+		<a href="../src/crypto/sha512/sha512.go.html#line-103" class="path-duplicate">sha512.go</a><a href="../src/crypto/sha512/sha512.go.html#line-103">#L103</a>: 	h.<b>Sum</b>(sum[:0])
+		<a href="../src/crypto/sha512/sha512.go.html#line-112" class="path-duplicate">sha512.go</a><a href="../src/crypto/sha512/sha512.go.html#line-112">#L112</a>: 	h.<b>Sum</b>(sum[:0])
+		<a href="../src/crypto/sha512/sha512.go.html#line-121" class="path-duplicate">sha512.go</a><a href="../src/crypto/sha512/sha512.go.html#line-121">#L121</a>: 	h.<b>Sum</b>(sum[:0])
+
+	<a href="../pkg/crypto/tls.html">crypto/tls</a>
+		<a href="../src/crypto/tls/auth.go.html#line-26">auth.go#L26</a>: 		signed = h.<b>Sum</b>(nil)
+		<a href="../src/crypto/tls/auth.go.html#line-117" class="path-duplicate">auth.go</a><a href="../src/crypto/tls/auth.go.html#line-117">#L117</a>: 	b.Write(transcript.<b>Sum</b>(nil))
+		<a href="../src/crypto/tls/cipher_suites.go.html#line-619">cipher_suites.go#L619</a>: 	res := h.<b>Sum</b>(out)
+		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-98">handshake_client_tls13.go#L98</a>: 		acceptConfirmation := tls13.ExpandLabel(h, prk, "ech accept confirmation", confTranscript.<b>Sum</b>(nil), 8)
+		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-240" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/crypto/tls/handshake_client_tls13.go.html#line-240">#L240</a>: 	chHash := hs.transcript.<b>Sum</b>(nil)
+		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-251" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/crypto/tls/handshake_client_tls13.go.html#line-251">#L251</a>: 		chHash = hs.echContext.innerTranscript.<b>Sum</b>(nil)
+		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-273" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/crypto/tls/handshake_client_tls13.go.html#line-273">#L273</a>: 			acceptConfirmation := tls13.ExpandLabel(h, prk, "hrr ech accept confirmation", confTranscript.<b>Sum</b>(nil), 8)
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-538">handshake_server_tls13.go#L538</a>: 	chHash := hs.transcript.<b>Sum</b>(nil)
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-566" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-566">#L566</a>: 		acceptConfirmation := tls13.ExpandLabel(h, prf, "hrr ech accept confirmation", confTranscript.<b>Sum</b>(nil), 8)
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-730" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-730">#L730</a>: 		acceptConfirmation := tls13.ExpandLabel(h, prk, "ech accept confirmation", echTranscript.<b>Sum</b>(nil), 8)
+		<a href="../src/crypto/tls/key_agreement.go.html#line-113">key_agreement.go#L113</a>: 	return hsha1.<b>Sum</b>(nil)
+		<a href="../src/crypto/tls/key_agreement.go.html#line-124" class="path-duplicate">key_agreement.go</a><a href="../src/crypto/tls/key_agreement.go.html#line-124">#L124</a>: 	copy(md5sha1, hmd5.<b>Sum</b>(nil))
+		<a href="../src/crypto/tls/key_schedule.go.html#line-41">key_schedule.go#L41</a>: 	verifyData.Write(transcript.<b>Sum</b>(nil))
+		<a href="../src/crypto/tls/key_schedule.go.html#line-42" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-42">#L42</a>: 	return verifyData.<b>Sum</b>(nil)
+		<a href="../src/crypto/tls/prf.go.html#line-33">prf.go#L33</a>: 	a := h.<b>Sum</b>(nil)
+		<a href="../src/crypto/tls/prf.go.html#line-40" class="path-duplicate">prf.go</a><a href="../src/crypto/tls/prf.go.html#line-40">#L40</a>: 		b := h.<b>Sum</b>(nil)
+		<a href="../src/crypto/tls/prf.go.html#line-46" class="path-duplicate">prf.go</a><a href="../src/crypto/tls/prf.go.html#line-46">#L46</a>: 		a = h.<b>Sum</b>(nil)
+		<a href="../src/crypto/tls/prf.go.html#line-204" class="path-duplicate">prf.go</a><a href="../src/crypto/tls/prf.go.html#line-204">#L204</a>: 		return h.client.<b>Sum</b>(nil)
+		<a href="../src/crypto/tls/prf.go.html#line-208" class="path-duplicate">prf.go</a><a href="../src/crypto/tls/prf.go.html#line-208">#L208</a>: 	out = h.clientMD5.<b>Sum</b>(out)
+		<a href="../src/crypto/tls/prf.go.html#line-209" class="path-duplicate">prf.go</a><a href="../src/crypto/tls/prf.go.html#line-209">#L209</a>: 	return h.client.<b>Sum</b>(out)
+		<a href="../src/crypto/tls/prf.go.html#line-228" class="path-duplicate">prf.go</a><a href="../src/crypto/tls/prf.go.html#line-228">#L228</a>: 		return h.server.<b>Sum</b>(nil)
+		<a href="../src/crypto/tls/ticket.go.html#line-348">ticket.go#L348</a>: 	mac.<b>Sum</b>(macBytes[:0])
+		<a href="../src/crypto/tls/ticket.go.html#line-383" class="path-duplicate">ticket.go</a><a href="../src/crypto/tls/ticket.go.html#line-383">#L383</a>: 		expected := mac.<b>Sum</b>(nil)
+
+	<a href="../pkg/crypto/x509.html">crypto/x509</a>
+		<a href="../src/crypto/x509/pem_decrypt.go.html#line-92">pem_decrypt.go#L92</a>: 		digest = hash.<b>Sum</b>(digest[:0])
+		<a href="../src/crypto/x509/x509.go.html#line-1011">x509.go#L1011</a>: 		signed = h.<b>Sum</b>(nil)
+
+	<a href="../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../src/github.com/coder/websocket/accept.go.html#line-377">accept.go#L377</a>: 	return base64.StdEncoding.EncodeToString(h.<b>Sum</b>(nil))
+
+	<a href="../pkg/github.com/gotd/td/crypto.html">github.com/gotd/td/crypto</a>
+		<a href="../src/github.com/gotd/td/crypto/keys.go.html#line-45">keys.go#L45</a>: 	return h.<b>Sum</b>(r)
+		<a href="../src/github.com/gotd/td/crypto/keys.go.html#line-64" class="path-duplicate">keys.go</a><a href="../src/github.com/gotd/td/crypto/keys.go.html#line-64">#L64</a>: 	return h.<b>Sum</b>(r)
+		<a href="../src/github.com/gotd/td/crypto/keys.go.html#line-76" class="path-duplicate">keys.go</a><a href="../src/github.com/gotd/td/crypto/keys.go.html#line-76">#L76</a>: 	return h.<b>Sum</b>(r)
+		<a href="../src/github.com/gotd/td/crypto/keys_old.go.html#line-18">keys_old.go#L18</a>: 	return h.<b>Sum</b>(r)
+		<a href="../src/github.com/gotd/td/crypto/keys_old.go.html#line-31" class="path-duplicate">keys_old.go</a><a href="../src/github.com/gotd/td/crypto/keys_old.go.html#line-31">#L31</a>: 	return h.<b>Sum</b>(r)
+		<a href="../src/github.com/gotd/td/crypto/keys_old.go.html#line-43" class="path-duplicate">keys_old.go</a><a href="../src/github.com/gotd/td/crypto/keys_old.go.html#line-43">#L43</a>: 	return h.<b>Sum</b>(r)
+		<a href="../src/github.com/gotd/td/crypto/keys_old.go.html#line-55" class="path-duplicate">keys_old.go</a><a href="../src/github.com/gotd/td/crypto/keys_old.go.html#line-55">#L55</a>: 	return h.<b>Sum</b>(r)
+		<a href="../src/github.com/gotd/td/crypto/rsa_fingerprint.go.html#line-25">rsa_fingerprint.go#L25</a>: 	result := h.<b>Sum</b>(nil)[12:sha1.Size]
+		<a href="../src/github.com/gotd/td/crypto/rsa_pad.go.html#line-72">rsa_pad.go#L72</a>: 			dataWithHash = h.<b>Sum</b>(dataWithHash)
+		<a href="../src/github.com/gotd/td/crypto/rsa_pad.go.html#line-155" class="path-duplicate">rsa_pad.go</a><a href="../src/github.com/gotd/td/crypto/rsa_pad.go.html#line-155">#L155</a>: 		if !bytes.Equal(hash, h.<b>Sum</b>(nil)) {
+		<a href="../src/github.com/gotd/td/crypto/sha256.go.html#line-16">sha256.go#L16</a>: 	return h.<b>Sum</b>(nil)
+
+	<a href="../pkg/github.com/gotd/td/crypto/srp.html">github.com/gotd/td/crypto/srp</a>
+		<a href="../src/github.com/gotd/td/crypto/srp/hash.go.html#line-92">hash.go#L92</a>: 	return h.<b>Sum</b>(nil)
+
+	<a href="../pkg/github.com/gotd/td/mtproxy/faketls.html">github.com/gotd/td/mtproxy/faketls</a>
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/client_hello.go.html#line-95">client_hello.go#L95</a>: 	copy(random, mac.<b>Sum</b>(nil))
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/server_hello.go.html#line-83">server_hello.go#L83</a>: 	if !bytes.Equal(mac.<b>Sum</b>(nil), originalDigest[:]) {
+
+	<a href="../pkg/github.com/gotd/td/session/tdesktop.html">github.com/gotd/td/session/tdesktop</a>
+		<a href="../src/github.com/gotd/td/session/tdesktop/file.go.html#line-137">file.go#L137</a>: 	h.<b>Sum</b>(r[:0])
+		<a href="../src/github.com/gotd/td/session/tdesktop/local_key.go.html#line-42">local_key.go#L42</a>: 	key := pbkdf2.Key(h.<b>Sum</b>(nil), salt, iters, len(r), sha512.New)
+
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/auth.go.html#line-86">auth.go#L86</a>: 		b.Write(transcript.<b>Sum</b>(nil))
+		<a href="../src/github.com/refraction-networking/utls/auth.go.html#line-92" class="path-duplicate">auth.go</a><a href="../src/github.com/refraction-networking/utls/auth.go.html#line-92">#L92</a>: 	h.Write(transcript.<b>Sum</b>(nil))
+		<a href="../src/github.com/refraction-networking/utls/auth.go.html#line-93" class="path-duplicate">auth.go</a><a href="../src/github.com/refraction-networking/utls/auth.go.html#line-93">#L93</a>: 	return h.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/cipher_suites.go.html#line-620">cipher_suites.go#L620</a>: 	res := h.<b>Sum</b>(out)
+		<a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-109">handshake_client_tls13.go#L109</a>: 			confTranscript.<b>Sum</b>(nil),
+		<a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-258" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-258">#L258</a>: 	chHash := hs.transcript.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-269" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-269">#L269</a>: 		chHash = hs.echContext.innerTranscript.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-288" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-288">#L288</a>: 				confTranscript.<b>Sum</b>(nil),
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-554">handshake_server_tls13.go#L554</a>: 	chHash := hs.transcript.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-579" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-579">#L579</a>: 			confTranscript.<b>Sum</b>(nil),
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-742" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-742">#L742</a>: 			echTranscript.<b>Sum</b>(nil),
+		<a href="../src/github.com/refraction-networking/utls/key_agreement.go.html#line-112">key_agreement.go#L112</a>: 	return hsha1.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/key_agreement.go.html#line-123" class="path-duplicate">key_agreement.go</a><a href="../src/github.com/refraction-networking/utls/key_agreement.go.html#line-123">#L123</a>: 	copy(md5sha1, hmd5.<b>Sum</b>(nil))
+		<a href="../src/github.com/refraction-networking/utls/key_agreement.go.html#line-145" class="path-duplicate">key_agreement.go</a><a href="../src/github.com/refraction-networking/utls/key_agreement.go.html#line-145">#L145</a>: 		digest := h.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/key_schedule.go.html#line-40">key_schedule.go#L40</a>: 	verifyData.Write(transcript.<b>Sum</b>(nil))
+		<a href="../src/github.com/refraction-networking/utls/key_schedule.go.html#line-41" class="path-duplicate">key_schedule.go</a><a href="../src/github.com/refraction-networking/utls/key_schedule.go.html#line-41">#L41</a>: 	return verifyData.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/prf.go.html#line-34">prf.go#L34</a>: 	a := h.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/prf.go.html#line-41" class="path-duplicate">prf.go</a><a href="../src/github.com/refraction-networking/utls/prf.go.html#line-41">#L41</a>: 		b := h.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/prf.go.html#line-47" class="path-duplicate">prf.go</a><a href="../src/github.com/refraction-networking/utls/prf.go.html#line-47">#L47</a>: 		a = h.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/prf.go.html#line-205" class="path-duplicate">prf.go</a><a href="../src/github.com/refraction-networking/utls/prf.go.html#line-205">#L205</a>: 		return h.client.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/prf.go.html#line-209" class="path-duplicate">prf.go</a><a href="../src/github.com/refraction-networking/utls/prf.go.html#line-209">#L209</a>: 	out = h.clientMD5.<b>Sum</b>(out)
+		<a href="../src/github.com/refraction-networking/utls/prf.go.html#line-210" class="path-duplicate">prf.go</a><a href="../src/github.com/refraction-networking/utls/prf.go.html#line-210">#L210</a>: 	return h.client.<b>Sum</b>(out)
+		<a href="../src/github.com/refraction-networking/utls/prf.go.html#line-239" class="path-duplicate">prf.go</a><a href="../src/github.com/refraction-networking/utls/prf.go.html#line-239">#L239</a>: 		return hash.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/prf.go.html#line-243" class="path-duplicate">prf.go</a><a href="../src/github.com/refraction-networking/utls/prf.go.html#line-243">#L243</a>: 		return h.server.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/ticket.go.html#line-343">ticket.go#L343</a>: 	mac.<b>Sum</b>(macBytes[:0])
+		<a href="../src/github.com/refraction-networking/utls/ticket.go.html#line-378" class="path-duplicate">ticket.go</a><a href="../src/github.com/refraction-networking/utls/ticket.go.html#line-378">#L378</a>: 		expected := mac.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/u_key_schedule.go.html#line-26">u_key_schedule.go#L26</a>: 	h.Write(ch.<b>Sum</b>(nil))
+
+	<a href="../pkg/github.com/refraction-networking/utls/internal/tls12.html">github.com/refraction-networking/utls/internal/tls12</a>
+		<a href="../src/github.com/refraction-networking/utls/internal/tls12/tls12.go.html#line-28">tls12.go#L28</a>: 	a := h.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/internal/tls12/tls12.go.html#line-34" class="path-duplicate">tls12.go</a><a href="../src/github.com/refraction-networking/utls/internal/tls12/tls12.go.html#line-34">#L34</a>: 		b := h.<b>Sum</b>(nil)
+		<a href="../src/github.com/refraction-networking/utls/internal/tls12/tls12.go.html#line-40" class="path-duplicate">tls12.go</a><a href="../src/github.com/refraction-networking/utls/internal/tls12/tls12.go.html#line-40">#L40</a>: 		a = h.<b>Sum</b>(nil)
+
+	<a href="../pkg/github.com/refraction-networking/utls/internal/tls13.html">github.com/refraction-networking/utls/internal/tls13</a>
+		<a href="../src/github.com/refraction-networking/utls/internal/tls13/tls13.go.html#line-54">tls13.go#L54</a>: 	return ExpandLabel(hash, secret, label, transcript.<b>Sum</b>(nil), transcript.Size())
+		<a href="../src/github.com/refraction-networking/utls/internal/tls13/tls13.go.html#line-174" class="path-duplicate">tls13.go</a><a href="../src/github.com/refraction-networking/utls/internal/tls13/tls13.go.html#line-174">#L174</a>: 	return ExpandLabel(s.hash, secret, "exporter", h.<b>Sum</b>(nil), length)
+
+	<a href="../pkg/golang.org/x/crypto/hkdf.html">golang.org/x/crypto/hkdf</a>
+		<a href="../src/golang.org/x/crypto/hkdf/hkdf.go.html#line-70">hkdf.go#L70</a>: 		f.prev = f.expander.<b>Sum</b>(f.prev[:0])
+</code></pre><pre id="footer">
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

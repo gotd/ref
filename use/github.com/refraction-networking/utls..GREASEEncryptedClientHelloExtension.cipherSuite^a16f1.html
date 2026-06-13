@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/refraction-networking/utls.GREASEEncryptedClientHelloExtension.cipherSuite</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>.<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-46">GREASEEncryptedClientHelloExtension</a>.<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-48">cipherSuite</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">20 uses</span>
+
+	github.com/refraction-networking/utls (current package)
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-48">u_ech.go#L48</a>: 	<b>cipherSuite</b>           HPKESymmetricCipherSuite // randomly picked from CandidateCipherSuites or generated if empty
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-96" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-96">#L96</a>: 			g.<b>cipherSuite</b> = HPKESymmetricCipherSuite{uint16(defaultHpkeKdf), uint16(defaultHpkeAead)}
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-104" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-104">#L104</a>: 			g.<b>cipherSuite</b> = HPKESymmetricCipherSuite{
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-154" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-154">#L154</a>: 	g.payload = make([]byte, cipherLen(g.<b>cipherSuite</b>.AeadId, int(encodedHelloInnerLen)))
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-187" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-187">#L187</a>: 	b[5] = byte(g.<b>cipherSuite</b>.KdfId &gt;&gt; 8)
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-188" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-188">#L188</a>: 	b[6] = byte(g.<b>cipherSuite</b>.KdfId &amp; 0xFF)
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-189" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-189">#L189</a>: 	b[7] = byte(g.<b>cipherSuite</b>.AeadId &gt;&gt; 8)
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-190" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-190">#L190</a>: 	b[8] = byte(g.<b>cipherSuite</b>.AeadId &amp; 0xFF)
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-221" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-221">#L221</a>: 	if !extData.ReadUint16(&amp;g.<b>cipherSuite</b>.KdfId) || !extData.ReadUint16(&amp;g.<b>cipherSuite</b>.AeadId) {
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-224" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-224">#L224</a>: 	if g.<b>cipherSuite</b>.KdfId != dicttls.HKDF_SHA256 &amp;&amp;
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-225" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-225">#L225</a>: 		g.<b>cipherSuite</b>.KdfId != dicttls.HKDF_SHA384 &amp;&amp;
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-226" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-226">#L226</a>: 		g.<b>cipherSuite</b>.KdfId != dicttls.HKDF_SHA512 {
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-227" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-227">#L227</a>: 		return fullLen, errors.New("bad KDF ID: " + fmt.Sprintf("%d", g.<b>cipherSuite</b>.KdfId))
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-229" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-229">#L229</a>: 	if g.<b>cipherSuite</b>.AeadId != dicttls.AEAD_AES_128_GCM &amp;&amp;
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-230" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-230">#L230</a>: 		g.<b>cipherSuite</b>.AeadId != dicttls.AEAD_AES_256_GCM &amp;&amp;
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-231" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-231">#L231</a>: 		g.<b>cipherSuite</b>.AeadId != dicttls.AEAD_CHACHA20_POLY1305 {
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-232" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-232">#L232</a>: 		return fullLen, errors.New("bad AEAD ID: " + fmt.Sprintf("%d", g.<b>cipherSuite</b>.AeadId))
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-234" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-234">#L234</a>: 	g.CandidateCipherSuites = []HPKESymmetricCipherSuite{g.<b>cipherSuite</b>}
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-259" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-259">#L259</a>: 	g.CandidatePayloadLens = []uint16{uint16(len(ignored) - cipherLen(g.<b>cipherSuite</b>.AeadId, 0))}
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,18 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: bufio.Reader</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../pkg/bufio.html">bufio</a>.<a href="../src/bufio/bufio.go.html#line-32">Reader</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../pkg/bufio.html">bufio</a>.<a href="../src/bufio/bufio.go.html#line-35">Reader</a></b></span>
 
 <span class="title">61 uses</span>
 
 	bufio (current package)
-		<a href="../src/bufio/bufio.go.html#line-32">bufio.go#L32</a>: type <b>Reader</b> struct {
-		<a href="../src/bufio/bufio.go.html#line-47" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-47">#L47</a>: func NewReaderSize(rd io.Reader, size int) *<b>Reader</b> {
-		<a href="../src/bufio/bufio.go.html#line-49" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-49">#L49</a>: 	b, ok := rd.(*<b>Reader</b>)
+		<a href="../src/bufio/bufio.go.html#line-35">bufio.go#L35</a>: type <b>Reader</b> struct {
+		<a href="../src/bufio/bufio.go.html#line-50" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-50">#L50</a>: func NewReaderSize(rd io.Reader, size int) *<b>Reader</b> {
+		<a href="../src/bufio/bufio.go.html#line-52" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-52">#L52</a>: 	b, ok := rd.(*<b>Reader</b>)
 		<a href="../src/bufio/bufio.go.html#line-56" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-56">#L56</a>: 	r := new(<b>Reader</b>)
 		<a href="../src/bufio/bufio.go.html#line-62" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-62">#L62</a>: func NewReader(rd io.Reader) *<b>Reader</b> {
 		<a href="../src/bufio/bufio.go.html#line-67" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-67">#L67</a>: func (b *<b>Reader</b>) Size() int { return len(b.buf) }
@@ -25,26 +25,35 @@
 		<a href="../src/bufio/bufio.go.html#line-88" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-88">#L88</a>: 	*b = <b>Reader</b>{
 		<a href="../src/bufio/bufio.go.html#line-99" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-99">#L99</a>: func (b *<b>Reader</b>) fill() {
 		<a href="../src/bufio/bufio.go.html#line-129" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-129">#L129</a>: func (b *<b>Reader</b>) readErr() error {
-		<a href="../src/bufio/bufio.go.html#line-142" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-142">#L142</a>: func (b *<b>Reader</b>) Peek(n int) ([]byte, error) {
-		<a href="../src/bufio/bufio.go.html#line-176" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-176">#L176</a>: func (b *<b>Reader</b>) Discard(n int) (discarded int, err error) {
-		<a href="../src/bufio/bufio.go.html#line-215" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-215">#L215</a>: func (b *<b>Reader</b>) Read(p []byte) (n int, err error) {
-		<a href="../src/bufio/bufio.go.html#line-266" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-266">#L266</a>: func (b *<b>Reader</b>) ReadByte() (byte, error) {
-		<a href="../src/bufio/bufio.go.html#line-285" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-285">#L285</a>: func (b *<b>Reader</b>) UnreadByte() error {
-		<a href="../src/bufio/bufio.go.html#line-305" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-305">#L305</a>: func (b *<b>Reader</b>) ReadRune() (r rune, size int, err error) {
-		<a href="../src/bufio/bufio.go.html#line-327" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-327">#L327</a>: func (b *<b>Reader</b>) UnreadRune() error {
-		<a href="../src/bufio/bufio.go.html#line-338" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-338">#L338</a>: func (b *<b>Reader</b>) Buffered() int { return b.w - b.r }
-		<a href="../src/bufio/bufio.go.html#line-350" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-350">#L350</a>: func (b *<b>Reader</b>) ReadSlice(delim byte) (line []byte, err error) {
-		<a href="../src/bufio/bufio.go.html#line-407" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-407">#L407</a>: func (b *<b>Reader</b>) ReadLine() (line []byte, isPrefix bool, err error) {
-		<a href="../src/bufio/bufio.go.html#line-449" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-449">#L449</a>: func (b *<b>Reader</b>) collectFragments(delim byte) (fullBuffers [][]byte, finalFragment []byte, totalLen int, err error) {
-		<a href="../src/bufio/bufio.go.html#line-480" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-480">#L480</a>: func (b *<b>Reader</b>) ReadBytes(delim byte) ([]byte, error) {
-		<a href="../src/bufio/bufio.go.html#line-500" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-500">#L500</a>: func (b *<b>Reader</b>) ReadString(delim byte) (string, error) {
-		<a href="../src/bufio/bufio.go.html#line-517" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-517">#L517</a>: func (b *<b>Reader</b>) WriteTo(w io.Writer) (n int64, err error) {
+		<a href="../src/bufio/bufio.go.html#line-143" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-143">#L143</a>: func (b *<b>Reader</b>) Peek(n int) ([]byte, error) {
+		<a href="../src/bufio/bufio.go.html#line-177" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-177">#L177</a>: func (b *<b>Reader</b>) Discard(n int) (discarded int, err error) {
+		<a href="../src/bufio/bufio.go.html#line-216" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-216">#L216</a>: func (b *<b>Reader</b>) Read(p []byte) (n int, err error) {
+		<a href="../src/bufio/bufio.go.html#line-267" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-267">#L267</a>: func (b *<b>Reader</b>) ReadByte() (byte, error) {
+		<a href="../src/bufio/bufio.go.html#line-286" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-286">#L286</a>: func (b *<b>Reader</b>) UnreadByte() error {
+		<a href="../src/bufio/bufio.go.html#line-306" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-306">#L306</a>: func (b *<b>Reader</b>) ReadRune() (r rune, size int, err error) {
+		<a href="../src/bufio/bufio.go.html#line-325" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-325">#L325</a>: func (b *<b>Reader</b>) UnreadRune() error {
+		<a href="../src/bufio/bufio.go.html#line-336" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-336">#L336</a>: func (b *<b>Reader</b>) Buffered() int { return b.w - b.r }
+		<a href="../src/bufio/bufio.go.html#line-348" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-348">#L348</a>: func (b *<b>Reader</b>) ReadSlice(delim byte) (line []byte, err error) {
+		<a href="../src/bufio/bufio.go.html#line-405" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-405">#L405</a>: func (b *<b>Reader</b>) ReadLine() (line []byte, isPrefix bool, err error) {
+		<a href="../src/bufio/bufio.go.html#line-447" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-447">#L447</a>: func (b *<b>Reader</b>) collectFragments(delim byte) (fullBuffers [][]byte, finalFragment []byte, totalLen int, err error) {
+		<a href="../src/bufio/bufio.go.html#line-478" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-478">#L478</a>: func (b *<b>Reader</b>) ReadBytes(delim byte) ([]byte, error) {
+		<a href="../src/bufio/bufio.go.html#line-498" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-498">#L498</a>: func (b *<b>Reader</b>) ReadString(delim byte) (string, error) {
+		<a href="../src/bufio/bufio.go.html#line-515" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-515">#L515</a>: func (b *<b>Reader</b>) WriteTo(w io.Writer) (n int64, err error) {
 		<a href="../src/bufio/bufio.go.html#line-562" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-562">#L562</a>: func (b *<b>Reader</b>) writeBuf(w io.Writer) (int64, error) {
 		<a href="../src/bufio/bufio.go.html#line-835" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-835">#L835</a>: 	*<b>Reader</b>
 		<a href="../src/bufio/bufio.go.html#line-840" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-840">#L840</a>: func NewReadWriter(r *<b>Reader</b>, w *Writer) *ReadWriter {
 
 	<a href="../pkg/compress/flate.html">compress/flate</a>
 		<a href="../src/compress/flate/inflate.go.html#line-270">inflate.go#L270</a>: 	rBuf    *bufio.<b>Reader</b> // created if provided io.Reader does not implement io.ByteReader
+
+	<a href="../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../src/github.com/coder/websocket/conn.go.html#line-51">conn.go#L51</a>: 	br             *bufio.<b>Reader</b>
+		<a href="../src/github.com/coder/websocket/conn.go.html#line-100" class="path-duplicate">conn.go</a><a href="../src/github.com/coder/websocket/conn.go.html#line-100">#L100</a>: 	br *bufio.<b>Reader</b>
+		<a href="../src/github.com/coder/websocket/dial.go.html#line-321">dial.go#L321</a>: func getBufioReader(r io.Reader) *bufio.<b>Reader</b> {
+		<a href="../src/github.com/coder/websocket/dial.go.html#line-322" class="path-duplicate">dial.go</a><a href="../src/github.com/coder/websocket/dial.go.html#line-322">#L322</a>: 	br, ok := bufioReaderPool.Get().(*bufio.<b>Reader</b>)
+		<a href="../src/github.com/coder/websocket/dial.go.html#line-330" class="path-duplicate">dial.go</a><a href="../src/github.com/coder/websocket/dial.go.html#line-330">#L330</a>: func putBufioReader(br *bufio.<b>Reader</b>) {
+		<a href="../src/github.com/coder/websocket/frame.go.html#line-52">frame.go#L52</a>: func readFrameHeader(r *bufio.<b>Reader</b>, readBuf []byte) (h header, err error) {
+		<a href="../src/github.com/coder/websocket/read.go.html#line-403">read.go#L403</a>: 	flateBufio  *bufio.<b>Reader</b>
 
 	<a href="../pkg/github.com/klauspost/compress/flate.html">github.com/klauspost/compress/flate</a>
 		<a href="../src/github.com/klauspost/compress/flate/inflate_gen.go.html#line-524">inflate_gen.go#L524</a>: 	fr := f.r.(*bufio.<b>Reader</b>)
@@ -60,21 +69,21 @@
 		<a href="../src/mime/quotedprintable/reader.go.html#line-18">reader.go#L18</a>: 	br   *bufio.<b>Reader</b>
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/h2_bundle.go.html#line-7407">h2_bundle.go#L7407</a>: 	br              *bufio.<b>Reader</b>
-		<a href="../src/net/http/request.go.html#line-1003">request.go#L1003</a>: func newTextprotoReader(br *bufio.<b>Reader</b>) *textproto.Reader {
-		<a href="../src/net/http/request.go.html#line-1023" class="path-duplicate">request.go</a><a href="../src/net/http/request.go.html#line-1023">#L1023</a>: func ReadRequest(b *bufio.<b>Reader</b>) (*Request, error) {
-		<a href="../src/net/http/request.go.html#line-1033" class="path-duplicate">request.go</a><a href="../src/net/http/request.go.html#line-1033">#L1033</a>: func readRequest(b *bufio.<b>Reader</b>) (req *Request, err error) {
+		<a href="../src/net/http/h2_bundle.go.html#line-7636">h2_bundle.go#L7636</a>: 	br               *bufio.<b>Reader</b>
+		<a href="../src/net/http/request.go.html#line-1038">request.go#L1038</a>: func newTextprotoReader(br *bufio.<b>Reader</b>) *textproto.Reader {
+		<a href="../src/net/http/request.go.html#line-1058" class="path-duplicate">request.go</a><a href="../src/net/http/request.go.html#line-1058">#L1058</a>: func ReadRequest(b *bufio.<b>Reader</b>) (*Request, error) {
+		<a href="../src/net/http/request.go.html#line-1079" class="path-duplicate">request.go</a><a href="../src/net/http/request.go.html#line-1079">#L1079</a>: func readRequest(b *bufio.<b>Reader</b>) (req *Request, err error) {
 		<a href="../src/net/http/response.go.html#line-154">response.go#L154</a>: func ReadResponse(r *bufio.<b>Reader</b>, req *Request) (*Response, error) {
-		<a href="../src/net/http/server.go.html#line-287">server.go#L287</a>: 	bufr *bufio.<b>Reader</b>
-		<a href="../src/net/http/server.go.html#line-828" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-828">#L828</a>: func newBufioReader(r io.Reader) *bufio.<b>Reader</b> {
-		<a href="../src/net/http/server.go.html#line-830" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-830">#L830</a>: 		br := v.(*bufio.<b>Reader</b>)
-		<a href="../src/net/http/server.go.html#line-839" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-839">#L839</a>: func putBufioReader(br *bufio.<b>Reader</b>) {
-		<a href="../src/net/http/transfer.go.html#line-486">transfer.go#L486</a>: func readTransfer(msg any, r *bufio.<b>Reader</b>) (err error) {
-		<a href="../src/net/http/transfer.go.html#line-808" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-808">#L808</a>: 	r            *bufio.<b>Reader</b> // underlying wire-format reader for the trailer
-		<a href="../src/net/http/transfer.go.html#line-888" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-888">#L888</a>: func seeUpcomingDoubleCRLF(r *bufio.<b>Reader</b>) bool {
-		<a href="../src/net/http/transport.go.html#line-1907">transport.go#L1907</a>: 	br        *bufio.<b>Reader</b>       // from conn
-		<a href="../src/net/http/transport.go.html#line-2376" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-2376">#L2376</a>: func newReadWriteCloserBody(br *bufio.<b>Reader</b>, rwc io.ReadWriteCloser) io.ReadWriteCloser {
-		<a href="../src/net/http/transport.go.html#line-2391" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-2391">#L2391</a>: 	br *bufio.<b>Reader</b> // used until empty
+		<a href="../src/net/http/server.go.html#line-288">server.go#L288</a>: 	bufr *bufio.<b>Reader</b>
+		<a href="../src/net/http/server.go.html#line-857" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-857">#L857</a>: func newBufioReader(r io.Reader) *bufio.<b>Reader</b> {
+		<a href="../src/net/http/server.go.html#line-859" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-859">#L859</a>: 		br := v.(*bufio.<b>Reader</b>)
+		<a href="../src/net/http/server.go.html#line-868" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-868">#L868</a>: func putBufioReader(br *bufio.<b>Reader</b>) {
+		<a href="../src/net/http/transfer.go.html#line-491">transfer.go#L491</a>: func readTransfer(msg any, r *bufio.<b>Reader</b>) (err error) {
+		<a href="../src/net/http/transfer.go.html#line-814" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-814">#L814</a>: 	r            *bufio.<b>Reader</b> // underlying wire-format reader for the trailer
+		<a href="../src/net/http/transfer.go.html#line-894" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-894">#L894</a>: func seeUpcomingDoubleCRLF(r *bufio.<b>Reader</b>) bool {
+		<a href="../src/net/http/transport.go.html#line-2125">transport.go#L2125</a>: 	br           *bufio.<b>Reader</b>       // from conn
+		<a href="../src/net/http/transport.go.html#line-2600" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-2600">#L2600</a>: func newReadWriteCloserBody(br *bufio.<b>Reader</b>, rwc io.ReadWriteCloser) io.ReadWriteCloser {
+		<a href="../src/net/http/transport.go.html#line-2615" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-2615">#L2615</a>: 	br *bufio.<b>Reader</b> // used until empty
 
 	<a href="../pkg/net/http/internal.html">net/http/internal</a>
 		<a href="../src/net/http/internal/chunked.go.html#line-30">chunked.go#L30</a>: 	br, ok := r.(*bufio.<b>Reader</b>)
@@ -82,20 +91,11 @@
 		<a href="../src/net/http/internal/chunked.go.html#line-155" class="path-duplicate">chunked.go</a><a href="../src/net/http/internal/chunked.go.html#line-155">#L155</a>: func readChunkLine(b *bufio.<b>Reader</b>) ([]byte, error) {
 
 	<a href="../pkg/net/textproto.html">net/textproto</a>
-		<a href="../src/net/textproto/reader.go.html#line-22">reader.go#L22</a>: 	R   *bufio.<b>Reader</b>
-		<a href="../src/net/textproto/reader.go.html#line-32" class="path-duplicate">reader.go</a><a href="../src/net/textproto/reader.go.html#line-32">#L32</a>: func NewReader(r *bufio.<b>Reader</b>) *Reader {
-
-	<a href="../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../src/nhooyr.io/websocket/conn.go.html#line-53">conn.go#L53</a>: 	br             *bufio.<b>Reader</b>
-		<a href="../src/nhooyr.io/websocket/conn.go.html#line-91" class="path-duplicate">conn.go</a><a href="../src/nhooyr.io/websocket/conn.go.html#line-91">#L91</a>: 	br *bufio.<b>Reader</b>
-		<a href="../src/nhooyr.io/websocket/dial.go.html#line-304">dial.go#L304</a>: func getBufioReader(r io.Reader) *bufio.<b>Reader</b> {
-		<a href="../src/nhooyr.io/websocket/dial.go.html#line-305" class="path-duplicate">dial.go</a><a href="../src/nhooyr.io/websocket/dial.go.html#line-305">#L305</a>: 	br, ok := bufioReaderPool.Get().(*bufio.<b>Reader</b>)
-		<a href="../src/nhooyr.io/websocket/dial.go.html#line-313" class="path-duplicate">dial.go</a><a href="../src/nhooyr.io/websocket/dial.go.html#line-313">#L313</a>: func putBufioReader(br *bufio.<b>Reader</b>) {
-		<a href="../src/nhooyr.io/websocket/frame.go.html#line-53">frame.go#L53</a>: func readFrameHeader(r *bufio.<b>Reader</b>, readBuf []byte) (h header, err error) {
-		<a href="../src/nhooyr.io/websocket/read.go.html#line-366">read.go#L366</a>: 	flateBufio  *bufio.<b>Reader</b>
+		<a href="../src/net/textproto/reader.go.html#line-27">reader.go#L27</a>: 	R   *bufio.<b>Reader</b>
+		<a href="../src/net/textproto/reader.go.html#line-37" class="path-duplicate">reader.go</a><a href="../src/net/textproto/reader.go.html#line-37">#L37</a>: func NewReader(r *bufio.<b>Reader</b>) *Reader {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: tracer.go in package go.opentelemetry.io/otel/trace</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	tracer.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/go.opentelemetry.io/otel/trace.html">go.opentelemetry.io/otel/trace</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1
+{background: brown; color: #eed;}
+</style><input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright The OpenTelemetry Authors</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></code></span>
+<span class="codeline" id="line-3"><code></code></span>
+<span class="codeline" id="line-4"><code><span class="keyword">package</span> trace <span class="comment">// import "go.opentelemetry.io/otel/trace"</span></code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-7"><code>	<label for="i0"><span class="lit-string i0">"context"</span></label></code></span>
+<span class="codeline" id="line-8"><code></code></span>
+<span class="codeline" id="line-9"><code>	<label for="i1"><span class="lit-string i1">"go.opentelemetry.io/otel/trace/embedded"</span></label></code></span>
+<span class="codeline" id="line-10"><code>)</code></span>
+<span class="codeline" id="line-11"><code></code></span>
+<span class="codeline" id="line-12"><code><span class="comment">// Tracer is the creator of Spans.</span></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-14"><code><span class="comment">// Warning: Methods may be added to this interface in minor releases. See</span></code></span>
+<span class="codeline" id="line-15"><code><span class="comment">// package documentation on API implementation for information on how to set</span></code></span>
+<span class="codeline" id="line-16"><code><span class="comment">// default behavior for unimplemented methods.</span></code></span>
+<span class="codeline" id="line-17"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/trace.html#name-Tracer" class="ident">Tracer</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-18"><code>	<span class="comment">// Users of the interface can ignore this. This embedded type is only used</span></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">	// by implementations of this interface. See the "API Implementations"</span></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">	// section of the package documentation for more information.</span></code></span>
+<span class="codeline" id="line-21"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/trace/embedded.html" class="ident i1">embedded</a>.<a href="embedded/embedded.go.html#line-35" class="ident">Tracer</a></code></span>
+<span class="codeline" id="line-22"><code></code></span>
+<span class="codeline" id="line-23"><code>	<span class="comment">// Start creates a span and a context.Context containing the newly-created span.</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-25"><code><span class="comment">	// If the context.Context provided in `ctx` contains a Span then the newly-created</span></code></span>
+<span class="codeline" id="line-26"><code><span class="comment">	// Span will be a child of that span, otherwise it will be a root span. This behavior</span></code></span>
+<span class="codeline" id="line-27"><code><span class="comment">	// can be overridden by providing `WithNewRoot()` as a SpanOption, causing the</span></code></span>
+<span class="codeline" id="line-28"><code><span class="comment">	// newly-created Span to be a root span even if `ctx` contains a Span.</span></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-30"><code><span class="comment">	// When creating a Span it is recommended to provide all known span attributes using</span></code></span>
+<span class="codeline" id="line-31"><code><span class="comment">	// the `WithAttributes()` SpanOption as samplers will only have access to the</span></code></span>
+<span class="codeline" id="line-32"><code><span class="comment">	// attributes provided when a Span is created.</span></code></span>
+<span class="codeline" id="line-33"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-34"><code><span class="comment">	// Any Span that is created MUST also be ended. This is the responsibility of the user.</span></code></span>
+<span class="codeline" id="line-35"><code><span class="comment">	// Implementations of this API may leak memory or other resources if Spans are not ended.</span></code></span>
+<span class="codeline" id="line-36"><code>	<a href="../../../../imp/go.opentelemetry.io/otel/trace.Tracer.html#name-Start" class="ident">Start</a>(ctx <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a>, spanName <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>, opts ...<a href="config.go.html#line-138" class="ident">SpanStartOption</a>) (<a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a>, <a href="span.go.html#line-22" class="ident">Span</a>)</code></span>
+<span class="codeline" id="line-37"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

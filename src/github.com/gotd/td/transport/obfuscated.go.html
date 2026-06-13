@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: obfuscated.go in package github.com/gotd/td/transport</title>
-<link href="../../../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -86,18 +86,18 @@ input[id=i6]:checked ~pre .i6
 <span class="codeline" id="line-8"><code>	<label for="i3"><span class="lit-string i3">"github.com/go-faster/errors"</span></label></code></span>
 <span class="codeline" id="line-9"><code>	<label for="i4"><span class="lit-string i4">"go.uber.org/multierr"</span></label></code></span>
 <span class="codeline" id="line-10"><code></code></span>
-<span class="codeline" id="line-11"><code>	<label for="i5"><span class="lit-string i5">"github.com/gotd/td/internal/mtproxy/obfuscated2"</span></label></code></span>
-<span class="codeline" id="line-12"><code>	<label for="i6"><span class="lit-string i6">"github.com/gotd/td/internal/proto/codec"</span></label></code></span>
+<span class="codeline" id="line-11"><code>	<label for="i5"><span class="lit-string i5">"github.com/gotd/td/mtproxy/obfuscated2"</span></label></code></span>
+<span class="codeline" id="line-12"><code>	<label for="i6"><span class="lit-string i6">"github.com/gotd/td/proto/codec"</span></label></code></span>
 <span class="codeline" id="line-13"><code>)</code></span>
 <span class="codeline" id="line-14"><code></code></span>
 <span class="codeline" id="line-15"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/transport.html#name-obfListener" class="ident">obfListener</a> <span class="keyword">struct</span> {</code></span>
-<span class="codeline" id="line-16"><code>	<a href="../../../../../use/github.com/gotd/td/transport..obfListener^c5433.listener^c4c05.html" class="ident">listener</a> <a href="../../../../../pkg/net.html" class="ident i2">net</a>.<a href="../../../../net/net.go.html#line-380" class="ident">Listener</a></code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../../use/github.com/gotd/td/transport..obfListener^c5433.listener^c4c05.html" class="ident">listener</a> <a href="../../../../../pkg/net.html" class="ident i2">net</a>.<a href="../../../../net/net.go.html#line-412" class="ident">Listener</a></code></span>
 <span class="codeline" id="line-17"><code>}</code></span>
 <span class="codeline" id="line-18"><code></code></span>
 <span class="codeline" id="line-19"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/transport.html#name-obfConn" class="ident">obfConn</a> <span class="keyword">struct</span> {</code></span>
 <span class="codeline" id="line-20"><code>	<a href="../../../../../use/github.com/gotd/td/transport..obfConn^14983.reader^3d094.html" class="ident">reader</a> <a href="../../../../../pkg/io.html" class="ident i1">io</a>.<a href="../../../../io/io.go.html#line-86" class="ident">Reader</a></code></span>
 <span class="codeline" id="line-21"><code>	<a href="../../../../../use/github.com/gotd/td/transport..obfConn^14983.writer^b9300.html" class="ident">writer</a> <a href="../../../../../pkg/io.html" class="ident i1">io</a>.<a href="../../../../io/io.go.html#line-99" class="ident">Writer</a></code></span>
-<span class="codeline" id="line-22"><code>	<a href="../../../../../pkg/net.html" class="ident i2">net</a>.<a href="../../../../net/net.go.html#line-109" class="ident">Conn</a></code></span>
+<span class="codeline" id="line-22"><code>	<a href="../../../../../pkg/net.html" class="ident i2">net</a>.<a href="../../../../net/net.go.html#line-124" class="ident">Conn</a></code></span>
 <span class="codeline" id="line-23"><code>}</code></span>
 <span class="codeline" id="line-24"><code></code></span>
 <span class="codeline" id="line-25"><code><span class="keyword">func</span> (<label for="r0" class="ident">c</label> *<a href="#line-19" class="ident">obfConn</a>) <label for="r1" class="ident"><a href="../../../../../use/github.com/gotd/td/transport..obfConn^14983.Read.html" class="ident">Read</a></label>(<label for="r2" class="ident">p</label> []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) (<a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
@@ -113,33 +113,33 @@ input[id=i6]:checked ~pre .i6
 <span class="codeline" id="line-35"><code><span class="comment">// Useful for creating Telegram servers:</span></code></span>
 <span class="codeline" id="line-36"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-37"><code><span class="comment">//	transport.Listen(transport.ObfuscatedListener(ln))</span></code></span>
-<span class="codeline" id="line-38"><code><span class="keyword">func</span> <label for="r6" class="ident"><a href="../../../../../pkg/github.com/gotd/td/transport.html#name-ObfuscatedListener" class="ident">ObfuscatedListener</a></label>(<label for="r7" class="ident">listener</label> <a href="../../../../../pkg/net.html" class="ident i2">net</a>.<a href="../../../../net/net.go.html#line-380" class="ident">Listener</a>) <a href="../../../../../pkg/net.html" class="ident i2">net</a>.<a href="../../../../net/net.go.html#line-380" class="ident">Listener</a> {</code></span>
+<span class="codeline" id="line-38"><code><span class="keyword">func</span> <label for="r6" class="ident"><a href="../../../../../pkg/github.com/gotd/td/transport.html#name-ObfuscatedListener" class="ident">ObfuscatedListener</a></label>(<label for="r7" class="ident">listener</label> <a href="../../../../../pkg/net.html" class="ident i2">net</a>.<a href="../../../../net/net.go.html#line-412" class="ident">Listener</a>) <a href="../../../../../pkg/net.html" class="ident i2">net</a>.<a href="../../../../net/net.go.html#line-412" class="ident">Listener</a> {</code></span>
 <span class="codeline" id="line-39"><code>	<span class="keyword">return</span> <a href="#line-15" class="ident">obfListener</a>{<a href="#line-16" class="ident">listener</a>: <label for="r7" class="ident">listener</label>}</code></span>
 <span class="codeline" id="line-40"><code>}</code></span>
 <span class="codeline" id="line-41"><code></code></span>
 <span class="codeline" id="line-42"><code><span class="comment">// Accept waits for and returns the next connection to the listener.</span></code></span>
-<span class="codeline" id="line-43"><code><span class="keyword">func</span> (<label for="r8" class="ident">l</label> <a href="#line-15" class="ident">obfListener</a>) <label for="r9" class="ident"><a href="../../../../../use/github.com/gotd/td/transport..obfListener^c5433.Accept.html" class="ident">Accept</a></label>() (<label for="r10" class="ident">_</label> <a href="../../../../../pkg/net.html" class="ident i2">net</a>.<a href="../../../../net/net.go.html#line-109" class="ident">Conn</a>, <label for="r11" class="ident">err</label> <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-44"><code>	<label for="r12" class="ident">conn</label>, <label for="r11" class="ident">err</label> := <label for="r8" class="ident">l</label>.<a href="#line-16" class="ident">listener</a>.<a href="../../../../net/net.go.html#line-382" class="ident">Accept</a>()</code></span>
+<span class="codeline" id="line-43"><code><span class="keyword">func</span> (<label for="r8" class="ident">l</label> <a href="#line-15" class="ident">obfListener</a>) <label for="r9" class="ident"><a href="../../../../../use/github.com/gotd/td/transport..obfListener^c5433.Accept.html" class="ident">Accept</a></label>() (<label for="r10" class="ident">_</label> <a href="../../../../../pkg/net.html" class="ident i2">net</a>.<a href="../../../../net/net.go.html#line-124" class="ident">Conn</a>, <label for="r11" class="ident">err</label> <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-44"><code>	<label for="r12" class="ident">conn</label>, <label for="r11" class="ident">err</label> := <label for="r8" class="ident">l</label>.<a href="#line-16" class="ident">listener</a>.<a href="../../../../net/net.go.html#line-414" class="ident">Accept</a>()</code></span>
 <span class="codeline" id="line-45"><code>	<span class="keyword">if</span> <label for="r11" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-46"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r11" class="ident">err</label></code></span>
 <span class="codeline" id="line-47"><code>	}</code></span>
 <span class="codeline" id="line-48"><code>	<span class="keyword">defer</span> <span class="keyword">func</span>() {</code></span>
 <span class="codeline" id="line-49"><code>		<span class="keyword">if</span> <label for="r11" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-50"><code>			<a href="../../../../../pkg/go.uber.org/multierr.html" class="ident i4">multierr</a>.<a href="../../../../go.uber.org/multierr/error.go.html#line-495" class="ident">AppendInto</a>(&amp;<label for="r11" class="ident">err</label>, <label for="r12" class="ident">conn</label>.<a href="../../../../net/net.go.html#line-122" class="ident">Close</a>())</code></span>
+<span class="codeline" id="line-50"><code>			<a href="../../../../../pkg/go.uber.org/multierr.html" class="ident i4">multierr</a>.<a href="../../../../go.uber.org/multierr/error.go.html#line-495" class="ident">AppendInto</a>(&amp;<label for="r11" class="ident">err</label>, <label for="r12" class="ident">conn</label>.<a href="../../../../net/net.go.html#line-139" class="ident">Close</a>())</code></span>
 <span class="codeline" id="line-51"><code>		}</code></span>
 <span class="codeline" id="line-52"><code>	}()</code></span>
 <span class="codeline" id="line-53"><code></code></span>
-<span class="codeline" id="line-54"><code>	<label for="r13" class="ident">rw</label>, <label for="r14" class="ident">md</label>, <label for="r11" class="ident">err</label> := <a href="../../../../../pkg/github.com/gotd/td/internal/mtproxy/obfuscated2.html" class="ident i5">obfuscated2</a>.<a href="../internal/mtproxy/obfuscated2/server.go.html#line-15" class="ident">Accept</a>(<label for="r12" class="ident">conn</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>)</code></span>
+<span class="codeline" id="line-54"><code>	<label for="r13" class="ident">rw</label>, <label for="r14" class="ident">md</label>, <label for="r11" class="ident">err</label> := <a href="../../../../../pkg/github.com/gotd/td/mtproxy/obfuscated2.html" class="ident i5">obfuscated2</a>.<a href="../mtproxy/obfuscated2/server.go.html#line-15" class="ident">Accept</a>(<label for="r12" class="ident">conn</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>)</code></span>
 <span class="codeline" id="line-55"><code>	<span class="keyword">if</span> <label for="r11" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-56"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i3">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r11" class="ident">err</label>, <span class="lit-string">"accept"</span>)</code></span>
 <span class="codeline" id="line-57"><code>	}</code></span>
 <span class="codeline" id="line-58"><code></code></span>
 <span class="codeline" id="line-59"><code>	<span class="keyword">var</span> <label for="r15" class="ident">tag</label> *<a href="../../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../../bytes/reader.go.html#line-18" class="ident">Reader</a></code></span>
-<span class="codeline" id="line-60"><code>	<span class="keyword">if</span> <label for="r14" class="ident">md</label>.<a href="../internal/mtproxy/obfuscated2/server.go.html#line-10" class="ident">Protocol</a>[<span class="lit-number">0</span>] == <a href="../../../../../pkg/github.com/gotd/td/internal/proto/codec.html" class="ident i6">codec</a>.<a href="../internal/proto/codec/abridged.go.html#line-15" class="ident">AbridgedClientStart</a>[<span class="lit-number">0</span>] {</code></span>
+<span class="codeline" id="line-60"><code>	<span class="keyword">if</span> <label for="r14" class="ident">md</label>.<a href="../mtproxy/obfuscated2/server.go.html#line-10" class="ident">Protocol</a>[<span class="lit-number">0</span>] == <a href="../../../../../pkg/github.com/gotd/td/proto/codec.html" class="ident i6">codec</a>.<a href="../proto/codec/abridged.go.html#line-15" class="ident">AbridgedClientStart</a>[<span class="lit-number">0</span>] {</code></span>
 <span class="codeline" id="line-61"><code>		<span class="comment">// Abridged sends only byte for tag.</span></code></span>
-<span class="codeline" id="line-62"><code>		<label for="r15" class="ident">tag</label> = <a href="../../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../../bytes/reader.go.html#line-159" class="ident">NewReader</a>(<label for="r14" class="ident">md</label>.<a href="../internal/mtproxy/obfuscated2/server.go.html#line-10" class="ident">Protocol</a>[:<span class="lit-number">1</span>])</code></span>
+<span class="codeline" id="line-62"><code>		<label for="r15" class="ident">tag</label> = <a href="../../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../../bytes/reader.go.html#line-159" class="ident">NewReader</a>(<label for="r14" class="ident">md</label>.<a href="../mtproxy/obfuscated2/server.go.html#line-10" class="ident">Protocol</a>[:<span class="lit-number">1</span>])</code></span>
 <span class="codeline" id="line-63"><code>	} <span class="keyword">else</span> {</code></span>
-<span class="codeline" id="line-64"><code>		<label for="r15" class="ident">tag</label> = <a href="../../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../../bytes/reader.go.html#line-159" class="ident">NewReader</a>(<label for="r14" class="ident">md</label>.<a href="../internal/mtproxy/obfuscated2/server.go.html#line-10" class="ident">Protocol</a>[:])</code></span>
+<span class="codeline" id="line-64"><code>		<label for="r15" class="ident">tag</label> = <a href="../../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../../bytes/reader.go.html#line-159" class="ident">NewReader</a>(<label for="r14" class="ident">md</label>.<a href="../mtproxy/obfuscated2/server.go.html#line-10" class="ident">Protocol</a>[:])</code></span>
 <span class="codeline" id="line-65"><code>	}</code></span>
 <span class="codeline" id="line-66"><code></code></span>
 <span class="codeline" id="line-67"><code>	<label for="r16" class="ident">accepted</label> := &amp;<a href="#line-19" class="ident">obfConn</a>{</code></span>
@@ -154,16 +154,16 @@ input[id=i6]:checked ~pre .i6
 <span class="codeline" id="line-76"><code><span class="comment">// Close closes the listener.</span></code></span>
 <span class="codeline" id="line-77"><code><span class="comment">// Any blocked Accept operations will be unblocked and return errors.</span></code></span>
 <span class="codeline" id="line-78"><code><span class="keyword">func</span> (<label for="r17" class="ident">l</label> <a href="#line-15" class="ident">obfListener</a>) <label for="r18" class="ident"><a href="../../../../../use/github.com/gotd/td/transport..obfListener^c5433.Close.html" class="ident">Close</a></label>() <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-79"><code>	<span class="keyword">return</span> <label for="r17" class="ident">l</label>.<a href="#line-16" class="ident">listener</a>.<a href="../../../../net/net.go.html#line-386" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-79"><code>	<span class="keyword">return</span> <label for="r17" class="ident">l</label>.<a href="#line-16" class="ident">listener</a>.<a href="../../../../net/net.go.html#line-418" class="ident">Close</a>()</code></span>
 <span class="codeline" id="line-80"><code>}</code></span>
 <span class="codeline" id="line-81"><code></code></span>
 <span class="codeline" id="line-82"><code><span class="comment">// Addr returns the listener's network address.</span></code></span>
-<span class="codeline" id="line-83"><code><span class="keyword">func</span> (<label for="r19" class="ident">l</label> <a href="#line-15" class="ident">obfListener</a>) <label for="r20" class="ident"><a href="../../../../../use/github.com/gotd/td/transport..obfListener^c5433.Addr.html" class="ident">Addr</a></label>() <a href="../../../../../pkg/net.html" class="ident i2">net</a>.<a href="../../../../net/net.go.html#line-101" class="ident">Addr</a> {</code></span>
-<span class="codeline" id="line-84"><code>	<span class="keyword">return</span> <label for="r19" class="ident">l</label>.<a href="#line-16" class="ident">listener</a>.<a href="../../../../net/net.go.html#line-389" class="ident">Addr</a>()</code></span>
+<span class="codeline" id="line-83"><code><span class="keyword">func</span> (<label for="r19" class="ident">l</label> <a href="#line-15" class="ident">obfListener</a>) <label for="r20" class="ident"><a href="../../../../../use/github.com/gotd/td/transport..obfListener^c5433.Addr.html" class="ident">Addr</a></label>() <a href="../../../../../pkg/net.html" class="ident i2">net</a>.<a href="../../../../net/net.go.html#line-116" class="ident">Addr</a> {</code></span>
+<span class="codeline" id="line-84"><code>	<span class="keyword">return</span> <label for="r19" class="ident">l</label>.<a href="#line-16" class="ident">listener</a>.<a href="../../../../net/net.go.html#line-421" class="ident">Addr</a>()</code></span>
 <span class="codeline" id="line-85"><code>}</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

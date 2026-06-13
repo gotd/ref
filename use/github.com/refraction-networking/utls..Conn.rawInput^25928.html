@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/refraction-networking/utls.Conn.rawInput</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>.<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-27">Conn</a>.<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-106">rawInput</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">13 uses</span>
+
+	github.com/refraction-networking/utls (current package)
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-106">conn.go#L106</a>: 	<b>rawInput</b>  bytes.Buffer // raw input, starting with a record header
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-587" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-587">#L587</a>: 	copy(err.RecordHeader[:], c.<b>rawInput</b>.Bytes())
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-634" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-634">#L634</a>: 		if err == io.ErrUnexpectedEOF &amp;&amp; c.<b>rawInput</b>.Len() == 0 {
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-642" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-642">#L642</a>: 	hdr := c.<b>rawInput</b>.Bytes()[:recordHeaderLen]
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-689" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-689">#L689</a>: 	record := c.<b>rawInput</b>.Next(recordHeaderLen + n)
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-824" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-824">#L824</a>: 	if c.<b>rawInput</b>.Len() &gt;= n {
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-827" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-827">#L827</a>: 	needs := n - c.<b>rawInput</b>.Len()
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-831" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-831">#L831</a>: 	c.<b>rawInput</b>.Grow(needs + bytes.MinRead)
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-832" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-832">#L832</a>: 	_, err := c.<b>rawInput</b>.ReadFrom(&amp;atLeastReader{r, int64(needs)})
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1414" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1414">#L1414</a>: 	if n != 0 &amp;&amp; c.input.Len() == 0 &amp;&amp; c.<b>rawInput</b>.Len() &gt; 0 &amp;&amp;
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1415" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1415">#L1415</a>: 		recordType(c.<b>rawInput</b>.Bytes()[0]) == recordTypeAlert {
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-894">u_conn.go#L894</a>: 	if n != 0 &amp;&amp; c.input.Len() == 0 &amp;&amp; c.<b>rawInput</b>.Len() &gt; 0 &amp;&amp;
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-895" class="path-duplicate">u_conn.go</a><a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-895">#L895</a>: 		recordType(c.<b>rawInput</b>.Bytes()[0]) == recordTypeAlert {
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,107 +5,128 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: sync.Mutex</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../pkg/sync.html">sync</a>.<a href="../src/sync/mutex.go.html#line-34">Mutex</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../pkg/sync.html">sync</a>.<a href="../src/sync/mutex.go.html#line-30">Mutex</a></b></span>
 
-<span class="title">89 uses</span>
+<span class="title">109 uses</span>
 
 	sync (current package)
-		<a href="../src/sync/map.go.html#line-36">map.go#L36</a>: 	mu <b>Mutex</b>
-		<a href="../src/sync/mutex.go.html#line-34">mutex.go#L34</a>: type <b>Mutex</b> struct {
-		<a href="../src/sync/mutex.go.html#line-81" class="path-duplicate">mutex.go</a><a href="../src/sync/mutex.go.html#line-81">#L81</a>: func (m *<b>Mutex</b>) Lock() {
-		<a href="../src/sync/mutex.go.html#line-98" class="path-duplicate">mutex.go</a><a href="../src/sync/mutex.go.html#line-98">#L98</a>: func (m *<b>Mutex</b>) TryLock() bool {
-		<a href="../src/sync/mutex.go.html#line-117" class="path-duplicate">mutex.go</a><a href="../src/sync/mutex.go.html#line-117">#L117</a>: func (m *<b>Mutex</b>) lockSlow() {
-		<a href="../src/sync/mutex.go.html#line-212" class="path-duplicate">mutex.go</a><a href="../src/sync/mutex.go.html#line-212">#L212</a>: func (m *<b>Mutex</b>) Unlock() {
-		<a href="../src/sync/mutex.go.html#line-227" class="path-duplicate">mutex.go</a><a href="../src/sync/mutex.go.html#line-227">#L227</a>: func (m *<b>Mutex</b>) unlockSlow(new int32) {
-		<a href="../src/sync/once.go.html#line-25">once.go#L25</a>: 	m    <b>Mutex</b>
-		<a href="../src/sync/pool.go.html#line-263">pool.go#L263</a>: 	allPoolsMu <b>Mutex</b>
-		<a href="../src/sync/rwmutex.go.html#line-37">rwmutex.go#L37</a>: 	w           <b>Mutex</b>        // held if there are pending writers
+		<a href="../src/sync/mutex.go.html#line-30">mutex.go#L30</a>: type <b>Mutex</b> struct {
+		<a href="../src/sync/mutex.go.html#line-45" class="path-duplicate">mutex.go</a><a href="../src/sync/mutex.go.html#line-45">#L45</a>: func (m *<b>Mutex</b>) Lock() {
+		<a href="../src/sync/mutex.go.html#line-54" class="path-duplicate">mutex.go</a><a href="../src/sync/mutex.go.html#line-54">#L54</a>: func (m *<b>Mutex</b>) TryLock() bool {
+		<a href="../src/sync/mutex.go.html#line-64" class="path-duplicate">mutex.go</a><a href="../src/sync/mutex.go.html#line-64">#L64</a>: func (m *<b>Mutex</b>) Unlock() {
+		<a href="../src/sync/once.go.html#line-29">once.go#L29</a>: 	m    <b>Mutex</b>
+		<a href="../src/sync/pool.go.html#line-284">pool.go#L284</a>: 	allPoolsMu <b>Mutex</b>
+		<a href="../src/sync/rwmutex.go.html#line-40">rwmutex.go#L40</a>: 	w           <b>Mutex</b>        // held if there are pending writers
 
 	<a href="../pkg/context.html">context</a>
-		<a href="../src/context/context.go.html#line-419">context.go#L419</a>: 	mu       sync.<b>Mutex</b>            // protects following fields
-
-	<a href="../pkg/crypto/rand.html">crypto/rand</a>
-		<a href="../src/crypto/rand/rand_unix.go.html#line-36">rand_unix.go#L36</a>: 	mu   sync.<b>Mutex</b>
+		<a href="../src/context/context.go.html#line-434">context.go#L434</a>: 	mu       sync.<b>Mutex</b>            // protects following fields
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/common.go.html#line-1399">common.go#L1399</a>: var writerMutex sync.<b>Mutex</b>
-		<a href="../src/crypto/tls/common.go.html#line-1441" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-1441">#L1441</a>: 	sync.<b>Mutex</b>
-		<a href="../src/crypto/tls/conn.go.html#line-39">conn.go#L39</a>: 	handshakeMutex sync.<b>Mutex</b>
-		<a href="../src/crypto/tls/conn.go.html#line-168" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-168">#L168</a>: 	sync.<b>Mutex</b>
+		<a href="../src/crypto/tls/common.go.html#line-1607">common.go#L1607</a>: var writerMutex sync.<b>Mutex</b>
+		<a href="../src/crypto/tls/common.go.html#line-1663" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-1663">#L1663</a>: 	sync.<b>Mutex</b>
+		<a href="../src/crypto/tls/conn.go.html#line-40">conn.go#L40</a>: 	handshakeMutex sync.<b>Mutex</b>
+		<a href="../src/crypto/tls/conn.go.html#line-170" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-170">#L170</a>: 	sync.<b>Mutex</b>
+
+	<a href="../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../src/github.com/coder/websocket/conn.go.html#line-76">conn.go#L76</a>: 	closeReadMu   sync.<b>Mutex</b>
+		<a href="../src/github.com/coder/websocket/conn.go.html#line-81" class="path-duplicate">conn.go</a><a href="../src/github.com/coder/websocket/conn.go.html#line-81">#L81</a>: 	closeMu sync.<b>Mutex</b> // Protects following.
+		<a href="../src/github.com/coder/websocket/conn.go.html#line-85" class="path-duplicate">conn.go</a><a href="../src/github.com/coder/websocket/conn.go.html#line-85">#L85</a>: 	activePingsMu  sync.<b>Mutex</b>
 
 	<a href="../pkg/github.com/gotd/neo.html">github.com/gotd/neo</a>
 		<a href="../src/github.com/gotd/neo/net.go.html#line-28">net.go#L28</a>: 	closedMux sync.<b>Mutex</b>
 		<a href="../src/github.com/gotd/neo/net.go.html#line-31" class="path-duplicate">net.go</a><a href="../src/github.com/gotd/neo/net.go.html#line-31">#L31</a>: 	mux           sync.<b>Mutex</b>
 		<a href="../src/github.com/gotd/neo/time.go.html#line-37">time.go#L37</a>: 	mux      sync.<b>Mutex</b>
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproto.html">github.com/gotd/td/internal/mtproto</a>
-		<a href="../src/github.com/gotd/td/internal/mtproto/conn.go.html#line-82">conn.go#L82</a>: 	reqMux              sync.<b>Mutex</b>
-		<a href="../src/github.com/gotd/td/internal/mtproto/conn.go.html#line-93" class="path-duplicate">conn.go</a><a href="../src/github.com/gotd/td/internal/mtproto/conn.go.html#line-93">#L93</a>: 	pingMux sync.<b>Mutex</b>
+	<a href="../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../src/github.com/gotd/td/mtproto/conn.go.html#line-88">conn.go#L88</a>: 	reqMux              sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/mtproto/conn.go.html#line-99" class="path-duplicate">conn.go</a><a href="../src/github.com/gotd/td/mtproto/conn.go.html#line-99">#L99</a>: 	pingMux sync.<b>Mutex</b>
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproto/salts.html">github.com/gotd/td/internal/mtproto/salts</a>
-		<a href="../src/github.com/gotd/td/internal/mtproto/salts/salts.go.html#line-16">salts.go#L16</a>: 	saltsMux sync.<b>Mutex</b>
+	<a href="../pkg/github.com/gotd/td/mtproto/salts.html">github.com/gotd/td/mtproto/salts</a>
+		<a href="../src/github.com/gotd/td/mtproto/salts/salts.go.html#line-16">salts.go#L16</a>: 	saltsMux sync.<b>Mutex</b>
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproxy/faketls.html">github.com/gotd/td/internal/mtproxy/faketls</a>
-		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/faketls.go.html#line-24">faketls.go#L24</a>: 	readBufMux sync.<b>Mutex</b>
+	<a href="../pkg/github.com/gotd/td/mtproxy/faketls.html">github.com/gotd/td/mtproxy/faketls</a>
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/faketls.go.html#line-24">faketls.go#L24</a>: 	readBufMux sync.<b>Mutex</b>
 
-	<a href="../pkg/github.com/gotd/td/internal/pool.html">github.com/gotd/td/internal/pool</a>
-		<a href="../src/github.com/gotd/td/internal/pool/pool.go.html#line-40">pool.go#L40</a>: 	mu sync.<b>Mutex</b>
-		<a href="../src/github.com/gotd/td/internal/pool/req_map.go.html#line-13">req_map.go#L13</a>: 	mux sync.<b>Mutex</b>
+	<a href="../pkg/github.com/gotd/td/pool.html">github.com/gotd/td/pool</a>
+		<a href="../src/github.com/gotd/td/pool/pool.go.html#line-40">pool.go#L40</a>: 	mu sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/pool/req_map.go.html#line-13">req_map.go#L13</a>: 	mux sync.<b>Mutex</b>
 
-	<a href="../pkg/github.com/gotd/td/internal/proto.html">github.com/gotd/td/internal/proto</a>
-		<a href="../src/github.com/gotd/td/internal/proto/message_id.go.html#line-130">message_id.go#L130</a>: 	mux  sync.<b>Mutex</b>
-		<a href="../src/github.com/gotd/td/internal/proto/message_id.go.html#line-172" class="path-duplicate">message_id.go</a><a href="../src/github.com/gotd/td/internal/proto/message_id.go.html#line-172">#L172</a>: 	mux sync.<b>Mutex</b>
+	<a href="../pkg/github.com/gotd/td/proto.html">github.com/gotd/td/proto</a>
+		<a href="../src/github.com/gotd/td/proto/message_id.go.html#line-130">message_id.go#L130</a>: 	mux  sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/proto/message_id.go.html#line-172" class="path-duplicate">message_id.go</a><a href="../src/github.com/gotd/td/proto/message_id.go.html#line-172">#L172</a>: 	mux sync.<b>Mutex</b>
 
-	<a href="../pkg/github.com/gotd/td/internal/rpc.html">github.com/gotd/td/internal/rpc</a>
-		<a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-21">engine.go#L21</a>: 	mux sync.<b>Mutex</b>
-
-	<a href="../pkg/github.com/gotd/td/internal/tdsync.html">github.com/gotd/td/internal/tdsync</a>
-		<a href="../src/github.com/gotd/td/internal/tdsync/backoff.go.html#line-12">backoff.go#L12</a>: 	mux sync.<b>Mutex</b>
-		<a href="../src/github.com/gotd/td/internal/tdsync/reset_ready.go.html#line-8">reset_ready.go#L8</a>: 	lock  sync.<b>Mutex</b>
+	<a href="../pkg/github.com/gotd/td/rpc.html">github.com/gotd/td/rpc</a>
+		<a href="../src/github.com/gotd/td/rpc/engine.go.html#line-21">engine.go#L21</a>: 	mux sync.<b>Mutex</b>
 
 	<a href="../pkg/github.com/gotd/td/session.html">github.com/gotd/td/session</a>
 		<a href="../src/github.com/gotd/td/session/storage_file.go.html#line-15">storage_file.go#L15</a>: 	mux  sync.<b>Mutex</b>
 
+	<a href="../pkg/github.com/gotd/td/syncio.html">github.com/gotd/td/syncio</a>
+		<a href="../src/github.com/gotd/td/syncio/reader.go.html#line-11">reader.go#L11</a>: 	mux sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/syncio/writer_at.go.html#line-13">writer_at.go#L13</a>: 	mux sync.<b>Mutex</b>
+
+	<a href="../pkg/github.com/gotd/td/tdsync.html">github.com/gotd/td/tdsync</a>
+		<a href="../src/github.com/gotd/td/tdsync/backoff.go.html#line-12">backoff.go#L12</a>: 	mux sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/tdsync/reset_ready.go.html#line-8">reset_ready.go#L8</a>: 	lock  sync.<b>Mutex</b>
+
 	<a href="../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
-		<a href="../src/github.com/gotd/td/telegram/client.go.html#line-88">client.go#L88</a>: 	connMux sync.<b>Mutex</b>
-		<a href="../src/github.com/gotd/td/telegram/client.go.html#line-101" class="path-duplicate">client.go</a><a href="../src/github.com/gotd/td/telegram/client.go.html#line-101">#L101</a>: 	subConnsMux sync.<b>Mutex</b>
-		<a href="../src/github.com/gotd/td/telegram/client.go.html#line-103" class="path-duplicate">client.go</a><a href="../src/github.com/gotd/td/telegram/client.go.html#line-103">#L103</a>: 	sessionsMux sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-54">cdn_pool_manager.go#L54</a>: 	mux sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/telegram/client.go.html#line-104">client.go#L104</a>: 	connMux     sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/telegram/client.go.html#line-111" class="path-duplicate">client.go</a><a href="../src/github.com/gotd/td/telegram/client.go.html#line-111">#L111</a>: 	subConnsMux sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/telegram/client.go.html#line-118" class="path-duplicate">client.go</a><a href="../src/github.com/gotd/td/telegram/client.go.html#line-118">#L118</a>: 	sessionsMux sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/telegram/client.go.html#line-126" class="path-duplicate">client.go</a><a href="../src/github.com/gotd/td/telegram/client.go.html#line-126">#L126</a>: 	cdnKeysMux  sync.<b>Mutex</b>
+
+	<a href="../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn.go.html#line-35">cdn.go#L35</a>: 	refreshMux sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn.go.html#line-37" class="path-duplicate">cdn.go</a><a href="../src/github.com/gotd/td/telegram/downloader/cdn.go.html#line-37">#L37</a>: 	clientMux sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn.go.html#line-42" class="path-duplicate">cdn.go</a><a href="../src/github.com/gotd/td/telegram/downloader/cdn.go.html#line-42">#L42</a>: 	windowsMux sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/telegram/downloader/reader.go.html#line-31">reader.go#L31</a>: 	offsetMux sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/telegram/downloader/verifier.go.html#line-26">verifier.go#L26</a>: 	mux    sync.<b>Mutex</b>
 
 	<a href="../pkg/github.com/gotd/td/telegram/internal/manager.html">github.com/gotd/td/telegram/internal/manager</a>
-		<a href="../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-68">conn.go#L68</a>: 	mux     sync.<b>Mutex</b>
+		<a href="../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-78">conn.go#L78</a>: 	mux     sync.<b>Mutex</b>
 
 	<a href="../pkg/github.com/gotd/td/transport.html">github.com/gotd/td/transport</a>
 		<a href="../src/github.com/gotd/td/transport/connection.go.html#line-28">connection.go#L28</a>: 	readMux  sync.<b>Mutex</b>
 		<a href="../src/github.com/gotd/td/transport/connection.go.html#line-29" class="path-duplicate">connection.go</a><a href="../src/github.com/gotd/td/transport/connection.go.html#line-29">#L29</a>: 	writeMux sync.<b>Mutex</b>
 
-	<a href="../pkg/go.uber.org/zap.html">go.uber.org/zap</a>
-		<a href="../src/go.uber.org/zap/sink.go.html#line-59">sink.go#L59</a>: 	mu        sync.<b>Mutex</b>
+	<a href="../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>
+		<a href="../src/github.com/klauspost/compress/zstd/simple_go124.go.html#line-15">simple_go124.go#L15</a>: var weakMu sync.<b>Mutex</b>
+		<a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-56">zip.go#L56</a>: 	mu   sync.<b>Mutex</b> // guards Close and Read
+		<a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-89" class="path-duplicate">zip.go</a><a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-89">#L89</a>: 	mu   sync.<b>Mutex</b> // guards Close and Read
 
-	<a href="../pkg/go.uber.org/zap/zapcore.html">go.uber.org/zap/zapcore</a>
-		<a href="../src/go.uber.org/zap/zapcore/buffered_write_syncer.go.html#line-103">buffered_write_syncer.go#L103</a>: 	mu          sync.<b>Mutex</b>
-		<a href="../src/go.uber.org/zap/zapcore/write_syncer.go.html#line-50">write_syncer.go#L50</a>: 	sync.<b>Mutex</b>
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-1599">common.go#L1599</a>: var writerMutex sync.<b>Mutex</b>
+		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-1650" class="path-duplicate">common.go</a><a href="../src/github.com/refraction-networking/utls/common.go.html#line-1650">#L1650</a>: 	sync.<b>Mutex</b>
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-39">conn.go#L39</a>: 	handshakeMutex sync.<b>Mutex</b>
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-173" class="path-duplicate">conn.go</a><a href="../src/github.com/refraction-networking/utls/conn.go.html#line-173">#L173</a>: 	sync.<b>Mutex</b>
+		<a href="../src/github.com/refraction-networking/utls/u_prng.go.html#line-70">u_prng.go#L70</a>: 	randomStreamMutex sync.<b>Mutex</b>
+		<a href="../src/github.com/refraction-networking/utls/u_roller.go.html#line-11">u_roller.go#L11</a>: 	HelloIDMu           sync.<b>Mutex</b>
+
+	<a href="../pkg/go.opentelemetry.io/otel/trace.html">go.opentelemetry.io/otel/trace</a>
+		<a href="../src/go.opentelemetry.io/otel/trace/auto.go.html#line-171">auto.go#L171</a>: 	mu     sync.<b>Mutex</b>
+
+	<a href="../pkg/golang.org/x/sync/singleflight.html">golang.org/x/sync/singleflight</a>
+		<a href="../src/golang.org/x/sync/singleflight/singleflight.go.html#line-74">singleflight.go#L74</a>: 	mu sync.<b>Mutex</b>       // protects m
 
 	<a href="../pkg/image.html">image</a>
 		<a href="../src/image/format.go.html#line-27">format.go#L27</a>: 	formatsMu     sync.<b>Mutex</b>
 
 	<a href="../pkg/internal/bisect.html">internal/bisect</a>
-		<a href="../src/internal/bisect/bisect.go.html#line-759">bisect.go#L759</a>: 	mu sync.<b>Mutex</b>
+		<a href="../src/internal/bisect/bisect.go.html#line-742">bisect.go#L742</a>: 	mu sync.<b>Mutex</b>
 
 	<a href="../pkg/internal/godebug.html">internal/godebug</a>
-		<a href="../src/internal/godebug/godebug.go.html#line-208">godebug.go#L208</a>: var updateMu sync.<b>Mutex</b>
-
-	<a href="../pkg/internal/intern.html">internal/intern</a>
-		<a href="../src/internal/intern/intern.go.html#line-64">intern.go#L64</a>: 	mu      sync.<b>Mutex</b>
+		<a href="../src/internal/godebug/godebug.go.html#line-228">godebug.go#L228</a>: var updateMu sync.<b>Mutex</b>
 
 	<a href="../pkg/internal/singleflight.html">internal/singleflight</a>
 		<a href="../src/internal/singleflight/singleflight.go.html#line-30">singleflight.go#L30</a>: 	mu sync.<b>Mutex</b>       // protects m
 
 	<a href="../pkg/internal/testlog.html">internal/testlog</a>
-		<a href="../src/internal/testlog/exit.go.html#line-24">exit.go#L24</a>: 	mu  sync.<b>Mutex</b>
+		<a href="../src/internal/testlog/exit.go.html#line-27">exit.go#L27</a>: 	mu  sync.<b>Mutex</b>
 
 	<a href="../pkg/io.html">io</a>
 		<a href="../src/io/pipe.go.html#line-17">pipe.go#L17</a>: 	sync.<b>Mutex</b> // guards following
@@ -115,11 +136,11 @@
 		<a href="../src/log/log.go.html#line-58">log.go#L58</a>: 	outMu sync.<b>Mutex</b>
 
 	<a href="../pkg/math/big.html">math/big</a>
-		<a href="../src/math/big/natconv.go.html#line-449">natconv.go#L449</a>: 	sync.<b>Mutex</b>
+		<a href="../src/math/big/natconv.go.html#line-486">natconv.go#L486</a>: 	sync.<b>Mutex</b>
 
 	<a href="../pkg/math/rand.html">math/rand</a>
-		<a href="../src/math/rand/rand.go.html#line-356">rand.go#L356</a>: 	mu sync.<b>Mutex</b>
-		<a href="../src/math/rand/rand.go.html#line-499" class="path-duplicate">rand.go</a><a href="../src/math/rand/rand.go.html#line-499">#L499</a>: 	lk sync.<b>Mutex</b>
+		<a href="../src/math/rand/rand.go.html#line-359">rand.go#L359</a>: 	mu sync.<b>Mutex</b>
+		<a href="../src/math/rand/rand.go.html#line-511" class="path-duplicate">rand.go</a><a href="../src/math/rand/rand.go.html#line-511">#L511</a>: 	lk sync.<b>Mutex</b>
 
 	<a href="../pkg/mime.html">mime</a>
 		<a href="../src/mime/type.go.html#line-21">type.go#L21</a>: 	extensionsMu sync.<b>Mutex</b> // Guards stores (but not loads) on extensions.
@@ -131,51 +152,56 @@
 		<a href="../src/net/pipe.go.html#line-88" class="path-duplicate">pipe.go</a><a href="../src/net/pipe.go.html#line-88">#L88</a>: 	wrMu sync.<b>Mutex</b> // Serialize Write operations
 
 	<a href="../pkg/net/http.html">net/http</a>
+		<a href="../src/net/http/clientconn.go.html#line-24">clientconn.go#L24</a>: 	stateHookMu      sync.<b>Mutex</b>
 		<a href="../src/net/http/h2_bundle.go.html#line-766">h2_bundle.go#L766</a>: 	mu sync.<b>Mutex</b> // TODO: maybe switch to RWMutex
-		<a href="../src/net/http/h2_bundle.go.html#line-3706" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-3706">#L3706</a>: 	mu       sync.<b>Mutex</b>
-		<a href="../src/net/http/h2_bundle.go.html#line-3893" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-3893">#L3893</a>: 	http2testHookOnPanicMu     *sync.<b>Mutex</b> // nil except in tests
-		<a href="../src/net/http/h2_bundle.go.html#line-4022" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-4022">#L4022</a>: 	mu          sync.<b>Mutex</b>
-		<a href="../src/net/http/h2_bundle.go.html#line-6382" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6382">#L6382</a>: 	closeNotifierMu sync.<b>Mutex</b> // guards closeNotifierCh
-		<a href="../src/net/http/h2_bundle.go.html#line-7391" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-7391">#L7391</a>: 	mu              sync.<b>Mutex</b>   // guards following
-		<a href="../src/net/http/h2_bundle.go.html#line-7425" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-7425">#L7425</a>: 	wmu  sync.<b>Mutex</b>
-		<a href="../src/net/http/server.go.html#line-301">server.go#L301</a>: 	mu sync.<b>Mutex</b>
-		<a href="../src/net/http/server.go.html#line-441" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-441">#L441</a>: 	writeContinueMu  sync.<b>Mutex</b>
-		<a href="../src/net/http/server.go.html#line-650" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-650">#L650</a>: 	mu      sync.<b>Mutex</b> // guards following
-		<a href="../src/net/http/server.go.html#line-2719" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-2719">#L2719</a>: 	mu         sync.<b>Mutex</b>
-		<a href="../src/net/http/server.go.html#line-3436" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-3436">#L3436</a>: 	mu          sync.<b>Mutex</b>
-		<a href="../src/net/http/server.go.html#line-3556" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-3556">#L3556</a>: 	uniqNameMu   sync.<b>Mutex</b>
-		<a href="../src/net/http/transfer.go.html#line-812">transfer.go#L812</a>: 	mu         sync.<b>Mutex</b> // guards following, and calls to Read and Close
-		<a href="../src/net/http/transport.go.html#line-96">transport.go#L96</a>: 	idleMu       sync.<b>Mutex</b>
-		<a href="../src/net/http/transport.go.html#line-102" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-102">#L102</a>: 	reqMu       sync.<b>Mutex</b>
-		<a href="../src/net/http/transport.go.html#line-105" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-105">#L105</a>: 	altMu    sync.<b>Mutex</b>   // guards changing altProto only
-		<a href="../src/net/http/transport.go.html#line-108" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-108">#L108</a>: 	connsPerHostMu   sync.<b>Mutex</b>
-		<a href="../src/net/http/transport.go.html#line-469" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-469">#L469</a>: 	mu  sync.<b>Mutex</b> // guards err
-		<a href="../src/net/http/transport.go.html#line-1217" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1217">#L1217</a>: 	mu  sync.<b>Mutex</b> // protects pc, err, close(ready)
-		<a href="../src/net/http/transport.go.html#line-1928" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1928">#L1928</a>: 	mu                   sync.<b>Mutex</b> // guards following fields
-		<a href="../src/net/http/transport.go.html#line-2790" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-2790">#L2790</a>: 	mu           sync.<b>Mutex</b>        // guards following 4 fields
+		<a href="../src/net/http/h2_bundle.go.html#line-3869" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-3869">#L3869</a>: 	mu       sync.<b>Mutex</b>
+		<a href="../src/net/http/h2_bundle.go.html#line-4069" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-4069">#L4069</a>: 	http2testHookOnPanicMu     *sync.<b>Mutex</b> // nil except in tests
+		<a href="../src/net/http/h2_bundle.go.html#line-4164" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-4164">#L4164</a>: 	mu          sync.<b>Mutex</b>
+		<a href="../src/net/http/h2_bundle.go.html#line-6600" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6600">#L6600</a>: 	closeNotifierMu sync.<b>Mutex</b> // guards closeNotifierCh
+		<a href="../src/net/http/h2_bundle.go.html#line-7618" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-7618">#L7618</a>: 	mu               sync.<b>Mutex</b>   // guards following
+		<a href="../src/net/http/h2_bundle.go.html#line-7690" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-7690">#L7690</a>: 	wmu  sync.<b>Mutex</b>
+		<a href="../src/net/http/h2_bundle.go.html#line-10437" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10437">#L10437</a>: 	mu   sync.<b>Mutex</b>    // guards zr and zerr
+		<a href="../src/net/http/server.go.html#line-302">server.go#L302</a>: 	mu sync.<b>Mutex</b>
+		<a href="../src/net/http/server.go.html#line-442" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-442">#L442</a>: 	writeContinueMu  sync.<b>Mutex</b>
+		<a href="../src/net/http/server.go.html#line-492" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-492">#L492</a>: 	lazyCloseNotifyMu sync.<b>Mutex</b>
+		<a href="../src/net/http/server.go.html#line-662" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-662">#L662</a>: 	mu      sync.<b>Mutex</b> // guards following
+		<a href="../src/net/http/server.go.html#line-3083" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-3083">#L3083</a>: 	mu         sync.<b>Mutex</b>
+		<a href="../src/net/http/server.go.html#line-3874" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-3874">#L3874</a>: 	mu          sync.<b>Mutex</b>
+		<a href="../src/net/http/server.go.html#line-3994" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-3994">#L3994</a>: 	uniqNameMu   sync.<b>Mutex</b>
+		<a href="../src/net/http/transfer.go.html#line-818">transfer.go#L818</a>: 	mu         sync.<b>Mutex</b> // guards following, and calls to Read and Close
+		<a href="../src/net/http/transport.go.html#line-98">transport.go#L98</a>: 	idleMu       sync.<b>Mutex</b>
+		<a href="../src/net/http/transport.go.html#line-104" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-104">#L104</a>: 	reqMu       sync.<b>Mutex</b>
+		<a href="../src/net/http/transport.go.html#line-107" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-107">#L107</a>: 	altMu    sync.<b>Mutex</b>   // guards changing altProto only
+		<a href="../src/net/http/transport.go.html#line-110" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-110">#L110</a>: 	connsPerHostMu   sync.<b>Mutex</b>
+		<a href="../src/net/http/transport.go.html#line-530" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-530">#L530</a>: 	mu  sync.<b>Mutex</b> // guards err
+		<a href="../src/net/http/transport.go.html#line-1339" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1339">#L1339</a>: 	mu        sync.<b>Mutex</b>      // protects ctx, done and sending of the result
+		<a href="../src/net/http/transport.go.html#line-2148" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-2148">#L2148</a>: 	mu                   sync.<b>Mutex</b> // guards following fields
+		<a href="../src/net/http/transport.go.html#line-3054" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-3054">#L3054</a>: 	mu           sync.<b>Mutex</b>        // guards following 4 fields
+		<a href="../src/net/http/transport.go.html#line-3118" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-3118">#L3118</a>: 	mu   sync.<b>Mutex</b>     // guards zr and zerr
 
 	<a href="../pkg/net/textproto.html">net/textproto</a>
 		<a href="../src/net/textproto/pipeline.go.html#line-29">pipeline.go#L29</a>: 	mu       sync.<b>Mutex</b>
 		<a href="../src/net/textproto/pipeline.go.html#line-73" class="path-duplicate">pipeline.go</a><a href="../src/net/textproto/pipeline.go.html#line-73">#L73</a>: 	mu   sync.<b>Mutex</b>
 
-	<a href="../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../src/nhooyr.io/websocket/conn.go.html#line-75">conn.go#L75</a>: 	closeMu    sync.<b>Mutex</b>
-		<a href="../src/nhooyr.io/websocket/conn.go.html#line-80" class="path-duplicate">conn.go</a><a href="../src/nhooyr.io/websocket/conn.go.html#line-80">#L80</a>: 	activePingsMu sync.<b>Mutex</b>
-
 	<a href="../pkg/os.html">os</a>
+		<a href="../src/os/dir_unix.go.html#line-21">dir_unix.go#L21</a>: 	mu   sync.<b>Mutex</b>
 		<a href="../src/os/getwd.go.html#line-14">getwd.go#L14</a>: 	sync.<b>Mutex</b>
+		<a href="../src/os/root_openat.go.html#line-25">root_openat.go#L25</a>: 	mu     sync.<b>Mutex</b>
 
 	<a href="../pkg/reflect.html">reflect</a>
-		<a href="../src/reflect/type.go.html#line-1574">type.go#L1574</a>: 	sync.<b>Mutex</b> // Guards stores (but not loads) on m.
-		<a href="../src/reflect/type.go.html#line-1717" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-1717">#L1717</a>: var funcTypesMutex sync.<b>Mutex</b>
-		<a href="../src/reflect/type.go.html#line-2109" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-2109">#L2109</a>: 	sync.<b>Mutex</b> // Guards stores (but not loads) on m.
+		<a href="../src/reflect/type.go.html#line-1830">type.go#L1830</a>: 	sync.<b>Mutex</b> // Guards stores (but not loads) on m.
+		<a href="../src/reflect/type.go.html#line-1900" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-1900">#L1900</a>: var funcTypesMutex sync.<b>Mutex</b>
+		<a href="../src/reflect/type.go.html#line-2186" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-2186">#L2186</a>: 	sync.<b>Mutex</b> // Guards stores (but not loads) on m.
 
 	<a href="../pkg/syscall.html">syscall</a>
 		<a href="../src/syscall/forkpipe2.go.html#line-19">forkpipe2.go#L19</a>: 	forkingLock sync.<b>Mutex</b>
-		<a href="../src/syscall/syscall_unix.go.html#line-42">syscall_unix.go#L42</a>: 	sync.<b>Mutex</b>
+		<a href="../src/syscall/syscall_unix.go.html#line-44">syscall_unix.go#L44</a>: 	sync.<b>Mutex</b>
+
+	<a href="../pkg/unique.html">unique</a>
+		<a href="../src/unique/canonmap.go.html#line-290">canonmap.go#L290</a>: 	mu       sync.<b>Mutex</b> // Protects mutation to children and any children that are entry nodes.
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

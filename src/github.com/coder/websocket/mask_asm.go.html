@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: mask_asm.go in package github.com/coder/websocket</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	mask_asm.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6]
+{background: #226; color: #ff8;}
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">//go:build amd64 || arm64</span></code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="keyword">package</span> websocket</code></span>
+<span class="codeline" id="line-4"><code></code></span>
+<span class="codeline" id="line-5"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/github.com/coder/websocket.html#name-mask" class="ident">mask</a></label>(<label for="r1" class="ident">b</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r2" class="ident">key</label> <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>) <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a> {</code></span>
+<span class="codeline" id="line-6"><code>	<span class="comment">// TODO: Will enable in v1.9.0.</span></code></span>
+<span class="codeline" id="line-7"><code>	<span class="keyword">return</span> <a href="mask.go.html#line-19" class="ident">maskGo</a>(<label for="r1" class="ident">b</label>, <label for="r2" class="ident">key</label>)</code></span>
+<span class="codeline" id="line-8"><code>	<span class="comment">/*</span></code></span>
+<span class="codeline" id="line-9"><code><span class="comment">		if len(b) &gt; 0 {</span></code></span>
+<span class="codeline" id="line-10"><code><span class="comment">			return maskAsm(&amp;b[0], len(b), key)</span></code></span>
+<span class="codeline" id="line-11"><code><span class="comment">		}</span></code></span>
+<span class="codeline" id="line-12"><code><span class="comment">		return key</span></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">	*/</span></code></span>
+<span class="codeline" id="line-14"><code>}</code></span>
+<span class="codeline" id="line-15"><code></code></span>
+<span class="codeline" id="line-16"><code><span class="comment">// @nhooyr: I am not confident that the amd64 or the arm64 implementations of this</span></code></span>
+<span class="codeline" id="line-17"><code><span class="comment">// function are perfect. There are almost certainly missing optimizations or</span></code></span>
+<span class="codeline" id="line-18"><code><span class="comment">// opportunities for simplification. I'm confident there are no bugs though.</span></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">// For example, the arm64 implementation doesn't align memory like the amd64.</span></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">// Or the amd64 implementation could use AVX512 instead of just AVX2.</span></code></span>
+<span class="codeline" id="line-21"><code><span class="comment">// The AVX2 code I had to disable anyway as it wasn't performing as expected.</span></code></span>
+<span class="codeline" id="line-22"><code><span class="comment">// See https://github.com/nhooyr/websocket/pull/326#issuecomment-1771138049</span></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">//go:noescape</span></code></span>
+<span class="codeline" id="line-25"><code><span class="comment">//lint:ignore U1000 disabled till v1.9.0</span></code></span>
+<span class="codeline" id="line-26"><code><span class="keyword">func</span> <label for="r3" class="ident"><a href="../../../../pkg/github.com/coder/websocket.html#name-maskAsm" class="ident">maskAsm</a></label>(<label for="r4" class="ident">b</label> *<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r5" class="ident">len</label> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r6" class="ident">key</label> <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>) <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

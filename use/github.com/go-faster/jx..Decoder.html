@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: github.com/go-faster/jx.Decoder</title>
-<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../../../pkg/github.com/go-faster/jx.html">github.com/go-faster/jx</a>.<a href="../../../src/github.com/go-faster/jx/dec.go.html#line-77">Decoder</a></b></span>
 
-<span class="title">100 uses</span>
+<span class="title">107 uses</span>
 
 	github.com/go-faster/jx (current package)
 		<a href="../../../src/github.com/go-faster/jx/dec.go.html#line-77">dec.go#L77</a>: type <b>Decoder</b> struct {
@@ -80,7 +80,7 @@
 		<a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-74" class="path-duplicate">dec_read.go</a><a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-74">#L74</a>: func (d *<b>Decoder</b>) peek() (byte, error) {
 		<a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-84" class="path-duplicate">dec_read.go</a><a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-84">#L84</a>: func (d *<b>Decoder</b>) byte() (byte, error) {
 		<a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-99" class="path-duplicate">dec_read.go</a><a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-99">#L99</a>: func (d *<b>Decoder</b>) read() error {
-		<a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-123" class="path-duplicate">dec_read.go</a><a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-123">#L123</a>: func (d *<b>Decoder</b>) readAtLeast(min int) error {
+		<a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-123" class="path-duplicate">dec_read.go</a><a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-123">#L123</a>: func (d *<b>Decoder</b>) readAtLeast(n int) error {
 		<a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-146" class="path-duplicate">dec_read.go</a><a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-146">#L146</a>: func (d *<b>Decoder</b>) unread() { d.head-- }
 		<a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-148" class="path-duplicate">dec_read.go</a><a href="../../../src/github.com/go-faster/jx/dec_read.go.html#line-148">#L148</a>: func (d *<b>Decoder</b>) readExact4(b *[4]byte) error {
 		<a href="../../../src/github.com/go-faster/jx/dec_skip.go.html#line-10">dec_skip.go#L10</a>: func (d *<b>Decoder</b>) Skip() error {
@@ -104,9 +104,9 @@
 		<a href="../../../src/github.com/go-faster/jx/num.go.html#line-23">num.go#L23</a>: func (n Num) dec() <b>Decoder</b> {
 		<a href="../../../src/github.com/go-faster/jx/num.go.html#line-30" class="path-duplicate">num.go</a><a href="../../../src/github.com/go-faster/jx/num.go.html#line-30">#L30</a>: 	return <b>Decoder</b>{
 
-	<a href="../../../pkg/github.com/gotd/td/internal/crypto.html">github.com/gotd/td/internal/crypto</a>
-		<a href="../../../src/github.com/gotd/td/internal/crypto/key.go.html#line-60">key.go#L60</a>: func (a *AuthKey) DecodeJSON(d *jx.<b>Decoder</b>) error {
-		<a href="../../../src/github.com/gotd/td/internal/crypto/key.go.html#line-61" class="path-duplicate">key.go</a><a href="../../../src/github.com/gotd/td/internal/crypto/key.go.html#line-61">#L61</a>: 	return d.ObjBytes(func(d *jx.<b>Decoder</b>, key []byte) error {
+	<a href="../../../pkg/github.com/gotd/td/crypto.html">github.com/gotd/td/crypto</a>
+		<a href="../../../src/github.com/gotd/td/crypto/key.go.html#line-60">key.go#L60</a>: func (a *AuthKey) DecodeJSON(d *jx.<b>Decoder</b>) error {
+		<a href="../../../src/github.com/gotd/td/crypto/key.go.html#line-61" class="path-duplicate">key.go</a><a href="../../../src/github.com/gotd/td/crypto/key.go.html#line-61">#L61</a>: 	return d.ObjBytes(func(d *jx.<b>Decoder</b>, key []byte) error {
 
 	<a href="../../../pkg/github.com/gotd/td/tdjson.html">github.com/gotd/td/tdjson</a>
 		<a href="../../../src/github.com/gotd/td/tdjson/decoder.go.html#line-15">decoder.go#L15</a>: 	*jx.<b>Decoder</b>
@@ -114,9 +114,18 @@
 		<a href="../../../src/github.com/gotd/td/tdjson/decoder.go.html#line-29" class="path-duplicate">decoder.go</a><a href="../../../src/github.com/gotd/td/tdjson/decoder.go.html#line-29">#L29</a>: 	return b.Decoder.Arr(func(d *jx.<b>Decoder</b>) error {
 		<a href="../../../src/github.com/gotd/td/tdjson/decoder.go.html#line-45" class="path-duplicate">decoder.go</a><a href="../../../src/github.com/gotd/td/tdjson/decoder.go.html#line-45">#L45</a>: 	if err := b.Decoder.Capture(func(d *jx.<b>Decoder</b>) error {
 		<a href="../../../src/github.com/gotd/td/tdjson/decoder.go.html#line-46" class="path-duplicate">decoder.go</a><a href="../../../src/github.com/gotd/td/tdjson/decoder.go.html#line-46">#L46</a>: 		return d.ObjBytes(func(d *jx.<b>Decoder</b>, key []byte) error {
+
+	<a href="../../../pkg/github.com/gotd/td/tg.html">github.com/gotd/td/tg</a>
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-45">json_invoke.go#L45</a>: 	if err := d.ObjBytes(func(d *jx.<b>Decoder</b>, key []byte) error {
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-234" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-234">#L234</a>: func parseJSONObject(d *jx.<b>Decoder</b>) (map[string]jsonValue, error) {
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-240" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-240">#L240</a>: func parseJSONObjectWithType(d *jx.<b>Decoder</b>, includeType bool) (map[string]jsonValue, error) {
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-243" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-243">#L243</a>: 	if err := d.ObjBytes(func(d *jx.<b>Decoder</b>, key []byte) error {
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-266" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-266">#L266</a>: func parseJSONValue(d *jx.<b>Decoder</b>) (jsonValue, error) {
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-278" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-278">#L278</a>: 		if err := d.ObjBytes(func(d *jx.<b>Decoder</b>, key []byte) error {
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-295" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-295">#L295</a>: 		if err := d.Arr(func(d *jx.<b>Decoder</b>) error {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

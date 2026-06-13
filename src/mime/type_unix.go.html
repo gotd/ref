@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: type_unix.go in package mime</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -97,7 +97,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-13"><code>)</code></span>
 <span class="codeline" id="line-14"><code></code></span>
 <span class="codeline" id="line-15"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../pkg/mime.html#name-init" class="ident">init</a></label>() {</code></span>
-<span class="codeline" id="line-16"><code>	<a href="type.go.html#line-81" class="ident">osInitMime</a> = <a href="#line-105" class="ident">initMimeUnix</a></code></span>
+<span class="codeline" id="line-16"><code>	<a href="type.go.html#line-133" class="ident">osInitMime</a> = <a href="#line-105" class="ident">initMimeUnix</a></code></span>
 <span class="codeline" id="line-17"><code>}</code></span>
 <span class="codeline" id="line-18"><code></code></span>
 <span class="codeline" id="line-19"><code><span class="comment">// See https://specifications.freedesktop.org/shared-mime-info-spec/shared-mime-info-spec-0.21.html</span></code></span>
@@ -116,16 +116,16 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-32"><code>}</code></span>
 <span class="codeline" id="line-33"><code></code></span>
 <span class="codeline" id="line-34"><code><span class="keyword">func</span> <label for="r1" class="ident"><a href="../../pkg/mime.html#name-loadMimeGlobsFile" class="ident">loadMimeGlobsFile</a></label>(<label for="r2" class="ident">filename</label> <a href="../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-35"><code>	<label for="r3" class="ident">f</label>, <label for="r4" class="ident">err</label> := <a href="../../pkg/os.html" class="ident i1">os</a>.<a href="../os/file.go.html#line-313" class="ident">Open</a>(<label for="r2" class="ident">filename</label>)</code></span>
+<span class="codeline" id="line-35"><code>	<label for="r3" class="ident">f</label>, <label for="r4" class="ident">err</label> := <a href="../../pkg/os.html" class="ident i1">os</a>.<a href="../os/file.go.html#line-389" class="ident">Open</a>(<label for="r2" class="ident">filename</label>)</code></span>
 <span class="codeline" id="line-36"><code>	<span class="keyword">if</span> <label for="r4" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-37"><code>		<span class="keyword">return</span> <label for="r4" class="ident">err</label></code></span>
 <span class="codeline" id="line-38"><code>	}</code></span>
 <span class="codeline" id="line-39"><code>	<span class="keyword">defer</span> <label for="r3" class="ident">f</label>.<a href="../os/file_posix.go.html#line-19" class="ident">Close</a>()</code></span>
 <span class="codeline" id="line-40"><code></code></span>
-<span class="codeline" id="line-41"><code>	<label for="r5" class="ident">scanner</label> := <a href="../../pkg/bufio.html" class="ident i0">bufio</a>.<a href="../bufio/scan.go.html#line-87" class="ident">NewScanner</a>(<label for="r3" class="ident">f</label>)</code></span>
-<span class="codeline" id="line-42"><code>	<span class="keyword">for</span> <label for="r5" class="ident">scanner</label>.<a href="../bufio/scan.go.html#line-135" class="ident">Scan</a>() {</code></span>
+<span class="codeline" id="line-41"><code>	<label for="r5" class="ident">scanner</label> := <a href="../../pkg/bufio.html" class="ident i0">bufio</a>.<a href="../bufio/scan.go.html#line-89" class="ident">NewScanner</a>(<label for="r3" class="ident">f</label>)</code></span>
+<span class="codeline" id="line-42"><code>	<span class="keyword">for</span> <label for="r5" class="ident">scanner</label>.<a href="../bufio/scan.go.html#line-139" class="ident">Scan</a>() {</code></span>
 <span class="codeline" id="line-43"><code>		<span class="comment">// Each line should be of format: weight:mimetype:glob[:morefields...]</span></code></span>
-<span class="codeline" id="line-44"><code>		<label for="r6" class="ident">fields</label> := <a href="../../pkg/strings.html" class="ident i2">strings</a>.<a href="../strings/strings.go.html#line-312" class="ident">Split</a>(<label for="r5" class="ident">scanner</label>.<a href="../bufio/scan.go.html#line-112" class="ident">Text</a>(), <span class="lit-string">":"</span>)</code></span>
+<span class="codeline" id="line-44"><code>		<label for="r6" class="ident">fields</label> := <a href="../../pkg/strings.html" class="ident i2">strings</a>.<a href="../strings/strings.go.html#line-361" class="ident">Split</a>(<label for="r5" class="ident">scanner</label>.<a href="../bufio/scan.go.html#line-114" class="ident">Text</a>(), <span class="lit-string">":"</span>)</code></span>
 <span class="codeline" id="line-45"><code>		<span class="keyword">if</span> <a href="../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r6" class="ident">fields</label>) &lt; <span class="lit-number">3</span> || <a href="../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r6" class="ident">fields</label>[<span class="lit-number">0</span>]) &lt; <span class="lit-number">1</span> || <a href="../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r6" class="ident">fields</label>[<span class="lit-number">2</span>]) &lt; <span class="lit-number">3</span> {</code></span>
 <span class="codeline" id="line-46"><code>			<span class="keyword">continue</span></code></span>
 <span class="codeline" id="line-47"><code>		} <span class="keyword">else</span> <span class="keyword">if</span> <label for="r6" class="ident">fields</label>[<span class="lit-number">0</span>][<span class="lit-number">0</span>] == <span class="lit-number">'#'</span> || <label for="r6" class="ident">fields</label>[<span class="lit-number">2</span>][<span class="lit-number">0</span>] != <span class="lit-number">'*'</span> || <label for="r6" class="ident">fields</label>[<span class="lit-number">2</span>][<span class="lit-number">1</span>] != <span class="lit-number">'.'</span> {</code></span>
@@ -133,7 +133,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-49"><code>		}</code></span>
 <span class="codeline" id="line-50"><code></code></span>
 <span class="codeline" id="line-51"><code>		<label for="r7" class="ident">extension</label> := <label for="r6" class="ident">fields</label>[<span class="lit-number">2</span>][<span class="lit-number">1</span>:]</code></span>
-<span class="codeline" id="line-52"><code>		<span class="keyword">if</span> <a href="../../pkg/strings.html" class="ident i2">strings</a>.<a href="../strings/strings.go.html#line-65" class="ident">ContainsAny</a>(<label for="r7" class="ident">extension</label>, <span class="lit-string">"?*["</span>) {</code></span>
+<span class="codeline" id="line-52"><code>		<span class="keyword">if</span> <a href="../../pkg/strings.html" class="ident i2">strings</a>.<a href="../strings/strings.go.html#line-67" class="ident">ContainsAny</a>(<label for="r7" class="ident">extension</label>, <span class="lit-string">"?*["</span>) {</code></span>
 <span class="codeline" id="line-53"><code>			<span class="comment">// Not a bare extension, but a glob. Ignore for now:</span></code></span>
 <span class="codeline" id="line-54"><code><span class="comment">			// - we do not have an implementation for this glob</span></code></span>
 <span class="codeline" id="line-55"><code><span class="comment">			//   syntax (translation to path/filepath.Match could</span></code></span>
@@ -145,31 +145,31 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-61"><code><span class="comment">			//   not useful</span></code></span>
 <span class="codeline" id="line-62"><code>			<span class="keyword">continue</span></code></span>
 <span class="codeline" id="line-63"><code>		}</code></span>
-<span class="codeline" id="line-64"><code>		<span class="keyword">if</span> <label for="r8" class="ident">_</label>, <label for="r9" class="ident">ok</label> := <a href="type.go.html#line-16" class="ident">mimeTypes</a>.<a href="../sync/map.go.html#line-120" class="ident">Load</a>(<label for="r7" class="ident">extension</label>); <label for="r9" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-64"><code>		<span class="keyword">if</span> <label for="r8" class="ident">_</label>, <label for="r9" class="ident">ok</label> := <a href="type.go.html#line-16" class="ident">mimeTypes</a>.<a href="../sync/map.go.html#line-47" class="ident">Load</a>(<label for="r7" class="ident">extension</label>); <label for="r9" class="ident">ok</label> {</code></span>
 <span class="codeline" id="line-65"><code>			<span class="comment">// We've already seen this extension.</span></code></span>
 <span class="codeline" id="line-66"><code><span class="comment">			// The file is in weight order, so we keep</span></code></span>
 <span class="codeline" id="line-67"><code><span class="comment">			// the first entry that we see.</span></code></span>
 <span class="codeline" id="line-68"><code>			<span class="keyword">continue</span></code></span>
 <span class="codeline" id="line-69"><code>		}</code></span>
 <span class="codeline" id="line-70"><code></code></span>
-<span class="codeline" id="line-71"><code>		<a href="type.go.html#line-175" class="ident">setExtensionType</a>(<label for="r7" class="ident">extension</label>, <label for="r6" class="ident">fields</label>[<span class="lit-number">1</span>])</code></span>
+<span class="codeline" id="line-71"><code>		<a href="type.go.html#line-241" class="ident">setExtensionType</a>(<label for="r7" class="ident">extension</label>, <label for="r6" class="ident">fields</label>[<span class="lit-number">1</span>])</code></span>
 <span class="codeline" id="line-72"><code>	}</code></span>
-<span class="codeline" id="line-73"><code>	<span class="keyword">if</span> <label for="r10" class="ident">err</label> := <label for="r5" class="ident">scanner</label>.<a href="../bufio/scan.go.html#line-96" class="ident">Err</a>(); <label for="r10" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-73"><code>	<span class="keyword">if</span> <label for="r10" class="ident">err</label> := <label for="r5" class="ident">scanner</label>.<a href="../bufio/scan.go.html#line-98" class="ident">Err</a>(); <label for="r10" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-74"><code>		<a href="../../pkg/builtin.html#name-panic" class="ident">panic</a>(<label for="r10" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-75"><code>	}</code></span>
 <span class="codeline" id="line-76"><code>	<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
 <span class="codeline" id="line-77"><code>}</code></span>
 <span class="codeline" id="line-78"><code></code></span>
 <span class="codeline" id="line-79"><code><span class="keyword">func</span> <label for="r11" class="ident"><a href="../../pkg/mime.html#name-loadMimeFile" class="ident">loadMimeFile</a></label>(<label for="r12" class="ident">filename</label> <a href="../../pkg/builtin.html#name-string" class="ident">string</a>) {</code></span>
-<span class="codeline" id="line-80"><code>	<label for="r13" class="ident">f</label>, <label for="r14" class="ident">err</label> := <a href="../../pkg/os.html" class="ident i1">os</a>.<a href="../os/file.go.html#line-313" class="ident">Open</a>(<label for="r12" class="ident">filename</label>)</code></span>
+<span class="codeline" id="line-80"><code>	<label for="r13" class="ident">f</label>, <label for="r14" class="ident">err</label> := <a href="../../pkg/os.html" class="ident i1">os</a>.<a href="../os/file.go.html#line-389" class="ident">Open</a>(<label for="r12" class="ident">filename</label>)</code></span>
 <span class="codeline" id="line-81"><code>	<span class="keyword">if</span> <label for="r14" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-82"><code>		<span class="keyword">return</span></code></span>
 <span class="codeline" id="line-83"><code>	}</code></span>
 <span class="codeline" id="line-84"><code>	<span class="keyword">defer</span> <label for="r13" class="ident">f</label>.<a href="../os/file_posix.go.html#line-19" class="ident">Close</a>()</code></span>
 <span class="codeline" id="line-85"><code></code></span>
-<span class="codeline" id="line-86"><code>	<label for="r15" class="ident">scanner</label> := <a href="../../pkg/bufio.html" class="ident i0">bufio</a>.<a href="../bufio/scan.go.html#line-87" class="ident">NewScanner</a>(<label for="r13" class="ident">f</label>)</code></span>
-<span class="codeline" id="line-87"><code>	<span class="keyword">for</span> <label for="r15" class="ident">scanner</label>.<a href="../bufio/scan.go.html#line-135" class="ident">Scan</a>() {</code></span>
-<span class="codeline" id="line-88"><code>		<label for="r16" class="ident">fields</label> := <a href="../../pkg/strings.html" class="ident i2">strings</a>.<a href="../strings/strings.go.html#line-333" class="ident">Fields</a>(<label for="r15" class="ident">scanner</label>.<a href="../bufio/scan.go.html#line-112" class="ident">Text</a>())</code></span>
+<span class="codeline" id="line-86"><code>	<label for="r15" class="ident">scanner</label> := <a href="../../pkg/bufio.html" class="ident i0">bufio</a>.<a href="../bufio/scan.go.html#line-89" class="ident">NewScanner</a>(<label for="r13" class="ident">f</label>)</code></span>
+<span class="codeline" id="line-87"><code>	<span class="keyword">for</span> <label for="r15" class="ident">scanner</label>.<a href="../bufio/scan.go.html#line-139" class="ident">Scan</a>() {</code></span>
+<span class="codeline" id="line-88"><code>		<label for="r16" class="ident">fields</label> := <a href="../../pkg/strings.html" class="ident i2">strings</a>.<a href="../strings/strings.go.html#line-384" class="ident">Fields</a>(<label for="r15" class="ident">scanner</label>.<a href="../bufio/scan.go.html#line-114" class="ident">Text</a>())</code></span>
 <span class="codeline" id="line-89"><code>		<span class="keyword">if</span> <a href="../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r16" class="ident">fields</label>) &lt;= <span class="lit-number">1</span> || <label for="r16" class="ident">fields</label>[<span class="lit-number">0</span>][<span class="lit-number">0</span>] == <span class="lit-number">'#'</span> {</code></span>
 <span class="codeline" id="line-90"><code>			<span class="keyword">continue</span></code></span>
 <span class="codeline" id="line-91"><code>		}</code></span>
@@ -178,10 +178,10 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-94"><code>			<span class="keyword">if</span> <label for="r19" class="ident">ext</label>[<span class="lit-number">0</span>] == <span class="lit-number">'#'</span> {</code></span>
 <span class="codeline" id="line-95"><code>				<span class="keyword">break</span></code></span>
 <span class="codeline" id="line-96"><code>			}</code></span>
-<span class="codeline" id="line-97"><code>			<a href="type.go.html#line-175" class="ident">setExtensionType</a>(<span class="lit-string">"."</span>+<label for="r19" class="ident">ext</label>, <label for="r17" class="ident">mimeType</label>)</code></span>
+<span class="codeline" id="line-97"><code>			<a href="type.go.html#line-241" class="ident">setExtensionType</a>(<span class="lit-string">"."</span>+<label for="r19" class="ident">ext</label>, <label for="r17" class="ident">mimeType</label>)</code></span>
 <span class="codeline" id="line-98"><code>		}</code></span>
 <span class="codeline" id="line-99"><code>	}</code></span>
-<span class="codeline" id="line-100"><code>	<span class="keyword">if</span> <label for="r20" class="ident">err</label> := <label for="r15" class="ident">scanner</label>.<a href="../bufio/scan.go.html#line-96" class="ident">Err</a>(); <label for="r20" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-100"><code>	<span class="keyword">if</span> <label for="r20" class="ident">err</label> := <label for="r15" class="ident">scanner</label>.<a href="../bufio/scan.go.html#line-98" class="ident">Err</a>(); <label for="r20" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-101"><code>		<a href="../../pkg/builtin.html#name-panic" class="ident">panic</a>(<label for="r20" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-102"><code>	}</code></span>
 <span class="codeline" id="line-103"><code>}</code></span>
@@ -209,8 +209,8 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-125"><code>	}</code></span>
 <span class="codeline" id="line-126"><code>}</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

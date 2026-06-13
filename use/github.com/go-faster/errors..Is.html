@@ -5,45 +5,59 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: github.com/go-faster/errors.Is</title>
-<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../../../pkg/github.com/go-faster/errors.html">github.com/go-faster/errors</a>.<a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-114">Is</a></b></span>
 
-<span class="title">16 uses</span>
+<span class="title">33 uses</span>
 
 	github.com/go-faster/errors (current package)
 		<a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-114">wrap.go#L114</a>: func <b>Is</b>(err, target error) bool {
 
-	<a href="../../../pkg/github.com/gotd/td/internal/mtproto.html">github.com/gotd/td/internal/mtproto</a>
-		<a href="../../../src/github.com/gotd/td/internal/mtproto/read.go.html#line-75">read.go#L75</a>: 	if errors.<b>Is</b>(err, errRejected) {
+	<a href="../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-75">read.go#L75</a>: 	if errors.<b>Is</b>(err, errRejected) {
 
-	<a href="../../../pkg/github.com/gotd/td/internal/pool.html">github.com/gotd/td/internal/pool</a>
-		<a href="../../../src/github.com/gotd/td/internal/pool/pool.go.html#line-248">pool.go#L248</a>: 			if errors.<b>Is</b>(err, ErrConnDead) {
+	<a href="../../../pkg/github.com/gotd/td/pool.html">github.com/gotd/td/pool</a>
+		<a href="../../../src/github.com/gotd/td/pool/pool.go.html#line-250">pool.go#L250</a>: 			if errors.<b>Is</b>(err, ErrConnDead) {
+		<a href="../../../src/github.com/gotd/td/pool/pool_conn.go.html#line-22">pool_conn.go#L22</a>: 	return errors.<b>Is</b>(err, ErrConnDead) || errors.<b>Is</b>(err, rpc.ErrEngineClosed)
 
-	<a href="../../../pkg/github.com/gotd/td/internal/rpc.html">github.com/gotd/td/internal/rpc</a>
-		<a href="../../../src/github.com/gotd/td/internal/rpc/engine.go.html#line-133">engine.go#L133</a>: 	if err != nil &amp;&amp; !errors.<b>Is</b>(err, retryCtx.Err()) {
-		<a href="../../../src/github.com/gotd/td/internal/rpc/engine.go.html#line-213" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/internal/rpc/engine.go.html#line-213">#L213</a>: 					if errors.<b>Is</b>(err, context.Canceled) {
+	<a href="../../../pkg/github.com/gotd/td/rpc.html">github.com/gotd/td/rpc</a>
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-134">engine.go#L134</a>: 	if err != nil &amp;&amp; !errors.<b>Is</b>(err, retryCtx.Err()) {
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-234" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-234">#L234</a>: 					if errors.<b>Is</b>(err, context.Canceled) {
 
 	<a href="../../../pkg/github.com/gotd/td/session/tdesktop.html">github.com/gotd/td/session/tdesktop</a>
-		<a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-37">file.go#L37</a>: 			if errors.<b>Is</b>(err, fs.ErrNotExist) ||
-		<a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-38" class="path-duplicate">file.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-38">#L38</a>: 				errors.<b>Is</b>(err, fs.ErrPermission) {
-		<a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-46" class="path-duplicate">file.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-46">#L46</a>: 			if errors.<b>Is</b>(err, io.ErrUnexpectedEOF) {
+		<a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-44">file.go#L44</a>: 			if errors.<b>Is</b>(err, fs.ErrNotExist) ||
+		<a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-45" class="path-duplicate">file.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-45">#L45</a>: 				errors.<b>Is</b>(err, fs.ErrPermission) {
+		<a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-53" class="path-duplicate">file.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-53">#L53</a>: 			if errors.<b>Is</b>(err, io.ErrUnexpectedEOF) {
 
 	<a href="../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
-		<a href="../../../src/github.com/gotd/td/telegram/builder.go.html#line-131">builder.go#L131</a>: 			if errors.<b>Is</b>(err, io.EOF) || errors.<b>Is</b>(err, io.ErrUnexpectedEOF) {
-		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-57">connect.go#L57</a>: 	return errors.<b>Is</b>(err, exchange.ErrKeyFingerprintNotFound)
-		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-123" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-123">#L123</a>: 			if closeErr := conn.Close(); !errors.<b>Is</b>(closeErr, context.Canceled) {
-		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-160" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-160">#L160</a>: 	if err := g.Wait(); !errors.<b>Is</b>(err, context.Canceled) {
-		<a href="../../../src/github.com/gotd/td/telegram/session.go.html#line-23">session.go#L23</a>: 	if errors.<b>Is</b>(err, session.ErrNotFound) {
-		<a href="../../../src/github.com/gotd/td/telegram/session.go.html#line-69" class="path-duplicate">session.go</a><a href="../../../src/github.com/gotd/td/telegram/session.go.html#line-69">#L69</a>: 	if errors.<b>Is</b>(err, session.ErrNotFound) {
+		<a href="../../../src/github.com/gotd/td/telegram/builder.go.html#line-132">builder.go#L132</a>: 			if errors.<b>Is</b>(err, io.EOF) || errors.<b>Is</b>(err, io.ErrUnexpectedEOF) {
+		<a href="../../../src/github.com/gotd/td/telegram/cdn_conn_dead.go.html#line-16">cdn_conn_dead.go#L16</a>: 	if errors.<b>Is</b>(err, exchange.ErrKeyFingerprintNotFound) {
+		<a href="../../../src/github.com/gotd/td/telegram/cdn_conn_dead.go.html#line-40" class="path-duplicate">cdn_conn_dead.go</a><a href="../../../src/github.com/gotd/td/telegram/cdn_conn_dead.go.html#line-40">#L40</a>: 	if !errors.<b>Is</b>(err, mtproto.ErrPFSDropKeysRequired) {
+		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-96">connect.go#L96</a>: 	if errors.<b>Is</b>(err, exchange.ErrKeyFingerprintNotFound) {
+		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-186" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-186">#L186</a>: 			if closeErr := conn.Close(); !errors.<b>Is</b>(closeErr, context.Canceled) {
+		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-191" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-191">#L191</a>: 			if closeErr := conn.Close(); !errors.<b>Is</b>(closeErr, context.Canceled) {
+		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-231" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-231">#L231</a>: 	if err := g.Wait(); !errors.<b>Is</b>(err, context.Canceled) {
+		<a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-127">invoke.go#L127</a>: 	return errors.<b>Is</b>(err, pool.ErrConnDead) || errors.<b>Is</b>(err, rpc.ErrEngineClosed)
+		<a href="../../../src/github.com/gotd/td/telegram/pfs.go.html#line-15">pfs.go#L15</a>: 	if !errors.<b>Is</b>(err, mtproto.ErrPFSDropKeysRequired) {
+		<a href="../../../src/github.com/gotd/td/telegram/pfs.go.html#line-34" class="path-duplicate">pfs.go</a><a href="../../../src/github.com/gotd/td/telegram/pfs.go.html#line-34">#L34</a>: 	if !errors.<b>Is</b>(err, mtproto.ErrPFSDropKeysRequired) {
+		<a href="../../../src/github.com/gotd/td/telegram/session.go.html#line-24">session.go#L24</a>: 	if errors.<b>Is</b>(err, session.ErrNotFound) {
+		<a href="../../../src/github.com/gotd/td/telegram/session.go.html#line-70" class="path-duplicate">session.go</a><a href="../../../src/github.com/gotd/td/telegram/session.go.html#line-70">#L70</a>: 	if errors.<b>Is</b>(err, session.ErrNotFound) {
 
 	<a href="../../../pkg/github.com/gotd/td/telegram/auth.html">github.com/gotd/td/telegram/auth</a>
 		<a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-74">flow.go#L74</a>: 		if errors.<b>Is</b>(signInErr, ErrPasswordAuthNeeded) {
+
+	<a href="../../../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-126">cdn_state_machine.go#L126</a>: 			if errors.<b>Is</b>(err, context.Canceled) || errors.<b>Is</b>(err, context.DeadlineExceeded) {
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-163" class="path-duplicate">cdn_state_machine.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-163">#L163</a>: 					if errors.<b>Is</b>(err, context.Canceled) || errors.<b>Is</b>(err, context.DeadlineExceeded) {
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-188" class="path-duplicate">cdn_state_machine.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-188">#L188</a>: 				if errors.<b>Is</b>(err, context.Canceled) || errors.<b>Is</b>(err, context.DeadlineExceeded) {
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/retry.go.html#line-21">retry.go#L21</a>: 	return errors.<b>Is</b>(err, exchange.ErrKeyFingerprintNotFound)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/retry.go.html#line-41" class="path-duplicate">retry.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/retry.go.html#line-41">#L41</a>: 	if tgerr.Is(err, tg.ErrTimeout) || errors.<b>Is</b>(err, context.DeadlineExceeded) {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

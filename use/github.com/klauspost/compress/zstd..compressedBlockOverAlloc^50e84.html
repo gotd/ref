@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.compressedBlockOverAlloc</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">const <b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-42">compressedBlockOverAlloc</a></b></span>
+
+<span class="title">15 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-42">blockdec.go#L42</a>: 	<b>compressedBlockOverAlloc</b>    = 16
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-43" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-43">#L43</a>: 	maxCompressedBlockSizeAlloc = 128&lt;&lt;10 + <b>compressedBlockOverAlloc</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-163" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-163">#L163</a>: 			maxSize = int(windowSize) + <b>compressedBlockOverAlloc</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-195" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-195">#L195</a>: 			b.dataStorage = make([]byte, 0, cSize+<b>compressedBlockOverAlloc</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-365" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-365">#L365</a>: 				b.literalBuf = make([]byte, litRegenSize, litRegenSize+<b>compressedBlockOverAlloc</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-367" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-367">#L367</a>: 				b.literalBuf = make([]byte, litRegenSize, maxCompressedBlockSize+<b>compressedBlockOverAlloc</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-397" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-397">#L397</a>: 				b.literalBuf = make([]byte, 0, litRegenSize+<b>compressedBlockOverAlloc</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-399" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-399">#L399</a>: 				b.literalBuf = make([]byte, 0, maxCompressedBlockSize+<b>compressedBlockOverAlloc</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-429" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-429">#L429</a>: 				b.literalBuf = make([]byte, 0, litRegenSize+<b>compressedBlockOverAlloc</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-431" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-431">#L431</a>: 				b.literalBuf = make([]byte, 0, maxCompressedBlockSize+<b>compressedBlockOverAlloc</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-377">decoder.go#L377</a>: 				dst2 := make([]byte, len(dst), len(dst)+int(frame.FrameContentSize)+<b>compressedBlockOverAlloc</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/framedec.go.html#line-357">framedec.go#L357</a>: 			dst2 := make([]byte, len(dst), d.history.decoders.maxSyncLen+<b>compressedBlockOverAlloc</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-340">seqdec_amd64.go#L340</a>: 	if len(s.out)+s.seqSize+<b>compressedBlockOverAlloc</b> &gt; cap(s.out) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-341" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-341">#L341</a>: 		addBytes := s.seqSize + len(s.out) + <b>compressedBlockOverAlloc</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-364" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-364">#L364</a>: 	if cap(s.literals) &lt; len(s.literals)+<b>compressedBlockOverAlloc</b> {
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

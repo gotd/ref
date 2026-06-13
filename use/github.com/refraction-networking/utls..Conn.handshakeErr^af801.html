@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/refraction-networking/utls.Conn.handshakeErr</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>.<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-27">Conn</a>.<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-40">handshakeErr</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">41 uses</span>
+
+	github.com/refraction-networking/utls (current package)
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-40">conn.go#L40</a>: 	<b>handshakeErr</b>   error   // error resulting from handshake
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1301" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1301">#L1301</a>: 	if c.<b>handshakeErr</b> = c.clientHandshake(context.Background()); c.<b>handshakeErr</b> == nil {
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1304" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1304">#L1304</a>: 	return c.<b>handshakeErr</b>
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1568" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1568">#L1568</a>: 	if err := c.<b>handshakeErr</b>; err != nil {
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1578" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1578">#L1578</a>: 	c.<b>handshakeErr</b> = c.handshakeFn(handshakeCtx)
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1579" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1579">#L1579</a>: 	if c.<b>handshakeErr</b> == nil {
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1587" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1587">#L1587</a>: 	if c.<b>handshakeErr</b> == nil &amp;&amp; !c.isHandshakeComplete.Load() {
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1588" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1588">#L1588</a>: 		c.<b>handshakeErr</b> = errors.New("tls: internal error: handshake should have had a result")
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1590" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1590">#L1590</a>: 	if c.<b>handshakeErr</b> != nil &amp;&amp; c.isHandshakeComplete.Load() {
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1595" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1595">#L1595</a>: 		if c.<b>handshakeErr</b> == nil {
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1612" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1612">#L1612</a>: 			c.<b>handshakeErr</b> = fmt.Errorf("%w%.0w", c.<b>handshakeErr</b>, AlertError(a))
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1618" class="path-duplicate">conn.go</a><a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-1618">#L1618</a>: 	return c.<b>handshakeErr</b>
+		<a href="../../../src/github.com/refraction-networking/utls/quic.go.html#line-213">quic.go#L213</a>: 		return q.conn.<b>handshakeErr</b>
+		<a href="../../../src/github.com/refraction-networking/utls/quic.go.html#line-252" class="path-duplicate">quic.go</a><a href="../../../src/github.com/refraction-networking/utls/quic.go.html#line-252">#L252</a>: 	return q.conn.<b>handshakeErr</b>
+		<a href="../../../src/github.com/refraction-networking/utls/quic.go.html#line-274" class="path-duplicate">quic.go</a><a href="../../../src/github.com/refraction-networking/utls/quic.go.html#line-274">#L274</a>: 	for q.conn.hand.Len() &gt;= 4 &amp;&amp; q.conn.<b>handshakeErr</b> == nil {
+		<a href="../../../src/github.com/refraction-networking/utls/quic.go.html#line-278" class="path-duplicate">quic.go</a><a href="../../../src/github.com/refraction-networking/utls/quic.go.html#line-278">#L278</a>: 			q.conn.<b>handshakeErr</b> = fmt.Errorf("tls: handshake message of length %d bytes exceeds maximum of %d bytes", n, maxHandshake)
+		<a href="../../../src/github.com/refraction-networking/utls/quic.go.html#line-285" class="path-duplicate">quic.go</a><a href="../../../src/github.com/refraction-networking/utls/quic.go.html#line-285">#L285</a>: 			q.conn.<b>handshakeErr</b> = err
+		<a href="../../../src/github.com/refraction-networking/utls/quic.go.html#line-288" class="path-duplicate">quic.go</a><a href="../../../src/github.com/refraction-networking/utls/quic.go.html#line-288">#L288</a>: 	if q.conn.<b>handshakeErr</b> != nil {
+		<a href="../../../src/github.com/refraction-networking/utls/quic.go.html#line-289" class="path-duplicate">quic.go</a><a href="../../../src/github.com/refraction-networking/utls/quic.go.html#line-289">#L289</a>: 		return quicError(q.conn.<b>handshakeErr</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-364">u_conn.go#L364</a>: 	if err := c.<b>handshakeErr</b>; err != nil {
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-382" class="path-duplicate">u_conn.go</a><a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-382">#L382</a>: 	c.<b>handshakeErr</b> = c.handshakeFn(handshakeCtx)
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-383" class="path-duplicate">u_conn.go</a><a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-383">#L383</a>: 	if c.<b>handshakeErr</b> == nil {
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-391" class="path-duplicate">u_conn.go</a><a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-391">#L391</a>: 	if c.<b>handshakeErr</b> == nil &amp;&amp; !c.isHandshakeComplete.Load() {
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-392" class="path-duplicate">u_conn.go</a><a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-392">#L392</a>: 		c.<b>handshakeErr</b> = errors.New("tls: internal error: handshake should have had a result")
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-394" class="path-duplicate">u_conn.go</a><a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-394">#L394</a>: 	if c.<b>handshakeErr</b> != nil &amp;&amp; c.isHandshakeComplete.Load() {
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-399" class="path-duplicate">u_conn.go</a><a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-399">#L399</a>: 		if c.<b>handshakeErr</b> == nil {
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-416" class="path-duplicate">u_conn.go</a><a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-416">#L416</a>: 			c.<b>handshakeErr</b> = fmt.Errorf("%w%.0w", c.<b>handshakeErr</b>, AlertError(a))
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-422" class="path-duplicate">u_conn.go</a><a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-422">#L422</a>: 	return c.<b>handshakeErr</b>
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-949" class="path-duplicate">u_conn.go</a><a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-949">#L949</a>: 	if c.<b>handshakeErr</b> = c.clientHandshake(context.Background()); c.<b>handshakeErr</b> == nil {
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-952" class="path-duplicate">u_conn.go</a><a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-952">#L952</a>: 	return c.<b>handshakeErr</b>
+		<a href="../../../src/github.com/refraction-networking/utls/u_quic.go.html#line-56">u_quic.go#L56</a>: 		return q.conn.<b>handshakeErr</b>
+		<a href="../../../src/github.com/refraction-networking/utls/u_quic.go.html#line-94" class="path-duplicate">u_quic.go</a><a href="../../../src/github.com/refraction-networking/utls/u_quic.go.html#line-94">#L94</a>: 	return q.conn.<b>handshakeErr</b>
+		<a href="../../../src/github.com/refraction-networking/utls/u_quic.go.html#line-116" class="path-duplicate">u_quic.go</a><a href="../../../src/github.com/refraction-networking/utls/u_quic.go.html#line-116">#L116</a>: 	for q.conn.hand.Len() &gt;= 4 &amp;&amp; q.conn.<b>handshakeErr</b> == nil {
+		<a href="../../../src/github.com/refraction-networking/utls/u_quic.go.html#line-120" class="path-duplicate">u_quic.go</a><a href="../../../src/github.com/refraction-networking/utls/u_quic.go.html#line-120">#L120</a>: 			q.conn.<b>handshakeErr</b> = fmt.Errorf("tls: handshake message of length %d bytes exceeds maximum of %d bytes", n, maxHandshake)
+		<a href="../../../src/github.com/refraction-networking/utls/u_quic.go.html#line-127" class="path-duplicate">u_quic.go</a><a href="../../../src/github.com/refraction-networking/utls/u_quic.go.html#line-127">#L127</a>: 			q.conn.<b>handshakeErr</b> = err
+		<a href="../../../src/github.com/refraction-networking/utls/u_quic.go.html#line-130" class="path-duplicate">u_quic.go</a><a href="../../../src/github.com/refraction-networking/utls/u_quic.go.html#line-130">#L130</a>: 	if q.conn.<b>handshakeErr</b> != nil {
+		<a href="../../../src/github.com/refraction-networking/utls/u_quic.go.html#line-131" class="path-duplicate">u_quic.go</a><a href="../../../src/github.com/refraction-networking/utls/u_quic.go.html#line-131">#L131</a>: 		return quicError(q.conn.<b>handshakeErr</b>)
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

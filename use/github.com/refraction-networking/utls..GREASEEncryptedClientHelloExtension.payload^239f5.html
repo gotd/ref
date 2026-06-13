@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/refraction-networking/utls.GREASEEncryptedClientHelloExtension.payload</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>.<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-46">GREASEEncryptedClientHelloExtension</a>.<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-53">payload</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">9 uses</span>
+
+	github.com/refraction-networking/utls (current package)
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-53">u_ech.go#L53</a>: 	<b>payload</b>               []byte   // payload should be calculated ONCE and stored here, HRR will reuse this
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-130" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-130">#L130</a>: 		if len(g.<b>payload</b>) == 0 {
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-150" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-150">#L150</a>: 	if len(g.<b>payload</b>) != 0 {
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-154" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-154">#L154</a>: 	g.<b>payload</b> = make([]byte, cipherLen(g.cipherSuite.AeadId, int(encodedHelloInnerLen)))
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-155" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-155">#L155</a>: 	_, err := rand.Read(g.<b>payload</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-173" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-173">#L173</a>: 	return 2 + 2 + 1 /* ClientHello Type */ + 4 /* CipherSuite */ + 1 /* Config ID */ + 2 + len(g.EncapsulatedKey) + 2 + len(g.<b>payload</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-195" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-195">#L195</a>: 	b[12+len(g.EncapsulatedKey)] = byte(len(g.<b>payload</b>) &gt;&gt; 8)
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-196" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-196">#L196</a>: 	b[12+len(g.EncapsulatedKey)+1] = byte(len(g.<b>payload</b>) &amp; 0xFF)
+		<a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-197" class="path-duplicate">u_ech.go</a><a href="../../../src/github.com/refraction-networking/utls/u_ech.go.html#line-197">#L197</a>: 	copy(b[12+len(g.EncapsulatedKey)+2:], g.<b>payload</b>)
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

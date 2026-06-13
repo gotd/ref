@@ -5,53 +5,55 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: strings.Join</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/strings.html">strings</a>.<a href="../src/strings/strings.go.html#line-434">Join</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/strings.html">strings</a>.<a href="../src/strings/strings.go.html#line-487">Join</a></b></span>
 
-<span class="title">15 uses</span>
+<span class="title">17 uses</span>
 
 	strings (current package)
-		<a href="../src/strings/strings.go.html#line-434">strings.go#L434</a>: func <b>Join</b>(elems []string, sep string) string {
+		<a href="../src/strings/strings.go.html#line-487">strings.go#L487</a>: func <b>Join</b>(elems []string, sep string) string {
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/common.go.html#line-1139">common.go#L1139</a>: 			wildcardName := strings.<b>Join</b>(labels, ".")
+		<a href="../src/crypto/tls/common.go.html#line-1343">common.go#L1343</a>: 			wildcardName := strings.<b>Join</b>(labels, ".")
 
 	<a href="../pkg/crypto/x509.html">crypto/x509</a>
-		<a href="../src/crypto/x509/verify.go.html#line-120">verify.go#L120</a>: 		valid = strings.<b>Join</b>(c.DNSNames, ", ")
+		<a href="../src/crypto/x509/verify.go.html#line-136">verify.go#L136</a>: 		valid.WriteString(strings.<b>Join</b>(c.DNSNames, ", "))
+		<a href="../src/crypto/x509/verify.go.html#line-656" class="path-duplicate">verify.go</a><a href="../src/crypto/x509/verify.go.html#line-656">#L656</a>: 		err = CertificateInvalidError{c, NoValidChains, strings.<b>Join</b>(details, ", ")}
 
 	<a href="../pkg/encoding/json.html">encoding/json</a>
-		<a href="../src/encoding/json/decode.go.html#line-258">decode.go#L258</a>: 			err.Field = strings.<b>Join</b>(d.errorContext.FieldStack, ".")
+		<a href="../src/encoding/json/decode.go.html#line-264">decode.go#L264</a>: 			err.Field = strings.<b>Join</b>(fieldStack, ".")
+
+	<a href="../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../src/github.com/coder/websocket/dial.go.html#line-217">dial.go#L217</a>: 		req.Header.Set("Sec-WebSocket-Protocol", strings.<b>Join</b>(opts.Subprotocols, ","))
 
 	<a href="../pkg/github.com/gotd/td/tgerr.html">github.com/gotd/td/tgerr</a>
 		<a href="../src/github.com/gotd/td/tgerr/error.go.html#line-112">error.go#L112</a>: 	e.Type = strings.<b>Join</b>(nonDigit, "_")
 
-	<a href="../pkg/go.opentelemetry.io/otel/trace.html">go.opentelemetry.io/otel/trace</a>
-		<a href="../src/go.opentelemetry.io/otel/trace/tracestate.go.html#line-160">tracestate.go#L160</a>: 	return strings.<b>Join</b>(members, listDelimiter)
-
-	<a href="../pkg/go.uber.org/zap.html">go.uber.org/zap</a>
-		<a href="../src/go.uber.org/zap/logger.go.html#line-161">logger.go#L161</a>: 		l.name = strings.<b>Join</b>([]string{l.name, s}, ".")
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-1339">common.go#L1339</a>: 			wildcardName := strings.<b>Join</b>(labels, ".")
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/client.go.html#line-794">client.go#L794</a>: 				ireqhdr.Set("Cookie", strings.<b>Join</b>(ss, "; "))
+		<a href="../src/net/http/client.go.html#line-804">client.go#L804</a>: 				ireqhdr.Set("Cookie", strings.<b>Join</b>(ss, "; "))
 		<a href="../src/net/http/fs.go.html#line-59">fs.go#L59</a>: 		fi, err := stat(strings.<b>Join</b>(parts[:i+1], string(sep)))
-		<a href="../src/net/http/h2_bundle.go.html#line-6041">h2_bundle.go#L6041</a>: 		rp.header.Set("Cookie", strings.<b>Join</b>(cookies, "; "))
-		<a href="../src/net/http/h2_bundle.go.html#line-8245" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8245">#L8245</a>: 		return strings.<b>Join</b>(keys, ","), nil
-		<a href="../src/net/http/transfer.go.html#line-323">transfer.go#L323</a>: 			if _, err := io.WriteString(w, "Trailer: "+strings.<b>Join</b>(keys, ",")+"\r\n"); err != nil {
+		<a href="../src/net/http/http.go.html#line-77">http.go#L77</a>: 	return "{" + strings.<b>Join</b>(s, ",") + "}"
+		<a href="../src/net/http/server.go.html#line-2706">server.go#L2706</a>: 				w.Header().Set("Allow", strings.<b>Join</b>(allowedMethods, ", "))
+		<a href="../src/net/http/transfer.go.html#line-325">transfer.go#L325</a>: 			if _, err := io.WriteString(w, "Trailer: "+strings.<b>Join</b>(keys, ",")+"\r\n"); err != nil {
 
-	<a href="../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../src/nhooyr.io/websocket/dial.go.html#line-200">dial.go#L200</a>: 		req.Header.Set("Sec-WebSocket-Protocol", strings.<b>Join</b>(opts.Subprotocols, ","))
+	<a href="../pkg/net/http/internal/httpcommon.html">net/http/internal/httpcommon</a>
+		<a href="../src/net/http/internal/httpcommon/httpcommon.go.html#line-474">httpcommon.go#L474</a>: 		return strings.<b>Join</b>(keys, ","), nil
+		<a href="../src/net/http/internal/httpcommon/httpcommon.go.html#line-565" class="path-duplicate">httpcommon.go</a><a href="../src/net/http/internal/httpcommon/httpcommon.go.html#line-565">#L565</a>: 		rp.Header["Cookie"] = []string{strings.<b>Join</b>(cookies, "; ")}
 
 	<a href="../pkg/path/filepath.html">path/filepath</a>
-		<a href="../src/path/filepath/path_unix.go.html#line-49">path_unix.go#L49</a>: 			return Clean(strings.<b>Join</b>(elem[i:], string(Separator)))
+		<a href="../src/path/filepath/path_unix.go.html#line-36">path_unix.go#L36</a>: 			return Clean(strings.<b>Join</b>(elem[i:], string(Separator)))
 
 	<a href="../pkg/vendor/golang.org/x/net/idna.html">vendor/golang.org/x/net/idna</a>
-		<a href="../src/vendor/golang.org/x/net/idna/idna10.0.0.go.html#line-560">idna10.0.0.go#L560</a>: 		return strings.<b>Join</b>(l.slice, ".")
+		<a href="../src/vendor/golang.org/x/net/idna/idna10.0.0.go.html#line-559">idna10.0.0.go#L559</a>: 		return strings.<b>Join</b>(l.slice, ".")
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

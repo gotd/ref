@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/gotd/log.Helper</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">type <b><a href="../../../pkg/github.com/gotd/log.html">github.com/gotd/log</a>.<a href="../../../src/github.com/gotd/log/helper.go.html#line-9">Helper</a></b></span>
+
+<span class="title">27 uses</span>
+
+	github.com/gotd/log (current package)
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-9">helper.go#L9</a>: type <b>Helper</b> struct {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-14" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-14">#L14</a>: func For(l Logger) <b>Helper</b> {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-15" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-15">#L15</a>: 	return <b>Helper</b>{l: OrNop(l)}
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-18" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-18">#L18</a>: func (h <b>Helper</b>) logger() Logger {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-26" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-26">#L26</a>: func (h <b>Helper</b>) Logger() Logger {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-31" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-31">#L31</a>: func (h <b>Helper</b>) With(attrs ...Attr) <b>Helper</b> {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-32" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-32">#L32</a>: 	return <b>Helper</b>{l: With(h.logger(), attrs...)}
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-36" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-36">#L36</a>: func (h <b>Helper</b>) Named(name string) <b>Helper</b> {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-37" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-37">#L37</a>: 	return <b>Helper</b>{l: Named(h.logger(), name)}
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-41" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-41">#L41</a>: func (h <b>Helper</b>) Enabled(ctx context.Context, level Level) bool {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-46" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-46">#L46</a>: func (h <b>Helper</b>) Debug(ctx context.Context, msg string, attrs ...Attr) {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-51" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-51">#L51</a>: func (h <b>Helper</b>) Info(ctx context.Context, msg string, attrs ...Attr) {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-56" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-56">#L56</a>: func (h <b>Helper</b>) Warn(ctx context.Context, msg string, attrs ...Attr) {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-61" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-61">#L61</a>: func (h <b>Helper</b>) Error(ctx context.Context, msg string, attrs ...Attr) {
+
+	<a href="../../../pkg/github.com/gotd/td/exchange.html">github.com/gotd/td/exchange</a>
+		<a href="../../../src/github.com/gotd/td/exchange/client.go.html#line-15">client.go#L15</a>: 	log  log.<b>Helper</b>
+		<a href="../../../src/github.com/gotd/td/exchange/flow.go.html#line-36">flow.go#L36</a>: 	log     log.<b>Helper</b>
+		<a href="../../../src/github.com/gotd/td/exchange/server.go.html#line-15">server.go#L15</a>: 	log  log.<b>Helper</b>
+
+	<a href="../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../../../src/github.com/gotd/td/mtproto/conn.go.html#line-66">conn.go#L66</a>: 	log          log.<b>Helper</b>
+		<a href="../../../src/github.com/gotd/td/mtproto/zap.go.html#line-25">zap.go#L25</a>: func (c *Conn) logWithBuffer(b *bin.Buffer) log.<b>Helper</b> {
+		<a href="../../../src/github.com/gotd/td/mtproto/zap.go.html#line-29" class="path-duplicate">zap.go</a><a href="../../../src/github.com/gotd/td/mtproto/zap.go.html#line-29">#L29</a>: func (c *Conn) logWithType(b *bin.Buffer) log.<b>Helper</b> {
+		<a href="../../../src/github.com/gotd/td/mtproto/zap.go.html#line-39" class="path-duplicate">zap.go</a><a href="../../../src/github.com/gotd/td/mtproto/zap.go.html#line-39">#L39</a>: func (c *Conn) logWithTypeID(id uint32) log.<b>Helper</b> {
+
+	<a href="../../../pkg/github.com/gotd/td/pool.html">github.com/gotd/td/pool</a>
+		<a href="../../../src/github.com/gotd/td/pool/pool.go.html#line-24">pool.go#L24</a>: 	log log.<b>Helper</b> // immutable
+
+	<a href="../../../pkg/github.com/gotd/td/rpc.html">github.com/gotd/td/rpc</a>
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-26">engine.go#L26</a>: 	log           log.<b>Helper</b>
+
+	<a href="../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
+		<a href="../../../src/github.com/gotd/td/telegram/client.go.html#line-131">client.go#L131</a>: 	log   log.<b>Helper</b>  // immutable
+
+	<a href="../../../pkg/github.com/gotd/td/telegram/internal/manager.html">github.com/gotd/td/telegram/internal/manager</a>
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-64">conn.go#L64</a>: 	log   log.<b>Helper</b> // immutable
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

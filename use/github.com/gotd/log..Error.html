@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/gotd/log.Error</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">func <b><a href="../../../pkg/github.com/gotd/log.html">github.com/gotd/log</a>.<a href="../../../src/github.com/gotd/log/attr.go.html#line-183">Error</a></b></span>
+
+<span class="title">19 uses</span>
+
+	github.com/gotd/log (current package)
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-183">attr.go#L183</a>: func <b>Error</b>(err error) Attr {
+
+	<a href="../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../../../src/github.com/gotd/td/mtproto/ack.go.html#line-20">ack.go#L20</a>: 			c.log.Error(ctx, "Failed to ACK", log.<b>Error</b>(err))
+		<a href="../../../src/github.com/gotd/td/mtproto/conn.go.html#line-199">conn.go#L199</a>: 		c.log.Debug(ctx, "Failed to cleanup connection", log.<b>Error</b>(err))
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-76">read.go#L76</a>: 		c.log.Warn(ctx, "Ignoring rejected message", log.<b>Error</b>(err))
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-86" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-86">#L86</a>: 		c.log.Warn(ctx, "Error while handling message", log.<b>Error</b>(err))
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-213" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-213">#L213</a>: 				logger.Error(ctx, "Failed to process message", log.<b>Error</b>(err))
+
+	<a href="../../../pkg/github.com/gotd/td/pool.html">github.com/gotd/td/pool</a>
+		<a href="../../../src/github.com/gotd/td/pool/pool.go.html#line-123">pool.go#L123</a>: 		log.<b>Error</b>(deadErr),
+		<a href="../../../src/github.com/gotd/td/pool/pool.go.html#line-267" class="path-duplicate">pool.go</a><a href="../../../src/github.com/gotd/td/pool/pool.go.html#line-267">#L267</a>: 				log.<b>Error</b>(err),
+		<a href="../../../src/github.com/gotd/td/pool/pool.go.html#line-273" class="path-duplicate">pool.go</a><a href="../../../src/github.com/gotd/td/pool/pool.go.html#line-273">#L273</a>: 			c.log.Debug(ctx, "DC Invoke failed", log.<b>Error</b>(err))
+
+	<a href="../../../pkg/github.com/gotd/td/rpc.html">github.com/gotd/td/rpc</a>
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-162">engine.go#L162</a>: 			logger.Info(ctx, "Failed to drop request", log.<b>Error</b>(err))
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-238" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-238">#L238</a>: 					logger.Error(ctx, "Retry failed", log.<b>Error</b>(err))
+
+	<a href="../../../pkg/github.com/gotd/td/tdsync.html">github.com/gotd/td/tdsync</a>
+		<a href="../../../src/github.com/gotd/td/tdsync/log_group.go.html#line-47">log_group.go#L47</a>: 			l.Debug(ctx, "Task stopped", log.<b>Error</b>(err), log.Duration("elapsed", elapsed))
+
+	<a href="../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
+		<a href="../../../src/github.com/gotd/td/telegram/builder.go.html#line-116">builder.go#L116</a>: 			log.For(logger).Warn(ctx, "TestClient run failed", log.<b>Error</b>(err))
+		<a href="../../../src/github.com/gotd/td/telegram/cfg.go.html#line-38">cfg.go#L38</a>: 		c.log.Warn(ctx, "Got error on config update", log.<b>Error</b>(err))
+		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-58">connect.go#L58</a>: 					c.log.Warn(ctx, "Got error on self", log.<b>Error</b>(err))
+		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-124" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-124">#L124</a>: 		c.log.Info(context.Background(), "Restarting connection", log.<b>Error</b>(err), log.Duration("backoff", timeout))
+		<a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-109">invoke.go#L109</a>: 			log.<b>Error</b>(err),
+
+	<a href="../../../pkg/github.com/gotd/td/telegram/internal/manager.html">github.com/gotd/td/telegram/internal/manager</a>
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-165">conn.go#L165</a>: 			c.log.Debug(ctx, "Connection dead", log.<b>Error</b>(err))
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-369" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-369">#L369</a>: 			log.<b>Error</b>(err), log.Duration("duration", duration),
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

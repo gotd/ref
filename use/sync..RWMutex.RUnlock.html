@@ -5,74 +5,98 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: sync.RWMutex.RUnlock</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../pkg/sync.html">sync</a>.<a href="../src/sync/rwmutex.go.html#line-36">RWMutex</a>.<a href="../src/sync/rwmutex.go.html#line-111">RUnlock</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/sync.html">sync</a>.<a href="../src/sync/rwmutex.go.html#line-39">RWMutex</a>.<a href="../src/sync/rwmutex.go.html#line-114">RUnlock</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">32 uses</span>
+<span class="title">52 uses</span>
 
 	sync (current package)
-		<a href="../src/sync/rwmutex.go.html#line-111">rwmutex.go#L111</a>: func (rw *RWMutex) <b>RUnlock</b>() {
-		<a href="../src/sync/rwmutex.go.html#line-244" class="path-duplicate">rwmutex.go</a><a href="../src/sync/rwmutex.go.html#line-244">#L244</a>: func (r *rlocker) Unlock() { (*RWMutex)(r).<b>RUnlock</b>() }
+		<a href="../src/sync/rwmutex.go.html#line-114">rwmutex.go#L114</a>: func (rw *RWMutex) <b>RUnlock</b>() {
+		<a href="../src/sync/rwmutex.go.html#line-247" class="path-duplicate">rwmutex.go</a><a href="../src/sync/rwmutex.go.html#line-247">#L247</a>: func (r *rlocker) Unlock() { (*RWMutex)(r).<b>RUnlock</b>() }
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/common.go.html#line-832">common.go#L832</a>: 	defer c.mutex.<b>RUnlock</b>()
-		<a href="../src/crypto/tls/common.go.html#line-882" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-882">#L882</a>: 	c.mutex.<b>RUnlock</b>()
-		<a href="../src/crypto/tls/common.go.html#line-921" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-921">#L921</a>: 			configForClient.mutex.<b>RUnlock</b>()
-		<a href="../src/crypto/tls/common.go.html#line-924" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-924">#L924</a>: 		configForClient.mutex.<b>RUnlock</b>()
-		<a href="../src/crypto/tls/common.go.html#line-928" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-928">#L928</a>: 	defer c.mutex.<b>RUnlock</b>()
-		<a href="../src/crypto/tls/common.go.html#line-942" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-942">#L942</a>: 	c.mutex.<b>RUnlock</b>()
+		<a href="../src/crypto/tls/common.go.html#line-1001">common.go#L1001</a>: 	defer c.mutex.<b>RUnlock</b>()
+		<a href="../src/crypto/tls/common.go.html#line-1055" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-1055">#L1055</a>: 	c.mutex.<b>RUnlock</b>()
+		<a href="../src/crypto/tls/common.go.html#line-1089" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-1089">#L1089</a>: 			configForClient.mutex.<b>RUnlock</b>()
+		<a href="../src/crypto/tls/common.go.html#line-1095" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-1095">#L1095</a>: 			configForClient.mutex.<b>RUnlock</b>()
+		<a href="../src/crypto/tls/common.go.html#line-1098" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-1098">#L1098</a>: 		configForClient.mutex.<b>RUnlock</b>()
+		<a href="../src/crypto/tls/common.go.html#line-1102" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-1102">#L1102</a>: 	defer c.mutex.<b>RUnlock</b>()
+		<a href="../src/crypto/tls/common.go.html#line-1116" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-1116">#L1116</a>: 	c.mutex.<b>RUnlock</b>()
 
 	<a href="../pkg/crypto/x509.html">crypto/x509</a>
-		<a href="../src/crypto/x509/root.go.html#line-23">root.go#L23</a>: 	defer systemRootsMu.<b>RUnlock</b>()
+		<a href="../src/crypto/x509/root.go.html#line-34">root.go#L34</a>: 	defer systemRootsMu.<b>RUnlock</b>()
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproto.html">github.com/gotd/td/internal/mtproto</a>
-		<a href="../src/github.com/gotd/td/internal/mtproto/session.go.html#line-17">session.go#L17</a>: 	defer c.sessionMux.<b>RUnlock</b>()
-		<a href="../src/github.com/gotd/td/internal/mtproto/write.go.html#line-24">write.go#L24</a>: 	defer c.exchangeLock.<b>RUnlock</b>()
+	<a href="../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../src/github.com/coder/websocket/compress.go.html#line-178">compress.go#L178</a>: 	swPoolMu.<b>RUnlock</b>()
 
-	<a href="../pkg/github.com/gotd/td/internal/pool.html">github.com/gotd/td/internal/pool</a>
-		<a href="../src/github.com/gotd/td/internal/pool/session.go.html#line-50">session.go#L50</a>: 	s.mux.<b>RUnlock</b>()
-		<a href="../src/github.com/gotd/td/internal/pool/session.go.html#line-61" class="path-duplicate">session.go</a><a href="../src/github.com/gotd/td/internal/pool/session.go.html#line-61">#L61</a>: 	s.mux.<b>RUnlock</b>()
+	<a href="../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../src/github.com/gotd/td/mtproto/bind.go.html#line-59">bind.go#L59</a>: 	c.sessionMux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/mtproto/bind.go.html#line-191" class="path-duplicate">bind.go</a><a href="../src/github.com/gotd/td/mtproto/bind.go.html#line-191">#L191</a>: 	c.sessionMux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/mtproto/bind.go.html#line-198" class="path-duplicate">bind.go</a><a href="../src/github.com/gotd/td/mtproto/bind.go.html#line-198">#L198</a>: 	c.sessionMux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/mtproto/pfs.go.html#line-29">pfs.go#L29</a>: 		c.sessionMux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/mtproto/session.go.html#line-19">session.go#L19</a>: 	defer c.sessionMux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/mtproto/write.go.html#line-24">write.go#L24</a>: 	defer c.exchangeLock.<b>RUnlock</b>()
+
+	<a href="../pkg/github.com/gotd/td/pool.html">github.com/gotd/td/pool</a>
+		<a href="../src/github.com/gotd/td/pool/session.go.html#line-50">session.go#L50</a>: 	s.mux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/pool/session.go.html#line-69" class="path-duplicate">session.go</a><a href="../src/github.com/gotd/td/pool/session.go.html#line-69">#L69</a>: 	s.mux.<b>RUnlock</b>()
 
 	<a href="../pkg/github.com/gotd/td/session.html">github.com/gotd/td/session</a>
 		<a href="../src/github.com/gotd/td/session/storage_mem.go.html#line-26">storage_mem.go#L26</a>: 	defer s.mux.<b>RUnlock</b>()
 		<a href="../src/github.com/gotd/td/session/storage_mem.go.html#line-56" class="path-duplicate">storage_mem.go</a><a href="../src/github.com/gotd/td/session/storage_mem.go.html#line-56">#L56</a>: 	defer s.mux.<b>RUnlock</b>()
 		<a href="../src/github.com/gotd/td/session/storage_mem.go.html#line-79" class="path-duplicate">storage_mem.go</a><a href="../src/github.com/gotd/td/session/storage_mem.go.html#line-79">#L79</a>: 	defer s.mux.<b>RUnlock</b>()
 
-	<a href="../pkg/go.uber.org/zap.html">go.uber.org/zap</a>
-		<a href="../src/go.uber.org/zap/encoder.go.html#line-70">encoder.go#L70</a>: 	defer _encoderMutex.<b>RUnlock</b>()
-		<a href="../src/go.uber.org/zap/global.go.html#line-51">global.go#L51</a>: 	_globalMu.<b>RUnlock</b>()
-		<a href="../src/go.uber.org/zap/global.go.html#line-60" class="path-duplicate">global.go</a><a href="../src/go.uber.org/zap/global.go.html#line-60">#L60</a>: 	_globalMu.<b>RUnlock</b>()
+	<a href="../pkg/github.com/gotd/td/syncio.html">github.com/gotd/td/syncio</a>
+		<a href="../src/github.com/gotd/td/syncio/writer_at.go.html#line-39">writer_at.go#L39</a>: 	defer b.mux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/syncio/writer_at.go.html#line-47" class="path-duplicate">writer_at.go</a><a href="../src/github.com/gotd/td/syncio/writer_at.go.html#line-47">#L47</a>: 	defer b.mux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/syncio/writer_at.go.html#line-59" class="path-duplicate">writer_at.go</a><a href="../src/github.com/gotd/td/syncio/writer_at.go.html#line-59">#L59</a>: 	defer b.mux.<b>RUnlock</b>()
+
+	<a href="../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn.go.html#line-145">cdn.go#L145</a>: 	defer c.stateMux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-20">cdn_state_machine.go#L20</a>: 	c.stateMux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-110">cdn_verify.go#L110</a>: 		c.hashesMux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-117" class="path-duplicate">cdn_verify.go</a><a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-117">#L117</a>: 		c.hashesMux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-125" class="path-duplicate">cdn_verify.go</a><a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-125">#L125</a>: 		c.hashesMux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-131" class="path-duplicate">cdn_verify.go</a><a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-131">#L131</a>: 		c.hashesMux.<b>RUnlock</b>()
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-137" class="path-duplicate">cdn_verify.go</a><a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-137">#L137</a>: 	c.hashesMux.<b>RUnlock</b>()
+
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-981">common.go#L981</a>: 	defer c.mutex.<b>RUnlock</b>()
+		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-1041" class="path-duplicate">common.go</a><a href="../src/github.com/refraction-networking/utls/common.go.html#line-1041">#L1041</a>: 	c.mutex.<b>RUnlock</b>()
+		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-1080" class="path-duplicate">common.go</a><a href="../src/github.com/refraction-networking/utls/common.go.html#line-1080">#L1080</a>: 			configForClient.mutex.<b>RUnlock</b>()
+		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-1083" class="path-duplicate">common.go</a><a href="../src/github.com/refraction-networking/utls/common.go.html#line-1083">#L1083</a>: 		configForClient.mutex.<b>RUnlock</b>()
+		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-1087" class="path-duplicate">common.go</a><a href="../src/github.com/refraction-networking/utls/common.go.html#line-1087">#L1087</a>: 	defer c.mutex.<b>RUnlock</b>()
+		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-1101" class="path-duplicate">common.go</a><a href="../src/github.com/refraction-networking/utls/common.go.html#line-1101">#L1101</a>: 	c.mutex.<b>RUnlock</b>()
 
 	<a href="../pkg/internal/poll.html">internal/poll</a>
 		<a href="../src/internal/poll/fd_unixjs.go.html#line-31">fd_unixjs.go#L31</a>: 	defer syscall.ForkLock.<b>RUnlock</b>()
 
 	<a href="../pkg/net.html">net</a>
-		<a href="../src/net/interface.go.html#line-228">interface.go#L228</a>: 	zoneCache.<b>RUnlock</b>()
-		<a href="../src/net/interface.go.html#line-233" class="path-duplicate">interface.go</a><a href="../src/net/interface.go.html#line-233">#L233</a>: 		zoneCache.<b>RUnlock</b>()
-		<a href="../src/net/interface.go.html#line-248" class="path-duplicate">interface.go</a><a href="../src/net/interface.go.html#line-248">#L248</a>: 	zoneCache.<b>RUnlock</b>()
-		<a href="../src/net/interface.go.html#line-253" class="path-duplicate">interface.go</a><a href="../src/net/interface.go.html#line-253">#L253</a>: 		zoneCache.<b>RUnlock</b>()
-		<a href="../src/net/sock_cloexec.go.html#line-39">sock_cloexec.go#L39</a>: 	syscall.ForkLock.<b>RUnlock</b>()
+		<a href="../src/net/interface.go.html#line-231">interface.go#L231</a>: 	zoneCache.<b>RUnlock</b>()
+		<a href="../src/net/interface.go.html#line-236" class="path-duplicate">interface.go</a><a href="../src/net/interface.go.html#line-236">#L236</a>: 		zoneCache.<b>RUnlock</b>()
+		<a href="../src/net/interface.go.html#line-251" class="path-duplicate">interface.go</a><a href="../src/net/interface.go.html#line-251">#L251</a>: 	zoneCache.<b>RUnlock</b>()
+		<a href="../src/net/interface.go.html#line-256" class="path-duplicate">interface.go</a><a href="../src/net/interface.go.html#line-256">#L256</a>: 		zoneCache.<b>RUnlock</b>()
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/server.go.html#line-2401">server.go#L2401</a>: 	mux.mu.<b>RUnlock</b>()
-		<a href="../src/net/http/server.go.html#line-2488" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-2488">#L2488</a>: 	defer mux.mu.<b>RUnlock</b>()
-
-	<a href="../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../src/nhooyr.io/websocket/compress.go.html#line-177">compress.go#L177</a>: 	swPoolMu.<b>RUnlock</b>()
+		<a href="../src/net/http/csrf.go.html#line-194">csrf.go#L194</a>: 	defer c.trustedMu.<b>RUnlock</b>()
+		<a href="../src/net/http/servemux121.go.html#line-142">servemux121.go#L142</a>: 	defer mux.mu.<b>RUnlock</b>()
+		<a href="../src/net/http/servemux121.go.html#line-183" class="path-duplicate">servemux121.go</a><a href="../src/net/http/servemux121.go.html#line-183">#L183</a>: 	mux.mu.<b>RUnlock</b>()
+		<a href="../src/net/http/server.go.html#line-2723">server.go#L2723</a>: 	defer mux.mu.<b>RUnlock</b>()
+		<a href="../src/net/http/server.go.html#line-2802" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-2802">#L2802</a>: 	defer mux.mu.<b>RUnlock</b>()
 
 	<a href="../pkg/os.html">os</a>
-		<a href="../src/os/exec_unix.go.html#line-70">exec_unix.go#L70</a>: 	defer p.sigMu.<b>RUnlock</b>()
+		<a href="../src/os/exec_unix.go.html#line-102">exec_unix.go#L102</a>: 	defer p.sigMu.<b>RUnlock</b>()
 
 	<a href="../pkg/syscall.html">syscall</a>
-		<a href="../src/syscall/env_unix.go.html#line-76">env_unix.go#L76</a>: 	defer envLock.<b>RUnlock</b>()
-		<a href="../src/syscall/env_unix.go.html#line-142" class="path-duplicate">env_unix.go</a><a href="../src/syscall/env_unix.go.html#line-142">#L142</a>: 	defer envLock.<b>RUnlock</b>()
+		<a href="../src/syscall/env_unix.go.html#line-73">env_unix.go#L73</a>: 	defer envLock.<b>RUnlock</b>()
+		<a href="../src/syscall/env_unix.go.html#line-138" class="path-duplicate">env_unix.go</a><a href="../src/syscall/env_unix.go.html#line-138">#L138</a>: 	defer envLock.<b>RUnlock</b>()
 		<a href="../src/syscall/forkpipe2.go.html#line-68">forkpipe2.go#L68</a>: 		ForkLock.<b>RUnlock</b>()
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

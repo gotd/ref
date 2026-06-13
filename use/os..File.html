@@ -5,39 +5,46 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: os.File</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../pkg/os.html">os</a>.<a href="../src/os/types.go.html#line-16">File</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../pkg/os.html">os</a>.<a href="../src/os/types.go.html#line-18">File</a></b></span>
 
-<span class="title">79 uses</span>
+<span class="title">97 uses</span>
 
 	os (current package)
-		<a href="../src/os/dir.go.html#line-37">dir.go#L37</a>: func (f *<b>File</b>) Readdir(n int) ([]FileInfo, error) {
-		<a href="../src/os/dir.go.html#line-66" class="path-duplicate">dir.go</a><a href="../src/os/dir.go.html#line-66">#L66</a>: func (f *<b>File</b>) Readdirnames(n int) (names []string, err error) {
-		<a href="../src/os/dir.go.html#line-94" class="path-duplicate">dir.go</a><a href="../src/os/dir.go.html#line-94">#L94</a>: func (f *<b>File</b>) ReadDir(n int) ([]DirEntry, error) {
-		<a href="../src/os/dir_unix.go.html#line-44">dir_unix.go#L44</a>: func (f *<b>File</b>) readdir(n int, mode readdirMode) (names []string, dirents []DirEntry, infos []FileInfo, err error) {
-		<a href="../src/os/exec.go.html#line-60">exec.go#L60</a>: 	Files []*<b>File</b>
-		<a href="../src/os/file.go.html#line-56">file.go#L56</a>: func (f *<b>File</b>) Name() string { return f.name }
-		<a href="../src/os/file.go.html#line-114" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-114">#L114</a>: func (f *<b>File</b>) Read(b []byte) (n int, err error) {
-		<a href="../src/os/file.go.html#line-126" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-126">#L126</a>: func (f *<b>File</b>) ReadAt(b []byte, off int64) (n int, err error) {
-		<a href="../src/os/file.go.html#line-149" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-149">#L149</a>: func (f *<b>File</b>) ReadFrom(r io.Reader) (n int64, err error) {
-		<a href="../src/os/file.go.html#line-160" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-160">#L160</a>: func genericReadFrom(f *<b>File</b>, r io.Reader) (int64, error) {
-		<a href="../src/os/file.go.html#line-168" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-168">#L168</a>: 	*<b>File</b>
-		<a href="../src/os/file.go.html#line-179" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-179">#L179</a>: func (f *<b>File</b>) Write(b []byte) (n int, err error) {
-		<a href="../src/os/file.go.html#line-207" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-207">#L207</a>: func (f *<b>File</b>) WriteAt(b []byte, off int64) (n int, err error) {
-		<a href="../src/os/file.go.html#line-237" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-237">#L237</a>: func (f *<b>File</b>) Seek(offset int64, whence int) (ret int64, err error) {
-		<a href="../src/os/file.go.html#line-253" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-253">#L253</a>: func (f *<b>File</b>) WriteString(s string) (n int, err error) {
-		<a href="../src/os/file.go.html#line-313" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-313">#L313</a>: func Open(name string) (*<b>File</b>, error) {
-		<a href="../src/os/file.go.html#line-322" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-322">#L322</a>: func Create(name string) (*<b>File</b>, error) {
-		<a href="../src/os/file.go.html#line-332" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-332">#L332</a>: func OpenFile(name string, flag int, perm FileMode) (*<b>File</b>, error) {
-		<a href="../src/os/file.go.html#line-371" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-371">#L371</a>: func (f *<b>File</b>) wrapErr(op string, err error) error {
-		<a href="../src/os/file.go.html#line-549" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-549">#L549</a>: func (f *<b>File</b>) Chmod(mode FileMode) error { return f.chmod(mode) }
-		<a href="../src/os/file.go.html#line-575" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-575">#L575</a>: func (f *<b>File</b>) SetDeadline(t time.Time) error {
-		<a href="../src/os/file.go.html#line-583" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-583">#L583</a>: func (f *<b>File</b>) SetReadDeadline(t time.Time) error {
-		<a href="../src/os/file.go.html#line-593" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-593">#L593</a>: func (f *<b>File</b>) SetWriteDeadline(t time.Time) error {
-		<a href="../src/os/file.go.html#line-599" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-599">#L599</a>: func (f *<b>File</b>) SyscallConn() (syscall.RawConn, error) {
+		<a href="../src/os/dir.go.html#line-40">dir.go#L40</a>: func (f *<b>File</b>) Readdir(n int) ([]FileInfo, error) {
+		<a href="../src/os/dir.go.html#line-69" class="path-duplicate">dir.go</a><a href="../src/os/dir.go.html#line-69">#L69</a>: func (f *<b>File</b>) Readdirnames(n int) (names []string, err error) {
+		<a href="../src/os/dir.go.html#line-97" class="path-duplicate">dir.go</a><a href="../src/os/dir.go.html#line-97">#L97</a>: func (f *<b>File</b>) ReadDir(n int) ([]DirEntry, error) {
+		<a href="../src/os/dir_unix.go.html#line-47">dir_unix.go#L47</a>: func (f *<b>File</b>) readdir(n int, mode readdirMode) (names []string, dirents []DirEntry, infos []FileInfo, err error) {
+		<a href="../src/os/exec.go.html#line-221">exec.go#L221</a>: 	Files []*<b>File</b>
+		<a href="../src/os/file.go.html#line-63">file.go#L63</a>: func (f *<b>File</b>) Name() string { return f.name }
+		<a href="../src/os/file.go.html#line-133" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-133">#L133</a>: func NewFile(fd uintptr, name string) *<b>File</b> {
+		<a href="../src/os/file.go.html#line-140" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-140">#L140</a>: func (f *<b>File</b>) Read(b []byte) (n int, err error) {
+		<a href="../src/os/file.go.html#line-152" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-152">#L152</a>: func (f *<b>File</b>) ReadAt(b []byte, off int64) (n int, err error) {
+		<a href="../src/os/file.go.html#line-175" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-175">#L175</a>: func (f *<b>File</b>) ReadFrom(r io.Reader) (n int64, err error) {
+		<a href="../src/os/file.go.html#line-201" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-201">#L201</a>: 	*<b>File</b>
+		<a href="../src/os/file.go.html#line-204" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-204">#L204</a>: func genericReadFrom(f *<b>File</b>, r io.Reader) (int64, error) {
+		<a href="../src/os/file.go.html#line-211" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-211">#L211</a>: func (f *<b>File</b>) Write(b []byte) (n int, err error) {
+		<a href="../src/os/file.go.html#line-239" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-239">#L239</a>: func (f *<b>File</b>) WriteAt(b []byte, off int64) (n int, err error) {
+		<a href="../src/os/file.go.html#line-265" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-265">#L265</a>: func (f *<b>File</b>) WriteTo(w io.Writer) (n int64, err error) {
+		<a href="../src/os/file.go.html#line-291" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-291">#L291</a>: 	*<b>File</b>
+		<a href="../src/os/file.go.html#line-294" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-294">#L294</a>: func genericWriteTo(f *<b>File</b>, w io.Writer) (int64, error) {
+		<a href="../src/os/file.go.html#line-303" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-303">#L303</a>: func (f *<b>File</b>) Seek(offset int64, whence int) (ret int64, err error) {
+		<a href="../src/os/file.go.html#line-319" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-319">#L319</a>: func (f *<b>File</b>) WriteString(s string) (n int, err error) {
+		<a href="../src/os/file.go.html#line-389" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-389">#L389</a>: func Open(name string) (*<b>File</b>, error) {
+		<a href="../src/os/file.go.html#line-399" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-399">#L399</a>: func Create(name string) (*<b>File</b>, error) {
+		<a href="../src/os/file.go.html#line-410" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-410">#L410</a>: func OpenFile(name string, flag int, perm FileMode) (*<b>File</b>, error) {
+		<a href="../src/os/file.go.html#line-426" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-426">#L426</a>: func openDir(name string) (*<b>File</b>, error) {
+		<a href="../src/os/file.go.html#line-466" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-466">#L466</a>: func (f *<b>File</b>) wrapErr(op string, err error) error {
+		<a href="../src/os/file.go.html#line-648" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-648">#L648</a>: func (f *<b>File</b>) Chmod(mode FileMode) error { return f.chmod(mode) }
+		<a href="../src/os/file.go.html#line-674" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-674">#L674</a>: func (f *<b>File</b>) SetDeadline(t time.Time) error {
+		<a href="../src/os/file.go.html#line-682" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-682">#L682</a>: func (f *<b>File</b>) SetReadDeadline(t time.Time) error {
+		<a href="../src/os/file.go.html#line-692" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-692">#L692</a>: func (f *<b>File</b>) SetWriteDeadline(t time.Time) error {
+		<a href="../src/os/file.go.html#line-698" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-698">#L698</a>: func (f *<b>File</b>) SyscallConn() (syscall.RawConn, error) {
+		<a href="../src/os/file.go.html#line-722" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-722">#L722</a>: func (f *<b>File</b>) Fd() uintptr {
+		<a href="../src/os/file.go.html#line-874" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-874">#L874</a>: func statOrZero(f *<b>File</b>) int64 {
 		<a href="../src/os/file_posix.go.html#line-19">file_posix.go#L19</a>: func (f *<b>File</b>) Close() error {
 		<a href="../src/os/file_posix.go.html#line-28" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-28">#L28</a>: func (f *<b>File</b>) read(b []byte) (n int, err error) {
 		<a href="../src/os/file_posix.go.html#line-37" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-37">#L37</a>: func (f *<b>File</b>) pread(b []byte, off int64) (n int, err error) {
@@ -47,62 +54,73 @@
 		<a href="../src/os/file_posix.go.html#line-136" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-136">#L136</a>: func (f *<b>File</b>) Chown(uid, gid int) error {
 		<a href="../src/os/file_posix.go.html#line-149" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-149">#L149</a>: func (f *<b>File</b>) Truncate(size int64) error {
 		<a href="../src/os/file_posix.go.html#line-162" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-162">#L162</a>: func (f *<b>File</b>) Sync() error {
-		<a href="../src/os/file_posix.go.html#line-199" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-199">#L199</a>: func (f *<b>File</b>) Chdir() error {
-		<a href="../src/os/file_posix.go.html#line-210" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-210">#L210</a>: func (f *<b>File</b>) setDeadline(t time.Time) error {
-		<a href="../src/os/file_posix.go.html#line-218" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-218">#L218</a>: func (f *<b>File</b>) setReadDeadline(t time.Time) error {
-		<a href="../src/os/file_posix.go.html#line-226" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-226">#L226</a>: func (f *<b>File</b>) setWriteDeadline(t time.Time) error {
-		<a href="../src/os/file_posix.go.html#line-235" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-235">#L235</a>: func (f *<b>File</b>) checkValid(op string) error {
-		<a href="../src/os/file_unix.go.html#line-79">file_unix.go#L79</a>: func (f *<b>File</b>) Fd() uintptr {
-		<a href="../src/os/file_unix.go.html#line-105" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-105">#L105</a>: func NewFile(fd uintptr, name string) *<b>File</b> {
-		<a href="../src/os/file_unix.go.html#line-134" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-134">#L134</a>: func net_newUnixFile(fd int, name string) *<b>File</b> {
-		<a href="../src/os/file_unix.go.html#line-167" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-167">#L167</a>: func newFile(fd int, name string, kind newFileKind) *<b>File</b> {
-		<a href="../src/os/file_unix.go.html#line-168" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-168">#L168</a>: 	f := &amp;<b>File</b>{&amp;file{
-		<a href="../src/os/file_unix.go.html#line-248" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-248">#L248</a>: func epipecheck(file *<b>File</b>, e error) {
-		<a href="../src/os/file_unix.go.html#line-260" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-260">#L260</a>: func openFileNolog(name string, flag int, perm FileMode) (*<b>File</b>, error) {
+		<a href="../src/os/file_posix.go.html#line-204" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-204">#L204</a>: func (f *<b>File</b>) Chdir() error {
+		<a href="../src/os/file_posix.go.html#line-215" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-215">#L215</a>: func (f *<b>File</b>) setDeadline(t time.Time) error {
+		<a href="../src/os/file_posix.go.html#line-223" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-223">#L223</a>: func (f *<b>File</b>) setReadDeadline(t time.Time) error {
+		<a href="../src/os/file_posix.go.html#line-231" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-231">#L231</a>: func (f *<b>File</b>) setWriteDeadline(t time.Time) error {
+		<a href="../src/os/file_posix.go.html#line-240" class="path-duplicate">file_posix.go</a><a href="../src/os/file_posix.go.html#line-240">#L240</a>: func (f *<b>File</b>) checkValid(op string) error {
+		<a href="../src/os/file_unix.go.html#line-70">file_unix.go#L70</a>: func (f *<b>File</b>) fd() uintptr {
+		<a href="../src/os/file_unix.go.html#line-88" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-88">#L88</a>: func newFileFromNewFile(fd uintptr, name string) *<b>File</b> {
+		<a href="../src/os/file_unix.go.html#line-113" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-113">#L113</a>: func net_newUnixFile(fd int, name string) *<b>File</b> {
+		<a href="../src/os/file_unix.go.html#line-144" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-144">#L144</a>: func newFile(fd int, name string, kind newFileKind, nonBlocking bool) *<b>File</b> {
+		<a href="../src/os/file_unix.go.html#line-145" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-145">#L145</a>: 	f := &amp;<b>File</b>{&amp;file{
+		<a href="../src/os/file_unix.go.html#line-234" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-234">#L234</a>: func epipecheck(file *<b>File</b>, e error) {
+		<a href="../src/os/file_unix.go.html#line-246" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-246">#L246</a>: func openFileNolog(name string, flag int, perm FileMode) (*<b>File</b>, error) {
+		<a href="../src/os/file_unix.go.html#line-284" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-284">#L284</a>: func openDirNolog(name string) (*<b>File</b>, error) {
 		<a href="../src/os/file_unix.go.html#line-331" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-331">#L331</a>: func (f *<b>File</b>) seek(offset int64, whence int) (ret int64, err error) {
+		<a href="../src/os/file_unix.go.html#line-469" class="path-duplicate">file_unix.go</a><a href="../src/os/file_unix.go.html#line-469">#L469</a>: func newUnixDirent(parent *<b>File</b>, name string, typ FileMode) (DirEntry, error) {
 		<a href="../src/os/pipe2_unix.go.html#line-13">pipe2_unix.go#L13</a>: func Pipe() (r *<b>File</b>, w *<b>File</b>, err error) {
 		<a href="../src/os/rawconn.go.html#line-15">rawconn.go#L15</a>: 	file *<b>File</b>
 		<a href="../src/os/rawconn.go.html#line-45" class="path-duplicate">rawconn.go</a><a href="../src/os/rawconn.go.html#line-45">#L45</a>: func newRawConn(file *<b>File</b>) (*rawConn, error) {
-		<a href="../src/os/readfrom_linux.go.html#line-18">readfrom_linux.go#L18</a>: func (f *<b>File</b>) readFrom(r io.Reader) (written int64, handled bool, err error) {
-		<a href="../src/os/readfrom_linux.go.html#line-35" class="path-duplicate">readfrom_linux.go</a><a href="../src/os/readfrom_linux.go.html#line-35">#L35</a>: func (f *<b>File</b>) spliceToFile(r io.Reader) (written int64, handled bool, err error) {
-		<a href="../src/os/readfrom_linux.go.html#line-85" class="path-duplicate">readfrom_linux.go</a><a href="../src/os/readfrom_linux.go.html#line-85">#L85</a>: func (f *<b>File</b>) copyFileRange(r io.Reader) (written int64, handled bool, err error) {
-		<a href="../src/os/readfrom_linux.go.html#line-94" class="path-duplicate">readfrom_linux.go</a><a href="../src/os/readfrom_linux.go.html#line-94">#L94</a>: 	src, ok := r.(*<b>File</b>)
-		<a href="../src/os/removeall_at.go.html#line-58">removeall_at.go#L58</a>: func removeAllFrom(parent *<b>File</b>, base string) error {
-		<a href="../src/os/removeall_at.go.html#line-176" class="path-duplicate">removeall_at.go</a><a href="../src/os/removeall_at.go.html#line-176">#L176</a>: func openFdAt(dirfd int, name string) (*<b>File</b>, error) {
+		<a href="../src/os/removeall_at.go.html#line-175">removeall_at.go#L175</a>: func openDirAt(dirfd sysfdType, name string) (*<b>File</b>, error) {
+		<a href="../src/os/removeall_unix.go.html#line-9">removeall_unix.go#L9</a>: func newDirFile(fd int, name string) (*<b>File</b>, error) {
+		<a href="../src/os/root.go.html#line-25">root.go#L25</a>: func OpenInRoot(dir, name string) (*<b>File</b>, error) {
+		<a href="../src/os/root.go.html#line-102" class="path-duplicate">root.go</a><a href="../src/os/root.go.html#line-102">#L102</a>: func (r *Root) Open(name string) (*<b>File</b>, error) {
+		<a href="../src/os/root.go.html#line-108" class="path-duplicate">root.go</a><a href="../src/os/root.go.html#line-108">#L108</a>: func (r *Root) Create(name string) (*<b>File</b>, error) {
+		<a href="../src/os/root.go.html#line-117" class="path-duplicate">root.go</a><a href="../src/os/root.go.html#line-117">#L117</a>: func (r *Root) OpenFile(name string, flag int, perm FileMode) (*<b>File</b>, error) {
+		<a href="../src/os/root_unix.go.html#line-82">root_unix.go#L82</a>: func rootOpenFileNolog(root *Root, name string, flag int, perm FileMode) (*<b>File</b>, error) {
+		<a href="../src/os/stat.go.html#line-30">stat.go#L30</a>: var stathook func(f *<b>File</b>, name string) (FileInfo, error)
 		<a href="../src/os/stat_unix.go.html#line-15">stat_unix.go#L15</a>: func (f *<b>File</b>) Stat() (FileInfo, error) {
-		<a href="../src/os/tempfile.go.html#line-30">tempfile.go#L30</a>: func CreateTemp(dir, pattern string) (*<b>File</b>, error) {
-		<a href="../src/os/types.go.html#line-16">types.go#L16</a>: type <b>File</b> struct {
+		<a href="../src/os/statat.go.html#line-13">statat.go#L13</a>: func (f *<b>File</b>) lstatat(name string) (FileInfo, error) {
+		<a href="../src/os/statat_unix.go.html#line-13">statat_unix.go#L13</a>: func (f *<b>File</b>) lstatatNolog(name string) (FileInfo, error) {
+		<a href="../src/os/tempfile.go.html#line-35">tempfile.go#L35</a>: func CreateTemp(dir, pattern string) (*<b>File</b>, error) {
+		<a href="../src/os/types.go.html#line-18">types.go#L18</a>: type <b>File</b> struct {
+		<a href="../src/os/zero_copy_linux.go.html#line-18">zero_copy_linux.go#L18</a>: func (f *<b>File</b>) writeTo(w io.Writer) (written int64, handled bool, err error) {
+		<a href="../src/os/zero_copy_linux.go.html#line-42" class="path-duplicate">zero_copy_linux.go</a><a href="../src/os/zero_copy_linux.go.html#line-42">#L42</a>: func (f *<b>File</b>) readFrom(r io.Reader) (written int64, handled bool, err error) {
+		<a href="../src/os/zero_copy_linux.go.html#line-59" class="path-duplicate">zero_copy_linux.go</a><a href="../src/os/zero_copy_linux.go.html#line-59">#L59</a>: func (f *<b>File</b>) spliceToFile(r io.Reader) (written int64, handled bool, err error) {
+		<a href="../src/os/zero_copy_linux.go.html#line-89" class="path-duplicate">zero_copy_linux.go</a><a href="../src/os/zero_copy_linux.go.html#line-89">#L89</a>: func (f *<b>File</b>) copyFileRange(r io.Reader) (written int64, handled bool, err error) {
+		<a href="../src/os/zero_copy_linux.go.html#line-98" class="path-duplicate">zero_copy_linux.go</a><a href="../src/os/zero_copy_linux.go.html#line-98">#L98</a>: 	var src *<b>File</b>
+		<a href="../src/os/zero_copy_linux.go.html#line-100" class="path-duplicate">zero_copy_linux.go</a><a href="../src/os/zero_copy_linux.go.html#line-100">#L100</a>: 	case *<b>File</b>:
 
-	<a href="../pkg/go.uber.org/zap.html">go.uber.org/zap</a>
-		<a href="../src/go.uber.org/zap/sink.go.html#line-61">sink.go#L61</a>: 	openFile  func(string, int, os.FileMode) (*os.<b>File</b>, error) // type matches os.OpenFile
-
-	<a href="../pkg/io/ioutil.html">io/ioutil</a>
-		<a href="../src/io/ioutil/tempfile.go.html#line-24">tempfile.go#L24</a>: func TempFile(dir, pattern string) (f *os.<b>File</b>, err error) {
+	<a href="../pkg/crypto/internal/sysrand.html">crypto/internal/sysrand</a>
+		<a href="../src/crypto/internal/sysrand/rand.go.html#line-59">rand.go#L59</a>: var urandomFile *os.<b>File</b>
 
 	<a href="../pkg/mime/multipart.html">mime/multipart</a>
 		<a href="../src/mime/multipart/formdata.go.html#line-44">formdata.go#L44</a>: 		file    *os.<b>File</b>
 
 	<a href="../pkg/net.html">net</a>
-		<a href="../src/net/fd_unix.go.html#line-194">fd_unix.go#L194</a>: func newUnixFile(fd int, name string) *os.<b>File</b>
-		<a href="../src/net/fd_unix.go.html#line-196" class="path-duplicate">fd_unix.go</a><a href="../src/net/fd_unix.go.html#line-196">#L196</a>: func (fd *netFD) dup() (f *os.<b>File</b>, err error) {
+		<a href="../src/net/fd_unix.go.html#line-172">fd_unix.go#L172</a>: func newUnixFile(fd int, name string) *os.<b>File</b>
+		<a href="../src/net/fd_unix.go.html#line-174" class="path-duplicate">fd_unix.go</a><a href="../src/net/fd_unix.go.html#line-174">#L174</a>: func (fd *netFD) dup() (f *os.<b>File</b>, err error) {
 		<a href="../src/net/file.go.html#line-21">file.go#L21</a>: func FileConn(f *os.<b>File</b>) (c Conn, err error) {
 		<a href="../src/net/file.go.html#line-33" class="path-duplicate">file.go</a><a href="../src/net/file.go.html#line-33">#L33</a>: func FileListener(f *os.<b>File</b>) (ln Listener, err error) {
 		<a href="../src/net/file.go.html#line-45" class="path-duplicate">file.go</a><a href="../src/net/file.go.html#line-45">#L45</a>: func FilePacketConn(f *os.<b>File</b>) (c PacketConn, err error) {
-		<a href="../src/net/file_unix.go.html#line-15">file_unix.go#L15</a>: func dupSocket(f *os.<b>File</b>) (int, error) {
-		<a href="../src/net/file_unix.go.html#line-30" class="path-duplicate">file_unix.go</a><a href="../src/net/file_unix.go.html#line-30">#L30</a>: func newFileFD(f *os.<b>File</b>) (*netFD, error) {
-		<a href="../src/net/file_unix.go.html#line-70" class="path-duplicate">file_unix.go</a><a href="../src/net/file_unix.go.html#line-70">#L70</a>: func fileConn(f *os.<b>File</b>) (Conn, error) {
-		<a href="../src/net/file_unix.go.html#line-89" class="path-duplicate">file_unix.go</a><a href="../src/net/file_unix.go.html#line-89">#L89</a>: func fileListener(f *os.<b>File</b>) (Listener, error) {
-		<a href="../src/net/file_unix.go.html#line-104" class="path-duplicate">file_unix.go</a><a href="../src/net/file_unix.go.html#line-104">#L104</a>: func filePacketConn(f *os.<b>File</b>) (PacketConn, error) {
-		<a href="../src/net/net.go.html#line-294">net.go#L294</a>: func (c *conn) File() (f *os.<b>File</b>, err error) {
+		<a href="../src/net/file_posix.go.html#line-15">file_posix.go#L15</a>: func newFileFD(f *os.<b>File</b>) (*netFD, error) {
+		<a href="../src/net/file_posix.go.html#line-59" class="path-duplicate">file_posix.go</a><a href="../src/net/file_posix.go.html#line-59">#L59</a>: func fileConn(f *os.<b>File</b>) (Conn, error) {
+		<a href="../src/net/file_posix.go.html#line-78" class="path-duplicate">file_posix.go</a><a href="../src/net/file_posix.go.html#line-78">#L78</a>: func fileListener(f *os.<b>File</b>) (Listener, error) {
+		<a href="../src/net/file_posix.go.html#line-93" class="path-duplicate">file_posix.go</a><a href="../src/net/file_posix.go.html#line-93">#L93</a>: func filePacketConn(f *os.<b>File</b>) (PacketConn, error) {
+		<a href="../src/net/file_unix.go.html#line-17">file_unix.go#L17</a>: func dupFileSocket(f *os.<b>File</b>) (int, error) {
+		<a href="../src/net/net.go.html#line-314">net.go#L314</a>: func (c *conn) File() (f *os.<b>File</b>, err error) {
 		<a href="../src/net/parse.go.html#line-18">parse.go#L18</a>: 	file  *os.<b>File</b>
-		<a href="../src/net/sendfile_linux.go.html#line-30">sendfile_linux.go#L30</a>: 	f, ok := r.(*os.<b>File</b>)
-		<a href="../src/net/tcpsock.go.html#line-358">tcpsock.go#L358</a>: func (l *TCPListener) File() (f *os.<b>File</b>, err error) {
-		<a href="../src/net/tcpsock_posix.go.html#line-163">tcpsock_posix.go#L163</a>: func (ln *TCPListener) file() (*os.<b>File</b>, error) {
-		<a href="../src/net/unixsock.go.html#line-303">unixsock.go#L303</a>: func (l *UnixListener) File() (f *os.<b>File</b>, err error) {
+		<a href="../src/net/tcpsock.go.html#line-430">tcpsock.go#L430</a>: func (l *TCPListener) File() (f *os.<b>File</b>, err error) {
+		<a href="../src/net/tcpsock_posix.go.html#line-170">tcpsock_posix.go#L170</a>: func (ln *TCPListener) file() (*os.<b>File</b>, error) {
+		<a href="../src/net/unixsock.go.html#line-310">unixsock.go#L310</a>: func (l *UnixListener) File() (f *os.<b>File</b>, err error) {
 		<a href="../src/net/unixsock_posix.go.html#line-199">unixsock_posix.go#L199</a>: func (ln *UnixListener) file() (*os.<b>File</b>, error) {
+
+	<a href="../pkg/runtime/debug.html">runtime/debug</a>
+		<a href="../src/runtime/debug/stack.go.html#line-49">stack.go#L49</a>: func SetCrashOutput(f *os.<b>File</b>, opts CrashOptions) error {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

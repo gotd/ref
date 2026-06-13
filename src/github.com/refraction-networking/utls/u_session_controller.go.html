@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: u_session_controller.go in package github.com/refraction-networking/utls</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	u_session_controller.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33],
+input[id=r34]:checked ~pre label[for=r34],
+input[id=r35]:checked ~pre label[for=r35],
+input[id=r36]:checked ~pre label[for=r36],
+input[id=r37]:checked ~pre label[for=r37],
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40],
+input[id=r41]:checked ~pre label[for=r41],
+input[id=r42]:checked ~pre label[for=r42],
+input[id=r43]:checked ~pre label[for=r43],
+input[id=r44]:checked ~pre label[for=r44],
+input[id=r45]:checked ~pre label[for=r45],
+input[id=r46]:checked ~pre label[for=r46],
+input[id=r47]:checked ~pre label[for=r47],
+input[id=r48]:checked ~pre label[for=r48],
+input[id=r49]:checked ~pre label[for=r49],
+input[id=r50]:checked ~pre label[for=r50],
+input[id=r51]:checked ~pre label[for=r51],
+input[id=r52]:checked ~pre label[for=r52],
+input[id=r53]:checked ~pre label[for=r53],
+input[id=r54]:checked ~pre label[for=r54],
+input[id=r55]:checked ~pre label[for=r55],
+input[id=r56]:checked ~pre label[for=r56],
+input[id=r57]:checked ~pre label[for=r57],
+input[id=r58]:checked ~pre label[for=r58],
+input[id=r59]:checked ~pre label[for=r59],
+input[id=r60]:checked ~pre label[for=r60],
+input[id=r61]:checked ~pre label[for=r61],
+input[id=r62]:checked ~pre label[for=r62],
+input[id=r63]:checked ~pre label[for=r63],
+input[id=r64]:checked ~pre label[for=r64],
+input[id=r65]:checked ~pre label[for=r65],
+input[id=r66]:checked ~pre label[for=r66],
+input[id=r67]:checked ~pre label[for=r67],
+input[id=r68]:checked ~pre label[for=r68],
+input[id=r69]:checked ~pre label[for=r69],
+input[id=r70]:checked ~pre label[for=r70],
+input[id=r71]:checked ~pre label[for=r71],
+input[id=r72]:checked ~pre label[for=r72],
+input[id=r73]:checked ~pre label[for=r73],
+input[id=r74]:checked ~pre label[for=r74],
+input[id=r75]:checked ~pre label[for=r75],
+input[id=r76]:checked ~pre label[for=r76],
+input[id=r77]:checked ~pre label[for=r77],
+input[id=r78]:checked ~pre label[for=r78],
+input[id=r79]:checked ~pre label[for=r79],
+input[id=r80]:checked ~pre label[for=r80],
+input[id=r81]:checked ~pre label[for=r81]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="r34" type="radio" name="g"/>
+<input id="r35" type="radio" name="g"/>
+<input id="r36" type="radio" name="g"/>
+<input id="r37" type="radio" name="g"/>
+<input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="r41" type="radio" name="g"/>
+<input id="r42" type="radio" name="g"/>
+<input id="r43" type="radio" name="g"/>
+<input id="r44" type="radio" name="g"/>
+<input id="r45" type="radio" name="g"/>
+<input id="r46" type="radio" name="g"/>
+<input id="r47" type="radio" name="g"/>
+<input id="r48" type="radio" name="g"/>
+<input id="r49" type="radio" name="g"/>
+<input id="r50" type="radio" name="g"/>
+<input id="r51" type="radio" name="g"/>
+<input id="r52" type="radio" name="g"/>
+<input id="r53" type="radio" name="g"/>
+<input id="r54" type="radio" name="g"/>
+<input id="r55" type="radio" name="g"/>
+<input id="r56" type="radio" name="g"/>
+<input id="r57" type="radio" name="g"/>
+<input id="r58" type="radio" name="g"/>
+<input id="r59" type="radio" name="g"/>
+<input id="r60" type="radio" name="g"/>
+<input id="r61" type="radio" name="g"/>
+<input id="r62" type="radio" name="g"/>
+<input id="r63" type="radio" name="g"/>
+<input id="r64" type="radio" name="g"/>
+<input id="r65" type="radio" name="g"/>
+<input id="r66" type="radio" name="g"/>
+<input id="r67" type="radio" name="g"/>
+<input id="r68" type="radio" name="g"/>
+<input id="r69" type="radio" name="g"/>
+<input id="r70" type="radio" name="g"/>
+<input id="r71" type="radio" name="g"/>
+<input id="r72" type="radio" name="g"/>
+<input id="r73" type="radio" name="g"/>
+<input id="r74" type="radio" name="g"/>
+<input id="r75" type="radio" name="g"/>
+<input id="r76" type="radio" name="g"/>
+<input id="r77" type="radio" name="g"/>
+<input id="r78" type="radio" name="g"/>
+<input id="r79" type="radio" name="g"/>
+<input id="r80" type="radio" name="g"/>
+<input id="r81" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> tls</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-4"><code>	<label for="i0"><span class="lit-string i0">"errors"</span></label></code></span>
+<span class="codeline" id="line-5"><code>	<label for="i1"><span class="lit-string i1">"fmt"</span></label></code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code>	<label for="i2"><span class="lit-string i2">"github.com/refraction-networking/utls/internal/tls13"</span></label></code></span>
+<span class="codeline" id="line-8"><code>)</code></span>
+<span class="codeline" id="line-9"><code></code></span>
+<span class="codeline" id="line-10"><code><span class="comment">// Tracking the state of calling conn.loadSession</span></code></span>
+<span class="codeline" id="line-11"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-LoadSessionTrackerState" class="ident">LoadSessionTrackerState</a> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-12"><code></code></span>
+<span class="codeline" id="line-13"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-NeverCalled" class="ident">NeverCalled</a> <a href="#line-11" class="ident">LoadSessionTrackerState</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-14"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-UtlsAboutToCall" class="ident">UtlsAboutToCall</a> <a href="#line-11" class="ident">LoadSessionTrackerState</a> = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-15"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-CalledByULoadSession" class="ident">CalledByULoadSession</a> <a href="#line-11" class="ident">LoadSessionTrackerState</a> = <span class="lit-number">2</span></code></span>
+<span class="codeline" id="line-16"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-CalledByGoTLS" class="ident">CalledByGoTLS</a> <a href="#line-11" class="ident">LoadSessionTrackerState</a> = <span class="lit-number">3</span></code></span>
+<span class="codeline" id="line-17"><code></code></span>
+<span class="codeline" id="line-18"><code><span class="comment">// The state of the session controller</span></code></span>
+<span class="codeline" id="line-19"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-sessionControllerState" class="ident">sessionControllerState</a> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-20"><code></code></span>
+<span class="codeline" id="line-21"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-NoSession" class="ident">NoSession</a> <a href="#line-19" class="ident">sessionControllerState</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-22"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-SessionTicketExtInitialized" class="ident">SessionTicketExtInitialized</a> <a href="#line-19" class="ident">sessionControllerState</a> = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-23"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-SessionTicketExtAllSet" class="ident">SessionTicketExtAllSet</a> <a href="#line-19" class="ident">sessionControllerState</a> = <span class="lit-number">2</span></code></span>
+<span class="codeline" id="line-24"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-PskExtInitialized" class="ident">PskExtInitialized</a> <a href="#line-19" class="ident">sessionControllerState</a> = <span class="lit-number">3</span></code></span>
+<span class="codeline" id="line-25"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-PskExtAllSet" class="ident">PskExtAllSet</a> <a href="#line-19" class="ident">sessionControllerState</a> = <span class="lit-number">4</span></code></span>
+<span class="codeline" id="line-26"><code></code></span>
+<span class="codeline" id="line-27"><code><span class="comment">// sessionController is responsible for managing and controlling all session related states. It manages the lifecycle of the session ticket extension and the psk extension, including initialization, removal if the client hello spec doesn't contain any of them, and setting the prepared state to the client hello.</span></code></span>
+<span class="codeline" id="line-28"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">// Users should never directly modify the underlying state. Violations will result in undefined behaviors.</span></code></span>
+<span class="codeline" id="line-30"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-31"><code><span class="comment">// Users should never construct sessionController by themselves, use the function `newSessionController` instead.</span></code></span>
+<span class="codeline" id="line-32"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-sessionController" class="ident">sessionController</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-33"><code>	<span class="comment">// sessionTicketExt logically owns the session ticket extension</span></code></span>
+<span class="codeline" id="line-34"><code>	<a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.sessionTicketExt^f9c25.html" class="ident">sessionTicketExt</a> <a href="u_session_ticket.go.html#line-5" class="ident">ISessionTicketExtension</a></code></span>
+<span class="codeline" id="line-35"><code></code></span>
+<span class="codeline" id="line-36"><code>	<span class="comment">// pskExtension logically owns the psk extension</span></code></span>
+<span class="codeline" id="line-37"><code>	<a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.pskExtension^71d8c.html" class="ident">pskExtension</a> <a href="u_pre_shared_key.go.html#line-71" class="ident">PreSharedKeyExtension</a></code></span>
+<span class="codeline" id="line-38"><code></code></span>
+<span class="codeline" id="line-39"><code>	<span class="comment">// uconnRef is a reference to the uconn</span></code></span>
+<span class="codeline" id="line-40"><code>	<a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.uconnRef^3e48c.html" class="ident">uconnRef</a> *<a href="u_conn.go.html#line-29" class="ident">UConn</a></code></span>
+<span class="codeline" id="line-41"><code></code></span>
+<span class="codeline" id="line-42"><code>	<span class="comment">// state represents the internal state of the sessionController. Users are advised to modify the state only through designated methods and avoid direct manipulation, as doing so may result in undefined behavior.</span></code></span>
+<span class="codeline" id="line-43"><code>	<a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.state^4ba69.html" class="ident">state</a> <a href="#line-19" class="ident">sessionControllerState</a></code></span>
+<span class="codeline" id="line-44"><code></code></span>
+<span class="codeline" id="line-45"><code>	<span class="comment">// loadSessionTracker keeps track of how the conn.loadSession method is being utilized.</span></code></span>
+<span class="codeline" id="line-46"><code>	<a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.loadSessionTracker^9c72a.html" class="ident">loadSessionTracker</a> <a href="#line-11" class="ident">LoadSessionTrackerState</a></code></span>
+<span class="codeline" id="line-47"><code></code></span>
+<span class="codeline" id="line-48"><code>	<span class="comment">// callingLoadSession is a boolean flag that indicates whether the `conn.loadSession` function is currently being invoked.</span></code></span>
+<span class="codeline" id="line-49"><code>	<a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.callingLoadSession^4d64a.html" class="ident">callingLoadSession</a> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-50"><code></code></span>
+<span class="codeline" id="line-51"><code>	<span class="comment">// locked is a boolean flag that becomes true once all states are appropriately set. Once `locked` is true, further modifications are disallowed, except for the binders.</span></code></span>
+<span class="codeline" id="line-52"><code>	<a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.locked^14493.html" class="ident">locked</a> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-53"><code>}</code></span>
+<span class="codeline" id="line-54"><code></code></span>
+<span class="codeline" id="line-55"><code><span class="comment">// newSessionController constructs a new SessionController</span></code></span>
+<span class="codeline" id="line-56"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-newSessionController" class="ident">newSessionController</a></label>(<label for="r1" class="ident">uconn</label> *<a href="u_conn.go.html#line-29" class="ident">UConn</a>) *<a href="#line-32" class="ident">sessionController</a> {</code></span>
+<span class="codeline" id="line-57"><code>	<span class="keyword">return</span> &amp;<a href="#line-32" class="ident">sessionController</a>{</code></span>
+<span class="codeline" id="line-58"><code>		<a href="#line-40" class="ident">uconnRef</a>:           <label for="r1" class="ident">uconn</label>,</code></span>
+<span class="codeline" id="line-59"><code>		<a href="#line-34" class="ident">sessionTicketExt</a>:   <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>,</code></span>
+<span class="codeline" id="line-60"><code>		<a href="#line-37" class="ident">pskExtension</a>:       <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>,</code></span>
+<span class="codeline" id="line-61"><code>		<a href="#line-43" class="ident">state</a>:              <a href="#line-21" class="ident">NoSession</a>,</code></span>
+<span class="codeline" id="line-62"><code>		<a href="#line-52" class="ident">locked</a>:             <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a>,</code></span>
+<span class="codeline" id="line-63"><code>		<a href="#line-49" class="ident">callingLoadSession</a>: <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a>,</code></span>
+<span class="codeline" id="line-64"><code>		<a href="#line-46" class="ident">loadSessionTracker</a>: <a href="#line-13" class="ident">NeverCalled</a>,</code></span>
+<span class="codeline" id="line-65"><code>	}</code></span>
+<span class="codeline" id="line-66"><code>}</code></span>
+<span class="codeline" id="line-67"><code></code></span>
+<span class="codeline" id="line-68"><code><span class="keyword">func</span> (<label for="r2" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r3" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.isSessionLocked^d7679.html" class="ident">isSessionLocked</a></label>() <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-69"><code>	<span class="keyword">return</span> <label for="r2" class="ident">s</label>.<a href="#line-52" class="ident">locked</a></code></span>
+<span class="codeline" id="line-70"><code>}</code></span>
+<span class="codeline" id="line-71"><code></code></span>
+<span class="codeline" id="line-72"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-shouldLoadSessionResult" class="ident">shouldLoadSessionResult</a> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-73"><code></code></span>
+<span class="codeline" id="line-74"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-shouldReturn" class="ident">shouldReturn</a> <a href="#line-72" class="ident">shouldLoadSessionResult</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-75"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-shouldSetTicket" class="ident">shouldSetTicket</a> <a href="#line-72" class="ident">shouldLoadSessionResult</a> = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-76"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-shouldSetPsk" class="ident">shouldSetPsk</a> <a href="#line-72" class="ident">shouldLoadSessionResult</a> = <span class="lit-number">2</span></code></span>
+<span class="codeline" id="line-77"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-shouldLoad" class="ident">shouldLoad</a> <a href="#line-72" class="ident">shouldLoadSessionResult</a> = <span class="lit-number">3</span></code></span>
+<span class="codeline" id="line-78"><code></code></span>
+<span class="codeline" id="line-79"><code><span class="comment">// shouldLoadSession determines the appropriate action to take when it is time to load the session for the clientHello.</span></code></span>
+<span class="codeline" id="line-80"><code><span class="comment">// There are several possible scenarios:</span></code></span>
+<span class="codeline" id="line-81"><code><span class="comment">//   - If a session ticket is already initialized, typically via the `initSessionTicketExt()` function, the ticket should be set in the client hello.</span></code></span>
+<span class="codeline" id="line-82"><code><span class="comment">//   - If a pre-shared key (PSK) is already initialized, typically via the `overridePskExt()` function, the PSK should be set in the client hello.</span></code></span>
+<span class="codeline" id="line-83"><code><span class="comment">//   - If both the `sessionTicketExt` and `pskExtension` are nil, which might occur if the client hello spec does not include them, we should skip the loadSession().</span></code></span>
+<span class="codeline" id="line-84"><code><span class="comment">//   - In all other cases, the function proceeds to load the session.</span></code></span>
+<span class="codeline" id="line-85"><code><span class="keyword">func</span> (<label for="r4" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r5" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.shouldLoadSession^9b460.html" class="ident">shouldLoadSession</a></label>() <a href="#line-72" class="ident">shouldLoadSessionResult</a> {</code></span>
+<span class="codeline" id="line-86"><code>	<span class="keyword">if</span> <label for="r4" class="ident">s</label>.<a href="#line-34" class="ident">sessionTicketExt</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; <label for="r4" class="ident">s</label>.<a href="#line-37" class="ident">pskExtension</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> || <label for="r4" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-36" class="ident">clientHelloBuildStatus</a> != <a href="u_conn.go.html#line-25" class="ident">NotBuilt</a> {</code></span>
+<span class="codeline" id="line-87"><code>		<span class="comment">// No need to load session since we don't have the related extensions.</span></code></span>
+<span class="codeline" id="line-88"><code>		<span class="keyword">return</span> <a href="#line-74" class="ident">shouldReturn</a></code></span>
+<span class="codeline" id="line-89"><code>	}</code></span>
+<span class="codeline" id="line-90"><code>	<span class="keyword">if</span> <label for="r4" class="ident">s</label>.<a href="#line-43" class="ident">state</a> == <a href="#line-22" class="ident">SessionTicketExtInitialized</a> {</code></span>
+<span class="codeline" id="line-91"><code>		<span class="keyword">return</span> <a href="#line-75" class="ident">shouldSetTicket</a></code></span>
+<span class="codeline" id="line-92"><code>	}</code></span>
+<span class="codeline" id="line-93"><code>	<span class="keyword">if</span> <label for="r4" class="ident">s</label>.<a href="#line-43" class="ident">state</a> == <a href="#line-24" class="ident">PskExtInitialized</a> {</code></span>
+<span class="codeline" id="line-94"><code>		<span class="keyword">return</span> <a href="#line-76" class="ident">shouldSetPsk</a></code></span>
+<span class="codeline" id="line-95"><code>	}</code></span>
+<span class="codeline" id="line-96"><code>	<span class="keyword">return</span> <a href="#line-77" class="ident">shouldLoad</a></code></span>
+<span class="codeline" id="line-97"><code>}</code></span>
+<span class="codeline" id="line-98"><code></code></span>
+<span class="codeline" id="line-99"><code><span class="comment">// utlsAboutToLoadSession updates the loadSessionTracker to `UtlsAboutToCall` to signal the initiation of a session loading operation,</span></code></span>
+<span class="codeline" id="line-100"><code><span class="comment">// provided that the preconditions are met. If the preconditions are not met (due to incorrect utls implementation), this function triggers a panic.</span></code></span>
+<span class="codeline" id="line-101"><code><span class="keyword">func</span> (<label for="r6" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r7" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.utlsAboutToLoadSession^29b60.html" class="ident">utlsAboutToLoadSession</a></label>() {</code></span>
+<span class="codeline" id="line-102"><code>	<a href="u_common.go.html#line-799" class="ident">uAssert</a>(<label for="r6" class="ident">s</label>.<a href="#line-43" class="ident">state</a> == <a href="#line-21" class="ident">NoSession</a> &amp;&amp; !<label for="r6" class="ident">s</label>.<a href="#line-52" class="ident">locked</a>, <span class="lit-string">"tls: aboutToLoadSession failed: must only load session when the session of the client hello is not locked and when there's currently no session"</span>)</code></span>
+<span class="codeline" id="line-103"><code>	<label for="r6" class="ident">s</label>.<a href="#line-46" class="ident">loadSessionTracker</a> = <a href="#line-14" class="ident">UtlsAboutToCall</a></code></span>
+<span class="codeline" id="line-104"><code>}</code></span>
+<span class="codeline" id="line-105"><code></code></span>
+<span class="codeline" id="line-106"><code><span class="keyword">func</span> (<label for="r8" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r9" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.assertHelloNotBuilt^7f66b.html" class="ident">assertHelloNotBuilt</a></label>(<label for="r10" class="ident">caller</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) {</code></span>
+<span class="codeline" id="line-107"><code>	<span class="keyword">if</span> <label for="r8" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-36" class="ident">clientHelloBuildStatus</a> != <a href="u_conn.go.html#line-25" class="ident">NotBuilt</a> {</code></span>
+<span class="codeline" id="line-108"><code>		<a href="../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"tls: %s failed: we can't modify the session after the clientHello is built"</span>, <label for="r10" class="ident">caller</label>))</code></span>
+<span class="codeline" id="line-109"><code>	}</code></span>
+<span class="codeline" id="line-110"><code>}</code></span>
+<span class="codeline" id="line-111"><code></code></span>
+<span class="codeline" id="line-112"><code><span class="keyword">func</span> (<label for="r11" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r12" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.assertControllerState^67f8c.html" class="ident">assertControllerState</a></label>(<label for="r13" class="ident">caller</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r14" class="ident">desired</label> <a href="#line-19" class="ident">sessionControllerState</a>, <label for="r15" class="ident">moreDesiredStates</label> ...<a href="#line-19" class="ident">sessionControllerState</a>) {</code></span>
+<span class="codeline" id="line-113"><code>	<span class="keyword">if</span> <label for="r11" class="ident">s</label>.<a href="#line-43" class="ident">state</a> != <label for="r14" class="ident">desired</label> &amp;&amp; !<a href="u_common.go.html#line-781" class="ident">anyTrue</a>(<label for="r15" class="ident">moreDesiredStates</label>, <span class="keyword">func</span>(<label for="r16" class="ident">_</label> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r17" class="ident">state</label> *<a href="#line-19" class="ident">sessionControllerState</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-114"><code>		<span class="keyword">return</span> <label for="r11" class="ident">s</label>.<a href="#line-43" class="ident">state</a> == *<label for="r17" class="ident">state</label></code></span>
+<span class="codeline" id="line-115"><code>	}) {</code></span>
+<span class="codeline" id="line-116"><code>		<a href="../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"tls: %s failed: undesired controller state %d"</span>, <label for="r13" class="ident">caller</label>, <label for="r11" class="ident">s</label>.<a href="#line-43" class="ident">state</a>))</code></span>
+<span class="codeline" id="line-117"><code>	}</code></span>
+<span class="codeline" id="line-118"><code>}</code></span>
+<span class="codeline" id="line-119"><code></code></span>
+<span class="codeline" id="line-120"><code><span class="keyword">func</span> (<label for="r18" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r19" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.assertNotLocked^4f09c.html" class="ident">assertNotLocked</a></label>(<label for="r20" class="ident">caller</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) {</code></span>
+<span class="codeline" id="line-121"><code>	<span class="keyword">if</span> <label for="r18" class="ident">s</label>.<a href="#line-52" class="ident">locked</a> {</code></span>
+<span class="codeline" id="line-122"><code>		<a href="../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"tls: %s failed: you must not modify the session after it's locked"</span>, <label for="r20" class="ident">caller</label>))</code></span>
+<span class="codeline" id="line-123"><code>	}</code></span>
+<span class="codeline" id="line-124"><code>}</code></span>
+<span class="codeline" id="line-125"><code></code></span>
+<span class="codeline" id="line-126"><code><span class="keyword">func</span> (<label for="r21" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r22" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.assertCanSkip^4fc26.html" class="ident">assertCanSkip</a></label>(<label for="r23" class="ident">caller</label>, <label for="r24" class="ident">extensionName</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) {</code></span>
+<span class="codeline" id="line-127"><code>	<span class="keyword">if</span> !<label for="r21" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-48" class="ident">skipResumptionOnNilExtension</a> {</code></span>
+<span class="codeline" id="line-128"><code>		<a href="../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"tls: %s failed: session resumption is enabled, but there is no %s in the ClientHelloSpec; Please consider provide one in the ClientHelloSpec; If this is intentional, you may consider disable resumption by setting Config.SessionTicketsDisabled to true, or set Config.PreferSkipResumptionOnNilExtension to true to suppress this exception"</span>, <label for="r23" class="ident">caller</label>, <label for="r24" class="ident">extensionName</label>))</code></span>
+<span class="codeline" id="line-129"><code>	}</code></span>
+<span class="codeline" id="line-130"><code>}</code></span>
+<span class="codeline" id="line-131"><code></code></span>
+<span class="codeline" id="line-132"><code><span class="comment">// finalCheck performs a comprehensive check on the updated state to ensure the correctness of the changes.</span></code></span>
+<span class="codeline" id="line-133"><code><span class="comment">// If the checks pass successfully, the sessionController's state will be locked.</span></code></span>
+<span class="codeline" id="line-134"><code><span class="comment">// Any failure in passing the tests indicates incorrect implementations in the utls, which will result in triggering a panic.</span></code></span>
+<span class="codeline" id="line-135"><code><span class="comment">// Refer to the documentation for the `locked` field for more detailed information.</span></code></span>
+<span class="codeline" id="line-136"><code><span class="keyword">func</span> (<label for="r25" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r26" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.finalCheck^0b8dc.html" class="ident">finalCheck</a></label>() {</code></span>
+<span class="codeline" id="line-137"><code>	<label for="r25" class="ident">s</label>.<a href="#line-112" class="ident">assertControllerState</a>(<span class="lit-string">"SessionController.finalCheck"</span>, <a href="#line-25" class="ident">PskExtAllSet</a>, <a href="#line-23" class="ident">SessionTicketExtAllSet</a>, <a href="#line-21" class="ident">NoSession</a>)</code></span>
+<span class="codeline" id="line-138"><code>	<label for="r25" class="ident">s</label>.<a href="#line-52" class="ident">locked</a> = <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-139"><code>}</code></span>
+<span class="codeline" id="line-140"><code></code></span>
+<span class="codeline" id="line-141"><code><span class="keyword">func</span> <label for="r27" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-initializationGuard" class="ident">initializationGuard</a></label>[<label for="r28" class="ident">E</label> <a href="u_common.go.html#line-817" class="ident">Initializable</a>, <label for="r29" class="ident">I</label> <span class="keyword">func</span>(<label for="r28" class="ident">E</label>)](<label for="r30" class="ident">extension</label> <label for="r28" class="ident">E</label>, <label for="r31" class="ident">initializer</label> <label for="r29" class="ident">I</label>) {</code></span>
+<span class="codeline" id="line-142"><code>	<a href="u_common.go.html#line-799" class="ident">uAssert</a>(!<label for="r30" class="ident">extension</label>.<a href="u_common.go.html#line-820" class="ident">IsInitialized</a>(), <span class="lit-string">"tls: initialization failed: the extension is already initialized"</span>)</code></span>
+<span class="codeline" id="line-143"><code>	<label for="r31" class="ident">initializer</label>(<label for="r30" class="ident">extension</label>)</code></span>
+<span class="codeline" id="line-144"><code>	<a href="u_common.go.html#line-799" class="ident">uAssert</a>(<label for="r30" class="ident">extension</label>.<a href="u_common.go.html#line-820" class="ident">IsInitialized</a>(), <span class="lit-string">"tls: initialization failed: the extension is not initialized after initialization"</span>)</code></span>
+<span class="codeline" id="line-145"><code>}</code></span>
+<span class="codeline" id="line-146"><code></code></span>
+<span class="codeline" id="line-147"><code><span class="comment">// initSessionTicketExt initializes the ticket and sets the state to `TicketInitialized`.</span></code></span>
+<span class="codeline" id="line-148"><code><span class="keyword">func</span> (<label for="r32" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r33" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.initSessionTicketExt^bd810.html" class="ident">initSessionTicketExt</a></label>(<label for="r34" class="ident">session</label> *<a href="ticket.go.html#line-21" class="ident">SessionState</a>, <label for="r35" class="ident">ticket</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) {</code></span>
+<span class="codeline" id="line-149"><code>	<label for="r32" class="ident">s</label>.<a href="#line-120" class="ident">assertNotLocked</a>(<span class="lit-string">"initSessionTicketExt"</span>)</code></span>
+<span class="codeline" id="line-150"><code>	<label for="r32" class="ident">s</label>.<a href="#line-106" class="ident">assertHelloNotBuilt</a>(<span class="lit-string">"initSessionTicketExt"</span>)</code></span>
+<span class="codeline" id="line-151"><code>	<label for="r32" class="ident">s</label>.<a href="#line-112" class="ident">assertControllerState</a>(<span class="lit-string">"initSessionTicketExt"</span>, <a href="#line-21" class="ident">NoSession</a>)</code></span>
+<span class="codeline" id="line-152"><code>	<a href="u_common.go.html#line-773" class="ident">panicOnNil</a>(<span class="lit-string">"initSessionTicketExt"</span>, <label for="r34" class="ident">session</label>, <label for="r35" class="ident">ticket</label>)</code></span>
+<span class="codeline" id="line-153"><code>	<span class="keyword">if</span> <label for="r32" class="ident">s</label>.<a href="#line-34" class="ident">sessionTicketExt</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-154"><code>		<label for="r32" class="ident">s</label>.<a href="#line-126" class="ident">assertCanSkip</a>(<span class="lit-string">"initSessionTicketExt"</span>, <span class="lit-string">"session ticket extension"</span>)</code></span>
+<span class="codeline" id="line-155"><code>		<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-156"><code>	}</code></span>
+<span class="codeline" id="line-157"><code>	<a href="#line-141" class="ident">initializationGuard</a>(<label for="r32" class="ident">s</label>.<a href="#line-34" class="ident">sessionTicketExt</a>, <span class="keyword">func</span>(<label for="r36" class="ident">e</label> <a href="u_session_ticket.go.html#line-5" class="ident">ISessionTicketExtension</a>) {</code></span>
+<span class="codeline" id="line-158"><code>		<label for="r32" class="ident">s</label>.<a href="#line-34" class="ident">sessionTicketExt</a>.<a href="u_session_ticket.go.html#line-13" class="ident">InitializeByUtls</a>(<label for="r34" class="ident">session</label>, <label for="r35" class="ident">ticket</label>)</code></span>
+<span class="codeline" id="line-159"><code>	})</code></span>
+<span class="codeline" id="line-160"><code>	<label for="r32" class="ident">s</label>.<a href="#line-43" class="ident">state</a> = <a href="#line-22" class="ident">SessionTicketExtInitialized</a></code></span>
+<span class="codeline" id="line-161"><code>}</code></span>
+<span class="codeline" id="line-162"><code></code></span>
+<span class="codeline" id="line-163"><code><span class="comment">// initPSK initializes the PSK extension using a valid session. The PSK extension</span></code></span>
+<span class="codeline" id="line-164"><code><span class="comment">// should not be initialized previously, and the parameters must not be nil;</span></code></span>
+<span class="codeline" id="line-165"><code><span class="comment">// otherwise, this function will trigger a panic.</span></code></span>
+<span class="codeline" id="line-166"><code><span class="keyword">func</span> (<label for="r37" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r38" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.initPskExt^a00ea.html" class="ident">initPskExt</a></label>(<label for="r39" class="ident">session</label> *<a href="ticket.go.html#line-21" class="ident">SessionState</a>, <label for="r40" class="ident">earlySecret</label> *<a href="../../../../pkg/github.com/refraction-networking/utls/internal/tls13.html" class="ident i2">tls13</a>.<a href="internal/tls13/tls13.go.html#line-69" class="ident">EarlySecret</a>, <label for="r41" class="ident">binderKey</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r42" class="ident">pskIdentities</label> []<a href="common.go.html#line-179" class="ident">pskIdentity</a>) {</code></span>
+<span class="codeline" id="line-167"><code>	<label for="r37" class="ident">s</label>.<a href="#line-120" class="ident">assertNotLocked</a>(<span class="lit-string">"initPskExt"</span>)</code></span>
+<span class="codeline" id="line-168"><code>	<label for="r37" class="ident">s</label>.<a href="#line-106" class="ident">assertHelloNotBuilt</a>(<span class="lit-string">"initPskExt"</span>)</code></span>
+<span class="codeline" id="line-169"><code>	<label for="r37" class="ident">s</label>.<a href="#line-112" class="ident">assertControllerState</a>(<span class="lit-string">"initPskExt"</span>, <a href="#line-21" class="ident">NoSession</a>)</code></span>
+<span class="codeline" id="line-170"><code>	<a href="u_common.go.html#line-773" class="ident">panicOnNil</a>(<span class="lit-string">"initPskExt"</span>, <label for="r39" class="ident">session</label>, <label for="r40" class="ident">earlySecret</label>, <label for="r42" class="ident">pskIdentities</label>)</code></span>
+<span class="codeline" id="line-171"><code>	<span class="keyword">if</span> <label for="r37" class="ident">s</label>.<a href="#line-37" class="ident">pskExtension</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-172"><code>		<label for="r37" class="ident">s</label>.<a href="#line-126" class="ident">assertCanSkip</a>(<span class="lit-string">"initPskExt"</span>, <span class="lit-string">"pre-shared key extension"</span>)</code></span>
+<span class="codeline" id="line-173"><code>		<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-174"><code>	}</code></span>
+<span class="codeline" id="line-175"><code>	<a href="#line-141" class="ident">initializationGuard</a>(<label for="r37" class="ident">s</label>.<a href="#line-37" class="ident">pskExtension</a>, <span class="keyword">func</span>(<label for="r43" class="ident">e</label> <a href="u_pre_shared_key.go.html#line-71" class="ident">PreSharedKeyExtension</a>) {</code></span>
+<span class="codeline" id="line-176"><code>		<label for="r44" class="ident">publicPskIdentities</label> := <a href="u_common.go.html#line-765" class="ident">mapSlice</a>(<label for="r42" class="ident">pskIdentities</label>, <span class="keyword">func</span>(<label for="r45" class="ident">private</label> <a href="common.go.html#line-179" class="ident">pskIdentity</a>) <a href="u_public.go.html#line-662" class="ident">PskIdentity</a> {</code></span>
+<span class="codeline" id="line-177"><code>			<span class="keyword">return</span> <a href="u_public.go.html#line-662" class="ident">PskIdentity</a>{</code></span>
+<span class="codeline" id="line-178"><code>				<a href="u_public.go.html#line-663" class="ident">Label</a>:               <label for="r45" class="ident">private</label>.<a href="common.go.html#line-180" class="ident">label</a>,</code></span>
+<span class="codeline" id="line-179"><code>				<a href="u_public.go.html#line-664" class="ident">ObfuscatedTicketAge</a>: <label for="r45" class="ident">private</label>.<a href="common.go.html#line-181" class="ident">obfuscatedTicketAge</a>,</code></span>
+<span class="codeline" id="line-180"><code>			}</code></span>
+<span class="codeline" id="line-181"><code>		})</code></span>
+<span class="codeline" id="line-182"><code>		<label for="r43" class="ident">e</label>.<a href="u_pre_shared_key.go.html#line-82" class="ident">InitializeByUtls</a>(<label for="r39" class="ident">session</label>, <label for="r40" class="ident">earlySecret</label>.<a href="internal/tls13/u_tls13.go.html#line-12" class="ident">Secret</a>(), <label for="r41" class="ident">binderKey</label>, <label for="r44" class="ident">publicPskIdentities</label>)</code></span>
+<span class="codeline" id="line-183"><code>	})</code></span>
+<span class="codeline" id="line-184"><code></code></span>
+<span class="codeline" id="line-185"><code>	<label for="r37" class="ident">s</label>.<a href="#line-43" class="ident">state</a> = <a href="#line-24" class="ident">PskExtInitialized</a></code></span>
+<span class="codeline" id="line-186"><code>}</code></span>
+<span class="codeline" id="line-187"><code></code></span>
+<span class="codeline" id="line-188"><code><span class="comment">// setSessionTicketToUConn write the ticket states from the session ticket extension to the client hello and handshake state.</span></code></span>
+<span class="codeline" id="line-189"><code><span class="keyword">func</span> (<label for="r46" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r47" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.setSessionTicketToUConn^beff8.html" class="ident">setSessionTicketToUConn</a></label>() {</code></span>
+<span class="codeline" id="line-190"><code>	<a href="u_common.go.html#line-799" class="ident">uAssert</a>(<label for="r46" class="ident">s</label>.<a href="#line-34" class="ident">sessionTicketExt</a> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; <label for="r46" class="ident">s</label>.<a href="#line-43" class="ident">state</a> == <a href="#line-22" class="ident">SessionTicketExtInitialized</a>, <span class="lit-string">"tls: setSessionTicketExt failed: invalid state"</span>)</code></span>
+<span class="codeline" id="line-191"><code>	<label for="r46" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-30" class="ident">Session</a> = <label for="r46" class="ident">s</label>.<a href="#line-34" class="ident">sessionTicketExt</a>.<a href="u_session_ticket.go.html#line-15" class="ident">GetSession</a>()</code></span>
+<span class="codeline" id="line-192"><code>	<label for="r46" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-28" class="ident">Hello</a>.<a href="u_public.go.html#line-370" class="ident">SessionTicket</a> = <label for="r46" class="ident">s</label>.<a href="#line-34" class="ident">sessionTicketExt</a>.<a href="u_session_ticket.go.html#line-17" class="ident">GetTicket</a>()</code></span>
+<span class="codeline" id="line-193"><code>	<label for="r46" class="ident">s</label>.<a href="#line-43" class="ident">state</a> = <a href="#line-23" class="ident">SessionTicketExtAllSet</a></code></span>
+<span class="codeline" id="line-194"><code>}</code></span>
+<span class="codeline" id="line-195"><code></code></span>
+<span class="codeline" id="line-196"><code><span class="comment">// setPskToUConn sets the psk to the handshake state and client hello.</span></code></span>
+<span class="codeline" id="line-197"><code><span class="keyword">func</span> (<label for="r48" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r49" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.setPskToUConn^cddfa.html" class="ident">setPskToUConn</a></label>() {</code></span>
+<span class="codeline" id="line-198"><code>	<a href="u_common.go.html#line-799" class="ident">uAssert</a>(<label for="r48" class="ident">s</label>.<a href="#line-37" class="ident">pskExtension</a> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; (<label for="r48" class="ident">s</label>.<a href="#line-43" class="ident">state</a> == <a href="#line-24" class="ident">PskExtInitialized</a> || <label for="r48" class="ident">s</label>.<a href="#line-43" class="ident">state</a> == <a href="#line-25" class="ident">PskExtAllSet</a>), <span class="lit-string">"tls: setPskToUConn failed: invalid state"</span>)</code></span>
+<span class="codeline" id="line-199"><code>	<label for="r50" class="ident">pskCommon</label> := <label for="r48" class="ident">s</label>.<a href="#line-37" class="ident">pskExtension</a>.<a href="u_pre_shared_key.go.html#line-85" class="ident">GetPreSharedKeyCommon</a>()</code></span>
+<span class="codeline" id="line-200"><code>	<span class="keyword">if</span> <label for="r48" class="ident">s</label>.<a href="#line-43" class="ident">state</a> == <a href="#line-24" class="ident">PskExtInitialized</a> {</code></span>
+<span class="codeline" id="line-201"><code>		<label for="r48" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-33" class="ident">State13</a>.<a href="u_public.go.html#line-52" class="ident">EarlySecret</a> = <label for="r50" class="ident">pskCommon</label>.<a href="u_pre_shared_key.go.html#line-17" class="ident">EarlySecret</a></code></span>
+<span class="codeline" id="line-202"><code>		<label for="r48" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-30" class="ident">Session</a> = <label for="r50" class="ident">pskCommon</label>.<a href="u_pre_shared_key.go.html#line-18" class="ident">Session</a></code></span>
+<span class="codeline" id="line-203"><code>		<label for="r48" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-28" class="ident">Hello</a>.<a href="u_public.go.html#line-383" class="ident">PskIdentities</a> = <label for="r50" class="ident">pskCommon</label>.<a href="u_pre_shared_key.go.html#line-14" class="ident">Identities</a></code></span>
+<span class="codeline" id="line-204"><code>		<label for="r48" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-28" class="ident">Hello</a>.<a href="u_public.go.html#line-384" class="ident">PskBinders</a> = <label for="r50" class="ident">pskCommon</label>.<a href="u_pre_shared_key.go.html#line-15" class="ident">Binders</a></code></span>
+<span class="codeline" id="line-205"><code>	} <span class="keyword">else</span> <span class="keyword">if</span> <label for="r48" class="ident">s</label>.<a href="#line-43" class="ident">state</a> == <a href="#line-25" class="ident">PskExtAllSet</a> {</code></span>
+<span class="codeline" id="line-206"><code>		<a href="u_common.go.html#line-799" class="ident">uAssert</a>(<label for="r48" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-30" class="ident">Session</a> == <label for="r50" class="ident">pskCommon</label>.<a href="u_pre_shared_key.go.html#line-18" class="ident">Session</a> &amp;&amp; <a href="u_common.go.html#line-805" class="ident">sliceEq</a>(<label for="r48" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-33" class="ident">State13</a>.<a href="u_public.go.html#line-52" class="ident">EarlySecret</a>, <label for="r50" class="ident">pskCommon</label>.<a href="u_pre_shared_key.go.html#line-17" class="ident">EarlySecret</a>) &amp;&amp;</code></span>
+<span class="codeline" id="line-207"><code>			<a href="u_common.go.html#line-790" class="ident">allTrue</a>(<label for="r48" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-28" class="ident">Hello</a>.<a href="u_public.go.html#line-383" class="ident">PskIdentities</a>, <span class="keyword">func</span>(<label for="r51" class="ident">i</label> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r52" class="ident">psk</label> *<a href="u_public.go.html#line-662" class="ident">PskIdentity</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-208"><code>				<span class="keyword">return</span> <label for="r50" class="ident">pskCommon</label>.<a href="u_pre_shared_key.go.html#line-14" class="ident">Identities</a>[<label for="r51" class="ident">i</label>].<a href="u_public.go.html#line-664" class="ident">ObfuscatedTicketAge</a> == <label for="r52" class="ident">psk</label>.<a href="u_public.go.html#line-664" class="ident">ObfuscatedTicketAge</a> &amp;&amp; <a href="u_common.go.html#line-805" class="ident">sliceEq</a>(<label for="r50" class="ident">pskCommon</label>.<a href="u_pre_shared_key.go.html#line-14" class="ident">Identities</a>[<label for="r51" class="ident">i</label>].<a href="u_public.go.html#line-663" class="ident">Label</a>, <label for="r52" class="ident">psk</label>.<a href="u_public.go.html#line-663" class="ident">Label</a>)</code></span>
+<span class="codeline" id="line-209"><code>			}), <span class="lit-string">"tls: setPskToUConn failed: only binders are allowed to change on state `PskAllSet`"</span>)</code></span>
+<span class="codeline" id="line-210"><code>	}</code></span>
+<span class="codeline" id="line-211"><code>	<label for="r48" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-33" class="ident">State13</a>.<a href="u_public.go.html#line-53" class="ident">BinderKey</a> = <label for="r50" class="ident">pskCommon</label>.<a href="u_pre_shared_key.go.html#line-16" class="ident">BinderKey</a></code></span>
+<span class="codeline" id="line-212"><code>	<label for="r48" class="ident">s</label>.<a href="#line-43" class="ident">state</a> = <a href="#line-25" class="ident">PskExtAllSet</a></code></span>
+<span class="codeline" id="line-213"><code>}</code></span>
+<span class="codeline" id="line-214"><code></code></span>
+<span class="codeline" id="line-215"><code><span class="comment">// shouldUpdateBinders determines whether binders should be updated based on the presence of an initialized psk extension.</span></code></span>
+<span class="codeline" id="line-216"><code><span class="comment">// This function returns true if an initialized psk extension exists. Binders are allowed to be updated when the state is `PskAllSet`,</span></code></span>
+<span class="codeline" id="line-217"><code><span class="comment">// as the `BuildHandshakeState` function can be called multiple times in this case. However, it's important to note that</span></code></span>
+<span class="codeline" id="line-218"><code><span class="comment">// the session state, apart from binders, should not be altered more than once.</span></code></span>
+<span class="codeline" id="line-219"><code><span class="keyword">func</span> (<label for="r53" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r54" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.shouldUpdateBinders^e9186.html" class="ident">shouldUpdateBinders</a></label>() <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-220"><code>	<span class="keyword">if</span> <label for="r53" class="ident">s</label>.<a href="#line-37" class="ident">pskExtension</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-221"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-222"><code>	}</code></span>
+<span class="codeline" id="line-223"><code>	<span class="keyword">return</span> (<label for="r53" class="ident">s</label>.<a href="#line-43" class="ident">state</a> == <a href="#line-24" class="ident">PskExtInitialized</a> || <label for="r53" class="ident">s</label>.<a href="#line-43" class="ident">state</a> == <a href="#line-25" class="ident">PskExtAllSet</a>)</code></span>
+<span class="codeline" id="line-224"><code>}</code></span>
+<span class="codeline" id="line-225"><code></code></span>
+<span class="codeline" id="line-226"><code><span class="keyword">func</span> (<label for="r55" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r56" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.updateBinders^6b28a.html" class="ident">updateBinders</a></label>() {</code></span>
+<span class="codeline" id="line-227"><code>	<a href="u_common.go.html#line-799" class="ident">uAssert</a>(<label for="r55" class="ident">s</label>.<a href="#line-219" class="ident">shouldUpdateBinders</a>(), <span class="lit-string">"tls: updateBinders failed: shouldn't update binders"</span>)</code></span>
+<span class="codeline" id="line-228"><code>	<label for="r55" class="ident">s</label>.<a href="#line-37" class="ident">pskExtension</a>.<a href="u_pre_shared_key.go.html#line-89" class="ident">PatchBuiltHello</a>(<label for="r55" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-28" class="ident">Hello</a>)</code></span>
+<span class="codeline" id="line-229"><code>}</code></span>
+<span class="codeline" id="line-230"><code></code></span>
+<span class="codeline" id="line-231"><code><span class="keyword">func</span> (<label for="r57" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r58" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.overrideExtension^0d496.html" class="ident">overrideExtension</a></label>(<label for="r59" class="ident">extension</label> <a href="u_common.go.html#line-817" class="ident">Initializable</a>, <label for="r60" class="ident">override</label> <span class="keyword">func</span>(), <label for="r61" class="ident">initializedState</label> <a href="#line-19" class="ident">sessionControllerState</a>) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-232"><code>	<a href="u_common.go.html#line-773" class="ident">panicOnNil</a>(<span class="lit-string">"overrideExtension"</span>, <label for="r59" class="ident">extension</label>)</code></span>
+<span class="codeline" id="line-233"><code>	<label for="r57" class="ident">s</label>.<a href="#line-120" class="ident">assertNotLocked</a>(<span class="lit-string">"overrideExtension"</span>)</code></span>
+<span class="codeline" id="line-234"><code>	<label for="r57" class="ident">s</label>.<a href="#line-112" class="ident">assertControllerState</a>(<span class="lit-string">"overrideExtension"</span>, <a href="#line-21" class="ident">NoSession</a>)</code></span>
+<span class="codeline" id="line-235"><code>	<label for="r60" class="ident">override</label>()</code></span>
+<span class="codeline" id="line-236"><code>	<span class="keyword">if</span> <label for="r59" class="ident">extension</label>.<a href="u_common.go.html#line-820" class="ident">IsInitialized</a>() {</code></span>
+<span class="codeline" id="line-237"><code>		<label for="r57" class="ident">s</label>.<a href="#line-43" class="ident">state</a> = <label for="r61" class="ident">initializedState</label></code></span>
+<span class="codeline" id="line-238"><code>	}</code></span>
+<span class="codeline" id="line-239"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-240"><code>}</code></span>
+<span class="codeline" id="line-241"><code></code></span>
+<span class="codeline" id="line-242"><code><span class="comment">// overridePskExt allows the user of utls to customize the psk extension.</span></code></span>
+<span class="codeline" id="line-243"><code><span class="keyword">func</span> (<label for="r62" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r63" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.overridePskExt^829a7.html" class="ident">overridePskExt</a></label>(<label for="r64" class="ident">pskExt</label> <a href="u_pre_shared_key.go.html#line-71" class="ident">PreSharedKeyExtension</a>) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-244"><code>	<span class="keyword">return</span> <label for="r62" class="ident">s</label>.<a href="#line-231" class="ident">overrideExtension</a>(<label for="r64" class="ident">pskExt</label>, <span class="keyword">func</span>() { <label for="r62" class="ident">s</label>.<a href="#line-37" class="ident">pskExtension</a> = <label for="r64" class="ident">pskExt</label> }, <a href="#line-24" class="ident">PskExtInitialized</a>)</code></span>
+<span class="codeline" id="line-245"><code>}</code></span>
+<span class="codeline" id="line-246"><code></code></span>
+<span class="codeline" id="line-247"><code><span class="comment">// overridePskExt allows the user of utls to customize the session ticket extension.</span></code></span>
+<span class="codeline" id="line-248"><code><span class="keyword">func</span> (<label for="r65" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r66" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.overrideSessionTicketExt^e6412.html" class="ident">overrideSessionTicketExt</a></label>(<label for="r67" class="ident">sessionTicketExt</label> <a href="u_session_ticket.go.html#line-5" class="ident">ISessionTicketExtension</a>) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-249"><code>	<span class="keyword">return</span> <label for="r65" class="ident">s</label>.<a href="#line-231" class="ident">overrideExtension</a>(<label for="r67" class="ident">sessionTicketExt</label>, <span class="keyword">func</span>() { <label for="r65" class="ident">s</label>.<a href="#line-34" class="ident">sessionTicketExt</a> = <label for="r67" class="ident">sessionTicketExt</label> }, <a href="#line-22" class="ident">SessionTicketExtInitialized</a>)</code></span>
+<span class="codeline" id="line-250"><code>}</code></span>
+<span class="codeline" id="line-251"><code></code></span>
+<span class="codeline" id="line-252"><code><span class="comment">// syncSessionExts synchronizes the sessionController with the session-related</span></code></span>
+<span class="codeline" id="line-253"><code><span class="comment">// extensions from the extension list after applying client hello specs.</span></code></span>
+<span class="codeline" id="line-254"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-255"><code><span class="comment">//   - If the extension list is missing the session ticket extension or PSK</span></code></span>
+<span class="codeline" id="line-256"><code><span class="comment">//     extension, owned extensions are dropped and states are reset.</span></code></span>
+<span class="codeline" id="line-257"><code><span class="comment">//   - If the user provides a session ticket extension or PSK extension, the</span></code></span>
+<span class="codeline" id="line-258"><code><span class="comment">//     corresponding extension from the extension list will be replaced.</span></code></span>
+<span class="codeline" id="line-259"><code><span class="comment">//   - If the user doesn't provide session-related extensions, the extensions</span></code></span>
+<span class="codeline" id="line-260"><code><span class="comment">//     from the extension list will be utilized.</span></code></span>
+<span class="codeline" id="line-261"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-262"><code><span class="comment">// This function ensures that there is only one session ticket extension or PSK</span></code></span>
+<span class="codeline" id="line-263"><code><span class="comment">// extension, and that the PSK extension is the last extension in the extension</span></code></span>
+<span class="codeline" id="line-264"><code><span class="comment">// list.</span></code></span>
+<span class="codeline" id="line-265"><code><span class="keyword">func</span> (<label for="r68" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r69" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.syncSessionExts^76467.html" class="ident">syncSessionExts</a></label>() <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-266"><code>	<a href="u_common.go.html#line-799" class="ident">uAssert</a>(<label for="r68" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-36" class="ident">clientHelloBuildStatus</a> == <a href="u_conn.go.html#line-25" class="ident">NotBuilt</a>, <span class="lit-string">"tls: checkSessionExts failed: we can't modify the session after the clientHello is built"</span>)</code></span>
+<span class="codeline" id="line-267"><code>	<label for="r68" class="ident">s</label>.<a href="#line-120" class="ident">assertNotLocked</a>(<span class="lit-string">"checkSessionExts"</span>)</code></span>
+<span class="codeline" id="line-268"><code>	<label for="r68" class="ident">s</label>.<a href="#line-106" class="ident">assertHelloNotBuilt</a>(<span class="lit-string">"checkSessionExts"</span>)</code></span>
+<span class="codeline" id="line-269"><code>	<label for="r68" class="ident">s</label>.<a href="#line-112" class="ident">assertControllerState</a>(<span class="lit-string">"checkSessionExts"</span>, <a href="#line-21" class="ident">NoSession</a>, <a href="#line-22" class="ident">SessionTicketExtInitialized</a>, <a href="#line-24" class="ident">PskExtInitialized</a>)</code></span>
+<span class="codeline" id="line-270"><code>	<label for="r70" class="ident">numSessionExt</label> := <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-271"><code>	<label for="r71" class="ident">hasPskExt</label> := <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-272"><code>	<span class="keyword">for</span> <label for="r72" class="ident">i</label>, <label for="r73" class="ident">e</label> := <span class="keyword">range</span> <label for="r68" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-32" class="ident">Extensions</a> {</code></span>
+<span class="codeline" id="line-273"><code>		<span class="keyword">switch</span> ext := <label for="r73" class="ident">e</label>.(<span class="keyword">type</span>) {</code></span>
+<span class="codeline" id="line-274"><code>		<span class="keyword">case</span> <a href="u_session_ticket.go.html#line-5" class="ident">ISessionTicketExtension</a>:</code></span>
+<span class="codeline" id="line-275"><code>			<a href="u_common.go.html#line-799" class="ident">uAssert</a>(<label for="r70" class="ident">numSessionExt</label> == <span class="lit-number">0</span>, <span class="lit-string">"tls: checkSessionExts failed: multiple ISessionTicketExtensions in the extension list"</span>)</code></span>
+<span class="codeline" id="line-276"><code>			<span class="keyword">if</span> <label for="r68" class="ident">s</label>.<a href="#line-34" class="ident">sessionTicketExt</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-277"><code>				<span class="comment">// If there isn't a user-provided session ticket extension, use the one from the spec</span></code></span>
+<span class="codeline" id="line-278"><code>				<label for="r68" class="ident">s</label>.<a href="#line-34" class="ident">sessionTicketExt</a> = <label for="r74" class="ident">ext</label></code></span>
+<span class="codeline" id="line-279"><code>			} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-280"><code>				<span class="comment">// Otherwise, replace the one in the extension list with the user-provided one</span></code></span>
+<span class="codeline" id="line-281"><code>				<label for="r68" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-32" class="ident">Extensions</a>[<label for="r72" class="ident">i</label>] = <label for="r68" class="ident">s</label>.<a href="#line-34" class="ident">sessionTicketExt</a></code></span>
+<span class="codeline" id="line-282"><code>			}</code></span>
+<span class="codeline" id="line-283"><code>			<label for="r70" class="ident">numSessionExt</label> += <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-284"><code>		<span class="keyword">case</span> <a href="u_pre_shared_key.go.html#line-71" class="ident">PreSharedKeyExtension</a>:</code></span>
+<span class="codeline" id="line-285"><code>			<a href="u_common.go.html#line-799" class="ident">uAssert</a>(<label for="r72" class="ident">i</label> == <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r68" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-32" class="ident">Extensions</a>)-<span class="lit-number">1</span>, <span class="lit-string">"tls: checkSessionExts failed: PreSharedKeyExtension must be the last extension"</span>)</code></span>
+<span class="codeline" id="line-286"><code>			<span class="keyword">if</span> <label for="r68" class="ident">s</label>.<a href="#line-37" class="ident">pskExtension</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-287"><code>				<span class="comment">// If there isn't a user-provided psk extension, use the one from the spec</span></code></span>
+<span class="codeline" id="line-288"><code>				<label for="r68" class="ident">s</label>.<a href="#line-37" class="ident">pskExtension</a> = <label for="r75" class="ident">ext</label></code></span>
+<span class="codeline" id="line-289"><code>			} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-290"><code>				<span class="comment">// Otherwise, replace the one in the extension list with the user-provided one</span></code></span>
+<span class="codeline" id="line-291"><code>				<label for="r68" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-32" class="ident">Extensions</a>[<label for="r72" class="ident">i</label>] = <label for="r68" class="ident">s</label>.<a href="#line-37" class="ident">pskExtension</a></code></span>
+<span class="codeline" id="line-292"><code>			}</code></span>
+<span class="codeline" id="line-293"><code>			<label for="r68" class="ident">s</label>.<a href="#line-37" class="ident">pskExtension</a>.<a href="u_pre_shared_key.go.html#line-78" class="ident">SetOmitEmptyPsk</a>(<label for="r68" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="conn.go.html#line-43" class="ident">config</a>.<a href="common.go.html#line-712" class="ident">OmitEmptyPsk</a>)</code></span>
+<span class="codeline" id="line-294"><code>			<label for="r71" class="ident">hasPskExt</label> = <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-295"><code>		}</code></span>
+<span class="codeline" id="line-296"><code>	}</code></span>
+<span class="codeline" id="line-297"><code>	<span class="keyword">if</span> <label for="r70" class="ident">numSessionExt</label> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-298"><code>		<span class="keyword">if</span> <label for="r68" class="ident">s</label>.<a href="#line-43" class="ident">state</a> == <a href="#line-22" class="ident">SessionTicketExtInitialized</a> {</code></span>
+<span class="codeline" id="line-299"><code>			<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"tls: checkSessionExts failed: the user provided a session ticket, but the specification doesn't contain one"</span>)</code></span>
+<span class="codeline" id="line-300"><code>		}</code></span>
+<span class="codeline" id="line-301"><code>		<label for="r68" class="ident">s</label>.<a href="#line-34" class="ident">sessionTicketExt</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-302"><code>		<label for="r68" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-30" class="ident">Session</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-303"><code>		<label for="r68" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-28" class="ident">Hello</a>.<a href="u_public.go.html#line-370" class="ident">SessionTicket</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-304"><code>	}</code></span>
+<span class="codeline" id="line-305"><code>	<span class="keyword">if</span> !<label for="r71" class="ident">hasPskExt</label> {</code></span>
+<span class="codeline" id="line-306"><code>		<span class="keyword">if</span> <label for="r68" class="ident">s</label>.<a href="#line-43" class="ident">state</a> == <a href="#line-24" class="ident">PskExtInitialized</a> {</code></span>
+<span class="codeline" id="line-307"><code>			<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"tls: checkSessionExts failed: the user provided a psk, but the specification doesn't contain one"</span>)</code></span>
+<span class="codeline" id="line-308"><code>		}</code></span>
+<span class="codeline" id="line-309"><code>		<label for="r68" class="ident">s</label>.<a href="#line-37" class="ident">pskExtension</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-310"><code>		<label for="r68" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-33" class="ident">State13</a>.<a href="u_public.go.html#line-53" class="ident">BinderKey</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-311"><code>		<label for="r68" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-33" class="ident">State13</a>.<a href="u_public.go.html#line-52" class="ident">EarlySecret</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-312"><code>		<label for="r68" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-30" class="ident">Session</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-313"><code>		<label for="r68" class="ident">s</label>.<a href="#line-40" class="ident">uconnRef</a>.<a href="u_conn.go.html#line-39" class="ident">HandshakeState</a>.<a href="u_public.go.html#line-28" class="ident">Hello</a>.<a href="u_public.go.html#line-383" class="ident">PskIdentities</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-314"><code>	}</code></span>
+<span class="codeline" id="line-315"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-316"><code>}</code></span>
+<span class="codeline" id="line-317"><code></code></span>
+<span class="codeline" id="line-318"><code><span class="comment">// onEnterLoadSessionCheck is intended to be invoked upon entering the `conn.loadSession` function.</span></code></span>
+<span class="codeline" id="line-319"><code><span class="comment">// It is designed to ensure the correctness of the utls implementation. If the utls implementation is found to be incorrect, this function will trigger a panic.</span></code></span>
+<span class="codeline" id="line-320"><code><span class="keyword">func</span> (<label for="r76" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r77" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.onEnterLoadSessionCheck^5c10b.html" class="ident">onEnterLoadSessionCheck</a></label>() {</code></span>
+<span class="codeline" id="line-321"><code>	<a href="u_common.go.html#line-799" class="ident">uAssert</a>(!<label for="r76" class="ident">s</label>.<a href="#line-52" class="ident">locked</a>, <span class="lit-string">"tls: LoadSessionCoordinator.onEnterLoadSessionCheck failed: session is set and locked, no call to loadSession is allowed"</span>)</code></span>
+<span class="codeline" id="line-322"><code>	<span class="keyword">switch</span> <label for="r76" class="ident">s</label>.<a href="#line-46" class="ident">loadSessionTracker</a> {</code></span>
+<span class="codeline" id="line-323"><code>	<span class="keyword">case</span> <a href="#line-14" class="ident">UtlsAboutToCall</a>, <a href="#line-13" class="ident">NeverCalled</a>:</code></span>
+<span class="codeline" id="line-324"><code>		<label for="r76" class="ident">s</label>.<a href="#line-49" class="ident">callingLoadSession</a> = <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-325"><code>	<span class="keyword">case</span> <a href="#line-15" class="ident">CalledByULoadSession</a>, <a href="#line-16" class="ident">CalledByGoTLS</a>:</code></span>
+<span class="codeline" id="line-326"><code>		<a href="../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<span class="lit-string">"tls: LoadSessionCoordinator.onEnterLoadSessionCheck failed: you must not call loadSession() twice"</span>)</code></span>
+<span class="codeline" id="line-327"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-328"><code>		<a href="../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<span class="lit-string">"tls: LoadSessionCoordinator.onEnterLoadSessionCheck failed: unimplemented state"</span>)</code></span>
+<span class="codeline" id="line-329"><code>	}</code></span>
+<span class="codeline" id="line-330"><code>}</code></span>
+<span class="codeline" id="line-331"><code></code></span>
+<span class="codeline" id="line-332"><code><span class="comment">// onLoadSessionReturn is intended to be invoked upon returning from the `conn.loadSession` function.</span></code></span>
+<span class="codeline" id="line-333"><code><span class="comment">// It serves as a validation step for the correctness of the underlying utls implementation.</span></code></span>
+<span class="codeline" id="line-334"><code><span class="comment">// If the utls implementation is incorrect, this function will trigger a panic.</span></code></span>
+<span class="codeline" id="line-335"><code><span class="keyword">func</span> (<label for="r78" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r79" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.onLoadSessionReturn^2dde2.html" class="ident">onLoadSessionReturn</a></label>() {</code></span>
+<span class="codeline" id="line-336"><code>	<a href="u_common.go.html#line-799" class="ident">uAssert</a>(<label for="r78" class="ident">s</label>.<a href="#line-49" class="ident">callingLoadSession</a>, <span class="lit-string">"tls: LoadSessionCoordinator.onLoadSessionReturn failed: it's not loading sessions, perhaps this function is not being called by loadSession."</span>)</code></span>
+<span class="codeline" id="line-337"><code>	<span class="keyword">switch</span> <label for="r78" class="ident">s</label>.<a href="#line-46" class="ident">loadSessionTracker</a> {</code></span>
+<span class="codeline" id="line-338"><code>	<span class="keyword">case</span> <a href="#line-13" class="ident">NeverCalled</a>:</code></span>
+<span class="codeline" id="line-339"><code>		<label for="r78" class="ident">s</label>.<a href="#line-46" class="ident">loadSessionTracker</a> = <a href="#line-16" class="ident">CalledByGoTLS</a></code></span>
+<span class="codeline" id="line-340"><code>	<span class="keyword">case</span> <a href="#line-14" class="ident">UtlsAboutToCall</a>:</code></span>
+<span class="codeline" id="line-341"><code>		<label for="r78" class="ident">s</label>.<a href="#line-46" class="ident">loadSessionTracker</a> = <a href="#line-15" class="ident">CalledByULoadSession</a></code></span>
+<span class="codeline" id="line-342"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-343"><code>		<a href="../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<span class="lit-string">"tls: LoadSessionCoordinator.onLoadSessionReturn failed: unimplemented state"</span>)</code></span>
+<span class="codeline" id="line-344"><code>	}</code></span>
+<span class="codeline" id="line-345"><code>	<label for="r78" class="ident">s</label>.<a href="#line-49" class="ident">callingLoadSession</a> = <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-346"><code>}</code></span>
+<span class="codeline" id="line-347"><code></code></span>
+<span class="codeline" id="line-348"><code><span class="comment">// shouldLoadSessionWriteBinders checks if `conn.loadSession` should proceed to write binders and marshal the client hello. If the utls implementation</span></code></span>
+<span class="codeline" id="line-349"><code><span class="comment">// is incorrect, this function will trigger a panic.</span></code></span>
+<span class="codeline" id="line-350"><code><span class="keyword">func</span> (<label for="r80" class="ident">s</label> *<a href="#line-32" class="ident">sessionController</a>) <label for="r81" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..sessionController^323a9.shouldLoadSessionWriteBinders^84ae3.html" class="ident">shouldLoadSessionWriteBinders</a></label>() <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-351"><code>	<a href="u_common.go.html#line-799" class="ident">uAssert</a>(<label for="r80" class="ident">s</label>.<a href="#line-49" class="ident">callingLoadSession</a>, <span class="lit-string">"tls: shouldWriteBinders failed: LoadSessionCoordinator isn't loading sessions, perhaps this function is not being called by loadSession."</span>)</code></span>
+<span class="codeline" id="line-352"><code></code></span>
+<span class="codeline" id="line-353"><code>	<span class="keyword">switch</span> <label for="r80" class="ident">s</label>.<a href="#line-46" class="ident">loadSessionTracker</a> {</code></span>
+<span class="codeline" id="line-354"><code>	<span class="keyword">case</span> <a href="#line-13" class="ident">NeverCalled</a>:</code></span>
+<span class="codeline" id="line-355"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-356"><code>	<span class="keyword">case</span> <a href="#line-14" class="ident">UtlsAboutToCall</a>:</code></span>
+<span class="codeline" id="line-357"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-358"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-359"><code>		<a href="../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<span class="lit-string">"tls: shouldWriteBinders failed: unimplemented state"</span>)</code></span>
+<span class="codeline" id="line-360"><code>	}</code></span>
+<span class="codeline" id="line-361"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

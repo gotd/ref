@@ -5,24 +5,36 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto/x509.VerifyOptions.CurrentTime</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/crypto/x509.html">crypto/x509</a>.<a href="../../src/crypto/x509/verify.go.html#line-176">VerifyOptions</a>.<a href="../../src/crypto/x509/verify.go.html#line-191">CurrentTime</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/crypto/x509.html">crypto/x509</a>.<a href="../../src/crypto/x509/verify.go.html#line-192">VerifyOptions</a>.<a href="../../src/crypto/x509/verify.go.html#line-207">CurrentTime</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">4 uses</span>
+<span class="title">15 uses</span>
 
 	crypto/x509 (current package)
-		<a href="../../src/crypto/x509/verify.go.html#line-191">verify.go#L191</a>: 	<b>CurrentTime</b> time.Time
-		<a href="../../src/crypto/x509/verify.go.html#line-570" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-570">#L570</a>: 	now := opts.<b>CurrentTime</b>
+		<a href="../../src/crypto/x509/verify.go.html#line-207">verify.go#L207</a>: 	<b>CurrentTime</b> time.Time
+		<a href="../../src/crypto/x509/verify.go.html#line-455" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-455">#L455</a>: 	now := opts.<b>CurrentTime</b>
 
 	<a href="../../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../../src/crypto/tls/handshake_client.go.html#line-984">handshake_client.go#L984</a>: 			<b>CurrentTime</b>:   c.config.time(),
-		<a href="../../src/crypto/tls/handshake_server.go.html#line-888">handshake_server.go#L888</a>: 			<b>CurrentTime</b>:   c.config.time(),
+		<a href="../../src/crypto/tls/common.go.html#line-1873">common.go#L1873</a>: 			return opts.<b>CurrentTime</b>.Before(cert.NotBefore) || opts.<b>CurrentTime</b>.After(cert.NotAfter)
+		<a href="../../src/crypto/tls/handshake_client.go.html#line-416">handshake_client.go#L416</a>: 			<b>CurrentTime</b>: c.config.time(),
+		<a href="../../src/crypto/tls/handshake_client.go.html#line-1127" class="path-duplicate">handshake_client.go</a><a href="../../src/crypto/tls/handshake_client.go.html#line-1127">#L1127</a>: 				<b>CurrentTime</b>:   c.config.time(),
+		<a href="../../src/crypto/tls/handshake_client.go.html#line-1150" class="path-duplicate">handshake_client.go</a><a href="../../src/crypto/tls/handshake_client.go.html#line-1150">#L1150</a>: 			<b>CurrentTime</b>:   c.config.time(),
+		<a href="../../src/crypto/tls/handshake_server.go.html#line-527">handshake_server.go#L527</a>: 		<b>CurrentTime</b>: c.config.time(),
+		<a href="../../src/crypto/tls/handshake_server.go.html#line-970" class="path-duplicate">handshake_server.go</a><a href="../../src/crypto/tls/handshake_server.go.html#line-970">#L970</a>: 			<b>CurrentTime</b>:   c.config.time(),
+		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-374">handshake_server_tls13.go#L374</a>: 			<b>CurrentTime</b>: c.config.time(),
+
+	<a href="../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1152">handshake_client.go#L1152</a>: 				<b>CurrentTime</b>: c.config.time(),
+		<a href="../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1159" class="path-duplicate">handshake_client.go</a><a href="../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1159">#L1159</a>: 				opts.<b>CurrentTime</b> = certs[0].NotAfter
+		<a href="../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1188" class="path-duplicate">handshake_client.go</a><a href="../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1188">#L1188</a>: 			<b>CurrentTime</b>: c.config.time(),
+		<a href="../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1194" class="path-duplicate">handshake_client.go</a><a href="../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1194">#L1194</a>: 			opts.<b>CurrentTime</b> = certs[0].NotAfter
+		<a href="../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-938">handshake_server.go#L938</a>: 			<b>CurrentTime</b>:   c.config.time(),
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

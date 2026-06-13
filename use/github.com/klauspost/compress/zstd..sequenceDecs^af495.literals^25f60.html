@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.sequenceDecs.literals</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-63">sequenceDecs</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-69">literals</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">40 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-472">blockdec.go#L472</a>: 	hist.decoders.<b>literals</b> = literals
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-488" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-488">#L488</a>: 		b.dst = append(b.dst, hist.decoders.<b>literals</b>...)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-626" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-626">#L626</a>: 		println("Literals:", len(seqs.<b>literals</b>), "hash:", xxhash.Sum64(seqs.<b>literals</b>), "and", seqs.nSeqs, "sequences.")
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-661" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-661">#L661</a>: 		hist.decoders.seqSize = len(hist.decoders.<b>literals</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-709" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-709">#L709</a>: 	hist.decoders.out, hist.decoders.<b>literals</b> = nil, nil
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-692">decoder.go#L692</a>: 			hist.decoders.<b>literals</b> = block.async.literals
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-785" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-785">#L785</a>: 				hist.decoders.<b>literals</b> = block.async.literals
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-841" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-841">#L841</a>: 				block.async.literals = hist.decoders.<b>literals</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-69">seqdec.go#L69</a>: 	<b>literals</b>     []byte
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-132" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-132">#L132</a>: 		printf("Execute %d seqs with hist %d, dict %d, literals: %d into %d bytes\n", len(seqs), len(hist), len(s.dict), len(s.<b>literals</b>), s.seqSize)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-140" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-140">#L140</a>: 		copy(out[t:], s.<b>literals</b>[:seq.ll])
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-142" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-142">#L142</a>: 		s.<b>literals</b> = s.<b>literals</b>[seq.ll:]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-208" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-208">#L208</a>: 	copy(out[t:], s.<b>literals</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-210" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-210">#L210</a>: 		t += len(s.<b>literals</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-312" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-312">#L312</a>: 		if ll &gt; len(s.<b>literals</b>) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-313" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-313">#L313</a>: 			return fmt.Errorf("unexpected literal count, want %d bytes, but only %d is available", ll, len(s.<b>literals</b>))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-338" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-338">#L338</a>: 		out = append(out, s.<b>literals</b>[:ll]...)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-339" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-339">#L339</a>: 		s.<b>literals</b> = s.<b>literals</b>[ll:]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-427" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-427">#L427</a>: 	if size := len(s.<b>literals</b>) + len(out) - startSize; size &gt; maxBlockSize {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-432" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-432">#L432</a>: 	s.out = append(out, s.<b>literals</b>...)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-91">seqdec_amd64.go#L91</a>: 		litRemain:   len(s.<b>literals</b>),
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-94" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-94">#L94</a>: 		literals:    s.<b>literals</b>,
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-158" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-158">#L158</a>: 	s.<b>literals</b> = s.<b>literals</b>[ctx.litPosition:]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-163" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-163">#L163</a>: 	s.out = append(s.out, s.<b>literals</b>...)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-165" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-165">#L165</a>: 		t += len(s.<b>literals</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-247" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-247">#L247</a>: 		litRemain: len(s.<b>literals</b>),
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-293" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-293">#L293</a>: 			len(s.<b>literals</b>), len(s.<b>literals</b>)-ctx.litRemain)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-347" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-347">#L347</a>: 		printf("Execute %d seqs with literals: %d into %d bytes\n", len(seqs), len(s.<b>literals</b>), s.seqSize)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-360" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-360">#L360</a>: 		literals:    s.<b>literals</b>,
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-364" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-364">#L364</a>: 	if cap(s.<b>literals</b>) &lt; len(s.<b>literals</b>)+compressedBlockOverAlloc {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-373" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-373">#L373</a>: 	s.<b>literals</b> = s.<b>literals</b>[ctx.litPosition:]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-377" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-377">#L377</a>: 	copy(out[t:], s.<b>literals</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-379" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-379">#L379</a>: 		t += len(s.<b>literals</b>)
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

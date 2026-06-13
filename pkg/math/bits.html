@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Package: math/bits</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="package-details"><code><span style="font-size:xx-large;">package <b>bits</b></span>
@@ -15,7 +15,7 @@
 	<a href="../../index.html#pkg-math/bits">math/bits</a><i> (on <a href="https://pkg.go.dev/math/bits" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../dep/math/bits.html">one package</a>, and imported by <a href="../../dep/math/bits.html#imported-by">23 packages</a>
+	imports <a href="../../dep/math/bits.html">one package</a>, and imported by <a href="../../dep/math/bits.html#imported-by">48 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -659,7 +659,7 @@
 		Div64 panics for y == 0 (division by zero) or y &lt;= hi (quotient overflow).</span>
 
 </span></div><div class="anchor value-res" id="name-LeadingZeros">	<input type='checkbox' class="fold" id="LeadingZeros-fold-content"><label for="LeadingZeros-fold-content"> <a href="../../use/math/bits..LeadingZeros.html">func</a> <a href="../../src/math/bits/bits.go.html#line-25">LeadingZeros</a>(x <a href="../builtin.html#name-uint">uint</a>) <a href="../builtin.html#name-int">int</a></label><span id='LeadingZeros-fold-content-docs' class="fold-docs">
-<span class="md-text">		LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.</span>
+<span class="md-text">		LeadingZeros returns the number of leading zero bits in x; the result is [UintSize] for x == 0.</span>
 
 </span></div><div class="anchor value-res" id="name-LeadingZeros16">	<input type='checkbox' class="fold" id="LeadingZeros16-fold-content"><label for="LeadingZeros16-fold-content"> <a href="../../use/math/bits..LeadingZeros16.html">func</a> <a href="../../src/math/bits/bits.go.html#line-31">LeadingZeros16</a>(x <a href="../builtin.html#name-uint16">uint16</a>) <a href="../builtin.html#name-int">int</a></label><span id='LeadingZeros16-fold-content-docs' class="fold-docs">
 <span class="md-text">		LeadingZeros16 returns the number of leading zero bits in x; the result is 16 for x == 0.</span>
@@ -731,12 +731,12 @@
 
 </span></div><div class="anchor value-res" id="name-Rem32">	<input type='checkbox' class="fold" id="Rem32-fold-content"><label for="Rem32-fold-content"> <a href="../../use/math/bits..Rem32.html">func</a> <a href="../../src/math/bits/bits.go.html#line-583">Rem32</a>(hi, lo, y <a href="../builtin.html#name-uint32">uint32</a>) <a href="../builtin.html#name-uint32">uint32</a></label><span id='Rem32-fold-content-docs' class="fold-docs">
 <span class="md-text">		Rem32 returns the remainder of (hi, lo) divided by y. Rem32 panics
-		for y == 0 (division by zero) but, unlike Div32, it doesn't panic
+		for y == 0 (division by zero) but, unlike [Div32], it doesn't panic
 		on a quotient overflow.</span>
 
 </span></div><div class="anchor value-res" id="name-Rem64">	<input type='checkbox' class="fold" id="Rem64-fold-content"><label for="Rem64-fold-content"> <a href="../../use/math/bits..Rem64.html">func</a> <a href="../../src/math/bits/bits.go.html#line-590">Rem64</a>(hi, lo, y <a href="../builtin.html#name-uint64">uint64</a>) <a href="../builtin.html#name-uint64">uint64</a></label><span id='Rem64-fold-content-docs' class="fold-docs">
 <span class="md-text">		Rem64 returns the remainder of (hi, lo) divided by y. Rem64 panics
-		for y == 0 (division by zero) but, unlike Div64, it doesn't panic
+		for y == 0 (division by zero) but, unlike [Div64], it doesn't panic
 		on a quotient overflow.</span>
 
 </span></div><div class="anchor value-res" id="name-Reverse">	<input type='checkbox' class="fold" id="Reverse-fold-content"><label for="Reverse-fold-content"> <a href="../../use/math/bits..Reverse.html">func</a> <a href="../../src/math/bits/bits.go.html#line-226">Reverse</a>(x <a href="../builtin.html#name-uint">uint</a>) <a href="../builtin.html#name-uint">uint</a></label><span id='Reverse-fold-content-docs' class="fold-docs">
@@ -775,7 +775,7 @@
 		This function's execution time does not depend on the inputs.</span>
 
 </span></div><div class="anchor value-res" id="name-RotateLeft">	<input type='checkbox' class="fold" id="RotateLeft-fold-content"><label for="RotateLeft-fold-content"> <a href="../../use/math/bits..RotateLeft.html">func</a> <a href="../../src/math/bits/bits.go.html#line-176">RotateLeft</a>(x <a href="../builtin.html#name-uint">uint</a>, k <a href="../builtin.html#name-int">int</a>) <a href="../builtin.html#name-uint">uint</a></label><span id='RotateLeft-fold-content-docs' class="fold-docs">
-<span class="md-text">		RotateLeft returns the value of x rotated left by (k mod UintSize) bits.
+<span class="md-text">		RotateLeft returns the value of x rotated left by (k mod [UintSize]) bits.
 		To rotate x right by k bits, call RotateLeft(x, -k).
 		
 		This function's execution time does not depend on the inputs.</span>
@@ -826,7 +826,7 @@
 		This function's execution time does not depend on the inputs.</span>
 
 </span></div><div class="anchor value-res" id="name-TrailingZeros">	<input type='checkbox' class="fold" id="TrailingZeros-fold-content"><label for="TrailingZeros-fold-content"> <a href="../../use/math/bits..TrailingZeros.html">func</a> <a href="../../src/math/bits/bits.go.html#line-59">TrailingZeros</a>(x <a href="../builtin.html#name-uint">uint</a>) <a href="../builtin.html#name-int">int</a></label><span id='TrailingZeros-fold-content-docs' class="fold-docs">
-<span class="md-text">		TrailingZeros returns the number of trailing zero bits in x; the result is UintSize for x == 0.</span>
+<span class="md-text">		TrailingZeros returns the number of trailing zero bits in x; the result is [UintSize] for x == 0.</span>
 
 </span></div><div class="anchor value-res" id="name-TrailingZeros16">	<input type='checkbox' class="fold" id="TrailingZeros16-fold-content"><label for="TrailingZeros16-fold-content"> <a href="../../use/math/bits..TrailingZeros16.html">func</a> <a href="../../src/math/bits/bits.go.html#line-72">TrailingZeros16</a>(x <a href="../builtin.html#name-uint16">uint16</a>) <a href="../builtin.html#name-int">int</a></label><span id='TrailingZeros16-fold-content-docs' class="fold-docs">
 <span class="md-text">		TrailingZeros16 returns the number of trailing zero bits in x; the result is 16 for x == 0.</span>
@@ -843,18 +843,18 @@
 </span></div></div>
 <div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 4, none are exported)</i></span></span>
 
-	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* 4 unexporteds ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* 4 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-deBruijn32tab"><i>	<span class="nodocs">  <a href="../../use/math/bits..deBruijn32tab^680f5.html">var</a> <a href="../../src/math/bits/bits.go.html#line-44">deBruijn32tab</a> [32]<a href="../builtin.html#name-byte">byte</a></span></i></div><div class="anchor value-res hidden" id="name-deBruijn64tab"><i>	<span class="nodocs">  <a href="../../use/math/bits..deBruijn64tab^9c4e1.html">var</a> <a href="../../src/math/bits/bits.go.html#line-51">deBruijn64tab</a> [64]<a href="../builtin.html#name-byte">byte</a></span></i></div><div class="anchor value-res hidden" id="name-divideError"><i>	<span class="nodocs">  <a href="../../use/math/bits..divideError^bebc0.html">var</a> <a href="../../src/math/bits/bits_errors.go.html#line-16">divideError</a> <a href="../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-overflowError"><i>	<span class="nodocs">  <a href="../../use/math/bits..overflowError^cbf96.html">var</a> <a href="../../src/math/bits/bits_errors.go.html#line-13">overflowError</a> <a href="../builtin.html#name-error">error</a></span></i></div></div>
+	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* 4 unexporteds ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* 4 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-deBruijn32tab"><i>	<span class="nodocs">  <a href="../../use/math/bits..deBruijn32tab^680f5.html">var</a> <a href="../../src/math/bits/bits.go.html#line-44">deBruijn32tab</a> [32]<a href="../builtin.html#name-byte">byte</a></span></i></div><div class="anchor value-res hidden" id="name-deBruijn64tab"><i>	<span class="nodocs">  <a href="../../use/math/bits..deBruijn64tab^9c4e1.html">var</a> <a href="../../src/math/bits/bits.go.html#line-51">deBruijn64tab</a> [64]<a href="../builtin.html#name-byte">byte</a></span></i></div><div class="anchor value-res hidden" id="name-divideError"><i>	<span class="nodocs">  <a href="../../use/math/bits..divideError^bebc0.html">var</a> <a href="../../src/math/bits/bits_errors.go.html#line-15">divideError</a> <a href="../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-overflowError"><i>	<span class="nodocs">  <a href="../../use/math/bits..overflowError^cbf96.html">var</a> <a href="../../src/math/bits/bits_errors.go.html#line-12">overflowError</a> <a href="../builtin.html#name-error">error</a></span></i></div></div>
 <div id="exported-constants"><span class="title">Package-Level Constants<span class="title-stat"><i> (total 13, in which 1 is exported)</i></span></span>
 
 <div class="anchor value-res" id="name-UintSize">	<input type='checkbox' class="fold" id="UintSize-fold-content"><label for="UintSize-fold-content"><a href="../../use/math/bits..UintSize.html">const</a> <a href="../../src/math/bits/bits.go.html#line-20">UintSize</a> = 64</label><span id='UintSize-fold-content-docs' class="fold-docs">
 <span class="md-text">		UintSize is the size of a uint in bits.</span>
 
 </span></div>	<input type='checkbox' class="showhide" id="unexported-constants-showhide"><i><label for="unexported-constants-showhide" class="show-inline">/* 12 unexporteds ... */</label><label for="unexported-constants-showhide" class="hide-inline">/* 12 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-deBruijn32"><i>	<input type='checkbox' class="fold" id="deBruijn32-fold-content"><label for="deBruijn32-fold-content"><a href="../../use/math/bits..deBruijn32^72747.html">const</a> <a href="../../src/math/bits/bits.go.html#line-42">deBruijn32</a> = 125613361</label><span id='deBruijn32-fold-content-docs' class="fold-docs">
-<span class="md-text">		See http://supertech.csail.mit.edu/papers/debruijn.pdf</span>
+<span class="md-text">		See http://keithandkatie.com/keith/papers/debruijn.html</span>
 
 </span></i></div><div class="anchor value-res hidden" id="name-deBruijn64"><i>	<span class="nodocs"><a href="../../use/math/bits..deBruijn64^128a3.html">const</a> <a href="../../src/math/bits/bits.go.html#line-49">deBruijn64</a> = 285870213051353865</span></i></div><div class="anchor value-res hidden" id="name-len8tab"><i>	<span class="nodocs"><a href="../../use/math/bits..len8tab^dacc5.html">const</a> <a href="../../src/math/bits/bits_tables.go.html#line-63">len8tab</a> = "\x00\x01\x02\x02\x03\x03\x03\x03\x04\x04\x04\x04\x04\x04\x04\x04\x05...</span></i></div><div class="anchor value-res hidden" id="name-m0"><i>	<span class="nodocs"><a href="../../use/math/bits..m0^e4223.html">const</a> <a href="../../src/math/bits/bits.go.html#line-110">m0</a> = 6148914691236517205 // <span class="md-text">01010101 ...</span></span></i></div><div class="anchor value-res hidden" id="name-m1"><i>	<span class="nodocs"><a href="../../use/math/bits..m1^ca0df.html">const</a> <a href="../../src/math/bits/bits.go.html#line-111">m1</a> = 3689348814741910323 // <span class="md-text">00110011 ...</span></span></i></div><div class="anchor value-res hidden" id="name-m2"><i>	<span class="nodocs"><a href="../../use/math/bits..m2^29c1b.html">const</a> <a href="../../src/math/bits/bits.go.html#line-112">m2</a> = 1085102592571150095 // <span class="md-text">00001111 ...</span></span></i></div><div class="anchor value-res hidden" id="name-m3"><i>	<span class="nodocs"><a href="../../use/math/bits..m3^15381.html">const</a> <a href="../../src/math/bits/bits.go.html#line-113">m3</a> = 71777214294589695 // <span class="md-text">etc.</span></span></i></div><div class="anchor value-res hidden" id="name-m4"><i>	<span class="nodocs"><a href="../../use/math/bits..m4^2396a.html">const</a> <a href="../../src/math/bits/bits.go.html#line-114">m4</a> = 281470681808895</span></i></div><div class="anchor value-res hidden" id="name-ntz8tab"><i>	<span class="nodocs"><a href="../../use/math/bits..ntz8tab^94ca9.html">const</a> <a href="../../src/math/bits/bits_tables.go.html#line-9">ntz8tab</a> = "\b\x00\x01\x00\x02\x00\x01\x00\x03\x00\x01\x00\x02\x00\x01\x00\x04\x...</span></i></div><div class="anchor value-res hidden" id="name-pop8tab"><i>	<span class="nodocs"><a href="../../use/math/bits..pop8tab^4f272.html">const</a> <a href="../../src/math/bits/bits_tables.go.html#line-27">pop8tab</a> = "\x00\x01\x01\x02\x01\x02\x02\x03\x01\x02\x02\x03\x02\x03\x03\x04\x01...</span></i></div><div class="anchor value-res hidden" id="name-rev8tab"><i>	<span class="nodocs"><a href="../../use/math/bits..rev8tab^05b1a.html">const</a> <a href="../../src/math/bits/bits_tables.go.html#line-45">rev8tab</a> = "\x00\x80@\xc0 \xa0`\xe0\x10\x90P\xd00\xb0p\xf0\b\x88H\xc8(\xa8h\xe8\...</span></i></div><div class="anchor value-res hidden" id="name-uintSize"><i>	<span class="nodocs"><a href="../../use/math/bits..uintSize^cfe5c.html">const</a> <a href="../../src/math/bits/bits.go.html#line-17">uintSize</a> = 64 // <span class="md-text">32 or 64</span></span></i></div></div></code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: flags.go in package internal/goexperiment</title>
-<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -33,32 +33,32 @@
 <span class="codeline" id="line-14"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-15"><code><span class="comment">// Experiments are exposed to the build in the following ways:</span></code></span>
 <span class="codeline" id="line-16"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-17"><code><span class="comment">// - Build tag goexperiment.x is set if experiment x (lower case) is</span></code></span>
-<span class="codeline" id="line-18"><code><span class="comment">// enabled.</span></code></span>
+<span class="codeline" id="line-17"><code><span class="comment">//   - Build tag goexperiment.x is set if experiment x (lower case) is</span></code></span>
+<span class="codeline" id="line-18"><code><span class="comment">//     enabled.</span></code></span>
 <span class="codeline" id="line-19"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-20"><code><span class="comment">// - For each experiment x (in camel case), this package contains a</span></code></span>
-<span class="codeline" id="line-21"><code><span class="comment">// boolean constant x and an integer constant xInt.</span></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">//   - For each experiment x (in camel case), this package contains a</span></code></span>
+<span class="codeline" id="line-21"><code><span class="comment">//     boolean constant x and an integer constant xInt.</span></code></span>
 <span class="codeline" id="line-22"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-23"><code><span class="comment">// - In runtime assembly, the macro GOEXPERIMENT_x is defined if</span></code></span>
-<span class="codeline" id="line-24"><code><span class="comment">// experiment x (lower case) is enabled.</span></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">//   - In runtime assembly, the macro GOEXPERIMENT_x is defined if</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">//     experiment x (lower case) is enabled.</span></code></span>
 <span class="codeline" id="line-25"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-26"><code><span class="comment">// In the toolchain, the set of experiments enabled for the current</span></code></span>
 <span class="codeline" id="line-27"><code><span class="comment">// build should be accessed via objabi.Experiment.</span></code></span>
 <span class="codeline" id="line-28"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-29"><code><span class="comment">// The set of experiments is included in the output of runtime.Version()</span></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">// The set of experiments is included in the output of [runtime.Version]()</span></code></span>
 <span class="codeline" id="line-30"><code><span class="comment">// and "go version &lt;binary&gt;" if it differs from the default experiments.</span></code></span>
 <span class="codeline" id="line-31"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-32"><code><span class="comment">// For the set of experiments supported by the current toolchain, see</span></code></span>
 <span class="codeline" id="line-33"><code><span class="comment">// "go doc goexperiment.Flags".</span></code></span>
 <span class="codeline" id="line-34"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-35"><code><span class="comment">// Note that this package defines the set of experiments (in Flags)</span></code></span>
+<span class="codeline" id="line-35"><code><span class="comment">// Note that this package defines the set of experiments (in [Flags])</span></code></span>
 <span class="codeline" id="line-36"><code><span class="comment">// and records the experiments that were enabled when the package</span></code></span>
 <span class="codeline" id="line-37"><code><span class="comment">// was compiled (as boolean and integer constants).</span></code></span>
 <span class="codeline" id="line-38"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-39"><code><span class="comment">// Note especially that this package does not itself change behavior</span></code></span>
 <span class="codeline" id="line-40"><code><span class="comment">// at run time based on the GOEXPERIMENT variable.</span></code></span>
 <span class="codeline" id="line-41"><code><span class="comment">// The code used in builds to interpret the GOEXPERIMENT variable</span></code></span>
-<span class="codeline" id="line-42"><code><span class="comment">// is in the separate package internal/buildcfg.</span></code></span></div><span class="codeline" id="line-43"><code><span class="keyword">package</span> goexperiment</code></span>
+<span class="codeline" id="line-42"><code><span class="comment">// is in the separate package [internal/buildcfg].</span></code></span></div><span class="codeline" id="line-43"><code><span class="keyword">package</span> goexperiment</code></span>
 <span class="codeline" id="line-44"><code></code></span>
 <span class="codeline" id="line-45"><code><span class="comment">//go:generate go run mkconsts.go</span></code></span>
 <span class="codeline" id="line-46"><code></code></span>
@@ -69,7 +69,7 @@
 <span class="codeline" id="line-51"><code><span class="comment">// tags, experiments use the strings.ToLower of their field name.</span></code></span>
 <span class="codeline" id="line-52"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-53"><code><span class="comment">// For the baseline experimental configuration, see</span></code></span>
-<span class="codeline" id="line-54"><code><span class="comment">// objabi.experimentBaseline.</span></code></span>
+<span class="codeline" id="line-54"><code><span class="comment">// [internal/buildcfg.Experiment].</span></code></span>
 <span class="codeline" id="line-55"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-56"><code><span class="comment">// If you change this struct definition, run "go generate".</span></code></span>
 <span class="codeline" id="line-57"><code><span class="keyword">type</span> <a href="../../../pkg/internal/goexperiment.html#name-Flags" class="ident">Flags</a> <span class="keyword">struct</span> {</code></span>
@@ -101,36 +101,55 @@
 <span class="codeline" id="line-83"><code><span class="comment">	// by default.</span></code></span>
 <span class="codeline" id="line-84"><code>	<a href="../../../use/internal/goexperiment..Flags.HeapMinimum512KiB.html" class="ident">HeapMinimum512KiB</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
 <span class="codeline" id="line-85"><code></code></span>
-<span class="codeline" id="line-86"><code>	<span class="comment">// CoverageRedesign enables the new compiler-based code coverage</span></code></span>
-<span class="codeline" id="line-87"><code><span class="comment">	// tooling.</span></code></span>
-<span class="codeline" id="line-88"><code>	<a href="../../../use/internal/goexperiment..Flags.CoverageRedesign.html" class="ident">CoverageRedesign</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-86"><code>	<span class="comment">// Arenas causes the "arena" standard library package to be visible</span></code></span>
+<span class="codeline" id="line-87"><code><span class="comment">	// to the outside world.</span></code></span>
+<span class="codeline" id="line-88"><code>	<a href="../../../use/internal/goexperiment..Flags.Arenas.html" class="ident">Arenas</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
 <span class="codeline" id="line-89"><code></code></span>
-<span class="codeline" id="line-90"><code>	<span class="comment">// Arenas causes the "arena" standard library package to be visible</span></code></span>
-<span class="codeline" id="line-91"><code><span class="comment">	// to the outside world.</span></code></span>
-<span class="codeline" id="line-92"><code>	<a href="../../../use/internal/goexperiment..Flags.Arenas.html" class="ident">Arenas</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
-<span class="codeline" id="line-93"><code></code></span>
-<span class="codeline" id="line-94"><code>	<span class="comment">// PageTrace enables GODEBUG=pagetrace=/path/to/result. This feature</span></code></span>
-<span class="codeline" id="line-95"><code><span class="comment">	// is a GOEXPERIMENT due to a security risk with setuid binaries:</span></code></span>
-<span class="codeline" id="line-96"><code><span class="comment">	// this compels the Go runtime to write to some arbitrary file, which</span></code></span>
-<span class="codeline" id="line-97"><code><span class="comment">	// may be exploited.</span></code></span>
-<span class="codeline" id="line-98"><code>	<a href="../../../use/internal/goexperiment..Flags.PageTrace.html" class="ident">PageTrace</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
-<span class="codeline" id="line-99"><code></code></span>
-<span class="codeline" id="line-100"><code>	<span class="comment">// CgoCheck2 enables an expensive cgo rule checker.</span></code></span>
-<span class="codeline" id="line-101"><code><span class="comment">	// When this experiment is enabled, cgo rule checks occur regardless</span></code></span>
-<span class="codeline" id="line-102"><code><span class="comment">	// of the GODEBUG=cgocheck setting provided at runtime.</span></code></span>
-<span class="codeline" id="line-103"><code>	<a href="../../../use/internal/goexperiment..Flags.CgoCheck2.html" class="ident">CgoCheck2</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
-<span class="codeline" id="line-104"><code></code></span>
-<span class="codeline" id="line-105"><code>	<span class="comment">// LoopVar changes loop semantics so that each iteration gets its own</span></code></span>
-<span class="codeline" id="line-106"><code><span class="comment">	// copy of the iteration variable.</span></code></span>
-<span class="codeline" id="line-107"><code>	<a href="../../../use/internal/goexperiment..Flags.LoopVar.html" class="ident">LoopVar</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-90"><code>	<span class="comment">// CgoCheck2 enables an expensive cgo rule checker.</span></code></span>
+<span class="codeline" id="line-91"><code><span class="comment">	// When this experiment is enabled, cgo rule checks occur regardless</span></code></span>
+<span class="codeline" id="line-92"><code><span class="comment">	// of the GODEBUG=cgocheck setting provided at runtime.</span></code></span>
+<span class="codeline" id="line-93"><code>	<a href="../../../use/internal/goexperiment..Flags.CgoCheck2.html" class="ident">CgoCheck2</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-94"><code></code></span>
+<span class="codeline" id="line-95"><code>	<span class="comment">// LoopVar changes loop semantics so that each iteration gets its own</span></code></span>
+<span class="codeline" id="line-96"><code><span class="comment">	// copy of the iteration variable.</span></code></span>
+<span class="codeline" id="line-97"><code>	<a href="../../../use/internal/goexperiment..Flags.LoopVar.html" class="ident">LoopVar</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-98"><code></code></span>
+<span class="codeline" id="line-99"><code>	<span class="comment">// NewInliner enables a new+improved version of the function</span></code></span>
+<span class="codeline" id="line-100"><code><span class="comment">	// inlining phase within the Go compiler.</span></code></span>
+<span class="codeline" id="line-101"><code>	<a href="../../../use/internal/goexperiment..Flags.NewInliner.html" class="ident">NewInliner</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-102"><code></code></span>
+<span class="codeline" id="line-103"><code>	<span class="comment">// Dwarf5 enables DWARF version 5 debug info generation.</span></code></span>
+<span class="codeline" id="line-104"><code>	<a href="../../../use/internal/goexperiment..Flags.Dwarf5.html" class="ident">Dwarf5</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-105"><code></code></span>
+<span class="codeline" id="line-106"><code>	<span class="comment">// JSONv2 enables the json/v2 package.</span></code></span>
+<span class="codeline" id="line-107"><code>	<a href="../../../use/internal/goexperiment..Flags.JSONv2.html" class="ident">JSONv2</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
 <span class="codeline" id="line-108"><code></code></span>
-<span class="codeline" id="line-109"><code>	<span class="comment">// CacheProg adds support to cmd/go to use a child process to implement</span></code></span>
-<span class="codeline" id="line-110"><code><span class="comment">	// the build cache; see https://github.com/golang/go/issues/59719.</span></code></span>
-<span class="codeline" id="line-111"><code>	<a href="../../../use/internal/goexperiment..Flags.CacheProg.html" class="ident">CacheProg</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
-<span class="codeline" id="line-112"><code>}</code></span>
+<span class="codeline" id="line-109"><code>	<span class="comment">// GreenTeaGC enables the Green Tea GC implementation.</span></code></span>
+<span class="codeline" id="line-110"><code>	<a href="../../../use/internal/goexperiment..Flags.GreenTeaGC.html" class="ident">GreenTeaGC</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-111"><code></code></span>
+<span class="codeline" id="line-112"><code>	<span class="comment">// RandomizedHeapBase enables heap base address randomization on 64-bit</span></code></span>
+<span class="codeline" id="line-113"><code><span class="comment">	// platforms.</span></code></span>
+<span class="codeline" id="line-114"><code>	<a href="../../../use/internal/goexperiment..Flags.RandomizedHeapBase64.html" class="ident">RandomizedHeapBase64</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-115"><code></code></span>
+<span class="codeline" id="line-116"><code>	<span class="comment">// RuntimeFreegc enables the runtime to free and reuse memory more eagerly in some circumstances with compiler help.</span></code></span>
+<span class="codeline" id="line-117"><code>	<a href="../../../use/internal/goexperiment..Flags.RuntimeFreegc.html" class="ident">RuntimeFreegc</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-118"><code></code></span>
+<span class="codeline" id="line-119"><code>	<span class="comment">// SizeSpecializedMalloc enables malloc implementations that are specialized per size class.</span></code></span>
+<span class="codeline" id="line-120"><code>	<a href="../../../use/internal/goexperiment..Flags.SizeSpecializedMalloc.html" class="ident">SizeSpecializedMalloc</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-121"><code></code></span>
+<span class="codeline" id="line-122"><code>	<span class="comment">// GoroutineLeakProfile enables the collection of goroutine leak profiles.</span></code></span>
+<span class="codeline" id="line-123"><code>	<a href="../../../use/internal/goexperiment..Flags.GoroutineLeakProfile.html" class="ident">GoroutineLeakProfile</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-124"><code></code></span>
+<span class="codeline" id="line-125"><code>	<span class="comment">// SIMD enables the simd package and the compiler's handling</span></code></span>
+<span class="codeline" id="line-126"><code><span class="comment">	// of SIMD intrinsics.</span></code></span>
+<span class="codeline" id="line-127"><code>	<a href="../../../use/internal/goexperiment..Flags.SIMD.html" class="ident">SIMD</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-128"><code></code></span>
+<span class="codeline" id="line-129"><code>	<span class="comment">// RuntimeSecret enables the runtime/secret package.</span></code></span>
+<span class="codeline" id="line-130"><code>	<a href="../../../use/internal/goexperiment..Flags.RuntimeSecret.html" class="ident">RuntimeSecret</a> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-131"><code>}</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

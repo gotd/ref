@@ -5,22 +5,26 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: bytes.NewReader</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../pkg/bytes.html">bytes</a>.<a href="../src/bytes/reader.go.html#line-159">NewReader</a></b></span>
 
-<span class="title">16 uses</span>
+<span class="title">26 uses</span>
 
 	bytes (current package)
 		<a href="../src/bytes/reader.go.html#line-159">reader.go#L159</a>: func <b>NewReader</b>(b []byte) *Reader { return &amp;Reader{b, 0, -1} }
 
 	<a href="../pkg/encoding/json.html">encoding/json</a>
-		<a href="../src/encoding/json/stream.go.html#line-84">stream.go#L84</a>: 	return bytes.<b>NewReader</b>(dec.buf[dec.scanp:])
+		<a href="../src/encoding/json/stream.go.html#line-86">stream.go#L86</a>: 	return bytes.<b>NewReader</b>(dec.buf[dec.scanp:])
 
-	<a href="../pkg/github.com/gotd/td/internal/proto.html">github.com/gotd/td/internal/proto</a>
-		<a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-151">gzip.go#L151</a>: 	r, err := gzipRWPool.GetReader(bytes.<b>NewReader</b>(buf))
+	<a href="../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../src/github.com/coder/websocket/accept.go.html#line-168">accept.go#L168</a>: 	brw.Reader.Reset(io.MultiReader(bytes.<b>NewReader</b>(b), netConn))
+		<a href="../src/github.com/coder/websocket/dial.go.html#line-161">dial.go#L161</a>: 			resp.Body = io.NopCloser(bytes.<b>NewReader</b>(b))
+
+	<a href="../pkg/github.com/gotd/td/proto.html">github.com/gotd/td/proto</a>
+		<a href="../src/github.com/gotd/td/proto/gzip.go.html#line-151">gzip.go#L151</a>: 	r, err := gzipRWPool.GetReader(bytes.<b>NewReader</b>(buf))
 
 	<a href="../pkg/github.com/gotd/td/transport.html">github.com/gotd/td/transport</a>
 		<a href="../src/github.com/gotd/td/transport/detect_codec.go.html#line-31">detect_codec.go#L31</a>: 		buffered := bytes.<b>NewReader</b>(buf[:])
@@ -32,8 +36,22 @@
 	<a href="../pkg/github.com/klauspost/compress/flate.html">github.com/klauspost/compress/flate</a>
 		<a href="../src/github.com/klauspost/compress/flate/token.go.html#line-334">token.go#L334</a>: 	var buf = bytes.<b>NewReader</b>(b)
 
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-54">u_handshake_client.go#L54</a>: 		compressed   = bytes.<b>NewReader</b>(m.compressedCertificateMessage)
+
+	<a href="../pkg/go.opentelemetry.io/otel/trace/internal/telemetry.html">go.opentelemetry.io/otel/trace/internal/telemetry</a>
+		<a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/resource.go.html#line-27">resource.go#L27</a>: 	decoder := json.NewDecoder(bytes.<b>NewReader</b>(data))
+		<a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/scope.go.html#line-24">scope.go#L24</a>: 	decoder := json.NewDecoder(bytes.<b>NewReader</b>(data))
+		<a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-162">span.go#L162</a>: 	decoder := json.NewDecoder(bytes.<b>NewReader</b>(data))
+		<a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-335" class="path-duplicate">span.go</a><a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-335">#L335</a>: 	decoder := json.NewDecoder(bytes.<b>NewReader</b>(data))
+		<a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-425" class="path-duplicate">span.go</a><a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-425">#L425</a>: 	decoder := json.NewDecoder(bytes.<b>NewReader</b>(data))
+		<a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-35">traces.go#L35</a>: 	decoder := json.NewDecoder(bytes.<b>NewReader</b>(data))
+		<a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-88" class="path-duplicate">traces.go</a><a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-88">#L88</a>: 	decoder := json.NewDecoder(bytes.<b>NewReader</b>(data))
+		<a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-148" class="path-duplicate">traces.go</a><a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-148">#L148</a>: 	decoder := json.NewDecoder(bytes.<b>NewReader</b>(data))
+		<a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-385">value.go#L385</a>: 	decoder := json.NewDecoder(bytes.<b>NewReader</b>(data))
+
 	<a href="../pkg/math/big.html">math/big</a>
-		<a href="../src/math/big/intmarsh.go.html#line-58">intmarsh.go#L58</a>: 	if _, ok := z.setFromScanner(bytes.<b>NewReader</b>(text), 0); !ok {
+		<a href="../src/math/big/intmarsh.go.html#line-60">intmarsh.go#L60</a>: 	if _, ok := z.setFromScanner(bytes.<b>NewReader</b>(text), 0); !ok {
 
 	<a href="../pkg/mime.html">mime</a>
 		<a href="../src/mime/encodedword.go.html#line-335">encodedword.go#L335</a>: 		r, err := d.CharsetReader(strings.ToLower(charset), bytes.<b>NewReader</b>(content))
@@ -42,15 +60,11 @@
 		<a href="../src/mime/multipart/formdata.go.html#line-270">formdata.go#L270</a>: 		r := io.NewSectionReader(bytes.<b>NewReader</b>(b), 0, int64(len(b)))
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/request.go.html#line-904">request.go#L904</a>: 				r := bytes.<b>NewReader</b>(buf)
+		<a href="../src/net/http/request.go.html#line-929">request.go#L929</a>: 				r := bytes.<b>NewReader</b>(buf)
 		<a href="../src/net/http/response.go.html#line-283">response.go#L283</a>: 				io.MultiReader(bytes.<b>NewReader</b>(buf[:1]), r.Body),
-
-	<a href="../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../src/nhooyr.io/websocket/accept.go.html#line-148">accept.go#L148</a>: 	brw.Reader.Reset(io.MultiReader(bytes.<b>NewReader</b>(b), netConn))
-		<a href="../src/nhooyr.io/websocket/dial.go.html#line-146">dial.go#L146</a>: 			resp.Body = io.NopCloser(bytes.<b>NewReader</b>(b))
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

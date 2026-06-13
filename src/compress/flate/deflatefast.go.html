@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: deflatefast.go in package compress/flate</title>
-<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -72,8 +72,7 @@ input[id=r52]:checked ~pre label[for=r52],
 input[id=r53]:checked ~pre label[for=r53],
 input[id=r54]:checked ~pre label[for=r54],
 input[id=r55]:checked ~pre label[for=r55],
-input[id=r56]:checked ~pre label[for=r56],
-input[id=r57]:checked ~pre label[for=r57]
+input[id=r56]:checked ~pre label[for=r56]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0
 {background: brown; color: #eed;}
@@ -134,7 +133,6 @@ input[id=i0]:checked ~pre .i0
 <input id="r54" type="radio" name="g"/>
 <input id="r55" type="radio" name="g"/>
 <input id="r56" type="radio" name="g"/>
-<input id="r57" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 
 <pre class="line-numbers">
@@ -426,30 +424,28 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-286"><code><span class="keyword">func</span> (<label for="r53" class="ident">e</label> *<a href="#line-57" class="ident">deflateFast</a>) <label for="r54" class="ident"><a href="../../../use/compress/flate..deflateFast^70eb8.shiftOffsets^7e9dd.html" class="ident">shiftOffsets</a></label>() {</code></span>
 <span class="codeline" id="line-287"><code>	<span class="keyword">if</span> <a href="../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r53" class="ident">e</label>.<a href="#line-59" class="ident">prev</a>) == <span class="lit-number">0</span> {</code></span>
 <span class="codeline" id="line-288"><code>		<span class="comment">// We have no history; just clear the table.</span></code></span>
-<span class="codeline" id="line-289"><code>		<span class="keyword">for</span> <label for="r55" class="ident">i</label> := <span class="keyword">range</span> <label for="r53" class="ident">e</label>.<a href="#line-58" class="ident">table</a>[:] {</code></span>
-<span class="codeline" id="line-290"><code>			<label for="r53" class="ident">e</label>.<a href="#line-58" class="ident">table</a>[<label for="r55" class="ident">i</label>] = <a href="#line-50" class="ident">tableEntry</a>{}</code></span>
-<span class="codeline" id="line-291"><code>		}</code></span>
-<span class="codeline" id="line-292"><code>		<label for="r53" class="ident">e</label>.<a href="#line-60" class="ident">cur</a> = <a href="deflate.go.html#line-47" class="ident">maxMatchOffset</a> + <span class="lit-number">1</span></code></span>
-<span class="codeline" id="line-293"><code>		<span class="keyword">return</span></code></span>
-<span class="codeline" id="line-294"><code>	}</code></span>
-<span class="codeline" id="line-295"><code></code></span>
-<span class="codeline" id="line-296"><code>	<span class="comment">// Shift down everything in the table that isn't already too far away.</span></code></span>
-<span class="codeline" id="line-297"><code>	<span class="keyword">for</span> <label for="r56" class="ident">i</label> := <span class="keyword">range</span> <label for="r53" class="ident">e</label>.<a href="#line-58" class="ident">table</a>[:] {</code></span>
-<span class="codeline" id="line-298"><code>		<label for="r57" class="ident">v</label> := <label for="r53" class="ident">e</label>.<a href="#line-58" class="ident">table</a>[<label for="r56" class="ident">i</label>].<a href="#line-52" class="ident">offset</a> - <label for="r53" class="ident">e</label>.<a href="#line-60" class="ident">cur</a> + <a href="deflate.go.html#line-47" class="ident">maxMatchOffset</a> + <span class="lit-number">1</span></code></span>
-<span class="codeline" id="line-299"><code>		<span class="keyword">if</span> <label for="r57" class="ident">v</label> &lt; <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-300"><code>			<span class="comment">// We want to reset e.cur to maxMatchOffset + 1, so we need to shift</span></code></span>
-<span class="codeline" id="line-301"><code><span class="comment">			// all table entries down by (e.cur - (maxMatchOffset + 1)).</span></code></span>
-<span class="codeline" id="line-302"><code><span class="comment">			// Because we ignore matches &gt; maxMatchOffset, we can cap</span></code></span>
-<span class="codeline" id="line-303"><code><span class="comment">			// any negative offsets at 0.</span></code></span>
-<span class="codeline" id="line-304"><code>			<label for="r57" class="ident">v</label> = <span class="lit-number">0</span></code></span>
-<span class="codeline" id="line-305"><code>		}</code></span>
-<span class="codeline" id="line-306"><code>		<label for="r53" class="ident">e</label>.<a href="#line-58" class="ident">table</a>[<label for="r56" class="ident">i</label>].<a href="#line-52" class="ident">offset</a> = <label for="r57" class="ident">v</label></code></span>
-<span class="codeline" id="line-307"><code>	}</code></span>
-<span class="codeline" id="line-308"><code>	<label for="r53" class="ident">e</label>.<a href="#line-60" class="ident">cur</a> = <a href="deflate.go.html#line-47" class="ident">maxMatchOffset</a> + <span class="lit-number">1</span></code></span>
-<span class="codeline" id="line-309"><code>}</code></span>
+<span class="codeline" id="line-289"><code>		<a href="../../../pkg/builtin.html#name-clear" class="ident">clear</a>(<label for="r53" class="ident">e</label>.<a href="#line-58" class="ident">table</a>[:])</code></span>
+<span class="codeline" id="line-290"><code>		<label for="r53" class="ident">e</label>.<a href="#line-60" class="ident">cur</a> = <a href="deflate.go.html#line-47" class="ident">maxMatchOffset</a> + <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-291"><code>		<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-292"><code>	}</code></span>
+<span class="codeline" id="line-293"><code></code></span>
+<span class="codeline" id="line-294"><code>	<span class="comment">// Shift down everything in the table that isn't already too far away.</span></code></span>
+<span class="codeline" id="line-295"><code>	<span class="keyword">for</span> <label for="r55" class="ident">i</label> := <span class="keyword">range</span> <label for="r53" class="ident">e</label>.<a href="#line-58" class="ident">table</a>[:] {</code></span>
+<span class="codeline" id="line-296"><code>		<label for="r56" class="ident">v</label> := <label for="r53" class="ident">e</label>.<a href="#line-58" class="ident">table</a>[<label for="r55" class="ident">i</label>].<a href="#line-52" class="ident">offset</a> - <label for="r53" class="ident">e</label>.<a href="#line-60" class="ident">cur</a> + <a href="deflate.go.html#line-47" class="ident">maxMatchOffset</a> + <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-297"><code>		<span class="keyword">if</span> <label for="r56" class="ident">v</label> &lt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-298"><code>			<span class="comment">// We want to reset e.cur to maxMatchOffset + 1, so we need to shift</span></code></span>
+<span class="codeline" id="line-299"><code><span class="comment">			// all table entries down by (e.cur - (maxMatchOffset + 1)).</span></code></span>
+<span class="codeline" id="line-300"><code><span class="comment">			// Because we ignore matches &gt; maxMatchOffset, we can cap</span></code></span>
+<span class="codeline" id="line-301"><code><span class="comment">			// any negative offsets at 0.</span></code></span>
+<span class="codeline" id="line-302"><code>			<label for="r56" class="ident">v</label> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-303"><code>		}</code></span>
+<span class="codeline" id="line-304"><code>		<label for="r53" class="ident">e</label>.<a href="#line-58" class="ident">table</a>[<label for="r55" class="ident">i</label>].<a href="#line-52" class="ident">offset</a> = <label for="r56" class="ident">v</label></code></span>
+<span class="codeline" id="line-305"><code>	}</code></span>
+<span class="codeline" id="line-306"><code>	<label for="r53" class="ident">e</label>.<a href="#line-60" class="ident">cur</a> = <a href="deflate.go.html#line-47" class="ident">maxMatchOffset</a> + <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-307"><code>}</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

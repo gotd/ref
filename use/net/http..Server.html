@@ -5,62 +5,66 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.Server</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/server.go.html#line-2617">Server</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/server.go.html#line-2964">Server</a></b></span>
 
-<span class="title">44 uses</span>
+<span class="title">48 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/h2_bundle.go.html#line-4060">h2_bundle.go#L4060</a>: func http2ConfigureServer(s *<b>Server</b>, conf *http2Server) error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4115" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4115">#L4115</a>: 		s.TLSNextProto = map[string]func(*<b>Server</b>, *tls.Conn, Handler){}
-		<a href="../../src/net/http/h2_bundle.go.html#line-4117" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4117">#L4117</a>: 	protoHandler := func(hs *<b>Server</b>, c *tls.Conn, h Handler) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4151" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4151">#L4151</a>: 	BaseConfig *<b>Server</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-4180" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4180">#L4180</a>: func (o *http2ServeConnOpts) baseConfig() *<b>Server</b> {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4184" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4184">#L4184</a>: 	return new(<b>Server</b>)
-		<a href="../../src/net/http/h2_bundle.go.html#line-4366" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4366">#L4366</a>: 	hs               *<b>Server</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-7085" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7085">#L7085</a>: func http2h1ServerKeepAlivesDisabled(hs *<b>Server</b>) bool {
-		<a href="../../src/net/http/server.go.html#line-256">server.go#L256</a>: 	server *<b>Server</b>
-		<a href="../../src/net/http/server.go.html#line-624" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-624">#L624</a>: func (srv *<b>Server</b>) newConn(rwc net.Conn) *conn {
-		<a href="../../src/net/http/server.go.html#line-868" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-868">#L868</a>: func (srv *<b>Server</b>) maxHeaderBytes() int {
-		<a href="../../src/net/http/server.go.html#line-875" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-875">#L875</a>: func (srv *<b>Server</b>) initialReadLimitSize() int64 {
-		<a href="../../src/net/http/server.go.html#line-884" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-884">#L884</a>: func (srv *<b>Server</b>) tlsHandshakeTimeout() time.Duration {
-		<a href="../../src/net/http/server.go.html#line-2594" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2594">#L2594</a>: 	srv := &amp;<b>Server</b>{Handler: handler}
-		<a href="../../src/net/http/server.go.html#line-2611" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2611">#L2611</a>: 	srv := &amp;<b>Server</b>{Handler: handler}
-		<a href="../../src/net/http/server.go.html#line-2617" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2617">#L2617</a>: type <b>Server</b> struct {
-		<a href="../../src/net/http/server.go.html#line-2686" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2686">#L2686</a>: 	TLSNextProto map[string]func(*<b>Server</b>, *tls.Conn, Handler)
-		<a href="../../src/net/http/server.go.html#line-2736" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2736">#L2736</a>: func (srv *<b>Server</b>) Close() error {
-		<a href="../../src/net/http/server.go.html#line-2786" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2786">#L2786</a>: func (srv *<b>Server</b>) Shutdown(ctx context.Context) error {
-		<a href="../../src/net/http/server.go.html#line-2829" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2829">#L2829</a>: func (srv *<b>Server</b>) RegisterOnShutdown(f func()) {
-		<a href="../../src/net/http/server.go.html#line-2837" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2837">#L2837</a>: func (s *<b>Server</b>) closeIdleConns() bool {
-		<a href="../../src/net/http/server.go.html#line-2861" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2861">#L2861</a>: func (s *<b>Server</b>) closeListenersLocked() error {
-		<a href="../../src/net/http/server.go.html#line-2926" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2926">#L2926</a>: 	srv *<b>Server</b>
-		<a href="../../src/net/http/server.go.html#line-2973" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2973">#L2973</a>: func (srv *<b>Server</b>) ListenAndServe() error {
-		<a href="../../src/net/http/server.go.html#line-2988" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2988">#L2988</a>: var testHookServerServe func(*<b>Server</b>, net.Listener) // used if non-nil
-		<a href="../../src/net/http/server.go.html#line-2992" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2992">#L2992</a>: func (srv *<b>Server</b>) shouldConfigureHTTP2ForServe() bool {
-		<a href="../../src/net/http/server.go.html#line-3026" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3026">#L3026</a>: func (srv *<b>Server</b>) Serve(l net.Listener) error {
-		<a href="../../src/net/http/server.go.html#line-3103" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3103">#L3103</a>: func (srv *<b>Server</b>) ServeTLS(l net.Listener, certFile, keyFile string) error {
-		<a href="../../src/net/http/server.go.html#line-3139" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3139">#L3139</a>: func (s *<b>Server</b>) trackListener(ln *net.Listener, add bool) bool {
-		<a href="../../src/net/http/server.go.html#line-3158" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3158">#L3158</a>: func (s *<b>Server</b>) trackConn(c *conn, add bool) {
-		<a href="../../src/net/http/server.go.html#line-3171" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3171">#L3171</a>: func (s *<b>Server</b>) idleTimeout() time.Duration {
-		<a href="../../src/net/http/server.go.html#line-3178" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3178">#L3178</a>: func (s *<b>Server</b>) readHeaderTimeout() time.Duration {
-		<a href="../../src/net/http/server.go.html#line-3185" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3185">#L3185</a>: func (s *<b>Server</b>) doKeepAlives() bool {
-		<a href="../../src/net/http/server.go.html#line-3189" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3189">#L3189</a>: func (s *<b>Server</b>) shuttingDown() bool {
-		<a href="../../src/net/http/server.go.html#line-3197" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3197">#L3197</a>: func (srv *<b>Server</b>) SetKeepAlivesEnabled(v bool) {
-		<a href="../../src/net/http/server.go.html#line-3210" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3210">#L3210</a>: func (s *<b>Server</b>) logf(format string, args ...any) {
-		<a href="../../src/net/http/server.go.html#line-3222" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3222">#L3222</a>: 	s, _ := r.Context().Value(ServerContextKey).(*<b>Server</b>)
-		<a href="../../src/net/http/server.go.html#line-3238" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3238">#L3238</a>: 	server := &amp;<b>Server</b>{Addr: addr, Handler: handler}
-		<a href="../../src/net/http/server.go.html#line-3248" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3248">#L3248</a>: 	server := &amp;<b>Server</b>{Addr: addr, Handler: handler}
-		<a href="../../src/net/http/server.go.html#line-3267" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3267">#L3267</a>: func (srv *<b>Server</b>) ListenAndServeTLS(certFile, keyFile string) error {
-		<a href="../../src/net/http/server.go.html#line-3289" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3289">#L3289</a>: func (srv *<b>Server</b>) setupHTTP2_ServeTLS() error {
-		<a href="../../src/net/http/server.go.html#line-3302" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3302">#L3302</a>: func (srv *<b>Server</b>) setupHTTP2_Serve() error {
-		<a href="../../src/net/http/server.go.html#line-3307" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3307">#L3307</a>: func (srv *<b>Server</b>) onceSetNextProtoDefaults_Serve() {
-		<a href="../../src/net/http/server.go.html#line-3318" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3318">#L3318</a>: func (srv *<b>Server</b>) onceSetNextProtoDefaults() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1066">h2_bundle.go#L1066</a>: func http2configFromServer(h1 *<b>Server</b>, h2 *http2Server) http2http2Config {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4227" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4227">#L4227</a>: func http2ConfigureServer(s *<b>Server</b>, conf *http2Server) error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4285" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4285">#L4285</a>: 		s.TLSNextProto = map[string]func(*<b>Server</b>, *tls.Conn, Handler){}
+		<a href="../../src/net/http/h2_bundle.go.html#line-4287" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4287">#L4287</a>: 	protoHandler := func(hs *<b>Server</b>, c net.Conn, h Handler, sawClientPreface bool) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4310" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4310">#L4310</a>: 	s.TLSNextProto[http2NextProtoTLS] = func(hs *<b>Server</b>, c *tls.Conn, h Handler) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4316" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4316">#L4316</a>: 	s.TLSNextProto[http2nextProtoUnencryptedHTTP2] = func(hs *<b>Server</b>, c *tls.Conn, h Handler) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4340" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4340">#L4340</a>: 	BaseConfig *<b>Server</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-4369" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4369">#L4369</a>: func (o *http2ServeConnOpts) baseConfig() *<b>Server</b> {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4373" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4373">#L4373</a>: 	return new(<b>Server</b>)
+		<a href="../../src/net/http/h2_bundle.go.html#line-4570" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4570">#L4570</a>: 	hs               *<b>Server</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-7292" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7292">#L7292</a>: func http2h1ServerKeepAlivesDisabled(hs *<b>Server</b>) bool {
+		<a href="../../src/net/http/server.go.html#line-257">server.go#L257</a>: 	server *<b>Server</b>
+		<a href="../../src/net/http/server.go.html#line-634" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-634">#L634</a>: func (s *<b>Server</b>) newConn(rwc net.Conn) *conn {
+		<a href="../../src/net/http/server.go.html#line-897" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-897">#L897</a>: func (s *<b>Server</b>) maxHeaderBytes() int {
+		<a href="../../src/net/http/server.go.html#line-904" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-904">#L904</a>: func (s *<b>Server</b>) initialReadLimitSize() int64 {
+		<a href="../../src/net/http/server.go.html#line-913" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-913">#L913</a>: func (s *<b>Server</b>) tlsHandshakeTimeout() time.Duration {
+		<a href="../../src/net/http/server.go.html#line-2941" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2941">#L2941</a>: 	srv := &amp;<b>Server</b>{Handler: handler}
+		<a href="../../src/net/http/server.go.html#line-2958" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2958">#L2958</a>: 	srv := &amp;<b>Server</b>{Handler: handler}
+		<a href="../../src/net/http/server.go.html#line-2964" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2964">#L2964</a>: type <b>Server</b> struct {
+		<a href="../../src/net/http/server.go.html#line-3036" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3036">#L3036</a>: 	TLSNextProto map[string]func(*<b>Server</b>, *tls.Conn, Handler)
+		<a href="../../src/net/http/server.go.html#line-3100" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3100">#L3100</a>: func (s *<b>Server</b>) Close() error {
+		<a href="../../src/net/http/server.go.html#line-3150" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3150">#L3150</a>: func (s *<b>Server</b>) Shutdown(ctx context.Context) error {
+		<a href="../../src/net/http/server.go.html#line-3193" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3193">#L3193</a>: func (s *<b>Server</b>) RegisterOnShutdown(f func()) {
+		<a href="../../src/net/http/server.go.html#line-3201" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3201">#L3201</a>: func (s *<b>Server</b>) closeIdleConns() bool {
+		<a href="../../src/net/http/server.go.html#line-3225" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3225">#L3225</a>: func (s *<b>Server</b>) closeListenersLocked() error {
+		<a href="../../src/net/http/server.go.html#line-3290" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3290">#L3290</a>: 	srv *<b>Server</b>
+		<a href="../../src/net/http/server.go.html#line-3348" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3348">#L3348</a>: func (s *<b>Server</b>) ListenAndServe() error {
+		<a href="../../src/net/http/server.go.html#line-3363" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3363">#L3363</a>: var testHookServerServe func(*<b>Server</b>, net.Listener) // used if non-nil
+		<a href="../../src/net/http/server.go.html#line-3367" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3367">#L3367</a>: func (s *<b>Server</b>) shouldConfigureHTTP2ForServe() bool {
+		<a href="../../src/net/http/server.go.html#line-3404" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3404">#L3404</a>: func (s *<b>Server</b>) Serve(l net.Listener) error {
+		<a href="../../src/net/http/server.go.html#line-3482" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3482">#L3482</a>: func (s *<b>Server</b>) ServeTLS(l net.Listener, certFile, keyFile string) error {
+		<a href="../../src/net/http/server.go.html#line-3506" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3506">#L3506</a>: func (s *<b>Server</b>) protocols() Protocols {
+		<a href="../../src/net/http/server.go.html#line-3575" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3575">#L3575</a>: func (s *<b>Server</b>) trackListener(ln *net.Listener, add bool) bool {
+		<a href="../../src/net/http/server.go.html#line-3594" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3594">#L3594</a>: func (s *<b>Server</b>) trackConn(c *conn, add bool) {
+		<a href="../../src/net/http/server.go.html#line-3607" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3607">#L3607</a>: func (s *<b>Server</b>) idleTimeout() time.Duration {
+		<a href="../../src/net/http/server.go.html#line-3614" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3614">#L3614</a>: func (s *<b>Server</b>) readHeaderTimeout() time.Duration {
+		<a href="../../src/net/http/server.go.html#line-3621" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3621">#L3621</a>: func (s *<b>Server</b>) doKeepAlives() bool {
+		<a href="../../src/net/http/server.go.html#line-3625" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3625">#L3625</a>: func (s *<b>Server</b>) shuttingDown() bool {
+		<a href="../../src/net/http/server.go.html#line-3633" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3633">#L3633</a>: func (s *<b>Server</b>) SetKeepAlivesEnabled(v bool) {
+		<a href="../../src/net/http/server.go.html#line-3646" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3646">#L3646</a>: func (s *<b>Server</b>) logf(format string, args ...any) {
+		<a href="../../src/net/http/server.go.html#line-3658" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3658">#L3658</a>: 	s, _ := r.Context().Value(ServerContextKey).(*<b>Server</b>)
+		<a href="../../src/net/http/server.go.html#line-3674" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3674">#L3674</a>: 	server := &amp;<b>Server</b>{Addr: addr, Handler: handler}
+		<a href="../../src/net/http/server.go.html#line-3684" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3684">#L3684</a>: 	server := &amp;<b>Server</b>{Addr: addr, Handler: handler}
+		<a href="../../src/net/http/server.go.html#line-3703" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3703">#L3703</a>: func (s *<b>Server</b>) ListenAndServeTLS(certFile, keyFile string) error {
+		<a href="../../src/net/http/server.go.html#line-3725" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3725">#L3725</a>: func (s *<b>Server</b>) setupHTTP2_ServeTLS() error {
+		<a href="../../src/net/http/server.go.html#line-3738" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3738">#L3738</a>: func (s *<b>Server</b>) setupHTTP2_Serve() error {
+		<a href="../../src/net/http/server.go.html#line-3743" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3743">#L3743</a>: func (s *<b>Server</b>) onceSetNextProtoDefaults_Serve() {
+		<a href="../../src/net/http/server.go.html#line-3754" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3754">#L3754</a>: func (s *<b>Server</b>) onceSetNextProtoDefaults() {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

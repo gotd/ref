@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: go.opentelemetry.io/otel/trace/internal/telemetry</title>
+<link href="../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>telemetry</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../../../index.html#pkg-go.opentelemetry.io/otel/trace/internal/telemetry">go.opentelemetry.io/otel/trace/internal/telemetry</a><i> (on <a href="https://pkg.go.dev/go.opentelemetry.io/otel/trace/internal/telemetry" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../../../dep/go.opentelemetry.io/otel/trace/internal/telemetry.html">13 packages</a>, and imported by <a href="../../../../../dep/go.opentelemetry.io/otel/trace/internal/telemetry.html#imported-by">one package</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">    <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html">attr.go</a></span>
+	<input type='checkbox' checked class="fold" id="file-1-fold-content"><label for="file-1-fold-content">  <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/doc.go.html#doc">d</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/doc.go.html">doc.go</a></label><span id='file-1-fold-content-items' class="fold-items">
+<span class="md-text">		Package telemetry provides a lightweight representations of OpenTelemetry
+		telemetry that is compatible with the OTLP JSON protobuf encoding.</span>
+</span>
+	<span class="nodocs">    <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html">id.go</a></span>
+	<span class="nodocs">    <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html">number.go</a></span>
+	<span class="nodocs">    <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/resource.go.html">resource.go</a></span>
+	<span class="nodocs">    <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/scope.go.html">scope.go</a></span>
+	<span class="nodocs">    <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html">span.go</a></span>
+	<span class="nodocs">    <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/status.go.html">status.go</a></span>
+	<span class="nodocs">    <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html">traces.go</a></span>
+	<span class="nodocs">    <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html">value.go</a></span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 23, in which 17 are exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Attr" data-popularity="1165">	<input type='checkbox' class="fold" id="Attr-fold-content"><label for="Attr-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Attr.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html#line-7">Attr</a> <i>(struct)</i></label><span id='Attr-fold-content-docs' class="fold-docs">
+<span class="md-text">		Attr is a key-value pair.</span>
+
+		<input type='checkbox' class="fold" id="Attr-fold-fields"><label for="Attr-fold-fields">Fields (<i>total 2, both are exported</i>)</label><span id='Attr-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html#line-8">Key</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html#line-9">Value</a> <i><a href="#name-Value">Value</a></i></span></span></span>
+		<input type='checkbox' class="fold" id="Attr-fold-methods"><label for="Attr-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Attr-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Attr-fold-method-Equal"><label for="Attr-fold-method-Equal">( Attr) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html#line-56">Equal</a>(b <b>Attr</b>) <a href="../../../../builtin.html#name-bool">bool</a></label><span id='Attr-fold-method-Equal-docs' class="fold-docs">
+<span class="md-text">				Equal reports whether a is equal to b.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="Attr-fold-results"><label for="Attr-fold-results">As Outputs Of (<i>at least 13, in which 9 are exported</i>)</label><span id='Attr-fold-results-items' class="fold-items"><span>
+			func <a href="#name-Bool">Bool</a>(key <a href="../../../../builtin.html#name-string">string</a>, value <a href="../../../../builtin.html#name-bool">bool</a>) <b>Attr</b></span><span>
+			func <a href="#name-Bytes">Bytes</a>(key <a href="../../../../builtin.html#name-string">string</a>, value []<a href="../../../../builtin.html#name-byte">byte</a>) <b>Attr</b></span><span>
+			func <a href="#name-Float64">Float64</a>(key <a href="../../../../builtin.html#name-string">string</a>, value <a href="../../../../builtin.html#name-float64">float64</a>) <b>Attr</b></span><span>
+			func <a href="#name-Int">Int</a>(key <a href="../../../../builtin.html#name-string">string</a>, value <a href="../../../../builtin.html#name-int">int</a>) <b>Attr</b></span><span>
+			func <a href="#name-Int64">Int64</a>(key <a href="../../../../builtin.html#name-string">string</a>, value <a href="../../../../builtin.html#name-int64">int64</a>) <b>Attr</b></span><span>
+			func <a href="#name-Map">Map</a>(key <a href="../../../../builtin.html#name-string">string</a>, value ...<b>Attr</b>) <b>Attr</b></span><span>
+			func <a href="#name-Slice">Slice</a>(key <a href="../../../../builtin.html#name-string">string</a>, value ...<a href="#name-Value">Value</a>) <b>Attr</b></span><span>
+			func <a href="#name-String">String</a>(key, value <a href="../../../../builtin.html#name-string">string</a>) <b>Attr</b></span><span>
+			func <a href="#name-Value">Value</a>.<a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-228">AsMap</a>() []<b>Attr</b></span>
+			<input type='checkbox' class="showhide" id="Attr-showhide-inputofs"><i><label for="Attr-showhide-inputofs" class="show-inline">/* 4+ unexporteds ... */</label><label for="Attr-showhide-inputofs" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+			func <a href="#name-sortMap">sortMap</a>(m []<b>Attr</b>) []<b>Attr</b></i></span><span class="hidden"><i>
+			func <a href="#name-Value">Value</a>.<a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-238">asMap</a>() []<b>Attr</b></i></span><span class="hidden"><i>
+			func go.opentelemetry.io/otel/trace.<a href="../../trace.html#name-convAttrs">convAttrs</a>(attrs []<a href="../../attribute.html">attribute</a>.<a href="../../attribute.html#name-KeyValue">KeyValue</a>) []<b>Attr</b></i></span><span class="hidden"><i>
+			func go.opentelemetry.io/otel/trace.<a href="../../trace.html#name-convCappedAttrs">convCappedAttrs</a>(limit <a href="../../../../builtin.html#name-int">int</a>, attrs []<a href="../../attribute.html">attribute</a>.<a href="../../attribute.html#name-KeyValue">KeyValue</a>) ([]<b>Attr</b>, <a href="../../../../builtin.html#name-uint32">uint32</a>)</i></span></span>
+		<input type='checkbox' class="fold" id="Attr-fold-params"><label for="Attr-fold-params">As Inputs Of (<i>at least 4, in which 3 are exported</i>)</label><span id='Attr-fold-params-items' class="fold-items"><span>
+			func <a href="#name-Map">Map</a>(key <a href="../../../../builtin.html#name-string">string</a>, value ...<b>Attr</b>) <b>Attr</b></span><span>
+			func <a href="#name-MapValue">MapValue</a>(kvs ...<b>Attr</b>) <a href="#name-Value">Value</a></span><span>
+			func Attr.<a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html#line-56">Equal</a>(b <b>Attr</b>) <a href="../../../../builtin.html#name-bool">bool</a></span>
+			<input type='checkbox' class="showhide" id="Attr-showhide-outputofs"><i><label for="Attr-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="Attr-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func <a href="#name-sortMap">sortMap</a>(m []<b>Attr</b>) []<b>Attr</b></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-Resource" data-popularity="100">	<input type='checkbox' class="fold" id="Resource-fold-content"><label for="Resource-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Resource.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/resource.go.html#line-15">Resource</a> <i>(struct)</i></label><span id='Resource-fold-content-docs' class="fold-docs">
+<span class="md-text">		Resource information.</span>
+
+		<input type='checkbox' class="fold" id="Resource-fold-fields"><label for="Resource-fold-fields">Fields (<i>total 2, both are exported</i>)</label><span id='Resource-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Resource-fold-field-Attrs"><label for="Resource-fold-field-Attrs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/resource.go.html#line-19">Attrs</a> <i>[]<a href="#name-Attr">Attr</a></i></label><span id='Resource-fold-field-Attrs-docs' class="fold-docs">
+<span class="md-text">				Attrs are the set of attributes that describe the resource. Attribute
+				keys MUST be unique (it is not allowed to have more than one attribute
+				with the same key).</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Resource-fold-field-DroppedAttrs"><label for="Resource-fold-field-DroppedAttrs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/resource.go.html#line-22">DroppedAttrs</a> <i><a href="../../../../builtin.html#name-uint32">uint32</a></i></label><span id='Resource-fold-field-DroppedAttrs-docs' class="fold-docs">
+<span class="md-text">				DroppedAttrs is the number of dropped attributes. If the value
+				is 0, then no attributes were dropped.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="Resource-fold-methods"><label for="Resource-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Resource-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Resource-fold-method-UnmarshalJSON"><label for="Resource-fold-method-UnmarshalJSON">(*Resource) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/resource.go.html#line-26">UnmarshalJSON</a>(data []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='Resource-fold-method-UnmarshalJSON-docs' class="fold-docs">
+<span class="md-text">				UnmarshalJSON decodes the OTLP formatted JSON contained in data into r.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="Resource-fold-impls"><label for="Resource-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Resource-fold-impls-items' class="fold-items"><span>
+			*Resource : encoding/json.<a href="../../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ResourceSpans" data-popularity="100">	<input type='checkbox' class="fold" id="ResourceSpans-fold-content"><label for="ResourceSpans-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..ResourceSpans.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-75">ResourceSpans</a> <i>(struct)</i></label><span id='ResourceSpans-fold-content-docs' class="fold-docs">
+<span class="md-text">		ResourceSpans is a collection of ScopeSpans from a Resource.</span>
+
+		<input type='checkbox' class="fold" id="ResourceSpans-fold-fields"><label for="ResourceSpans-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='ResourceSpans-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ResourceSpans-fold-field-Resource"><label for="ResourceSpans-fold-field-Resource"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-78">Resource</a> <i><a href="#name-Resource">Resource</a></i></label><span id='ResourceSpans-fold-field-Resource-docs' class="fold-docs">
+<span class="md-text">				The resource for the spans in this message.
+				If this field is not set then no resource info is known.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="ResourceSpans-fold-field-SchemaURL"><label for="ResourceSpans-fold-field-SchemaURL"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-83">SchemaURL</a> <i><a href="../../../../builtin.html#name-string">string</a></i></label><span id='ResourceSpans-fold-field-SchemaURL-docs' class="fold-docs">
+<span class="md-text">				This schema_url applies to the data in the "resource" field. It does not apply
+				to the data in the "scope_spans" field which have their own schema_url field.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="ResourceSpans-fold-field-ScopeSpans"><label for="ResourceSpans-fold-field-ScopeSpans"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-80">ScopeSpans</a> <i>[]*<a href="#name-ScopeSpans">ScopeSpans</a></i></label><span id='ResourceSpans-fold-field-ScopeSpans-docs' class="fold-docs">
+<span class="md-text">				A list of ScopeSpans that originate from a resource.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="ResourceSpans-fold-methods"><label for="ResourceSpans-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ResourceSpans-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ResourceSpans-fold-method-UnmarshalJSON"><label for="ResourceSpans-fold-method-UnmarshalJSON">(*ResourceSpans) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-87">UnmarshalJSON</a>(data []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='ResourceSpans-fold-method-UnmarshalJSON-docs' class="fold-docs">
+<span class="md-text">				UnmarshalJSON decodes the OTLP formatted JSON contained in data into rs.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="ResourceSpans-fold-impls"><label for="ResourceSpans-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ResourceSpans-fold-impls-items' class="fold-items"><span>
+			*ResourceSpans : encoding/json.<a href="../../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-Scope" data-popularity="100">	<input type='checkbox' class="fold" id="Scope-fold-content"><label for="Scope-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Scope.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/scope.go.html#line-15">Scope</a> <i>(struct)</i></label><span id='Scope-fold-content-docs' class="fold-docs">
+<span class="md-text">		Scope is the identifying values of the instrumentation scope.</span>
+
+		<input type='checkbox' class="fold" id="Scope-fold-fields"><label for="Scope-fold-fields">Fields (<i>total 4, all are exported</i>)</label><span id='Scope-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/scope.go.html#line-18">Attrs</a> <i>[]<a href="#name-Attr">Attr</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/scope.go.html#line-19">DroppedAttrs</a> <i><a href="../../../../builtin.html#name-uint32">uint32</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/scope.go.html#line-16">Name</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/scope.go.html#line-17">Version</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></span></span>
+		<input type='checkbox' class="fold" id="Scope-fold-methods"><label for="Scope-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Scope-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Scope-fold-method-UnmarshalJSON"><label for="Scope-fold-method-UnmarshalJSON">(*Scope) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/scope.go.html#line-23">UnmarshalJSON</a>(data []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='Scope-fold-method-UnmarshalJSON-docs' class="fold-docs">
+<span class="md-text">				UnmarshalJSON decodes the OTLP formatted JSON contained in data into r.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="Scope-fold-impls"><label for="Scope-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Scope-fold-impls-items' class="fold-items"><span>
+			*Scope : encoding/json.<a href="../../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ScopeSpans" data-popularity="100">	<input type='checkbox' class="fold" id="ScopeSpans-fold-content"><label for="ScopeSpans-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..ScopeSpans.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-132">ScopeSpans</a> <i>(struct)</i></label><span id='ScopeSpans-fold-content-docs' class="fold-docs">
+<span class="md-text">		ScopeSpans is a collection of Spans produced by an InstrumentationScope.</span>
+
+		<input type='checkbox' class="fold" id="ScopeSpans-fold-fields"><label for="ScopeSpans-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='ScopeSpans-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ScopeSpans-fold-field-SchemaURL"><label for="ScopeSpans-fold-field-SchemaURL"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-143">SchemaURL</a> <i><a href="../../../../builtin.html#name-string">string</a></i></label><span id='ScopeSpans-fold-field-SchemaURL-docs' class="fold-docs">
+<span class="md-text">				The Schema URL, if known. This is the identifier of the Schema that the span data
+				is recorded in. To learn more about Schema URL see
+				https://opentelemetry.io/docs/specs/otel/schemas/#schema-url
+				This schema_url applies to all spans and span events in the "spans" field.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="ScopeSpans-fold-field-Scope"><label for="ScopeSpans-fold-field-Scope"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-136">Scope</a> <i>*<a href="#name-Scope">Scope</a></i></label><span id='ScopeSpans-fold-field-Scope-docs' class="fold-docs">
+<span class="md-text">				The instrumentation scope information for the spans in this message.
+				Semantically when InstrumentationScope isn't set, it is equivalent with
+				an empty instrumentation scope name (unknown).</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="ScopeSpans-fold-field-Spans"><label for="ScopeSpans-fold-field-Spans"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-138">Spans</a> <i>[]*<a href="#name-Span">Span</a></i></label><span id='ScopeSpans-fold-field-Spans-docs' class="fold-docs">
+<span class="md-text">				A list of Spans that originate from an instrumentation scope.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="ScopeSpans-fold-methods"><label for="ScopeSpans-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ScopeSpans-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ScopeSpans-fold-method-UnmarshalJSON"><label for="ScopeSpans-fold-method-UnmarshalJSON">(*ScopeSpans) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-147">UnmarshalJSON</a>(data []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='ScopeSpans-fold-method-UnmarshalJSON-docs' class="fold-docs">
+<span class="md-text">				UnmarshalJSON decodes the OTLP formatted JSON contained in data into ss.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="ScopeSpans-fold-impls"><label for="ScopeSpans-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ScopeSpans-fold-impls-items' class="fold-items"><span>
+			*ScopeSpans : encoding/json.<a href="../../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-Span" data-popularity="200">	<input type='checkbox' class="fold" id="Span-fold-content"><label for="Span-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Span.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-19">Span</a> <i>(struct)</i></label><span id='Span-fold-content-docs' class="fold-docs">
+<span class="md-text">		A Span represents a single operation performed by a single component of the
+		system.</span>
+
+		<input type='checkbox' class="fold" id="Span-fold-fields"><label for="Span-fold-fields">Fields (<i>total 16, all are exported</i>)</label><span id='Span-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-Attrs"><label for="Span-fold-field-Attrs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-105">Attrs</a> <i>[]<a href="#name-Attr">Attr</a></i></label><span id='Span-fold-field-Attrs-docs' class="fold-docs">
+<span class="md-text">				attributes is a collection of key/value pairs. Note, global attributes
+				like server name can be set using the resource API. Examples of attributes:
+				
+				    "/http/user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+				    "/http/server_latency": 300
+				    "example.com/myattribute": true
+				    "example.com/score": 10.239
+				
+				The OpenTelemetry API specification further restricts the allowed value types:
+				https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/common/README.md#attribute
+				Attribute keys MUST be unique (it is not allowed to have more than one
+				attribute with the same key).</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-DroppedAttrs"><label for="Span-fold-field-DroppedAttrs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-109">DroppedAttrs</a> <i><a href="../../../../builtin.html#name-uint32">uint32</a></i></label><span id='Span-fold-field-DroppedAttrs-docs' class="fold-docs">
+<span class="md-text">				dropped_attributes_count is the number of attributes that were discarded. Attributes
+				can be discarded because their keys are too long or because there are too many
+				attributes. If this value is 0, then no attributes were dropped.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-DroppedEvents"><label for="Span-fold-field-DroppedEvents"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-114">DroppedEvents</a> <i><a href="../../../../builtin.html#name-uint32">uint32</a></i></label><span id='Span-fold-field-DroppedEvents-docs' class="fold-docs">
+<span class="md-text">				dropped_events_count is the number of dropped events. If the value is 0, then no
+				events were dropped.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-DroppedLinks"><label for="Span-fold-field-DroppedLinks"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-120">DroppedLinks</a> <i><a href="../../../../builtin.html#name-uint32">uint32</a></i></label><span id='Span-fold-field-DroppedLinks-docs' class="fold-docs">
+<span class="md-text">				dropped_links_count is the number of dropped links after the maximum size was
+				enforced. If this value is 0, then no links were dropped.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-EndTime"><label for="Span-fold-field-EndTime"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-92">EndTime</a> <i><a href="../../../../time.html">time</a>.<a href="../../../../time.html#name-Time">Time</a></i></label><span id='Span-fold-field-EndTime-docs' class="fold-docs">
+<span class="md-text">				end_time_unix_nano is the end time of the span. On the client side, this is the time
+				kept by the local machine where the span execution ends. On the server side, this
+				is the time when the server application handler stops running.
+				Value is UNIX Epoch time in nanoseconds since 00:00:00 UTC on 1 January 1970.
+				
+				This field is semantically required and it is expected that end_time &gt;= start_time.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-Events"><label for="Span-fold-field-Events"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-111">Events</a> <i>[]*<a href="#name-SpanEvent">SpanEvent</a></i></label><span id='Span-fold-field-Events-docs' class="fold-docs">
+<span class="md-text">				events is a collection of Event items.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-Flags"><label for="Span-fold-field-Flags"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-62">Flags</a> <i><a href="../../../../builtin.html#name-uint32">uint32</a></i></label><span id='Span-fold-field-Flags-docs' class="fold-docs">
+<span class="md-text">				Flags, a bit field.
+				
+				Bits 0-7 (8 least significant bits) are the trace flags as defined in W3C Trace
+				Context specification. To read the 8-bit W3C trace flag, use
+				`flags &amp; SPAN_FLAGS_TRACE_FLAGS_MASK`.
+				
+				See https://www.w3.org/TR/trace-context-2/#trace-flags for the flag definitions.
+				
+				Bits 8 and 9 represent the 3 states of whether a span's parent
+				is remote. The states are (unknown, is not remote, is remote).
+				To read whether the value is known, use `(flags &amp; SPAN_FLAGS_CONTEXT_HAS_IS_REMOTE_MASK) != 0`.
+				To read whether the span is remote, use `(flags &amp; SPAN_FLAGS_CONTEXT_IS_REMOTE_MASK) != 0`.
+				
+				When creating span messages, if the message is logically forwarded from another source
+				with an equivalent flags fields (i.e., usually another OTLP span message), the field SHOULD
+				be copied as-is. If creating from a source that does not have an equivalent flags field
+				(such as a runtime representation of an OpenTelemetry span), the high 22 bits MUST
+				be set to zero.
+				Readers MUST NOT assume that bits 10-31 (22 most significant bits) will be zero.
+				
+				[Optional].</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-Kind"><label for="Span-fold-field-Kind"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-78">Kind</a> <i><a href="#name-SpanKind">SpanKind</a></i></label><span id='Span-fold-field-Kind-docs' class="fold-docs">
+<span class="md-text">				Distinguishes between spans generated in a particular context. For example,
+				two spans with the same name may be distinguished using `CLIENT` (caller)
+				and `SERVER` (callee) to identify queueing latency associated with the span.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-Links"><label for="Span-fold-field-Links"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-117">Links</a> <i>[]*<a href="#name-SpanLink">SpanLink</a></i></label><span id='Span-fold-field-Links-docs' class="fold-docs">
+<span class="md-text">				links is a collection of Links, which are references from this span to a span
+				in the same or different trace.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-Name"><label for="Span-fold-field-Name"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-74">Name</a> <i><a href="../../../../builtin.html#name-string">string</a></i></label><span id='Span-fold-field-Name-docs' class="fold-docs">
+<span class="md-text">				A description of the span's operation.
+				
+				For example, the name can be a qualified method name or a file name
+				and a line number where the operation is called. A best practice is to use
+				the same display name at the same call point in an application.
+				This makes it easier to correlate spans in different traces.
+				
+				This field is semantically required to be set to non-empty string.
+				Empty value is equivalent to an unknown span name.
+				
+				This field is required.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-ParentSpanID"><label for="Span-fold-field-ParentSpanID"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-40">ParentSpanID</a> <i><a href="#name-SpanID">SpanID</a></i></label><span id='Span-fold-field-ParentSpanID-docs' class="fold-docs">
+<span class="md-text">				The `span_id` of this span's parent span. If this is a root span, then this
+				field must be empty. The ID is an 8-byte array.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-SpanID"><label for="Span-fold-field-SpanID"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-33">SpanID</a> <i><a href="#name-SpanID">SpanID</a></i></label><span id='Span-fold-field-SpanID-docs' class="fold-docs">
+<span class="md-text">				A unique identifier for a span within a trace, assigned when the span
+				is created. The ID is an 8-byte array. An ID with all zeroes OR of length
+				other than 8 bytes is considered invalid (empty string in OTLP/JSON
+				is zero-length and thus is also invalid).
+				
+				This field is required.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-StartTime"><label for="Span-fold-field-StartTime"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-85">StartTime</a> <i><a href="../../../../time.html">time</a>.<a href="../../../../time.html#name-Time">Time</a></i></label><span id='Span-fold-field-StartTime-docs' class="fold-docs">
+<span class="md-text">				start_time_unix_nano is the start time of the span. On the client side, this is the time
+				kept by the local machine where the span execution starts. On the server side, this
+				is the time when the server's application handler starts running.
+				Value is UNIX Epoch time in nanoseconds since 00:00:00 UTC on 1 January 1970.
+				
+				This field is semantically required and it is expected that end_time &gt;= start_time.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-Status"><label for="Span-fold-field-Status"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-123">Status</a> <i>*<a href="#name-Status">Status</a></i></label><span id='Span-fold-field-Status-docs' class="fold-docs">
+<span class="md-text">				An optional final status for this span. Semantically when Status isn't set, it means
+				span's status code is unset, i.e. assume STATUS_CODE_UNSET (code = 0).</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-TraceID"><label for="Span-fold-field-TraceID"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-26">TraceID</a> <i><a href="#name-TraceID">TraceID</a></i></label><span id='Span-fold-field-TraceID-docs' class="fold-docs">
+<span class="md-text">				A unique identifier for a trace. All spans from the same trace share
+				the same `trace_id`. The ID is a 16-byte array. An ID with all zeroes OR
+				of length other than 16 bytes is considered invalid (empty string in OTLP/JSON
+				is zero-length and thus is also invalid).
+				
+				This field is required.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-field-TraceState"><label for="Span-fold-field-TraceState"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-37">TraceState</a> <i><a href="../../../../builtin.html#name-string">string</a></i></label><span id='Span-fold-field-TraceState-docs' class="fold-docs">
+<span class="md-text">				trace_state conveys information about request position in multiple distributed tracing graphs.
+				It is a trace_state in w3c-trace-context format: https://www.w3.org/TR/trace-context/#tracestate-header
+				See also https://github.com/w3c/distributed-tracing for more details about this field.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="Span-fold-methods"><label for="Span-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='Span-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Span-fold-method-MarshalJSON"><label for="Span-fold-method-MarshalJSON">( Span) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-127">MarshalJSON</a>() ([]<a href="../../../../builtin.html#name-byte">byte</a>, <a href="../../../../builtin.html#name-error">error</a>)</label><span id='Span-fold-method-MarshalJSON-docs' class="fold-docs">
+<span class="md-text">				MarshalJSON encodes s into OTLP formatted JSON.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Span-fold-method-UnmarshalJSON"><label for="Span-fold-method-UnmarshalJSON">(*Span) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-161">UnmarshalJSON</a>(data []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='Span-fold-method-UnmarshalJSON-docs' class="fold-docs">
+<span class="md-text">				UnmarshalJSON decodes the OTLP formatted JSON contained in data into s.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="Span-fold-impls"><label for="Span-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='Span-fold-impls-items' class="fold-items"><span>
+			 Span : encoding/json.<a href="../../../../encoding/json.html#name-Marshaler">Marshaler</a></span><span>
+			*Span : encoding/json.<a href="../../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-SpanEvent" data-popularity="200">	<input type='checkbox' class="fold" id="SpanEvent-fold-content"><label for="SpanEvent-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SpanEvent.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-301">SpanEvent</a> <i>(struct)</i></label><span id='SpanEvent-fold-content-docs' class="fold-docs">
+<span class="md-text">		SpanEvent is a time-stamped annotation of the span, consisting of
+		user-supplied text description and key-value pairs.</span>
+
+		<input type='checkbox' class="fold" id="SpanEvent-fold-fields"><label for="SpanEvent-fold-fields">Fields (<i>total 4, all are exported</i>)</label><span id='SpanEvent-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="SpanEvent-fold-field-Attrs"><label for="SpanEvent-fold-field-Attrs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-310">Attrs</a> <i>[]<a href="#name-Attr">Attr</a></i></label><span id='SpanEvent-fold-field-Attrs-docs' class="fold-docs">
+<span class="md-text">				attributes is a collection of attribute key/value pairs on the event.
+				Attribute keys MUST be unique (it is not allowed to have more than one
+				attribute with the same key).</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="SpanEvent-fold-field-DroppedAttrs"><label for="SpanEvent-fold-field-DroppedAttrs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-313">DroppedAttrs</a> <i><a href="../../../../builtin.html#name-uint32">uint32</a></i></label><span id='SpanEvent-fold-field-DroppedAttrs-docs' class="fold-docs">
+<span class="md-text">				dropped_attributes_count is the number of dropped attributes. If the value is 0,
+				then no attributes were dropped.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="SpanEvent-fold-field-Name"><label for="SpanEvent-fold-field-Name"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-306">Name</a> <i><a href="../../../../builtin.html#name-string">string</a></i></label><span id='SpanEvent-fold-field-Name-docs' class="fold-docs">
+<span class="md-text">				name of the event.
+				This field is semantically required to be set to non-empty string.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="SpanEvent-fold-field-Time"><label for="SpanEvent-fold-field-Time"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-303">Time</a> <i><a href="../../../../time.html">time</a>.<a href="../../../../time.html#name-Time">Time</a></i></label><span id='SpanEvent-fold-field-Time-docs' class="fold-docs">
+<span class="md-text">				time_unix_nano is the time the event occurred.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="SpanEvent-fold-methods"><label for="SpanEvent-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='SpanEvent-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="SpanEvent-fold-method-MarshalJSON"><label for="SpanEvent-fold-method-MarshalJSON">( SpanEvent) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-317">MarshalJSON</a>() ([]<a href="../../../../builtin.html#name-byte">byte</a>, <a href="../../../../builtin.html#name-error">error</a>)</label><span id='SpanEvent-fold-method-MarshalJSON-docs' class="fold-docs">
+<span class="md-text">				MarshalJSON encodes e into OTLP formatted JSON.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="SpanEvent-fold-method-UnmarshalJSON"><label for="SpanEvent-fold-method-UnmarshalJSON">(*SpanEvent) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-334">UnmarshalJSON</a>(data []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='SpanEvent-fold-method-UnmarshalJSON-docs' class="fold-docs">
+<span class="md-text">				UnmarshalJSON decodes the OTLP formatted JSON contained in data into se.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="SpanEvent-fold-impls"><label for="SpanEvent-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='SpanEvent-fold-impls-items' class="fold-items"><span>
+			 SpanEvent : encoding/json.<a href="../../../../encoding/json.html#name-Marshaler">Marshaler</a></span><span>
+			*SpanEvent : encoding/json.<a href="../../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-SpanFlags" data-popularity="15">	<input type='checkbox' class="fold" id="SpanFlags-fold-content"><label for="SpanFlags-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SpanFlags.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-251">SpanFlags</a> <a href="../../../../builtin.html#name-int32">int32</a> <i>(basic type)</i></label><span id='SpanFlags-fold-content-docs' class="fold-docs">
+<span class="md-text">		SpanFlags represents constants used to interpret the
+		Span.flags field, which is protobuf 'fixed32' type and is to
+		be used as bit-fields. Each non-zero value defined in this enum is
+		a bit-mask.  To extract the bit-field, for example, use an
+		expression like:
+		
+			(span.flags &amp; SPAN_FLAGS_TRACE_FLAGS_MASK)
+		
+		See https://www.w3.org/TR/trace-context-2/#trace-flags for the flag definitions.
+		
+		Note that Span flags were introduced in version 1.1 of the
+		OpenTelemetry protocol.  Older Span producers do not set this
+		field, consequently consumers should not rely on the absence of a
+		particular flag bit to indicate the presence of a particular feature.</span>
+
+		<input type='checkbox' class="fold" id="SpanFlags-fold-values"><label for="SpanFlags-fold-values">As Types Of (<i>total 3, all are exported</i>)</label><span id='SpanFlags-fold-values-items' class="fold-items"><span>
+			const <a href="#name-SpanFlagsContextHasIsRemoteMask">SpanFlagsContextHasIsRemoteMask</a></span><span>
+			const <a href="#name-SpanFlagsContextIsRemoteMask">SpanFlagsContextIsRemoteMask</a></span><span>
+			const <a href="#name-SpanFlagsTraceFlagsMask">SpanFlagsTraceFlagsMask</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-SpanID" data-popularity="450">	<input type='checkbox' class="fold" id="SpanID-fold-content"><label for="SpanID-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SpanID.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-46">SpanID</a> <i>([...])</i></label><span id='SpanID-fold-content-docs' class="fold-docs">
+<span class="md-text">		SpanID is a custom data type that is used for all span IDs.</span>
+
+		<input type='checkbox' class="fold" id="SpanID-fold-methods"><label for="SpanID-fold-methods">Methods (<i>total 4, all are exported</i>)</label><span id='SpanID-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="SpanID-fold-method-IsEmpty"><label for="SpanID-fold-method-IsEmpty">( SpanID) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-54">IsEmpty</a>() <a href="../../../../builtin.html#name-bool">bool</a></label><span id='SpanID-fold-method-IsEmpty-docs' class="fold-docs">
+<span class="md-text">				IsEmpty reports whether the SpanID contains only zero bytes.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="SpanID-fold-method-MarshalJSON"><label for="SpanID-fold-method-MarshalJSON">( SpanID) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-59">MarshalJSON</a>() ([]<a href="../../../../builtin.html#name-byte">byte</a>, <a href="../../../../builtin.html#name-error">error</a>)</label><span id='SpanID-fold-method-MarshalJSON-docs' class="fold-docs">
+<span class="md-text">				MarshalJSON converts span ID into a hex string enclosed in quotes.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="SpanID-fold-method-String"><label for="SpanID-fold-method-String">( SpanID) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-49">String</a>() <a href="../../../../builtin.html#name-string">string</a></label><span id='SpanID-fold-method-String-docs' class="fold-docs">
+<span class="md-text">				String returns the hex string representation form of a SpanID.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="SpanID-fold-method-UnmarshalJSON"><label for="SpanID-fold-method-UnmarshalJSON">(*SpanID) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-67">UnmarshalJSON</a>(data []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='SpanID-fold-method-UnmarshalJSON-docs' class="fold-docs">
+<span class="md-text">				UnmarshalJSON decodes span ID from hex string, possibly enclosed in quotes.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="SpanID-fold-impls"><label for="SpanID-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='SpanID-fold-impls-items' class="fold-items"><span>
+			 SpanID : encoding/json.<a href="../../../../encoding/json.html#name-Marshaler">Marshaler</a></span><span>
+			*SpanID : encoding/json.<a href="../../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span><span>
+			 SpanID : fmt.<a href="../../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="SpanID-showhide-impls"><i><label for="SpanID-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="SpanID-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 SpanID : context.<a href="../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 SpanID : runtime.<a href="../../../../runtime.html#name-stringer">stringer</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-SpanKind" data-popularity="90">	<input type='checkbox' class="fold" id="SpanKind-fold-content"><label for="SpanKind-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SpanKind.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-273">SpanKind</a> <a href="../../../../builtin.html#name-int32">int32</a> <i>(basic type)</i></label><span id='SpanKind-fold-content-docs' class="fold-docs">
+<span class="md-text">		SpanKind is the type of span. Can be used to specify additional relationships between spans
+		in addition to a parent/child relationship.</span>
+
+		<input type='checkbox' class="fold" id="SpanKind-fold-results"><label for="SpanKind-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='SpanKind-fold-results-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="SpanKind-showhide-inputofs"><i><label for="SpanKind-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="SpanKind-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func go.opentelemetry.io/otel/trace.<a href="../../trace.html#name-spanKind">spanKind</a>(kind <a href="../../trace.html">trace</a>.<a href="../../trace.html#name-SpanKind">SpanKind</a>) <b>SpanKind</b></i></span></span>
+		<input type='checkbox' class="fold" id="SpanKind-fold-values"><label for="SpanKind-fold-values">As Types Of (<i>total 5, all are exported</i>)</label><span id='SpanKind-fold-values-items' class="fold-items"><span>
+			const <a href="#name-SpanKindClient">SpanKindClient</a></span><span>
+			const <a href="#name-SpanKindConsumer">SpanKindConsumer</a></span><span>
+			const <a href="#name-SpanKindInternal">SpanKindInternal</a></span><span>
+			const <a href="#name-SpanKindProducer">SpanKindProducer</a></span><span>
+			const <a href="#name-SpanKindServer">SpanKindServer</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-SpanLink" data-popularity="250">	<input type='checkbox' class="fold" id="SpanLink-fold-content"><label for="SpanLink-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SpanLink.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-388">SpanLink</a> <i>(struct)</i></label><span id='SpanLink-fold-content-docs' class="fold-docs">
+<span class="md-text">		SpanLink is a reference from the current span to another span in the same
+		trace or in a different trace. For example, this can be used in batching
+		operations, where a single batch handler processes multiple requests from
+		different traces or when the handler receives a request from a different
+		project.</span>
+
+		<input type='checkbox' class="fold" id="SpanLink-fold-fields"><label for="SpanLink-fold-fields">Fields (<i>total 6, all are exported</i>)</label><span id='SpanLink-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="SpanLink-fold-field-Attrs"><label for="SpanLink-fold-field-Attrs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-399">Attrs</a> <i>[]<a href="#name-Attr">Attr</a></i></label><span id='SpanLink-fold-field-Attrs-docs' class="fold-docs">
+<span class="md-text">				attributes is a collection of attribute key/value pairs on the link.
+				Attribute keys MUST be unique (it is not allowed to have more than one
+				attribute with the same key).</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="SpanLink-fold-field-DroppedAttrs"><label for="SpanLink-fold-field-DroppedAttrs"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-402">DroppedAttrs</a> <i><a href="../../../../builtin.html#name-uint32">uint32</a></i></label><span id='SpanLink-fold-field-DroppedAttrs-docs' class="fold-docs">
+<span class="md-text">				dropped_attributes_count is the number of dropped attributes. If the value is 0,
+				then no attributes were dropped.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="SpanLink-fold-field-Flags"><label for="SpanLink-fold-field-Flags"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-420">Flags</a> <i><a href="../../../../builtin.html#name-uint32">uint32</a></i></label><span id='SpanLink-fold-field-Flags-docs' class="fold-docs">
+<span class="md-text">				Flags, a bit field.
+				
+				Bits 0-7 (8 least significant bits) are the trace flags as defined in W3C Trace
+				Context specification. To read the 8-bit W3C trace flag, use
+				`flags &amp; SPAN_FLAGS_TRACE_FLAGS_MASK`.
+				
+				See https://www.w3.org/TR/trace-context-2/#trace-flags for the flag definitions.
+				
+				Bits 8 and 9 represent the 3 states of whether the link is remote.
+				The states are (unknown, is not remote, is remote).
+				To read whether the value is known, use `(flags &amp; SPAN_FLAGS_CONTEXT_HAS_IS_REMOTE_MASK) != 0`.
+				To read whether the link is remote, use `(flags &amp; SPAN_FLAGS_CONTEXT_IS_REMOTE_MASK) != 0`.
+				
+				Readers MUST NOT assume that bits 10-31 (22 most significant bits) will be zero.
+				When creating new spans, bits 10-31 (most-significant 22-bits) MUST be zero.
+				
+				[Optional].</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="SpanLink-fold-field-SpanID"><label for="SpanLink-fold-field-SpanID"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-393">SpanID</a> <i><a href="#name-SpanID">SpanID</a></i></label><span id='SpanLink-fold-field-SpanID-docs' class="fold-docs">
+<span class="md-text">				A unique identifier for the linked span. The ID is an 8-byte array.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="SpanLink-fold-field-TraceID"><label for="SpanLink-fold-field-TraceID"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-391">TraceID</a> <i><a href="#name-TraceID">TraceID</a></i></label><span id='SpanLink-fold-field-TraceID-docs' class="fold-docs">
+<span class="md-text">				A unique identifier of a trace that this linked span is part of. The ID is a
+				16-byte array.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="SpanLink-fold-field-TraceState"><label for="SpanLink-fold-field-TraceState"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-395">TraceState</a> <i><a href="../../../../builtin.html#name-string">string</a></i></label><span id='SpanLink-fold-field-TraceState-docs' class="fold-docs">
+<span class="md-text">				The trace_state associated with the link.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="SpanLink-fold-methods"><label for="SpanLink-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='SpanLink-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="SpanLink-fold-method-UnmarshalJSON"><label for="SpanLink-fold-method-UnmarshalJSON">(*SpanLink) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-424">UnmarshalJSON</a>(data []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='SpanLink-fold-method-UnmarshalJSON-docs' class="fold-docs">
+<span class="md-text">				UnmarshalJSON decodes the OTLP formatted JSON contained in data into sl.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="SpanLink-fold-impls"><label for="SpanLink-fold-impls">Implements (<i>at least one exported</i>)</label><span id='SpanLink-fold-impls-items' class="fold-items"><span>
+			*SpanLink : encoding/json.<a href="../../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span></span>
+		<input type='checkbox' class="fold" id="SpanLink-fold-results"><label for="SpanLink-fold-results">As Outputs Of (<i>at least 2, neither is exported</i>)</label><span id='SpanLink-fold-results-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="SpanLink-showhide-inputofs"><i><label for="SpanLink-showhide-inputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="SpanLink-showhide-inputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			func go.opentelemetry.io/otel/trace.<a href="../../trace.html#name-convLink">convLink</a>(link <a href="../../trace.html">trace</a>.<a href="../../trace.html#name-Link">Link</a>) *<b>SpanLink</b></i></span><span class="hidden"><i>
+			func go.opentelemetry.io/otel/trace.<a href="../../trace.html#name-convLinks">convLinks</a>(links []<a href="../../trace.html">trace</a>.<a href="../../trace.html#name-Link">Link</a>) []*<b>SpanLink</b></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-Status" data-popularity="0">	<input type='checkbox' class="fold" id="Status-fold-content"><label for="Status-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Status.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/status.go.html#line-37">Status</a> <i>(struct)</i></label><span id='Status-fold-content-docs' class="fold-docs">
+<span class="md-text">		Status defines a logical error model that is suitable for different
+		programming environments, including REST APIs and RPC APIs.</span>
+
+		<input type='checkbox' class="fold" id="Status-fold-fields"><label for="Status-fold-fields">Fields (<i>total 2, both are exported</i>)</label><span id='Status-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Status-fold-field-Code"><label for="Status-fold-field-Code"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/status.go.html#line-41">Code</a> <i><a href="#name-StatusCode">StatusCode</a></i></label><span id='Status-fold-field-Code-docs' class="fold-docs">
+<span class="md-text">				The status code.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Status-fold-field-Message"><label for="Status-fold-field-Message"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/status.go.html#line-39">Message</a> <i><a href="../../../../builtin.html#name-string">string</a></i></label><span id='Status-fold-field-Message-docs' class="fold-docs">
+<span class="md-text">				A developer-facing human readable error message.</span>
+</span></span></span>
+
+</span></div><div class="anchor type-res" id="name-StatusCode" data-popularity="215">	<input type='checkbox' class="fold" id="StatusCode-fold-content"><label for="StatusCode-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..StatusCode.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/status.go.html#line-10">StatusCode</a> <a href="../../../../builtin.html#name-int32">int32</a> <i>(basic type)</i></label><span id='StatusCode-fold-content-docs' class="fold-docs">
+<span class="md-text">		StatusCode is the status of a Span.
+		
+		For the semantics of status codes see
+		https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status</span>
+
+		<input type='checkbox' class="fold" id="StatusCode-fold-methods"><label for="StatusCode-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='StatusCode-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( StatusCode) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/status.go.html#line-28">String</a>() <a href="../../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="StatusCode-fold-impls"><label for="StatusCode-fold-impls">Implements (<i>at least 3, in which 1 is exported</i>)</label><span id='StatusCode-fold-impls-items' class="fold-items"><span>
+			 StatusCode : fmt.<a href="../../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="StatusCode-showhide-impls"><i><label for="StatusCode-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="StatusCode-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 StatusCode : context.<a href="../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 StatusCode : runtime.<a href="../../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="StatusCode-fold-values"><label for="StatusCode-fold-values">As Types Of (<i>total 3, all are exported</i>)</label><span id='StatusCode-fold-values-items' class="fold-items"><span>
+			const <a href="#name-StatusCodeError">StatusCodeError</a></span><span>
+			const <a href="#name-StatusCodeOK">StatusCodeOK</a></span><span>
+			const <a href="#name-StatusCodeUnset">StatusCodeUnset</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-TraceID" data-popularity="450">	<input type='checkbox' class="fold" id="TraceID-fold-content"><label for="TraceID-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..TraceID.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-18">TraceID</a> <i>([...])</i></label><span id='TraceID-fold-content-docs' class="fold-docs">
+<span class="md-text">		TraceID is a custom data type that is used for all trace IDs.</span>
+
+		<input type='checkbox' class="fold" id="TraceID-fold-methods"><label for="TraceID-fold-methods">Methods (<i>total 4, all are exported</i>)</label><span id='TraceID-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="TraceID-fold-method-IsEmpty"><label for="TraceID-fold-method-IsEmpty">( TraceID) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-26">IsEmpty</a>() <a href="../../../../builtin.html#name-bool">bool</a></label><span id='TraceID-fold-method-IsEmpty-docs' class="fold-docs">
+<span class="md-text">				IsEmpty reports whether the TraceID contains only zero bytes.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="TraceID-fold-method-MarshalJSON"><label for="TraceID-fold-method-MarshalJSON">( TraceID) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-31">MarshalJSON</a>() ([]<a href="../../../../builtin.html#name-byte">byte</a>, <a href="../../../../builtin.html#name-error">error</a>)</label><span id='TraceID-fold-method-MarshalJSON-docs' class="fold-docs">
+<span class="md-text">				MarshalJSON converts the trace ID into a hex string enclosed in quotes.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="TraceID-fold-method-String"><label for="TraceID-fold-method-String">( TraceID) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-21">String</a>() <a href="../../../../builtin.html#name-string">string</a></label><span id='TraceID-fold-method-String-docs' class="fold-docs">
+<span class="md-text">				String returns the hex string representation form of a TraceID.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="TraceID-fold-method-UnmarshalJSON"><label for="TraceID-fold-method-UnmarshalJSON">(*TraceID) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-40">UnmarshalJSON</a>(data []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='TraceID-fold-method-UnmarshalJSON-docs' class="fold-docs">
+<span class="md-text">				UnmarshalJSON inflates the trace ID from hex string, possibly enclosed in
+				quotes.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="TraceID-fold-impls"><label for="TraceID-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='TraceID-fold-impls-items' class="fold-items"><span>
+			 TraceID : encoding/json.<a href="../../../../encoding/json.html#name-Marshaler">Marshaler</a></span><span>
+			*TraceID : encoding/json.<a href="../../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span><span>
+			 TraceID : fmt.<a href="../../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="TraceID-showhide-impls"><i><label for="TraceID-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="TraceID-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 TraceID : context.<a href="../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 TraceID : runtime.<a href="../../../../runtime.html#name-stringer">stringer</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-Traces" data-popularity="100">	<input type='checkbox' class="fold" id="Traces-fold-content"><label for="Traces-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Traces.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-24">Traces</a> <i>(struct)</i></label><span id='Traces-fold-content-docs' class="fold-docs">
+<span class="md-text">		Traces represents the traces data that can be stored in a persistent storage,
+		OR can be embedded by other protocols that transfer OTLP traces data but do
+		not implement the OTLP protocol.
+		
+		The main difference between this message and collector protocol is that
+		in this message there will not be any "control" or "metadata" specific to
+		OTLP protocol.
+		
+		When new fields are added into this message, the OTLP request MUST be updated
+		as well.</span>
+
+		<input type='checkbox' class="fold" id="Traces-fold-fields"><label for="Traces-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='Traces-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Traces-fold-field-ResourceSpans"><label for="Traces-fold-field-ResourceSpans"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-30">ResourceSpans</a> <i>[]*<a href="#name-ResourceSpans">ResourceSpans</a></i></label><span id='Traces-fold-field-ResourceSpans-docs' class="fold-docs">
+<span class="md-text">				An array of ResourceSpans.
+				For data coming from a single resource this array will typically contain
+				one element. Intermediary nodes that receive data from multiple origins
+				typically batch the data before forwarding further and in that case this
+				array will contain multiple elements.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="Traces-fold-methods"><label for="Traces-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Traces-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Traces-fold-method-UnmarshalJSON"><label for="Traces-fold-method-UnmarshalJSON">(*Traces) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/traces.go.html#line-34">UnmarshalJSON</a>(data []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='Traces-fold-method-UnmarshalJSON-docs' class="fold-docs">
+<span class="md-text">				UnmarshalJSON decodes the OTLP formatted JSON contained in data into td.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="Traces-fold-impls"><label for="Traces-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Traces-fold-impls-items' class="fold-items"><span>
+			*Traces : encoding/json.<a href="../../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-Value" data-popularity="2180">	<input type='checkbox' class="fold" id="Value-fold-content"><label for="Value-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Value.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-22">Value</a> <i>(struct)</i></label><span id='Value-fold-content-docs' class="fold-docs">
+<span class="md-text">		A Value represents a structured value.
+		A zero value is valid and represents an empty value.</span>
+
+		<input type='checkbox' class="fold" id="Value-fold-fields"><label for="Value-fold-fields">Fields (<i>total 3, none are exported</i>)</label><span id='Value-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Value-showhide-fields"><i><label for="Value-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="Value-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Value-fold-field-any"><label for="Value-fold-field-any"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-33">any</a> <i><a href="../../../../builtin.html#name-any">any</a></i></label><span id='Value-fold-field-any-docs' class="fold-docs">
+<span class="md-text">				any holds either the KindBool, KindInt64, KindFloat64, stringptr,
+				bytesptr, sliceptr, or mapptr. If KindBool, KindInt64, or KindFloat64
+				then the value of Value is in num as described above. Otherwise, it
+				contains the value wrapped in the appropriate type.</span>
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Value-fold-field-noCmp"><label for="Value-fold-field-noCmp"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-24">noCmp</a> <i>[0]func()</i></label><span id='Value-fold-field-noCmp-docs' class="fold-docs">
+<span class="md-text">				Ensure forward compatibility by explicitly making this not comparable.</span>
+<span class="md-text">				// nolint: unused  // This is indeed used.</span>
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Value-fold-field-num"><label for="Value-fold-field-num"><a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-28">num</a> <i><a href="../../../../builtin.html#name-uint64">uint64</a></i></label><span id='Value-fold-field-num-docs' class="fold-docs">
+<span class="md-text">				num holds the value for Int64, Float64, and Bool. It holds the length
+				for String, Bytes, Slice, Map.</span>
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="Value-fold-methods"><label for="Value-fold-methods">Methods (<i>total 20, in which 13 are exported</i>)</label><span id='Value-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Value-fold-method-AsBool"><label for="Value-fold-method-AsBool">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-172">AsBool</a>() <a href="../../../../builtin.html#name-bool">bool</a></label><span id='Value-fold-method-AsBool-docs' class="fold-docs">
+<span class="md-text">				AsBool returns the value held by v as a bool.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Value-fold-method-AsBytes"><label for="Value-fold-method-AsBytes">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-198">AsBytes</a>() []<a href="../../../../builtin.html#name-byte">byte</a></label><span id='Value-fold-method-AsBytes-docs' class="fold-docs">
+<span class="md-text">				AsBytes returns the value held by v as a []byte.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Value-fold-method-AsFloat64"><label for="Value-fold-method-AsFloat64">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-185">AsFloat64</a>() <a href="../../../../builtin.html#name-float64">float64</a></label><span id='Value-fold-method-AsFloat64-docs' class="fold-docs">
+<span class="md-text">				AsFloat64 returns the value held by v as a float64.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Value-fold-method-AsInt64"><label for="Value-fold-method-AsInt64">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-156">AsInt64</a>() <a href="../../../../builtin.html#name-int64">int64</a></label><span id='Value-fold-method-AsInt64-docs' class="fold-docs">
+<span class="md-text">				AsInt64 returns the value held by v as an int64.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Value-fold-method-AsMap"><label for="Value-fold-method-AsMap">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-228">AsMap</a>() []<a href="#name-Attr">Attr</a></label><span id='Value-fold-method-AsMap-docs' class="fold-docs">
+<span class="md-text">				AsMap returns the value held by v as a []Attr.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Value-fold-method-AsSlice"><label for="Value-fold-method-AsSlice">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-213">AsSlice</a>() []<b>Value</b></label><span id='Value-fold-method-AsSlice-docs' class="fold-docs">
+<span class="md-text">				AsSlice returns the value held by v as a []Value.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Value-fold-method-AsString"><label for="Value-fold-method-AsString">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-141">AsString</a>() <a href="../../../../builtin.html#name-string">string</a></label><span id='Value-fold-method-AsString-docs' class="fold-docs">
+<span class="md-text">				AsString returns the value held by v as a string.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Value-fold-method-Empty"><label for="Value-fold-method-Empty">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-261">Empty</a>() <a href="../../../../builtin.html#name-bool">bool</a></label><span id='Value-fold-method-Empty-docs' class="fold-docs">
+<span class="md-text">				Empty reports whether v does not hold any value.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Value-fold-method-Equal"><label for="Value-fold-method-Equal">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-264">Equal</a>(w <b>Value</b>) <a href="../../../../builtin.html#name-bool">bool</a></label><span id='Value-fold-method-Equal-docs' class="fold-docs">
+<span class="md-text">				Equal reports whether v is equal to w.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Value-fold-method-Kind"><label for="Value-fold-method-Kind">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-243">Kind</a>() <a href="#name-ValueKind">ValueKind</a></label><span id='Value-fold-method-Kind-docs' class="fold-docs">
+<span class="md-text">				Kind returns the Kind of v.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Value-fold-method-MarshalJSON"><label for="Value-fold-method-MarshalJSON">(*Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-338">MarshalJSON</a>() ([]<a href="../../../../builtin.html#name-byte">byte</a>, <a href="../../../../builtin.html#name-error">error</a>)</label><span id='Value-fold-method-MarshalJSON-docs' class="fold-docs">
+<span class="md-text">				MarshalJSON encodes v into OTLP formatted JSON.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Value-fold-method-String"><label for="Value-fold-method-String">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-307">String</a>() <a href="../../../../builtin.html#name-string">string</a></label><span id='Value-fold-method-String-docs' class="fold-docs">
+<span class="md-text">				String returns Value's value as a string, formatted like [fmt.Sprint].
+				
+				The returned string is meant for debugging;
+				the string representation is not stable.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Value-fold-method-UnmarshalJSON"><label for="Value-fold-method-UnmarshalJSON">(*Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-384">UnmarshalJSON</a>(data []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='Value-fold-method-UnmarshalJSON-docs' class="fold-docs">
+<span class="md-text">				UnmarshalJSON decodes the OTLP formatted JSON contained in data into v.</span>
+</span></span>
+			<input type='checkbox' class="showhide" id="Value-showhide-methods"><i><label for="Value-showhide-methods" class="show-inline">/* 7 unexporteds ... */</label><label for="Value-showhide-methods" class="hide-inline">/* 7 unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Value-fold-method-asBool"><label for="Value-fold-method-asBool">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-182">asBool</a>() <a href="../../../../builtin.html#name-bool">bool</a></label><span id='Value-fold-method-asBool-docs' class="fold-docs">
+<span class="md-text">				asBool returns the value held by v as a bool. If v is not of KindBool, this
+				will return garbage.</span>
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Value-fold-method-asBytes"><label for="Value-fold-method-asBytes">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-208">asBytes</a>() []<a href="../../../../builtin.html#name-byte">byte</a></label><span id='Value-fold-method-asBytes-docs' class="fold-docs">
+<span class="md-text">				asBytes returns the value held by v as a []byte. It will panic if the Value
+				is not KindBytes.</span>
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Value-fold-method-asFloat64"><label for="Value-fold-method-asFloat64">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-195">asFloat64</a>() <a href="../../../../builtin.html#name-float64">float64</a></label><span id='Value-fold-method-asFloat64-docs' class="fold-docs">
+<span class="md-text">				asFloat64 returns the value held by v as a float64. If v is not of
+				KindFloat64, this will return garbage.</span>
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Value-fold-method-asInt64"><label for="Value-fold-method-asInt64">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-166">asInt64</a>() <a href="../../../../builtin.html#name-int64">int64</a></label><span id='Value-fold-method-asInt64-docs' class="fold-docs">
+<span class="md-text">				asInt64 returns the value held by v as an int64. If v is not of KindInt64,
+				this will return garbage.</span>
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Value-fold-method-asMap"><label for="Value-fold-method-asMap">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-238">asMap</a>() []<a href="#name-Attr">Attr</a></label><span id='Value-fold-method-asMap-docs' class="fold-docs">
+<span class="md-text">				asMap returns the value held by v as a []Attr. It will panic if the
+				Value is not KindMap.</span>
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Value-fold-method-asSlice"><label for="Value-fold-method-asSlice">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-223">asSlice</a>() []<b>Value</b></label><span id='Value-fold-method-asSlice-docs' class="fold-docs">
+<span class="md-text">				asSlice returns the value held by v as a []Value. It will panic if the Value
+				is not KindSlice.</span>
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Value-fold-method-asString"><label for="Value-fold-method-asString">( Value) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-151">asString</a>() <a href="../../../../builtin.html#name-string">string</a></label><span id='Value-fold-method-asString-docs' class="fold-docs">
+<span class="md-text">				asString returns the value held by v as a string. It will panic if the Value
+				is not KindString.</span>
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="Value-fold-impls"><label for="Value-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='Value-fold-impls-items' class="fold-items"><span>
+			*Value : encoding/json.<a href="../../../../encoding/json.html#name-Marshaler">Marshaler</a></span><span>
+			*Value : encoding/json.<a href="../../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span><span>
+			 Value : fmt.<a href="../../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="Value-showhide-impls"><i><label for="Value-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Value-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 Value : context.<a href="../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 Value : runtime.<a href="../../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="Value-fold-results"><label for="Value-fold-results">As Outputs Of (<i>at least 11, in which 9 are exported</i>)</label><span id='Value-fold-results-items' class="fold-items"><span>
+			func <a href="#name-BoolValue">BoolValue</a>(v <a href="../../../../builtin.html#name-bool">bool</a>) <b>Value</b></span><span>
+			func <a href="#name-BytesValue">BytesValue</a>(v []<a href="../../../../builtin.html#name-byte">byte</a>) <b>Value</b></span><span>
+			func <a href="#name-Float64Value">Float64Value</a>(v <a href="../../../../builtin.html#name-float64">float64</a>) <b>Value</b></span><span>
+			func <a href="#name-Int64Value">Int64Value</a>(v <a href="../../../../builtin.html#name-int64">int64</a>) <b>Value</b></span><span>
+			func <a href="#name-IntValue">IntValue</a>(v <a href="../../../../builtin.html#name-int">int</a>) <b>Value</b></span><span>
+			func <a href="#name-MapValue">MapValue</a>(kvs ...<a href="#name-Attr">Attr</a>) <b>Value</b></span><span>
+			func <a href="#name-SliceValue">SliceValue</a>(vs ...<b>Value</b>) <b>Value</b></span><span>
+			func <a href="#name-StringValue">StringValue</a>(v <a href="../../../../builtin.html#name-string">string</a>) <b>Value</b></span><span>
+			func Value.<a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-213">AsSlice</a>() []<b>Value</b></span>
+			<input type='checkbox' class="showhide" id="Value-showhide-inputofs"><i><label for="Value-showhide-inputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="Value-showhide-inputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			func Value.<a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-223">asSlice</a>() []<b>Value</b></i></span><span class="hidden"><i>
+			func go.opentelemetry.io/otel/trace.<a href="../../trace.html#name-convAttrValue">convAttrValue</a>(value <a href="../../attribute.html">attribute</a>.<a href="../../attribute.html#name-Value">Value</a>) <b>Value</b></i></span></span>
+		<input type='checkbox' class="fold" id="Value-fold-params"><label for="Value-fold-params">As Inputs Of (<i>at least 3, all are exported</i>)</label><span id='Value-fold-params-items' class="fold-items"><span>
+			func <a href="#name-Slice">Slice</a>(key <a href="../../../../builtin.html#name-string">string</a>, value ...<b>Value</b>) <a href="#name-Attr">Attr</a></span><span>
+			func <a href="#name-SliceValue">SliceValue</a>(vs ...<b>Value</b>) <b>Value</b></span><span>
+			func Value.<a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-264">Equal</a>(w <b>Value</b>) <a href="../../../../builtin.html#name-bool">bool</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ValueKind" data-popularity="290">	<input type='checkbox' class="fold" id="ValueKind-fold-content"><label for="ValueKind-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..ValueKind.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-48">ValueKind</a> <a href="../../../../builtin.html#name-int">int</a> <i>(basic type)</i></label><span id='ValueKind-fold-content-docs' class="fold-docs">
+<span class="md-text">		ValueKind is the kind of a [Value].</span>
+
+		<input type='checkbox' class="fold" id="ValueKind-fold-methods"><label for="ValueKind-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ValueKind-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( ValueKind) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-73">String</a>() <a href="../../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="ValueKind-fold-impls"><label for="ValueKind-fold-impls">Implements (<i>at least 3, in which 1 is exported</i>)</label><span id='ValueKind-fold-impls-items' class="fold-items"><span>
+			 ValueKind : fmt.<a href="../../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="ValueKind-showhide-impls"><i><label for="ValueKind-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="ValueKind-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 ValueKind : context.<a href="../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 ValueKind : runtime.<a href="../../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="ValueKind-fold-results"><label for="ValueKind-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='ValueKind-fold-results-items' class="fold-items"><span>
+			func <a href="#name-Value">Value</a>.<a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-243">Kind</a>() <b>ValueKind</b></span></span>
+		<input type='checkbox' class="fold" id="ValueKind-fold-values"><label for="ValueKind-fold-values">As Types Of (<i>total 8, all are exported</i>)</label><span id='ValueKind-fold-values-items' class="fold-items"><span>
+			const <a href="#name-ValueKindBool">ValueKindBool</a></span><span>
+			const <a href="#name-ValueKindBytes">ValueKindBytes</a></span><span>
+			const <a href="#name-ValueKindEmpty">ValueKindEmpty</a></span><span>
+			const <a href="#name-ValueKindFloat64">ValueKindFloat64</a></span><span>
+			const <a href="#name-ValueKindInt64">ValueKindInt64</a></span><span>
+			const <a href="#name-ValueKindMap">ValueKindMap</a></span><span>
+			const <a href="#name-ValueKindSlice">ValueKindSlice</a></span><span>
+			const <a href="#name-ValueKindString">ValueKindString</a></span></span>
+
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 6 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 6 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-bytesptr" data-popularity="0">	<input type='checkbox' class="fold" id="bytesptr-fold-content"><label for="bytesptr-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..bytesptr^42311.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-40">bytesptr</a> <i>(*)</i></label><span id='bytesptr-fold-content-docs' class="fold-docs">
+<span class="md-text">		bytesptr represents a value in Value.any for KindBytes Values.</span>
+
+</span></div><div class="anchor type-res hidden" id="name-mapptr" data-popularity="0">	<input type='checkbox' class="fold" id="mapptr-fold-content"><label for="mapptr-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..mapptr^0f32f.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-44">mapptr</a> <i>(*)</i></label><span id='mapptr-fold-content-docs' class="fold-docs">
+<span class="md-text">		mapptr represents a value in Value.any for KindMap Values.</span>
+
+</span></div><div class="anchor type-res hidden" id="name-protoInt64" data-popularity="150">	<input type='checkbox' class="fold" id="protoInt64-fold-content"><label for="protoInt64-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..protoInt64^2aa59.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html#line-13">protoInt64</a> <a href="../../../../builtin.html#name-int64">int64</a> <i>(basic type)</i></label><span id='protoInt64-fold-content-docs' class="fold-docs">
+<span class="md-text">		protoInt64 represents the protobuf encoding of integers which can be either
+		strings or integers.</span>
+
+		<input type='checkbox' class="fold" id="protoInt64-fold-methods"><label for="protoInt64-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='protoInt64-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="protoInt64-fold-method-Int64"><label for="protoInt64-fold-method-Int64">(*protoInt64) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html#line-16">Int64</a>() <a href="../../../../builtin.html#name-int64">int64</a></label><span id='protoInt64-fold-method-Int64-docs' class="fold-docs">
+<span class="md-text">				Int64 returns the protoInt64 as an int64.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="protoInt64-fold-method-UnmarshalJSON"><label for="protoInt64-fold-method-UnmarshalJSON">(*protoInt64) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html#line-19">UnmarshalJSON</a>(data []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='protoInt64-fold-method-UnmarshalJSON-docs' class="fold-docs">
+<span class="md-text">				UnmarshalJSON decodes both strings and integers.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="protoInt64-fold-impls"><label for="protoInt64-fold-impls">Implements (<i>at least one exported</i>)</label><span id='protoInt64-fold-impls-items' class="fold-items"><span>
+			*protoInt64 : encoding/json.<a href="../../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-protoUint64" data-popularity="200">	<input type='checkbox' class="fold" id="protoUint64-fold-content"><label for="protoUint64-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..protoUint64^94671.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html#line-42">protoUint64</a> <a href="../../../../builtin.html#name-uint64">uint64</a> <i>(basic type)</i></label><span id='protoUint64-fold-content-docs' class="fold-docs">
+<span class="md-text">		protoUint64 represents the protobuf encoding of integers which can be either
+		strings or integers.</span>
+
+		<input type='checkbox' class="fold" id="protoUint64-fold-methods"><label for="protoUint64-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='protoUint64-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="protoUint64-fold-method-Uint64"><label for="protoUint64-fold-method-Uint64">(*protoUint64) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html#line-45">Uint64</a>() <a href="../../../../builtin.html#name-uint64">uint64</a></label><span id='protoUint64-fold-method-Uint64-docs' class="fold-docs">
+<span class="md-text">				Int64 returns the protoUint64 as a uint64.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="protoUint64-fold-method-UnmarshalJSON"><label for="protoUint64-fold-method-UnmarshalJSON">(*protoUint64) <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html#line-48">UnmarshalJSON</a>(data []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='protoUint64-fold-method-UnmarshalJSON-docs' class="fold-docs">
+<span class="md-text">				UnmarshalJSON decodes both strings and integers.</span>
+</span></span></span>
+		<input type='checkbox' class="fold" id="protoUint64-fold-impls"><label for="protoUint64-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='protoUint64-fold-impls-items' class="fold-items"><span>
+			*protoUint64 : encoding/json.<a href="../../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span><span>
+			*protoUint64 : math/rand/v2.<a href="../../../../math/rand/v2.html#name-Source">Source</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-sliceptr" data-popularity="0">	<input type='checkbox' class="fold" id="sliceptr-fold-content"><label for="sliceptr-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..sliceptr^d515b.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-42">sliceptr</a> <i>(*)</i></label><span id='sliceptr-fold-content-docs' class="fold-docs">
+<span class="md-text">		sliceptr represents a value in Value.any for KindSlice Values.</span>
+
+</span></div><div class="anchor type-res hidden" id="name-stringptr" data-popularity="0">	<input type='checkbox' class="fold" id="stringptr-fold-content"><label for="stringptr-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..stringptr^5a6ba.html">type</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-38">stringptr</a> <i>(*)</i></label><span id='stringptr-fold-content-docs' class="fold-docs">
+<span class="md-text">		sliceptr represents a value in Value.any for KindString Values.</span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 19, in which 16 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-Bool">	<input type='checkbox' class="fold" id="Bool-fold-content"><label for="Bool-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Bool.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html#line-33">Bool</a>(key <a href="../../../../builtin.html#name-string">string</a>, value <a href="../../../../builtin.html#name-bool">bool</a>) <a href="#name-Attr">Attr</a></label><span id='Bool-fold-content-docs' class="fold-docs">
+<span class="md-text">		Bool returns an Attr for a bool value.</span>
+
+</span></div><div class="anchor value-res" id="name-BoolValue">	<input type='checkbox' class="fold" id="BoolValue-fold-content"><label for="BoolValue-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..BoolValue.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-105">BoolValue</a>(v <a href="../../../../builtin.html#name-bool">bool</a>) <a href="#name-Value">Value</a></label><span id='BoolValue-fold-content-docs' class="fold-docs">
+<span class="md-text">		BoolValue returns a [Value] for a bool.</span>
+
+</span></div><div class="anchor value-res" id="name-Bytes">	<input type='checkbox' class="fold" id="Bytes-fold-content"><label for="Bytes-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Bytes.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html#line-39">Bytes</a>(key <a href="../../../../builtin.html#name-string">string</a>, value []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="#name-Attr">Attr</a></label><span id='Bytes-fold-content-docs' class="fold-docs">
+<span class="md-text">		Bytes returns an Attr for a []byte value.
+		The passed slice must not be changed after it is passed.</span>
+
+</span></div><div class="anchor value-res" id="name-BytesValue">	<input type='checkbox' class="fold" id="BytesValue-fold-content"><label for="BytesValue-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..BytesValue.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-115">BytesValue</a>(v []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="#name-Value">Value</a></label><span id='BytesValue-fold-content-docs' class="fold-docs">
+<span class="md-text">		BytesValue returns a [Value] for a byte slice. The passed slice must not be
+		changed after it is passed.</span>
+
+</span></div><div class="anchor value-res" id="name-Float64">	<input type='checkbox' class="fold" id="Float64-fold-content"><label for="Float64-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Float64.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html#line-28">Float64</a>(key <a href="../../../../builtin.html#name-string">string</a>, value <a href="../../../../builtin.html#name-float64">float64</a>) <a href="#name-Attr">Attr</a></label><span id='Float64-fold-content-docs' class="fold-docs">
+<span class="md-text">		Float64 returns an Attr for a float64 value.</span>
+
+</span></div><div class="anchor value-res" id="name-Float64Value">	<input type='checkbox' class="fold" id="Float64Value-fold-content"><label for="Float64Value-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Float64Value.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-100">Float64Value</a>(v <a href="../../../../builtin.html#name-float64">float64</a>) <a href="#name-Value">Value</a></label><span id='Float64Value-fold-content-docs' class="fold-docs">
+<span class="md-text">		Float64Value returns a [Value] for a float64.</span>
+
+</span></div><div class="anchor value-res" id="name-Int">	<input type='checkbox' class="fold" id="Int-fold-content"><label for="Int-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Int.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html#line-23">Int</a>(key <a href="../../../../builtin.html#name-string">string</a>, value <a href="../../../../builtin.html#name-int">int</a>) <a href="#name-Attr">Attr</a></label><span id='Int-fold-content-docs' class="fold-docs">
+<span class="md-text">		Int returns an Attr for an int value.</span>
+
+</span></div><div class="anchor value-res" id="name-Int64">	<input type='checkbox' class="fold" id="Int64-fold-content"><label for="Int64-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Int64.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html#line-18">Int64</a>(key <a href="../../../../builtin.html#name-string">string</a>, value <a href="../../../../builtin.html#name-int64">int64</a>) <a href="#name-Attr">Attr</a></label><span id='Int64-fold-content-docs' class="fold-docs">
+<span class="md-text">		Int64 returns an Attr for an int64 value.</span>
+
+</span></div><div class="anchor value-res" id="name-Int64Value">	<input type='checkbox' class="fold" id="Int64Value-fold-content"><label for="Int64Value-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Int64Value.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-92">Int64Value</a>(v <a href="../../../../builtin.html#name-int64">int64</a>) <a href="#name-Value">Value</a></label><span id='Int64Value-fold-content-docs' class="fold-docs">
+<span class="md-text">		Int64Value returns a [Value] for an int64.</span>
+
+</span></div><div class="anchor value-res" id="name-IntValue">	<input type='checkbox' class="fold" id="IntValue-fold-content"><label for="IntValue-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..IntValue.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-89">IntValue</a>(v <a href="../../../../builtin.html#name-int">int</a>) <a href="#name-Value">Value</a></label><span id='IntValue-fold-content-docs' class="fold-docs">
+<span class="md-text">		IntValue returns a [Value] for an int.</span>
+
+</span></div><div class="anchor value-res" id="name-Map">	<input type='checkbox' class="fold" id="Map-fold-content"><label for="Map-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Map.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html#line-51">Map</a>(key <a href="../../../../builtin.html#name-string">string</a>, value ...<a href="#name-Attr">Attr</a>) <a href="#name-Attr">Attr</a></label><span id='Map-fold-content-docs' class="fold-docs">
+<span class="md-text">		Map returns an Attr for a map value.
+		The passed slice must not be changed after it is passed.</span>
+
+</span></div><div class="anchor value-res" id="name-MapValue">	<input type='checkbox' class="fold" id="MapValue-fold-content"><label for="MapValue-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..MapValue.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-133">MapValue</a>(kvs ...<a href="#name-Attr">Attr</a>) <a href="#name-Value">Value</a></label><span id='MapValue-fold-content-docs' class="fold-docs">
+<span class="md-text">		MapValue returns a new [Value] for a slice of key-value pairs. The passed
+		slice must not be changed after it is passed.</span>
+
+</span></div><div class="anchor value-res" id="name-Slice">	<input type='checkbox' class="fold" id="Slice-fold-content"><label for="Slice-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Slice.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html#line-45">Slice</a>(key <a href="../../../../builtin.html#name-string">string</a>, value ...<a href="#name-Value">Value</a>) <a href="#name-Attr">Attr</a></label><span id='Slice-fold-content-docs' class="fold-docs">
+<span class="md-text">		Slice returns an Attr for a []Value value.
+		The passed slice must not be changed after it is passed.</span>
+
+</span></div><div class="anchor value-res" id="name-SliceValue">	<input type='checkbox' class="fold" id="SliceValue-fold-content"><label for="SliceValue-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SliceValue.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-124">SliceValue</a>(vs ...<a href="#name-Value">Value</a>) <a href="#name-Value">Value</a></label><span id='SliceValue-fold-content-docs' class="fold-docs">
+<span class="md-text">		SliceValue returns a [Value] for a slice of [Value]. The passed slice must
+		not be changed after it is passed.</span>
+
+</span></div><div class="anchor value-res" id="name-String">	<input type='checkbox' class="fold" id="String-fold-content"><label for="String-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..String.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/attr.go.html#line-13">String</a>(key, value <a href="../../../../builtin.html#name-string">string</a>) <a href="#name-Attr">Attr</a></label><span id='String-fold-content-docs' class="fold-docs">
+<span class="md-text">		String returns an Attr for a string value.</span>
+
+</span></div><div class="anchor value-res" id="name-StringValue">	<input type='checkbox' class="fold" id="StringValue-fold-content"><label for="StringValue-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..StringValue.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-81">StringValue</a>(v <a href="../../../../builtin.html#name-string">string</a>) <a href="#name-Value">Value</a></label><span id='StringValue-fold-content-docs' class="fold-docs">
+<span class="md-text">		StringValue returns a new [Value] for a string.</span>
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 3 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 3 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-marshalJSON"><i>	<input type='checkbox' class="fold" id="marshalJSON-fold-content"><label for="marshalJSON-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..marshalJSON^1f42e.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-73">marshalJSON</a>(id []<a href="../../../../builtin.html#name-byte">byte</a>) ([]<a href="../../../../builtin.html#name-byte">byte</a>, <a href="../../../../builtin.html#name-error">error</a>)</label><span id='marshalJSON-fold-content-docs' class="fold-docs">
+<span class="md-text">		marshalJSON converts id into a hex string enclosed in quotes.</span>
+
+</span></i></div><div class="anchor value-res hidden" id="name-sortMap"><i>	<span class="nodocs"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..sortMap^7c05e.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-293">sortMap</a>(m []<a href="#name-Attr">Attr</a>) []<a href="#name-Attr">Attr</a></span></i></div><div class="anchor value-res hidden" id="name-unmarshalJSON"><i>	<input type='checkbox' class="fold" id="unmarshalJSON-fold-content"><label for="unmarshalJSON-fold-content"> <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..unmarshalJSON^52213.html">func</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-85">unmarshalJSON</a>(dst, src []<a href="../../../../builtin.html#name-byte">byte</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='unmarshalJSON-fold-content-docs' class="fold-docs">
+<span class="md-text">		unmarshalJSON inflates trace id from hex string, possibly enclosed in quotes.</span>
+
+</span></i></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 2, neither is exported)</i></span></span>
+
+	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-statusCodeStrings"><i>	<span class="nodocs">  <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..statusCodeStrings^2db24.html">var</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/status.go.html#line-22">statusCodeStrings</a> []<a href="../../../../builtin.html#name-string">string</a></span></i></div><div class="anchor value-res hidden" id="name-valueKindStrings"><i>	<span class="nodocs">  <a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..valueKindStrings^0f6c4.html">var</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-62">valueKindStrings</a> []<a href="../../../../builtin.html#name-string">string</a></span></i></div></div>
+<div id="exported-constants"><span class="title">Package-Level Constants<span class="title-stat"><i> (total 21, in which 19 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-SpanFlagsContextHasIsRemoteMask">	<input type='checkbox' class="fold" id="SpanFlagsContextHasIsRemoteMask-fold-content"><label for="SpanFlagsContextHasIsRemoteMask-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SpanFlagsContextHasIsRemoteMask.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-262">SpanFlagsContextHasIsRemoteMask</a> <a href="#name-SpanFlags">SpanFlags</a> = 256</label><span id='SpanFlagsContextHasIsRemoteMask-fold-content-docs' class="fold-docs">
+<span class="md-text">		SpanFlagsContextHasIsRemoteMask is a mask for HAS_IS_REMOTE status.
+		
+		Bits 8 and 9 are used to indicate that the parent span or link span is
+		remote. Bit 8 (`HAS_IS_REMOTE`) indicates whether the value is known.</span>
+
+</span></div><div class="anchor value-res" id="name-SpanFlagsContextIsRemoteMask">	<input type='checkbox' class="fold" id="SpanFlagsContextIsRemoteMask-fold-content"><label for="SpanFlagsContextIsRemoteMask-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SpanFlagsContextIsRemoteMask.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-268">SpanFlagsContextIsRemoteMask</a> <a href="#name-SpanFlags">SpanFlags</a> = 512</label><span id='SpanFlagsContextIsRemoteMask-fold-content-docs' class="fold-docs">
+<span class="md-text">		SpanFlagsContextIsRemoteMask is a mask for IS_REMOTE status.
+		
+		Bits 8 and 9 are used to indicate that the parent span or link span is
+		remote. Bit 9 (`IS_REMOTE`) indicates whether the span or link is
+		remote.</span>
+
+</span></div><div class="anchor value-res" id="name-SpanFlagsTraceFlagsMask">	<input type='checkbox' class="fold" id="SpanFlagsTraceFlagsMask-fold-content"><label for="SpanFlagsTraceFlagsMask-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SpanFlagsTraceFlagsMask.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-257">SpanFlagsTraceFlagsMask</a> <a href="#name-SpanFlags">SpanFlags</a> = 255</label><span id='SpanFlagsTraceFlagsMask-fold-content-docs' class="fold-docs">
+<span class="md-text">		SpanFlagsTraceFlagsMask is a mask for trace-flags.
+		
+		Bits 0-7 are used for trace flags.</span>
+
+</span></div><div class="anchor value-res" id="name-SpanKindClient">	<input type='checkbox' class="fold" id="SpanKindClient-fold-content"><label for="SpanKindClient-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SpanKindClient.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-285">SpanKindClient</a> <a href="#name-SpanKind">SpanKind</a> = 3</label><span id='SpanKindClient-fold-content-docs' class="fold-docs">
+<span class="md-text">		SpanKindClient indicates that the span describes a request to some
+		remote service.</span>
+
+</span></div><div class="anchor value-res" id="name-SpanKindConsumer">	<input type='checkbox' class="fold" id="SpanKindConsumer-fold-content"><label for="SpanKindConsumer-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SpanKindConsumer.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-296">SpanKindConsumer</a> <a href="#name-SpanKind">SpanKind</a> = 5</label><span id='SpanKindConsumer-fold-content-docs' class="fold-docs">
+<span class="md-text">		SpanKindConsumer indicates that the span describes a consumer receiving
+		a message from a broker. Like SpanKindProducer, there is often no direct
+		critical path latency relationship between producer and consumer spans.</span>
+
+</span></div><div class="anchor value-res" id="name-SpanKindInternal">	<input type='checkbox' class="fold" id="SpanKindInternal-fold-content"><label for="SpanKindInternal-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SpanKindInternal.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-279">SpanKindInternal</a> <a href="#name-SpanKind">SpanKind</a> = 1</label><span id='SpanKindInternal-fold-content-docs' class="fold-docs">
+<span class="md-text">		SpanKindInternal indicates that the span represents an internal
+		operation within an application, as opposed to an operation happening at
+		the boundaries.</span>
+
+</span></div><div class="anchor value-res" id="name-SpanKindProducer">	<input type='checkbox' class="fold" id="SpanKindProducer-fold-content"><label for="SpanKindProducer-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SpanKindProducer.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-292">SpanKindProducer</a> <a href="#name-SpanKind">SpanKind</a> = 4</label><span id='SpanKindProducer-fold-content-docs' class="fold-docs">
+<span class="md-text">		SpanKindProducer indicates that the span describes a producer sending a
+		message to a broker. Unlike SpanKindClient and SpanKindServer, there is
+		often no direct critical path latency relationship between producer and
+		consumer spans. A SpanKindProducer span ends when the message was
+		accepted by the broker while the logical processing of the message might
+		span a much longer time.</span>
+
+</span></div><div class="anchor value-res" id="name-SpanKindServer">	<input type='checkbox' class="fold" id="SpanKindServer-fold-content"><label for="SpanKindServer-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..SpanKindServer.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-282">SpanKindServer</a> <a href="#name-SpanKind">SpanKind</a> = 2</label><span id='SpanKindServer-fold-content-docs' class="fold-docs">
+<span class="md-text">		SpanKindServer indicates that the span covers server-side handling of an
+		RPC or other remote network request.</span>
+
+</span></div><div class="anchor value-res" id="name-StatusCodeError">	<input type='checkbox' class="fold" id="StatusCodeError-fold-content"><label for="StatusCodeError-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..StatusCodeError.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/status.go.html#line-19">StatusCodeError</a> <a href="#name-StatusCode">StatusCode</a> = 2</label><span id='StatusCodeError-fold-content-docs' class="fold-docs">
+<span class="md-text">		StatusCodeError is used when the Span contains an error.</span>
+
+</span></div><div class="anchor value-res" id="name-StatusCodeOK">	<input type='checkbox' class="fold" id="StatusCodeOK-fold-content"><label for="StatusCodeOK-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..StatusCodeOK.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/status.go.html#line-17">StatusCodeOK</a> <a href="#name-StatusCode">StatusCode</a> = 1</label><span id='StatusCodeOK-fold-content-docs' class="fold-docs">
+<span class="md-text">		StatusCodeOK is used when the Span has been validated by an Application
+		developer or Operator to have completed successfully.</span>
+
+</span></div><div class="anchor value-res" id="name-StatusCodeUnset">	<input type='checkbox' class="fold" id="StatusCodeUnset-fold-content"><label for="StatusCodeUnset-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..StatusCodeUnset.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/status.go.html#line-14">StatusCodeUnset</a> <a href="#name-StatusCode">StatusCode</a> = 0</label><span id='StatusCodeUnset-fold-content-docs' class="fold-docs">
+<span class="md-text">		StatusCodeUnset is the default status.</span>
+
+</span></div><div class="anchor value-res" id="name-ValueKindBool">	<input type='checkbox' class="fold" id="ValueKindBool-fold-content"><label for="ValueKindBool-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..ValueKindBool.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-53">ValueKindBool</a> <a href="#name-ValueKind">ValueKind</a> = 1</label><span id='ValueKindBool-fold-content-docs' class="fold-docs">
+<span class="md-text">		ValueKind values.</span>
+
+</span></div><div class="anchor value-res" id="name-ValueKindBytes">	<input type='checkbox' class="fold" id="ValueKindBytes-fold-content"><label for="ValueKindBytes-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..ValueKindBytes.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-57">ValueKindBytes</a> <a href="#name-ValueKind">ValueKind</a> = 5</label><span id='ValueKindBytes-fold-content-docs' class="fold-docs">
+<span class="md-text">		ValueKind values.</span>
+
+</span></div><div class="anchor value-res" id="name-ValueKindEmpty">	<input type='checkbox' class="fold" id="ValueKindEmpty-fold-content"><label for="ValueKindEmpty-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..ValueKindEmpty.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-52">ValueKindEmpty</a> <a href="#name-ValueKind">ValueKind</a> = 0</label><span id='ValueKindEmpty-fold-content-docs' class="fold-docs">
+<span class="md-text">		ValueKind values.</span>
+
+</span></div><div class="anchor value-res" id="name-ValueKindFloat64">	<input type='checkbox' class="fold" id="ValueKindFloat64-fold-content"><label for="ValueKindFloat64-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..ValueKindFloat64.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-54">ValueKindFloat64</a> <a href="#name-ValueKind">ValueKind</a> = 2</label><span id='ValueKindFloat64-fold-content-docs' class="fold-docs">
+<span class="md-text">		ValueKind values.</span>
+
+</span></div><div class="anchor value-res" id="name-ValueKindInt64">	<input type='checkbox' class="fold" id="ValueKindInt64-fold-content"><label for="ValueKindInt64-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..ValueKindInt64.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-55">ValueKindInt64</a> <a href="#name-ValueKind">ValueKind</a> = 3</label><span id='ValueKindInt64-fold-content-docs' class="fold-docs">
+<span class="md-text">		ValueKind values.</span>
+
+</span></div><div class="anchor value-res" id="name-ValueKindMap">	<input type='checkbox' class="fold" id="ValueKindMap-fold-content"><label for="ValueKindMap-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..ValueKindMap.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-59">ValueKindMap</a> <a href="#name-ValueKind">ValueKind</a> = 7</label><span id='ValueKindMap-fold-content-docs' class="fold-docs">
+<span class="md-text">		ValueKind values.</span>
+
+</span></div><div class="anchor value-res" id="name-ValueKindSlice">	<input type='checkbox' class="fold" id="ValueKindSlice-fold-content"><label for="ValueKindSlice-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..ValueKindSlice.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-58">ValueKindSlice</a> <a href="#name-ValueKind">ValueKind</a> = 6</label><span id='ValueKindSlice-fold-content-docs' class="fold-docs">
+<span class="md-text">		ValueKind values.</span>
+
+</span></div><div class="anchor value-res" id="name-ValueKindString">	<input type='checkbox' class="fold" id="ValueKindString-fold-content"><label for="ValueKindString-fold-content"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..ValueKindString.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-56">ValueKindString</a> <a href="#name-ValueKind">ValueKind</a> = 4</label><span id='ValueKindString-fold-content-docs' class="fold-docs">
+<span class="md-text">		ValueKind values.</span>
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-constants-showhide"><i><label for="unexported-constants-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-constants-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-spanIDSize"><i>	<span class="nodocs"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..spanIDSize^6e77b.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-14">spanIDSize</a> = 8</span></i></div><div class="anchor value-res hidden" id="name-traceIDSize"><i>	<span class="nodocs"><a href="../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..traceIDSize^8ab72.html">const</a> <a href="../../../../../src/go.opentelemetry.io/otel/trace/internal/telemetry/id.go.html#line-13">traceIDSize</a> = 16</span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

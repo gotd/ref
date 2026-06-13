@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/andybalholm/brotli.Reader.distance_code</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>.<a href="../../../src/github.com/andybalholm/brotli/state.go.html#line-89">Reader</a>.<a href="../../../src/github.com/andybalholm/brotli/state.go.html#line-139">distance_code</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">28 uses</span>
+
+	github.com/andybalholm/brotli (current package)
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1458">decode.go#L1458</a>: 	if s.<b>distance_code</b> == 0 {
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1460" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1460">#L1460</a>: 		s.<b>distance_code</b> = s.dist_rb[s.dist_rb_idx&amp;3]
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1465" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1465">#L1465</a>: 		var distance_code int = s.<b>distance_code</b> &lt;&lt; 1
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1474" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1474">#L1474</a>: 		s.<b>distance_code</b> = s.dist_rb[v]
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1478" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1478">#L1478</a>: 			s.<b>distance_code</b> += v
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1480" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1480">#L1480</a>: 			s.<b>distance_code</b> -= v
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1481" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1481">#L1481</a>: 			if s.<b>distance_code</b> &lt;= 0 {
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1484" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1484">#L1484</a>: 				s.<b>distance_code</b> = 0x7FFFFFFF
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1505" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1505">#L1505</a>: 		s.<b>distance_code</b> = int(readSymbol(distance_tree, br))
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1513" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1513">#L1513</a>: 		s.<b>distance_code</b> = int(code)
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1520" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1520">#L1520</a>: 	if s.<b>distance_code</b>&amp;^0xF == 0 {
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1526" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1526">#L1526</a>: 	distval = s.<b>distance_code</b> - int(s.num_direct_distance_codes)
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1534" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1534">#L1534</a>: 			s.<b>distance_code</b> = int(s.num_direct_distance_codes) + offset + int(readBits(br, nbits))
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1543" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1543">#L1543</a>: 					s.<b>distance_code</b> = -1 /* Restore precondition. */
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1552" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1552">#L1552</a>: 			s.<b>distance_code</b> = int(s.num_direct_distance_codes) + ((offset + int(bits)) &lt;&lt; s.distance_postfix_bits) + postfix
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1556" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1556">#L1556</a>: 	s.<b>distance_code</b> = s.<b>distance_code</b> - numDistanceShortCodes + 1
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1585" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1585">#L1585</a>: 	s.<b>distance_code</b> = int(v.distance_code)
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1816" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1816">#L1816</a>: 	if s.<b>distance_code</b> &gt;= 0 {
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1818" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1818">#L1818</a>: 		if s.<b>distance_code</b> != 0 {
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1825" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1825">#L1825</a>: 		s.<b>distance_code</b> = s.dist_rb[s.dist_rb_idx&amp;3]
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1861" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1861">#L1861</a>: 	if s.<b>distance_code</b> &gt; s.max_distance {
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1865" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1865">#L1865</a>: 		if s.<b>distance_code</b> &gt; maxAllowedDistance {
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1870" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1870">#L1870</a>: 			var address int = s.<b>distance_code</b> - s.max_distance - 1
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1909" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1909">#L1909</a>: 		var src_start int = (pos - s.<b>distance_code</b>) &amp; s.ringbuffer_mask
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1916" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1916">#L1916</a>: 		s.dist_rb[s.dist_rb_idx&amp;3] = s.<b>distance_code</b>
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1964" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1964">#L1964</a>: 			s.ringbuffer[pos] = s.ringbuffer[(pos-s.<b>distance_code</b>)&amp;s.ringbuffer_mask]
+		<a href="../../../src/github.com/andybalholm/brotli/state.go.html#line-139">state.go#L139</a>: 	<b>distance_code</b>               int
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: cpuinfo_amd64.s in package github.com/klauspost/compress/internal/cpuinfo</title>
+<link href="../../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	cpuinfo_amd64.s
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../../pkg/github.com/klauspost/compress/internal/cpuinfo.html">github.com/klauspost/compress/internal/cpuinfo</a>
+</code></pre>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code>// +build !appengine</code></span>
+<span class="codeline" id="line-2"><code>// +build gc</code></span>
+<span class="codeline" id="line-3"><code>// +build !noasm</code></span>
+<span class="codeline" id="line-4"><code></code></span>
+<span class="codeline" id="line-5"><code>#include "textflag.h"</code></span>
+<span class="codeline" id="line-6"><code>#include "funcdata.h"</code></span>
+<span class="codeline" id="line-7"><code>#include "go_asm.h"</code></span>
+<span class="codeline" id="line-8"><code></code></span>
+<span class="codeline" id="line-9"><code>TEXT ·x86extensions(SB), NOSPLIT, $0</code></span>
+<span class="codeline" id="line-10"><code>	// 1. determine max EAX value</code></span>
+<span class="codeline" id="line-11"><code>	XORQ AX, AX</code></span>
+<span class="codeline" id="line-12"><code>	CPUID</code></span>
+<span class="codeline" id="line-13"><code></code></span>
+<span class="codeline" id="line-14"><code>	CMPQ AX, $7</code></span>
+<span class="codeline" id="line-15"><code>	JB   unsupported</code></span>
+<span class="codeline" id="line-16"><code></code></span>
+<span class="codeline" id="line-17"><code>	// 2. EAX = 7, ECX = 0 --- see Table 3-8 "Information Returned by CPUID Instruction"</code></span>
+<span class="codeline" id="line-18"><code>	MOVQ $7, AX</code></span>
+<span class="codeline" id="line-19"><code>	MOVQ $0, CX</code></span>
+<span class="codeline" id="line-20"><code>	CPUID</code></span>
+<span class="codeline" id="line-21"><code></code></span>
+<span class="codeline" id="line-22"><code>	BTQ   $3, BX // bit 3 = BMI1</code></span>
+<span class="codeline" id="line-23"><code>	SETCS AL</code></span>
+<span class="codeline" id="line-24"><code></code></span>
+<span class="codeline" id="line-25"><code>	BTQ   $8, BX // bit 8 = BMI2</code></span>
+<span class="codeline" id="line-26"><code>	SETCS AH</code></span>
+<span class="codeline" id="line-27"><code></code></span>
+<span class="codeline" id="line-28"><code>	MOVB AL, bmi1+0(FP)</code></span>
+<span class="codeline" id="line-29"><code>	MOVB AH, bmi2+1(FP)</code></span>
+<span class="codeline" id="line-30"><code>	RET</code></span>
+<span class="codeline" id="line-31"><code></code></span>
+<span class="codeline" id="line-32"><code>unsupported:</code></span>
+<span class="codeline" id="line-33"><code>	XORQ AX, AX</code></span>
+<span class="codeline" id="line-34"><code>	MOVB AL, bmi1+0(FP)</code></span>
+<span class="codeline" id="line-35"><code>	MOVB AL, bmi2+1(FP)</code></span>
+<span class="codeline" id="line-36"><code>	RET</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

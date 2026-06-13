@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/andybalholm/brotli.bitMask</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">func <b><a href="../../../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>.<a href="../../../src/github.com/andybalholm/brotli/bit_reader.go.html#line-51">bitMask</a></b></span>
+
+<span class="title">14 uses</span>
+
+	github.com/andybalholm/brotli (current package)
+		<a href="../../../src/github.com/andybalholm/brotli/bit_reader.go.html#line-51">bit_reader.go#L51</a>: func <b>bitMask</b>(n uint32) uint32 {
+		<a href="../../../src/github.com/andybalholm/brotli/bit_reader.go.html#line-160" class="path-duplicate">bit_reader.go</a><a href="../../../src/github.com/andybalholm/brotli/bit_reader.go.html#line-160">#L160</a>: 	return uint32(getBitsUnmasked(br)) &amp; <b>bitMask</b>(n_bits)
+		<a href="../../../src/github.com/andybalholm/brotli/bit_reader.go.html#line-172" class="path-duplicate">bit_reader.go</a><a href="../../../src/github.com/andybalholm/brotli/bit_reader.go.html#line-172">#L172</a>: 	*val = uint32(getBitsUnmasked(br)) &amp; <b>bitMask</b>(n_bits)
+		<a href="../../../src/github.com/andybalholm/brotli/bit_reader.go.html#line-197" class="path-duplicate">bit_reader.go</a><a href="../../../src/github.com/andybalholm/brotli/bit_reader.go.html#line-197">#L197</a>: 	*val = uint32(getBitsUnmasked(br)) &amp; <b>bitMask</b>(n_bits)
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-336">decode.go#L336</a>: 		table = table[uint32(table[0].value)+((bits&gt;&gt;huffmanTableBits)&amp;<b>bitMask</b>(nbits)):]
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-380" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-380">#L380</a>: 	val = (val &amp; <b>bitMask</b>(uint32(table[0].bits))) &gt;&gt; huffmanTableBits
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-422" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-422">#L422</a>: 		var mask uint32 = <b>bitMask</b>((*bits - huffmanTableBits))
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-588" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-588">#L588</a>: 		p = p[getBitsUnmasked(br)&amp;uint64(<b>bitMask</b>(huffmanMaxCodeLengthCodeLength)):]
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-600" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-600">#L600</a>: 			var repeat_delta uint32 = uint32(getBitsUnmasked(br)) &amp; <b>bitMask</b>(extra_bits)
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-628" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-628">#L628</a>: 		p = p[bits&amp;<b>bitMask</b>(huffmanMaxCodeLengthCodeLength):]
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-640" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-640">#L640</a>: 			var repeat_delta uint32 = (bits &gt;&gt; p[0].bits) &amp; <b>bitMask</b>(extra_bits)
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1875" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-1875">#L1875</a>: 			var mask int = int(<b>bitMask</b>(shift))
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-2317" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-2317">#L2317</a>: 				s.distance_postfix_bits = bits &amp; <b>bitMask</b>(2)
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-2320" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-2320">#L2320</a>: 				s.distance_postfix_mask = int(<b>bitMask</b>(s.distance_postfix_bits))
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

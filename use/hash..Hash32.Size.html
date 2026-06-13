@@ -5,49 +5,86 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: hash.Hash32.Size</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;"><b><a href="../pkg/hash.html">hash</a>.<a href="../src/hash/hash.go.html#line-49">Hash32</a>.<a href="../src/hash/hash.go.html#line-39">Size</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">21 uses</span>
+<span class="title">45 uses</span>
 
 	hash (current package)
 		<a href="../src/hash/hash.go.html#line-39">hash.go#L39</a>: 	<b>Size</b>() int
 
-	<a href="../pkg/crypto/hmac.html">crypto/hmac</a>
-		<a href="../src/crypto/hmac/hmac.go.html#line-76">hmac.go#L76</a>: func (h *hmac) Size() int      { return h.outer.<b>Size</b>() }
+	<a href="../pkg/crypto/hkdf.html">crypto/hkdf</a>
+		<a href="../src/crypto/hkdf/hkdf.go.html#line-48">hkdf.go#L48</a>: 	limit := fh().<b>Size</b>() * 255
+		<a href="../src/crypto/hkdf/hkdf.go.html#line-65" class="path-duplicate">hkdf.go</a><a href="../src/crypto/hkdf/hkdf.go.html#line-65">#L65</a>: 	limit := fh().<b>Size</b>() * 255
+
+	<a href="../pkg/crypto/internal/fips140/ecdsa.html">crypto/internal/fips140/ecdsa</a>
+		<a href="../src/crypto/internal/fips140/ecdsa/hmacdrbg.go.html#line-61">hmacdrbg.go#L61</a>: 	size := hash().<b>Size</b>()
+
+	<a href="../pkg/crypto/internal/fips140/hkdf.html">crypto/internal/fips140/hkdf</a>
+		<a href="../src/crypto/internal/fips140/hkdf/hkdf.go.html#line-18">hkdf.go#L18</a>: 		salt = make([]byte, h().<b>Size</b>())
+
+	<a href="../pkg/crypto/internal/fips140/hmac.html">crypto/internal/fips140/hmac</a>
+		<a href="../src/crypto/internal/fips140/hmac/hmac.go.html#line-79">hmac.go#L79</a>: func (h *HMAC) Size() int      { return h.outer.<b>Size</b>() }
+
+	<a href="../pkg/crypto/internal/fips140/rsa.html">crypto/internal/fips140/rsa</a>
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-75">pkcs1v22.go#L75</a>: 	hLen := hash.<b>Size</b>()
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-152" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-152">#L152</a>: 	hLen := hash.<b>Size</b>()
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-256" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-256">#L256</a>: 	saltLength := (pub.N.BitLen()-1+7)/8 - 2 - hash.<b>Size</b>()
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-262" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-262">#L262</a>: 	if fips140.Enabled &amp;&amp; saltLength &gt; hash.<b>Size</b>() {
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-263" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-263">#L263</a>: 		return hash.<b>Size</b>(), nil
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-285" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-285">#L285</a>: 	if saltLength &gt; hash.<b>Size</b>() {
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-389" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-389">#L389</a>: 	if len(msg) &gt; k-2*hash.<b>Size</b>()-2 {
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-398" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-398">#L398</a>: 	seed := em[1 : 1+hash.<b>Size</b>()]
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-399" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-399">#L399</a>: 	db := em[1+hash.<b>Size</b>():]
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-401" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-401">#L401</a>: 	copy(db[0:hash.<b>Size</b>()], lHash)
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-423" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-423">#L423</a>: 		k &lt; hash.<b>Size</b>()*2+2 {
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-438" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-438">#L438</a>: 	seed := em[1 : hash.<b>Size</b>()+1]
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-439" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-439">#L439</a>: 	db := em[hash.<b>Size</b>()+1:]
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-444" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-444">#L444</a>: 	lHash2 := db[0:hash.<b>Size</b>()]
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-459" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-459">#L459</a>: 	rest := db[hash.<b>Size</b>():]
+
+	<a href="../pkg/crypto/internal/fips140/tls12.html">crypto/internal/fips140/tls12</a>
+		<a href="../src/crypto/internal/fips140/tls12/tls12.go.html#line-58">tls12.go#L58</a>: 		if h.<b>Size</b>() != 32 {
+		<a href="../src/crypto/internal/fips140/tls12/tls12.go.html#line-62" class="path-duplicate">tls12.go</a><a href="../src/crypto/internal/fips140/tls12/tls12.go.html#line-62">#L62</a>: 		if h.<b>Size</b>() != 46 &amp;&amp; h.<b>Size</b>() != 64 {
+
+	<a href="../pkg/crypto/internal/fips140/tls13.html">crypto/internal/fips140/tls13</a>
+		<a href="../src/crypto/internal/fips140/tls13/tls13.go.html#line-44">tls13.go#L44</a>: 		newSecret = make([]byte, hash().<b>Size</b>())
+		<a href="../src/crypto/internal/fips140/tls13/tls13.go.html#line-53" class="path-duplicate">tls13.go</a><a href="../src/crypto/internal/fips140/tls13/tls13.go.html#line-53">#L53</a>: 	return ExpandLabel(hash, secret, label, transcript.Sum(nil), transcript.<b>Size</b>())
 
 	<a href="../pkg/crypto/rsa.html">crypto/rsa</a>
-		<a href="../src/crypto/rsa/pss.go.html#line-34">pss.go#L34</a>: 	hLen := hash.<b>Size</b>()
-		<a href="../src/crypto/rsa/pss.go.html#line-109" class="path-duplicate">pss.go</a><a href="../src/crypto/rsa/pss.go.html#line-109">#L109</a>: 	hLen := hash.<b>Size</b>()
-		<a href="../src/crypto/rsa/rsa.go.html#line-528">rsa.go#L528</a>: 	if len(msg) &gt; k-2*hash.<b>Size</b>()-2 {
-		<a href="../src/crypto/rsa/rsa.go.html#line-546" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-546">#L546</a>: 	seed := em[1 : 1+hash.<b>Size</b>()]
-		<a href="../src/crypto/rsa/rsa.go.html#line-547" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-547">#L547</a>: 	db := em[1+hash.<b>Size</b>():]
-		<a href="../src/crypto/rsa/rsa.go.html#line-549" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-549">#L549</a>: 	copy(db[0:hash.<b>Size</b>()], lHash)
-		<a href="../src/crypto/rsa/rsa.go.html#line-718" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-718">#L718</a>: 		k &lt; hash.<b>Size</b>()*2+2 {
-		<a href="../src/crypto/rsa/rsa.go.html#line-745" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-745">#L745</a>: 	seed := em[1 : hash.<b>Size</b>()+1]
-		<a href="../src/crypto/rsa/rsa.go.html#line-746" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-746">#L746</a>: 	db := em[hash.<b>Size</b>()+1:]
-		<a href="../src/crypto/rsa/rsa.go.html#line-751" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-751">#L751</a>: 	lHash2 := db[0:hash.<b>Size</b>()]
-		<a href="../src/crypto/rsa/rsa.go.html#line-766" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-766">#L766</a>: 	rest := db[hash.<b>Size</b>():]
+		<a href="../src/crypto/rsa/fips.go.html#line-101">fips.go#L101</a>: 	if fips140only.Enforced() &amp;&amp; saltLength &gt; h.<b>Size</b>() {
+		<a href="../src/crypto/rsa/fips.go.html#line-111" class="path-duplicate">fips.go</a><a href="../src/crypto/rsa/fips.go.html#line-111">#L111</a>: 		saltLength = h.<b>Size</b>()
+		<a href="../src/crypto/rsa/fips.go.html#line-163" class="path-duplicate">fips.go</a><a href="../src/crypto/rsa/fips.go.html#line-163">#L163</a>: 	if fips140only.Enforced() &amp;&amp; saltLength &gt; h.<b>Size</b>() {
+		<a href="../src/crypto/rsa/fips.go.html#line-170" class="path-duplicate">fips.go</a><a href="../src/crypto/rsa/fips.go.html#line-170">#L170</a>: 		return fipsError(rsa.VerifyPSSWithSaltLength(k, h, digest, sig, h.<b>Size</b>()))
+		<a href="../src/crypto/rsa/fips.go.html#line-222" class="path-duplicate">fips.go</a><a href="../src/crypto/rsa/fips.go.html#line-222">#L222</a>: 		if len(msg) &gt; k-2*hash.<b>Size</b>()-2 {
+		<a href="../src/crypto/rsa/fips.go.html#line-275" class="path-duplicate">fips.go</a><a href="../src/crypto/rsa/fips.go.html#line-275">#L275</a>: 			k &lt; hash.<b>Size</b>()*2+2 {
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/cipher_suites.go.html#line-570">cipher_suites.go#L570</a>: func (c *cthWrapper) Size() int                   { return c.h.<b>Size</b>() }
-		<a href="../src/crypto/tls/conn.go.html#line-385">conn.go#L385</a>: 			minPayload := explicitNonceLen + roundUp(hc.mac.<b>Size</b>()+1, blockSize)
-		<a href="../src/crypto/tls/conn.go.html#line-431" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-431">#L431</a>: 		macSize := hc.mac.<b>Size</b>()
-		<a href="../src/crypto/tls/conn.go.html#line-905" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-905">#L905</a>: 			payloadBytes -= c.out.mac.<b>Size</b>()
+		<a href="../src/crypto/tls/cipher_suites.go.html#line-600">cipher_suites.go#L600</a>: func (c *cthWrapper) Size() int                   { return c.h.<b>Size</b>() }
+		<a href="../src/crypto/tls/conn.go.html#line-386">conn.go#L386</a>: 			minPayload := explicitNonceLen + roundUp(hc.mac.<b>Size</b>()+1, blockSize)
+		<a href="../src/crypto/tls/conn.go.html#line-432" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-432">#L432</a>: 		macSize := hc.mac.<b>Size</b>()
 		<a href="../src/crypto/tls/conn.go.html#line-915" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-915">#L915</a>: 			payloadBytes -= c.out.mac.<b>Size</b>()
+		<a href="../src/crypto/tls/conn.go.html#line-925" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-925">#L925</a>: 			payloadBytes -= c.out.mac.<b>Size</b>()
 
-	<a href="../pkg/golang.org/x/crypto/pbkdf2.html">golang.org/x/crypto/pbkdf2</a>
-		<a href="../src/golang.org/x/crypto/pbkdf2/pbkdf2.go.html#line-44">pbkdf2.go#L44</a>: 	hashLen := prf.<b>Size</b>()
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/cipher_suites.go.html#line-601">cipher_suites.go#L601</a>: func (c *cthWrapper) Size() int                   { return c.h.<b>Size</b>() }
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-390">conn.go#L390</a>: 			minPayload := explicitNonceLen + roundUp(hc.mac.<b>Size</b>()+1, blockSize)
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-436" class="path-duplicate">conn.go</a><a href="../src/github.com/refraction-networking/utls/conn.go.html#line-436">#L436</a>: 		macSize := hc.mac.<b>Size</b>()
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-910" class="path-duplicate">conn.go</a><a href="../src/github.com/refraction-networking/utls/conn.go.html#line-910">#L910</a>: 			payloadBytes -= c.out.mac.<b>Size</b>()
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-920" class="path-duplicate">conn.go</a><a href="../src/github.com/refraction-networking/utls/conn.go.html#line-920">#L920</a>: 			payloadBytes -= c.out.mac.<b>Size</b>()
 
-	<a href="../pkg/vendor/golang.org/x/crypto/hkdf.html">vendor/golang.org/x/crypto/hkdf</a>
-		<a href="../src/vendor/golang.org/x/crypto/hkdf/hkdf.go.html#line-28">hkdf.go#L28</a>: 		salt = make([]byte, hash().<b>Size</b>())
-		<a href="../src/vendor/golang.org/x/crypto/hkdf/hkdf.go.html#line-85" class="path-duplicate">hkdf.go</a><a href="../src/vendor/golang.org/x/crypto/hkdf/hkdf.go.html#line-85">#L85</a>: 	return &amp;hkdf{expander, expander.<b>Size</b>(), info, 1, nil, nil}
+	<a href="../pkg/github.com/refraction-networking/utls/internal/tls13.html">github.com/refraction-networking/utls/internal/tls13</a>
+		<a href="../src/github.com/refraction-networking/utls/internal/tls13/tls13.go.html#line-45">tls13.go#L45</a>: 		newSecret = make([]byte, hash().<b>Size</b>())
+		<a href="../src/github.com/refraction-networking/utls/internal/tls13/tls13.go.html#line-54" class="path-duplicate">tls13.go</a><a href="../src/github.com/refraction-networking/utls/internal/tls13/tls13.go.html#line-54">#L54</a>: 	return ExpandLabel(hash, secret, label, transcript.Sum(nil), transcript.<b>Size</b>())
+
+	<a href="../pkg/golang.org/x/crypto/hkdf.html">golang.org/x/crypto/hkdf</a>
+		<a href="../src/golang.org/x/crypto/hkdf/hkdf.go.html#line-92">hkdf.go#L92</a>: 	return &amp;hkdfReader{expander, expander.<b>Size</b>(), info, 1, nil, nil}
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

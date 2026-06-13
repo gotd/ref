@@ -5,28 +5,46 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: sync.Pool.Put</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../pkg/sync.html">sync</a>.<a href="../src/sync/pool.go.html#line-49">Pool</a>.<a href="../src/sync/pool.go.html#line-95">Put</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/sync.html">sync</a>.<a href="../src/sync/pool.go.html#line-51">Pool</a>.<a href="../src/sync/pool.go.html#line-99">Put</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">60 uses</span>
+<span class="title">108 uses</span>
 
 	sync (current package)
-		<a href="../src/sync/pool.go.html#line-95">pool.go#L95</a>: func (p *Pool) <b>Put</b>(x any) {
+		<a href="../src/sync/pool.go.html#line-99">pool.go#L99</a>: func (p *Pool) <b>Put</b>(x any) {
+
+	<a href="../pkg/crypto/internal/fips140/drbg.html">crypto/internal/fips140/drbg</a>
+		<a href="../src/crypto/internal/fips140/drbg/entropy_fips140.go.html#line-80">entropy_fips140.go#L80</a>: 			drbgPool.<b>Put</b>(drbg)
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/conn.go.html#line-993">conn.go#L993</a>: 		outBufPool.<b>Put</b>(outBufPtr)
+		<a href="../src/crypto/tls/conn.go.html#line-1003">conn.go#L1003</a>: 		outBufPool.<b>Put</b>(outBufPtr)
 
 	<a href="../pkg/encoding/json.html">encoding/json</a>
-		<a href="../src/encoding/json/encode.go.html#line-160">encode.go#L160</a>: 	defer encodeStatePool.<b>Put</b>(e)
-		<a href="../src/encoding/json/scanner.go.html#line-106">scanner.go#L106</a>: 	scannerPool.<b>Put</b>(scan)
-		<a href="../src/encoding/json/stream.go.html#line-207">stream.go#L207</a>: 	defer encodeStatePool.<b>Put</b>(e)
+		<a href="../src/encoding/json/encode.go.html#line-207">encode.go#L207</a>: 	defer encodeStatePool.<b>Put</b>(e)
+		<a href="../src/encoding/json/scanner.go.html#line-108">scanner.go#L108</a>: 	scannerPool.<b>Put</b>(scan)
+		<a href="../src/encoding/json/stream.go.html#line-210">stream.go#L210</a>: 	defer encodeStatePool.<b>Put</b>(e)
 
 	<a href="../pkg/fmt.html">fmt</a>
 		<a href="../src/fmt/print.go.html#line-181">print.go#L181</a>: 	ppFree.<b>Put</b>(p)
 		<a href="../src/fmt/scan.go.html#line-414">scan.go#L414</a>: 	ssFree.<b>Put</b>(s)
+
+	<a href="../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>
+		<a href="../src/github.com/andybalholm/brotli/backward_references.go.html#line-183">backward_references.go#L183</a>: 	hasherSearchResultPool.<b>Put</b>(sr)
+		<a href="../src/github.com/andybalholm/brotli/backward_references.go.html#line-184" class="path-duplicate">backward_references.go</a><a href="../src/github.com/andybalholm/brotli/backward_references.go.html#line-184">#L184</a>: 	hasherSearchResultPool.<b>Put</b>(sr2)
+		<a href="../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-563">brotli_bit_stream.go#L563</a>: 		huffmanTreePool.<b>Put</b>(tree)
+		<a href="../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-766" class="path-duplicate">brotli_bit_stream.go</a><a href="../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-766">#L766</a>: 		huffmanTreePool.<b>Put</b>(tree)
+		<a href="../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-1146" class="path-duplicate">brotli_bit_stream.go</a><a href="../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-1146">#L1146</a>: 	blockEncoderPool.<b>Put</b>(self)
+		<a href="../src/github.com/andybalholm/brotli/metablock.go.html#line-55">metablock.go#L55</a>: 	metaBlockPool.<b>Put</b>(mb)
+
+	<a href="../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../src/github.com/coder/websocket/compress.go.html#line-147">compress.go#L147</a>: 	flateReaderPool.<b>Put</b>(fr)
+		<a href="../src/github.com/coder/websocket/compress.go.html#line-163" class="path-duplicate">compress.go</a><a href="../src/github.com/coder/websocket/compress.go.html#line-163">#L163</a>: 	flateWriterPool.<b>Put</b>(w)
+		<a href="../src/github.com/coder/websocket/compress.go.html#line-213" class="path-duplicate">compress.go</a><a href="../src/github.com/coder/websocket/compress.go.html#line-213">#L213</a>: 	swPool[cap(sw.buf)].<b>Put</b>(sw)
+		<a href="../src/github.com/coder/websocket/dial.go.html#line-331">dial.go#L331</a>: 	bufioReaderPool.<b>Put</b>(br)
+		<a href="../src/github.com/coder/websocket/dial.go.html#line-346" class="path-duplicate">dial.go</a><a href="../src/github.com/coder/websocket/dial.go.html#line-346">#L346</a>: 	bufioWriterPool.<b>Put</b>(bw)
 
 	<a href="../pkg/github.com/go-faster/jx.html">github.com/go-faster/jx</a>
 		<a href="../src/github.com/go-faster/jx/jx.go.html#line-42">jx.go#L42</a>: 	decPool.<b>Put</b>(d)
@@ -36,80 +54,116 @@
 	<a href="../pkg/github.com/gotd/td/bin.html">github.com/gotd/td/bin</a>
 		<a href="../src/github.com/gotd/td/bin/pool.go.html#line-28">pool.go#L28</a>: 	b.pool.<b>Put</b>(buf)
 
-	<a href="../pkg/github.com/gotd/td/internal/crypto.html">github.com/gotd/td/internal/crypto</a>
-		<a href="../src/github.com/gotd/td/internal/crypto/sha256.go.html#line-12">sha256.go#L12</a>: 	defer sha256Pool.<b>Put</b>(h)
+	<a href="../pkg/github.com/gotd/td/crypto.html">github.com/gotd/td/crypto</a>
+		<a href="../src/github.com/gotd/td/crypto/sha256.go.html#line-12">sha256.go#L12</a>: 	defer sha256Pool.<b>Put</b>(h)
 
-	<a href="../pkg/github.com/gotd/td/internal/proto.html">github.com/gotd/td/internal/proto</a>
-		<a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-40">gzip.go#L40</a>: 	g.writers.<b>Put</b>(w)
-		<a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-54" class="path-duplicate">gzip.go</a><a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-54">#L54</a>: 		g.readers.<b>Put</b>(reader)
-		<a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-61" class="path-duplicate">gzip.go</a><a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-61">#L61</a>: 	g.readers.<b>Put</b>(w)
-		<a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-89" class="path-duplicate">gzip.go</a><a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-89">#L89</a>: 	defer gzipBufPool.<b>Put</b>(buf)
+	<a href="../pkg/github.com/gotd/td/proto.html">github.com/gotd/td/proto</a>
+		<a href="../src/github.com/gotd/td/proto/gzip.go.html#line-40">gzip.go#L40</a>: 	g.writers.<b>Put</b>(w)
+		<a href="../src/github.com/gotd/td/proto/gzip.go.html#line-54" class="path-duplicate">gzip.go</a><a href="../src/github.com/gotd/td/proto/gzip.go.html#line-54">#L54</a>: 		g.readers.<b>Put</b>(reader)
+		<a href="../src/github.com/gotd/td/proto/gzip.go.html#line-61" class="path-duplicate">gzip.go</a><a href="../src/github.com/gotd/td/proto/gzip.go.html#line-61">#L61</a>: 	g.readers.<b>Put</b>(w)
+		<a href="../src/github.com/gotd/td/proto/gzip.go.html#line-89" class="path-duplicate">gzip.go</a><a href="../src/github.com/gotd/td/proto/gzip.go.html#line-89">#L89</a>: 	defer gzipBufPool.<b>Put</b>(buf)
 
 	<a href="../pkg/github.com/klauspost/compress/flate.html">github.com/klauspost/compress/flate</a>
-		<a href="../src/github.com/klauspost/compress/flate/stateless.go.html#line-74">stateless.go#L74</a>: 		bitWriterPool.<b>Put</b>(bw)
+		<a href="../src/github.com/klauspost/compress/flate/stateless.go.html#line-82">stateless.go#L82</a>: 		bitWriterPool.<b>Put</b>(bw)
+		<a href="../src/github.com/klauspost/compress/flate/stateless.go.html#line-103" class="path-duplicate">stateless.go</a><a href="../src/github.com/klauspost/compress/flate/stateless.go.html#line-103">#L103</a>: 		tokensPool.<b>Put</b>(dst)
+
+	<a href="../pkg/github.com/klauspost/compress/huff0.html">github.com/klauspost/compress/huff0</a>
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-279">decompress.go#L279</a>: 					d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-309" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-309">#L309</a>: 					d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-338" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-338">#L338</a>: 					d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-368" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-368">#L368</a>: 					d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-398" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-398">#L398</a>: 					d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-428" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-428">#L428</a>: 					d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-458" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-458">#L458</a>: 					d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-488" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-488">#L488</a>: 					d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-496" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-496">#L496</a>: 		d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-501" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-501">#L501</a>: 		d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-521" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-521">#L521</a>: 			d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-530" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-530">#L530</a>: 	d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-578" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-578">#L578</a>: 				d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-587" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-587">#L587</a>: 		d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-604" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-604">#L604</a>: 			d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-614" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-614">#L614</a>: 	d.bufs.<b>Put</b>(bufs)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-763" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-763">#L763</a>: 				d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-768" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-768">#L768</a>: 				d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-785" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-785">#L785</a>: 			d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-806" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-806">#L806</a>: 				d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-827" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-827">#L827</a>: 				d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-840" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-840">#L840</a>: 			d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-846" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-846">#L846</a>: 			d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-850" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-850">#L850</a>: 	d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-997" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-997">#L997</a>: 				d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-1002" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-1002">#L1002</a>: 				d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-1040" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-1040">#L1040</a>: 				d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-1061" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-1061">#L1061</a>: 				d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-1074" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-1074">#L1074</a>: 			d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-1081" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-1081">#L1081</a>: 			d.bufs.<b>Put</b>(buf)
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-1085" class="path-duplicate">decompress.go</a><a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-1085">#L1085</a>: 	d.bufs.<b>Put</b>(buf)
+
+	<a href="../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>
+		<a href="../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-575">blockdec.go#L575</a>: 					fseDecoderPool.<b>Put</b>(seq.fse)
+		<a href="../src/github.com/klauspost/compress/zstd/history.go.html#line-51">history.go#L51</a>: 			huffDecoderPool.<b>Put</b>(h.huffTree)
+		<a href="../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-104">seqdec.go#L104</a>: 		fseDecoderPool.<b>Put</b>(f)
+		<a href="../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-108" class="path-duplicate">seqdec.go</a><a href="../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-108">#L108</a>: 		fseDecoderPool.<b>Put</b>(f)
+		<a href="../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-112" class="path-duplicate">seqdec.go</a><a href="../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-112">#L112</a>: 		fseDecoderPool.<b>Put</b>(f)
+		<a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-70">zip.go#L70</a>: 		r.pool.<b>Put</b>(r.dec)
+		<a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-82" class="path-duplicate">zip.go</a><a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-82">#L82</a>: 		r.pool.<b>Put</b>(r.dec)
+		<a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-109" class="path-duplicate">zip.go</a><a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-109">#L109</a>: 		w.pool.<b>Put</b>(w.enc)
+
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-998">conn.go#L998</a>: 		outBufPool.<b>Put</b>(outBufPtr)
 
 	<a href="../pkg/go.opentelemetry.io/otel/attribute.html">go.opentelemetry.io/otel/attribute</a>
-		<a href="../src/go.opentelemetry.io/otel/attribute/encoder.go.html#line-104">encoder.go#L104</a>: 	defer d.pool.<b>Put</b>(buf)
-		<a href="../src/go.opentelemetry.io/otel/attribute/set.go.html#line-196">set.go#L196</a>: 	sortables.<b>Put</b>(srt)
-		<a href="../src/go.opentelemetry.io/otel/attribute/set.go.html#line-225" class="path-duplicate">set.go</a><a href="../src/go.opentelemetry.io/otel/attribute/set.go.html#line-225">#L225</a>: 	sortables.<b>Put</b>(srt)
+		<a href="../src/go.opentelemetry.io/otel/attribute/encoder.go.html#line-93">encoder.go#L93</a>: 	defer d.pool.<b>Put</b>(buf)
 
 	<a href="../pkg/go.uber.org/multierr.html">go.uber.org/multierr</a>
 		<a href="../src/go.uber.org/multierr/error.go.html#line-234">error.go#L234</a>: 	_bufferPool.<b>Put</b>(buff)
 
-	<a href="../pkg/go.uber.org/zap/internal/pool.html">go.uber.org/zap/internal/pool</a>
-		<a href="../src/go.uber.org/zap/internal/pool/pool.go.html#line-57">pool.go#L57</a>: 	p.pool.<b>Put</b>(x)
-
 	<a href="../pkg/internal/poll.html">internal/poll</a>
-		<a href="../src/internal/poll/splice_linux.go.html#line-226">splice_linux.go#L226</a>: 	splicePipePool.<b>Put</b>(p)
+		<a href="../src/internal/poll/splice_linux.go.html#line-220">splice_linux.go#L220</a>: 	splicePipePool.<b>Put</b>(p)
 
 	<a href="../pkg/io.html">io</a>
-		<a href="../src/io/io.go.html#line-661">io.go#L661</a>: 			blackHolePool.<b>Put</b>(bufp)
+		<a href="../src/io/io.go.html#line-669">io.go#L669</a>: 			blackHolePool.<b>Put</b>(bufp)
 
 	<a href="../pkg/log.html">log</a>
 		<a href="../src/log/log.go.html#line-184">log.go#L184</a>: 	bufferPool.<b>Put</b>(p)
 
 	<a href="../pkg/math/big.html">math/big</a>
-		<a href="../src/math/big/nat.go.html#line-656">nat.go#L656</a>: 	natPool.<b>Put</b>(x)
+		<a href="../src/math/big/nat.go.html#line-296">nat.go#L296</a>: 	stackPool.<b>Put</b>(s)
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/h2_bundle.go.html#line-1074">h2_bundle.go#L1074</a>: 			http2dataChunkPools[i].<b>Put</b>(p)
-		<a href="../src/net/http/h2_bundle.go.html#line-1630" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1630">#L1630</a>: 	defer http2fhBytes.<b>Put</b>(bufp)
-		<a href="../src/net/http/h2_bundle.go.html#line-3129" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-3129">#L3129</a>: 	defer http2littleBuf.<b>Put</b>(bp)
-		<a href="../src/net/http/h2_bundle.go.html#line-3601" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-3601">#L3601</a>: 	http2bufWriterPool.<b>Put</b>(bw)
-		<a href="../src/net/http/h2_bundle.go.html#line-4946" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-4946">#L4946</a>: 	http2errChanPool.<b>Put</b>(ch)
-		<a href="../src/net/http/h2_bundle.go.html#line-4948" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-4948">#L4948</a>: 		http2writeDataPool.<b>Put</b>(writeArg)
-		<a href="../src/net/http/h2_bundle.go.html#line-6229" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6229">#L6229</a>: 			http2errChanPool.<b>Put</b>(errc)
-		<a href="../src/net/http/h2_bundle.go.html#line-6587" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6587">#L6587</a>: 		http2sorterPool.<b>Put</b>(sorter)
-		<a href="../src/net/http/h2_bundle.go.html#line-6831" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6831">#L6831</a>: 		http2responseWriterStatePool.<b>Put</b>(rws)
-		<a href="../src/net/http/h2_bundle.go.html#line-6939" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6939">#L6939</a>: 		http2errChanPool.<b>Put</b>(msg.done)
-		<a href="../src/net/http/h2_bundle.go.html#line-8787" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8787">#L8787</a>: 		defer http2bufPool.<b>Put</b>(bp)
-		<a href="../src/net/http/h2_bundle.go.html#line-8791" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8791">#L8791</a>: 		defer http2bufPool.<b>Put</b>(&amp;buf)
-		<a href="../src/net/http/h2_bundle.go.html#line-10595" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10595">#L10595</a>: 		defer http2sorterPool.<b>Put</b>(sorter)
-		<a href="../src/net/http/header.go.html#line-216">header.go#L216</a>: 					headerSorterPool.<b>Put</b>(sorter)
-		<a href="../src/net/http/header.go.html#line-229" class="path-duplicate">header.go</a><a href="../src/net/http/header.go.html#line-229">#L229</a>: 	headerSorterPool.<b>Put</b>(sorter)
-		<a href="../src/net/http/request.go.html#line-1014">request.go#L1014</a>: 	textprotoReaderPool.<b>Put</b>(r)
-		<a href="../src/net/http/server.go.html#line-581">server.go#L581</a>: 	defer copyBufPool.<b>Put</b>(bufp)
-		<a href="../src/net/http/server.go.html#line-841" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-841">#L841</a>: 	bufioReaderPool.<b>Put</b>(br)
-		<a href="../src/net/http/server.go.html#line-859" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-859">#L859</a>: 		pool.<b>Put</b>(bw)
-
-	<a href="../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../src/nhooyr.io/websocket/compress.go.html#line-148">compress.go#L148</a>: 	flateReaderPool.<b>Put</b>(fr)
-		<a href="../src/nhooyr.io/websocket/compress.go.html#line-164" class="path-duplicate">compress.go</a><a href="../src/nhooyr.io/websocket/compress.go.html#line-164">#L164</a>: 	flateWriterPool.<b>Put</b>(w)
-		<a href="../src/nhooyr.io/websocket/compress.go.html#line-212" class="path-duplicate">compress.go</a><a href="../src/nhooyr.io/websocket/compress.go.html#line-212">#L212</a>: 	swPool[cap(sw.buf)].<b>Put</b>(sw)
-		<a href="../src/nhooyr.io/websocket/dial.go.html#line-314">dial.go#L314</a>: 	bufioReaderPool.<b>Put</b>(br)
-		<a href="../src/nhooyr.io/websocket/dial.go.html#line-329" class="path-duplicate">dial.go</a><a href="../src/nhooyr.io/websocket/dial.go.html#line-329">#L329</a>: 	bufioWriterPool.<b>Put</b>(bw)
+		<a href="../src/net/http/h2_bundle.go.html#line-1232">h2_bundle.go#L1232</a>: 		http2dataChunkPools[0].<b>Put</b>((*[1 &lt;&lt; 10]byte)(p))
+		<a href="../src/net/http/h2_bundle.go.html#line-1234" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1234">#L1234</a>: 		http2dataChunkPools[1].<b>Put</b>((*[2 &lt;&lt; 10]byte)(p))
+		<a href="../src/net/http/h2_bundle.go.html#line-1236" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1236">#L1236</a>: 		http2dataChunkPools[2].<b>Put</b>((*[4 &lt;&lt; 10]byte)(p))
+		<a href="../src/net/http/h2_bundle.go.html#line-1238" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1238">#L1238</a>: 		http2dataChunkPools[3].<b>Put</b>((*[8 &lt;&lt; 10]byte)(p))
+		<a href="../src/net/http/h2_bundle.go.html#line-1240" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1240">#L1240</a>: 		http2dataChunkPools[4].<b>Put</b>((*[16 &lt;&lt; 10]byte)(p))
+		<a href="../src/net/http/h2_bundle.go.html#line-1800" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1800">#L1800</a>: 	defer http2fhBytes.<b>Put</b>(bufp)
+		<a href="../src/net/http/h2_bundle.go.html#line-3364" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-3364">#L3364</a>: 	defer http2littleBuf.<b>Put</b>(bp)
+		<a href="../src/net/http/h2_bundle.go.html#line-3755" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-3755">#L3755</a>: 	http2bufWriterPool.<b>Put</b>(bw)
+		<a href="../src/net/http/h2_bundle.go.html#line-4216" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-4216">#L4216</a>: 		http2errChanPool.<b>Put</b>(ch) // Server used without calling ConfigureServer
+		<a href="../src/net/http/h2_bundle.go.html#line-4219" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-4219">#L4219</a>: 	s.errChanPool.<b>Put</b>(ch)
+		<a href="../src/net/http/h2_bundle.go.html#line-5184" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-5184">#L5184</a>: 		http2writeDataPool.<b>Put</b>(writeArg)
+		<a href="../src/net/http/h2_bundle.go.html#line-6800" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6800">#L6800</a>: 		http2sorterPool.<b>Put</b>(sorter)
+		<a href="../src/net/http/h2_bundle.go.html#line-7039" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-7039">#L7039</a>: 	http2responseWriterStatePool.<b>Put</b>(rws)
+		<a href="../src/net/http/h2_bundle.go.html#line-9169" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-9169">#L9169</a>: 		defer http2bufPools[index].<b>Put</b>(bp)
+		<a href="../src/net/http/h2_bundle.go.html#line-9173" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-9173">#L9173</a>: 		defer http2bufPools[index].<b>Put</b>(&amp;buf)
+		<a href="../src/net/http/h2_bundle.go.html#line-10466" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10466">#L10466</a>: 	http2gzipPool.<b>Put</b>(zr)
+		<a href="../src/net/http/h2_bundle.go.html#line-11093" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-11093">#L11093</a>: 		defer http2sorterPool.<b>Put</b>(sorter)
+		<a href="../src/net/http/header.go.html#line-210">header.go#L210</a>: 					headerSorterPool.<b>Put</b>(sorter)
+		<a href="../src/net/http/header.go.html#line-223" class="path-duplicate">header.go</a><a href="../src/net/http/header.go.html#line-223">#L223</a>: 	headerSorterPool.<b>Put</b>(sorter)
+		<a href="../src/net/http/request.go.html#line-1049">request.go#L1049</a>: 	textprotoReaderPool.<b>Put</b>(r)
+		<a href="../src/net/http/server.go.html#line-844">server.go#L844</a>: 	copyBufPool.<b>Put</b>((*[copyBufPoolSize]byte)(b))
+		<a href="../src/net/http/server.go.html#line-870" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-870">#L870</a>: 	bufioReaderPool.<b>Put</b>(br)
+		<a href="../src/net/http/server.go.html#line-888" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-888">#L888</a>: 		pool.<b>Put</b>(bw)
+		<a href="../src/net/http/transport.go.html#line-3146">transport.go#L3146</a>: 	gzipPool.<b>Put</b>(zr)
 
 	<a href="../pkg/os.html">os</a>
-		<a href="../src/os/dir_unix.go.html#line-39">dir_unix.go#L39</a>: 		dirBufPool.<b>Put</b>(d.buf)
+		<a href="../src/os/dir_unix.go.html#line-42">dir_unix.go#L42</a>: 		dirBufPool.<b>Put</b>(d.buf)
+		<a href="../src/os/dir_unix.go.html#line-93" class="path-duplicate">dir_unix.go</a><a href="../src/os/dir_unix.go.html#line-93">#L93</a>: 				dirBufPool.<b>Put</b>(d.buf)
 
 	<a href="../pkg/reflect.html">reflect</a>
-		<a href="../src/reflect/value.go.html#line-607">value.go#L607</a>: 			framePool.<b>Put</b>(stackArgs)
-		<a href="../src/reflect/value.go.html#line-1142" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-1142">#L1142</a>: 	methodFramePool.<b>Put</b>(methodFrame)
-
-	<a href="../pkg/regexp.html">regexp</a>
-		<a href="../src/regexp/backtrack.go.html#line-59">backtrack.go#L59</a>: 	bitStatePool.<b>Put</b>(b)
-		<a href="../src/regexp/exec.go.html#line-393">exec.go#L393</a>: 	onePassPool.<b>Put</b>(m)
-		<a href="../src/regexp/regexp.go.html#line-270">regexp.go#L270</a>: 	matchPool[re.mpool].<b>Put</b>(m)
+		<a href="../src/reflect/value.go.html#line-597">value.go#L597</a>: 			framePool.<b>Put</b>(stackArgs)
+		<a href="../src/reflect/value.go.html#line-1132" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-1132">#L1132</a>: 	methodFramePool.<b>Put</b>(methodFrame)
 
 	<a href="../pkg/syscall.html">syscall</a>
 		<a href="../src/syscall/netlink_linux.go.html#line-85">netlink_linux.go#L85</a>: 	defer pageBufPool.<b>Put</b>(rbNew)
@@ -119,8 +173,8 @@
 		<a href="../src/vendor/golang.org/x/net/http2/hpack/huffman.go.html#line-24">huffman.go#L24</a>: 	defer bufPool.<b>Put</b>(buf)
 		<a href="../src/vendor/golang.org/x/net/http2/hpack/huffman.go.html#line-35" class="path-duplicate">huffman.go</a><a href="../src/vendor/golang.org/x/net/http2/hpack/huffman.go.html#line-35">#L35</a>: 	defer bufPool.<b>Put</b>(buf)
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: state.go in package github.com/andybalholm/brotli</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	state.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> brotli</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="keyword">import</span> <label for="i0"><span class="lit-string i0">"io"</span></label></code></span>
+<span class="codeline" id="line-4"><code></code></span>
+<span class="codeline" id="line-5"><code><span class="comment">/* Copyright 2015 Google Inc. All Rights Reserved.</span></code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code><span class="comment">   Distributed under MIT license.</span></code></span>
+<span class="codeline" id="line-8"><code><span class="comment">   See file LICENSE for detail or copy at https://opensource.org/licenses/MIT</span></code></span>
+<span class="codeline" id="line-9"><code><span class="comment">*/</span></code></span>
+<span class="codeline" id="line-10"><code></code></span>
+<span class="codeline" id="line-11"><code><span class="comment">/* Brotli state for partial streaming decoding. */</span></code></span>
+<span class="codeline" id="line-12"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-13"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateUninited" class="ident">stateUninited</a> = <a href="../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-14"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateLargeWindowBits" class="ident">stateLargeWindowBits</a></code></span>
+<span class="codeline" id="line-15"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateInitialize" class="ident">stateInitialize</a></code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateMetablockBegin" class="ident">stateMetablockBegin</a></code></span>
+<span class="codeline" id="line-17"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateMetablockHeader" class="ident">stateMetablockHeader</a></code></span>
+<span class="codeline" id="line-18"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateMetablockHeader2" class="ident">stateMetablockHeader2</a></code></span>
+<span class="codeline" id="line-19"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateContextModes" class="ident">stateContextModes</a></code></span>
+<span class="codeline" id="line-20"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateCommandBegin" class="ident">stateCommandBegin</a></code></span>
+<span class="codeline" id="line-21"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateCommandInner" class="ident">stateCommandInner</a></code></span>
+<span class="codeline" id="line-22"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateCommandPostDecodeLiterals" class="ident">stateCommandPostDecodeLiterals</a></code></span>
+<span class="codeline" id="line-23"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateCommandPostWrapCopy" class="ident">stateCommandPostWrapCopy</a></code></span>
+<span class="codeline" id="line-24"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateUncompressed" class="ident">stateUncompressed</a></code></span>
+<span class="codeline" id="line-25"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateMetadata" class="ident">stateMetadata</a></code></span>
+<span class="codeline" id="line-26"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateCommandInnerWrite" class="ident">stateCommandInnerWrite</a></code></span>
+<span class="codeline" id="line-27"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateMetablockDone" class="ident">stateMetablockDone</a></code></span>
+<span class="codeline" id="line-28"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateCommandPostWrite1" class="ident">stateCommandPostWrite1</a></code></span>
+<span class="codeline" id="line-29"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateCommandPostWrite2" class="ident">stateCommandPostWrite2</a></code></span>
+<span class="codeline" id="line-30"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateHuffmanCode0" class="ident">stateHuffmanCode0</a></code></span>
+<span class="codeline" id="line-31"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateHuffmanCode1" class="ident">stateHuffmanCode1</a></code></span>
+<span class="codeline" id="line-32"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateHuffmanCode2" class="ident">stateHuffmanCode2</a></code></span>
+<span class="codeline" id="line-33"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateHuffmanCode3" class="ident">stateHuffmanCode3</a></code></span>
+<span class="codeline" id="line-34"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateContextMap1" class="ident">stateContextMap1</a></code></span>
+<span class="codeline" id="line-35"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateContextMap2" class="ident">stateContextMap2</a></code></span>
+<span class="codeline" id="line-36"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateTreeGroup" class="ident">stateTreeGroup</a></code></span>
+<span class="codeline" id="line-37"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateDone" class="ident">stateDone</a></code></span>
+<span class="codeline" id="line-38"><code>)</code></span>
+<span class="codeline" id="line-39"><code></code></span>
+<span class="codeline" id="line-40"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-41"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateMetablockHeaderNone" class="ident">stateMetablockHeaderNone</a> = <a href="../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-42"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateMetablockHeaderEmpty" class="ident">stateMetablockHeaderEmpty</a></code></span>
+<span class="codeline" id="line-43"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateMetablockHeaderNibbles" class="ident">stateMetablockHeaderNibbles</a></code></span>
+<span class="codeline" id="line-44"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateMetablockHeaderSize" class="ident">stateMetablockHeaderSize</a></code></span>
+<span class="codeline" id="line-45"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateMetablockHeaderUncompressed" class="ident">stateMetablockHeaderUncompressed</a></code></span>
+<span class="codeline" id="line-46"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateMetablockHeaderReserved" class="ident">stateMetablockHeaderReserved</a></code></span>
+<span class="codeline" id="line-47"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateMetablockHeaderBytes" class="ident">stateMetablockHeaderBytes</a></code></span>
+<span class="codeline" id="line-48"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateMetablockHeaderMetadata" class="ident">stateMetablockHeaderMetadata</a></code></span>
+<span class="codeline" id="line-49"><code>)</code></span>
+<span class="codeline" id="line-50"><code></code></span>
+<span class="codeline" id="line-51"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-52"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateUncompressedNone" class="ident">stateUncompressedNone</a> = <a href="../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-53"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateUncompressedWrite" class="ident">stateUncompressedWrite</a></code></span>
+<span class="codeline" id="line-54"><code>)</code></span>
+<span class="codeline" id="line-55"><code></code></span>
+<span class="codeline" id="line-56"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-57"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateTreeGroupNone" class="ident">stateTreeGroupNone</a> = <a href="../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-58"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateTreeGroupLoop" class="ident">stateTreeGroupLoop</a></code></span>
+<span class="codeline" id="line-59"><code>)</code></span>
+<span class="codeline" id="line-60"><code></code></span>
+<span class="codeline" id="line-61"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-62"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateContextMapNone" class="ident">stateContextMapNone</a> = <a href="../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-63"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateContextMapReadPrefix" class="ident">stateContextMapReadPrefix</a></code></span>
+<span class="codeline" id="line-64"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateContextMapHuffman" class="ident">stateContextMapHuffman</a></code></span>
+<span class="codeline" id="line-65"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateContextMapDecode" class="ident">stateContextMapDecode</a></code></span>
+<span class="codeline" id="line-66"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateContextMapTransform" class="ident">stateContextMapTransform</a></code></span>
+<span class="codeline" id="line-67"><code>)</code></span>
+<span class="codeline" id="line-68"><code></code></span>
+<span class="codeline" id="line-69"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-70"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateHuffmanNone" class="ident">stateHuffmanNone</a> = <a href="../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-71"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateHuffmanSimpleSize" class="ident">stateHuffmanSimpleSize</a></code></span>
+<span class="codeline" id="line-72"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateHuffmanSimpleRead" class="ident">stateHuffmanSimpleRead</a></code></span>
+<span class="codeline" id="line-73"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateHuffmanSimpleBuild" class="ident">stateHuffmanSimpleBuild</a></code></span>
+<span class="codeline" id="line-74"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateHuffmanComplex" class="ident">stateHuffmanComplex</a></code></span>
+<span class="codeline" id="line-75"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateHuffmanLengthSymbols" class="ident">stateHuffmanLengthSymbols</a></code></span>
+<span class="codeline" id="line-76"><code>)</code></span>
+<span class="codeline" id="line-77"><code></code></span>
+<span class="codeline" id="line-78"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-79"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateDecodeUint8None" class="ident">stateDecodeUint8None</a> = <a href="../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-80"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateDecodeUint8Short" class="ident">stateDecodeUint8Short</a></code></span>
+<span class="codeline" id="line-81"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateDecodeUint8Long" class="ident">stateDecodeUint8Long</a></code></span>
+<span class="codeline" id="line-82"><code>)</code></span>
+<span class="codeline" id="line-83"><code></code></span>
+<span class="codeline" id="line-84"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-85"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateReadBlockLengthNone" class="ident">stateReadBlockLengthNone</a> = <a href="../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-86"><code>	<a href="../../../../pkg/github.com/andybalholm/brotli.html#name-stateReadBlockLengthSuffix" class="ident">stateReadBlockLengthSuffix</a></code></span>
+<span class="codeline" id="line-87"><code>)</code></span>
+<span class="codeline" id="line-88"><code></code></span>
+<span class="codeline" id="line-89"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/andybalholm/brotli.html#name-Reader" class="ident">Reader</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-90"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.src^25a66.html" class="ident">src</a> <a href="../../../../pkg/io.html" class="ident i0">io</a>.<a href="../../../io/io.go.html#line-86" class="ident">Reader</a></code></span>
+<span class="codeline" id="line-91"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.buf^3ef31.html" class="ident">buf</a> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a> <span class="comment">// scratch space for reading from src</span></code></span>
+<span class="codeline" id="line-92"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.in^58296.html" class="ident">in</a>  []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a> <span class="comment">// current chunk to decode; usually aliases buf</span></code></span>
+<span class="codeline" id="line-93"><code></code></span>
+<span class="codeline" id="line-94"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.state^4ba69.html" class="ident">state</a>        <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-95"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.loop_counter^663c5.html" class="ident">loop_counter</a> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-96"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.br^88503.html" class="ident">br</a>           <a href="bit_reader.go.html#line-55" class="ident">bitReader</a></code></span>
+<span class="codeline" id="line-97"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.buffer^d0ca8.html" class="ident">buffer</a>       <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-98"><code>		u64 <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a></code></span>
+<span class="codeline" id="line-99"><code>		u8  [<span class="lit-number">8</span>]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-100"><code>	}</code></span>
+<span class="codeline" id="line-101"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.buffer_length^f7777.html" class="ident">buffer_length</a>               <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-102"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.pos^7160f.html" class="ident">pos</a>                         <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-103"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.max_backward_distance^65a34.html" class="ident">max_backward_distance</a>       <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-104"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.max_distance^90823.html" class="ident">max_distance</a>                <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-105"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.ringbuffer_size^b580c.html" class="ident">ringbuffer_size</a>             <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-106"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.ringbuffer_mask^32e37.html" class="ident">ringbuffer_mask</a>             <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-107"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.dist_rb_idx^0d53d.html" class="ident">dist_rb_idx</a>                 <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-108"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.dist_rb^ca248.html" class="ident">dist_rb</a>                     [<span class="lit-number">4</span>]<a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-109"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.error_code^41a7b.html" class="ident">error_code</a>                  <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-110"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.sub_loop_counter^952a5.html" class="ident">sub_loop_counter</a>            <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-111"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.ringbuffer^3162a.html" class="ident">ringbuffer</a>                  []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-112"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.ringbuffer_end^88966.html" class="ident">ringbuffer_end</a>              []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-113"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.htree_command^8ca16.html" class="ident">htree_command</a>               []<a href="huffman.go.html#line-68" class="ident">huffmanCode</a></code></span>
+<span class="codeline" id="line-114"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.context_lookup^ba28c.html" class="ident">context_lookup</a>              []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-115"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.context_map_slice^0db24.html" class="ident">context_map_slice</a>           []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-116"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.dist_context_map_slice^ddc38.html" class="ident">dist_context_map_slice</a>      []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-117"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.literal_hgroup^df5f1.html" class="ident">literal_hgroup</a>              <a href="huffman.go.html#line-93" class="ident">huffmanTreeGroup</a></code></span>
+<span class="codeline" id="line-118"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.insert_copy_hgroup^dc199.html" class="ident">insert_copy_hgroup</a>          <a href="huffman.go.html#line-93" class="ident">huffmanTreeGroup</a></code></span>
+<span class="codeline" id="line-119"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.distance_hgroup^29621.html" class="ident">distance_hgroup</a>             <a href="huffman.go.html#line-93" class="ident">huffmanTreeGroup</a></code></span>
+<span class="codeline" id="line-120"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.block_type_trees^e6ce9.html" class="ident">block_type_trees</a>            []<a href="huffman.go.html#line-68" class="ident">huffmanCode</a></code></span>
+<span class="codeline" id="line-121"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.block_len_trees^7e5c6.html" class="ident">block_len_trees</a>             []<a href="huffman.go.html#line-68" class="ident">huffmanCode</a></code></span>
+<span class="codeline" id="line-122"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.trivial_literal_context^2a68c.html" class="ident">trivial_literal_context</a>     <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-123"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.distance_context^903d2.html" class="ident">distance_context</a>            <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-124"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.meta_block_remaining_len^f042a.html" class="ident">meta_block_remaining_len</a>    <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-125"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.block_length_index^eb76c.html" class="ident">block_length_index</a>          <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-126"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.block_length^67629.html" class="ident">block_length</a>                [<span class="lit-number">3</span>]<a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-127"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.num_block_types^3ed48.html" class="ident">num_block_types</a>             [<span class="lit-number">3</span>]<a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-128"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.block_type_rb^9741e.html" class="ident">block_type_rb</a>               [<span class="lit-number">6</span>]<a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-129"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.distance_postfix_bits^be0b6.html" class="ident">distance_postfix_bits</a>       <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-130"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.num_direct_distance_codes^85508.html" class="ident">num_direct_distance_codes</a>   <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-131"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.distance_postfix_mask^c4e69.html" class="ident">distance_postfix_mask</a>       <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-132"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.num_dist_htrees^94da7.html" class="ident">num_dist_htrees</a>             <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-133"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.dist_context_map^237f3.html" class="ident">dist_context_map</a>            []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-134"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.literal_htree^51f2e.html" class="ident">literal_htree</a>               []<a href="huffman.go.html#line-68" class="ident">huffmanCode</a></code></span>
+<span class="codeline" id="line-135"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.dist_htree_index^7c23c.html" class="ident">dist_htree_index</a>            <a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-136"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.repeat_code_len^6d482.html" class="ident">repeat_code_len</a>             <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-137"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.prev_code_len^769c4.html" class="ident">prev_code_len</a>               <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-138"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.copy_length^f0e75.html" class="ident">copy_length</a>                 <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-139"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.distance_code^c45da.html" class="ident">distance_code</a>               <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-140"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.rb_roundtrips^33e90.html" class="ident">rb_roundtrips</a>               <a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a></code></span>
+<span class="codeline" id="line-141"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.partial_pos_out^270e3.html" class="ident">partial_pos_out</a>             <a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a></code></span>
+<span class="codeline" id="line-142"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.symbol^b76a7.html" class="ident">symbol</a>                      <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-143"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.repeat^25e2b.html" class="ident">repeat</a>                      <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-144"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.space^3f49d.html" class="ident">space</a>                       <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-145"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.table^0d4fc.html" class="ident">table</a>                       [<span class="lit-number">32</span>]<a href="huffman.go.html#line-68" class="ident">huffmanCode</a></code></span>
+<span class="codeline" id="line-146"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.symbol_lists^ebdf8.html" class="ident">symbol_lists</a>                <a href="symbol_list.go.html#line-11" class="ident">symbolList</a></code></span>
+<span class="codeline" id="line-147"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.symbols_lists_array^a6984.html" class="ident">symbols_lists_array</a>         [<a href="huffman.go.html#line-11" class="ident">huffmanMaxCodeLength</a> + <span class="lit-number">1</span> + <a href="constants.go.html#line-18" class="ident">numCommandSymbols</a>]<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-148"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.next_symbol^2890f.html" class="ident">next_symbol</a>                 [<span class="lit-number">32</span>]<a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-149"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.code_length_code_lengths^f90f7.html" class="ident">code_length_code_lengths</a>    [<a href="constants.go.html#line-31" class="ident">codeLengthCodes</a>]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-150"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.code_length_histo^40cc1.html" class="ident">code_length_histo</a>           [<span class="lit-number">16</span>]<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-151"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.htree_index^ac5cc.html" class="ident">htree_index</a>                 <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-152"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.next^c6c1c.html" class="ident">next</a>                        []<a href="huffman.go.html#line-68" class="ident">huffmanCode</a></code></span>
+<span class="codeline" id="line-153"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.context_index^4c9ce.html" class="ident">context_index</a>               <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-154"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.max_run_length_prefix^aa1c0.html" class="ident">max_run_length_prefix</a>       <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-155"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.code^5694d.html" class="ident">code</a>                        <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-156"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.context_map_table^33e8f.html" class="ident">context_map_table</a>           [<a href="huffman.go.html#line-62" class="ident">huffmanMaxSize272</a>]<a href="huffman.go.html#line-68" class="ident">huffmanCode</a></code></span>
+<span class="codeline" id="line-157"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.substate_metablock_header^92f25.html" class="ident">substate_metablock_header</a>   <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-158"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.substate_tree_group^16169.html" class="ident">substate_tree_group</a>         <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-159"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.substate_context_map^74839.html" class="ident">substate_context_map</a>        <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-160"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.substate_uncompressed^be0e0.html" class="ident">substate_uncompressed</a>       <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-161"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.substate_huffman^9c45b.html" class="ident">substate_huffman</a>            <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-162"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.substate_decode_uint8^0dcb5.html" class="ident">substate_decode_uint8</a>       <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-163"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.substate_read_block_length^e6209.html" class="ident">substate_read_block_length</a>  <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-164"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.is_last_metablock^17ae2.html" class="ident">is_last_metablock</a>           <a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a></code></span>
+<span class="codeline" id="line-165"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.is_uncompressed^9c8d0.html" class="ident">is_uncompressed</a>             <a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a></code></span>
+<span class="codeline" id="line-166"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.is_metadata^55ee7.html" class="ident">is_metadata</a>                 <a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a></code></span>
+<span class="codeline" id="line-167"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.should_wrap_ringbuffer^94c1a.html" class="ident">should_wrap_ringbuffer</a>      <a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a></code></span>
+<span class="codeline" id="line-168"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.canny_ringbuffer_allocation^4aaf0.html" class="ident">canny_ringbuffer_allocation</a> <a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a></code></span>
+<span class="codeline" id="line-169"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.large_window^8771f.html" class="ident">large_window</a>                <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-170"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.size_nibbles^f8631.html" class="ident">size_nibbles</a>                <a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a></code></span>
+<span class="codeline" id="line-171"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.window_bits^2a2b4.html" class="ident">window_bits</a>                 <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-172"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.new_ringbuffer_size^80c11.html" class="ident">new_ringbuffer_size</a>         <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-173"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.num_literal_htrees^4c2c2.html" class="ident">num_literal_htrees</a>          <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-174"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.context_map^9ca23.html" class="ident">context_map</a>                 []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-175"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.context_modes^2e1f2.html" class="ident">context_modes</a>               []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-176"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.dictionary^177ca.html" class="ident">dictionary</a>                  *<a href="dictionary.go.html#line-10" class="ident">dictionary</a></code></span>
+<span class="codeline" id="line-177"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.transforms^c762c.html" class="ident">transforms</a>                  *<a href="transform.go.html#line-32" class="ident">transforms</a></code></span>
+<span class="codeline" id="line-178"><code>	<a href="../../../../use/github.com/andybalholm/brotli..Reader.trivial_literal_contexts^ba59c.html" class="ident">trivial_literal_contexts</a>    [<span class="lit-number">8</span>]<a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-179"><code>}</code></span>
+<span class="codeline" id="line-180"><code></code></span>
+<span class="codeline" id="line-181"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/github.com/andybalholm/brotli.html#name-decoderStateInit" class="ident">decoderStateInit</a></label>(<label for="r1" class="ident">s</label> *<a href="#line-89" class="ident">Reader</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-182"><code>	<label for="r1" class="ident">s</label>.<a href="#line-109" class="ident">error_code</a> = <span class="lit-number">0</span> <span class="comment">/* BROTLI_DECODER_NO_ERROR */</span></code></span>
+<span class="codeline" id="line-183"><code></code></span>
+<span class="codeline" id="line-184"><code>	<a href="bit_reader.go.html#line-250" class="ident">initBitReader</a>(&amp;<label for="r1" class="ident">s</label>.<a href="#line-96" class="ident">br</a>)</code></span>
+<span class="codeline" id="line-185"><code>	<label for="r1" class="ident">s</label>.<a href="#line-94" class="ident">state</a> = <a href="#line-13" class="ident">stateUninited</a></code></span>
+<span class="codeline" id="line-186"><code>	<label for="r1" class="ident">s</label>.<a href="#line-169" class="ident">large_window</a> = <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-187"><code>	<label for="r1" class="ident">s</label>.<a href="#line-157" class="ident">substate_metablock_header</a> = <a href="#line-41" class="ident">stateMetablockHeaderNone</a></code></span>
+<span class="codeline" id="line-188"><code>	<label for="r1" class="ident">s</label>.<a href="#line-158" class="ident">substate_tree_group</a> = <a href="#line-57" class="ident">stateTreeGroupNone</a></code></span>
+<span class="codeline" id="line-189"><code>	<label for="r1" class="ident">s</label>.<a href="#line-159" class="ident">substate_context_map</a> = <a href="#line-62" class="ident">stateContextMapNone</a></code></span>
+<span class="codeline" id="line-190"><code>	<label for="r1" class="ident">s</label>.<a href="#line-160" class="ident">substate_uncompressed</a> = <a href="#line-52" class="ident">stateUncompressedNone</a></code></span>
+<span class="codeline" id="line-191"><code>	<label for="r1" class="ident">s</label>.<a href="#line-161" class="ident">substate_huffman</a> = <a href="#line-70" class="ident">stateHuffmanNone</a></code></span>
+<span class="codeline" id="line-192"><code>	<label for="r1" class="ident">s</label>.<a href="#line-162" class="ident">substate_decode_uint8</a> = <a href="#line-79" class="ident">stateDecodeUint8None</a></code></span>
+<span class="codeline" id="line-193"><code>	<label for="r1" class="ident">s</label>.<a href="#line-163" class="ident">substate_read_block_length</a> = <a href="#line-85" class="ident">stateReadBlockLengthNone</a></code></span>
+<span class="codeline" id="line-194"><code></code></span>
+<span class="codeline" id="line-195"><code>	<label for="r1" class="ident">s</label>.<a href="#line-101" class="ident">buffer_length</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-196"><code>	<label for="r1" class="ident">s</label>.<a href="#line-95" class="ident">loop_counter</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-197"><code>	<label for="r1" class="ident">s</label>.<a href="#line-102" class="ident">pos</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-198"><code>	<label for="r1" class="ident">s</label>.<a href="#line-140" class="ident">rb_roundtrips</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-199"><code>	<label for="r1" class="ident">s</label>.<a href="#line-141" class="ident">partial_pos_out</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-200"><code></code></span>
+<span class="codeline" id="line-201"><code>	<label for="r1" class="ident">s</label>.<a href="#line-120" class="ident">block_type_trees</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-202"><code>	<label for="r1" class="ident">s</label>.<a href="#line-121" class="ident">block_len_trees</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-203"><code>	<label for="r1" class="ident">s</label>.<a href="#line-105" class="ident">ringbuffer_size</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-204"><code>	<label for="r1" class="ident">s</label>.<a href="#line-172" class="ident">new_ringbuffer_size</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-205"><code>	<label for="r1" class="ident">s</label>.<a href="#line-106" class="ident">ringbuffer_mask</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-206"><code></code></span>
+<span class="codeline" id="line-207"><code>	<label for="r1" class="ident">s</label>.<a href="#line-174" class="ident">context_map</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-208"><code>	<label for="r1" class="ident">s</label>.<a href="#line-175" class="ident">context_modes</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-209"><code>	<label for="r1" class="ident">s</label>.<a href="#line-133" class="ident">dist_context_map</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-210"><code>	<label for="r1" class="ident">s</label>.<a href="#line-115" class="ident">context_map_slice</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-211"><code>	<label for="r1" class="ident">s</label>.<a href="#line-116" class="ident">dist_context_map_slice</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-212"><code></code></span>
+<span class="codeline" id="line-213"><code>	<label for="r1" class="ident">s</label>.<a href="#line-110" class="ident">sub_loop_counter</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-214"><code></code></span>
+<span class="codeline" id="line-215"><code>	<label for="r1" class="ident">s</label>.<a href="#line-117" class="ident">literal_hgroup</a>.<a href="huffman.go.html#line-95" class="ident">codes</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-216"><code>	<label for="r1" class="ident">s</label>.<a href="#line-117" class="ident">literal_hgroup</a>.<a href="huffman.go.html#line-94" class="ident">htrees</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-217"><code>	<label for="r1" class="ident">s</label>.<a href="#line-118" class="ident">insert_copy_hgroup</a>.<a href="huffman.go.html#line-95" class="ident">codes</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-218"><code>	<label for="r1" class="ident">s</label>.<a href="#line-118" class="ident">insert_copy_hgroup</a>.<a href="huffman.go.html#line-94" class="ident">htrees</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-219"><code>	<label for="r1" class="ident">s</label>.<a href="#line-119" class="ident">distance_hgroup</a>.<a href="huffman.go.html#line-95" class="ident">codes</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-220"><code>	<label for="r1" class="ident">s</label>.<a href="#line-119" class="ident">distance_hgroup</a>.<a href="huffman.go.html#line-94" class="ident">htrees</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-221"><code></code></span>
+<span class="codeline" id="line-222"><code>	<label for="r1" class="ident">s</label>.<a href="#line-164" class="ident">is_last_metablock</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-223"><code>	<label for="r1" class="ident">s</label>.<a href="#line-165" class="ident">is_uncompressed</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-224"><code>	<label for="r1" class="ident">s</label>.<a href="#line-166" class="ident">is_metadata</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-225"><code>	<label for="r1" class="ident">s</label>.<a href="#line-167" class="ident">should_wrap_ringbuffer</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-226"><code>	<label for="r1" class="ident">s</label>.<a href="#line-168" class="ident">canny_ringbuffer_allocation</a> = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-227"><code></code></span>
+<span class="codeline" id="line-228"><code>	<label for="r1" class="ident">s</label>.<a href="#line-171" class="ident">window_bits</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-229"><code>	<label for="r1" class="ident">s</label>.<a href="#line-104" class="ident">max_distance</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-230"><code>	<label for="r1" class="ident">s</label>.<a href="#line-108" class="ident">dist_rb</a>[<span class="lit-number">0</span>] = <span class="lit-number">16</span></code></span>
+<span class="codeline" id="line-231"><code>	<label for="r1" class="ident">s</label>.<a href="#line-108" class="ident">dist_rb</a>[<span class="lit-number">1</span>] = <span class="lit-number">15</span></code></span>
+<span class="codeline" id="line-232"><code>	<label for="r1" class="ident">s</label>.<a href="#line-108" class="ident">dist_rb</a>[<span class="lit-number">2</span>] = <span class="lit-number">11</span></code></span>
+<span class="codeline" id="line-233"><code>	<label for="r1" class="ident">s</label>.<a href="#line-108" class="ident">dist_rb</a>[<span class="lit-number">3</span>] = <span class="lit-number">4</span></code></span>
+<span class="codeline" id="line-234"><code>	<label for="r1" class="ident">s</label>.<a href="#line-107" class="ident">dist_rb_idx</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-235"><code>	<label for="r1" class="ident">s</label>.<a href="#line-120" class="ident">block_type_trees</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-236"><code>	<label for="r1" class="ident">s</label>.<a href="#line-121" class="ident">block_len_trees</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-237"><code></code></span>
+<span class="codeline" id="line-238"><code>	<label for="r1" class="ident">s</label>.<a href="#line-146" class="ident">symbol_lists</a>.<a href="symbol_list.go.html#line-12" class="ident">storage</a> = <label for="r1" class="ident">s</label>.<a href="#line-147" class="ident">symbols_lists_array</a>[:]</code></span>
+<span class="codeline" id="line-239"><code>	<label for="r1" class="ident">s</label>.<a href="#line-146" class="ident">symbol_lists</a>.<a href="symbol_list.go.html#line-13" class="ident">offset</a> = <a href="huffman.go.html#line-11" class="ident">huffmanMaxCodeLength</a> + <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-240"><code></code></span>
+<span class="codeline" id="line-241"><code>	<label for="r1" class="ident">s</label>.<a href="#line-176" class="ident">dictionary</a> = <a href="dictionary.go.html#line-122888" class="ident">getDictionary</a>()</code></span>
+<span class="codeline" id="line-242"><code>	<label for="r1" class="ident">s</label>.<a href="#line-177" class="ident">transforms</a> = <a href="transform.go.html#line-495" class="ident">getTransforms</a>()</code></span>
+<span class="codeline" id="line-243"><code></code></span>
+<span class="codeline" id="line-244"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-245"><code>}</code></span>
+<span class="codeline" id="line-246"><code></code></span>
+<span class="codeline" id="line-247"><code><span class="keyword">func</span> <label for="r2" class="ident"><a href="../../../../pkg/github.com/andybalholm/brotli.html#name-decoderStateMetablockBegin" class="ident">decoderStateMetablockBegin</a></label>(<label for="r3" class="ident">s</label> *<a href="#line-89" class="ident">Reader</a>) {</code></span>
+<span class="codeline" id="line-248"><code>	<label for="r3" class="ident">s</label>.<a href="#line-124" class="ident">meta_block_remaining_len</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-249"><code>	<label for="r3" class="ident">s</label>.<a href="#line-126" class="ident">block_length</a>[<span class="lit-number">0</span>] = <span class="lit-number">1</span> &lt;&lt; <span class="lit-number">24</span></code></span>
+<span class="codeline" id="line-250"><code>	<label for="r3" class="ident">s</label>.<a href="#line-126" class="ident">block_length</a>[<span class="lit-number">1</span>] = <span class="lit-number">1</span> &lt;&lt; <span class="lit-number">24</span></code></span>
+<span class="codeline" id="line-251"><code>	<label for="r3" class="ident">s</label>.<a href="#line-126" class="ident">block_length</a>[<span class="lit-number">2</span>] = <span class="lit-number">1</span> &lt;&lt; <span class="lit-number">24</span></code></span>
+<span class="codeline" id="line-252"><code>	<label for="r3" class="ident">s</label>.<a href="#line-127" class="ident">num_block_types</a>[<span class="lit-number">0</span>] = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-253"><code>	<label for="r3" class="ident">s</label>.<a href="#line-127" class="ident">num_block_types</a>[<span class="lit-number">1</span>] = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-254"><code>	<label for="r3" class="ident">s</label>.<a href="#line-127" class="ident">num_block_types</a>[<span class="lit-number">2</span>] = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-255"><code>	<label for="r3" class="ident">s</label>.<a href="#line-128" class="ident">block_type_rb</a>[<span class="lit-number">0</span>] = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-256"><code>	<label for="r3" class="ident">s</label>.<a href="#line-128" class="ident">block_type_rb</a>[<span class="lit-number">1</span>] = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-257"><code>	<label for="r3" class="ident">s</label>.<a href="#line-128" class="ident">block_type_rb</a>[<span class="lit-number">2</span>] = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-258"><code>	<label for="r3" class="ident">s</label>.<a href="#line-128" class="ident">block_type_rb</a>[<span class="lit-number">3</span>] = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-259"><code>	<label for="r3" class="ident">s</label>.<a href="#line-128" class="ident">block_type_rb</a>[<span class="lit-number">4</span>] = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-260"><code>	<label for="r3" class="ident">s</label>.<a href="#line-128" class="ident">block_type_rb</a>[<span class="lit-number">5</span>] = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-261"><code>	<label for="r3" class="ident">s</label>.<a href="#line-174" class="ident">context_map</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-262"><code>	<label for="r3" class="ident">s</label>.<a href="#line-175" class="ident">context_modes</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-263"><code>	<label for="r3" class="ident">s</label>.<a href="#line-133" class="ident">dist_context_map</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-264"><code>	<label for="r3" class="ident">s</label>.<a href="#line-115" class="ident">context_map_slice</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-265"><code>	<label for="r3" class="ident">s</label>.<a href="#line-134" class="ident">literal_htree</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-266"><code>	<label for="r3" class="ident">s</label>.<a href="#line-116" class="ident">dist_context_map_slice</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-267"><code>	<label for="r3" class="ident">s</label>.<a href="#line-135" class="ident">dist_htree_index</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-268"><code>	<label for="r3" class="ident">s</label>.<a href="#line-114" class="ident">context_lookup</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-269"><code>	<label for="r3" class="ident">s</label>.<a href="#line-117" class="ident">literal_hgroup</a>.<a href="huffman.go.html#line-95" class="ident">codes</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-270"><code>	<label for="r3" class="ident">s</label>.<a href="#line-117" class="ident">literal_hgroup</a>.<a href="huffman.go.html#line-94" class="ident">htrees</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-271"><code>	<label for="r3" class="ident">s</label>.<a href="#line-118" class="ident">insert_copy_hgroup</a>.<a href="huffman.go.html#line-95" class="ident">codes</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-272"><code>	<label for="r3" class="ident">s</label>.<a href="#line-118" class="ident">insert_copy_hgroup</a>.<a href="huffman.go.html#line-94" class="ident">htrees</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-273"><code>	<label for="r3" class="ident">s</label>.<a href="#line-119" class="ident">distance_hgroup</a>.<a href="huffman.go.html#line-95" class="ident">codes</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-274"><code>	<label for="r3" class="ident">s</label>.<a href="#line-119" class="ident">distance_hgroup</a>.<a href="huffman.go.html#line-94" class="ident">htrees</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-275"><code>}</code></span>
+<span class="codeline" id="line-276"><code></code></span>
+<span class="codeline" id="line-277"><code><span class="keyword">func</span> <label for="r4" class="ident"><a href="../../../../pkg/github.com/andybalholm/brotli.html#name-decoderStateCleanupAfterMetablock" class="ident">decoderStateCleanupAfterMetablock</a></label>(<label for="r5" class="ident">s</label> *<a href="#line-89" class="ident">Reader</a>) {</code></span>
+<span class="codeline" id="line-278"><code>	<label for="r5" class="ident">s</label>.<a href="#line-175" class="ident">context_modes</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-279"><code>	<label for="r5" class="ident">s</label>.<a href="#line-174" class="ident">context_map</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-280"><code>	<label for="r5" class="ident">s</label>.<a href="#line-133" class="ident">dist_context_map</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-281"><code>	<label for="r5" class="ident">s</label>.<a href="#line-117" class="ident">literal_hgroup</a>.<a href="huffman.go.html#line-94" class="ident">htrees</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-282"><code>	<label for="r5" class="ident">s</label>.<a href="#line-118" class="ident">insert_copy_hgroup</a>.<a href="huffman.go.html#line-94" class="ident">htrees</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-283"><code>	<label for="r5" class="ident">s</label>.<a href="#line-119" class="ident">distance_hgroup</a>.<a href="huffman.go.html#line-94" class="ident">htrees</a> = <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-284"><code>}</code></span>
+<span class="codeline" id="line-285"><code></code></span>
+<span class="codeline" id="line-286"><code><span class="keyword">func</span> <label for="r6" class="ident"><a href="../../../../pkg/github.com/andybalholm/brotli.html#name-decoderHuffmanTreeGroupInit" class="ident">decoderHuffmanTreeGroupInit</a></label>(<label for="r7" class="ident">s</label> *<a href="#line-89" class="ident">Reader</a>, <label for="r8" class="ident">group</label> *<a href="huffman.go.html#line-93" class="ident">huffmanTreeGroup</a>, <label for="r9" class="ident">alphabet_size</label> <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>, <label for="r10" class="ident">max_symbol</label> <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>, <label for="r11" class="ident">ntrees</label> <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-287"><code>	<span class="keyword">var</span> <label for="r12" class="ident">max_table_size</label> <a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a> = <a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<a href="huffman.go.html#line-15" class="ident">kMaxHuffmanTableSize</a>[(<label for="r9" class="ident">alphabet_size</label>+<span class="lit-number">31</span>)&gt;&gt;<span class="lit-number">5</span>])</code></span>
+<span class="codeline" id="line-288"><code>	<label for="r8" class="ident">group</label>.<a href="huffman.go.html#line-96" class="ident">alphabet_size</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<label for="r9" class="ident">alphabet_size</label>)</code></span>
+<span class="codeline" id="line-289"><code>	<label for="r8" class="ident">group</label>.<a href="huffman.go.html#line-97" class="ident">max_symbol</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<label for="r10" class="ident">max_symbol</label>)</code></span>
+<span class="codeline" id="line-290"><code>	<label for="r8" class="ident">group</label>.<a href="huffman.go.html#line-98" class="ident">num_htrees</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<label for="r11" class="ident">ntrees</label>)</code></span>
+<span class="codeline" id="line-291"><code>	<label for="r8" class="ident">group</label>.<a href="huffman.go.html#line-94" class="ident">htrees</a> = <a href="../../../../pkg/builtin.html#name-make" class="ident">make</a>([][]<a href="huffman.go.html#line-68" class="ident">huffmanCode</a>, <label for="r11" class="ident">ntrees</label>)</code></span>
+<span class="codeline" id="line-292"><code>	<label for="r8" class="ident">group</label>.<a href="huffman.go.html#line-95" class="ident">codes</a> = <a href="../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="huffman.go.html#line-68" class="ident">huffmanCode</a>, (<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r11" class="ident">ntrees</label>) * <label for="r12" class="ident">max_table_size</label>))</code></span>
+<span class="codeline" id="line-293"><code>	<span class="keyword">return</span> !(<label for="r8" class="ident">group</label>.<a href="huffman.go.html#line-95" class="ident">codes</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>)</code></span>
+<span class="codeline" id="line-294"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

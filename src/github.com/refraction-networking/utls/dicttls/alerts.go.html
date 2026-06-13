@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: alerts.go in package github.com/refraction-networking/utls/dicttls</title>
+<link href="../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	alerts.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html">github.com/refraction-networking/utls/dicttls</a>
+</code></pre>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> dicttls</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// source: https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-6</span></code></span>
+<span class="codeline" id="line-4"><code><span class="comment">// last updated: March 2023</span></code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-7"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_close_notify" class="ident">Alert_close_notify</a>                    <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-8"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_unexpected_message" class="ident">Alert_unexpected_message</a>              <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">10</span></code></span>
+<span class="codeline" id="line-9"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_bad_record_mac" class="ident">Alert_bad_record_mac</a>                  <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">20</span></code></span>
+<span class="codeline" id="line-10"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_decryption_failed" class="ident">Alert_decryption_failed</a>               <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">21</span></code></span>
+<span class="codeline" id="line-11"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_record_overflow" class="ident">Alert_record_overflow</a>                 <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">22</span></code></span>
+<span class="codeline" id="line-12"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_decompression_failure" class="ident">Alert_decompression_failure</a>           <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">30</span></code></span>
+<span class="codeline" id="line-13"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_handshake_failure" class="ident">Alert_handshake_failure</a>               <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">40</span></code></span>
+<span class="codeline" id="line-14"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_no_certificate" class="ident">Alert_no_certificate</a>                  <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">41</span></code></span>
+<span class="codeline" id="line-15"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_bad_certificate" class="ident">Alert_bad_certificate</a>                 <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">42</span></code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_unsupported_certificate" class="ident">Alert_unsupported_certificate</a>         <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">43</span></code></span>
+<span class="codeline" id="line-17"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_certificate_revoked" class="ident">Alert_certificate_revoked</a>             <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">44</span></code></span>
+<span class="codeline" id="line-18"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_certificate_expired" class="ident">Alert_certificate_expired</a>             <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">45</span></code></span>
+<span class="codeline" id="line-19"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_certificate_unknown" class="ident">Alert_certificate_unknown</a>             <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">46</span></code></span>
+<span class="codeline" id="line-20"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_illegal_parameter" class="ident">Alert_illegal_parameter</a>               <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">47</span></code></span>
+<span class="codeline" id="line-21"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_unknown_ca" class="ident">Alert_unknown_ca</a>                      <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">48</span></code></span>
+<span class="codeline" id="line-22"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_access_denied" class="ident">Alert_access_denied</a>                   <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">49</span></code></span>
+<span class="codeline" id="line-23"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_decode_error" class="ident">Alert_decode_error</a>                    <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">50</span></code></span>
+<span class="codeline" id="line-24"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_decrypt_error" class="ident">Alert_decrypt_error</a>                   <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">51</span></code></span>
+<span class="codeline" id="line-25"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_too_many_cids_requested" class="ident">Alert_too_many_cids_requested</a>         <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">52</span></code></span>
+<span class="codeline" id="line-26"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_export_restriction" class="ident">Alert_export_restriction</a>              <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">60</span></code></span>
+<span class="codeline" id="line-27"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_protocol_version" class="ident">Alert_protocol_version</a>                <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">70</span></code></span>
+<span class="codeline" id="line-28"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_insufficient_security" class="ident">Alert_insufficient_security</a>           <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">71</span></code></span>
+<span class="codeline" id="line-29"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_internal_error" class="ident">Alert_internal_error</a>                  <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">80</span></code></span>
+<span class="codeline" id="line-30"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_inappropriate_fallback" class="ident">Alert_inappropriate_fallback</a>          <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">86</span></code></span>
+<span class="codeline" id="line-31"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_user_canceled" class="ident">Alert_user_canceled</a>                   <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">90</span></code></span>
+<span class="codeline" id="line-32"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_no_renegotiation" class="ident">Alert_no_renegotiation</a>                <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">100</span></code></span>
+<span class="codeline" id="line-33"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_missing_extension" class="ident">Alert_missing_extension</a>               <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">109</span></code></span>
+<span class="codeline" id="line-34"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_unsupported_extension" class="ident">Alert_unsupported_extension</a>           <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">110</span></code></span>
+<span class="codeline" id="line-35"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_certificate_unobtainable" class="ident">Alert_certificate_unobtainable</a>        <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">111</span></code></span>
+<span class="codeline" id="line-36"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_unrecognized_name" class="ident">Alert_unrecognized_name</a>               <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">112</span></code></span>
+<span class="codeline" id="line-37"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_bad_certificate_status_response" class="ident">Alert_bad_certificate_status_response</a> <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">113</span></code></span>
+<span class="codeline" id="line-38"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_bad_certificate_hash_value" class="ident">Alert_bad_certificate_hash_value</a>      <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">114</span></code></span>
+<span class="codeline" id="line-39"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_unknown_psk_identity" class="ident">Alert_unknown_psk_identity</a>            <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">115</span></code></span>
+<span class="codeline" id="line-40"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_certificate_required" class="ident">Alert_certificate_required</a>            <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">116</span></code></span>
+<span class="codeline" id="line-41"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-Alert_no_application_protocol" class="ident">Alert_no_application_protocol</a>         <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">120</span></code></span>
+<span class="codeline" id="line-42"><code>)</code></span>
+<span class="codeline" id="line-43"><code></code></span>
+<span class="codeline" id="line-44"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-DictAlertValueIndexed" class="ident">DictAlertValueIndexed</a> = <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>]<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>{</code></span>
+<span class="codeline" id="line-45"><code>	<span class="lit-number">0</span>:   <span class="lit-string">"close_notify"</span>,</code></span>
+<span class="codeline" id="line-46"><code>	<span class="lit-number">10</span>:  <span class="lit-string">"unexpected_message"</span>,</code></span>
+<span class="codeline" id="line-47"><code>	<span class="lit-number">20</span>:  <span class="lit-string">"bad_record_mac"</span>,</code></span>
+<span class="codeline" id="line-48"><code>	<span class="lit-number">21</span>:  <span class="lit-string">"decryption_failed"</span>,</code></span>
+<span class="codeline" id="line-49"><code>	<span class="lit-number">22</span>:  <span class="lit-string">"record_overflow"</span>,</code></span>
+<span class="codeline" id="line-50"><code>	<span class="lit-number">30</span>:  <span class="lit-string">"decompression_failure"</span>,</code></span>
+<span class="codeline" id="line-51"><code>	<span class="lit-number">40</span>:  <span class="lit-string">"handshake_failure"</span>,</code></span>
+<span class="codeline" id="line-52"><code>	<span class="lit-number">41</span>:  <span class="lit-string">"no_certificate"</span>,</code></span>
+<span class="codeline" id="line-53"><code>	<span class="lit-number">42</span>:  <span class="lit-string">"bad_certificate"</span>,</code></span>
+<span class="codeline" id="line-54"><code>	<span class="lit-number">43</span>:  <span class="lit-string">"unsupported_certificate"</span>,</code></span>
+<span class="codeline" id="line-55"><code>	<span class="lit-number">44</span>:  <span class="lit-string">"certificate_revoked"</span>,</code></span>
+<span class="codeline" id="line-56"><code>	<span class="lit-number">45</span>:  <span class="lit-string">"certificate_expired"</span>,</code></span>
+<span class="codeline" id="line-57"><code>	<span class="lit-number">46</span>:  <span class="lit-string">"certificate_unknown"</span>,</code></span>
+<span class="codeline" id="line-58"><code>	<span class="lit-number">47</span>:  <span class="lit-string">"illegal_parameter"</span>,</code></span>
+<span class="codeline" id="line-59"><code>	<span class="lit-number">48</span>:  <span class="lit-string">"unknown_ca"</span>,</code></span>
+<span class="codeline" id="line-60"><code>	<span class="lit-number">49</span>:  <span class="lit-string">"access_denied"</span>,</code></span>
+<span class="codeline" id="line-61"><code>	<span class="lit-number">50</span>:  <span class="lit-string">"decode_error"</span>,</code></span>
+<span class="codeline" id="line-62"><code>	<span class="lit-number">51</span>:  <span class="lit-string">"decrypt_error"</span>,</code></span>
+<span class="codeline" id="line-63"><code>	<span class="lit-number">52</span>:  <span class="lit-string">"too_many_cids_requested"</span>,</code></span>
+<span class="codeline" id="line-64"><code>	<span class="lit-number">60</span>:  <span class="lit-string">"export_restriction"</span>,</code></span>
+<span class="codeline" id="line-65"><code>	<span class="lit-number">70</span>:  <span class="lit-string">"protocol_version"</span>,</code></span>
+<span class="codeline" id="line-66"><code>	<span class="lit-number">71</span>:  <span class="lit-string">"insufficient_security"</span>,</code></span>
+<span class="codeline" id="line-67"><code>	<span class="lit-number">80</span>:  <span class="lit-string">"internal_error"</span>,</code></span>
+<span class="codeline" id="line-68"><code>	<span class="lit-number">86</span>:  <span class="lit-string">"inappropriate_fallback"</span>,</code></span>
+<span class="codeline" id="line-69"><code>	<span class="lit-number">90</span>:  <span class="lit-string">"user_canceled"</span>,</code></span>
+<span class="codeline" id="line-70"><code>	<span class="lit-number">100</span>: <span class="lit-string">"no_renegotiation"</span>,</code></span>
+<span class="codeline" id="line-71"><code>	<span class="lit-number">109</span>: <span class="lit-string">"missing_extension"</span>,</code></span>
+<span class="codeline" id="line-72"><code>	<span class="lit-number">110</span>: <span class="lit-string">"unsupported_extension"</span>,</code></span>
+<span class="codeline" id="line-73"><code>	<span class="lit-number">111</span>: <span class="lit-string">"certificate_unobtainable"</span>,</code></span>
+<span class="codeline" id="line-74"><code>	<span class="lit-number">112</span>: <span class="lit-string">"unrecognized_name"</span>,</code></span>
+<span class="codeline" id="line-75"><code>	<span class="lit-number">113</span>: <span class="lit-string">"bad_certificate_status_response"</span>,</code></span>
+<span class="codeline" id="line-76"><code>	<span class="lit-number">114</span>: <span class="lit-string">"bad_certificate_hash_value"</span>,</code></span>
+<span class="codeline" id="line-77"><code>	<span class="lit-number">115</span>: <span class="lit-string">"unknown_psk_identity"</span>,</code></span>
+<span class="codeline" id="line-78"><code>	<span class="lit-number">116</span>: <span class="lit-string">"certificate_required"</span>,</code></span>
+<span class="codeline" id="line-79"><code>	<span class="lit-number">120</span>: <span class="lit-string">"no_application_protocol"</span>,</code></span>
+<span class="codeline" id="line-80"><code>}</code></span>
+<span class="codeline" id="line-81"><code></code></span>
+<span class="codeline" id="line-82"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-DictAlertNameIndexed" class="ident">DictAlertNameIndexed</a> = <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>{</code></span>
+<span class="codeline" id="line-83"><code>	<span class="lit-string">"close_notify"</span>:                    <span class="lit-number">0</span>,</code></span>
+<span class="codeline" id="line-84"><code>	<span class="lit-string">"unexpected_message"</span>:              <span class="lit-number">10</span>,</code></span>
+<span class="codeline" id="line-85"><code>	<span class="lit-string">"bad_record_mac"</span>:                  <span class="lit-number">20</span>,</code></span>
+<span class="codeline" id="line-86"><code>	<span class="lit-string">"decryption_failed"</span>:               <span class="lit-number">21</span>,</code></span>
+<span class="codeline" id="line-87"><code>	<span class="lit-string">"record_overflow"</span>:                 <span class="lit-number">22</span>,</code></span>
+<span class="codeline" id="line-88"><code>	<span class="lit-string">"decompression_failure"</span>:           <span class="lit-number">30</span>,</code></span>
+<span class="codeline" id="line-89"><code>	<span class="lit-string">"handshake_failure"</span>:               <span class="lit-number">40</span>,</code></span>
+<span class="codeline" id="line-90"><code>	<span class="lit-string">"no_certificate"</span>:                  <span class="lit-number">41</span>,</code></span>
+<span class="codeline" id="line-91"><code>	<span class="lit-string">"bad_certificate"</span>:                 <span class="lit-number">42</span>,</code></span>
+<span class="codeline" id="line-92"><code>	<span class="lit-string">"unsupported_certificate"</span>:         <span class="lit-number">43</span>,</code></span>
+<span class="codeline" id="line-93"><code>	<span class="lit-string">"certificate_revoked"</span>:             <span class="lit-number">44</span>,</code></span>
+<span class="codeline" id="line-94"><code>	<span class="lit-string">"certificate_expired"</span>:             <span class="lit-number">45</span>,</code></span>
+<span class="codeline" id="line-95"><code>	<span class="lit-string">"certificate_unknown"</span>:             <span class="lit-number">46</span>,</code></span>
+<span class="codeline" id="line-96"><code>	<span class="lit-string">"illegal_parameter"</span>:               <span class="lit-number">47</span>,</code></span>
+<span class="codeline" id="line-97"><code>	<span class="lit-string">"unknown_ca"</span>:                      <span class="lit-number">48</span>,</code></span>
+<span class="codeline" id="line-98"><code>	<span class="lit-string">"access_denied"</span>:                   <span class="lit-number">49</span>,</code></span>
+<span class="codeline" id="line-99"><code>	<span class="lit-string">"decode_error"</span>:                    <span class="lit-number">50</span>,</code></span>
+<span class="codeline" id="line-100"><code>	<span class="lit-string">"decrypt_error"</span>:                   <span class="lit-number">51</span>,</code></span>
+<span class="codeline" id="line-101"><code>	<span class="lit-string">"too_many_cids_requested"</span>:         <span class="lit-number">52</span>,</code></span>
+<span class="codeline" id="line-102"><code>	<span class="lit-string">"export_restriction"</span>:              <span class="lit-number">60</span>,</code></span>
+<span class="codeline" id="line-103"><code>	<span class="lit-string">"protocol_version"</span>:                <span class="lit-number">70</span>,</code></span>
+<span class="codeline" id="line-104"><code>	<span class="lit-string">"insufficient_security"</span>:           <span class="lit-number">71</span>,</code></span>
+<span class="codeline" id="line-105"><code>	<span class="lit-string">"internal_error"</span>:                  <span class="lit-number">80</span>,</code></span>
+<span class="codeline" id="line-106"><code>	<span class="lit-string">"inappropriate_fallback"</span>:          <span class="lit-number">86</span>,</code></span>
+<span class="codeline" id="line-107"><code>	<span class="lit-string">"user_canceled"</span>:                   <span class="lit-number">90</span>,</code></span>
+<span class="codeline" id="line-108"><code>	<span class="lit-string">"no_renegotiation"</span>:                <span class="lit-number">100</span>,</code></span>
+<span class="codeline" id="line-109"><code>	<span class="lit-string">"missing_extension"</span>:               <span class="lit-number">109</span>,</code></span>
+<span class="codeline" id="line-110"><code>	<span class="lit-string">"unsupported_extension"</span>:           <span class="lit-number">110</span>,</code></span>
+<span class="codeline" id="line-111"><code>	<span class="lit-string">"certificate_unobtainable"</span>:        <span class="lit-number">111</span>,</code></span>
+<span class="codeline" id="line-112"><code>	<span class="lit-string">"unrecognized_name"</span>:               <span class="lit-number">112</span>,</code></span>
+<span class="codeline" id="line-113"><code>	<span class="lit-string">"bad_certificate_status_response"</span>: <span class="lit-number">113</span>,</code></span>
+<span class="codeline" id="line-114"><code>	<span class="lit-string">"bad_certificate_hash_value"</span>:      <span class="lit-number">114</span>,</code></span>
+<span class="codeline" id="line-115"><code>	<span class="lit-string">"unknown_psk_identity"</span>:            <span class="lit-number">115</span>,</code></span>
+<span class="codeline" id="line-116"><code>	<span class="lit-string">"certificate_required"</span>:            <span class="lit-number">116</span>,</code></span>
+<span class="codeline" id="line-117"><code>	<span class="lit-string">"no_application_protocol"</span>:         <span class="lit-number">120</span>,</code></span>
+<span class="codeline" id="line-118"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

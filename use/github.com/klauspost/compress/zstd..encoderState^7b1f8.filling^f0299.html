@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.encoderState.filling</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-43">encoderState</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-45">filling</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">43 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-45">encoder.go#L45</a>: 	<b>filling</b>          []byte
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-100" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-100">#L100</a>: 	if cap(s.<b>filling</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-101" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-101">#L101</a>: 		s.<b>filling</b> = make([]byte, 0, e.o.blockSize)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-121" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-121">#L121</a>: 	s.<b>filling</b> = s.<b>filling</b>[:0]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-180" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-180">#L180</a>: 		if len(p)+len(s.<b>filling</b>) &lt; e.o.blockSize {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-184" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-184">#L184</a>: 			s.<b>filling</b> = append(s.<b>filling</b>, p...)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-188" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-188">#L188</a>: 		if len(p)+len(s.<b>filling</b>) &gt; e.o.blockSize {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-189" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-189">#L189</a>: 			add = add[:e.o.blockSize-len(s.<b>filling</b>)]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-194" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-194">#L194</a>: 		s.<b>filling</b> = append(s.<b>filling</b>, add...)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-197" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-197">#L197</a>: 		if len(s.<b>filling</b>) &lt; e.o.blockSize {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-204" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-204">#L204</a>: 		if debugAsserts &amp;&amp; len(s.<b>filling</b>) &gt; 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-205" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-205">#L205</a>: 			panic(len(s.<b>filling</b>))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-220" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-220">#L220</a>: 	if len(s.<b>filling</b>) &gt; e.o.blockSize {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-225" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-225">#L225</a>: 		if final &amp;&amp; len(s.<b>filling</b>) == 0 &amp;&amp; !e.o.fullZero {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-231" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-231">#L231</a>: 		if final &amp;&amp; len(s.<b>filling</b>) &gt; 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-232" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-232">#L232</a>: 			s.current = e.encodeAll(s.encoder, s.<b>filling</b>, s.current[:0])
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-239" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-239">#L239</a>: 			s.nInput += int64(len(s.<b>filling</b>))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-241" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-241">#L241</a>: 			s.<b>filling</b> = s.<b>filling</b>[:0]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-272" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-272">#L272</a>: 	if len(s.<b>filling</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-290" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-290">#L290</a>: 		src := s.<b>filling</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-291" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-291">#L291</a>: 		s.nInput += int64(len(s.<b>filling</b>))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-310" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-310">#L310</a>: 		s.<b>filling</b> = s.<b>filling</b>[:0]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-315" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-315">#L315</a>: 	s.<b>filling</b>, s.current, s.previous = s.previous[:0], s.<b>filling</b>, s.current
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-378" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-378">#L378</a>: 	if len(e.state.<b>filling</b>) &gt; 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-383" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-383">#L383</a>: 	e.state.<b>filling</b> = e.state.<b>filling</b>[:e.o.blockSize]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-384" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-384">#L384</a>: 	src := e.state.<b>filling</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-395" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-395">#L395</a>: 			e.state.<b>filling</b> = e.state.<b>filling</b>[:len(e.state.<b>filling</b>)-len(src)]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-397" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-397">#L397</a>: 				println("ReadFrom: got EOF final block:", len(e.state.<b>filling</b>))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-418" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-418">#L418</a>: 		e.state.<b>filling</b> = e.state.<b>filling</b>[:e.o.blockSize]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-419" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-419">#L419</a>: 		src = e.state.<b>filling</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-428" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-428">#L428</a>: 	if len(s.<b>filling</b>) &gt; 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-459" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-459">#L459</a>: 		if len(s.<b>filling</b>) == 0 &amp;&amp; !s.headerWritten &amp;&amp; !s.eofWritten &amp;&amp; s.nInput == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-500" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-500">#L500</a>: 		frame, err := skippableFrame(s.<b>filling</b>[:0], add, rand.Reader)
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

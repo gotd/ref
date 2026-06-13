@@ -5,36 +5,51 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto.Signer</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../pkg/crypto.html">crypto</a>.<a href="../src/crypto/crypto.go.html#line-180">Signer</a></b></span>
 
-<span class="title">14 uses</span>
+<span class="title">27 uses</span>
 
 	crypto (current package)
 		<a href="../src/crypto/crypto.go.html#line-180">crypto.go#L180</a>: type <b>Signer</b> interface {
+		<a href="../src/crypto/crypto.go.html#line-214" class="path-duplicate">crypto.go</a><a href="../src/crypto/crypto.go.html#line-214">#L214</a>: 	<b>Signer</b>
+		<a href="../src/crypto/crypto.go.html#line-245" class="path-duplicate">crypto.go</a><a href="../src/crypto/crypto.go.html#line-245">#L245</a>: func SignMessage(signer <b>Signer</b>, rand io.Reader, msg []byte, opts SignerOpts) (signature []byte, err error) {
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/auth.go.html#line-174">auth.go#L174</a>: 	priv, ok := cert.PrivateKey.(crypto.<b>Signer</b>)
-		<a href="../src/crypto/tls/auth.go.html#line-266" class="path-duplicate">auth.go</a><a href="../src/crypto/tls/auth.go.html#line-266">#L266</a>: 	signer, ok := cert.PrivateKey.(crypto.<b>Signer</b>)
-		<a href="../src/crypto/tls/common.go.html#line-1251">common.go#L1251</a>: 	if priv, ok := c.PrivateKey.(crypto.<b>Signer</b>); ok {
-		<a href="../src/crypto/tls/handshake_client.go.html#line-670">handshake_client.go#L670</a>: 		key, ok := chainToSend.PrivateKey.(crypto.<b>Signer</b>)
-		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-680">handshake_client_tls13.go#L680</a>: 	sig, err := cert.PrivateKey.(crypto.<b>Signer</b>).Sign(c.config.rand(), signed, signOpts)
-		<a href="../src/crypto/tls/handshake_server.go.html#line-256">handshake_server.go#L256</a>: 	if priv, ok := hs.cert.PrivateKey.(crypto.<b>Signer</b>); ok {
-		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-707">handshake_server_tls13.go#L707</a>: 	sig, err := hs.cert.PrivateKey.(crypto.<b>Signer</b>).Sign(c.config.rand(), signed, signOpts)
-		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-709" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-709">#L709</a>: 		public := hs.cert.PrivateKey.(crypto.<b>Signer</b>).Public()
-		<a href="../src/crypto/tls/key_agreement.go.html#line-200">key_agreement.go#L200</a>: 	priv, ok := cert.PrivateKey.(crypto.<b>Signer</b>)
+		<a href="../src/crypto/tls/auth.go.html#line-233">auth.go#L233</a>: 	priv, ok := c.PrivateKey.(crypto.<b>Signer</b>)
+		<a href="../src/crypto/tls/auth.go.html#line-282" class="path-duplicate">auth.go</a><a href="../src/crypto/tls/auth.go.html#line-282">#L282</a>: 	signer, ok := cert.PrivateKey.(crypto.<b>Signer</b>)
+		<a href="../src/crypto/tls/common.go.html#line-1459">common.go#L1459</a>: 	if priv, ok := c.PrivateKey.(crypto.<b>Signer</b>); ok {
+		<a href="../src/crypto/tls/handshake_client.go.html#line-787">handshake_client.go#L787</a>: 		key, ok := chainToSend.PrivateKey.(crypto.<b>Signer</b>)
+		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-794">handshake_client_tls13.go#L794</a>: 	sig, err := crypto.SignMessage(cert.PrivateKey.(crypto.<b>Signer</b>), c.config.rand(), signed, signOpts)
+		<a href="../src/crypto/tls/handshake_server.go.html#line-305">handshake_server.go#L305</a>: 	if priv, ok := hs.cert.PrivateKey.(crypto.<b>Signer</b>); ok {
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-870">handshake_server_tls13.go#L870</a>: 	sig, err := crypto.SignMessage(hs.cert.PrivateKey.(crypto.<b>Signer</b>), c.config.rand(), signed, signOpts)
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-872" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-872">#L872</a>: 		public := hs.cert.PrivateKey.(crypto.<b>Signer</b>).Public()
+		<a href="../src/crypto/tls/key_agreement.go.html#line-188">key_agreement.go#L188</a>: 	priv, ok := cert.PrivateKey.(crypto.<b>Signer</b>)
 
 	<a href="../pkg/crypto/x509.html">crypto/x509</a>
-		<a href="../src/crypto/x509/x509.go.html#line-1539">x509.go#L1539</a>: 	key, ok := priv.(crypto.<b>Signer</b>)
-		<a href="../src/crypto/x509/x509.go.html#line-1712" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1712">#L1712</a>: 	key, ok := priv.(crypto.<b>Signer</b>)
-		<a href="../src/crypto/x509/x509.go.html#line-1932" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1932">#L1932</a>: 	key, ok := priv.(crypto.<b>Signer</b>)
-		<a href="../src/crypto/x509/x509.go.html#line-2292" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-2292">#L2292</a>: func CreateRevocationList(rand io.Reader, template *RevocationList, issuer *Certificate, priv crypto.<b>Signer</b>) ([]byte, error) {
+		<a href="../src/crypto/x509/x509.go.html#line-1534">x509.go#L1534</a>: func signingParamsForKey(key crypto.<b>Signer</b>, sigAlgo SignatureAlgorithm) (SignatureAlgorithm, pkix.AlgorithmIdentifier, error) {
+		<a href="../src/crypto/x509/x509.go.html#line-1588" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1588">#L1588</a>: func signTBS(tbs []byte, key crypto.<b>Signer</b>, sigAlg SignatureAlgorithm, rand io.Reader) ([]byte, error) {
+		<a href="../src/crypto/x509/x509.go.html#line-1680" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1680">#L1680</a>: 	key, ok := priv.(crypto.<b>Signer</b>)
+		<a href="../src/crypto/x509/x509.go.html#line-1856" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1856">#L1856</a>: 	key, ok := priv.(crypto.<b>Signer</b>)
+		<a href="../src/crypto/x509/x509.go.html#line-2069" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-2069">#L2069</a>: 	key, ok := priv.(crypto.<b>Signer</b>)
+		<a href="../src/crypto/x509/x509.go.html#line-2417" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-2417">#L2417</a>: func CreateRevocationList(rand io.Reader, template *RevocationList, issuer *Certificate, priv crypto.<b>Signer</b>) ([]byte, error) {
+
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/auth.go.html#line-174">auth.go#L174</a>: 	priv, ok := cert.PrivateKey.(crypto.<b>Signer</b>)
+		<a href="../src/github.com/refraction-networking/utls/auth.go.html#line-268" class="path-duplicate">auth.go</a><a href="../src/github.com/refraction-networking/utls/auth.go.html#line-268">#L268</a>: 	signer, ok := cert.PrivateKey.(crypto.<b>Signer</b>)
+		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-1451">common.go#L1451</a>: 	if priv, ok := c.PrivateKey.(crypto.<b>Signer</b>); ok {
+		<a href="../src/github.com/refraction-networking/utls/handshake_client.go.html#line-826">handshake_client.go#L826</a>: 		key, ok := chainToSend.PrivateKey.(crypto.<b>Signer</b>)
+		<a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-988">handshake_client_tls13.go#L988</a>: 	sig, err := cert.PrivateKey.(crypto.<b>Signer</b>).Sign(c.config.rand(), signed, signOpts)
+		<a href="../src/github.com/refraction-networking/utls/handshake_server.go.html#line-290">handshake_server.go#L290</a>: 	if priv, ok := hs.cert.PrivateKey.(crypto.<b>Signer</b>); ok {
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-870">handshake_server_tls13.go#L870</a>: 	sig, err := hs.cert.PrivateKey.(crypto.<b>Signer</b>).Sign(c.config.rand(), signed, signOpts)
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-872" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-872">#L872</a>: 		public := hs.cert.PrivateKey.(crypto.<b>Signer</b>).Public()
+		<a href="../src/github.com/refraction-networking/utls/key_agreement.go.html#line-200">key_agreement.go#L200</a>: 	priv, ok := cert.PrivateKey.(crypto.<b>Signer</b>)
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

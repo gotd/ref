@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/refraction-networking/utls.Config.time</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>.<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-551">Config</a>.<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1160">time</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+
+<span class="title">18 uses</span>
+
+	github.com/refraction-networking/utls (current package)
+		<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-966">common.go#L966</a>: 	key.created = c.<b>time</b>()
+		<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1096" class="path-duplicate">common.go</a><a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1096">#L1096</a>: 	if len(c.autoSessionTicketKeys) &gt; 0 &amp;&amp; c.<b>time</b>().Sub(c.autoSessionTicketKeys[0].created) &lt; ticketKeyRotation {
+		<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1106" class="path-duplicate">common.go</a><a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1106">#L1106</a>: 	if len(c.autoSessionTicketKeys) == 0 || c.<b>time</b>().Sub(c.autoSessionTicketKeys[0].created) &gt;= ticketKeyRotation {
+		<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1115" class="path-duplicate">common.go</a><a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1115">#L1115</a>: 			if c.<b>time</b>().Sub(k.created) &lt; ticketKeyLifetime {
+		<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1160" class="path-duplicate">common.go</a><a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1160">#L1160</a>: func (c *Config) <b>time</b>() time.Time {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-455">handshake_client.go#L455</a>: 		if c.config.<b>time</b>().After(session.peerCertificates[0].NotAfter) {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-494" class="path-duplicate">handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-494">#L494</a>: 	if c.config.<b>time</b>().After(time.Unix(int64(session.useBy), 0)) {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-535" class="path-duplicate">handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-535">#L535</a>: 	ticketAge := c.config.<b>time</b>().Sub(time.Unix(int64(session.createdAt), 0))
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1152" class="path-duplicate">handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1152">#L1152</a>: 				CurrentTime: c.config.<b>time</b>(),
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1188" class="path-duplicate">handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1188">#L1188</a>: 			CurrentTime: c.config.<b>time</b>(),
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-364">handshake_client_tls13.go#L364</a>: 			ticketAge := c.config.<b>time</b>().Sub(time.Unix(int64(hs.session.createdAt), 0))
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-1065" class="path-duplicate">handshake_client_tls13.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-1065">#L1065</a>: 	session.useBy = uint64(c.config.<b>time</b>().Add(lifetime).Unix())
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-484">handshake_server.go#L484</a>: 	if c.config.<b>time</b>().Sub(createdAt) &gt; maxSessionTicketLifetime {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-520" class="path-duplicate">handshake_server.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-520">#L520</a>: 	if sessionHasClientCerts &amp;&amp; c.config.<b>time</b>().After(sessionState.peerCertificates[0].NotAfter) {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-938" class="path-duplicate">handshake_server.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-938">#L938</a>: 			CurrentTime:   c.config.<b>time</b>(),
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-388">handshake_server_tls13.go#L388</a>: 		if c.config.<b>time</b>().Sub(createdAt) &gt; maxSessionTicketLifetime {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-408" class="path-duplicate">handshake_server_tls13.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-408">#L408</a>: 		if sessionHasClientCerts &amp;&amp; c.config.<b>time</b>().After(sessionState.peerCertificates[0].NotAfter) {
+		<a href="../../../src/github.com/refraction-networking/utls/ticket.go.html#line-297">ticket.go#L297</a>: 		createdAt:         uint64(c.config.<b>time</b>().Unix()),
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

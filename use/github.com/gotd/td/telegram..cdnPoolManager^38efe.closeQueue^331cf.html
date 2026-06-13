@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/gotd/td/telegram.cdnPoolManager.closeQueue</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>.<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-53">cdnPoolManager</a>.<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-68">closeQueue</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">16 uses</span>
+
+	github.com/gotd/td/telegram (current package)
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-68">cdn_pool_manager.go#L68</a>: 	<b>closeQueue</b>   []CloseInvoker
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-191" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-191">#L191</a>: 	cdnConns := make([]CloseInvoker, 0, len(m.conns)+len(m.<b>closeQueue</b>)+len(m.closePending))
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-207" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-207">#L207</a>: 	for _, conn := range m.<b>closeQueue</b> {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-216" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-216">#L216</a>: 	m.<b>closeQueue</b> = nil
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-222" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-222">#L222</a>: 	for len(m.<b>closeQueue</b>) &lt; maxCDNCloseQueue &amp;&amp; len(m.closePending) &gt; 0 {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-236" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-236">#L236</a>: 		m.<b>closeQueue</b> = append(m.<b>closeQueue</b>, conn)
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-252" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-252">#L252</a>: 		if len(m.<b>closeQueue</b>) &lt; maxCDNCloseQueue {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-254" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-254">#L254</a>: 			m.<b>closeQueue</b> = append(m.<b>closeQueue</b>, conn)
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-270" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-270">#L270</a>: 		if available &gt;= len(m.<b>closeQueue</b>) {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-281" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-281">#L281</a>: 		if len(m.<b>closeQueue</b>) == 0 {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-286" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-286">#L286</a>: 		conn := m.<b>closeQueue</b>[0]
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-287" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-287">#L287</a>: 		m.<b>closeQueue</b>[0] = nil
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-288" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-288">#L288</a>: 		m.<b>closeQueue</b> = m.<b>closeQueue</b>[1:]
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

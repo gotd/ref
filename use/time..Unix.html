@@ -5,35 +5,36 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: time.Unix</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/time.html">time</a>.<a href="../src/time/time.go.html#line-1396">Unix</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/time.html">time</a>.<a href="../src/time/time.go.html#line-1655">Unix</a></b></span>
 
-<span class="title">30 uses</span>
+<span class="title">35 uses</span>
 
 	time (current package)
-		<a href="../src/time/time.go.html#line-1396">time.go#L1396</a>: func <b>Unix</b>(sec int64, nsec int64) Time {
-		<a href="../src/time/time.go.html#line-1412" class="path-duplicate">time.go</a><a href="../src/time/time.go.html#line-1412">#L1412</a>: 	return <b>Unix</b>(msec/1e3, (msec%1e3)*1e6)
-		<a href="../src/time/time.go.html#line-1418" class="path-duplicate">time.go</a><a href="../src/time/time.go.html#line-1418">#L1418</a>: 	return <b>Unix</b>(usec/1e6, (usec%1e6)*1e3)
+		<a href="../src/time/time.go.html#line-1655">time.go#L1655</a>: func <b>Unix</b>(sec int64, nsec int64) Time {
+		<a href="../src/time/time.go.html#line-1671" class="path-duplicate">time.go</a><a href="../src/time/time.go.html#line-1671">#L1671</a>: 	return <b>Unix</b>(msec/1e3, (msec%1e3)*1e6)
+		<a href="../src/time/time.go.html#line-1677" class="path-duplicate">time.go</a><a href="../src/time/time.go.html#line-1677">#L1677</a>: 	return <b>Unix</b>(usec/1e6, (usec%1e6)*1e3)
 
 	<a href="../pkg/compress/gzip.html">compress/gzip</a>
 		<a href="../src/compress/gzip/gunzip.go.html#line-192">gunzip.go#L192</a>: 		hdr.ModTime = time.<b>Unix</b>(t, 0)
 		<a href="../src/compress/gzip/gzip.go.html#line-157">gzip.go#L157</a>: 		if z.ModTime.After(time.<b>Unix</b>(0, 0)) {
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/handshake_client.go.html#line-355">handshake_client.go#L355</a>: 	if c.config.time().After(time.<b>Unix</b>(int64(session.useBy), 0)) {
-		<a href="../src/crypto/tls/handshake_client.go.html#line-392" class="path-duplicate">handshake_client.go</a><a href="../src/crypto/tls/handshake_client.go.html#line-392">#L392</a>: 	ticketAge := c.config.time().Sub(time.<b>Unix</b>(int64(session.createdAt), 0))
-		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-260">handshake_client_tls13.go#L260</a>: 			ticketAge := c.config.time().Sub(time.<b>Unix</b>(int64(hs.session.createdAt), 0))
-		<a href="../src/crypto/tls/handshake_server.go.html#line-437">handshake_server.go#L437</a>: 	createdAt := time.<b>Unix</b>(int64(sessionState.createdAt), 0)
-		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-317">handshake_server_tls13.go#L317</a>: 		createdAt := time.<b>Unix</b>(int64(sessionState.createdAt), 0)
+		<a href="../src/crypto/tls/handshake_client.go.html#line-444">handshake_client.go#L444</a>: 	if c.config.time().After(time.<b>Unix</b>(int64(session.useBy), 0)) {
+		<a href="../src/crypto/tls/handshake_client.go.html#line-485" class="path-duplicate">handshake_client.go</a><a href="../src/crypto/tls/handshake_client.go.html#line-485">#L485</a>: 	ticketAge := c.config.time().Sub(time.<b>Unix</b>(int64(session.createdAt), 0))
+		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-343">handshake_client_tls13.go#L343</a>: 			ticketAge := c.config.time().Sub(time.<b>Unix</b>(int64(hs.session.createdAt), 0))
+		<a href="../src/crypto/tls/handshake_server.go.html#line-486">handshake_server.go#L486</a>: 	createdAt := time.<b>Unix</b>(int64(sessionState.createdAt), 0)
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-349">handshake_server_tls13.go#L349</a>: 		createdAt := time.<b>Unix</b>(int64(sessionState.createdAt), 0)
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproto.html">github.com/gotd/td/internal/mtproto</a>
-		<a href="../src/github.com/gotd/td/internal/mtproto/handle_future_salts.go.html#line-22">handle_future_salts.go#L22</a>: 	serverTime := time.<b>Unix</b>(int64(res.Now), 0)
+	<a href="../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../src/github.com/gotd/td/mtproto/handle_future_salts.go.html#line-23">handle_future_salts.go#L23</a>: 	serverTime := time.<b>Unix</b>(int64(res.Now), 0)
+		<a href="../src/github.com/gotd/td/mtproto/pfs.go.html#line-38">pfs.go#L38</a>: 		wait := time.<b>Unix</b>(renewAt, 0).Sub(c.clock.Now())
 
-	<a href="../pkg/github.com/gotd/td/internal/proto.html">github.com/gotd/td/internal/proto</a>
-		<a href="../src/github.com/gotd/td/internal/proto/message_id.go.html#line-86">message_id.go#L86</a>: 	return time.<b>Unix</b>(intPart, fracPart).UTC()
+	<a href="../pkg/github.com/gotd/td/proto.html">github.com/gotd/td/proto</a>
+		<a href="../src/github.com/gotd/td/proto/message_id.go.html#line-86">message_id.go#L86</a>: 	return time.<b>Unix</b>(intPart, fracPart).UTC()
 
 	<a href="../pkg/github.com/gotd/td/tdp.html">github.com/gotd/td/tdp</a>
 		<a href="../src/github.com/gotd/td/tdp/tdp.go.html#line-65">tdp.go#L65</a>: 			b.WriteString(time.<b>Unix</b>(i, 0).UTC().Format(time.RFC3339))
@@ -48,35 +49,39 @@
 	<a href="../pkg/github.com/klauspost/compress/gzip.html">github.com/klauspost/compress/gzip</a>
 		<a href="../src/github.com/klauspost/compress/gzip/gunzip.go.html#line-198">gunzip.go#L198</a>: 	hdr.ModTime = time.<b>Unix</b>(int64(le.Uint32(z.buf[4:8])), 0)
 
-	<a href="../pkg/go.uber.org/zap.html">go.uber.org/zap</a>
-		<a href="../src/go.uber.org/zap/field.go.html#line-37">field.go#L37</a>: 	_minTimeInt64 = time.<b>Unix</b>(0, math.MinInt64)
-		<a href="../src/go.uber.org/zap/field.go.html#line-38" class="path-duplicate">field.go</a><a href="../src/go.uber.org/zap/field.go.html#line-38">#L38</a>: 	_maxTimeInt64 = time.<b>Unix</b>(0, math.MaxInt64)
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/handshake_client.go.html#line-494">handshake_client.go#L494</a>: 	if c.config.time().After(time.<b>Unix</b>(int64(session.useBy), 0)) {
+		<a href="../src/github.com/refraction-networking/utls/handshake_client.go.html#line-535" class="path-duplicate">handshake_client.go</a><a href="../src/github.com/refraction-networking/utls/handshake_client.go.html#line-535">#L535</a>: 	ticketAge := c.config.time().Sub(time.<b>Unix</b>(int64(session.createdAt), 0))
+		<a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-364">handshake_client_tls13.go#L364</a>: 			ticketAge := c.config.time().Sub(time.<b>Unix</b>(int64(hs.session.createdAt), 0))
+		<a href="../src/github.com/refraction-networking/utls/handshake_server.go.html#line-483">handshake_server.go#L483</a>: 	createdAt := time.<b>Unix</b>(int64(sessionState.createdAt), 0)
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-387">handshake_server_tls13.go#L387</a>: 		createdAt := time.<b>Unix</b>(int64(sessionState.createdAt), 0)
 
-	<a href="../pkg/go.uber.org/zap/zapcore.html">go.uber.org/zap/zapcore</a>
-		<a href="../src/go.uber.org/zap/zapcore/field.go.html#line-152">field.go#L152</a>: 			enc.AddTime(f.Key, time.<b>Unix</b>(0, f.Integer).In(f.Interface.(*time.Location)))
-		<a href="../src/go.uber.org/zap/zapcore/field.go.html#line-155" class="path-duplicate">field.go</a><a href="../src/go.uber.org/zap/zapcore/field.go.html#line-155">#L155</a>: 			enc.AddTime(f.Key, time.<b>Unix</b>(0, f.Integer))
+	<a href="../pkg/go.opentelemetry.io/otel/trace/internal/telemetry.html">go.opentelemetry.io/otel/trace/internal/telemetry</a>
+		<a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-206">span.go#L206</a>: 			s.StartTime = time.<b>Unix</b>(0, v)
+		<a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-211" class="path-duplicate">span.go</a><a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-211">#L211</a>: 			s.EndTime = time.<b>Unix</b>(0, v)
+		<a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-365" class="path-duplicate">span.go</a><a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/span.go.html#line-365">#L365</a>: 			se.Time = time.<b>Unix</b>(0, v)
 
 	<a href="../pkg/golang.org/x/net/internal/socks.html">golang.org/x/net/internal/socks</a>
 		<a href="../src/golang.org/x/net/internal/socks/client.go.html#line-18">client.go#L18</a>: 	aLongTimeAgo = time.<b>Unix</b>(1, 0)
 
 	<a href="../pkg/net.html">net</a>
-		<a href="../src/net/net.go.html#line-495">net.go#L495</a>: 	aLongTimeAgo = time.<b>Unix</b>(1, 0)
+		<a href="../src/net/net.go.html#line-527">net.go#L527</a>: 	aLongTimeAgo = time.<b>Unix</b>(1, 0)
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/fs.go.html#line-538">fs.go#L538</a>: var unixEpochTime = time.<b>Unix</b>(0, 0)
-		<a href="../src/net/http/http.go.html#line-30">http.go#L30</a>: var aLongTimeAgo = time.<b>Unix</b>(1, 0)
+		<a href="../src/net/http/fs.go.html#line-614">fs.go#L614</a>: var unixEpochTime = time.<b>Unix</b>(0, 0)
+		<a href="../src/net/http/http.go.html#line-91">http.go#L91</a>: var aLongTimeAgo = time.<b>Unix</b>(1, 0)
 		<a href="../src/net/http/socks_bundle.go.html#line-24">socks_bundle.go#L24</a>: 	socksaLongTimeAgo = time.<b>Unix</b>(1, 0)
 
 	<a href="../pkg/os.html">os</a>
-		<a href="../src/os/stat_linux.go.html#line-15">stat_linux.go#L15</a>: 	fs.modTime = time.<b>Unix</b>(fs.sys.Mtim.Unix())
-		<a href="../src/os/stat_linux.go.html#line-46" class="path-duplicate">stat_linux.go</a><a href="../src/os/stat_linux.go.html#line-46">#L46</a>: 	return time.<b>Unix</b>(fi.Sys().(*syscall.Stat_t).Atim.Unix())
+		<a href="../src/os/stat_linux.go.html#line-16">stat_linux.go#L16</a>: 	fs.modTime = time.<b>Unix</b>(fs.sys.Mtim.Unix())
+		<a href="../src/os/stat_linux.go.html#line-47" class="path-duplicate">stat_linux.go</a><a href="../src/os/stat_linux.go.html#line-47">#L47</a>: 	return time.<b>Unix</b>(fi.Sys().(*syscall.Stat_t).Atim.Unix())
 
 	<a href="../pkg/runtime/debug.html">runtime/debug</a>
 		<a href="../src/runtime/debug/garbage.go.html#line-50">garbage.go#L50</a>: 	stats.LastGC = time.<b>Unix</b>(0, int64(stats.Pause[n]))
 		<a href="../src/runtime/debug/garbage.go.html#line-61" class="path-duplicate">garbage.go</a><a href="../src/runtime/debug/garbage.go.html#line-61">#L61</a>: 		stats.PauseEnd = append(stats.PauseEnd, time.<b>Unix</b>(0, int64(ns)))
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

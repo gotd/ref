@@ -5,61 +5,113 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: sync/atomic.Bool.Load</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/sync/atomic.html">sync/atomic</a>.<a href="../../src/sync/atomic/type.go.html#line-11">Bool</a>.<a href="../../src/sync/atomic/type.go.html#line-17">Load</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/sync/atomic.html">sync/atomic</a>.<a href="../../src/sync/atomic/type.go.html#line-13">Bool</a>.<a href="../../src/sync/atomic/type.go.html#line-19">Load</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">29 uses</span>
+<span class="title">67 uses</span>
 
 	sync/atomic (current package)
-		<a href="../../src/sync/atomic/type.go.html#line-17">type.go#L17</a>: func (x *Bool) <b>Load</b>() bool { return LoadUint32(&amp;x.v) != 0 }
+		<a href="../../src/sync/atomic/type.go.html#line-19">type.go#L19</a>: func (x *Bool) <b>Load</b>() bool { return LoadUint32(&amp;x.v) != 0 }
+
+	<a href="../../pkg/sync.html">sync</a>
+		<a href="../../src/sync/once.go.html#line-67">once.go#L67</a>: 	if !o.done.<b>Load</b>() {
+		<a href="../../src/sync/once.go.html#line-76" class="path-duplicate">once.go</a><a href="../../src/sync/once.go.html#line-76">#L76</a>: 	if !o.done.<b>Load</b>() {
 
 	<a href="../../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../../src/crypto/tls/conn.go.html#line-612">conn.go#L612</a>: 	handshakeComplete := c.isHandshakeComplete.<b>Load</b>()
-		<a href="../../src/crypto/tls/conn.go.html#line-1204" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1204">#L1204</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
-		<a href="../../src/crypto/tls/conn.go.html#line-1422" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1422">#L1422</a>: 	if c.isHandshakeComplete.<b>Load</b>() {
-		<a href="../../src/crypto/tls/conn.go.html#line-1440" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1440">#L1440</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
-		<a href="../../src/crypto/tls/conn.go.html#line-1499" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1499">#L1499</a>: 	if c.isHandshakeComplete.<b>Load</b>() {
-		<a href="../../src/crypto/tls/conn.go.html#line-1545" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1545">#L1545</a>: 	if c.isHandshakeComplete.<b>Load</b>() {
-		<a href="../../src/crypto/tls/conn.go.html#line-1561" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1561">#L1561</a>: 	if c.handshakeErr == nil &amp;&amp; !c.isHandshakeComplete.<b>Load</b>() {
-		<a href="../../src/crypto/tls/conn.go.html#line-1564" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1564">#L1564</a>: 	if c.handshakeErr != nil &amp;&amp; c.isHandshakeComplete.<b>Load</b>() {
-		<a href="../../src/crypto/tls/conn.go.html#line-1604" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1604">#L1604</a>: 	state.HandshakeComplete = c.isHandshakeComplete.<b>Load</b>()
-		<a href="../../src/crypto/tls/conn.go.html#line-1648" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1648">#L1648</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
-		<a href="../../src/crypto/tls/quic.go.html#line-265">quic.go#L265</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/crypto/tls/conn.go.html#line-613">conn.go#L613</a>: 	handshakeComplete := c.isHandshakeComplete.<b>Load</b>()
+		<a href="../../src/crypto/tls/conn.go.html#line-1226" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1226">#L1226</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/crypto/tls/conn.go.html#line-1446" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1446">#L1446</a>: 	if c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/crypto/tls/conn.go.html#line-1464" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1464">#L1464</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/crypto/tls/conn.go.html#line-1523" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1523">#L1523</a>: 	if c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/crypto/tls/conn.go.html#line-1555" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1555">#L1555</a>: 	if c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/crypto/tls/conn.go.html#line-1571" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1571">#L1571</a>: 	if c.handshakeErr == nil &amp;&amp; !c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/crypto/tls/conn.go.html#line-1574" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1574">#L1574</a>: 	if c.handshakeErr != nil &amp;&amp; c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/crypto/tls/conn.go.html#line-1618" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1618">#L1618</a>: 	state.HandshakeComplete = c.isHandshakeComplete.<b>Load</b>()
+		<a href="../../src/crypto/tls/conn.go.html#line-1674" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-1674">#L1674</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/crypto/tls/quic.go.html#line-328">quic.go#L328</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
+
+	<a href="../../pkg/crypto/tls/internal/fips140tls.html">crypto/tls/internal/fips140tls</a>
+		<a href="../../src/crypto/tls/internal/fips140tls/fipstls.go.html#line-32">fipstls.go#L32</a>: 	return required.<b>Load</b>()
+
+	<a href="../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
+		<a href="../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-37">cdn_pool_manager.go#L37</a>: 	if h.closed.<b>Load</b>() {
+		<a href="../../src/github.com/gotd/td/telegram/pool.go.html#line-133">pool.go#L133</a>: 			!suppressSetup.<b>Load</b>() {
+
+	<a href="../../pkg/github.com/gotd/td/telegram/internal/manager.html">github.com/gotd/td/telegram/internal/manager</a>
+		<a href="../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-231">conn.go#L231</a>: 	if c.cdnNeedsInit.<b>Load</b>() {
+
+	<a href="../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-617">conn.go#L617</a>: 	handshakeComplete := c.isHandshakeComplete.<b>Load</b>()
+		<a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1230" class="path-duplicate">conn.go</a><a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1230">#L1230</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1448" class="path-duplicate">conn.go</a><a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1448">#L1448</a>: 	if c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1466" class="path-duplicate">conn.go</a><a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1466">#L1466</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1525" class="path-duplicate">conn.go</a><a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1525">#L1525</a>: 	if c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1571" class="path-duplicate">conn.go</a><a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1571">#L1571</a>: 	if c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1587" class="path-duplicate">conn.go</a><a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1587">#L1587</a>: 	if c.handshakeErr == nil &amp;&amp; !c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1590" class="path-duplicate">conn.go</a><a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1590">#L1590</a>: 	if c.handshakeErr != nil &amp;&amp; c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1632" class="path-duplicate">conn.go</a><a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1632">#L1632</a>: 	state.HandshakeComplete = c.isHandshakeComplete.<b>Load</b>()
+		<a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1694" class="path-duplicate">conn.go</a><a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-1694">#L1694</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/quic.go.html#line-305">quic.go#L305</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/u_conn.go.html#line-321">u_conn.go#L321</a>: 	if c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/u_conn.go.html#line-367" class="path-duplicate">u_conn.go</a><a href="../../src/github.com/refraction-networking/utls/u_conn.go.html#line-367">#L367</a>: 	if c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/u_conn.go.html#line-391" class="path-duplicate">u_conn.go</a><a href="../../src/github.com/refraction-networking/utls/u_conn.go.html#line-391">#L391</a>: 	if c.handshakeErr == nil &amp;&amp; !c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/u_conn.go.html#line-394" class="path-duplicate">u_conn.go</a><a href="../../src/github.com/refraction-networking/utls/u_conn.go.html#line-394">#L394</a>: 	if c.handshakeErr != nil &amp;&amp; c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/u_conn.go.html#line-451" class="path-duplicate">u_conn.go</a><a href="../../src/github.com/refraction-networking/utls/u_conn.go.html#line-451">#L451</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
+		<a href="../../src/github.com/refraction-networking/utls/u_quic.go.html#line-141">u_quic.go#L141</a>: 	if !c.isHandshakeComplete.<b>Load</b>() {
+
+	<a href="../../pkg/go.opentelemetry.io/otel/trace.html">go.opentelemetry.io/otel/trace</a>
+		<a href="../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-189">auto.go#L189</a>: 	return s.sampled.<b>Load</b>()
+		<a href="../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-193" class="path-duplicate">auto.go</a><a href="../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-193">#L193</a>: 	if s == nil || !s.sampled.<b>Load</b>() {
+		<a href="../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-217" class="path-duplicate">auto.go</a><a href="../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-217">#L217</a>: 	if s == nil || !s.sampled.<b>Load</b>() {
+		<a href="../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-474" class="path-duplicate">auto.go</a><a href="../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-474">#L474</a>: 	if s == nil || err == nil || !s.sampled.<b>Load</b>() {
+		<a href="../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-508" class="path-duplicate">auto.go</a><a href="../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-508">#L508</a>: 	if s == nil || !s.sampled.<b>Load</b>() {
+		<a href="../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-544" class="path-duplicate">auto.go</a><a href="../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-544">#L544</a>: 	if s == nil || !s.sampled.<b>Load</b>() {
+		<a href="../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-589" class="path-duplicate">auto.go</a><a href="../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-589">#L589</a>: 	if s == nil || !s.sampled.<b>Load</b>() {
 
 	<a href="../../pkg/hash/crc32.html">hash/crc32</a>
-		<a href="../../src/hash/crc32/crc32.go.html#line-211">crc32.go#L211</a>: 	case haveCastagnoli.<b>Load</b>() &amp;&amp; tab == castagnoliTable:
+		<a href="../../src/hash/crc32/crc32.go.html#line-204">crc32.go#L204</a>: 	case haveCastagnoli.<b>Load</b>() &amp;&amp; tab == castagnoliTable:
 
 	<a href="../../pkg/internal/poll.html">internal/poll</a>
-		<a href="../../src/internal/poll/fd_unix.go.html#line-652">fd_unix.go#L652</a>: 	if syscall.F_DUPFD_CLOEXEC != 0 &amp;&amp; !dupCloexecUnsupported.<b>Load</b>() {
+		<a href="../../src/internal/poll/fd_unix.go.html#line-654">fd_unix.go#L654</a>: 	if syscall.F_DUPFD_CLOEXEC != 0 &amp;&amp; !dupCloexecUnsupported.<b>Load</b>() {
+
+	<a href="../../pkg/internal/sync.html">internal/sync</a>
+		<a href="../../src/internal/sync/hashtriemap.go.html#line-129">hashtriemap.go#L129</a>: 		if (n == nil || n.isEntry) &amp;&amp; !i.dead.<b>Load</b>() {
+		<a href="../../src/internal/sync/hashtriemap.go.html#line-237" class="path-duplicate">hashtriemap.go</a><a href="../../src/internal/sync/hashtriemap.go.html#line-237">#L237</a>: 		if (n == nil || n.isEntry) &amp;&amp; !i.dead.<b>Load</b>() {
+		<a href="../../src/internal/sync/hashtriemap.go.html#line-463" class="path-duplicate">hashtriemap.go</a><a href="../../src/internal/sync/hashtriemap.go.html#line-463">#L463</a>: 		if !i.dead.<b>Load</b>() &amp;&amp; (n == nil || n.isEntry) {
 
 	<a href="../../pkg/internal/syscall/unix.html">internal/syscall/unix</a>
-		<a href="../../src/internal/syscall/unix/getrandom.go.html#line-25">getrandom.go#L25</a>: 	if getrandomUnsupported.<b>Load</b>() {
+		<a href="../../src/internal/syscall/unix/getrandom.go.html#line-33">getrandom.go#L33</a>: 	if getrandomUnsupported.<b>Load</b>() {
 
 	<a href="../../pkg/log.html">log</a>
-		<a href="../../src/log/log.go.html#line-203">log.go#L203</a>: 	if l.isDiscard.<b>Load</b>() {
+		<a href="../../src/log/log.go.html#line-202">log.go#L202</a>: 	if l.isDiscard.<b>Load</b>() {
 
 	<a href="../../pkg/net/http.html">net/http</a>
-		<a href="../../src/net/http/client.go.html#line-418">client.go#L418</a>: 	return stopTimer, timedOut.<b>Load</b>
-		<a href="../../src/net/http/server.go.html#line-911">server.go#L911</a>: 	if ecr.closed.<b>Load</b>() {
-		<a href="../../src/net/http/server.go.html#line-915" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-915">#L915</a>: 	if !w.wroteContinue &amp;&amp; w.canWriteContinue.<b>Load</b>() &amp;&amp; !w.conn.hijacked() {
-		<a href="../../src/net/http/server.go.html#line-918" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-918">#L918</a>: 		if w.canWriteContinue.<b>Load</b>() {
-		<a href="../../src/net/http/server.go.html#line-1163" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1163">#L1163</a>: 		if code == 100 &amp;&amp; w.canWriteContinue.<b>Load</b>() {
-		<a href="../../src/net/http/server.go.html#line-1323" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1323">#L1323</a>: 	if w.handlerDone.<b>Load</b>() &amp;&amp; !trailers &amp;&amp; !hasTE &amp;&amp; bodyAllowedForStatus(w.status) &amp;&amp; !header.has("Content-Length") &amp;&amp; (!isHEAD || len(p) &gt; 0) {
-		<a href="../../src/net/http/server.go.html#line-1365" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1365">#L1365</a>: 	if ecr, ok := w.req.Body.(*expectContinueReader); ok &amp;&amp; !ecr.sawEOF.<b>Load</b>() {
-		<a href="../../src/net/http/server.go.html#line-1623" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1623">#L1623</a>: 	if w.canWriteContinue.<b>Load</b>() {
-		<a href="../../src/net/http/server.go.html#line-2073" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2073">#L2073</a>: 	if w.handlerDone.<b>Load</b>() {
-		<a href="../../src/net/http/server.go.html#line-2095" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2095">#L2095</a>: 	if w.handlerDone.<b>Load</b>() {
-		<a href="../../src/net/http/server.go.html#line-3186" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3186">#L3186</a>: 	return !s.disableKeepAlives.<b>Load</b>() &amp;&amp; !s.shuttingDown()
-		<a href="../../src/net/http/server.go.html#line-3190" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3190">#L3190</a>: 	return s.inShutdown.<b>Load</b>()
+		<a href="../../src/net/http/client.go.html#line-419">client.go#L419</a>: 	return stopTimer, timedOut.<b>Load</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-3336">h2_bundle.go#L3336</a>: 	if !http2DebugGoroutines || http2disableDebugGoroutines.<b>Load</b>() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-3343" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-3343">#L3343</a>: 	if !http2DebugGoroutines || http2disableDebugGoroutines.<b>Load</b>() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-3352" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-3352">#L3352</a>: 	if !http2DebugGoroutines || http2disableDebugGoroutines.<b>Load</b>() {
+		<a href="../../src/net/http/server.go.html#line-940">server.go#L940</a>: 	if ecr.closed.<b>Load</b>() {
+		<a href="../../src/net/http/server.go.html#line-944" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-944">#L944</a>: 	if w.canWriteContinue.<b>Load</b>() {
+		<a href="../../src/net/http/server.go.html#line-946" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-946">#L946</a>: 		if w.canWriteContinue.<b>Load</b>() {
+		<a href="../../src/net/http/server.go.html#line-1327" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1327">#L1327</a>: 	if w.handlerDone.<b>Load</b>() &amp;&amp; !trailers &amp;&amp; !hasTE &amp;&amp; bodyAllowedForStatus(w.status) &amp;&amp; !header.has("Content-Length") &amp;&amp; (!isHEAD || len(p) &gt; 0) {
+		<a href="../../src/net/http/server.go.html#line-1374" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1374">#L1374</a>: 	if ecr, ok := w.req.Body.(*expectContinueReader); ok &amp;&amp; !ecr.sawEOF.<b>Load</b>() {
+		<a href="../../src/net/http/server.go.html#line-1638" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-1638">#L1638</a>: 	if w.canWriteContinue.<b>Load</b>() {
+		<a href="../../src/net/http/server.go.html#line-2202" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2202">#L2202</a>: 	if w.handlerDone.<b>Load</b>() {
+		<a href="../../src/net/http/server.go.html#line-2227" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2227">#L2227</a>: 	if w.handlerDone.<b>Load</b>() {
+		<a href="../../src/net/http/server.go.html#line-3622" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3622">#L3622</a>: 	return !s.disableKeepAlives.<b>Load</b>() &amp;&amp; !s.shuttingDown()
+		<a href="../../src/net/http/server.go.html#line-3626" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3626">#L3626</a>: 	return s.inShutdown.<b>Load</b>()
+		<a href="../../src/net/http/transport.go.html#line-733">transport.go#L733</a>: 			if b, ok := req.Body.(*readTrackingBody); ok &amp;&amp; !b.didClose.<b>Load</b>() {
+		<a href="../../src/net/http/transport.go.html#line-797" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-797">#L797</a>: 	if req.Body == nil || req.Body == NoBody || (!req.Body.(*readTrackingBody).didRead &amp;&amp; !req.Body.(*readTrackingBody).didClose.<b>Load</b>()) {
+		<a href="../../src/net/http/transport.go.html#line-800" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-800">#L800</a>: 	if !req.Body.(*readTrackingBody).didClose.<b>Load</b>() {
 
-	<a href="../../pkg/os.html">os</a>
-		<a href="../../src/os/exec.go.html#line-39">exec.go#L39</a>: 	return p.isdone.<b>Load</b>()
+	<a href="../../pkg/unique.html">unique</a>
+		<a href="../../src/unique/canonmap.go.html#line-99">canonmap.go#L99</a>: 		if (n == nil || n.isEntry) &amp;&amp; !i.dead.<b>Load</b>() {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

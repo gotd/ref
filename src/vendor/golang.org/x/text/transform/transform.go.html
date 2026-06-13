@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: transform.go in package vendor/golang.org/x/text/transform</title>
-<link href="../../../../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -373,23 +373,23 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-18"><code><span class="keyword">var</span> (</code></span>
 <span class="codeline" id="line-19"><code>	<span class="comment">// ErrShortDst means that the destination buffer was too short to</span></code></span>
 <span class="codeline" id="line-20"><code><span class="comment">	// receive all of the transformed bytes.</span></code></span>
-<span class="codeline" id="line-21"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/text/transform.html#name-ErrShortDst" class="ident">ErrShortDst</a> = <a href="../../../../../../pkg/errors.html" class="ident i1">errors</a>.<a href="../../../../../errors/errors.go.html#line-61" class="ident">New</a>(<span class="lit-string">"transform: short destination buffer"</span>)</code></span>
+<span class="codeline" id="line-21"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/text/transform.html#name-ErrShortDst" class="ident">ErrShortDst</a> = <a href="../../../../../../pkg/errors.html" class="ident i1">errors</a>.<a href="../../../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"transform: short destination buffer"</span>)</code></span>
 <span class="codeline" id="line-22"><code></code></span>
 <span class="codeline" id="line-23"><code>	<span class="comment">// ErrShortSrc means that the source buffer has insufficient data to</span></code></span>
 <span class="codeline" id="line-24"><code><span class="comment">	// complete the transformation.</span></code></span>
-<span class="codeline" id="line-25"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/text/transform.html#name-ErrShortSrc" class="ident">ErrShortSrc</a> = <a href="../../../../../../pkg/errors.html" class="ident i1">errors</a>.<a href="../../../../../errors/errors.go.html#line-61" class="ident">New</a>(<span class="lit-string">"transform: short source buffer"</span>)</code></span>
+<span class="codeline" id="line-25"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/text/transform.html#name-ErrShortSrc" class="ident">ErrShortSrc</a> = <a href="../../../../../../pkg/errors.html" class="ident i1">errors</a>.<a href="../../../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"transform: short source buffer"</span>)</code></span>
 <span class="codeline" id="line-26"><code></code></span>
 <span class="codeline" id="line-27"><code>	<span class="comment">// ErrEndOfSpan means that the input and output (the transformed input)</span></code></span>
 <span class="codeline" id="line-28"><code><span class="comment">	// are not identical.</span></code></span>
-<span class="codeline" id="line-29"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/text/transform.html#name-ErrEndOfSpan" class="ident">ErrEndOfSpan</a> = <a href="../../../../../../pkg/errors.html" class="ident i1">errors</a>.<a href="../../../../../errors/errors.go.html#line-61" class="ident">New</a>(<span class="lit-string">"transform: input and output are not identical"</span>)</code></span>
+<span class="codeline" id="line-29"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/text/transform.html#name-ErrEndOfSpan" class="ident">ErrEndOfSpan</a> = <a href="../../../../../../pkg/errors.html" class="ident i1">errors</a>.<a href="../../../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"transform: input and output are not identical"</span>)</code></span>
 <span class="codeline" id="line-30"><code></code></span>
 <span class="codeline" id="line-31"><code>	<span class="comment">// errInconsistentByteCount means that Transform returned success (nil</span></code></span>
 <span class="codeline" id="line-32"><code><span class="comment">	// error) but also returned nSrc inconsistent with the src argument.</span></code></span>
-<span class="codeline" id="line-33"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/text/transform.html#name-errInconsistentByteCount" class="ident">errInconsistentByteCount</a> = <a href="../../../../../../pkg/errors.html" class="ident i1">errors</a>.<a href="../../../../../errors/errors.go.html#line-61" class="ident">New</a>(<span class="lit-string">"transform: inconsistent byte count returned"</span>)</code></span>
+<span class="codeline" id="line-33"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/text/transform.html#name-errInconsistentByteCount" class="ident">errInconsistentByteCount</a> = <a href="../../../../../../pkg/errors.html" class="ident i1">errors</a>.<a href="../../../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"transform: inconsistent byte count returned"</span>)</code></span>
 <span class="codeline" id="line-34"><code></code></span>
 <span class="codeline" id="line-35"><code>	<span class="comment">// errShortInternal means that an internal buffer is not large enough</span></code></span>
 <span class="codeline" id="line-36"><code><span class="comment">	// to make progress and the Transform operation must be aborted.</span></code></span>
-<span class="codeline" id="line-37"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/text/transform.html#name-errShortInternal" class="ident">errShortInternal</a> = <a href="../../../../../../pkg/errors.html" class="ident i1">errors</a>.<a href="../../../../../errors/errors.go.html#line-61" class="ident">New</a>(<span class="lit-string">"transform: short internal buffer"</span>)</code></span>
+<span class="codeline" id="line-37"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/text/transform.html#name-errShortInternal" class="ident">errShortInternal</a> = <a href="../../../../../../pkg/errors.html" class="ident i1">errors</a>.<a href="../../../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"transform: short internal buffer"</span>)</code></span>
 <span class="codeline" id="line-38"><code>)</code></span>
 <span class="codeline" id="line-39"><code></code></span>
 <span class="codeline" id="line-40"><code><span class="comment">// Transformer transforms bytes.</span></code></span>
@@ -864,11 +864,11 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-509"><code>		<span class="keyword">if</span> <label for="r105" class="ident">r</label> = <a href="../../../../../../pkg/builtin.html#name-rune" class="ident">rune</a>(<label for="r100" class="ident">src</label>[<span class="lit-number">0</span>]); <label for="r105" class="ident">r</label> &lt; <a href="../../../../../../pkg/unicode/utf8.html" class="ident i3">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-17" class="ident">RuneSelf</a> {</code></span>
 <span class="codeline" id="line-510"><code>			<label for="r106" class="ident">sz</label> = <span class="lit-number">1</span></code></span>
 <span class="codeline" id="line-511"><code>		} <span class="keyword">else</span> {</code></span>
-<span class="codeline" id="line-512"><code>			<label for="r105" class="ident">r</label>, <label for="r106" class="ident">sz</label> = <a href="../../../../../../pkg/unicode/utf8.html" class="ident i3">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-151" class="ident">DecodeRune</a>(<label for="r100" class="ident">src</label>)</code></span>
+<span class="codeline" id="line-512"><code>			<label for="r105" class="ident">r</label>, <label for="r106" class="ident">sz</label> = <a href="../../../../../../pkg/unicode/utf8.html" class="ident i3">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-157" class="ident">DecodeRune</a>(<label for="r100" class="ident">src</label>)</code></span>
 <span class="codeline" id="line-513"><code></code></span>
 <span class="codeline" id="line-514"><code>			<span class="keyword">if</span> <label for="r106" class="ident">sz</label> == <span class="lit-number">1</span> {</code></span>
 <span class="codeline" id="line-515"><code>				<span class="comment">// Invalid rune.</span></code></span>
-<span class="codeline" id="line-516"><code>				<span class="keyword">if</span> !<label for="r101" class="ident">atEOF</label> &amp;&amp; !<a href="../../../../../../pkg/unicode/utf8.html" class="ident i3">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-104" class="ident">FullRune</a>(<label for="r100" class="ident">src</label>) {</code></span>
+<span class="codeline" id="line-516"><code>				<span class="keyword">if</span> !<label for="r101" class="ident">atEOF</label> &amp;&amp; !<a href="../../../../../../pkg/unicode/utf8.html" class="ident i3">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-110" class="ident">FullRune</a>(<label for="r100" class="ident">src</label>) {</code></span>
 <span class="codeline" id="line-517"><code>					<label for="r104" class="ident">err</label> = <a href="#line-25" class="ident">ErrShortSrc</a></code></span>
 <span class="codeline" id="line-518"><code>					<span class="keyword">break</span></code></span>
 <span class="codeline" id="line-519"><code>				}</code></span>
@@ -959,7 +959,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-604"><code></code></span>
 <span class="codeline" id="line-605"><code>		<span class="comment">// TODO:  let transformers implement an optional Spanner interface, akin</span></code></span>
 <span class="codeline" id="line-606"><code><span class="comment">		// to norm's QuickSpan. This would even allow us to avoid any allocation.</span></code></span>
-<span class="codeline" id="line-607"><code>		<span class="keyword">if</span> !<a href="../../../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../../../bytes/bytes.go.html#line-18" class="ident">Equal</a>(<label for="r122" class="ident">dst</label>[:<label for="r124" class="ident">nDst</label>], <label for="r123" class="ident">src</label>[:<label for="r125" class="ident">nSrc</label>]) {</code></span>
+<span class="codeline" id="line-607"><code>		<span class="keyword">if</span> !<a href="../../../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../../../bytes/bytes.go.html#line-20" class="ident">Equal</a>(<label for="r122" class="ident">dst</label>[:<label for="r124" class="ident">nDst</label>], <label for="r123" class="ident">src</label>[:<label for="r125" class="ident">nSrc</label>]) {</code></span>
 <span class="codeline" id="line-608"><code>			<span class="keyword">break</span></code></span>
 <span class="codeline" id="line-609"><code>		}</code></span>
 <span class="codeline" id="line-610"><code>		<label for="r128" class="ident">pPrefix</label> = <label for="r127" class="ident">pSrc</label></code></span>
@@ -1063,8 +1063,8 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-708"><code>	}</code></span>
 <span class="codeline" id="line-709"><code>}</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

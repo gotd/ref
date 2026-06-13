@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: reflect.TypeFor</title>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/reflect.html">reflect</a>.<a href="../src/reflect/type.go.html#line-1388">TypeFor</a></b></span>
+
+<span class="title">21 uses</span>
+
+	reflect (current package)
+		<a href="../src/reflect/map.go.html#line-122">map.go#L122</a>: 			Type: <b>TypeFor</b>[uint64](),
+		<a href="../src/reflect/type.go.html#line-1388">type.go#L1388</a>: func <b>TypeFor</b>[T any]() Type {
+
+	<a href="../pkg/encoding/asn1.html">encoding/asn1</a>
+		<a href="../src/encoding/asn1/asn1.go.html#line-690">asn1.go#L690</a>: 	bitStringType        = reflect.<b>TypeFor</b>[BitString]()
+		<a href="../src/encoding/asn1/asn1.go.html#line-691" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-691">#L691</a>: 	objectIdentifierType = reflect.<b>TypeFor</b>[ObjectIdentifier]()
+		<a href="../src/encoding/asn1/asn1.go.html#line-692" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-692">#L692</a>: 	enumeratedType       = reflect.<b>TypeFor</b>[Enumerated]()
+		<a href="../src/encoding/asn1/asn1.go.html#line-693" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-693">#L693</a>: 	flagType             = reflect.<b>TypeFor</b>[Flag]()
+		<a href="../src/encoding/asn1/asn1.go.html#line-694" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-694">#L694</a>: 	timeType             = reflect.<b>TypeFor</b>[time.Time]()
+		<a href="../src/encoding/asn1/asn1.go.html#line-695" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-695">#L695</a>: 	rawValueType         = reflect.<b>TypeFor</b>[RawValue]()
+		<a href="../src/encoding/asn1/asn1.go.html#line-696" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-696">#L696</a>: 	rawContentsType      = reflect.<b>TypeFor</b>[RawContent]()
+		<a href="../src/encoding/asn1/asn1.go.html#line-697" class="path-duplicate">asn1.go</a><a href="../src/encoding/asn1/asn1.go.html#line-697">#L697</a>: 	bigIntType           = reflect.<b>TypeFor</b>[*big.Int]()
+
+	<a href="../pkg/encoding/json.html">encoding/json</a>
+		<a href="../src/encoding/json/decode.go.html#line-600">decode.go#L600</a>: var textUnmarshalerType = reflect.<b>TypeFor</b>[encoding.TextUnmarshaler]()
+		<a href="../src/encoding/json/decode.go.html#line-844" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-844">#L844</a>: 		return nil, &amp;UnmarshalTypeError{Value: "number " + s, Type: reflect.<b>TypeFor</b>[float64](), Offset: int64(d.off)}
+		<a href="../src/encoding/json/decode.go.html#line-849" class="path-duplicate">decode.go</a><a href="../src/encoding/json/decode.go.html#line-849">#L849</a>: var numberType = reflect.<b>TypeFor</b>[Number]()
+		<a href="../src/encoding/json/encode.go.html#line-415">encode.go#L415</a>: 	marshalerType     = reflect.<b>TypeFor</b>[Marshaler]()
+		<a href="../src/encoding/json/encode.go.html#line-416" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-416">#L416</a>: 	textMarshalerType = reflect.<b>TypeFor</b>[encoding.TextMarshaler]()
+		<a href="../src/encoding/json/encode.go.html#line-1091" class="path-duplicate">encode.go</a><a href="../src/encoding/json/encode.go.html#line-1091">#L1091</a>: var isZeroerType = reflect.<b>TypeFor</b>[isZeroer]()
+
+	<a href="../pkg/go.opentelemetry.io/otel/attribute.html">go.opentelemetry.io/otel/attribute</a>
+		<a href="../src/go.opentelemetry.io/otel/attribute/set.go.html#line-61">set.go#L61</a>: 	keyValueType = reflect.<b>TypeFor</b>[KeyValue]()
+		<a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-270">value.go#L270</a>: 	if !rv.IsValid() || rv.Kind() != reflect.Array || rv.Type().Elem() != reflect.<b>TypeFor</b>[Value]() {
+		<a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-437" class="path-duplicate">value.go</a><a href="../src/go.opentelemetry.io/otel/attribute/value.go.html#line-437">#L437</a>: 	cp := reflect.New(reflect.ArrayOf(len(v), reflect.<b>TypeFor</b>[Value]())).Elem()
+
+	<a href="../pkg/go.opentelemetry.io/otel/attribute/internal.html">go.opentelemetry.io/otel/attribute/internal</a>
+		<a href="../src/go.opentelemetry.io/otel/attribute/internal/attribute.go.html#line-60">attribute.go#L60</a>: 	cp := reflect.New(reflect.ArrayOf(len(v), reflect.<b>TypeFor</b>[T]())).Elem()
+		<a href="../src/go.opentelemetry.io/otel/attribute/internal/attribute.go.html#line-67" class="path-duplicate">attribute.go</a><a href="../src/go.opentelemetry.io/otel/attribute/internal/attribute.go.html#line-67">#L67</a>: 	if !rv.IsValid() || rv.Kind() != reflect.Array || rv.Type().Elem() != reflect.<b>TypeFor</b>[T]() {
+</code></pre><pre id="footer">
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

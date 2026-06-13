@@ -5,37 +5,37 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.transferWriter.Body</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/transfer.go.html#line-59">transferWriter</a>.<a href="../../src/net/http/transfer.go.html#line-61">Body</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/transfer.go.html#line-61">transferWriter</a>.<a href="../../src/net/http/transfer.go.html#line-63">Body</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
 <span class="title">21 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/transfer.go.html#line-61">transfer.go#L61</a>: 	<b>Body</b>             io.Reader
-		<a href="../../src/net/http/transfer.go.html#line-91" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-91">#L91</a>: 		t.<b>Body</b> = rr.Body
-		<a href="../../src/net/http/transfer.go.html#line-104" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-104">#L104</a>: 		if t.ContentLength != 0 &amp;&amp; !isKnownInMemoryReader(t.<b>Body</b>) {
-		<a href="../../src/net/http/transfer.go.html#line-114" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-114">#L114</a>: 		t.<b>Body</b> = rr.Body
-		<a href="../../src/net/http/transfer.go.html#line-127" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-127">#L127</a>: 		t.<b>Body</b> = nil
-		<a href="../../src/net/http/transfer.go.html#line-132" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-132">#L132</a>: 		if !atLeastHTTP11 || t.<b>Body</b> == nil {
-		<a href="../../src/net/http/transfer.go.html#line-137" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-137">#L137</a>: 		} else if t.<b>Body</b> == nil { // no chunking, no body
-		<a href="../../src/net/http/transfer.go.html#line-171" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-171">#L171</a>: 	if t.ContentLength &gt;= 0 || t.<b>Body</b> == nil { // redundant checks; caller did them
-		<a href="../../src/net/http/transfer.go.html#line-182" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-182">#L182</a>: 		return t.<b>Body</b> != nil
-		<a href="../../src/net/http/transfer.go.html#line-217" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-217">#L217</a>: 	}(t.<b>Body</b>)
-		<a href="../../src/net/http/transfer.go.html#line-224" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-224">#L224</a>: 			t.<b>Body</b> = nil
-		<a href="../../src/net/http/transfer.go.html#line-228" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-228">#L228</a>: 				t.<b>Body</b> = io.MultiReader(&amp;byteReader{b: rres.b}, errorReader{rres.err})
-		<a href="../../src/net/http/transfer.go.html#line-230" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-230">#L230</a>: 				t.<b>Body</b> = io.MultiReader(&amp;byteReader{b: rres.b}, t.<b>Body</b>)
-		<a href="../../src/net/http/transfer.go.html#line-233" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-233">#L233</a>: 			t.<b>Body</b> = errorReader{rres.err}
-		<a href="../../src/net/http/transfer.go.html#line-240" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-240">#L240</a>: 		t.<b>Body</b> = io.MultiReader(finishAsyncByteRead{t}, t.<b>Body</b>)
-		<a href="../../src/net/http/transfer.go.html#line-352" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-352">#L352</a>: 	if t.<b>Body</b> != nil {
-		<a href="../../src/net/http/transfer.go.html#line-425" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-425">#L425</a>: 	if r, ok := unwrapNopCloser(t.<b>Body</b>); ok {
-		<a href="../../src/net/http/transfer.go.html#line-428" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-428">#L428</a>: 	if r, ok := t.<b>Body</b>.(*readTrackingBody); ok {
-		<a href="../../src/net/http/transfer.go.html#line-432" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-432">#L432</a>: 	return t.<b>Body</b>
+		<a href="../../src/net/http/transfer.go.html#line-63">transfer.go#L63</a>: 	<b>Body</b>             io.Reader
+		<a href="../../src/net/http/transfer.go.html#line-93" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-93">#L93</a>: 		t.<b>Body</b> = rr.Body
+		<a href="../../src/net/http/transfer.go.html#line-106" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-106">#L106</a>: 		if t.ContentLength != 0 &amp;&amp; !isKnownInMemoryReader(t.<b>Body</b>) {
+		<a href="../../src/net/http/transfer.go.html#line-116" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-116">#L116</a>: 		t.<b>Body</b> = rr.Body
+		<a href="../../src/net/http/transfer.go.html#line-129" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-129">#L129</a>: 		t.<b>Body</b> = nil
+		<a href="../../src/net/http/transfer.go.html#line-134" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-134">#L134</a>: 		if !atLeastHTTP11 || t.<b>Body</b> == nil {
+		<a href="../../src/net/http/transfer.go.html#line-139" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-139">#L139</a>: 		} else if t.<b>Body</b> == nil { // no chunking, no body
+		<a href="../../src/net/http/transfer.go.html#line-173" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-173">#L173</a>: 	if t.ContentLength &gt;= 0 || t.<b>Body</b> == nil { // redundant checks; caller did them
+		<a href="../../src/net/http/transfer.go.html#line-184" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-184">#L184</a>: 		return t.<b>Body</b> != nil
+		<a href="../../src/net/http/transfer.go.html#line-219" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-219">#L219</a>: 	}(t.<b>Body</b>)
+		<a href="../../src/net/http/transfer.go.html#line-226" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-226">#L226</a>: 			t.<b>Body</b> = nil
+		<a href="../../src/net/http/transfer.go.html#line-230" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-230">#L230</a>: 				t.<b>Body</b> = io.MultiReader(&amp;byteReader{b: rres.b}, errorReader{rres.err})
+		<a href="../../src/net/http/transfer.go.html#line-232" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-232">#L232</a>: 				t.<b>Body</b> = io.MultiReader(&amp;byteReader{b: rres.b}, t.<b>Body</b>)
+		<a href="../../src/net/http/transfer.go.html#line-235" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-235">#L235</a>: 			t.<b>Body</b> = errorReader{rres.err}
+		<a href="../../src/net/http/transfer.go.html#line-242" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-242">#L242</a>: 		t.<b>Body</b> = io.MultiReader(finishAsyncByteRead{t}, t.<b>Body</b>)
+		<a href="../../src/net/http/transfer.go.html#line-354" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-354">#L354</a>: 	if !t.ResponseToHEAD &amp;&amp; t.<b>Body</b> != nil {
+		<a href="../../src/net/http/transfer.go.html#line-430" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-430">#L430</a>: 	if r, ok := unwrapNopCloser(t.<b>Body</b>); ok {
+		<a href="../../src/net/http/transfer.go.html#line-433" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-433">#L433</a>: 	if r, ok := t.<b>Body</b>.(*readTrackingBody); ok {
+		<a href="../../src/net/http/transfer.go.html#line-437" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-437">#L437</a>: 	return t.<b>Body</b>
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

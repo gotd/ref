@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.decoderOptions.concurrent</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-18">decoderOptions</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-20">concurrent</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">12 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-107">decoder.go#L107</a>: 	d.decoders = make(chan *blockDec, d.o.<b>concurrent</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-108" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-108">#L108</a>: 	for i := 0; i &lt; d.o.<b>concurrent</b>; i++ {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-223" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-223">#L223</a>: 	if d.o.<b>concurrent</b> == 1 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-227" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-227">#L227</a>: 	d.current.output = make(chan decodeOutput, d.o.<b>concurrent</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-659" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-659">#L659</a>: 	var seqDecode = make(chan *blockDec, d.o.<b>concurrent</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-660" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-660">#L660</a>: 	var seqExecute = make(chan *blockDec, d.o.<b>concurrent</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-20">decoder_options.go#L20</a>: 	<b>concurrent</b>      int
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-34" class="path-duplicate">decoder_options.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-34">#L34</a>: 		<b>concurrent</b>:      runtime.GOMAXPROCS(0),
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-38" class="path-duplicate">decoder_options.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-38">#L38</a>: 	if o.<b>concurrent</b> &gt; 4 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-39" class="path-duplicate">decoder_options.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-39">#L39</a>: 		o.<b>concurrent</b> = 4
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-77" class="path-duplicate">decoder_options.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-77">#L77</a>: 		if o.resetOpt &amp;&amp; newVal != o.<b>concurrent</b> {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-80" class="path-duplicate">decoder_options.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-80">#L80</a>: 		o.<b>concurrent</b> = newVal
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,28 +5,32 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: encoding/base64.StdEncoding</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">var <b><a href="../../pkg/encoding/base64.html">encoding/base64</a>.<a href="../../src/encoding/base64/base64.go.html#line-117">StdEncoding</a></b></span>
+<pre><code><span style="font-size:x-large;">var <b><a href="../../pkg/encoding/base64.html">encoding/base64</a>.<a href="../../src/encoding/base64/base64.go.html#line-119">StdEncoding</a></b></span>
 
 <span class="title">21 uses</span>
 
 	encoding/base64 (current package)
-		<a href="../../src/encoding/base64/base64.go.html#line-117">base64.go#L117</a>: var <b>StdEncoding</b> = NewEncoding(encodeStd)
-		<a href="../../src/encoding/base64/base64.go.html#line-126" class="path-duplicate">base64.go</a><a href="../../src/encoding/base64/base64.go.html#line-126">#L126</a>: var RawStdEncoding = <b>StdEncoding</b>.WithPadding(NoPadding)
+		<a href="../../src/encoding/base64/base64.go.html#line-119">base64.go#L119</a>: var <b>StdEncoding</b> = NewEncoding("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/")
+		<a href="../../src/encoding/base64/base64.go.html#line-128" class="path-duplicate">base64.go</a><a href="../../src/encoding/base64/base64.go.html#line-128">#L128</a>: var RawStdEncoding = <b>StdEncoding</b>.WithPadding(NoPadding)
 
 	<a href="../../pkg/encoding/json.html">encoding/json</a>
-		<a href="../../src/encoding/json/decode.go.html#line-936">decode.go#L936</a>: 			b := make([]byte, base64.<b>StdEncoding</b>.DecodedLen(len(s)))
-		<a href="../../src/encoding/json/decode.go.html#line-937" class="path-duplicate">decode.go</a><a href="../../src/encoding/json/decode.go.html#line-937">#L937</a>: 			n, err := base64.<b>StdEncoding</b>.Decode(b, s)
-		<a href="../../src/encoding/json/encode.go.html#line-785">encode.go#L785</a>: 	encodedLen := base64.<b>StdEncoding</b>.EncodedLen(len(s))
-		<a href="../../src/encoding/json/encode.go.html#line-791" class="path-duplicate">encode.go</a><a href="../../src/encoding/json/encode.go.html#line-791">#L791</a>: 	base64.<b>StdEncoding</b>.Encode(b[len(b):][:encodedLen], s)
+		<a href="../../src/encoding/json/decode.go.html#line-950">decode.go#L950</a>: 			b := make([]byte, base64.<b>StdEncoding</b>.DecodedLen(len(s)))
+		<a href="../../src/encoding/json/decode.go.html#line-951" class="path-duplicate">decode.go</a><a href="../../src/encoding/json/decode.go.html#line-951">#L951</a>: 			n, err := base64.<b>StdEncoding</b>.Decode(b, s)
+		<a href="../../src/encoding/json/encode.go.html#line-833">encode.go#L833</a>: 	b = base64.<b>StdEncoding</b>.AppendEncode(b, s)
 
 	<a href="../../pkg/encoding/pem.html">encoding/pem</a>
-		<a href="../../src/encoding/pem/pem.go.html#line-171">pem.go#L171</a>: 		p.Bytes = make([]byte, base64.<b>StdEncoding</b>.DecodedLen(len(base64Data)))
-		<a href="../../src/encoding/pem/pem.go.html#line-172" class="path-duplicate">pem.go</a><a href="../../src/encoding/pem/pem.go.html#line-172">#L172</a>: 		n, err := base64.<b>StdEncoding</b>.Decode(p.Bytes, base64Data)
-		<a href="../../src/encoding/pem/pem.go.html#line-291" class="path-duplicate">pem.go</a><a href="../../src/encoding/pem/pem.go.html#line-291">#L291</a>: 	b64 := base64.NewEncoder(base64.<b>StdEncoding</b>, &amp;breaker)
+		<a href="../../src/encoding/pem/pem.go.html#line-185">pem.go#L185</a>: 			p.Bytes = make([]byte, base64.<b>StdEncoding</b>.DecodedLen(len(base64Data)))
+		<a href="../../src/encoding/pem/pem.go.html#line-186" class="path-duplicate">pem.go</a><a href="../../src/encoding/pem/pem.go.html#line-186">#L186</a>: 			n, err := base64.<b>StdEncoding</b>.Decode(p.Bytes, base64Data)
+		<a href="../../src/encoding/pem/pem.go.html#line-306" class="path-duplicate">pem.go</a><a href="../../src/encoding/pem/pem.go.html#line-306">#L306</a>: 	b64 := base64.NewEncoder(base64.<b>StdEncoding</b>, &amp;breaker)
+
+	<a href="../../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../../src/github.com/coder/websocket/accept.go.html#line-221">accept.go#L221</a>: 	if v, err := base64.<b>StdEncoding</b>.DecodeString(websocketSecKey); err != nil || len(v) != 16 {
+		<a href="../../src/github.com/coder/websocket/accept.go.html#line-377" class="path-duplicate">accept.go</a><a href="../../src/github.com/coder/websocket/accept.go.html#line-377">#L377</a>: 	return base64.<b>StdEncoding</b>.EncodeToString(h.Sum(nil))
+		<a href="../../src/github.com/coder/websocket/dial.go.html#line-239">dial.go#L239</a>: 	return base64.<b>StdEncoding</b>.EncodeToString(b), nil
 
 	<a href="../../pkg/github.com/go-faster/jx.html">github.com/go-faster/jx</a>
 		<a href="../../src/github.com/go-faster/jx/w_b64.go.html#line-35">w_b64.go#L35</a>: 		e := stdbase64.NewEncoder(stdbase64.<b>StdEncoding</b>, s.writer)
@@ -34,8 +38,11 @@
 	<a href="../../pkg/github.com/gotd/td/telegram/dcs.html">github.com/gotd/td/telegram/dcs</a>
 		<a href="../../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-143">dns.go#L143</a>: 	encoding := base64.<b>StdEncoding</b>
 
-	<a href="../../pkg/go.uber.org/zap/zapcore.html">go.uber.org/zap/zapcore</a>
-		<a href="../../src/go.uber.org/zap/zapcore/json_encoder.go.html#line-111">json_encoder.go#L111</a>: 	enc.AddString(key, base64.<b>StdEncoding</b>.EncodeToString(val))
+	<a href="../../pkg/go.opentelemetry.io/otel/attribute.html">go.opentelemetry.io/otel/attribute</a>
+		<a href="../../src/go.opentelemetry.io/otel/attribute/value.go.html#line-998">value.go#L998</a>: 	dst.Grow(base64.<b>StdEncoding</b>.EncodedLen(len(s)))
+
+	<a href="../../pkg/go.opentelemetry.io/otel/trace/internal/telemetry.html">go.opentelemetry.io/otel/trace/internal/telemetry</a>
+		<a href="../../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-433">value.go#L433</a>: 			val, err = base64.<b>StdEncoding</b>.DecodeString(val64)
 
 	<a href="../../pkg/mime.html">mime</a>
 		<a href="../../src/mime/encodedword.go.html#line-79">encodedword.go#L79</a>: var maxBase64Len = base64.<b>StdEncoding</b>.DecodedLen(maxContentLen)
@@ -44,16 +51,11 @@
 		<a href="../../src/mime/encodedword.go.html#line-307" class="path-duplicate">encodedword.go</a><a href="../../src/mime/encodedword.go.html#line-307">#L307</a>: 		return base64.<b>StdEncoding</b>.DecodeString(text)
 
 	<a href="../../pkg/net/http.html">net/http</a>
-		<a href="../../src/net/http/client.go.html#line-428">client.go#L428</a>: 	return base64.<b>StdEncoding</b>.EncodeToString([]byte(auth))
-		<a href="../../src/net/http/request.go.html#line-964">request.go#L964</a>: 	c, err := base64.<b>StdEncoding</b>.DecodeString(auth[len(prefix):])
-
-	<a href="../../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-199">accept.go#L199</a>: 	if v, err := base64.<b>StdEncoding</b>.DecodeString(websocketSecKey); err != nil || len(v) != 16 {
-		<a href="../../src/nhooyr.io/websocket/accept.go.html#line-351" class="path-duplicate">accept.go</a><a href="../../src/nhooyr.io/websocket/accept.go.html#line-351">#L351</a>: 	return base64.<b>StdEncoding</b>.EncodeToString(h.Sum(nil))
-		<a href="../../src/nhooyr.io/websocket/dial.go.html#line-222">dial.go#L222</a>: 	return base64.<b>StdEncoding</b>.EncodeToString(b), nil
+		<a href="../../src/net/http/client.go.html#line-429">client.go#L429</a>: 	return base64.<b>StdEncoding</b>.EncodeToString([]byte(auth))
+		<a href="../../src/net/http/request.go.html#line-999">request.go#L999</a>: 	c, err := base64.<b>StdEncoding</b>.DecodeString(auth[len(prefix):])
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

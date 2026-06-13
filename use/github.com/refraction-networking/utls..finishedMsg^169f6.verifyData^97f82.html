@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/refraction-networking/utls.finishedMsg.verifyData</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>.<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-1734">finishedMsg</a>.<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-1735">verifyData</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">16 uses</span>
+
+	github.com/refraction-networking/utls (current package)
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1020">handshake_client.go#L1020</a>: 	if len(verify) != len(serverFinished.<b>verifyData</b>) ||
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1021" class="path-duplicate">handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1021">#L1021</a>: 		subtle.ConstantTimeCompare(verify, serverFinished.<b>verifyData</b>) != 1 {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1091" class="path-duplicate">handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1091">#L1091</a>: 	finished.<b>verifyData</b> = hs.finishedHash.clientSum(hs.masterSecret)
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1095" class="path-duplicate">handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-1095">#L1095</a>: 	copy(out, finished.<b>verifyData</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-897">handshake_client_tls13.go#L897</a>: 	if !hmac.Equal(expectedMAC, finished.<b>verifyData</b>) {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-1006" class="path-duplicate">handshake_client_tls13.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-1006">#L1006</a>: 		<b>verifyData</b>: hs.suite.finishedHash(c.out.trafficSecret, hs.transcript),
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-1735">handshake_messages.go#L1735</a>: 	<b>verifyData</b> []byte
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-1742" class="path-duplicate">handshake_messages.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-1742">#L1742</a>: 		b.AddBytes(m.<b>verifyData</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-1751" class="path-duplicate">handshake_messages.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-1751">#L1751</a>: 		readUint24LengthPrefixed(&amp;s, &amp;m.<b>verifyData</b>) &amp;&amp;
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-832">handshake_server.go#L832</a>: 	if len(verify) != len(clientFinished.<b>verifyData</b>) ||
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-833" class="path-duplicate">handshake_server.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-833">#L833</a>: 		subtle.ConstantTimeCompare(verify, clientFinished.<b>verifyData</b>) != 1 {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-896" class="path-duplicate">handshake_server.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-896">#L896</a>: 	finished.<b>verifyData</b> = hs.finishedHash.serverSum(hs.masterSecret)
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-901" class="path-duplicate">handshake_server.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-901">#L901</a>: 	copy(out, finished.<b>verifyData</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-894">handshake_server_tls13.go#L894</a>: 		<b>verifyData</b>: hs.suite.finishedHash(c.out.trafficSecret, hs.transcript),
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-966" class="path-duplicate">handshake_server_tls13.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-966">#L966</a>: 		<b>verifyData</b>: hs.clientFinished,
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-1140" class="path-duplicate">handshake_server_tls13.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-1140">#L1140</a>: 	if !hmac.Equal(hs.clientFinished, finished.<b>verifyData</b>) {
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: iter.Seq</title>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">type <b><a href="../pkg/iter.html">iter</a>.<a href="../src/iter/iter.go.html#line-223">Seq</a></b></span>
+
+<span class="title">34 uses</span>
+
+	iter (current package)
+		<a href="../src/iter/iter.go.html#line-223">iter.go#L223</a>: type <b>Seq</b>[V any] func(yield func(V) bool)
+		<a href="../src/iter/iter.go.html#line-261" class="path-duplicate">iter.go</a><a href="../src/iter/iter.go.html#line-261">#L261</a>: func Pull[V any](seq <b>Seq</b>[V]) (next func() (V, bool), stop func()) {
+
+	<a href="../pkg/bytes.html">bytes</a>
+		<a href="../src/bytes/iter.go.html#line-18">iter.go#L18</a>: func Lines(s []byte) iter.<b>Seq</b>[[]byte] {
+		<a href="../src/bytes/iter.go.html#line-36" class="path-duplicate">iter.go</a><a href="../src/bytes/iter.go.html#line-36">#L36</a>: func splitSeq(s, sep []byte, sepSave int) iter.<b>Seq</b>[[]byte] {
+		<a href="../src/bytes/iter.go.html#line-67" class="path-duplicate">iter.go</a><a href="../src/bytes/iter.go.html#line-67">#L67</a>: func SplitSeq(s, sep []byte) iter.<b>Seq</b>[[]byte] {
+		<a href="../src/bytes/iter.go.html#line-75" class="path-duplicate">iter.go</a><a href="../src/bytes/iter.go.html#line-75">#L75</a>: func SplitAfterSeq(s, sep []byte) iter.<b>Seq</b>[[]byte] {
+		<a href="../src/bytes/iter.go.html#line-83" class="path-duplicate">iter.go</a><a href="../src/bytes/iter.go.html#line-83">#L83</a>: func FieldsSeq(s []byte) iter.<b>Seq</b>[[]byte] {
+		<a href="../src/bytes/iter.go.html#line-116" class="path-duplicate">iter.go</a><a href="../src/bytes/iter.go.html#line-116">#L116</a>: func FieldsFuncSeq(s []byte, f func(rune) bool) iter.<b>Seq</b>[[]byte] {
+
+	<a href="../pkg/crypto/x509.html">crypto/x509</a>
+		<a href="../src/crypto/x509/verify.go.html#line-1103">verify.go#L1103</a>: func (pg *policyGraph) parents() iter.<b>Seq</b>[*policyGraphNode] {
+
+	<a href="../pkg/maps.html">maps</a>
+		<a href="../src/maps/iter.go.html#line-25">iter.go#L25</a>: func Keys[Map ~map[K]V, K comparable, V any](m Map) iter.<b>Seq</b>[K] {
+		<a href="../src/maps/iter.go.html#line-38" class="path-duplicate">iter.go</a><a href="../src/maps/iter.go.html#line-38">#L38</a>: func Values[Map ~map[K]V, K comparable, V any](m Map) iter.<b>Seq</b>[V] {
+
+	<a href="../pkg/reflect.html">reflect</a>
+		<a href="../src/reflect/iter.go.html#line-13">iter.go#L13</a>: 	uintptr, N int64 | uint64](num N, t Type) iter.<b>Seq</b>[Value] {
+		<a href="../src/reflect/iter.go.html#line-38" class="path-duplicate">iter.go</a><a href="../src/reflect/iter.go.html#line-38">#L38</a>: func (v Value) Seq() iter.<b>Seq</b>[Value] {
+		<a href="../src/reflect/type.go.html#line-70">type.go#L70</a>: 	Methods() iter.<b>Seq</b>[Method]
+		<a href="../src/reflect/type.go.html#line-183" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-183">#L183</a>: 	Fields() iter.<b>Seq</b>[StructField]
+		<a href="../src/reflect/type.go.html#line-224" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-224">#L224</a>: 	Ins() iter.<b>Seq</b>[Type]
+		<a href="../src/reflect/type.go.html#line-254" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-254">#L254</a>: 	Outs() iter.<b>Seq</b>[Type]
+		<a href="../src/reflect/type.go.html#line-960" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-960">#L960</a>: func (t *rtype) Fields() iter.<b>Seq</b>[StructField] {
+		<a href="../src/reflect/type.go.html#line-973" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-973">#L973</a>: func (t *rtype) Methods() iter.<b>Seq</b>[Method] {
+		<a href="../src/reflect/type.go.html#line-983" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-983">#L983</a>: func (t *rtype) Ins() iter.<b>Seq</b>[Type] {
+		<a href="../src/reflect/type.go.html#line-996" class="path-duplicate">type.go</a><a href="../src/reflect/type.go.html#line-996">#L996</a>: func (t *rtype) Outs() iter.<b>Seq</b>[Type] {
+
+	<a href="../pkg/slices.html">slices</a>
+		<a href="../src/slices/iter.go.html#line-37">iter.go#L37</a>: func Values[Slice ~[]E, E any](s Slice) iter.<b>Seq</b>[E] {
+		<a href="../src/slices/iter.go.html#line-50" class="path-duplicate">iter.go</a><a href="../src/slices/iter.go.html#line-50">#L50</a>: func AppendSeq[Slice ~[]E, E any](s Slice, seq iter.<b>Seq</b>[E]) Slice {
+		<a href="../src/slices/iter.go.html#line-59" class="path-duplicate">iter.go</a><a href="../src/slices/iter.go.html#line-59">#L59</a>: func Collect[E any](seq iter.<b>Seq</b>[E]) []E {
+		<a href="../src/slices/iter.go.html#line-66" class="path-duplicate">iter.go</a><a href="../src/slices/iter.go.html#line-66">#L66</a>: func Sorted[E cmp.Ordered](seq iter.<b>Seq</b>[E]) []E {
+		<a href="../src/slices/iter.go.html#line-75" class="path-duplicate">iter.go</a><a href="../src/slices/iter.go.html#line-75">#L75</a>: func SortedFunc[E any](seq iter.<b>Seq</b>[E], cmp func(E, E) int) []E {
+		<a href="../src/slices/iter.go.html#line-86" class="path-duplicate">iter.go</a><a href="../src/slices/iter.go.html#line-86">#L86</a>: func SortedStableFunc[E any](seq iter.<b>Seq</b>[E], cmp func(E, E) int) []E {
+		<a href="../src/slices/iter.go.html#line-97" class="path-duplicate">iter.go</a><a href="../src/slices/iter.go.html#line-97">#L97</a>: func Chunk[Slice ~[]E, E any](s Slice, n int) iter.<b>Seq</b>[Slice] {
+
+	<a href="../pkg/strings.html">strings</a>
+		<a href="../src/strings/iter.go.html#line-18">iter.go#L18</a>: func Lines(s string) iter.<b>Seq</b>[string] {
+		<a href="../src/strings/iter.go.html#line-36" class="path-duplicate">iter.go</a><a href="../src/strings/iter.go.html#line-36">#L36</a>: func splitSeq(s, sep string, sepSave int) iter.<b>Seq</b>[string] {
+		<a href="../src/strings/iter.go.html#line-67" class="path-duplicate">iter.go</a><a href="../src/strings/iter.go.html#line-67">#L67</a>: func SplitSeq(s, sep string) iter.<b>Seq</b>[string] {
+		<a href="../src/strings/iter.go.html#line-75" class="path-duplicate">iter.go</a><a href="../src/strings/iter.go.html#line-75">#L75</a>: func SplitAfterSeq(s, sep string) iter.<b>Seq</b>[string] {
+		<a href="../src/strings/iter.go.html#line-83" class="path-duplicate">iter.go</a><a href="../src/strings/iter.go.html#line-83">#L83</a>: func FieldsSeq(s string) iter.<b>Seq</b>[string] {
+		<a href="../src/strings/iter.go.html#line-116" class="path-duplicate">iter.go</a><a href="../src/strings/iter.go.html#line-116">#L116</a>: func FieldsFuncSeq(s string, f func(rune) bool) iter.<b>Seq</b>[string] {
+</code></pre><pre id="footer">
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

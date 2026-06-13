@@ -5,28 +5,32 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: runtime.g.atomicstatus</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/runtime2.go.html#line-414">g</a>.<a href="../src/runtime/runtime2.go.html#line-445">atomicstatus</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/runtime2.go.html#line-473">g</a>.<a href="../src/runtime/runtime2.go.html#line-507">atomicstatus</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">10 uses</span>
+<span class="title">14 uses</span>
 
 	runtime (current package)
-		<a href="../src/runtime/proc.go.html#line-977">proc.go#L977</a>: 	return gp.<b>atomicstatus</b>.Load()
-		<a href="../src/runtime/proc.go.html#line-999" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-999">#L999</a>: 			success = gp.<b>atomicstatus</b>.CompareAndSwap(oldval, newval)
-		<a href="../src/runtime/proc.go.html#line-1019" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1019">#L1019</a>: 			r := gp.<b>atomicstatus</b>.CompareAndSwap(oldval, newval)
-		<a href="../src/runtime/proc.go.html#line-1059" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1059">#L1059</a>: 	for i := 0; !gp.<b>atomicstatus</b>.CompareAndSwap(oldval, newval); i++ {
-		<a href="../src/runtime/proc.go.html#line-1060" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1060">#L1060</a>: 		if oldval == _Gwaiting &amp;&amp; gp.<b>atomicstatus</b>.Load() == _Grunnable {
-		<a href="../src/runtime/proc.go.html#line-1067" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1067">#L1067</a>: 			for x := 0; x &lt; 10 &amp;&amp; gp.<b>atomicstatus</b>.Load() != oldval; x++ {
-		<a href="../src/runtime/proc.go.html#line-1160" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1160">#L1160</a>: 		if gp.<b>atomicstatus</b>.CompareAndSwap(oldstatus, _Gcopystack) {
-		<a href="../src/runtime/proc.go.html#line-1175" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1175">#L1175</a>: 	for !gp.<b>atomicstatus</b>.CompareAndSwap(_Grunning, _Gscan|_Gpreempted) {
-		<a href="../src/runtime/proc.go.html#line-1187" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1187">#L1187</a>: 	return gp.<b>atomicstatus</b>.CompareAndSwap(_Gpreempted, _Gwaiting)
-		<a href="../src/runtime/runtime2.go.html#line-445">runtime2.go#L445</a>: 	<b>atomicstatus</b> atomic.Uint32
+		<a href="../src/runtime/coro.go.html#line-168">coro.go#L168</a>: 		if !canCAS || !gp.<b>atomicstatus</b>.CompareAndSwap(_Grunning, _Gwaiting) {
+		<a href="../src/runtime/coro.go.html#line-236" class="path-duplicate">coro.go</a><a href="../src/runtime/coro.go.html#line-236">#L236</a>: 	if !canCAS || !gnext.<b>atomicstatus</b>.CompareAndSwap(_Gwaiting, _Grunning) {
+		<a href="../src/runtime/mgcmark.go.html#line-78">mgcmark.go#L78</a>: 		gp.<b>atomicstatus</b>.CompareAndSwap(_Gleaked, _Gwaiting)
+		<a href="../src/runtime/proc.go.html#line-1208">proc.go#L1208</a>: 	return gp.<b>atomicstatus</b>.Load()
+		<a href="../src/runtime/proc.go.html#line-1232" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1232">#L1232</a>: 			success = gp.<b>atomicstatus</b>.CompareAndSwap(oldval, newval)
+		<a href="../src/runtime/proc.go.html#line-1254" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1254">#L1254</a>: 			r := gp.<b>atomicstatus</b>.CompareAndSwap(oldval, newval)
+		<a href="../src/runtime/proc.go.html#line-1295" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1295">#L1295</a>: 	for i := 0; !gp.<b>atomicstatus</b>.CompareAndSwap(oldval, newval); i++ {
+		<a href="../src/runtime/proc.go.html#line-1296" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1296">#L1296</a>: 		if oldval == _Gwaiting &amp;&amp; gp.<b>atomicstatus</b>.Load() == _Grunnable {
+		<a href="../src/runtime/proc.go.html#line-1307" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1307">#L1307</a>: 			for x := 0; x &lt; 10 &amp;&amp; gp.<b>atomicstatus</b>.Load() != oldval; x++ {
+		<a href="../src/runtime/proc.go.html#line-1417" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1417">#L1417</a>: 	for !gp.<b>atomicstatus</b>.CompareAndSwap(_Grunning, _Gscan|_Gpreempted) {
+		<a href="../src/runtime/proc.go.html#line-1435" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-1435">#L1435</a>: 	if !gp.<b>atomicstatus</b>.CompareAndSwap(_Gpreempted, _Gwaiting) {
+		<a href="../src/runtime/proc.go.html#line-4697" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-4697">#L4697</a>: 	if gp.bubble != nil || !gp.<b>atomicstatus</b>.CompareAndSwap(_Grunning, _Gsyscall) {
+		<a href="../src/runtime/proc.go.html#line-4913" class="path-duplicate">proc.go</a><a href="../src/runtime/proc.go.html#line-4913">#L4913</a>: 	if gp.bubble != nil || !gp.<b>atomicstatus</b>.CompareAndSwap(_Gsyscall, _Grunning) {
+		<a href="../src/runtime/runtime2.go.html#line-507">runtime2.go#L507</a>: 	<b>atomicstatus</b> atomic.Uint32
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

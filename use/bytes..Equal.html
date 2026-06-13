@@ -5,91 +5,170 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: bytes.Equal</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/bytes.html">bytes</a>.<a href="../src/bytes/bytes.go.html#line-18">Equal</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../pkg/bytes.html">bytes</a>.<a href="../src/bytes/bytes.go.html#line-20">Equal</a></b></span>
 
-<span class="title">62 uses</span>
+<span class="title">113 uses</span>
 
 	bytes (current package)
-		<a href="../src/bytes/bytes.go.html#line-18">bytes.go#L18</a>: func <b>Equal</b>(a, b []byte) bool {
-		<a href="../src/bytes/bytes.go.html#line-117" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-117">#L117</a>: 		if <b>Equal</b>(s, sep) {
-		<a href="../src/bytes/bytes.go.html#line-131" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-131">#L131</a>: 	if h == hashss &amp;&amp; <b>Equal</b>(s[last:], sep) {
-		<a href="../src/bytes/bytes.go.html#line-138" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-138">#L138</a>: 		if h == hashss &amp;&amp; <b>Equal</b>(s[i:i+n], sep) {
-		<a href="../src/bytes/bytes.go.html#line-562" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-562">#L562</a>: 	return len(s) &gt;= len(prefix) &amp;&amp; <b>Equal</b>(s[0:len(prefix)], prefix)
-		<a href="../src/bytes/bytes.go.html#line-567" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-567">#L567</a>: 	return len(s) &gt;= len(suffix) &amp;&amp; <b>Equal</b>(s[len(s)-len(suffix):], suffix)
-		<a href="../src/bytes/bytes.go.html#line-1270" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-1270">#L1270</a>: 		if <b>Equal</b>(sep, s) {
-		<a href="../src/bytes/bytes.go.html#line-1296" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-1296">#L1296</a>: 			if s[i+1] == c1 &amp;&amp; <b>Equal</b>(s[i:i+n], sep) {
-		<a href="../src/bytes/bytes.go.html#line-1325" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-1325">#L1325</a>: 		if s[i+1] == c1 &amp;&amp; <b>Equal</b>(s[i:i+n], sep) {
+		<a href="../src/bytes/bytes.go.html#line-20">bytes.go#L20</a>: func <b>Equal</b>(a, b []byte) bool {
+		<a href="../src/bytes/bytes.go.html#line-119" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-119">#L119</a>: 		if <b>Equal</b>(s, sep) {
+		<a href="../src/bytes/bytes.go.html#line-595" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-595">#L595</a>: 	return len(s) &gt;= len(prefix) &amp;&amp; <b>Equal</b>(s[:len(prefix)], prefix)
+		<a href="../src/bytes/bytes.go.html#line-600" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-600">#L600</a>: 	return len(s) &gt;= len(suffix) &amp;&amp; <b>Equal</b>(s[len(s)-len(suffix):], suffix)
+		<a href="../src/bytes/bytes.go.html#line-1289" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-1289">#L1289</a>: 		if <b>Equal</b>(sep, s) {
+		<a href="../src/bytes/bytes.go.html#line-1315" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-1315">#L1315</a>: 			if s[i+1] == c1 &amp;&amp; <b>Equal</b>(s[i:i+n], sep) {
+		<a href="../src/bytes/bytes.go.html#line-1344" class="path-duplicate">bytes.go</a><a href="../src/bytes/bytes.go.html#line-1344">#L1344</a>: 		if s[i+1] == c1 &amp;&amp; <b>Equal</b>(s[i:i+n], sep) {
 
-	<a href="../pkg/crypto/ed25519.html">crypto/ed25519</a>
-		<a href="../src/crypto/ed25519/ed25519.go.html#line-343">ed25519.go#L343</a>: 	return bytes.<b>Equal</b>(sig[:32], R.Bytes())
+	<a href="../pkg/crypto/internal/fips140/aes.html">crypto/internal/fips140/aes</a>
+		<a href="../src/crypto/internal/fips140/aes/cast.go.html#line-38">cast.go#L38</a>: 		if !bytes.<b>Equal</b>(buf, ciphertext) {
+		<a href="../src/crypto/internal/fips140/aes/cast.go.html#line-42" class="path-duplicate">cast.go</a><a href="../src/crypto/internal/fips140/aes/cast.go.html#line-42">#L42</a>: 		if !bytes.<b>Equal</b>(buf, plaintext) {
 
-	<a href="../pkg/crypto/rsa.html">crypto/rsa</a>
-		<a href="../src/crypto/rsa/pss.go.html#line-200">pss.go#L200</a>: 	if !bytes.<b>Equal</b>(h0, h) { // TODO: constant time?
+	<a href="../pkg/crypto/internal/fips140/drbg.html">crypto/internal/fips140/drbg</a>
+		<a href="../src/crypto/internal/fips140/drbg/cast.go.html#line-53">cast.go#L53</a>: 		if !bytes.<b>Equal</b>(got, want) {
+
+	<a href="../pkg/crypto/internal/fips140/ecdh.html">crypto/internal/fips140/ecdh</a>
+		<a href="../src/crypto/internal/fips140/ecdh/cast.go.html#line-47">cast.go#L47</a>: 		if !bytes.<b>Equal</b>(got, want) {
+		<a href="../src/crypto/internal/fips140/ecdh/ecdh.go.html#line-179">ecdh.go#L179</a>: 			if !bytes.<b>Equal</b>(p1.Bytes(), privateKey.pub.q) {
+
+	<a href="../pkg/crypto/internal/fips140/ecdsa.html">crypto/internal/fips140/ecdsa</a>
+		<a href="../src/crypto/internal/fips140/ecdsa/cast.go.html#line-99">cast.go#L99</a>: 		if !bytes.<b>Equal</b>(got.R, want.R) || !bytes.<b>Equal</b>(got.S, want.S) {
+		<a href="../src/crypto/internal/fips140/ecdsa/cast.go.html#line-131" class="path-duplicate">cast.go</a><a href="../src/crypto/internal/fips140/ecdsa/cast.go.html#line-131">#L131</a>: 		if !bytes.<b>Equal</b>(got.R, want.R) || !bytes.<b>Equal</b>(got.S, want.S) {
+
+	<a href="../pkg/crypto/internal/fips140/ed25519.html">crypto/internal/fips140/ed25519</a>
+		<a href="../src/crypto/internal/fips140/ed25519/cast.go.html#line-71">cast.go#L71</a>: 		if !bytes.<b>Equal</b>(sig, want) {
+		<a href="../src/crypto/internal/fips140/ed25519/ed25519.go.html#line-324">ed25519.go#L324</a>: 	if !bytes.<b>Equal</b>(sig[:32], R.Bytes()) {
+
+	<a href="../pkg/crypto/internal/fips140/hkdf.html">crypto/internal/fips140/hkdf</a>
+		<a href="../src/crypto/internal/fips140/hkdf/cast.go.html#line-28">cast.go#L28</a>: 		if !bytes.<b>Equal</b>(got, want) {
+
+	<a href="../pkg/crypto/internal/fips140/hmac.html">crypto/internal/fips140/hmac</a>
+		<a href="../src/crypto/internal/fips140/hmac/cast.go.html#line-29">cast.go#L29</a>: 		if got := h.Sum(nil); !bytes.<b>Equal</b>(got, want) {
+
+	<a href="../pkg/crypto/internal/fips140/mlkem.html">crypto/internal/fips140/mlkem</a>
+		<a href="../src/crypto/internal/fips140/mlkem/cast.go.html#line-47">cast.go#L47</a>: 		if !bytes.<b>Equal</b>(Ke, K) || !bytes.<b>Equal</b>(Kd, K) {
+		<a href="../src/crypto/internal/fips140/mlkem/mlkem1024.go.html#line-186">mlkem1024.go#L186</a>: 	if !bytes.<b>Equal</b>(dk.h[:], b[:32]) {
+		<a href="../src/crypto/internal/fips140/mlkem/mlkem768.go.html#line-245">mlkem768.go#L245</a>: 	if !bytes.<b>Equal</b>(dk.h[:], b[:32]) {
+
+	<a href="../pkg/crypto/internal/fips140/pbkdf2.html">crypto/internal/fips140/pbkdf2</a>
+		<a href="../src/crypto/internal/fips140/pbkdf2/cast.go.html#line-37">cast.go#L37</a>: 		if !bytes.<b>Equal</b>(mk, want) {
+
+	<a href="../pkg/crypto/internal/fips140/rsa.html">crypto/internal/fips140/rsa</a>
+		<a href="../src/crypto/internal/fips140/rsa/cast.go.html#line-229">cast.go#L229</a>: 		if !bytes.<b>Equal</b>(sig, want) {
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v15.go.html#line-124">pkcs1v15.go#L124</a>: 	if !bytes.<b>Equal</b>(em, expected) {
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-247">pkcs1v22.go#L247</a>: 	if !bytes.<b>Equal</b>(h0, h) {
+
+	<a href="../pkg/crypto/internal/fips140/sha256.html">crypto/internal/fips140/sha256</a>
+		<a href="../src/crypto/internal/fips140/sha256/cast.go.html#line-27">cast.go#L27</a>: 		if got := h.Sum(nil); !bytes.<b>Equal</b>(got, want) {
+
+	<a href="../pkg/crypto/internal/fips140/sha3.html">crypto/internal/fips140/sha3</a>
+		<a href="../src/crypto/internal/fips140/sha3/cast.go.html#line-27">cast.go#L27</a>: 		if got := h.Sum(nil); !bytes.<b>Equal</b>(got, want) {
+
+	<a href="../pkg/crypto/internal/fips140/sha512.html">crypto/internal/fips140/sha512</a>
+		<a href="../src/crypto/internal/fips140/sha512/cast.go.html#line-31">cast.go#L31</a>: 		if got := h.Sum(nil); !bytes.<b>Equal</b>(got, want) {
+
+	<a href="../pkg/crypto/internal/fips140/tls12.html">crypto/internal/fips140/tls12</a>
+		<a href="../src/crypto/internal/fips140/tls12/cast.go.html#line-33">cast.go#L33</a>: 		if got := MasterSecret(sha256.New, input, transcript); !bytes.<b>Equal</b>(got, want) {
+
+	<a href="../pkg/crypto/internal/fips140/tls13.html">crypto/internal/fips140/tls13</a>
+		<a href="../src/crypto/internal/fips140/tls13/cast.go.html#line-32">cast.go#L32</a>: 		if got := ms.ResumptionMasterSecret(transcript); !bytes.<b>Equal</b>(got, want) {
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/common.go.html#line-1341">common.go#L1341</a>: 			if bytes.<b>Equal</b>(x509Cert.RawIssuer, ca) {
-		<a href="../src/crypto/tls/handshake_client.go.html#line-586">handshake_client.go#L586</a>: 		if !bytes.<b>Equal</b>(c.peerCertificates[0].Raw, certMsg.certificates[0]) {
-		<a href="../src/crypto/tls/handshake_client.go.html#line-745" class="path-duplicate">handshake_client.go</a><a href="../src/crypto/tls/handshake_client.go.html#line-745">#L745</a>: 		bytes.<b>Equal</b>(hs.serverHello.sessionId, hs.hello.sessionId)
-		<a href="../src/crypto/tls/handshake_client.go.html#line-772" class="path-duplicate">handshake_client.go</a><a href="../src/crypto/tls/handshake_client.go.html#line-772">#L772</a>: 		if !bytes.<b>Equal</b>(hs.serverHello.secureRenegotiation, expectedSecureRenegotiation[:]) {
-		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-70">handshake_client_tls13.go#L70</a>: 	if bytes.<b>Equal</b>(hs.serverHello.random, helloRetryRequestRandom) {
-		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-148" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/crypto/tls/handshake_client_tls13.go.html#line-148">#L148</a>: 	if !bytes.<b>Equal</b>(hs.hello.sessionId, hs.serverHello.sessionId) {
-		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-317" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/crypto/tls/handshake_client_tls13.go.html#line-317">#L317</a>: 	if bytes.<b>Equal</b>(hs.serverHello.random, helloRetryRequestRandom) {
-		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-575">handshake_server_tls13.go#L575</a>: 		!bytes.<b>Equal</b>(ch.random, ch1.random) ||
-		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-576" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-576">#L576</a>: 		!bytes.<b>Equal</b>(ch.sessionId, ch1.sessionId) ||
-		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-577" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-577">#L577</a>: 		!bytes.<b>Equal</b>(ch.compressionMethods, ch1.compressionMethods) ||
-		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-580" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-580">#L580</a>: 		!bytes.<b>Equal</b>(ch.supportedPoints, ch1.supportedPoints) ||
-		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-582" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-582">#L582</a>: 		!bytes.<b>Equal</b>(ch.sessionTicket, ch1.sessionTicket) ||
-		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-584" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-584">#L584</a>: 		!bytes.<b>Equal</b>(ch.secureRenegotiation, ch1.secureRenegotiation) ||
-		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-586" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-586">#L586</a>: 		!bytes.<b>Equal</b>(ch.cookie, ch1.cookie) ||
-		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-587" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-587">#L587</a>: 		!bytes.<b>Equal</b>(ch.pskModes, ch1.pskModes)
-		<a href="../src/crypto/tls/tls.go.html#line-326">tls.go#L326</a>: 		if !bytes.<b>Equal</b>(priv.Public().(ed25519.PublicKey), pub) {
+		<a href="../src/crypto/tls/common.go.html#line-1549">common.go#L1549</a>: 			if bytes.<b>Equal</b>(x509Cert.RawIssuer, ca) {
+		<a href="../src/crypto/tls/ech.go.html#line-368">ech.go#L368</a>: 	if !bytes.<b>Equal</b>(inner.encryptedClientHello, []byte{uint8(innerECHExt)}) {
+		<a href="../src/crypto/tls/handshake_client.go.html#line-358">handshake_client.go#L358</a>: 	echInner := bytes.<b>Equal</b>(hello.encryptedClientHello, []byte{1})
+		<a href="../src/crypto/tls/handshake_client.go.html#line-537" class="path-duplicate">handshake_client.go</a><a href="../src/crypto/tls/handshake_client.go.html#line-537">#L537</a>: 	if hs.session == nil &amp;&amp; hs.hello.sessionId != nil &amp;&amp; bytes.<b>Equal</b>(hs.hello.sessionId, hs.serverHello.sessionId) {
+		<a href="../src/crypto/tls/handshake_client.go.html#line-695" class="path-duplicate">handshake_client.go</a><a href="../src/crypto/tls/handshake_client.go.html#line-695">#L695</a>: 		if !bytes.<b>Equal</b>(c.peerCertificates[0].Raw, certMsg.certificates[0]) {
+		<a href="../src/crypto/tls/handshake_client.go.html#line-872" class="path-duplicate">handshake_client.go</a><a href="../src/crypto/tls/handshake_client.go.html#line-872">#L872</a>: 		bytes.<b>Equal</b>(hs.serverHello.sessionId, hs.hello.sessionId)
+		<a href="../src/crypto/tls/handshake_client.go.html#line-912" class="path-duplicate">handshake_client.go</a><a href="../src/crypto/tls/handshake_client.go.html#line-912">#L912</a>: 		if !bytes.<b>Equal</b>(hs.serverHello.secureRenegotiation, expectedSecureRenegotiation[:]) {
+		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-78">handshake_client_tls13.go#L78</a>: 	if bytes.<b>Equal</b>(hs.serverHello.random, helloRetryRequestRandom) {
+		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-193" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/crypto/tls/handshake_client_tls13.go.html#line-193">#L193</a>: 	if !bytes.<b>Equal</b>(hs.hello.sessionId, hs.serverHello.sessionId) {
+		<a href="../src/crypto/tls/handshake_client_tls13.go.html#line-414" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/crypto/tls/handshake_client_tls13.go.html#line-414">#L414</a>: 	if bytes.<b>Equal</b>(hs.serverHello.random, helloRetryRequestRandom) {
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-698">handshake_server_tls13.go#L698</a>: 		!bytes.<b>Equal</b>(ch.random, ch1.random) ||
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-699" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-699">#L699</a>: 		!bytes.<b>Equal</b>(ch.sessionId, ch1.sessionId) ||
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-700" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-700">#L700</a>: 		!bytes.<b>Equal</b>(ch.compressionMethods, ch1.compressionMethods) ||
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-703" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-703">#L703</a>: 		!bytes.<b>Equal</b>(ch.supportedPoints, ch1.supportedPoints) ||
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-705" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-705">#L705</a>: 		!bytes.<b>Equal</b>(ch.sessionTicket, ch1.sessionTicket) ||
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-707" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-707">#L707</a>: 		!bytes.<b>Equal</b>(ch.secureRenegotiation, ch1.secureRenegotiation) ||
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-709" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-709">#L709</a>: 		!bytes.<b>Equal</b>(ch.cookie, ch1.cookie) ||
+		<a href="../src/crypto/tls/handshake_server_tls13.go.html#line-710" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/crypto/tls/handshake_server_tls13.go.html#line-710">#L710</a>: 		!bytes.<b>Equal</b>(ch.pskModes, ch1.pskModes)
 
 	<a href="../pkg/crypto/x509.html">crypto/x509</a>
-		<a href="../src/crypto/x509/cert_pool.go.html#line-138">cert_pool.go#L138</a>: 		kidMatch := bytes.<b>Equal</b>(candidate.SubjectKeyId, cert.AuthorityKeyId)
-		<a href="../src/crypto/x509/parser.go.html#line-225">parser.go#L225</a>: 		if !bytes.<b>Equal</b>(params.FullBytes, asn1.NullBytes) {
-		<a href="../src/crypto/x509/parser.go.html#line-861" class="path-duplicate">parser.go</a><a href="../src/crypto/x509/parser.go.html#line-861">#L861</a>: 	if !bytes.<b>Equal</b>(outerSigAISeq, sigAISeq) {
-		<a href="../src/crypto/x509/parser.go.html#line-1064" class="path-duplicate">parser.go</a><a href="../src/crypto/x509/parser.go.html#line-1064">#L1064</a>: 	if !bytes.<b>Equal</b>(outerSigAISeq, sigAISeq) {
-		<a href="../src/crypto/x509/verify.go.html#line-565">verify.go#L565</a>: 		if !bytes.<b>Equal</b>(child.RawIssuer, c.RawSubject) {
-		<a href="../src/crypto/x509/verify.go.html#line-864" class="path-duplicate">verify.go</a><a href="../src/crypto/x509/verify.go.html#line-864">#L864</a>: 		if !bytes.<b>Equal</b>(candidate.RawSubject, cert.RawSubject) {
-		<a href="../src/crypto/x509/verify.go.html#line-882" class="path-duplicate">verify.go</a><a href="../src/crypto/x509/verify.go.html#line-882">#L882</a>: 		if bytes.<b>Equal</b>(candidateSAN.Value, certSAN.Value) {
-		<a href="../src/crypto/x509/x509.go.html#line-442">x509.go#L442</a>: 	if (len(params.Hash.Parameters.FullBytes) != 0 &amp;&amp; !bytes.<b>Equal</b>(params.Hash.Parameters.FullBytes, asn1.NullBytes)) ||
-		<a href="../src/crypto/x509/x509.go.html#line-445" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-445">#L445</a>: 		(len(mgf1HashFunc.Parameters.FullBytes) != 0 &amp;&amp; !bytes.<b>Equal</b>(mgf1HashFunc.Parameters.FullBytes, asn1.NullBytes)) ||
-		<a href="../src/crypto/x509/x509.go.html#line-811" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-811">#L811</a>: 	return bytes.<b>Equal</b>(c.Raw, other.Raw)
-		<a href="../src/crypto/x509/x509.go.html#line-1585" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1585">#L1585</a>: 	if !bytes.<b>Equal</b>(asn1Issuer, asn1Subject) &amp;&amp; len(parent.SubjectKeyId) &gt; 0 {
-		<a href="../src/crypto/x509/x509.go.html#line-1609" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1609">#L1609</a>: 	extensions, err := buildCertExtensions(template, bytes.<b>Equal</b>(asn1Subject, emptyASN1Subject), authorityKeyId, subjectKeyId)
+		<a href="../src/crypto/x509/cert_pool.go.html#line-149">cert_pool.go#L149</a>: 		kidMatch := bytes.<b>Equal</b>(candidate.SubjectKeyId, cert.AuthorityKeyId)
+		<a href="../src/crypto/x509/oid.go.html#line-212">oid.go#L212</a>: 	return bytes.<b>Equal</b>(oid.der, other.der)
+		<a href="../src/crypto/x509/parser.go.html#line-257">parser.go#L257</a>: 		if !bytes.<b>Equal</b>(params.FullBytes, asn1.NullBytes) {
+		<a href="../src/crypto/x509/parser.go.html#line-949" class="path-duplicate">parser.go</a><a href="../src/crypto/x509/parser.go.html#line-949">#L949</a>: 	if !bytes.<b>Equal</b>(outerSigAISeq, sigAISeq) {
+		<a href="../src/crypto/x509/parser.go.html#line-1156" class="path-duplicate">parser.go</a><a href="../src/crypto/x509/parser.go.html#line-1156">#L1156</a>: 	if !bytes.<b>Equal</b>(outerSigAISeq, sigAISeq) {
+		<a href="../src/crypto/x509/verify.go.html#line-450">verify.go#L450</a>: 		if !bytes.<b>Equal</b>(child.RawIssuer, c.RawSubject) {
+		<a href="../src/crypto/x509/verify.go.html#line-689" class="path-duplicate">verify.go</a><a href="../src/crypto/x509/verify.go.html#line-689">#L689</a>: 		if !bytes.<b>Equal</b>(candidate.RawSubject, cert.RawSubject) {
+		<a href="../src/crypto/x509/verify.go.html#line-695" class="path-duplicate">verify.go</a><a href="../src/crypto/x509/verify.go.html#line-695">#L695</a>: 		if !bytes.<b>Equal</b>(candidate.RawSubjectPublicKeyInfo, cert.RawSubjectPublicKeyInfo) {
+		<a href="../src/crypto/x509/verify.go.html#line-710" class="path-duplicate">verify.go</a><a href="../src/crypto/x509/verify.go.html#line-710">#L710</a>: 		if bytes.<b>Equal</b>(candidateSAN.Value, certSAN.Value) {
+		<a href="../src/crypto/x509/verify.go.html#line-1220" class="path-duplicate">verify.go</a><a href="../src/crypto/x509/verify.go.html#line-1220">#L1220</a>: 		isSelfSigned := bytes.<b>Equal</b>(cert.RawIssuer, cert.RawSubject)
+		<a href="../src/crypto/x509/x509.go.html#line-452">x509.go#L452</a>: 	if (len(params.Hash.Parameters.FullBytes) != 0 &amp;&amp; !bytes.<b>Equal</b>(params.Hash.Parameters.FullBytes, asn1.NullBytes)) ||
+		<a href="../src/crypto/x509/x509.go.html#line-455" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-455">#L455</a>: 		(len(mgf1HashFunc.Parameters.FullBytes) != 0 &amp;&amp; !bytes.<b>Equal</b>(mgf1HashFunc.Parameters.FullBytes, asn1.NullBytes)) ||
+		<a href="../src/crypto/x509/x509.go.html#line-917" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-917">#L917</a>: 	return bytes.<b>Equal</b>(c.Raw, other.Raw)
+		<a href="../src/crypto/x509/x509.go.html#line-1743" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1743">#L1743</a>: 	if !bytes.<b>Equal</b>(asn1Issuer, asn1Subject) &amp;&amp; len(parent.SubjectKeyId) &gt; 0 {
+		<a href="../src/crypto/x509/x509.go.html#line-1777" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1777">#L1777</a>: 	extensions, err := buildCertExtensions(template, bytes.<b>Equal</b>(asn1Subject, emptyASN1Subject), authorityKeyId, subjectKeyId)
+
+	<a href="../pkg/github.com/andybalholm/brotli/matchfinder.html">github.com/andybalholm/brotli/matchfinder</a>
+		<a href="../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-247">m4.go#L247</a>: 						if bytes.<b>Equal</b>(src[matches[2].Start:matches[2].End], src[pos:pos+matches[2].End-matches[2].Start]) {
 
 	<a href="../pkg/github.com/go-faster/jx.html">github.com/go-faster/jx</a>
 		<a href="../src/github.com/go-faster/jx/num.go.html#line-120">num.go#L120</a>: 	return bytes.<b>Equal</b>(n, v)
 
-	<a href="../pkg/github.com/gotd/td/internal/crypto.html">github.com/gotd/td/internal/crypto</a>
-		<a href="../src/github.com/gotd/td/internal/crypto/data_with_hash.go.html#line-26">data_with_hash.go#L26</a>: 		if bytes.<b>Equal</b>(h[:], v) {
-		<a href="../src/github.com/gotd/td/internal/crypto/rsa_hashed.go.html#line-54">rsa_hashed.go#L54</a>: 		if bytes.<b>Equal</b>(h[:], hash) {
-		<a href="../src/github.com/gotd/td/internal/crypto/rsa_pad.go.html#line-157">rsa_pad.go#L157</a>: 		if !bytes.<b>Equal</b>(hash, h.Sum(nil)) {
+	<a href="../pkg/github.com/gotd/td/crypto.html">github.com/gotd/td/crypto</a>
+		<a href="../src/github.com/gotd/td/crypto/data_with_hash.go.html#line-26">data_with_hash.go#L26</a>: 		if bytes.<b>Equal</b>(h[:], v) {
+		<a href="../src/github.com/gotd/td/crypto/rsa_hashed.go.html#line-54">rsa_hashed.go#L54</a>: 		if bytes.<b>Equal</b>(h[:], hash) {
+		<a href="../src/github.com/gotd/td/crypto/rsa_pad.go.html#line-155">rsa_pad.go#L155</a>: 		if !bytes.<b>Equal</b>(hash, h.Sum(nil)) {
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproxy/faketls.html">github.com/gotd/td/internal/mtproxy/faketls</a>
-		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/record.go.html#line-30">record.go#L30</a>: 	case bytes.<b>Equal</b>(versionRaw, Version13Bytes[:]):
-		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/record.go.html#line-32" class="path-duplicate">record.go</a><a href="../src/github.com/gotd/td/internal/mtproxy/faketls/record.go.html#line-32">#L32</a>: 	case bytes.<b>Equal</b>(versionRaw, Version12Bytes[:]):
-		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/record.go.html#line-34" class="path-duplicate">record.go</a><a href="../src/github.com/gotd/td/internal/mtproxy/faketls/record.go.html#line-34">#L34</a>: 	case bytes.<b>Equal</b>(versionRaw, Version11Bytes[:]):
-		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/record.go.html#line-36" class="path-duplicate">record.go</a><a href="../src/github.com/gotd/td/internal/mtproxy/faketls/record.go.html#line-36">#L36</a>: 	case bytes.<b>Equal</b>(versionRaw, Version10Bytes[:]):
-		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/server_hello.go.html#line-60">server_hello.go#L60</a>: 	if !bytes.<b>Equal</b>(mac.Sum(nil), originalDigest[:]) {
+	<a href="../pkg/github.com/gotd/td/mtproxy/faketls.html">github.com/gotd/td/mtproxy/faketls</a>
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/record.go.html#line-33">record.go#L33</a>: 	case bytes.<b>Equal</b>(versionRaw, Version13Bytes[:]):
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/record.go.html#line-35" class="path-duplicate">record.go</a><a href="../src/github.com/gotd/td/mtproxy/faketls/record.go.html#line-35">#L35</a>: 	case bytes.<b>Equal</b>(versionRaw, Version12Bytes[:]):
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/record.go.html#line-37" class="path-duplicate">record.go</a><a href="../src/github.com/gotd/td/mtproxy/faketls/record.go.html#line-37">#L37</a>: 	case bytes.<b>Equal</b>(versionRaw, Version11Bytes[:]):
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/record.go.html#line-39" class="path-duplicate">record.go</a><a href="../src/github.com/gotd/td/mtproxy/faketls/record.go.html#line-39">#L39</a>: 	case bytes.<b>Equal</b>(versionRaw, Version10Bytes[:]):
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/server_hello.go.html#line-83">server_hello.go#L83</a>: 	if !bytes.<b>Equal</b>(mac.Sum(nil), originalDigest[:]) {
 
 	<a href="../pkg/github.com/gotd/td/session/tdesktop.html">github.com/gotd/td/session/tdesktop</a>
-		<a href="../src/github.com/gotd/td/session/tdesktop/file.go.html#line-94">file.go#L94</a>: 	if !bytes.<b>Equal</b>(computedHash[:], hash) {
-		<a href="../src/github.com/gotd/td/session/tdesktop/local_key.go.html#line-65">local_key.go#L65</a>: 	if h := sha1.Sum(decrypted); !bytes.<b>Equal</b>(h[:16], msgKey[:]) /* #nosec G401 */ {
+		<a href="../src/github.com/gotd/td/session/tdesktop/file.go.html#line-101">file.go#L101</a>: 	if !bytes.<b>Equal</b>(computedHash[:], hash) {
+		<a href="../src/github.com/gotd/td/session/tdesktop/local_key.go.html#line-66">local_key.go#L66</a>: 	if h := sha1.Sum(decrypted); !bytes.<b>Equal</b>(h[:16], msgKey[:]) /* #nosec G401 */ {
 
 	<a href="../pkg/github.com/gotd/td/telegram/dcs.html">github.com/gotd/td/telegram/dcs</a>
 		<a href="../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-73">dns.go#L73</a>: 	if !bytes.<b>Equal</b>(decryptedHash[:16], hash) {
 
-	<a href="../pkg/go.opentelemetry.io/otel/trace.html">go.opentelemetry.io/otel/trace</a>
-		<a href="../src/go.opentelemetry.io/otel/trace/trace.go.html#line-60">trace.go#L60</a>: 	return !bytes.<b>Equal</b>(t[:], nilTraceID[:])
-		<a href="../src/go.opentelemetry.io/otel/trace/trace.go.html#line-85" class="path-duplicate">trace.go</a><a href="../src/go.opentelemetry.io/otel/trace/trace.go.html#line-85">#L85</a>: 	return !bytes.<b>Equal</b>(s[:], nilSpanID[:])
+	<a href="../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-204">cdn_verify.go#L204</a>: 		if !bytes.<b>Equal</b>(crypto.SHA256(full.data), hash.Hash) {
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-256" class="path-duplicate">cdn_verify.go</a><a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-256">#L256</a>: 			if !bytes.<b>Equal</b>(crypto.SHA256(data[from:to]), hash.Hash) {
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-268" class="path-duplicate">cdn_verify.go</a><a href="../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-268">#L268</a>: 			if !bytes.<b>Equal</b>(crypto.SHA256(data[from:]), hash.Hash) {
+		<a href="../src/github.com/gotd/td/telegram/downloader/verifier.go.html#line-123">verifier.go#L123</a>: 	return bytes.<b>Equal</b>(crypto.SHA256(data), hash.Hash)
 
-	<a href="../pkg/go.uber.org/zap/zapcore.html">go.uber.org/zap/zapcore</a>
-		<a href="../src/go.uber.org/zap/zapcore/field.go.html#line-200">field.go#L200</a>: 		return bytes.<b>Equal</b>(f.Interface.([]byte), other.Interface.([]byte))
+	<a href="../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>
+		<a href="../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-247">enc_best.go#L247</a>: 				if !bytes.<b>Equal</b>(src[s:s+l], src[offset:offset+l]) {
+		<a href="../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-356" class="path-duplicate">enc_best.go</a><a href="../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-356">#L356</a>: 			if !bytes.<b>Equal</b>(src[best.s:best.s+best.length], src[best.offset:best.offset+best.length]) {
+
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-1541">common.go#L1541</a>: 			if bytes.<b>Equal</b>(x509Cert.RawIssuer, ca) {
+		<a href="../src/github.com/refraction-networking/utls/ech.go.html#line-389">ech.go#L389</a>: 	if !bytes.<b>Equal</b>(inner.encryptedClientHello, []byte{uint8(innerECHExt)}) {
+		<a href="../src/github.com/refraction-networking/utls/handshake_client.go.html#line-408">handshake_client.go#L408</a>: 	echInner := bytes.<b>Equal</b>(hello.encryptedClientHello, []byte{1})
+		<a href="../src/github.com/refraction-networking/utls/handshake_client.go.html#line-739" class="path-duplicate">handshake_client.go</a><a href="../src/github.com/refraction-networking/utls/handshake_client.go.html#line-739">#L739</a>: 		if !bytes.<b>Equal</b>(c.peerCertificates[0].Raw, certMsg.certificates[0]) {
+		<a href="../src/github.com/refraction-networking/utls/handshake_client.go.html#line-901" class="path-duplicate">handshake_client.go</a><a href="../src/github.com/refraction-networking/utls/handshake_client.go.html#line-901">#L901</a>: 		bytes.<b>Equal</b>(hs.serverHello.sessionId, hs.hello.sessionId)
+		<a href="../src/github.com/refraction-networking/utls/handshake_client.go.html#line-928" class="path-duplicate">handshake_client.go</a><a href="../src/github.com/refraction-networking/utls/handshake_client.go.html#line-928">#L928</a>: 		if !bytes.<b>Equal</b>(hs.serverHello.secureRenegotiation, expectedSecureRenegotiation[:]) {
+		<a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-92">handshake_client_tls13.go#L92</a>: 	if bytes.<b>Equal</b>(hs.serverHello.random, helloRetryRequestRandom) {
+		<a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-211" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-211">#L211</a>: 	if !bytes.<b>Equal</b>(hs.hello.sessionId, hs.serverHello.sessionId) {
+		<a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-509" class="path-duplicate">handshake_client_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-509">#L509</a>: 	if bytes.<b>Equal</b>(hs.serverHello.random, helloRetryRequestRandom) {
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-713">handshake_server_tls13.go#L713</a>: 		!bytes.<b>Equal</b>(ch.random, ch1.random) ||
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-714" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-714">#L714</a>: 		!bytes.<b>Equal</b>(ch.sessionId, ch1.sessionId) ||
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-715" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-715">#L715</a>: 		!bytes.<b>Equal</b>(ch.compressionMethods, ch1.compressionMethods) ||
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-718" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-718">#L718</a>: 		!bytes.<b>Equal</b>(ch.supportedPoints, ch1.supportedPoints) ||
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-720" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-720">#L720</a>: 		!bytes.<b>Equal</b>(ch.sessionTicket, ch1.sessionTicket) ||
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-722" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-722">#L722</a>: 		!bytes.<b>Equal</b>(ch.secureRenegotiation, ch1.secureRenegotiation) ||
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-724" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-724">#L724</a>: 		!bytes.<b>Equal</b>(ch.cookie, ch1.cookie) ||
+		<a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-725" class="path-duplicate">handshake_server_tls13.go</a><a href="../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-725">#L725</a>: 		!bytes.<b>Equal</b>(ch.pskModes, ch1.pskModes)
+		<a href="../src/github.com/refraction-networking/utls/tls.go.html#line-343">tls.go#L343</a>: 		if !bytes.<b>Equal</b>(priv.Public().(ed25519.PublicKey), pub) {
+
+	<a href="../pkg/go.opentelemetry.io/otel/trace/internal/telemetry.html">go.opentelemetry.io/otel/trace/internal/telemetry</a>
+		<a href="../src/go.opentelemetry.io/otel/trace/internal/telemetry/value.go.html#line-284">value.go#L284</a>: 		return bytes.<b>Equal</b>(v.asBytes(), w.asBytes())
 
 	<a href="../pkg/mime/multipart.html">mime/multipart</a>
 		<a href="../src/mime/multipart/multipart.go.html#line-435">multipart.go#L435</a>: 		if bytes.<b>Equal</b>(line, r.nl) {
@@ -97,16 +176,17 @@
 		<a href="../src/mime/multipart/multipart.go.html#line-476" class="path-duplicate">multipart.go</a><a href="../src/mime/multipart/multipart.go.html#line-476">#L476</a>: 	return bytes.<b>Equal</b>(rest, r.nl)
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/h2_bundle.go.html#line-4882">h2_bundle.go#L4882</a>: 		} else if !bytes.<b>Equal</b>(buf, http2clientPreface) {
+		<a href="../src/net/http/h2_bundle.go.html#line-5122">h2_bundle.go#L5122</a>: 		} else if !bytes.<b>Equal</b>(buf, http2clientPreface) {
+		<a href="../src/net/http/server.go.html#line-2167">server.go#L2167</a>: 		return err == nil &amp;&amp; bytes.<b>Equal</b>(got, preface)
 		<a href="../src/net/http/sniff.go.html#line-275">sniff.go#L275</a>: 	if !bytes.<b>Equal</b>(data[4:8], mp4ftype) {
 		<a href="../src/net/http/sniff.go.html#line-283" class="path-duplicate">sniff.go</a><a href="../src/net/http/sniff.go.html#line-283">#L283</a>: 		if bytes.<b>Equal</b>(data[st:st+3], mp4) {
-		<a href="../src/net/http/transfer.go.html#line-908">transfer.go#L908</a>: 	if bytes.<b>Equal</b>(buf, singleCRLF) {
+		<a href="../src/net/http/transfer.go.html#line-914">transfer.go#L914</a>: 	if bytes.<b>Equal</b>(buf, singleCRLF) {
 
 	<a href="../pkg/vendor/golang.org/x/text/transform.html">vendor/golang.org/x/text/transform</a>
 		<a href="../src/vendor/golang.org/x/text/transform/transform.go.html#line-607">transform.go#L607</a>: 		if !bytes.<b>Equal</b>(dst[:nDst], src[:nSrc]) {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

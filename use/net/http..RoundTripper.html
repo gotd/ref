@@ -5,37 +5,43 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.RoundTripper</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/client.go.html#line-117">RoundTripper</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/client.go.html#line-116">RoundTripper</a></b></span>
 
-<span class="title">19 uses</span>
+<span class="title">25 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/client.go.html#line-62">client.go#L62</a>: 	Transport <b>RoundTripper</b>
-		<a href="../../src/net/http/client.go.html#line-117" class="path-duplicate">client.go</a><a href="../../src/net/http/client.go.html#line-117">#L117</a>: type <b>RoundTripper</b> interface {
-		<a href="../../src/net/http/client.go.html#line-200" class="path-duplicate">client.go</a><a href="../../src/net/http/client.go.html#line-200">#L200</a>: func (c *Client) transport() <b>RoundTripper</b> {
-		<a href="../../src/net/http/client.go.html#line-212" class="path-duplicate">client.go</a><a href="../../src/net/http/client.go.html#line-212">#L212</a>: func send(ireq *Request, rt <b>RoundTripper</b>, deadline time.Time) (resp *Response, didTimeout func() bool, err error) {
-		<a href="../../src/net/http/client.go.html#line-321" class="path-duplicate">client.go</a><a href="../../src/net/http/client.go.html#line-321">#L321</a>: func knownRoundTripperImpl(rt <b>RoundTripper</b>, req *Request) bool {
-		<a href="../../src/net/http/client.go.html#line-352" class="path-duplicate">client.go</a><a href="../../src/net/http/client.go.html#line-352">#L352</a>: func setRequestCancel(req *Request, rt <b>RoundTripper</b>, deadline time.Time) (stopTimer func(), didTimeout func() bool) {
-		<a href="../../src/net/http/filetransport.go.html#line-30">filetransport.go#L30</a>: func NewFileTransport(fs FileSystem) <b>RoundTripper</b> {
-		<a href="../../src/net/http/h2_bundle.go.html#line-7336">h2_bundle.go#L7336</a>: 	upgradeFn := func(authority string, c *tls.Conn) <b>RoundTripper</b> {
-		<a href="../../src/net/http/h2_bundle.go.html#line-7351" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7351">#L7351</a>: 		t1.TLSNextProto = map[string]func(string, *tls.Conn) <b>RoundTripper</b>{
-		<a href="../../src/net/http/transport.go.html#line-43">transport.go#L43</a>: var DefaultTransport <b>RoundTripper</b> = &amp;Transport{
-		<a href="../../src/net/http/transport.go.html#line-244" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-244">#L244</a>: 	TLSNextProto map[string]func(authority string, c *tls.Conn) <b>RoundTripper</b>
-		<a href="../../src/net/http/transport.go.html#line-342" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-342">#L342</a>: 		npm := map[string]func(authority string, c *tls.Conn) <b>RoundTripper</b>{}
-		<a href="../../src/net/http/transport.go.html#line-381" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-381">#L381</a>: 	altProto, _ := t.altProto.Load().(map[string]<b>RoundTripper</b>)
-		<a href="../../src/net/http/transport.go.html#line-504" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-504">#L504</a>: func (t *Transport) alternateRoundTripper(req *Request) <b>RoundTripper</b> {
-		<a href="../../src/net/http/transport.go.html#line-508" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-508">#L508</a>: 	altProto, _ := t.altProto.Load().(map[string]<b>RoundTripper</b>)
-		<a href="../../src/net/http/transport.go.html#line-760" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-760">#L760</a>: func (t *Transport) RegisterProtocol(scheme string, rt <b>RoundTripper</b>) {
-		<a href="../../src/net/http/transport.go.html#line-763" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-763">#L763</a>: 	oldMap, _ := t.altProto.Load().(map[string]<b>RoundTripper</b>)
-		<a href="../../src/net/http/transport.go.html#line-767" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-767">#L767</a>: 	newMap := make(map[string]<b>RoundTripper</b>)
-		<a href="../../src/net/http/transport.go.html#line-1901" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-1901">#L1901</a>: 	alt <b>RoundTripper</b>
+		<a href="../../src/net/http/client.go.html#line-61">client.go#L61</a>: 	Transport <b>RoundTripper</b>
+		<a href="../../src/net/http/client.go.html#line-116" class="path-duplicate">client.go</a><a href="../../src/net/http/client.go.html#line-116">#L116</a>: type <b>RoundTripper</b> interface {
+		<a href="../../src/net/http/client.go.html#line-204" class="path-duplicate">client.go</a><a href="../../src/net/http/client.go.html#line-204">#L204</a>: func (c *Client) transport() <b>RoundTripper</b> {
+		<a href="../../src/net/http/client.go.html#line-216" class="path-duplicate">client.go</a><a href="../../src/net/http/client.go.html#line-216">#L216</a>: func send(ireq *Request, rt <b>RoundTripper</b>, deadline time.Time) (resp *Response, didTimeout func() bool, err error) {
+		<a href="../../src/net/http/client.go.html#line-325" class="path-duplicate">client.go</a><a href="../../src/net/http/client.go.html#line-325">#L325</a>: func knownRoundTripperImpl(rt <b>RoundTripper</b>, req *Request) bool {
+		<a href="../../src/net/http/client.go.html#line-356" class="path-duplicate">client.go</a><a href="../../src/net/http/client.go.html#line-356">#L356</a>: func setRequestCancel(req *Request, rt <b>RoundTripper</b>, deadline time.Time) (stopTimer func(), didTimeout func() bool) {
+		<a href="../../src/net/http/clientconn.go.html#line-76">clientconn.go#L76</a>: 	NewClientConn(nc net.Conn, internalStateHook func()) (<b>RoundTripper</b>, error)
+		<a href="../../src/net/http/filetransport.go.html#line-31">filetransport.go#L31</a>: func NewFileTransport(fs FileSystem) <b>RoundTripper</b> {
+		<a href="../../src/net/http/filetransport.go.html#line-49" class="path-duplicate">filetransport.go</a><a href="../../src/net/http/filetransport.go.html#line-49">#L49</a>: func NewFileTransportFS(fsys fs.FS) <b>RoundTripper</b> {
+		<a href="../../src/net/http/h2_bundle.go.html#line-7545">h2_bundle.go#L7545</a>: 	upgradeFn := func(scheme, authority string, c net.Conn) <b>RoundTripper</b> {
+		<a href="../../src/net/http/h2_bundle.go.html#line-7563" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7563">#L7563</a>: 		t1.TLSNextProto = make(map[string]func(string, *tls.Conn) <b>RoundTripper</b>)
+		<a href="../../src/net/http/h2_bundle.go.html#line-7565" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7565">#L7565</a>: 	t1.TLSNextProto[http2NextProtoTLS] = func(authority string, c *tls.Conn) <b>RoundTripper</b> {
+		<a href="../../src/net/http/h2_bundle.go.html#line-7569" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7569">#L7569</a>: 	t1.TLSNextProto[http2nextProtoUnencryptedHTTP2] = func(authority string, c *tls.Conn) <b>RoundTripper</b> {
+		<a href="../../src/net/http/h2_bundle.go.html#line-10567" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10567">#L10567</a>: func (rt http2noDialH2RoundTripper) NewClientConn(conn net.Conn, internalStateHook func()) (<b>RoundTripper</b>, error) {
+		<a href="../../src/net/http/transport.go.html#line-46">transport.go#L46</a>: var DefaultTransport <b>RoundTripper</b> = &amp;Transport{
+		<a href="../../src/net/http/transport.go.html#line-255" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-255">#L255</a>: 	TLSNextProto map[string]func(authority string, c *tls.Conn) <b>RoundTripper</b>
+		<a href="../../src/net/http/transport.go.html#line-376" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-376">#L376</a>: 			npm = make(map[string]func(authority string, c *tls.Conn) <b>RoundTripper</b>)
+		<a href="../../src/net/http/transport.go.html#line-413" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-413">#L413</a>: 	altProto, _ := t.altProto.Load().(map[string]<b>RoundTripper</b>)
+		<a href="../../src/net/http/transport.go.html#line-565" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-565">#L565</a>: func (t *Transport) alternateRoundTripper(req *Request) <b>RoundTripper</b> {
+		<a href="../../src/net/http/transport.go.html#line-569" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-569">#L569</a>: 	altProto, _ := t.altProto.Load().(map[string]<b>RoundTripper</b>)
+		<a href="../../src/net/http/transport.go.html#line-878" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-878">#L878</a>: func (t *Transport) RegisterProtocol(scheme string, rt <b>RoundTripper</b>) {
+		<a href="../../src/net/http/transport.go.html#line-881" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-881">#L881</a>: 	oldMap, _ := t.altProto.Load().(map[string]<b>RoundTripper</b>)
+		<a href="../../src/net/http/transport.go.html#line-887" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-887">#L887</a>: 		newMap = make(map[string]<b>RoundTripper</b>)
+		<a href="../../src/net/http/transport.go.html#line-1954" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-1954">#L1954</a>: 		altProto, _ := t.altProto.Load().(map[string]<b>RoundTripper</b>)
+		<a href="../../src/net/http/transport.go.html#line-2119" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2119">#L2119</a>: 	alt <b>RoundTripper</b>
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

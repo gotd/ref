@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: hash.go in package go.opentelemetry.io/otel/attribute</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	hash.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html">go.opentelemetry.io/otel/attribute</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright The OpenTelemetry Authors</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></code></span>
+<span class="codeline" id="line-3"><code></code></span>
+<span class="codeline" id="line-4"><code><span class="keyword">package</span> attribute <span class="comment">// import "go.opentelemetry.io/otel/attribute"</span></code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-7"><code>	<label for="i0"><span class="lit-string i0">"fmt"</span></label></code></span>
+<span class="codeline" id="line-8"><code>	<label for="i1"><span class="lit-string i1">"reflect"</span></label></code></span>
+<span class="codeline" id="line-9"><code></code></span>
+<span class="codeline" id="line-10"><code>	<label for="i2"><span class="lit-string i2">"go.opentelemetry.io/otel/attribute/internal/xxhash"</span></label></code></span>
+<span class="codeline" id="line-11"><code>)</code></span>
+<span class="codeline" id="line-12"><code></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">// Type identifiers. These identifiers are hashed before the value of the</span></code></span>
+<span class="codeline" id="line-14"><code><span class="comment">// corresponding type. This is done to distinguish values that are hashed with</span></code></span>
+<span class="codeline" id="line-15"><code><span class="comment">// the same value representation (e.g. `int64(1)` and `true`, []int64{0} and</span></code></span>
+<span class="codeline" id="line-16"><code><span class="comment">// int64(0)).</span></code></span>
+<span class="codeline" id="line-17"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-18"><code><span class="comment">// These are all 8 byte length strings converted to a uint64 representation. A</span></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">// uint64 is used instead of the string directly as an optimization, it avoids</span></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">// the for loop in [xxhash] which adds minor overhead.</span></code></span>
+<span class="codeline" id="line-21"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-22"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-boolID" class="ident">boolID</a>         <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">7953749933313450591</span> <span class="comment">// "_boolean" (little endian)</span></code></span>
+<span class="codeline" id="line-23"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-int64ID" class="ident">int64ID</a>        <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">7592915492740740150</span> <span class="comment">// "64_bit_i" (little endian)</span></code></span>
+<span class="codeline" id="line-24"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-float64ID" class="ident">float64ID</a>      <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">7376742710626956342</span> <span class="comment">// "64_bit_f" (little endian)</span></code></span>
+<span class="codeline" id="line-25"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-stringID" class="ident">stringID</a>       <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">6874584755375207263</span> <span class="comment">// "_string_" (little endian)</span></code></span>
+<span class="codeline" id="line-26"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-boolSliceID" class="ident">boolSliceID</a>    <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">6875993255270243167</span> <span class="comment">// "_[]bool_" (little endian)</span></code></span>
+<span class="codeline" id="line-27"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-int64SliceID" class="ident">int64SliceID</a>   <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">3762322556277578591</span> <span class="comment">// "_[]int64" (little endian)</span></code></span>
+<span class="codeline" id="line-28"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-float64SliceID" class="ident">float64SliceID</a> <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">7308324551835016539</span> <span class="comment">// "[]double" (little endian)</span></code></span>
+<span class="codeline" id="line-29"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-stringSliceID" class="ident">stringSliceID</a>  <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">7453010373645655387</span> <span class="comment">// "[]string" (little endian)</span></code></span>
+<span class="codeline" id="line-30"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-byteSliceID" class="ident">byteSliceID</a>    <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">6874028470941080415</span> <span class="comment">// "_[]byte_" (little endian)</span></code></span>
+<span class="codeline" id="line-31"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-sliceID" class="ident">sliceID</a>        <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">7883494272577650031</span> <span class="comment">// "__slice_" (little endian)</span></code></span>
+<span class="codeline" id="line-32"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-emptyID" class="ident">emptyID</a>        <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">7305809155345288421</span> <span class="comment">// "__empty_" (little endian)</span></code></span>
+<span class="codeline" id="line-33"><code>)</code></span>
+<span class="codeline" id="line-34"><code></code></span>
+<span class="codeline" id="line-35"><code><span class="comment">// hashKVs returns a new xxHash64 hash of kvs.</span></code></span>
+<span class="codeline" id="line-36"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-hashKVs" class="ident">hashKVs</a></label>(<label for="r1" class="ident">kvs</label> []<a href="kv.go.html#line-11" class="ident">KeyValue</a>) <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> {</code></span>
+<span class="codeline" id="line-37"><code>	<label for="r2" class="ident">h</label> := <a href="../../../../pkg/go.opentelemetry.io/otel/attribute/internal/xxhash.html" class="ident i2">xxhash</a>.<a href="internal/xxhash/xxhash.go.html#line-20" class="ident">New</a>()</code></span>
+<span class="codeline" id="line-38"><code>	<span class="keyword">for</span> <label for="r3" class="ident">_</label>, <label for="r4" class="ident">kv</label> := <span class="keyword">range</span> <label for="r1" class="ident">kvs</label> {</code></span>
+<span class="codeline" id="line-39"><code>		<label for="r2" class="ident">h</label> = <a href="#line-45" class="ident">hashKV</a>(<label for="r2" class="ident">h</label>, <label for="r4" class="ident">kv</label>)</code></span>
+<span class="codeline" id="line-40"><code>	}</code></span>
+<span class="codeline" id="line-41"><code>	<span class="keyword">return</span> <label for="r2" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-62" class="ident">Sum64</a>()</code></span>
+<span class="codeline" id="line-42"><code>}</code></span>
+<span class="codeline" id="line-43"><code></code></span>
+<span class="codeline" id="line-44"><code><span class="comment">// hashKV returns the xxHash64 hash of kv with h as the base.</span></code></span>
+<span class="codeline" id="line-45"><code><span class="keyword">func</span> <label for="r5" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-hashKV" class="ident">hashKV</a></label>(<label for="r6" class="ident">h</label> <a href="../../../../pkg/go.opentelemetry.io/otel/attribute/internal/xxhash.html" class="ident i2">xxhash</a>.<a href="internal/xxhash/xxhash.go.html#line-15" class="ident">Hash</a>, <label for="r7" class="ident">kv</label> <a href="kv.go.html#line-11" class="ident">KeyValue</a>) <a href="../../../../pkg/go.opentelemetry.io/otel/attribute/internal/xxhash.html" class="ident i2">xxhash</a>.<a href="internal/xxhash/xxhash.go.html#line-15" class="ident">Hash</a> {</code></span>
+<span class="codeline" id="line-46"><code>	<label for="r6" class="ident">h</label> = <label for="r6" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-51" class="ident">String</a>(<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>(<label for="r7" class="ident">kv</label>.<a href="kv.go.html#line-12" class="ident">Key</a>))</code></span>
+<span class="codeline" id="line-47"><code>	<span class="keyword">return</span> <a href="#line-50" class="ident">hashValue</a>(<label for="r6" class="ident">h</label>, <label for="r7" class="ident">kv</label>.<a href="kv.go.html#line-13" class="ident">Value</a>)</code></span>
+<span class="codeline" id="line-48"><code>}</code></span>
+<span class="codeline" id="line-49"><code></code></span>
+<span class="codeline" id="line-50"><code><span class="keyword">func</span> <label for="r8" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-hashValue" class="ident">hashValue</a></label>(<label for="r9" class="ident">h</label> <a href="../../../../pkg/go.opentelemetry.io/otel/attribute/internal/xxhash.html" class="ident i2">xxhash</a>.<a href="internal/xxhash/xxhash.go.html#line-15" class="ident">Hash</a>, <label for="r10" class="ident">v</label> <a href="value.go.html#line-27" class="ident">Value</a>) <a href="../../../../pkg/go.opentelemetry.io/otel/attribute/internal/xxhash.html" class="ident i2">xxhash</a>.<a href="internal/xxhash/xxhash.go.html#line-15" class="ident">Hash</a> {</code></span>
+<span class="codeline" id="line-51"><code>	<span class="keyword">switch</span> <label for="r10" class="ident">v</label>.<a href="value.go.html#line-160" class="ident">Type</a>() {</code></span>
+<span class="codeline" id="line-52"><code>	<span class="keyword">case</span> <a href="value.go.html#line-38" class="ident">BOOL</a>:</code></span>
+<span class="codeline" id="line-53"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<a href="#line-22" class="ident">boolID</a>)</code></span>
+<span class="codeline" id="line-54"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<label for="r10" class="ident">v</label>.<a href="value.go.html#line-29" class="ident">numeric</a>)</code></span>
+<span class="codeline" id="line-55"><code>	<span class="keyword">case</span> <a href="value.go.html#line-40" class="ident">INT64</a>:</code></span>
+<span class="codeline" id="line-56"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<a href="#line-23" class="ident">int64ID</a>)</code></span>
+<span class="codeline" id="line-57"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<label for="r10" class="ident">v</label>.<a href="value.go.html#line-29" class="ident">numeric</a>)</code></span>
+<span class="codeline" id="line-58"><code>	<span class="keyword">case</span> <a href="value.go.html#line-42" class="ident">FLOAT64</a>:</code></span>
+<span class="codeline" id="line-59"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<a href="#line-24" class="ident">float64ID</a>)</code></span>
+<span class="codeline" id="line-60"><code>		<span class="comment">// Assumes numeric stored with math.Float64bits.</span></code></span>
+<span class="codeline" id="line-61"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<label for="r10" class="ident">v</label>.<a href="value.go.html#line-29" class="ident">numeric</a>)</code></span>
+<span class="codeline" id="line-62"><code>	<span class="keyword">case</span> <a href="value.go.html#line-44" class="ident">STRING</a>:</code></span>
+<span class="codeline" id="line-63"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<a href="#line-25" class="ident">stringID</a>)</code></span>
+<span class="codeline" id="line-64"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-51" class="ident">String</a>(<label for="r10" class="ident">v</label>.<a href="value.go.html#line-30" class="ident">stringly</a>)</code></span>
+<span class="codeline" id="line-65"><code>	<span class="keyword">case</span> <a href="value.go.html#line-46" class="ident">BOOLSLICE</a>:</code></span>
+<span class="codeline" id="line-66"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<a href="#line-26" class="ident">boolSliceID</a>)</code></span>
+<span class="codeline" id="line-67"><code>		<label for="r11" class="ident">rv</label> := <a href="../../../../pkg/reflect.html" class="ident i1">reflect</a>.<a href="../../../reflect/value.go.html#line-3119" class="ident">ValueOf</a>(<label for="r10" class="ident">v</label>.<a href="value.go.html#line-31" class="ident">slice</a>)</code></span>
+<span class="codeline" id="line-68"><code>		<span class="keyword">for</span> <label for="r12" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r12" class="ident">i</label> &lt; <label for="r11" class="ident">rv</label>.<a href="../../../reflect/value.go.html#line-1850" class="ident">Len</a>(); <label for="r12" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-69"><code>			<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-36" class="ident">Bool</a>(<label for="r11" class="ident">rv</label>.<a href="../../../reflect/value.go.html#line-1400" class="ident">Index</a>(<label for="r12" class="ident">i</label>).<a href="../../../reflect/value.go.html#line-281" class="ident">Bool</a>())</code></span>
+<span class="codeline" id="line-70"><code>		}</code></span>
+<span class="codeline" id="line-71"><code>	<span class="keyword">case</span> <a href="value.go.html#line-48" class="ident">INT64SLICE</a>:</code></span>
+<span class="codeline" id="line-72"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<a href="#line-27" class="ident">int64SliceID</a>)</code></span>
+<span class="codeline" id="line-73"><code>		<label for="r13" class="ident">rv</label> := <a href="../../../../pkg/reflect.html" class="ident i1">reflect</a>.<a href="../../../reflect/value.go.html#line-3119" class="ident">ValueOf</a>(<label for="r10" class="ident">v</label>.<a href="value.go.html#line-31" class="ident">slice</a>)</code></span>
+<span class="codeline" id="line-74"><code>		<span class="keyword">for</span> <label for="r14" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r14" class="ident">i</label> &lt; <label for="r13" class="ident">rv</label>.<a href="../../../reflect/value.go.html#line-1850" class="ident">Len</a>(); <label for="r14" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-75"><code>			<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-47" class="ident">Int64</a>(<label for="r13" class="ident">rv</label>.<a href="../../../reflect/value.go.html#line-1400" class="ident">Index</a>(<label for="r14" class="ident">i</label>).<a href="../../../reflect/value.go.html#line-1456" class="ident">Int</a>())</code></span>
+<span class="codeline" id="line-76"><code>		}</code></span>
+<span class="codeline" id="line-77"><code>	<span class="keyword">case</span> <a href="value.go.html#line-50" class="ident">FLOAT64SLICE</a>:</code></span>
+<span class="codeline" id="line-78"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<a href="#line-28" class="ident">float64SliceID</a>)</code></span>
+<span class="codeline" id="line-79"><code>		<label for="r15" class="ident">rv</label> := <a href="../../../../pkg/reflect.html" class="ident i1">reflect</a>.<a href="../../../reflect/value.go.html#line-3119" class="ident">ValueOf</a>(<label for="r10" class="ident">v</label>.<a href="value.go.html#line-31" class="ident">slice</a>)</code></span>
+<span class="codeline" id="line-80"><code>		<span class="keyword">for</span> <label for="r16" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r16" class="ident">i</label> &lt; <label for="r15" class="ident">rv</label>.<a href="../../../reflect/value.go.html#line-1850" class="ident">Len</a>(); <label for="r16" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-81"><code>			<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-43" class="ident">Float64</a>(<label for="r15" class="ident">rv</label>.<a href="../../../reflect/value.go.html#line-1400" class="ident">Index</a>(<label for="r16" class="ident">i</label>).<a href="../../../reflect/value.go.html#line-1385" class="ident">Float</a>())</code></span>
+<span class="codeline" id="line-82"><code>		}</code></span>
+<span class="codeline" id="line-83"><code>	<span class="keyword">case</span> <a href="value.go.html#line-52" class="ident">STRINGSLICE</a>:</code></span>
+<span class="codeline" id="line-84"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<a href="#line-29" class="ident">stringSliceID</a>)</code></span>
+<span class="codeline" id="line-85"><code>		<label for="r17" class="ident">rv</label> := <a href="../../../../pkg/reflect.html" class="ident i1">reflect</a>.<a href="../../../reflect/value.go.html#line-3119" class="ident">ValueOf</a>(<label for="r10" class="ident">v</label>.<a href="value.go.html#line-31" class="ident">slice</a>)</code></span>
+<span class="codeline" id="line-86"><code>		<span class="keyword">for</span> <label for="r18" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r18" class="ident">i</label> &lt; <label for="r17" class="ident">rv</label>.<a href="../../../reflect/value.go.html#line-1850" class="ident">Len</a>(); <label for="r18" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-87"><code>			<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-51" class="ident">String</a>(<label for="r17" class="ident">rv</label>.<a href="../../../reflect/value.go.html#line-1400" class="ident">Index</a>(<label for="r18" class="ident">i</label>).<a href="../../../reflect/value.go.html#line-2441" class="ident">String</a>())</code></span>
+<span class="codeline" id="line-88"><code>		}</code></span>
+<span class="codeline" id="line-89"><code>	<span class="keyword">case</span> <a href="value.go.html#line-54" class="ident">BYTESLICE</a>:</code></span>
+<span class="codeline" id="line-90"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<a href="#line-30" class="ident">byteSliceID</a>)</code></span>
+<span class="codeline" id="line-91"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-51" class="ident">String</a>(<label for="r10" class="ident">v</label>.<a href="value.go.html#line-30" class="ident">stringly</a>)</code></span>
+<span class="codeline" id="line-92"><code>	<span class="keyword">case</span> <a href="value.go.html#line-56" class="ident">SLICE</a>:</code></span>
+<span class="codeline" id="line-93"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<a href="#line-31" class="ident">sliceID</a>)</code></span>
+<span class="codeline" id="line-94"><code>		<span class="keyword">switch</span> vals := <label for="r10" class="ident">v</label>.<a href="value.go.html#line-31" class="ident">slice</a>.(<span class="keyword">type</span>) {</code></span>
+<span class="codeline" id="line-95"><code>		<span class="keyword">case</span> [<span class="lit-number">0</span>]<a href="value.go.html#line-27" class="ident">Value</a>:</code></span>
+<span class="codeline" id="line-96"><code>			<span class="comment">// No values to hash, but the type identifier is still hashed above.</span></code></span>
+<span class="codeline" id="line-97"><code>		<span class="keyword">case</span> [<span class="lit-number">1</span>]<a href="value.go.html#line-27" class="ident">Value</a>:</code></span>
+<span class="codeline" id="line-98"><code>			<label for="r9" class="ident">h</label> = <a href="#line-125" class="ident">hashValueSlice</a>(<label for="r9" class="ident">h</label>, <label for="r19" class="ident">vals</label>[:])</code></span>
+<span class="codeline" id="line-99"><code>		<span class="keyword">case</span> [<span class="lit-number">2</span>]<a href="value.go.html#line-27" class="ident">Value</a>:</code></span>
+<span class="codeline" id="line-100"><code>			<label for="r9" class="ident">h</label> = <a href="#line-125" class="ident">hashValueSlice</a>(<label for="r9" class="ident">h</label>, <label for="r20" class="ident">vals</label>[:])</code></span>
+<span class="codeline" id="line-101"><code>		<span class="keyword">case</span> [<span class="lit-number">3</span>]<a href="value.go.html#line-27" class="ident">Value</a>:</code></span>
+<span class="codeline" id="line-102"><code>			<label for="r9" class="ident">h</label> = <a href="#line-125" class="ident">hashValueSlice</a>(<label for="r9" class="ident">h</label>, <label for="r21" class="ident">vals</label>[:])</code></span>
+<span class="codeline" id="line-103"><code>		<span class="keyword">case</span> [<span class="lit-number">4</span>]<a href="value.go.html#line-27" class="ident">Value</a>:</code></span>
+<span class="codeline" id="line-104"><code>			<label for="r9" class="ident">h</label> = <a href="#line-125" class="ident">hashValueSlice</a>(<label for="r9" class="ident">h</label>, <label for="r22" class="ident">vals</label>[:])</code></span>
+<span class="codeline" id="line-105"><code>		<span class="keyword">case</span> [<span class="lit-number">5</span>]<a href="value.go.html#line-27" class="ident">Value</a>:</code></span>
+<span class="codeline" id="line-106"><code>			<label for="r9" class="ident">h</label> = <a href="#line-125" class="ident">hashValueSlice</a>(<label for="r9" class="ident">h</label>, <label for="r23" class="ident">vals</label>[:])</code></span>
+<span class="codeline" id="line-107"><code>		<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-108"><code>			<label for="r24" class="ident">rv</label> := <a href="../../../../pkg/reflect.html" class="ident i1">reflect</a>.<a href="../../../reflect/value.go.html#line-3119" class="ident">ValueOf</a>(<label for="r10" class="ident">v</label>.<a href="value.go.html#line-31" class="ident">slice</a>)</code></span>
+<span class="codeline" id="line-109"><code>			<span class="keyword">for</span> <label for="r25" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r25" class="ident">i</label> &lt; <label for="r24" class="ident">rv</label>.<a href="../../../reflect/value.go.html#line-1850" class="ident">Len</a>(); <label for="r25" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-110"><code>				<label for="r9" class="ident">h</label> = <label for="r8" class="ident">hashValue</label>(<label for="r9" class="ident">h</label>, <label for="r24" class="ident">rv</label>.<a href="../../../reflect/value.go.html#line-1400" class="ident">Index</a>(<label for="r25" class="ident">i</label>).<a href="../../../reflect/value.go.html#line-1489" class="ident">Interface</a>().(<a href="value.go.html#line-27" class="ident">Value</a>))</code></span>
+<span class="codeline" id="line-111"><code>			}</code></span>
+<span class="codeline" id="line-112"><code>		}</code></span>
+<span class="codeline" id="line-113"><code>	<span class="keyword">case</span> <a href="value.go.html#line-36" class="ident">EMPTY</a>:</code></span>
+<span class="codeline" id="line-114"><code>		<label for="r9" class="ident">h</label> = <label for="r9" class="ident">h</label>.<a href="internal/xxhash/xxhash.go.html#line-24" class="ident">Uint64</a>(<a href="#line-32" class="ident">emptyID</a>)</code></span>
+<span class="codeline" id="line-115"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-116"><code>		<span class="comment">// Logging is an alternative, but using the internal logger here</span></code></span>
+<span class="codeline" id="line-117"><code><span class="comment">		// causes an import cycle so it is not done.</span></code></span>
+<span class="codeline" id="line-118"><code>		<label for="r26" class="ident">val</label> := <label for="r10" class="ident">v</label>.<a href="value.go.html#line-296" class="ident">AsInterface</a>()</code></span>
+<span class="codeline" id="line-119"><code>		<label for="r27" class="ident">msg</label> := <a href="../../../../pkg/fmt.html" class="ident i0">fmt</a>.<a href="../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"unknown value type: %[1]v (%[1]T)"</span>, <label for="r26" class="ident">val</label>)</code></span>
+<span class="codeline" id="line-120"><code>		<a href="../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<label for="r27" class="ident">msg</label>)</code></span>
+<span class="codeline" id="line-121"><code>	}</code></span>
+<span class="codeline" id="line-122"><code>	<span class="keyword">return</span> <label for="r9" class="ident">h</label></code></span>
+<span class="codeline" id="line-123"><code>}</code></span>
+<span class="codeline" id="line-124"><code></code></span>
+<span class="codeline" id="line-125"><code><span class="keyword">func</span> <label for="r28" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/attribute.html#name-hashValueSlice" class="ident">hashValueSlice</a></label>(<label for="r29" class="ident">h</label> <a href="../../../../pkg/go.opentelemetry.io/otel/attribute/internal/xxhash.html" class="ident i2">xxhash</a>.<a href="internal/xxhash/xxhash.go.html#line-15" class="ident">Hash</a>, <label for="r30" class="ident">vals</label> []<a href="value.go.html#line-27" class="ident">Value</a>) <a href="../../../../pkg/go.opentelemetry.io/otel/attribute/internal/xxhash.html" class="ident i2">xxhash</a>.<a href="internal/xxhash/xxhash.go.html#line-15" class="ident">Hash</a> {</code></span>
+<span class="codeline" id="line-126"><code>	<span class="keyword">for</span> <label for="r31" class="ident">_</label>, <label for="r32" class="ident">v</label> := <span class="keyword">range</span> <label for="r30" class="ident">vals</label> {</code></span>
+<span class="codeline" id="line-127"><code>		<label for="r29" class="ident">h</label> = <a href="#line-50" class="ident">hashValue</a>(<label for="r29" class="ident">h</label>, <label for="r32" class="ident">v</label>)</code></span>
+<span class="codeline" id="line-128"><code>	}</code></span>
+<span class="codeline" id="line-129"><code>	<span class="keyword">return</span> <label for="r29" class="ident">h</label></code></span>
+<span class="codeline" id="line-130"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

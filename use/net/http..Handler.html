@@ -5,47 +5,64 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net/http.Handler</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/server.go.html#line-86">Handler</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/server.go.html#line-88">Handler</a></b></span>
 
-<span class="title">31 uses</span>
+<span class="title">49 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/fs.go.html#line-856">fs.go#L856</a>: func FileServer(root FileSystem) <b>Handler</b> {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4115">h2_bundle.go#L4115</a>: 		s.TLSNextProto = map[string]func(*Server, *tls.Conn, <b>Handler</b>){}
-		<a href="../../src/net/http/h2_bundle.go.html#line-4117" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4117">#L4117</a>: 	protoHandler := func(hs *Server, c *tls.Conn, h <b>Handler</b>) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4156" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4156">#L4156</a>: 	Handler <b>Handler</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-4187" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4187">#L4187</a>: func (o *http2ServeConnOpts) handler() <b>Handler</b> {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4369" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4369">#L4369</a>: 	handler          <b>Handler</b>
-		<a href="../../src/net/http/server.go.html#line-86">server.go#L86</a>: type <b>Handler</b> interface {
-		<a href="../../src/net/http/server.go.html#line-2157" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2157">#L2157</a>: func NotFoundHandler() <b>Handler</b> { return HandlerFunc(NotFound) }
-		<a href="../../src/net/http/server.go.html#line-2165" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2165">#L2165</a>: func StripPrefix(prefix string, h <b>Handler</b>) <b>Handler</b> {
-		<a href="../../src/net/http/server.go.html#line-2281" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2281">#L2281</a>: func RedirectHandler(url string, code int) <b>Handler</b> {
-		<a href="../../src/net/http/server.go.html#line-2328" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2328">#L2328</a>: 	h       <b>Handler</b>
-		<a href="../../src/net/http/server.go.html#line-2377" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2377">#L2377</a>: func (mux *ServeMux) match(path string) (h <b>Handler</b>, pattern string) {
-		<a href="../../src/net/http/server.go.html#line-2450" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2450">#L2450</a>: func (mux *ServeMux) Handler(r *Request) (h <b>Handler</b>, pattern string) {
-		<a href="../../src/net/http/server.go.html#line-2486" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2486">#L2486</a>: func (mux *ServeMux) handler(host, path string) (h <b>Handler</b>, pattern string) {
-		<a href="../../src/net/http/server.go.html#line-2519" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2519">#L2519</a>: func (mux *ServeMux) Handle(pattern string, handler <b>Handler</b>) {
-		<a href="../../src/net/http/server.go.html#line-2573" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2573">#L2573</a>: func Handle(pattern string, handler <b>Handler</b>) { DefaultServeMux.Handle(pattern, handler) }
-		<a href="../../src/net/http/server.go.html#line-2593" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2593">#L2593</a>: func Serve(l net.Listener, handler <b>Handler</b>) error {
-		<a href="../../src/net/http/server.go.html#line-2610" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2610">#L2610</a>: func ServeTLS(l net.Listener, handler <b>Handler</b>, certFile, keyFile string) error {
-		<a href="../../src/net/http/server.go.html#line-2624" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2624">#L2624</a>: 	Handler <b>Handler</b> // handler to invoke, http.DefaultServeMux if nil
-		<a href="../../src/net/http/server.go.html#line-2686" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2686">#L2686</a>: 	TLSNextProto map[string]func(*Server, *tls.Conn, <b>Handler</b>)
-		<a href="../../src/net/http/server.go.html#line-2950" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2950">#L2950</a>: func AllowQuerySemicolons(h <b>Handler</b>) <b>Handler</b> {
-		<a href="../../src/net/http/server.go.html#line-3237" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3237">#L3237</a>: func ListenAndServe(addr string, handler <b>Handler</b>) error {
-		<a href="../../src/net/http/server.go.html#line-3247" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3247">#L3247</a>: func ListenAndServeTLS(addr, certFile, keyFile string, handler <b>Handler</b>) error {
-		<a href="../../src/net/http/server.go.html#line-3347" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3347">#L3347</a>: func TimeoutHandler(h <b>Handler</b>, dt time.Duration, msg string) <b>Handler</b> {
-		<a href="../../src/net/http/server.go.html#line-3360" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3360">#L3360</a>: 	handler <b>Handler</b>
-		<a href="../../src/net/http/server.go.html#line-3639" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3639">#L3639</a>: func MaxBytesHandler(h <b>Handler</b>, n int64) <b>Handler</b> {
+		<a href="../../src/net/http/csrf.go.html#line-40">csrf.go#L40</a>: 	deny      atomic.Pointer[<b>Handler</b>]
+		<a href="../../src/net/http/csrf.go.html#line-84" class="path-duplicate">csrf.go</a><a href="../../src/net/http/csrf.go.html#line-84">#L84</a>: var sentinelHandler <b>Handler</b> = &amp;noopHandler{}
+		<a href="../../src/net/http/csrf.go.html#line-124" class="path-duplicate">csrf.go</a><a href="../../src/net/http/csrf.go.html#line-124">#L124</a>: func (c *CrossOriginProtection) SetDenyHandler(h <b>Handler</b>) {
+		<a href="../../src/net/http/csrf.go.html#line-206" class="path-duplicate">csrf.go</a><a href="../../src/net/http/csrf.go.html#line-206">#L206</a>: func (c *CrossOriginProtection) Handler(h <b>Handler</b>) <b>Handler</b> {
+		<a href="../../src/net/http/fs.go.html#line-971">fs.go#L971</a>: func FileServer(root FileSystem) <b>Handler</b> {
+		<a href="../../src/net/http/fs.go.html#line-984" class="path-duplicate">fs.go</a><a href="../../src/net/http/fs.go.html#line-984">#L984</a>: func FileServerFS(root fs.FS) <b>Handler</b> {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4285">h2_bundle.go#L4285</a>: 		s.TLSNextProto = map[string]func(*Server, *tls.Conn, <b>Handler</b>){}
+		<a href="../../src/net/http/h2_bundle.go.html#line-4287" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4287">#L4287</a>: 	protoHandler := func(hs *Server, c net.Conn, h <b>Handler</b>, sawClientPreface bool) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4310" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4310">#L4310</a>: 	s.TLSNextProto[http2NextProtoTLS] = func(hs *Server, c *tls.Conn, h <b>Handler</b>) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4316" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4316">#L4316</a>: 	s.TLSNextProto[http2nextProtoUnencryptedHTTP2] = func(hs *Server, c *tls.Conn, h <b>Handler</b>) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4345" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4345">#L4345</a>: 	Handler <b>Handler</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-4376" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4376">#L4376</a>: func (o *http2ServeConnOpts) handler() <b>Handler</b> {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4573" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4573">#L4573</a>: 	handler          <b>Handler</b>
+		<a href="../../src/net/http/routing_tree.go.html#line-31">routing_tree.go#L31</a>: 	handler <b>Handler</b>
+		<a href="../../src/net/http/routing_tree.go.html#line-44" class="path-duplicate">routing_tree.go</a><a href="../../src/net/http/routing_tree.go.html#line-44">#L44</a>: func (root *routingNode) addPattern(p *pattern, h <b>Handler</b>) {
+		<a href="../../src/net/http/routing_tree.go.html#line-56" class="path-duplicate">routing_tree.go</a><a href="../../src/net/http/routing_tree.go.html#line-56">#L56</a>: func (n *routingNode) addSegments(segs []segment, p *pattern, h <b>Handler</b>) {
+		<a href="../../src/net/http/routing_tree.go.html#line-78" class="path-duplicate">routing_tree.go</a><a href="../../src/net/http/routing_tree.go.html#line-78">#L78</a>: func (n *routingNode) set(p *pattern, h <b>Handler</b>) {
+		<a href="../../src/net/http/servemux121.go.html#line-47">servemux121.go#L47</a>: 	h       <b>Handler</b>
+		<a href="../../src/net/http/servemux121.go.html#line-52" class="path-duplicate">servemux121.go</a><a href="../../src/net/http/servemux121.go.html#line-52">#L52</a>: func (mux *serveMux121) handle(pattern string, handler <b>Handler</b>) {
+		<a href="../../src/net/http/servemux121.go.html#line-104" class="path-duplicate">servemux121.go</a><a href="../../src/net/http/servemux121.go.html#line-104">#L104</a>: func (mux *serveMux121) findHandler(r *Request) (h <b>Handler</b>, pattern string) {
+		<a href="../../src/net/http/servemux121.go.html#line-140" class="path-duplicate">servemux121.go</a><a href="../../src/net/http/servemux121.go.html#line-140">#L140</a>: func (mux *serveMux121) handler(host, path string) (h <b>Handler</b>, pattern string) {
+		<a href="../../src/net/http/servemux121.go.html#line-159" class="path-duplicate">servemux121.go</a><a href="../../src/net/http/servemux121.go.html#line-159">#L159</a>: func (mux *serveMux121) match(path string) (h <b>Handler</b>, pattern string) {
+		<a href="../../src/net/http/server.go.html#line-88">server.go#L88</a>: type <b>Handler</b> interface {
+		<a href="../../src/net/http/server.go.html#line-2326" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2326">#L2326</a>: func NotFoundHandler() <b>Handler</b> { return HandlerFunc(NotFound) }
+		<a href="../../src/net/http/server.go.html#line-2334" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2334">#L2334</a>: func StripPrefix(prefix string, h <b>Handler</b>) <b>Handler</b> {
+		<a href="../../src/net/http/server.go.html#line-2452" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2452">#L2452</a>: func RedirectHandler(url string, code int) <b>Handler</b> {
+		<a href="../../src/net/http/server.go.html#line-2647" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2647">#L2647</a>: func (mux *ServeMux) Handler(r *Request) (h <b>Handler</b>, pattern string) {
+		<a href="../../src/net/http/server.go.html#line-2659" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2659">#L2659</a>: func (mux *ServeMux) findHandler(r *Request) (h <b>Handler</b>, patStr string, _ *pattern, matches []string) {
+		<a href="../../src/net/http/server.go.html#line-2822" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2822">#L2822</a>: 	var h <b>Handler</b>
+		<a href="../../src/net/http/server.go.html#line-2839" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2839">#L2839</a>: func (mux *ServeMux) Handle(pattern string, handler <b>Handler</b>) {
+		<a href="../../src/net/http/server.go.html#line-2862" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2862">#L2862</a>: func Handle(pattern string, handler <b>Handler</b>) {
+		<a href="../../src/net/http/server.go.html#line-2880" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2880">#L2880</a>: func (mux *ServeMux) register(pattern string, handler <b>Handler</b>) {
+		<a href="../../src/net/http/server.go.html#line-2886" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2886">#L2886</a>: func (mux *ServeMux) registerErr(patstr string, handler <b>Handler</b>) error {
+		<a href="../../src/net/http/server.go.html#line-2940" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2940">#L2940</a>: func Serve(l net.Listener, handler <b>Handler</b>) error {
+		<a href="../../src/net/http/server.go.html#line-2957" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2957">#L2957</a>: func ServeTLS(l net.Listener, handler <b>Handler</b>, certFile, keyFile string) error {
+		<a href="../../src/net/http/server.go.html#line-2971" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2971">#L2971</a>: 	Handler <b>Handler</b> // handler to invoke, http.DefaultServeMux if nil
+		<a href="../../src/net/http/server.go.html#line-3036" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3036">#L3036</a>: 	TLSNextProto map[string]func(*Server, *tls.Conn, <b>Handler</b>)
+		<a href="../../src/net/http/server.go.html#line-3325" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3325">#L3325</a>: func AllowQuerySemicolons(h <b>Handler</b>) <b>Handler</b> {
+		<a href="../../src/net/http/server.go.html#line-3673" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3673">#L3673</a>: func ListenAndServe(addr string, handler <b>Handler</b>) error {
+		<a href="../../src/net/http/server.go.html#line-3683" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3683">#L3683</a>: func ListenAndServeTLS(addr, certFile, keyFile string, handler <b>Handler</b>) error {
+		<a href="../../src/net/http/server.go.html#line-3787" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3787">#L3787</a>: func TimeoutHandler(h <b>Handler</b>, dt time.Duration, msg string) <b>Handler</b> {
+		<a href="../../src/net/http/server.go.html#line-3800" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3800">#L3800</a>: 	handler <b>Handler</b>
+		<a href="../../src/net/http/server.go.html#line-4067" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-4067">#L4067</a>: func MaxBytesHandler(h <b>Handler</b>, n int64) <b>Handler</b> {
 
 	<a href="../../pkg/github.com/gotd/td/transport.html">github.com/gotd/td/transport</a>
 		<a href="../../src/github.com/gotd/td/transport/websocket.go.html#line-24">websocket.go#L24</a>: func WebsocketListener(addr net.Addr) (net.Listener, http.<b>Handler</b>) {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

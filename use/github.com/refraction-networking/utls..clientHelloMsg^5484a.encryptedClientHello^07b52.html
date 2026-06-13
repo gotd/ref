@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/refraction-networking/utls.clientHelloMsg.encryptedClientHello</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>.<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-71">clientHelloMsg</a>.<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-100">encryptedClientHello</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">19 uses</span>
+
+	github.com/refraction-networking/utls (current package)
+		<a href="../../../src/github.com/refraction-networking/utls/ech.go.html#line-389">ech.go#L389</a>: 	if !bytes.Equal(inner.<b>encryptedClientHello</b>, []byte{uint8(innerECHExt)}) {
+		<a href="../../../src/github.com/refraction-networking/utls/ech.go.html#line-429" class="path-duplicate">ech.go</a><a href="../../../src/github.com/refraction-networking/utls/ech.go.html#line-429">#L429</a>: 	outer.<b>encryptedClientHello</b>, err = generateOuterECHExt(ech.config.ConfigID, ech.kdfID, ech.aeadID, encapKey, make([]byte, encryptedLen))
+		<a href="../../../src/github.com/refraction-networking/utls/ech.go.html#line-442" class="path-duplicate">ech.go</a><a href="../../../src/github.com/refraction-networking/utls/ech.go.html#line-442">#L442</a>: 	outer.<b>encryptedClientHello</b>, err = generateOuterECHExt(ech.config.ConfigID, ech.kdfID, ech.aeadID, encapKey, encryptedInner)
+		<a href="../../../src/github.com/refraction-networking/utls/ech.go.html#line-560" class="path-duplicate">ech.go</a><a href="../../../src/github.com/refraction-networking/utls/ech.go.html#line-560">#L560</a>: 	echType, echCiphersuite, configID, encap, payload, err := parseECHExt(outer.<b>encryptedClientHello</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-230">handshake_client.go#L230</a>: 		hello.<b>encryptedClientHello</b> = []byte{1} // indicate inner hello
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-408" class="path-duplicate">handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-408">#L408</a>: 	echInner := bytes.Equal(hello.<b>encryptedClientHello</b>, []byte{1})
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-100">handshake_messages.go#L100</a>: 	<b>encryptedClientHello</b>    []byte
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-175" class="path-duplicate">handshake_messages.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-175">#L175</a>: 	if len(m.<b>encryptedClientHello</b>) &gt; 0 {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-178" class="path-duplicate">handshake_messages.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-178">#L178</a>: 			exts.AddBytes(m.<b>encryptedClientHello</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-697" class="path-duplicate">handshake_messages.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-697">#L697</a>: 			if !extData.ReadBytes(&amp;m.<b>encryptedClientHello</b>, len(extData)) {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-746" class="path-duplicate">handshake_messages.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-746">#L746</a>: 		<b>encryptedClientHello</b>:             slices.Clone(m.<b>encryptedClientHello</b>),
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-152">handshake_server.go#L152</a>: 	if len(clientHello.<b>encryptedClientHello</b>) != 0 {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-606">handshake_server_tls13.go#L606</a>: 		if len(clientHello.<b>encryptedClientHello</b>) == 0 {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-611" class="path-duplicate">handshake_server_tls13.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-611">#L611</a>: 		echType, echCiphersuite, configID, encap, payload, err := parseECHExt(clientHello.<b>encryptedClientHello</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-804" class="path-duplicate">handshake_server_tls13.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-804">#L804</a>: 	if len(hs.c.config.EncryptedClientHelloKeys) &gt; 0 &amp;&amp; len(hs.clientHello.<b>encryptedClientHello</b>) &gt; 0 &amp;&amp; hs.echContext == nil {
+		<a href="../../../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-353">u_handshake_client.go#L353</a>: 		hello.<b>encryptedClientHello</b> = []byte{1} // indicate inner hello
+		<a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-424">u_public.go#L424</a>: 			<b>encryptedClientHello</b>:    chm.encryptedClientHello,
+		<a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-476" class="path-duplicate">u_public.go</a><a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-476">#L476</a>: 			encryptedClientHello:             chm.<b>encryptedClientHello</b>,
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

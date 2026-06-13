@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/refraction-networking/utls/internal/tls13.ExpandLabel</title>
+<link href="../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">func <b><a href="../../../../../pkg/github.com/refraction-networking/utls/internal/tls13.html">github.com/refraction-networking/utls/internal/tls13</a>.<a href="../../../../../src/github.com/refraction-networking/utls/internal/tls13/tls13.go.html#line-21">ExpandLabel</a></b></span>
+
+<span class="title">13 uses</span>
+
+	github.com/refraction-networking/utls/internal/tls13 (current package)
+		<a href="../../../../../src/github.com/refraction-networking/utls/internal/tls13/tls13.go.html#line-21">tls13.go#L21</a>: func <b>ExpandLabel</b>[H fips140.Hash](hash func() H, secret []byte, label string, context []byte, length int) []byte {
+		<a href="../../../../../src/github.com/refraction-networking/utls/internal/tls13/tls13.go.html#line-54" class="path-duplicate">tls13.go</a><a href="../../../../../src/github.com/refraction-networking/utls/internal/tls13/tls13.go.html#line-54">#L54</a>: 	return <b>ExpandLabel</b>(hash, secret, label, transcript.Sum(nil), transcript.Size())
+		<a href="../../../../../src/github.com/refraction-networking/utls/internal/tls13/tls13.go.html#line-174" class="path-duplicate">tls13.go</a><a href="../../../../../src/github.com/refraction-networking/utls/internal/tls13/tls13.go.html#line-174">#L174</a>: 	return <b>ExpandLabel</b>(s.hash, secret, "exporter", h.Sum(nil), length)
+
+	<a href="../../../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../../../../../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-106">handshake_client_tls13.go#L106</a>: 		acceptConfirmation := tls13.<b>ExpandLabel</b>(hs.suite.hash.New,
+		<a href="../../../../../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-285" class="path-duplicate">handshake_client_tls13.go</a><a href="../../../../../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-285">#L285</a>: 			acceptConfirmation := tls13.<b>ExpandLabel</b>(hs.suite.hash.New,
+		<a href="../../../../../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-1060" class="path-duplicate">handshake_client_tls13.go</a><a href="../../../../../src/github.com/refraction-networking/utls/handshake_client_tls13.go.html#line-1060">#L1060</a>: 	psk := tls13.<b>ExpandLabel</b>(cipherSuite.hash.New, c.resumptionSecret, "resumption",
+		<a href="../../../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-576">handshake_server_tls13.go#L576</a>: 		acceptConfirmation := tls13.<b>ExpandLabel</b>(hs.suite.hash.New,
+		<a href="../../../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-739" class="path-duplicate">handshake_server_tls13.go</a><a href="../../../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-739">#L739</a>: 		acceptConfirmation := tls13.<b>ExpandLabel</b>(hs.suite.hash.New,
+		<a href="../../../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-987" class="path-duplicate">handshake_server_tls13.go</a><a href="../../../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-987">#L987</a>: 	psk := tls13.<b>ExpandLabel</b>(suite.hash.New, c.resumptionSecret, "resumption",
+		<a href="../../../../../src/github.com/refraction-networking/utls/key_schedule.go.html#line-24">key_schedule.go#L24</a>: 	return tls13.<b>ExpandLabel</b>(c.hash.New, trafficSecret, "traffic upd", nil, c.hash.Size())
+		<a href="../../../../../src/github.com/refraction-networking/utls/key_schedule.go.html#line-29" class="path-duplicate">key_schedule.go</a><a href="../../../../../src/github.com/refraction-networking/utls/key_schedule.go.html#line-29">#L29</a>: 	key = tls13.<b>ExpandLabel</b>(c.hash.New, trafficSecret, "key", nil, c.keyLen)
+		<a href="../../../../../src/github.com/refraction-networking/utls/key_schedule.go.html#line-30" class="path-duplicate">key_schedule.go</a><a href="../../../../../src/github.com/refraction-networking/utls/key_schedule.go.html#line-30">#L30</a>: 	iv = tls13.<b>ExpandLabel</b>(c.hash.New, trafficSecret, "iv", nil, aeadNonceLength)
+		<a href="../../../../../src/github.com/refraction-networking/utls/key_schedule.go.html#line-38" class="path-duplicate">key_schedule.go</a><a href="../../../../../src/github.com/refraction-networking/utls/key_schedule.go.html#line-38">#L38</a>: 	finishedKey := tls13.<b>ExpandLabel</b>(c.hash.New, baseKey, "finished", nil, c.hash.Size())
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: quic_transport_parameters.go in package github.com/refraction-networking/utls/dicttls</title>
+<link href="../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	quic_transport_parameters.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html">github.com/refraction-networking/utls/dicttls</a>
+</code></pre>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> dicttls</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// source: https://www.iana.org/assignments/quic/quic.xhtml#quic-transport</span></code></span>
+<span class="codeline" id="line-4"><code><span class="comment">// last updated: July 2023</span></code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-7"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_original_destination_connection_id" class="ident">QUICTransportParameter_original_destination_connection_id</a>  <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x00</span></code></span>
+<span class="codeline" id="line-8"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_max_idle_timeout" class="ident">QUICTransportParameter_max_idle_timeout</a>                    <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x01</span></code></span>
+<span class="codeline" id="line-9"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_stateless_reset_token" class="ident">QUICTransportParameter_stateless_reset_token</a>               <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x02</span></code></span>
+<span class="codeline" id="line-10"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_max_udp_payload_size" class="ident">QUICTransportParameter_max_udp_payload_size</a>                <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x03</span></code></span>
+<span class="codeline" id="line-11"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_initial_max_data" class="ident">QUICTransportParameter_initial_max_data</a>                    <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x04</span></code></span>
+<span class="codeline" id="line-12"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_initial_max_stream_data_bidi_local" class="ident">QUICTransportParameter_initial_max_stream_data_bidi_local</a>  <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x05</span></code></span>
+<span class="codeline" id="line-13"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_initial_max_stream_data_bidi_remote" class="ident">QUICTransportParameter_initial_max_stream_data_bidi_remote</a> <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x06</span></code></span>
+<span class="codeline" id="line-14"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_initial_max_stream_data_uni" class="ident">QUICTransportParameter_initial_max_stream_data_uni</a>         <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x07</span></code></span>
+<span class="codeline" id="line-15"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_initial_max_streams_bidi" class="ident">QUICTransportParameter_initial_max_streams_bidi</a>            <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x08</span></code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_initial_max_streams_uni" class="ident">QUICTransportParameter_initial_max_streams_uni</a>             <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x09</span></code></span>
+<span class="codeline" id="line-17"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_ack_delay_exponent" class="ident">QUICTransportParameter_ack_delay_exponent</a>                  <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x0a</span></code></span>
+<span class="codeline" id="line-18"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_max_ack_delay" class="ident">QUICTransportParameter_max_ack_delay</a>                       <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x0b</span></code></span>
+<span class="codeline" id="line-19"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_disable_active_migration" class="ident">QUICTransportParameter_disable_active_migration</a>            <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x0c</span></code></span>
+<span class="codeline" id="line-20"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_preferred_address" class="ident">QUICTransportParameter_preferred_address</a>                   <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x0d</span></code></span>
+<span class="codeline" id="line-21"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_active_connection_id_limit" class="ident">QUICTransportParameter_active_connection_id_limit</a>          <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x0e</span></code></span>
+<span class="codeline" id="line-22"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_initial_source_connection_id" class="ident">QUICTransportParameter_initial_source_connection_id</a>        <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x0f</span></code></span>
+<span class="codeline" id="line-23"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_retry_source_connection_id" class="ident">QUICTransportParameter_retry_source_connection_id</a>          <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x10</span></code></span>
+<span class="codeline" id="line-24"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_version_information" class="ident">QUICTransportParameter_version_information</a>                 <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x11</span>   <span class="comment">// RFC9368</span></code></span>
+<span class="codeline" id="line-25"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_max_datagram_frame_size" class="ident">QUICTransportParameter_max_datagram_frame_size</a>             <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x20</span>   <span class="comment">// RFC9221</span></code></span>
+<span class="codeline" id="line-26"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_discard" class="ident">QUICTransportParameter_discard</a>                             <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x173e</span> <span class="comment">// David_Schinazi: Receiver silently discards. https://github.com/quicwg/base-drafts/wiki/Quantum-Readiness-test</span></code></span>
+<span class="codeline" id="line-27"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_google_handshake_message" class="ident">QUICTransportParameter_google_handshake_message</a>            <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x26ab</span> <span class="comment">// Google: Used to carry Google internal handshake message</span></code></span>
+<span class="codeline" id="line-28"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_grease_quic_bit" class="ident">QUICTransportParameter_grease_quic_bit</a>                     <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x2ab2</span> <span class="comment">// RFC9287</span></code></span>
+<span class="codeline" id="line-29"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_initial_rtt" class="ident">QUICTransportParameter_initial_rtt</a>                         <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x3127</span> <span class="comment">// Google: Initial RTT in microseconds</span></code></span>
+<span class="codeline" id="line-30"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_google_connection_options" class="ident">QUICTransportParameter_google_connection_options</a>           <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x3128</span> <span class="comment">// Google: Google connection options for experimentation</span></code></span>
+<span class="codeline" id="line-31"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_user_agent" class="ident">QUICTransportParameter_user_agent</a>                          <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x3129</span> <span class="comment">// Google: User agent string (deprecated)</span></code></span>
+<span class="codeline" id="line-32"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportParameter_google_version" class="ident">QUICTransportParameter_google_version</a>                      <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> = <span class="lit-number">0x4752</span> <span class="comment">// Google: Google QUIC version downgrade prevention</span></code></span>
+<span class="codeline" id="line-33"><code>)</code></span>
+<span class="codeline" id="line-34"><code></code></span>
+<span class="codeline" id="line-35"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-DictQUICTransportParameterValueIndexed" class="ident">DictQUICTransportParameterValueIndexed</a> = <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>]<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>{</code></span>
+<span class="codeline" id="line-36"><code>	<span class="lit-number">0x00</span>:   <span class="lit-string">"original_destination_connection_id"</span>,</code></span>
+<span class="codeline" id="line-37"><code>	<span class="lit-number">0x01</span>:   <span class="lit-string">"max_idle_timeout"</span>,</code></span>
+<span class="codeline" id="line-38"><code>	<span class="lit-number">0x02</span>:   <span class="lit-string">"stateless_reset_token"</span>,</code></span>
+<span class="codeline" id="line-39"><code>	<span class="lit-number">0x03</span>:   <span class="lit-string">"max_udp_payload_size"</span>,</code></span>
+<span class="codeline" id="line-40"><code>	<span class="lit-number">0x04</span>:   <span class="lit-string">"initial_max_data"</span>,</code></span>
+<span class="codeline" id="line-41"><code>	<span class="lit-number">0x05</span>:   <span class="lit-string">"initial_max_stream_data_bidi_local"</span>,</code></span>
+<span class="codeline" id="line-42"><code>	<span class="lit-number">0x06</span>:   <span class="lit-string">"initial_max_stream_data_bidi_remote"</span>,</code></span>
+<span class="codeline" id="line-43"><code>	<span class="lit-number">0x07</span>:   <span class="lit-string">"initial_max_stream_data_uni"</span>,</code></span>
+<span class="codeline" id="line-44"><code>	<span class="lit-number">0x08</span>:   <span class="lit-string">"initial_max_streams_bidi"</span>,</code></span>
+<span class="codeline" id="line-45"><code>	<span class="lit-number">0x09</span>:   <span class="lit-string">"initial_max_streams_uni"</span>,</code></span>
+<span class="codeline" id="line-46"><code>	<span class="lit-number">0x0a</span>:   <span class="lit-string">"ack_delay_exponent"</span>,</code></span>
+<span class="codeline" id="line-47"><code>	<span class="lit-number">0x0b</span>:   <span class="lit-string">"max_ack_delay"</span>,</code></span>
+<span class="codeline" id="line-48"><code>	<span class="lit-number">0x0c</span>:   <span class="lit-string">"disable_active_migration"</span>,</code></span>
+<span class="codeline" id="line-49"><code>	<span class="lit-number">0x0d</span>:   <span class="lit-string">"preferred_address"</span>,</code></span>
+<span class="codeline" id="line-50"><code>	<span class="lit-number">0x0e</span>:   <span class="lit-string">"active_connection_id_limit"</span>,</code></span>
+<span class="codeline" id="line-51"><code>	<span class="lit-number">0x0f</span>:   <span class="lit-string">"initial_source_connection_id"</span>,</code></span>
+<span class="codeline" id="line-52"><code>	<span class="lit-number">0x10</span>:   <span class="lit-string">"retry_source_connection_id"</span>,</code></span>
+<span class="codeline" id="line-53"><code>	<span class="lit-number">0x11</span>:   <span class="lit-string">"version_information"</span>,</code></span>
+<span class="codeline" id="line-54"><code>	<span class="lit-number">0x20</span>:   <span class="lit-string">"max_datagram_frame_size"</span>,</code></span>
+<span class="codeline" id="line-55"><code>	<span class="lit-number">0x173e</span>: <span class="lit-string">"discard"</span>,</code></span>
+<span class="codeline" id="line-56"><code>	<span class="lit-number">0x26ab</span>: <span class="lit-string">"google handshake message"</span>,</code></span>
+<span class="codeline" id="line-57"><code>	<span class="lit-number">0x2ab2</span>: <span class="lit-string">"grease_quic_bit"</span>,</code></span>
+<span class="codeline" id="line-58"><code>	<span class="lit-number">0x3127</span>: <span class="lit-string">"initial_rtt"</span>,</code></span>
+<span class="codeline" id="line-59"><code>	<span class="lit-number">0x3128</span>: <span class="lit-string">"google_connection_options"</span>,</code></span>
+<span class="codeline" id="line-60"><code>	<span class="lit-number">0x3129</span>: <span class="lit-string">"user_agent"</span>,</code></span>
+<span class="codeline" id="line-61"><code>	<span class="lit-number">0x4752</span>: <span class="lit-string">"google_version"</span>,</code></span>
+<span class="codeline" id="line-62"><code>}</code></span>
+<span class="codeline" id="line-63"><code></code></span>
+<span class="codeline" id="line-64"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-DictQUICTransportParameterNameIndexed" class="ident">DictQUICTransportParameterNameIndexed</a> = <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>{</code></span>
+<span class="codeline" id="line-65"><code>	<span class="lit-string">"original_destination_connection_id"</span>:  <span class="lit-number">0x00</span>,</code></span>
+<span class="codeline" id="line-66"><code>	<span class="lit-string">"max_idle_timeout"</span>:                    <span class="lit-number">0x01</span>,</code></span>
+<span class="codeline" id="line-67"><code>	<span class="lit-string">"stateless_reset_token"</span>:               <span class="lit-number">0x02</span>,</code></span>
+<span class="codeline" id="line-68"><code>	<span class="lit-string">"max_udp_payload_size"</span>:                <span class="lit-number">0x03</span>,</code></span>
+<span class="codeline" id="line-69"><code>	<span class="lit-string">"initial_max_data"</span>:                    <span class="lit-number">0x04</span>,</code></span>
+<span class="codeline" id="line-70"><code>	<span class="lit-string">"initial_max_stream_data_bidi_local"</span>:  <span class="lit-number">0x05</span>,</code></span>
+<span class="codeline" id="line-71"><code>	<span class="lit-string">"initial_max_stream_data_bidi_remote"</span>: <span class="lit-number">0x06</span>,</code></span>
+<span class="codeline" id="line-72"><code>	<span class="lit-string">"initial_max_stream_data_uni"</span>:         <span class="lit-number">0x07</span>,</code></span>
+<span class="codeline" id="line-73"><code>	<span class="lit-string">"initial_max_streams_bidi"</span>:            <span class="lit-number">0x08</span>,</code></span>
+<span class="codeline" id="line-74"><code>	<span class="lit-string">"initial_max_streams_uni"</span>:             <span class="lit-number">0x09</span>,</code></span>
+<span class="codeline" id="line-75"><code>	<span class="lit-string">"ack_delay_exponent"</span>:                  <span class="lit-number">0x0a</span>,</code></span>
+<span class="codeline" id="line-76"><code>	<span class="lit-string">"max_ack_delay"</span>:                       <span class="lit-number">0x0b</span>,</code></span>
+<span class="codeline" id="line-77"><code>	<span class="lit-string">"disable_active_migration"</span>:            <span class="lit-number">0x0c</span>,</code></span>
+<span class="codeline" id="line-78"><code>	<span class="lit-string">"preferred_address"</span>:                   <span class="lit-number">0x0d</span>,</code></span>
+<span class="codeline" id="line-79"><code>	<span class="lit-string">"active_connection_id_limit"</span>:          <span class="lit-number">0x0e</span>,</code></span>
+<span class="codeline" id="line-80"><code>	<span class="lit-string">"initial_source_connection_id"</span>:        <span class="lit-number">0x0f</span>,</code></span>
+<span class="codeline" id="line-81"><code>	<span class="lit-string">"retry_source_connection_id"</span>:          <span class="lit-number">0x10</span>,</code></span>
+<span class="codeline" id="line-82"><code>	<span class="lit-string">"version_information"</span>:                 <span class="lit-number">0x11</span>,</code></span>
+<span class="codeline" id="line-83"><code>	<span class="lit-string">"max_datagram_frame_size"</span>:             <span class="lit-number">0x20</span>,</code></span>
+<span class="codeline" id="line-84"><code>	<span class="lit-string">"discard"</span>:                             <span class="lit-number">0x173e</span>,</code></span>
+<span class="codeline" id="line-85"><code>	<span class="lit-string">"google handshake message"</span>:            <span class="lit-number">0x26ab</span>,</code></span>
+<span class="codeline" id="line-86"><code>	<span class="lit-string">"grease_quic_bit"</span>:                     <span class="lit-number">0x2ab2</span>,</code></span>
+<span class="codeline" id="line-87"><code>	<span class="lit-string">"initial_rtt"</span>:                         <span class="lit-number">0x3127</span>,</code></span>
+<span class="codeline" id="line-88"><code>	<span class="lit-string">"google_connection_options"</span>:           <span class="lit-number">0x3128</span>,</code></span>
+<span class="codeline" id="line-89"><code>	<span class="lit-string">"user_agent"</span>:                          <span class="lit-number">0x3129</span>,</code></span>
+<span class="codeline" id="line-90"><code>	<span class="lit-string">"google_version"</span>:                      <span class="lit-number">0x4752</span>,</code></span>
+<span class="codeline" id="line-91"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

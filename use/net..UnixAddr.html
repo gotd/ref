@@ -5,22 +5,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: net.UnixAddr</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../pkg/net.html">net</a>.<a href="../src/net/unixsock.go.html#line-22">UnixAddr</a></b></span>
 
-<span class="title">38 uses</span>
+<span class="title">41 uses</span>
 
 	net (current package)
-		<a href="../src/net/dial.go.html#line-657">dial.go#L657</a>: 	case *<b>UnixAddr</b>:
-		<a href="../src/net/dial.go.html#line-658" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-658">#L658</a>: 		la, _ := la.(*<b>UnixAddr</b>)
-		<a href="../src/net/dial.go.html#line-734" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-734">#L734</a>: 	case *<b>UnixAddr</b>:
-		<a href="../src/net/dial.go.html#line-766" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-766">#L766</a>: 	case *<b>UnixAddr</b>:
-		<a href="../src/net/file_unix.go.html#line-82">file_unix.go#L82</a>: 	case *<b>UnixAddr</b>:
-		<a href="../src/net/file_unix.go.html#line-97" class="path-duplicate">file_unix.go</a><a href="../src/net/file_unix.go.html#line-97">#L97</a>: 	case *<b>UnixAddr</b>:
-		<a href="../src/net/file_unix.go.html#line-114" class="path-duplicate">file_unix.go</a><a href="../src/net/file_unix.go.html#line-114">#L114</a>: 	case *<b>UnixAddr</b>:
+		<a href="../src/net/dial.go.html#line-645">dial.go#L645</a>: func (d *Dialer) DialUnix(ctx context.Context, network string, laddr *<b>UnixAddr</b>, raddr *<b>UnixAddr</b>) (*UnixConn, error) {
+		<a href="../src/net/dial.go.html#line-799" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-799">#L799</a>: 	case *<b>UnixAddr</b>:
+		<a href="../src/net/dial.go.html#line-800" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-800">#L800</a>: 		la, _ := la.(*<b>UnixAddr</b>)
+		<a href="../src/net/dial.go.html#line-893" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-893">#L893</a>: 	case *<b>UnixAddr</b>:
+		<a href="../src/net/dial.go.html#line-928" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-928">#L928</a>: 	case *<b>UnixAddr</b>:
+		<a href="../src/net/file_posix.go.html#line-71">file_posix.go#L71</a>: 	case *<b>UnixAddr</b>:
+		<a href="../src/net/file_posix.go.html#line-86" class="path-duplicate">file_posix.go</a><a href="../src/net/file_posix.go.html#line-86">#L86</a>: 	case *<b>UnixAddr</b>:
+		<a href="../src/net/file_posix.go.html#line-103" class="path-duplicate">file_posix.go</a><a href="../src/net/file_posix.go.html#line-103">#L103</a>: 	case *<b>UnixAddr</b>:
 		<a href="../src/net/unixsock.go.html#line-22">unixsock.go#L22</a>: type <b>UnixAddr</b> struct {
 		<a href="../src/net/unixsock.go.html#line-29" class="path-duplicate">unixsock.go</a><a href="../src/net/unixsock.go.html#line-29">#L29</a>: func (a *<b>UnixAddr</b>) Network() string {
 		<a href="../src/net/unixsock.go.html#line-33" class="path-duplicate">unixsock.go</a><a href="../src/net/unixsock.go.html#line-33">#L33</a>: func (a *<b>UnixAddr</b>) String() string {
@@ -34,8 +35,9 @@
 		<a href="../src/net/unixsock.go.html#line-167" class="path-duplicate">unixsock.go</a><a href="../src/net/unixsock.go.html#line-167">#L167</a>: 	a, ok := addr.(*<b>UnixAddr</b>)
 		<a href="../src/net/unixsock.go.html#line-184" class="path-duplicate">unixsock.go</a><a href="../src/net/unixsock.go.html#line-184">#L184</a>: func (c *UnixConn) WriteMsgUnix(b, oob []byte, addr *<b>UnixAddr</b>) (n, oobn int, err error) {
 		<a href="../src/net/unixsock.go.html#line-203" class="path-duplicate">unixsock.go</a><a href="../src/net/unixsock.go.html#line-203">#L203</a>: func DialUnix(network string, laddr, raddr *<b>UnixAddr</b>) (*UnixConn, error) {
-		<a href="../src/net/unixsock.go.html#line-317" class="path-duplicate">unixsock.go</a><a href="../src/net/unixsock.go.html#line-317">#L317</a>: func ListenUnix(network string, laddr *<b>UnixAddr</b>) (*UnixListener, error) {
-		<a href="../src/net/unixsock.go.html#line-337" class="path-duplicate">unixsock.go</a><a href="../src/net/unixsock.go.html#line-337">#L337</a>: func ListenUnixgram(network string, laddr *<b>UnixAddr</b>) (*UnixConn, error) {
+		<a href="../src/net/unixsock.go.html#line-207" class="path-duplicate">unixsock.go</a><a href="../src/net/unixsock.go.html#line-207">#L207</a>: func dialUnix(ctx context.Context, dialer *Dialer, network string, laddr, raddr *<b>UnixAddr</b>) (*UnixConn, error) {
+		<a href="../src/net/unixsock.go.html#line-324" class="path-duplicate">unixsock.go</a><a href="../src/net/unixsock.go.html#line-324">#L324</a>: func ListenUnix(network string, laddr *<b>UnixAddr</b>) (*UnixListener, error) {
+		<a href="../src/net/unixsock.go.html#line-344" class="path-duplicate">unixsock.go</a><a href="../src/net/unixsock.go.html#line-344">#L344</a>: func ListenUnixgram(network string, laddr *<b>UnixAddr</b>) (*UnixConn, error) {
 		<a href="../src/net/unixsock_posix.go.html#line-54">unixsock_posix.go#L54</a>: 		return &amp;<b>UnixAddr</b>{Name: s.Name, Net: "unix"}
 		<a href="../src/net/unixsock_posix.go.html#line-61" class="path-duplicate">unixsock_posix.go</a><a href="../src/net/unixsock_posix.go.html#line-61">#L61</a>: 		return &amp;<b>UnixAddr</b>{Name: s.Name, Net: "unixgram"}
 		<a href="../src/net/unixsock_posix.go.html#line-68" class="path-duplicate">unixsock_posix.go</a><a href="../src/net/unixsock_posix.go.html#line-68">#L68</a>: 		return &amp;<b>UnixAddr</b>{Name: s.Name, Net: "unixpacket"}
@@ -53,8 +55,8 @@
 		<a href="../src/net/unixsock_posix.go.html#line-219" class="path-duplicate">unixsock_posix.go</a><a href="../src/net/unixsock_posix.go.html#line-219">#L219</a>: func (sl *sysListener) listenUnix(ctx context.Context, laddr *<b>UnixAddr</b>) (*UnixListener, error) {
 		<a href="../src/net/unixsock_posix.go.html#line-233" class="path-duplicate">unixsock_posix.go</a><a href="../src/net/unixsock_posix.go.html#line-233">#L233</a>: func (sl *sysListener) listenUnixgram(ctx context.Context, laddr *<b>UnixAddr</b>) (*UnixConn, error) {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

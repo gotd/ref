@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: u_public.go in package github.com/refraction-networking/utls</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	u_public.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33],
+input[id=r34]:checked ~pre label[for=r34],
+input[id=r35]:checked ~pre label[for=r35],
+input[id=r36]:checked ~pre label[for=r36],
+input[id=r37]:checked ~pre label[for=r37],
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40],
+input[id=r41]:checked ~pre label[for=r41],
+input[id=r42]:checked ~pre label[for=r42],
+input[id=r43]:checked ~pre label[for=r43],
+input[id=r44]:checked ~pre label[for=r44],
+input[id=r45]:checked ~pre label[for=r45],
+input[id=r46]:checked ~pre label[for=r46],
+input[id=r47]:checked ~pre label[for=r47],
+input[id=r48]:checked ~pre label[for=r48],
+input[id=r49]:checked ~pre label[for=r49],
+input[id=r50]:checked ~pre label[for=r50],
+input[id=r51]:checked ~pre label[for=r51],
+input[id=r52]:checked ~pre label[for=r52],
+input[id=r53]:checked ~pre label[for=r53],
+input[id=r54]:checked ~pre label[for=r54],
+input[id=r55]:checked ~pre label[for=r55],
+input[id=r56]:checked ~pre label[for=r56],
+input[id=r57]:checked ~pre label[for=r57],
+input[id=r58]:checked ~pre label[for=r58],
+input[id=r59]:checked ~pre label[for=r59],
+input[id=r60]:checked ~pre label[for=r60],
+input[id=r61]:checked ~pre label[for=r61],
+input[id=r62]:checked ~pre label[for=r62],
+input[id=r63]:checked ~pre label[for=r63],
+input[id=r64]:checked ~pre label[for=r64],
+input[id=r65]:checked ~pre label[for=r65],
+input[id=r66]:checked ~pre label[for=r66],
+input[id=r67]:checked ~pre label[for=r67],
+input[id=r68]:checked ~pre label[for=r68],
+input[id=r69]:checked ~pre label[for=r69],
+input[id=r70]:checked ~pre label[for=r70],
+input[id=r71]:checked ~pre label[for=r71],
+input[id=r72]:checked ~pre label[for=r72],
+input[id=r73]:checked ~pre label[for=r73],
+input[id=r74]:checked ~pre label[for=r74],
+input[id=r75]:checked ~pre label[for=r75],
+input[id=r76]:checked ~pre label[for=r76],
+input[id=r77]:checked ~pre label[for=r77],
+input[id=r78]:checked ~pre label[for=r78],
+input[id=r79]:checked ~pre label[for=r79],
+input[id=r80]:checked ~pre label[for=r80],
+input[id=r81]:checked ~pre label[for=r81],
+input[id=r82]:checked ~pre label[for=r82],
+input[id=r83]:checked ~pre label[for=r83],
+input[id=r84]:checked ~pre label[for=r84],
+input[id=r85]:checked ~pre label[for=r85],
+input[id=r86]:checked ~pre label[for=r86],
+input[id=r87]:checked ~pre label[for=r87],
+input[id=r88]:checked ~pre label[for=r88],
+input[id=r89]:checked ~pre label[for=r89],
+input[id=r90]:checked ~pre label[for=r90],
+input[id=r91]:checked ~pre label[for=r91],
+input[id=r92]:checked ~pre label[for=r92],
+input[id=r93]:checked ~pre label[for=r93],
+input[id=r94]:checked ~pre label[for=r94],
+input[id=r95]:checked ~pre label[for=r95],
+input[id=r96]:checked ~pre label[for=r96],
+input[id=r97]:checked ~pre label[for=r97],
+input[id=r98]:checked ~pre label[for=r98],
+input[id=r99]:checked ~pre label[for=r99],
+input[id=r100]:checked ~pre label[for=r100],
+input[id=r101]:checked ~pre label[for=r101],
+input[id=r102]:checked ~pre label[for=r102],
+input[id=r103]:checked ~pre label[for=r103],
+input[id=r104]:checked ~pre label[for=r104],
+input[id=r105]:checked ~pre label[for=r105],
+input[id=r106]:checked ~pre label[for=r106],
+input[id=r107]:checked ~pre label[for=r107],
+input[id=r108]:checked ~pre label[for=r108],
+input[id=r109]:checked ~pre label[for=r109],
+input[id=r110]:checked ~pre label[for=r110],
+input[id=r111]:checked ~pre label[for=r111],
+input[id=r112]:checked ~pre label[for=r112],
+input[id=r113]:checked ~pre label[for=r113],
+input[id=r114]:checked ~pre label[for=r114],
+input[id=r115]:checked ~pre label[for=r115],
+input[id=r116]:checked ~pre label[for=r116],
+input[id=r117]:checked ~pre label[for=r117],
+input[id=r118]:checked ~pre label[for=r118],
+input[id=r119]:checked ~pre label[for=r119],
+input[id=r120]:checked ~pre label[for=r120],
+input[id=r121]:checked ~pre label[for=r121],
+input[id=r122]:checked ~pre label[for=r122],
+input[id=r123]:checked ~pre label[for=r123],
+input[id=r124]:checked ~pre label[for=r124],
+input[id=r125]:checked ~pre label[for=r125],
+input[id=r126]:checked ~pre label[for=r126],
+input[id=r127]:checked ~pre label[for=r127],
+input[id=r128]:checked ~pre label[for=r128],
+input[id=r129]:checked ~pre label[for=r129],
+input[id=r130]:checked ~pre label[for=r130],
+input[id=r131]:checked ~pre label[for=r131],
+input[id=r132]:checked ~pre label[for=r132],
+input[id=r133]:checked ~pre label[for=r133],
+input[id=r134]:checked ~pre label[for=r134],
+input[id=r135]:checked ~pre label[for=r135],
+input[id=r136]:checked ~pre label[for=r136],
+input[id=r137]:checked ~pre label[for=r137],
+input[id=r138]:checked ~pre label[for=r138],
+input[id=r139]:checked ~pre label[for=r139],
+input[id=r140]:checked ~pre label[for=r140],
+input[id=r141]:checked ~pre label[for=r141],
+input[id=r142]:checked ~pre label[for=r142],
+input[id=r143]:checked ~pre label[for=r143],
+input[id=r144]:checked ~pre label[for=r144],
+input[id=r145]:checked ~pre label[for=r145],
+input[id=r146]:checked ~pre label[for=r146],
+input[id=r147]:checked ~pre label[for=r147],
+input[id=r148]:checked ~pre label[for=r148],
+input[id=r149]:checked ~pre label[for=r149],
+input[id=r150]:checked ~pre label[for=r150],
+input[id=r151]:checked ~pre label[for=r151],
+input[id=r152]:checked ~pre label[for=r152],
+input[id=r153]:checked ~pre label[for=r153],
+input[id=r154]:checked ~pre label[for=r154],
+input[id=r155]:checked ~pre label[for=r155],
+input[id=r156]:checked ~pre label[for=r156],
+input[id=r157]:checked ~pre label[for=r157],
+input[id=r158]:checked ~pre label[for=r158],
+input[id=r159]:checked ~pre label[for=r159],
+input[id=r160]:checked ~pre label[for=r160],
+input[id=r161]:checked ~pre label[for=r161],
+input[id=r162]:checked ~pre label[for=r162],
+input[id=r163]:checked ~pre label[for=r163]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2,
+input[id=i3]:checked ~pre .i3,
+input[id=i4]:checked ~pre .i4,
+input[id=i5]:checked ~pre .i5
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="r34" type="radio" name="g"/>
+<input id="r35" type="radio" name="g"/>
+<input id="r36" type="radio" name="g"/>
+<input id="r37" type="radio" name="g"/>
+<input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="r41" type="radio" name="g"/>
+<input id="r42" type="radio" name="g"/>
+<input id="r43" type="radio" name="g"/>
+<input id="r44" type="radio" name="g"/>
+<input id="r45" type="radio" name="g"/>
+<input id="r46" type="radio" name="g"/>
+<input id="r47" type="radio" name="g"/>
+<input id="r48" type="radio" name="g"/>
+<input id="r49" type="radio" name="g"/>
+<input id="r50" type="radio" name="g"/>
+<input id="r51" type="radio" name="g"/>
+<input id="r52" type="radio" name="g"/>
+<input id="r53" type="radio" name="g"/>
+<input id="r54" type="radio" name="g"/>
+<input id="r55" type="radio" name="g"/>
+<input id="r56" type="radio" name="g"/>
+<input id="r57" type="radio" name="g"/>
+<input id="r58" type="radio" name="g"/>
+<input id="r59" type="radio" name="g"/>
+<input id="r60" type="radio" name="g"/>
+<input id="r61" type="radio" name="g"/>
+<input id="r62" type="radio" name="g"/>
+<input id="r63" type="radio" name="g"/>
+<input id="r64" type="radio" name="g"/>
+<input id="r65" type="radio" name="g"/>
+<input id="r66" type="radio" name="g"/>
+<input id="r67" type="radio" name="g"/>
+<input id="r68" type="radio" name="g"/>
+<input id="r69" type="radio" name="g"/>
+<input id="r70" type="radio" name="g"/>
+<input id="r71" type="radio" name="g"/>
+<input id="r72" type="radio" name="g"/>
+<input id="r73" type="radio" name="g"/>
+<input id="r74" type="radio" name="g"/>
+<input id="r75" type="radio" name="g"/>
+<input id="r76" type="radio" name="g"/>
+<input id="r77" type="radio" name="g"/>
+<input id="r78" type="radio" name="g"/>
+<input id="r79" type="radio" name="g"/>
+<input id="r80" type="radio" name="g"/>
+<input id="r81" type="radio" name="g"/>
+<input id="r82" type="radio" name="g"/>
+<input id="r83" type="radio" name="g"/>
+<input id="r84" type="radio" name="g"/>
+<input id="r85" type="radio" name="g"/>
+<input id="r86" type="radio" name="g"/>
+<input id="r87" type="radio" name="g"/>
+<input id="r88" type="radio" name="g"/>
+<input id="r89" type="radio" name="g"/>
+<input id="r90" type="radio" name="g"/>
+<input id="r91" type="radio" name="g"/>
+<input id="r92" type="radio" name="g"/>
+<input id="r93" type="radio" name="g"/>
+<input id="r94" type="radio" name="g"/>
+<input id="r95" type="radio" name="g"/>
+<input id="r96" type="radio" name="g"/>
+<input id="r97" type="radio" name="g"/>
+<input id="r98" type="radio" name="g"/>
+<input id="r99" type="radio" name="g"/>
+<input id="r100" type="radio" name="g"/>
+<input id="r101" type="radio" name="g"/>
+<input id="r102" type="radio" name="g"/>
+<input id="r103" type="radio" name="g"/>
+<input id="r104" type="radio" name="g"/>
+<input id="r105" type="radio" name="g"/>
+<input id="r106" type="radio" name="g"/>
+<input id="r107" type="radio" name="g"/>
+<input id="r108" type="radio" name="g"/>
+<input id="r109" type="radio" name="g"/>
+<input id="r110" type="radio" name="g"/>
+<input id="r111" type="radio" name="g"/>
+<input id="r112" type="radio" name="g"/>
+<input id="r113" type="radio" name="g"/>
+<input id="r114" type="radio" name="g"/>
+<input id="r115" type="radio" name="g"/>
+<input id="r116" type="radio" name="g"/>
+<input id="r117" type="radio" name="g"/>
+<input id="r118" type="radio" name="g"/>
+<input id="r119" type="radio" name="g"/>
+<input id="r120" type="radio" name="g"/>
+<input id="r121" type="radio" name="g"/>
+<input id="r122" type="radio" name="g"/>
+<input id="r123" type="radio" name="g"/>
+<input id="r124" type="radio" name="g"/>
+<input id="r125" type="radio" name="g"/>
+<input id="r126" type="radio" name="g"/>
+<input id="r127" type="radio" name="g"/>
+<input id="r128" type="radio" name="g"/>
+<input id="r129" type="radio" name="g"/>
+<input id="r130" type="radio" name="g"/>
+<input id="r131" type="radio" name="g"/>
+<input id="r132" type="radio" name="g"/>
+<input id="r133" type="radio" name="g"/>
+<input id="r134" type="radio" name="g"/>
+<input id="r135" type="radio" name="g"/>
+<input id="r136" type="radio" name="g"/>
+<input id="r137" type="radio" name="g"/>
+<input id="r138" type="radio" name="g"/>
+<input id="r139" type="radio" name="g"/>
+<input id="r140" type="radio" name="g"/>
+<input id="r141" type="radio" name="g"/>
+<input id="r142" type="radio" name="g"/>
+<input id="r143" type="radio" name="g"/>
+<input id="r144" type="radio" name="g"/>
+<input id="r145" type="radio" name="g"/>
+<input id="r146" type="radio" name="g"/>
+<input id="r147" type="radio" name="g"/>
+<input id="r148" type="radio" name="g"/>
+<input id="r149" type="radio" name="g"/>
+<input id="r150" type="radio" name="g"/>
+<input id="r151" type="radio" name="g"/>
+<input id="r152" type="radio" name="g"/>
+<input id="r153" type="radio" name="g"/>
+<input id="r154" type="radio" name="g"/>
+<input id="r155" type="radio" name="g"/>
+<input id="r156" type="radio" name="g"/>
+<input id="r157" type="radio" name="g"/>
+<input id="r158" type="radio" name="g"/>
+<input id="r159" type="radio" name="g"/>
+<input id="r160" type="radio" name="g"/>
+<input id="r161" type="radio" name="g"/>
+<input id="r162" type="radio" name="g"/>
+<input id="r163" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+<input id="i3" type="radio" name="i"/>
+<input id="i4" type="radio" name="i"/>
+<input id="i5" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright 2017 Google Inc. All rights reserved.</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// Use of this source code is governed by a BSD-style</span></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// license that can be found in the LICENSE file.</span></code></span>
+<span class="codeline" id="line-4"><code></code></span>
+<span class="codeline" id="line-5"><code><span class="keyword">package</span> tls</code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-8"><code>	<label for="i0"><span class="lit-string i0">"crypto"</span></label></code></span>
+<span class="codeline" id="line-9"><code>	<label for="i1"><span class="lit-string i1">"crypto/ecdh"</span></label></code></span>
+<span class="codeline" id="line-10"><code>	<label for="i2"><span class="lit-string i2">"crypto/mlkem"</span></label></code></span>
+<span class="codeline" id="line-11"><code>	<label for="i3"><span class="lit-string i3">"crypto/x509"</span></label></code></span>
+<span class="codeline" id="line-12"><code>	<label for="i4"><span class="lit-string i4">"hash"</span></label></code></span>
+<span class="codeline" id="line-13"><code>	<label for="i5"><span class="lit-string i5">"time"</span></label></code></span>
+<span class="codeline" id="line-14"><code>)</code></span>
+<span class="codeline" id="line-15"><code></code></span>
+<span class="codeline" id="line-16"><code><span class="comment">// ClientHandshakeState includes both TLS 1.3-only and TLS 1.2-only states,</span></code></span>
+<span class="codeline" id="line-17"><code><span class="comment">// only one of them will be used, depending on negotiated version.</span></code></span>
+<span class="codeline" id="line-18"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">// ClientHandshakeState will be converted into and from either</span></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">//   - clientHandshakeState      (TLS 1.2)</span></code></span>
+<span class="codeline" id="line-21"><code><span class="comment">//   - clientHandshakeStateTLS13 (TLS 1.3)</span></code></span>
+<span class="codeline" id="line-22"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">// uTLS will call .handshake() on one of these private internal states,</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">// to perform TLS handshake using standard crypto/tls implementation.</span></code></span>
+<span class="codeline" id="line-25"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-PubClientHandshakeState" class="ident">PubClientHandshakeState</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-26"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHandshakeState.C.html" class="ident">C</a>            *<a href="conn.go.html#line-27" class="ident">Conn</a></code></span>
+<span class="codeline" id="line-27"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHandshakeState.ServerHello.html" class="ident">ServerHello</a>  *<a href="#line-268" class="ident">PubServerHelloMsg</a></code></span>
+<span class="codeline" id="line-28"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHandshakeState.Hello.html" class="ident">Hello</a>        *<a href="#line-355" class="ident">PubClientHelloMsg</a></code></span>
+<span class="codeline" id="line-29"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHandshakeState.MasterSecret.html" class="ident">MasterSecret</a> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-30"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHandshakeState.Session.html" class="ident">Session</a>      *<a href="ticket.go.html#line-21" class="ident">SessionState</a></code></span>
+<span class="codeline" id="line-31"><code></code></span>
+<span class="codeline" id="line-32"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHandshakeState.State12.html" class="ident">State12</a> <a href="#line-62" class="ident">TLS12OnlyState</a></code></span>
+<span class="codeline" id="line-33"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHandshakeState.State13.html" class="ident">State13</a> <a href="#line-39" class="ident">TLS13OnlyState</a></code></span>
+<span class="codeline" id="line-34"><code></code></span>
+<span class="codeline" id="line-35"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHandshakeState.uconn^9a084.html" class="ident">uconn</a> *<a href="u_conn.go.html#line-29" class="ident">UConn</a></code></span>
+<span class="codeline" id="line-36"><code>}</code></span>
+<span class="codeline" id="line-37"><code></code></span>
+<span class="codeline" id="line-38"><code><span class="comment">// TLS 1.3 only</span></code></span>
+<span class="codeline" id="line-39"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-TLS13OnlyState" class="ident">TLS13OnlyState</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-40"><code>	<span class="comment">// Deprecated: Use KeyShareKeys instead. KeyShareKeys will take precedence if both are set.</span></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">	// Support may be removed in the future.</span></code></span>
+<span class="codeline" id="line-42"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS13OnlyState.EcdheKey.html" class="ident">EcdheKey</a> *<a href="../../../../pkg/crypto/ecdh.html" class="ident i1">ecdh</a>.<a href="../../../crypto/ecdh/ecdh.go.html#line-112" class="ident">PrivateKey</a></code></span>
+<span class="codeline" id="line-43"><code>	<span class="comment">// Deprecated: Use KeyShareKeys instead. This variable is no longer used.</span></code></span>
+<span class="codeline" id="line-44"><code><span class="comment">	// Will be removed in the future.</span></code></span>
+<span class="codeline" id="line-45"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS13OnlyState.KeySharesParams.html" class="ident">KeySharesParams</a> *<a href="u_alias.go.html#line-21" class="ident">KeySharesParameters</a></code></span>
+<span class="codeline" id="line-46"><code>	<span class="comment">// Deprecated: Use KeyShareKeys instead. This variable is no longer used.</span></code></span>
+<span class="codeline" id="line-47"><code><span class="comment">	// Will be removed in the future.</span></code></span>
+<span class="codeline" id="line-48"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS13OnlyState.KEMKey.html" class="ident">KEMKey</a> *<a href="#line-869" class="ident">KemPrivateKey</a></code></span>
+<span class="codeline" id="line-49"><code></code></span>
+<span class="codeline" id="line-50"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS13OnlyState.KeyShareKeys.html" class="ident">KeyShareKeys</a>  *<a href="#line-896" class="ident">KeySharePrivateKeys</a></code></span>
+<span class="codeline" id="line-51"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS13OnlyState.Suite.html" class="ident">Suite</a>         *<a href="#line-235" class="ident">PubCipherSuiteTLS13</a></code></span>
+<span class="codeline" id="line-52"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS13OnlyState.EarlySecret.html" class="ident">EarlySecret</a>   []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-53"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS13OnlyState.BinderKey.html" class="ident">BinderKey</a>     []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-54"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS13OnlyState.CertReq.html" class="ident">CertReq</a>       *<a href="#line-189" class="ident">CertificateRequestMsgTLS13</a></code></span>
+<span class="codeline" id="line-55"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS13OnlyState.UsingPSK.html" class="ident">UsingPSK</a>      <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> <span class="comment">// don't set this field when building client hello</span></code></span>
+<span class="codeline" id="line-56"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS13OnlyState.SentDummyCCS.html" class="ident">SentDummyCCS</a>  <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-57"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS13OnlyState.Transcript.html" class="ident">Transcript</a>    <a href="../../../../pkg/hash.html" class="ident i4">hash</a>.<a href="../../../hash/hash.go.html#line-26" class="ident">Hash</a></code></span>
+<span class="codeline" id="line-58"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS13OnlyState.TrafficSecret.html" class="ident">TrafficSecret</a> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a> <span class="comment">// client_application_traffic_secret_0</span></code></span>
+<span class="codeline" id="line-59"><code>}</code></span>
+<span class="codeline" id="line-60"><code></code></span>
+<span class="codeline" id="line-61"><code><span class="comment">// TLS 1.2 and before only</span></code></span>
+<span class="codeline" id="line-62"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-TLS12OnlyState" class="ident">TLS12OnlyState</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-63"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS12OnlyState.FinishedHash.html" class="ident">FinishedHash</a> <a href="#line-551" class="ident">FinishedHash</a></code></span>
+<span class="codeline" id="line-64"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TLS12OnlyState.Suite.html" class="ident">Suite</a>        <a href="#line-499" class="ident">PubCipherSuite</a></code></span>
+<span class="codeline" id="line-65"><code>}</code></span>
+<span class="codeline" id="line-66"><code></code></span>
+<span class="codeline" id="line-67"><code><span class="keyword">func</span> (<label for="r0" class="ident">chs</label> *<a href="#line-39" class="ident">TLS13OnlyState</a>) <label for="r1" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..TLS13OnlyState.private13KeyShareKeys^305e1.html" class="ident">private13KeyShareKeys</a></label>() *<a href="key_schedule.go.html#line-53" class="ident">keySharePrivateKeys</a> {</code></span>
+<span class="codeline" id="line-68"><code>	<span class="keyword">if</span> <label for="r0" class="ident">chs</label>.<a href="#line-50" class="ident">KeyShareKeys</a> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-69"><code>		<span class="keyword">return</span> <label for="r0" class="ident">chs</label>.<a href="#line-50" class="ident">KeyShareKeys</a>.<a href="#line-903" class="ident">ToPrivate</a>()</code></span>
+<span class="codeline" id="line-70"><code>	}</code></span>
+<span class="codeline" id="line-71"><code></code></span>
+<span class="codeline" id="line-72"><code>	<span class="keyword">if</span> <label for="r0" class="ident">chs</label>.<a href="#line-42" class="ident">EcdheKey</a> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-73"><code>		<span class="keyword">return</span> &amp;<a href="key_schedule.go.html#line-53" class="ident">keySharePrivateKeys</a>{</code></span>
+<span class="codeline" id="line-74"><code>			<a href="key_schedule.go.html#line-55" class="ident">ecdhe</a>: <label for="r0" class="ident">chs</label>.<a href="#line-42" class="ident">EcdheKey</a>,</code></span>
+<span class="codeline" id="line-75"><code>		}</code></span>
+<span class="codeline" id="line-76"><code>	}</code></span>
+<span class="codeline" id="line-77"><code></code></span>
+<span class="codeline" id="line-78"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-79"><code>}</code></span>
+<span class="codeline" id="line-80"><code></code></span>
+<span class="codeline" id="line-81"><code><span class="comment">// func kyberGoToCircl(kyberKey *mlkem768.DecapsulationKey, ecdhKey *ecdh.PrivateKey) (kem.PrivateKey, error) {</span></code></span>
+<span class="codeline" id="line-82"><code><span class="comment">// 	return hybrid.Kyber768X25519().UnmarshalBinaryPrivateKey(append(ecdhKey.Bytes(), kyberKey.Bytes()...))</span></code></span>
+<span class="codeline" id="line-83"><code><span class="comment">// }</span></code></span>
+<span class="codeline" id="line-84"><code></code></span>
+<span class="codeline" id="line-85"><code><span class="keyword">func</span> (<label for="r2" class="ident">chs</label> *<a href="#line-25" class="ident">PubClientHandshakeState</a>) <label for="r3" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..PubClientHandshakeState.toPrivate13^0a2f8.html" class="ident">toPrivate13</a></label>() *<a href="handshake_client_tls13.go.html#line-26" class="ident">clientHandshakeStateTLS13</a> {</code></span>
+<span class="codeline" id="line-86"><code>	<span class="keyword">if</span> <label for="r2" class="ident">chs</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-87"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-88"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-89"><code>		<span class="keyword">return</span> &amp;<a href="handshake_client_tls13.go.html#line-26" class="ident">clientHandshakeStateTLS13</a>{</code></span>
+<span class="codeline" id="line-90"><code>			<a href="handshake_client_tls13.go.html#line-27" class="ident">c</a>:            <label for="r2" class="ident">chs</label>.<a href="#line-26" class="ident">C</a>,</code></span>
+<span class="codeline" id="line-91"><code>			<a href="handshake_client_tls13.go.html#line-29" class="ident">serverHello</a>:  <label for="r2" class="ident">chs</label>.<a href="#line-27" class="ident">ServerHello</a>.<a href="#line-295" class="ident">getPrivatePtr</a>(),</code></span>
+<span class="codeline" id="line-92"><code>			<a href="handshake_client_tls13.go.html#line-30" class="ident">hello</a>:        <label for="r2" class="ident">chs</label>.<a href="#line-28" class="ident">Hello</a>.<a href="#line-391" class="ident">getPrivatePtr</a>(),</code></span>
+<span class="codeline" id="line-93"><code>			<a href="handshake_client_tls13.go.html#line-31" class="ident">keyShareKeys</a>: <label for="r2" class="ident">chs</label>.<a href="#line-33" class="ident">State13</a>.<a href="#line-67" class="ident">private13KeyShareKeys</a>(),</code></span>
+<span class="codeline" id="line-94"><code></code></span>
+<span class="codeline" id="line-95"><code>			<a href="handshake_client_tls13.go.html#line-33" class="ident">session</a>:   <label for="r2" class="ident">chs</label>.<a href="#line-30" class="ident">Session</a>,</code></span>
+<span class="codeline" id="line-96"><code>			<a href="handshake_client_tls13.go.html#line-35" class="ident">binderKey</a>: <label for="r2" class="ident">chs</label>.<a href="#line-33" class="ident">State13</a>.<a href="#line-53" class="ident">BinderKey</a>,</code></span>
+<span class="codeline" id="line-97"><code></code></span>
+<span class="codeline" id="line-98"><code>			<a href="handshake_client_tls13.go.html#line-37" class="ident">certReq</a>:       <label for="r2" class="ident">chs</label>.<a href="#line-33" class="ident">State13</a>.<a href="#line-54" class="ident">CertReq</a>.<a href="#line-221" class="ident">toPrivate</a>(),</code></span>
+<span class="codeline" id="line-99"><code>			<a href="handshake_client_tls13.go.html#line-38" class="ident">usingPSK</a>:      <label for="r2" class="ident">chs</label>.<a href="#line-33" class="ident">State13</a>.<a href="#line-55" class="ident">UsingPSK</a>,</code></span>
+<span class="codeline" id="line-100"><code>			<a href="handshake_client_tls13.go.html#line-39" class="ident">sentDummyCCS</a>:  <label for="r2" class="ident">chs</label>.<a href="#line-33" class="ident">State13</a>.<a href="#line-56" class="ident">SentDummyCCS</a>,</code></span>
+<span class="codeline" id="line-101"><code>			<a href="handshake_client_tls13.go.html#line-40" class="ident">suite</a>:         <label for="r2" class="ident">chs</label>.<a href="#line-33" class="ident">State13</a>.<a href="#line-51" class="ident">Suite</a>.<a href="#line-255" class="ident">toPrivate</a>(),</code></span>
+<span class="codeline" id="line-102"><code>			<a href="handshake_client_tls13.go.html#line-41" class="ident">transcript</a>:    <label for="r2" class="ident">chs</label>.<a href="#line-33" class="ident">State13</a>.<a href="#line-57" class="ident">Transcript</a>,</code></span>
+<span class="codeline" id="line-103"><code>			<a href="handshake_client_tls13.go.html#line-43" class="ident">trafficSecret</a>: <label for="r2" class="ident">chs</label>.<a href="#line-33" class="ident">State13</a>.<a href="#line-58" class="ident">TrafficSecret</a>,</code></span>
+<span class="codeline" id="line-104"><code></code></span>
+<span class="codeline" id="line-105"><code>			<a href="handshake_client_tls13.go.html#line-47" class="ident">uconn</a>: <label for="r2" class="ident">chs</label>.<a href="#line-35" class="ident">uconn</a>,</code></span>
+<span class="codeline" id="line-106"><code>		}</code></span>
+<span class="codeline" id="line-107"><code>	}</code></span>
+<span class="codeline" id="line-108"><code>}</code></span>
+<span class="codeline" id="line-109"><code></code></span>
+<span class="codeline" id="line-110"><code><span class="keyword">func</span> (<label for="r4" class="ident">chs13</label> *<a href="handshake_client_tls13.go.html#line-26" class="ident">clientHandshakeStateTLS13</a>) <label for="r5" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..clientHandshakeStateTLS13^29870.toPublic13^970e9.html" class="ident">toPublic13</a></label>() *<a href="#line-25" class="ident">PubClientHandshakeState</a> {</code></span>
+<span class="codeline" id="line-111"><code>	<span class="keyword">if</span> <label for="r4" class="ident">chs13</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-112"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-113"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-114"><code>		<label for="r6" class="ident">tls13State</label> := <a href="#line-39" class="ident">TLS13OnlyState</a>{</code></span>
+<span class="codeline" id="line-115"><code>			<a href="#line-50" class="ident">KeyShareKeys</a>:  <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-31" class="ident">keyShareKeys</a>.<a href="#line-915" class="ident">ToPublic</a>(),</code></span>
+<span class="codeline" id="line-116"><code>			<a href="#line-52" class="ident">EarlySecret</a>:   <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-34" class="ident">earlySecret</a>.<a href="internal/tls13/u_tls13.go.html#line-12" class="ident">Secret</a>(),</code></span>
+<span class="codeline" id="line-117"><code>			<a href="#line-53" class="ident">BinderKey</a>:     <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-35" class="ident">binderKey</a>,</code></span>
+<span class="codeline" id="line-118"><code>			<a href="#line-54" class="ident">CertReq</a>:       <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-37" class="ident">certReq</a>.<a href="#line-201" class="ident">toPublic</a>(),</code></span>
+<span class="codeline" id="line-119"><code>			<a href="#line-55" class="ident">UsingPSK</a>:      <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-38" class="ident">usingPSK</a>,</code></span>
+<span class="codeline" id="line-120"><code>			<a href="#line-56" class="ident">SentDummyCCS</a>:  <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-39" class="ident">sentDummyCCS</a>,</code></span>
+<span class="codeline" id="line-121"><code>			<a href="#line-51" class="ident">Suite</a>:         <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-40" class="ident">suite</a>.<a href="#line-242" class="ident">toPublic</a>(),</code></span>
+<span class="codeline" id="line-122"><code>			<a href="#line-58" class="ident">TrafficSecret</a>: <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-43" class="ident">trafficSecret</a>,</code></span>
+<span class="codeline" id="line-123"><code>			<a href="#line-57" class="ident">Transcript</a>:    <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-41" class="ident">transcript</a>,</code></span>
+<span class="codeline" id="line-124"><code>		}</code></span>
+<span class="codeline" id="line-125"><code>		<span class="keyword">return</span> &amp;<a href="#line-25" class="ident">PubClientHandshakeState</a>{</code></span>
+<span class="codeline" id="line-126"><code>			<a href="#line-26" class="ident">C</a>:           <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-27" class="ident">c</a>,</code></span>
+<span class="codeline" id="line-127"><code>			<a href="#line-27" class="ident">ServerHello</a>: <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-29" class="ident">serverHello</a>.<a href="#line-325" class="ident">getPublicPtr</a>(),</code></span>
+<span class="codeline" id="line-128"><code>			<a href="#line-28" class="ident">Hello</a>:       <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-30" class="ident">hello</a>.<a href="#line-441" class="ident">getPublicPtr</a>(),</code></span>
+<span class="codeline" id="line-129"><code></code></span>
+<span class="codeline" id="line-130"><code>			<a href="#line-30" class="ident">Session</a>: <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-33" class="ident">session</a>,</code></span>
+<span class="codeline" id="line-131"><code></code></span>
+<span class="codeline" id="line-132"><code>			<a href="#line-29" class="ident">MasterSecret</a>: <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-42" class="ident">masterSecret</a>.<a href="internal/tls13/u_tls13.go.html#line-26" class="ident">Secret</a>(),</code></span>
+<span class="codeline" id="line-133"><code></code></span>
+<span class="codeline" id="line-134"><code>			<a href="#line-33" class="ident">State13</a>: <label for="r6" class="ident">tls13State</label>,</code></span>
+<span class="codeline" id="line-135"><code></code></span>
+<span class="codeline" id="line-136"><code>			<a href="#line-35" class="ident">uconn</a>: <label for="r4" class="ident">chs13</label>.<a href="handshake_client_tls13.go.html#line-47" class="ident">uconn</a>,</code></span>
+<span class="codeline" id="line-137"><code>		}</code></span>
+<span class="codeline" id="line-138"><code>	}</code></span>
+<span class="codeline" id="line-139"><code>}</code></span>
+<span class="codeline" id="line-140"><code></code></span>
+<span class="codeline" id="line-141"><code><span class="keyword">func</span> (<label for="r7" class="ident">chs</label> *<a href="#line-25" class="ident">PubClientHandshakeState</a>) <label for="r8" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..PubClientHandshakeState.toPrivate12^9ae15.html" class="ident">toPrivate12</a></label>() *<a href="handshake_client.go.html#line-32" class="ident">clientHandshakeState</a> {</code></span>
+<span class="codeline" id="line-142"><code>	<span class="keyword">if</span> <label for="r7" class="ident">chs</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-143"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-144"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-145"><code>		<span class="keyword">return</span> &amp;<a href="handshake_client.go.html#line-32" class="ident">clientHandshakeState</a>{</code></span>
+<span class="codeline" id="line-146"><code>			<a href="handshake_client.go.html#line-33" class="ident">c</a>:           <label for="r7" class="ident">chs</label>.<a href="#line-26" class="ident">C</a>,</code></span>
+<span class="codeline" id="line-147"><code>			<a href="handshake_client.go.html#line-35" class="ident">serverHello</a>: <label for="r7" class="ident">chs</label>.<a href="#line-27" class="ident">ServerHello</a>.<a href="#line-295" class="ident">getPrivatePtr</a>(),</code></span>
+<span class="codeline" id="line-148"><code>			<a href="handshake_client.go.html#line-36" class="ident">hello</a>:       <label for="r7" class="ident">chs</label>.<a href="#line-28" class="ident">Hello</a>.<a href="#line-391" class="ident">getPrivatePtr</a>(),</code></span>
+<span class="codeline" id="line-149"><code>			<a href="handshake_client.go.html#line-37" class="ident">suite</a>:       <label for="r7" class="ident">chs</label>.<a href="#line-32" class="ident">State12</a>.<a href="#line-64" class="ident">Suite</a>.<a href="#line-513" class="ident">getPrivatePtr</a>(),</code></span>
+<span class="codeline" id="line-150"><code>			<a href="handshake_client.go.html#line-40" class="ident">session</a>:     <label for="r7" class="ident">chs</label>.<a href="#line-30" class="ident">Session</a>,</code></span>
+<span class="codeline" id="line-151"><code></code></span>
+<span class="codeline" id="line-152"><code>			<a href="handshake_client.go.html#line-39" class="ident">masterSecret</a>: <label for="r7" class="ident">chs</label>.<a href="#line-29" class="ident">MasterSecret</a>,</code></span>
+<span class="codeline" id="line-153"><code></code></span>
+<span class="codeline" id="line-154"><code>			<a href="handshake_client.go.html#line-38" class="ident">finishedHash</a>: <label for="r7" class="ident">chs</label>.<a href="#line-32" class="ident">State12</a>.<a href="#line-63" class="ident">FinishedHash</a>.<a href="#line-585" class="ident">getPrivateObj</a>(),</code></span>
+<span class="codeline" id="line-155"><code></code></span>
+<span class="codeline" id="line-156"><code>			<a href="handshake_client.go.html#line-43" class="ident">uconn</a>: <label for="r7" class="ident">chs</label>.<a href="#line-35" class="ident">uconn</a>,</code></span>
+<span class="codeline" id="line-157"><code>		}</code></span>
+<span class="codeline" id="line-158"><code>	}</code></span>
+<span class="codeline" id="line-159"><code>}</code></span>
+<span class="codeline" id="line-160"><code></code></span>
+<span class="codeline" id="line-161"><code><span class="keyword">func</span> (<label for="r9" class="ident">chs12</label> *<a href="handshake_client.go.html#line-32" class="ident">clientHandshakeState</a>) <label for="r10" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..clientHandshakeState^c4d72.toPublic12^7058b.html" class="ident">toPublic12</a></label>() *<a href="#line-25" class="ident">PubClientHandshakeState</a> {</code></span>
+<span class="codeline" id="line-162"><code>	<span class="keyword">if</span> <label for="r9" class="ident">chs12</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-163"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-164"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-165"><code>		<label for="r11" class="ident">tls12State</label> := <a href="#line-62" class="ident">TLS12OnlyState</a>{</code></span>
+<span class="codeline" id="line-166"><code>			<a href="#line-64" class="ident">Suite</a>:        <label for="r9" class="ident">chs12</label>.<a href="handshake_client.go.html#line-37" class="ident">suite</a>.<a href="#line-531" class="ident">getPublicObj</a>(),</code></span>
+<span class="codeline" id="line-167"><code>			<a href="#line-63" class="ident">FinishedHash</a>: <label for="r9" class="ident">chs12</label>.<a href="handshake_client.go.html#line-38" class="ident">finishedHash</a>.<a href="#line-608" class="ident">getPublicObj</a>(),</code></span>
+<span class="codeline" id="line-168"><code>		}</code></span>
+<span class="codeline" id="line-169"><code>		<span class="keyword">return</span> &amp;<a href="#line-25" class="ident">PubClientHandshakeState</a>{</code></span>
+<span class="codeline" id="line-170"><code>			<a href="#line-26" class="ident">C</a>:           <label for="r9" class="ident">chs12</label>.<a href="handshake_client.go.html#line-33" class="ident">c</a>,</code></span>
+<span class="codeline" id="line-171"><code>			<a href="#line-27" class="ident">ServerHello</a>: <label for="r9" class="ident">chs12</label>.<a href="handshake_client.go.html#line-35" class="ident">serverHello</a>.<a href="#line-325" class="ident">getPublicPtr</a>(),</code></span>
+<span class="codeline" id="line-172"><code>			<a href="#line-28" class="ident">Hello</a>:       <label for="r9" class="ident">chs12</label>.<a href="handshake_client.go.html#line-36" class="ident">hello</a>.<a href="#line-441" class="ident">getPublicPtr</a>(),</code></span>
+<span class="codeline" id="line-173"><code></code></span>
+<span class="codeline" id="line-174"><code>			<a href="#line-30" class="ident">Session</a>: <label for="r9" class="ident">chs12</label>.<a href="handshake_client.go.html#line-40" class="ident">session</a>,</code></span>
+<span class="codeline" id="line-175"><code></code></span>
+<span class="codeline" id="line-176"><code>			<a href="#line-29" class="ident">MasterSecret</a>: <label for="r9" class="ident">chs12</label>.<a href="handshake_client.go.html#line-39" class="ident">masterSecret</a>,</code></span>
+<span class="codeline" id="line-177"><code></code></span>
+<span class="codeline" id="line-178"><code>			<a href="#line-32" class="ident">State12</a>: <label for="r11" class="ident">tls12State</label>,</code></span>
+<span class="codeline" id="line-179"><code></code></span>
+<span class="codeline" id="line-180"><code>			<a href="#line-35" class="ident">uconn</a>: <label for="r9" class="ident">chs12</label>.<a href="handshake_client.go.html#line-43" class="ident">uconn</a>,</code></span>
+<span class="codeline" id="line-181"><code>		}</code></span>
+<span class="codeline" id="line-182"><code>	}</code></span>
+<span class="codeline" id="line-183"><code>}</code></span>
+<span class="codeline" id="line-184"><code></code></span>
+<span class="codeline" id="line-185"><code><span class="comment">// type EcdheParameters interface {</span></code></span>
+<span class="codeline" id="line-186"><code><span class="comment">// 	ecdheParameters</span></code></span>
+<span class="codeline" id="line-187"><code><span class="comment">// }</span></code></span>
+<span class="codeline" id="line-188"><code></code></span>
+<span class="codeline" id="line-189"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-CertificateRequestMsgTLS13" class="ident">CertificateRequestMsgTLS13</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-190"><code>	<span class="comment">// Deprecated: crypto/tls no longer use this variable. This field won't be read or used by utls, but will still be populated.</span></code></span>
+<span class="codeline" id="line-191"><code><span class="comment">	// Support may be removed in the future.</span></code></span>
+<span class="codeline" id="line-192"><code>	<a href="../../../../use/github.com/refraction-networking/utls..CertificateRequestMsgTLS13.Raw.html" class="ident">Raw</a> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-193"><code></code></span>
+<span class="codeline" id="line-194"><code>	<a href="../../../../use/github.com/refraction-networking/utls..CertificateRequestMsgTLS13.OcspStapling.html" class="ident">OcspStapling</a>                     <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-195"><code>	<a href="../../../../use/github.com/refraction-networking/utls..CertificateRequestMsgTLS13.Scts.html" class="ident">Scts</a>                             <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-196"><code>	<a href="../../../../use/github.com/refraction-networking/utls..CertificateRequestMsgTLS13.SupportedSignatureAlgorithms.html" class="ident">SupportedSignatureAlgorithms</a>     []<a href="common.go.html#line-396" class="ident">SignatureScheme</a></code></span>
+<span class="codeline" id="line-197"><code>	<a href="../../../../use/github.com/refraction-networking/utls..CertificateRequestMsgTLS13.SupportedSignatureAlgorithmsCert.html" class="ident">SupportedSignatureAlgorithmsCert</a> []<a href="common.go.html#line-396" class="ident">SignatureScheme</a></code></span>
+<span class="codeline" id="line-198"><code>	<a href="../../../../use/github.com/refraction-networking/utls..CertificateRequestMsgTLS13.CertificateAuthorities.html" class="ident">CertificateAuthorities</a>           [][]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-199"><code>}</code></span>
+<span class="codeline" id="line-200"><code></code></span>
+<span class="codeline" id="line-201"><code><span class="keyword">func</span> (<label for="r12" class="ident">crm</label> *<a href="handshake_messages.go.html#line-1278" class="ident">certificateRequestMsgTLS13</a>) <label for="r13" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..certificateRequestMsgTLS13^78538.toPublic^d93a6.html" class="ident">toPublic</a></label>() *<a href="#line-189" class="ident">CertificateRequestMsgTLS13</a> {</code></span>
+<span class="codeline" id="line-202"><code>	<span class="keyword">if</span> <label for="r12" class="ident">crm</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-203"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-204"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-205"><code>		<label for="r14" class="ident">rawBytes</label> := []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>{}</code></span>
+<span class="codeline" id="line-206"><code>		<span class="keyword">if</span> <label for="r15" class="ident">raw</label>, <label for="r16" class="ident">err</label> := <label for="r12" class="ident">crm</label>.<a href="handshake_messages.go.html#line-1287" class="ident">marshal</a>(); <label for="r16" class="ident">err</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-207"><code>			<label for="r14" class="ident">rawBytes</label> = <label for="r15" class="ident">raw</label></code></span>
+<span class="codeline" id="line-208"><code>		}</code></span>
+<span class="codeline" id="line-209"><code></code></span>
+<span class="codeline" id="line-210"><code>		<span class="keyword">return</span> &amp;<a href="#line-189" class="ident">CertificateRequestMsgTLS13</a>{</code></span>
+<span class="codeline" id="line-211"><code>			<a href="#line-192" class="ident">Raw</a>:                              <label for="r14" class="ident">rawBytes</label>,</code></span>
+<span class="codeline" id="line-212"><code>			<a href="#line-194" class="ident">OcspStapling</a>:                     <label for="r12" class="ident">crm</label>.<a href="handshake_messages.go.html#line-1280" class="ident">ocspStapling</a>,</code></span>
+<span class="codeline" id="line-213"><code>			<a href="#line-195" class="ident">Scts</a>:                             <label for="r12" class="ident">crm</label>.<a href="handshake_messages.go.html#line-1281" class="ident">scts</a>,</code></span>
+<span class="codeline" id="line-214"><code>			<a href="#line-196" class="ident">SupportedSignatureAlgorithms</a>:     <label for="r12" class="ident">crm</label>.<a href="handshake_messages.go.html#line-1282" class="ident">supportedSignatureAlgorithms</a>,</code></span>
+<span class="codeline" id="line-215"><code>			<a href="#line-197" class="ident">SupportedSignatureAlgorithmsCert</a>: <label for="r12" class="ident">crm</label>.<a href="handshake_messages.go.html#line-1283" class="ident">supportedSignatureAlgorithmsCert</a>,</code></span>
+<span class="codeline" id="line-216"><code>			<a href="#line-198" class="ident">CertificateAuthorities</a>:           <label for="r12" class="ident">crm</label>.<a href="handshake_messages.go.html#line-1284" class="ident">certificateAuthorities</a>,</code></span>
+<span class="codeline" id="line-217"><code>		}</code></span>
+<span class="codeline" id="line-218"><code>	}</code></span>
+<span class="codeline" id="line-219"><code>}</code></span>
+<span class="codeline" id="line-220"><code></code></span>
+<span class="codeline" id="line-221"><code><span class="keyword">func</span> (<label for="r17" class="ident">crm</label> *<a href="#line-189" class="ident">CertificateRequestMsgTLS13</a>) <label for="r18" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..CertificateRequestMsgTLS13.toPrivate^71352.html" class="ident">toPrivate</a></label>() *<a href="handshake_messages.go.html#line-1278" class="ident">certificateRequestMsgTLS13</a> {</code></span>
+<span class="codeline" id="line-222"><code>	<span class="keyword">if</span> <label for="r17" class="ident">crm</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-223"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-224"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-225"><code>		<span class="keyword">return</span> &amp;<a href="handshake_messages.go.html#line-1278" class="ident">certificateRequestMsgTLS13</a>{</code></span>
+<span class="codeline" id="line-226"><code>			<a href="handshake_messages.go.html#line-1280" class="ident">ocspStapling</a>:                     <label for="r17" class="ident">crm</label>.<a href="#line-194" class="ident">OcspStapling</a>,</code></span>
+<span class="codeline" id="line-227"><code>			<a href="handshake_messages.go.html#line-1281" class="ident">scts</a>:                             <label for="r17" class="ident">crm</label>.<a href="#line-195" class="ident">Scts</a>,</code></span>
+<span class="codeline" id="line-228"><code>			<a href="handshake_messages.go.html#line-1282" class="ident">supportedSignatureAlgorithms</a>:     <label for="r17" class="ident">crm</label>.<a href="#line-196" class="ident">SupportedSignatureAlgorithms</a>,</code></span>
+<span class="codeline" id="line-229"><code>			<a href="handshake_messages.go.html#line-1283" class="ident">supportedSignatureAlgorithmsCert</a>: <label for="r17" class="ident">crm</label>.<a href="#line-197" class="ident">SupportedSignatureAlgorithmsCert</a>,</code></span>
+<span class="codeline" id="line-230"><code>			<a href="handshake_messages.go.html#line-1284" class="ident">certificateAuthorities</a>:           <label for="r17" class="ident">crm</label>.<a href="#line-198" class="ident">CertificateAuthorities</a>,</code></span>
+<span class="codeline" id="line-231"><code>		}</code></span>
+<span class="codeline" id="line-232"><code>	}</code></span>
+<span class="codeline" id="line-233"><code>}</code></span>
+<span class="codeline" id="line-234"><code></code></span>
+<span class="codeline" id="line-235"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-PubCipherSuiteTLS13" class="ident">PubCipherSuiteTLS13</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-236"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuiteTLS13.Id^12156.html" class="ident">Id</a>     <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-237"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuiteTLS13.KeyLen.html" class="ident">KeyLen</a> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-238"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuiteTLS13.Aead^0cc68.html" class="ident">Aead</a>   <span class="keyword">func</span>(key, fixedNonce []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="cipher_suites.go.html#line-441" class="ident">aead</a></code></span>
+<span class="codeline" id="line-239"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuiteTLS13.Hash.html" class="ident">Hash</a>   <a href="../../../../pkg/crypto.html" class="ident i0">crypto</a>.<a href="../../../crypto/crypto.go.html#line-16" class="ident">Hash</a></code></span>
+<span class="codeline" id="line-240"><code>}</code></span>
+<span class="codeline" id="line-241"><code></code></span>
+<span class="codeline" id="line-242"><code><span class="keyword">func</span> (<label for="r19" class="ident">c</label> *<a href="cipher_suites.go.html#line-195" class="ident">cipherSuiteTLS13</a>) <label for="r20" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..cipherSuiteTLS13^54959.toPublic^d93a6.html" class="ident">toPublic</a></label>() *<a href="#line-235" class="ident">PubCipherSuiteTLS13</a> {</code></span>
+<span class="codeline" id="line-243"><code>	<span class="keyword">if</span> <label for="r19" class="ident">c</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-244"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-245"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-246"><code>		<span class="keyword">return</span> &amp;<a href="#line-235" class="ident">PubCipherSuiteTLS13</a>{</code></span>
+<span class="codeline" id="line-247"><code>			<a href="#line-236" class="ident">Id</a>:     <label for="r19" class="ident">c</label>.<a href="cipher_suites.go.html#line-196" class="ident">id</a>,</code></span>
+<span class="codeline" id="line-248"><code>			<a href="#line-237" class="ident">KeyLen</a>: <label for="r19" class="ident">c</label>.<a href="cipher_suites.go.html#line-197" class="ident">keyLen</a>,</code></span>
+<span class="codeline" id="line-249"><code>			<a href="#line-238" class="ident">Aead</a>:   <label for="r19" class="ident">c</label>.<a href="cipher_suites.go.html#line-198" class="ident">aead</a>,</code></span>
+<span class="codeline" id="line-250"><code>			<a href="#line-239" class="ident">Hash</a>:   <label for="r19" class="ident">c</label>.<a href="cipher_suites.go.html#line-199" class="ident">hash</a>,</code></span>
+<span class="codeline" id="line-251"><code>		}</code></span>
+<span class="codeline" id="line-252"><code>	}</code></span>
+<span class="codeline" id="line-253"><code>}</code></span>
+<span class="codeline" id="line-254"><code></code></span>
+<span class="codeline" id="line-255"><code><span class="keyword">func</span> (<label for="r21" class="ident">c</label> *<a href="#line-235" class="ident">PubCipherSuiteTLS13</a>) <label for="r22" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuiteTLS13.toPrivate^71352.html" class="ident">toPrivate</a></label>() *<a href="cipher_suites.go.html#line-195" class="ident">cipherSuiteTLS13</a> {</code></span>
+<span class="codeline" id="line-256"><code>	<span class="keyword">if</span> <label for="r21" class="ident">c</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-257"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-258"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-259"><code>		<span class="keyword">return</span> &amp;<a href="cipher_suites.go.html#line-195" class="ident">cipherSuiteTLS13</a>{</code></span>
+<span class="codeline" id="line-260"><code>			<a href="cipher_suites.go.html#line-196" class="ident">id</a>:     <label for="r21" class="ident">c</label>.<a href="#line-236" class="ident">Id</a>,</code></span>
+<span class="codeline" id="line-261"><code>			<a href="cipher_suites.go.html#line-197" class="ident">keyLen</a>: <label for="r21" class="ident">c</label>.<a href="#line-237" class="ident">KeyLen</a>,</code></span>
+<span class="codeline" id="line-262"><code>			<a href="cipher_suites.go.html#line-198" class="ident">aead</a>:   <label for="r21" class="ident">c</label>.<a href="#line-238" class="ident">Aead</a>,</code></span>
+<span class="codeline" id="line-263"><code>			<a href="cipher_suites.go.html#line-199" class="ident">hash</a>:   <label for="r21" class="ident">c</label>.<a href="#line-239" class="ident">Hash</a>,</code></span>
+<span class="codeline" id="line-264"><code>		}</code></span>
+<span class="codeline" id="line-265"><code>	}</code></span>
+<span class="codeline" id="line-266"><code>}</code></span>
+<span class="codeline" id="line-267"><code></code></span>
+<span class="codeline" id="line-268"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-PubServerHelloMsg" class="ident">PubServerHelloMsg</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-269"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.Raw.html" class="ident">Raw</a>                          []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a> <span class="comment">// renamed to serverHelloMsg.original in crypto/tls</span></code></span>
+<span class="codeline" id="line-270"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.Vers.html" class="ident">Vers</a>                         <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-271"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.Random.html" class="ident">Random</a>                       []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-272"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.SessionId^02e39.html" class="ident">SessionId</a>                    []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-273"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.CipherSuite.html" class="ident">CipherSuite</a>                  <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-274"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.CompressionMethod.html" class="ident">CompressionMethod</a>            <a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a></code></span>
+<span class="codeline" id="line-275"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.NextProtoNeg.html" class="ident">NextProtoNeg</a>                 <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-276"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.NextProtos.html" class="ident">NextProtos</a>                   []<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-277"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.OcspStapling.html" class="ident">OcspStapling</a>                 <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-278"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.Scts.html" class="ident">Scts</a>                         [][]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-279"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.ExtendedMasterSecret.html" class="ident">ExtendedMasterSecret</a>         <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-280"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.TicketSupported.html" class="ident">TicketSupported</a>              <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> <span class="comment">// used by go tls to determine whether to add the session ticket ext</span></code></span>
+<span class="codeline" id="line-281"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.SecureRenegotiation.html" class="ident">SecureRenegotiation</a>          []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-282"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.SecureRenegotiationSupported.html" class="ident">SecureRenegotiationSupported</a> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-283"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.AlpnProtocol.html" class="ident">AlpnProtocol</a>                 <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-284"><code></code></span>
+<span class="codeline" id="line-285"><code>	<span class="comment">// 1.3</span></code></span>
+<span class="codeline" id="line-286"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.SupportedVersion.html" class="ident">SupportedVersion</a>        <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-287"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.ServerShare.html" class="ident">ServerShare</a>             <a href="#line-629" class="ident">KeyShare</a></code></span>
+<span class="codeline" id="line-288"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.SelectedIdentityPresent.html" class="ident">SelectedIdentityPresent</a> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-289"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.SelectedIdentity.html" class="ident">SelectedIdentity</a>        <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-290"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.Cookie.html" class="ident">Cookie</a>                  []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>  <span class="comment">// HelloRetryRequest extension</span></code></span>
+<span class="codeline" id="line-291"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.SelectedGroup.html" class="ident">SelectedGroup</a>           <a href="common.go.html#line-147" class="ident">CurveID</a> <span class="comment">// HelloRetryRequest extension</span></code></span>
+<span class="codeline" id="line-292"><code></code></span>
+<span class="codeline" id="line-293"><code>}</code></span>
+<span class="codeline" id="line-294"><code></code></span>
+<span class="codeline" id="line-295"><code><span class="keyword">func</span> (<label for="r23" class="ident">shm</label> *<a href="#line-268" class="ident">PubServerHelloMsg</a>) <label for="r24" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..PubServerHelloMsg.getPrivatePtr^a5b76.html" class="ident">getPrivatePtr</a></label>() *<a href="handshake_messages.go.html#line-750" class="ident">serverHelloMsg</a> {</code></span>
+<span class="codeline" id="line-296"><code>	<span class="keyword">if</span> <label for="r23" class="ident">shm</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-297"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-298"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-299"><code>		<span class="keyword">return</span> &amp;<a href="handshake_messages.go.html#line-750" class="ident">serverHelloMsg</a>{</code></span>
+<span class="codeline" id="line-300"><code>			<a href="handshake_messages.go.html#line-751" class="ident">original</a>:                     <label for="r23" class="ident">shm</label>.<a href="#line-269" class="ident">Raw</a>,</code></span>
+<span class="codeline" id="line-301"><code>			<a href="handshake_messages.go.html#line-752" class="ident">vers</a>:                         <label for="r23" class="ident">shm</label>.<a href="#line-270" class="ident">Vers</a>,</code></span>
+<span class="codeline" id="line-302"><code>			<a href="handshake_messages.go.html#line-753" class="ident">random</a>:                       <label for="r23" class="ident">shm</label>.<a href="#line-271" class="ident">Random</a>,</code></span>
+<span class="codeline" id="line-303"><code>			<a href="handshake_messages.go.html#line-754" class="ident">sessionId</a>:                    <label for="r23" class="ident">shm</label>.<a href="#line-272" class="ident">SessionId</a>,</code></span>
+<span class="codeline" id="line-304"><code>			<a href="handshake_messages.go.html#line-755" class="ident">cipherSuite</a>:                  <label for="r23" class="ident">shm</label>.<a href="#line-273" class="ident">CipherSuite</a>,</code></span>
+<span class="codeline" id="line-305"><code>			<a href="handshake_messages.go.html#line-756" class="ident">compressionMethod</a>:            <label for="r23" class="ident">shm</label>.<a href="#line-274" class="ident">CompressionMethod</a>,</code></span>
+<span class="codeline" id="line-306"><code>			<a href="handshake_messages.go.html#line-777" class="ident">nextProtoNeg</a>:                 <label for="r23" class="ident">shm</label>.<a href="#line-275" class="ident">NextProtoNeg</a>,</code></span>
+<span class="codeline" id="line-307"><code>			<a href="handshake_messages.go.html#line-778" class="ident">nextProtos</a>:                   <label for="r23" class="ident">shm</label>.<a href="#line-276" class="ident">NextProtos</a>,</code></span>
+<span class="codeline" id="line-308"><code>			<a href="handshake_messages.go.html#line-757" class="ident">ocspStapling</a>:                 <label for="r23" class="ident">shm</label>.<a href="#line-277" class="ident">OcspStapling</a>,</code></span>
+<span class="codeline" id="line-309"><code>			<a href="handshake_messages.go.html#line-763" class="ident">scts</a>:                         <label for="r23" class="ident">shm</label>.<a href="#line-278" class="ident">Scts</a>,</code></span>
+<span class="codeline" id="line-310"><code>			<a href="handshake_messages.go.html#line-761" class="ident">extendedMasterSecret</a>:         <label for="r23" class="ident">shm</label>.<a href="#line-279" class="ident">ExtendedMasterSecret</a>,</code></span>
+<span class="codeline" id="line-311"><code>			<a href="handshake_messages.go.html#line-758" class="ident">ticketSupported</a>:              <label for="r23" class="ident">shm</label>.<a href="#line-280" class="ident">TicketSupported</a>,</code></span>
+<span class="codeline" id="line-312"><code>			<a href="handshake_messages.go.html#line-760" class="ident">secureRenegotiation</a>:          <label for="r23" class="ident">shm</label>.<a href="#line-281" class="ident">SecureRenegotiation</a>,</code></span>
+<span class="codeline" id="line-313"><code>			<a href="handshake_messages.go.html#line-759" class="ident">secureRenegotiationSupported</a>: <label for="r23" class="ident">shm</label>.<a href="#line-282" class="ident">SecureRenegotiationSupported</a>,</code></span>
+<span class="codeline" id="line-314"><code>			<a href="handshake_messages.go.html#line-762" class="ident">alpnProtocol</a>:                 <label for="r23" class="ident">shm</label>.<a href="#line-283" class="ident">AlpnProtocol</a>,</code></span>
+<span class="codeline" id="line-315"><code>			<a href="handshake_messages.go.html#line-764" class="ident">supportedVersion</a>:             <label for="r23" class="ident">shm</label>.<a href="#line-286" class="ident">SupportedVersion</a>,</code></span>
+<span class="codeline" id="line-316"><code>			<a href="handshake_messages.go.html#line-765" class="ident">serverShare</a>:                  <label for="r23" class="ident">shm</label>.<a href="#line-287" class="ident">ServerShare</a>.<a href="#line-634" class="ident">ToPrivate</a>(),</code></span>
+<span class="codeline" id="line-317"><code>			<a href="handshake_messages.go.html#line-766" class="ident">selectedIdentityPresent</a>:      <label for="r23" class="ident">shm</label>.<a href="#line-288" class="ident">SelectedIdentityPresent</a>,</code></span>
+<span class="codeline" id="line-318"><code>			<a href="handshake_messages.go.html#line-767" class="ident">selectedIdentity</a>:             <label for="r23" class="ident">shm</label>.<a href="#line-289" class="ident">SelectedIdentity</a>,</code></span>
+<span class="codeline" id="line-319"><code>			<a href="handshake_messages.go.html#line-773" class="ident">cookie</a>:                       <label for="r23" class="ident">shm</label>.<a href="#line-290" class="ident">Cookie</a>,</code></span>
+<span class="codeline" id="line-320"><code>			<a href="handshake_messages.go.html#line-774" class="ident">selectedGroup</a>:                <label for="r23" class="ident">shm</label>.<a href="#line-291" class="ident">SelectedGroup</a>,</code></span>
+<span class="codeline" id="line-321"><code>		}</code></span>
+<span class="codeline" id="line-322"><code>	}</code></span>
+<span class="codeline" id="line-323"><code>}</code></span>
+<span class="codeline" id="line-324"><code></code></span>
+<span class="codeline" id="line-325"><code><span class="keyword">func</span> (<label for="r25" class="ident">shm</label> *<a href="handshake_messages.go.html#line-750" class="ident">serverHelloMsg</a>) <label for="r26" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..serverHelloMsg^7b441.getPublicPtr^a5e7c.html" class="ident">getPublicPtr</a></label>() *<a href="#line-268" class="ident">PubServerHelloMsg</a> {</code></span>
+<span class="codeline" id="line-326"><code>	<span class="keyword">if</span> <label for="r25" class="ident">shm</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-327"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-328"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-329"><code>		<span class="keyword">return</span> &amp;<a href="#line-268" class="ident">PubServerHelloMsg</a>{</code></span>
+<span class="codeline" id="line-330"><code>			<a href="#line-269" class="ident">Raw</a>:                          <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-751" class="ident">original</a>,</code></span>
+<span class="codeline" id="line-331"><code>			<a href="#line-270" class="ident">Vers</a>:                         <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-752" class="ident">vers</a>,</code></span>
+<span class="codeline" id="line-332"><code>			<a href="#line-271" class="ident">Random</a>:                       <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-753" class="ident">random</a>,</code></span>
+<span class="codeline" id="line-333"><code>			<a href="#line-272" class="ident">SessionId</a>:                    <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-754" class="ident">sessionId</a>,</code></span>
+<span class="codeline" id="line-334"><code>			<a href="#line-273" class="ident">CipherSuite</a>:                  <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-755" class="ident">cipherSuite</a>,</code></span>
+<span class="codeline" id="line-335"><code>			<a href="#line-274" class="ident">CompressionMethod</a>:            <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-756" class="ident">compressionMethod</a>,</code></span>
+<span class="codeline" id="line-336"><code>			<a href="#line-275" class="ident">NextProtoNeg</a>:                 <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-777" class="ident">nextProtoNeg</a>,</code></span>
+<span class="codeline" id="line-337"><code>			<a href="#line-276" class="ident">NextProtos</a>:                   <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-778" class="ident">nextProtos</a>,</code></span>
+<span class="codeline" id="line-338"><code>			<a href="#line-277" class="ident">OcspStapling</a>:                 <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-757" class="ident">ocspStapling</a>,</code></span>
+<span class="codeline" id="line-339"><code>			<a href="#line-278" class="ident">Scts</a>:                         <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-763" class="ident">scts</a>,</code></span>
+<span class="codeline" id="line-340"><code>			<a href="#line-279" class="ident">ExtendedMasterSecret</a>:         <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-761" class="ident">extendedMasterSecret</a>,</code></span>
+<span class="codeline" id="line-341"><code>			<a href="#line-280" class="ident">TicketSupported</a>:              <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-758" class="ident">ticketSupported</a>,</code></span>
+<span class="codeline" id="line-342"><code>			<a href="#line-281" class="ident">SecureRenegotiation</a>:          <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-760" class="ident">secureRenegotiation</a>,</code></span>
+<span class="codeline" id="line-343"><code>			<a href="#line-282" class="ident">SecureRenegotiationSupported</a>: <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-759" class="ident">secureRenegotiationSupported</a>,</code></span>
+<span class="codeline" id="line-344"><code>			<a href="#line-283" class="ident">AlpnProtocol</a>:                 <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-762" class="ident">alpnProtocol</a>,</code></span>
+<span class="codeline" id="line-345"><code>			<a href="#line-286" class="ident">SupportedVersion</a>:             <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-764" class="ident">supportedVersion</a>,</code></span>
+<span class="codeline" id="line-346"><code>			<a href="#line-287" class="ident">ServerShare</a>:                  <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-765" class="ident">serverShare</a>.<a href="#line-638" class="ident">ToPublic</a>(),</code></span>
+<span class="codeline" id="line-347"><code>			<a href="#line-288" class="ident">SelectedIdentityPresent</a>:      <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-766" class="ident">selectedIdentityPresent</a>,</code></span>
+<span class="codeline" id="line-348"><code>			<a href="#line-289" class="ident">SelectedIdentity</a>:             <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-767" class="ident">selectedIdentity</a>,</code></span>
+<span class="codeline" id="line-349"><code>			<a href="#line-290" class="ident">Cookie</a>:                       <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-773" class="ident">cookie</a>,</code></span>
+<span class="codeline" id="line-350"><code>			<a href="#line-291" class="ident">SelectedGroup</a>:                <label for="r25" class="ident">shm</label>.<a href="handshake_messages.go.html#line-774" class="ident">selectedGroup</a>,</code></span>
+<span class="codeline" id="line-351"><code>		}</code></span>
+<span class="codeline" id="line-352"><code>	}</code></span>
+<span class="codeline" id="line-353"><code>}</code></span>
+<span class="codeline" id="line-354"><code></code></span>
+<span class="codeline" id="line-355"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-PubClientHelloMsg" class="ident">PubClientHelloMsg</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-356"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.Raw.html" class="ident">Raw</a>                          []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a> <span class="comment">// renamed to clientHelloMsg.original in crypto/tls</span></code></span>
+<span class="codeline" id="line-357"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.Vers.html" class="ident">Vers</a>                         <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-358"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.Random.html" class="ident">Random</a>                       []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-359"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.SessionId^02e39.html" class="ident">SessionId</a>                    []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-360"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.CipherSuites.html" class="ident">CipherSuites</a>                 []<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-361"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.CompressionMethods.html" class="ident">CompressionMethods</a>           []<a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a></code></span>
+<span class="codeline" id="line-362"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.NextProtoNeg.html" class="ident">NextProtoNeg</a>                 <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-363"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.ServerName.html" class="ident">ServerName</a>                   <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-364"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.OcspStapling.html" class="ident">OcspStapling</a>                 <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-365"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.Scts.html" class="ident">Scts</a>                         <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-366"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.Ems.html" class="ident">Ems</a>                          <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> <span class="comment">// [uTLS] actually implemented due to its prevalence</span></code></span>
+<span class="codeline" id="line-367"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.SupportedCurves.html" class="ident">SupportedCurves</a>              []<a href="common.go.html#line-147" class="ident">CurveID</a></code></span>
+<span class="codeline" id="line-368"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.SupportedPoints.html" class="ident">SupportedPoints</a>              []<a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a></code></span>
+<span class="codeline" id="line-369"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.TicketSupported.html" class="ident">TicketSupported</a>              <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-370"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.SessionTicket.html" class="ident">SessionTicket</a>                []<a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a></code></span>
+<span class="codeline" id="line-371"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.SupportedSignatureAlgorithms.html" class="ident">SupportedSignatureAlgorithms</a> []<a href="common.go.html#line-396" class="ident">SignatureScheme</a></code></span>
+<span class="codeline" id="line-372"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.SecureRenegotiation.html" class="ident">SecureRenegotiation</a>          []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-373"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.SecureRenegotiationSupported.html" class="ident">SecureRenegotiationSupported</a> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-374"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.AlpnProtocols.html" class="ident">AlpnProtocols</a>                []<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-375"><code></code></span>
+<span class="codeline" id="line-376"><code>	<span class="comment">// 1.3</span></code></span>
+<span class="codeline" id="line-377"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.SupportedSignatureAlgorithmsCert.html" class="ident">SupportedSignatureAlgorithmsCert</a> []<a href="common.go.html#line-396" class="ident">SignatureScheme</a></code></span>
+<span class="codeline" id="line-378"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.SupportedVersions.html" class="ident">SupportedVersions</a>                []<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-379"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.Cookie.html" class="ident">Cookie</a>                           []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-380"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.KeyShares.html" class="ident">KeyShares</a>                        []<a href="#line-629" class="ident">KeyShare</a></code></span>
+<span class="codeline" id="line-381"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.EarlyData.html" class="ident">EarlyData</a>                        <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-382"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.PskModes.html" class="ident">PskModes</a>                         []<a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a></code></span>
+<span class="codeline" id="line-383"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.PskIdentities.html" class="ident">PskIdentities</a>                    []<a href="#line-662" class="ident">PskIdentity</a></code></span>
+<span class="codeline" id="line-384"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.PskBinders.html" class="ident">PskBinders</a>                       [][]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-385"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.QuicTransportParameters^969db.html" class="ident">QuicTransportParameters</a>          []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-386"><code></code></span>
+<span class="codeline" id="line-387"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.cachedPrivateHello^a401b.html" class="ident">cachedPrivateHello</a>   *<a href="handshake_messages.go.html#line-71" class="ident">clientHelloMsg</a> <span class="comment">// todo: further optimize to reduce clientHelloMsg construction</span></code></span>
+<span class="codeline" id="line-388"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.encryptedClientHello^07b52.html" class="ident">encryptedClientHello</a> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-389"><code>}</code></span>
+<span class="codeline" id="line-390"><code></code></span>
+<span class="codeline" id="line-391"><code><span class="keyword">func</span> (<label for="r27" class="ident">chm</label> *<a href="#line-355" class="ident">PubClientHelloMsg</a>) <label for="r28" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.getPrivatePtr^a5b76.html" class="ident">getPrivatePtr</a></label>() *<a href="handshake_messages.go.html#line-71" class="ident">clientHelloMsg</a> {</code></span>
+<span class="codeline" id="line-392"><code>	<span class="keyword">if</span> <label for="r27" class="ident">chm</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-393"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-394"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-395"><code>		<label for="r29" class="ident">private</label> := &amp;<a href="handshake_messages.go.html#line-71" class="ident">clientHelloMsg</a>{</code></span>
+<span class="codeline" id="line-396"><code>			<a href="handshake_messages.go.html#line-72" class="ident">original</a>:                         <label for="r27" class="ident">chm</label>.<a href="#line-356" class="ident">Raw</a>,</code></span>
+<span class="codeline" id="line-397"><code>			<a href="handshake_messages.go.html#line-73" class="ident">vers</a>:                             <label for="r27" class="ident">chm</label>.<a href="#line-357" class="ident">Vers</a>,</code></span>
+<span class="codeline" id="line-398"><code>			<a href="handshake_messages.go.html#line-74" class="ident">random</a>:                           <label for="r27" class="ident">chm</label>.<a href="#line-358" class="ident">Random</a>,</code></span>
+<span class="codeline" id="line-399"><code>			<a href="handshake_messages.go.html#line-75" class="ident">sessionId</a>:                        <label for="r27" class="ident">chm</label>.<a href="#line-359" class="ident">SessionId</a>,</code></span>
+<span class="codeline" id="line-400"><code>			<a href="handshake_messages.go.html#line-76" class="ident">cipherSuites</a>:                     <label for="r27" class="ident">chm</label>.<a href="#line-360" class="ident">CipherSuites</a>,</code></span>
+<span class="codeline" id="line-401"><code>			<a href="handshake_messages.go.html#line-77" class="ident">compressionMethods</a>:               <label for="r27" class="ident">chm</label>.<a href="#line-361" class="ident">CompressionMethods</a>,</code></span>
+<span class="codeline" id="line-402"><code>			<a href="handshake_messages.go.html#line-78" class="ident">serverName</a>:                       <label for="r27" class="ident">chm</label>.<a href="#line-363" class="ident">ServerName</a>,</code></span>
+<span class="codeline" id="line-403"><code>			<a href="handshake_messages.go.html#line-79" class="ident">ocspStapling</a>:                     <label for="r27" class="ident">chm</label>.<a href="#line-364" class="ident">OcspStapling</a>,</code></span>
+<span class="codeline" id="line-404"><code>			<a href="handshake_messages.go.html#line-80" class="ident">supportedCurves</a>:                  <label for="r27" class="ident">chm</label>.<a href="#line-367" class="ident">SupportedCurves</a>,</code></span>
+<span class="codeline" id="line-405"><code>			<a href="handshake_messages.go.html#line-81" class="ident">supportedPoints</a>:                  <label for="r27" class="ident">chm</label>.<a href="#line-368" class="ident">SupportedPoints</a>,</code></span>
+<span class="codeline" id="line-406"><code>			<a href="handshake_messages.go.html#line-82" class="ident">ticketSupported</a>:                  <label for="r27" class="ident">chm</label>.<a href="#line-369" class="ident">TicketSupported</a>,</code></span>
+<span class="codeline" id="line-407"><code>			<a href="handshake_messages.go.html#line-83" class="ident">sessionTicket</a>:                    <label for="r27" class="ident">chm</label>.<a href="#line-370" class="ident">SessionTicket</a>,</code></span>
+<span class="codeline" id="line-408"><code>			<a href="handshake_messages.go.html#line-84" class="ident">supportedSignatureAlgorithms</a>:     <label for="r27" class="ident">chm</label>.<a href="#line-371" class="ident">SupportedSignatureAlgorithms</a>,</code></span>
+<span class="codeline" id="line-409"><code>			<a href="handshake_messages.go.html#line-85" class="ident">supportedSignatureAlgorithmsCert</a>: <label for="r27" class="ident">chm</label>.<a href="#line-377" class="ident">SupportedSignatureAlgorithmsCert</a>,</code></span>
+<span class="codeline" id="line-410"><code>			<a href="handshake_messages.go.html#line-86" class="ident">secureRenegotiationSupported</a>:     <label for="r27" class="ident">chm</label>.<a href="#line-373" class="ident">SecureRenegotiationSupported</a>,</code></span>
+<span class="codeline" id="line-411"><code>			<a href="handshake_messages.go.html#line-87" class="ident">secureRenegotiation</a>:              <label for="r27" class="ident">chm</label>.<a href="#line-372" class="ident">SecureRenegotiation</a>,</code></span>
+<span class="codeline" id="line-412"><code>			<a href="handshake_messages.go.html#line-88" class="ident">extendedMasterSecret</a>:             <label for="r27" class="ident">chm</label>.<a href="#line-366" class="ident">Ems</a>,</code></span>
+<span class="codeline" id="line-413"><code>			<a href="handshake_messages.go.html#line-89" class="ident">alpnProtocols</a>:                    <label for="r27" class="ident">chm</label>.<a href="#line-374" class="ident">AlpnProtocols</a>,</code></span>
+<span class="codeline" id="line-414"><code>			<a href="handshake_messages.go.html#line-90" class="ident">scts</a>:                             <label for="r27" class="ident">chm</label>.<a href="#line-365" class="ident">Scts</a>,</code></span>
+<span class="codeline" id="line-415"><code></code></span>
+<span class="codeline" id="line-416"><code>			<a href="handshake_messages.go.html#line-92" class="ident">supportedVersions</a>:       <label for="r27" class="ident">chm</label>.<a href="#line-378" class="ident">SupportedVersions</a>,</code></span>
+<span class="codeline" id="line-417"><code>			<a href="handshake_messages.go.html#line-93" class="ident">cookie</a>:                  <label for="r27" class="ident">chm</label>.<a href="#line-379" class="ident">Cookie</a>,</code></span>
+<span class="codeline" id="line-418"><code>			<a href="handshake_messages.go.html#line-94" class="ident">keyShares</a>:               <a href="#line-642" class="ident">KeyShares</a>(<label for="r27" class="ident">chm</label>.<a href="#line-380" class="ident">KeyShares</a>).<a href="#line-652" class="ident">ToPrivate</a>(),</code></span>
+<span class="codeline" id="line-419"><code>			<a href="handshake_messages.go.html#line-95" class="ident">earlyData</a>:               <label for="r27" class="ident">chm</label>.<a href="#line-381" class="ident">EarlyData</a>,</code></span>
+<span class="codeline" id="line-420"><code>			<a href="handshake_messages.go.html#line-96" class="ident">pskModes</a>:                <label for="r27" class="ident">chm</label>.<a href="#line-382" class="ident">PskModes</a>,</code></span>
+<span class="codeline" id="line-421"><code>			<a href="handshake_messages.go.html#line-97" class="ident">pskIdentities</a>:           <a href="#line-667" class="ident">PskIdentities</a>(<label for="r27" class="ident">chm</label>.<a href="#line-383" class="ident">PskIdentities</a>).<a href="#line-678" class="ident">ToPrivate</a>(),</code></span>
+<span class="codeline" id="line-422"><code>			<a href="handshake_messages.go.html#line-98" class="ident">pskBinders</a>:              <label for="r27" class="ident">chm</label>.<a href="#line-384" class="ident">PskBinders</a>,</code></span>
+<span class="codeline" id="line-423"><code>			<a href="handshake_messages.go.html#line-99" class="ident">quicTransportParameters</a>: <label for="r27" class="ident">chm</label>.<a href="#line-385" class="ident">QuicTransportParameters</a>,</code></span>
+<span class="codeline" id="line-424"><code>			<a href="handshake_messages.go.html#line-100" class="ident">encryptedClientHello</a>:    <label for="r27" class="ident">chm</label>.<a href="#line-388" class="ident">encryptedClientHello</a>,</code></span>
+<span class="codeline" id="line-425"><code></code></span>
+<span class="codeline" id="line-426"><code>			<a href="handshake_messages.go.html#line-105" class="ident">nextProtoNeg</a>: <label for="r27" class="ident">chm</label>.<a href="#line-362" class="ident">NextProtoNeg</a>,</code></span>
+<span class="codeline" id="line-427"><code>		}</code></span>
+<span class="codeline" id="line-428"><code>		<label for="r27" class="ident">chm</label>.<a href="#line-387" class="ident">cachedPrivateHello</a> = <label for="r29" class="ident">private</label></code></span>
+<span class="codeline" id="line-429"><code>		<span class="keyword">return</span> <label for="r29" class="ident">private</label></code></span>
+<span class="codeline" id="line-430"><code>	}</code></span>
+<span class="codeline" id="line-431"><code>}</code></span>
+<span class="codeline" id="line-432"><code></code></span>
+<span class="codeline" id="line-433"><code><span class="keyword">func</span> (<label for="r30" class="ident">chm</label> *<a href="#line-355" class="ident">PubClientHelloMsg</a>) <label for="r31" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.getCachedPrivatePtr^88488.html" class="ident">getCachedPrivatePtr</a></label>() *<a href="handshake_messages.go.html#line-71" class="ident">clientHelloMsg</a> {</code></span>
+<span class="codeline" id="line-434"><code>	<span class="keyword">if</span> <label for="r30" class="ident">chm</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-435"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-436"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-437"><code>		<span class="keyword">return</span> <label for="r30" class="ident">chm</label>.<a href="#line-387" class="ident">cachedPrivateHello</a></code></span>
+<span class="codeline" id="line-438"><code>	}</code></span>
+<span class="codeline" id="line-439"><code>}</code></span>
+<span class="codeline" id="line-440"><code></code></span>
+<span class="codeline" id="line-441"><code><span class="keyword">func</span> (<label for="r32" class="ident">chm</label> *<a href="handshake_messages.go.html#line-71" class="ident">clientHelloMsg</a>) <label for="r33" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..clientHelloMsg^5484a.getPublicPtr^a5e7c.html" class="ident">getPublicPtr</a></label>() *<a href="#line-355" class="ident">PubClientHelloMsg</a> {</code></span>
+<span class="codeline" id="line-442"><code>	<span class="keyword">if</span> <label for="r32" class="ident">chm</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-443"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-444"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-445"><code>		<span class="keyword">return</span> &amp;<a href="#line-355" class="ident">PubClientHelloMsg</a>{</code></span>
+<span class="codeline" id="line-446"><code>			<a href="#line-356" class="ident">Raw</a>:                          <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-72" class="ident">original</a>,</code></span>
+<span class="codeline" id="line-447"><code>			<a href="#line-357" class="ident">Vers</a>:                         <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-73" class="ident">vers</a>,</code></span>
+<span class="codeline" id="line-448"><code>			<a href="#line-358" class="ident">Random</a>:                       <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-74" class="ident">random</a>,</code></span>
+<span class="codeline" id="line-449"><code>			<a href="#line-359" class="ident">SessionId</a>:                    <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-75" class="ident">sessionId</a>,</code></span>
+<span class="codeline" id="line-450"><code>			<a href="#line-360" class="ident">CipherSuites</a>:                 <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-76" class="ident">cipherSuites</a>,</code></span>
+<span class="codeline" id="line-451"><code>			<a href="#line-361" class="ident">CompressionMethods</a>:           <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-77" class="ident">compressionMethods</a>,</code></span>
+<span class="codeline" id="line-452"><code>			<a href="#line-362" class="ident">NextProtoNeg</a>:                 <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-105" class="ident">nextProtoNeg</a>,</code></span>
+<span class="codeline" id="line-453"><code>			<a href="#line-363" class="ident">ServerName</a>:                   <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-78" class="ident">serverName</a>,</code></span>
+<span class="codeline" id="line-454"><code>			<a href="#line-364" class="ident">OcspStapling</a>:                 <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-79" class="ident">ocspStapling</a>,</code></span>
+<span class="codeline" id="line-455"><code>			<a href="#line-365" class="ident">Scts</a>:                         <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-90" class="ident">scts</a>,</code></span>
+<span class="codeline" id="line-456"><code>			<a href="#line-366" class="ident">Ems</a>:                          <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-88" class="ident">extendedMasterSecret</a>,</code></span>
+<span class="codeline" id="line-457"><code>			<a href="#line-367" class="ident">SupportedCurves</a>:              <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-80" class="ident">supportedCurves</a>,</code></span>
+<span class="codeline" id="line-458"><code>			<a href="#line-368" class="ident">SupportedPoints</a>:              <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-81" class="ident">supportedPoints</a>,</code></span>
+<span class="codeline" id="line-459"><code>			<a href="#line-369" class="ident">TicketSupported</a>:              <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-82" class="ident">ticketSupported</a>,</code></span>
+<span class="codeline" id="line-460"><code>			<a href="#line-370" class="ident">SessionTicket</a>:                <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-83" class="ident">sessionTicket</a>,</code></span>
+<span class="codeline" id="line-461"><code>			<a href="#line-371" class="ident">SupportedSignatureAlgorithms</a>: <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-84" class="ident">supportedSignatureAlgorithms</a>,</code></span>
+<span class="codeline" id="line-462"><code>			<a href="#line-372" class="ident">SecureRenegotiation</a>:          <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-87" class="ident">secureRenegotiation</a>,</code></span>
+<span class="codeline" id="line-463"><code>			<a href="#line-373" class="ident">SecureRenegotiationSupported</a>: <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-86" class="ident">secureRenegotiationSupported</a>,</code></span>
+<span class="codeline" id="line-464"><code>			<a href="#line-374" class="ident">AlpnProtocols</a>:                <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-89" class="ident">alpnProtocols</a>,</code></span>
+<span class="codeline" id="line-465"><code></code></span>
+<span class="codeline" id="line-466"><code>			<a href="#line-377" class="ident">SupportedSignatureAlgorithmsCert</a>: <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-85" class="ident">supportedSignatureAlgorithmsCert</a>,</code></span>
+<span class="codeline" id="line-467"><code>			<a href="#line-378" class="ident">SupportedVersions</a>:                <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-92" class="ident">supportedVersions</a>,</code></span>
+<span class="codeline" id="line-468"><code>			<a href="#line-379" class="ident">Cookie</a>:                           <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-93" class="ident">cookie</a>,</code></span>
+<span class="codeline" id="line-469"><code>			<a href="#line-380" class="ident">KeyShares</a>:                        <a href="#line-643" class="ident">keyShares</a>(<label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-94" class="ident">keyShares</a>).<a href="#line-645" class="ident">ToPublic</a>(),</code></span>
+<span class="codeline" id="line-470"><code>			<a href="#line-381" class="ident">EarlyData</a>:                        <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-95" class="ident">earlyData</a>,</code></span>
+<span class="codeline" id="line-471"><code>			<a href="#line-382" class="ident">PskModes</a>:                         <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-96" class="ident">pskModes</a>,</code></span>
+<span class="codeline" id="line-472"><code>			<a href="#line-383" class="ident">PskIdentities</a>:                    <a href="#line-668" class="ident">pskIdentities</a>(<label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-97" class="ident">pskIdentities</a>).<a href="#line-670" class="ident">ToPublic</a>(),</code></span>
+<span class="codeline" id="line-473"><code>			<a href="#line-384" class="ident">PskBinders</a>:                       <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-98" class="ident">pskBinders</a>,</code></span>
+<span class="codeline" id="line-474"><code>			<a href="#line-385" class="ident">QuicTransportParameters</a>:          <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-99" class="ident">quicTransportParameters</a>,</code></span>
+<span class="codeline" id="line-475"><code>			<a href="#line-387" class="ident">cachedPrivateHello</a>:               <label for="r32" class="ident">chm</label>,</code></span>
+<span class="codeline" id="line-476"><code>			<a href="#line-388" class="ident">encryptedClientHello</a>:             <label for="r32" class="ident">chm</label>.<a href="handshake_messages.go.html#line-100" class="ident">encryptedClientHello</a>,</code></span>
+<span class="codeline" id="line-477"><code>		}</code></span>
+<span class="codeline" id="line-478"><code>	}</code></span>
+<span class="codeline" id="line-479"><code>}</code></span>
+<span class="codeline" id="line-480"><code></code></span>
+<span class="codeline" id="line-481"><code><span class="comment">// UnmarshalClientHello allows external code to parse raw client hellos.</span></code></span>
+<span class="codeline" id="line-482"><code><span class="comment">// It returns nil on failure.</span></code></span>
+<span class="codeline" id="line-483"><code><span class="keyword">func</span> <label for="r34" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-UnmarshalClientHello" class="ident">UnmarshalClientHello</a></label>(<label for="r35" class="ident">data</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) *<a href="#line-355" class="ident">PubClientHelloMsg</a> {</code></span>
+<span class="codeline" id="line-484"><code>	<label for="r36" class="ident">m</label> := &amp;<a href="handshake_messages.go.html#line-71" class="ident">clientHelloMsg</a>{}</code></span>
+<span class="codeline" id="line-485"><code>	<span class="keyword">if</span> <label for="r36" class="ident">m</label>.<a href="handshake_messages.go.html#line-449" class="ident">unmarshal</a>(<label for="r35" class="ident">data</label>) {</code></span>
+<span class="codeline" id="line-486"><code>		<span class="keyword">return</span> <label for="r36" class="ident">m</label>.<a href="#line-441" class="ident">getPublicPtr</a>()</code></span>
+<span class="codeline" id="line-487"><code>	}</code></span>
+<span class="codeline" id="line-488"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-489"><code>}</code></span>
+<span class="codeline" id="line-490"><code></code></span>
+<span class="codeline" id="line-491"><code><span class="comment">// Marshal allows external code to convert a ClientHello object back into</span></code></span>
+<span class="codeline" id="line-492"><code><span class="comment">// raw bytes.</span></code></span>
+<span class="codeline" id="line-493"><code><span class="keyword">func</span> (<label for="r37" class="ident">chm</label> *<a href="#line-355" class="ident">PubClientHelloMsg</a>) <label for="r38" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..PubClientHelloMsg.Marshal.html" class="ident">Marshal</a></label>() ([]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-494"><code>	<span class="keyword">return</span> <label for="r37" class="ident">chm</label>.<a href="#line-391" class="ident">getPrivatePtr</a>().<a href="handshake_messages.go.html#line-400" class="ident">marshal</a>()</code></span>
+<span class="codeline" id="line-495"><code>}</code></span>
+<span class="codeline" id="line-496"><code></code></span>
+<span class="codeline" id="line-497"><code><span class="comment">// A CipherSuite is a specific combination of key agreement, cipher and MAC</span></code></span>
+<span class="codeline" id="line-498"><code><span class="comment">// function. All cipher suites currently assume RSA key agreement.</span></code></span>
+<span class="codeline" id="line-499"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-PubCipherSuite" class="ident">PubCipherSuite</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-500"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuite.Id^12156.html" class="ident">Id</a> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-501"><code>	<span class="comment">// the lengths, in bytes, of the key material needed for each component.</span></code></span>
+<span class="codeline" id="line-502"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuite.KeyLen.html" class="ident">KeyLen</a> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-503"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuite.MacLen.html" class="ident">MacLen</a> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-504"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuite.IvLen.html" class="ident">IvLen</a>  <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-505"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuite.Ka.html" class="ident">Ka</a>     <span class="keyword">func</span>(version <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>) <a href="key_agreement.go.html#line-21" class="ident">keyAgreement</a></code></span>
+<span class="codeline" id="line-506"><code>	<span class="comment">// flags is a bitmask of the suite* values, above.</span></code></span>
+<span class="codeline" id="line-507"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuite.Flags.html" class="ident">Flags</a>  <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-508"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuite.Cipher.html" class="ident">Cipher</a> <span class="keyword">func</span>(key, iv []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, isRead <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) <span class="keyword">interface</span>{}</code></span>
+<span class="codeline" id="line-509"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuite.Mac^8b379.html" class="ident">Mac</a>    <span class="keyword">func</span>(macKey []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../../../pkg/hash.html" class="ident i4">hash</a>.<a href="../../../hash/hash.go.html#line-26" class="ident">Hash</a></code></span>
+<span class="codeline" id="line-510"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuite.Aead^0cc68.html" class="ident">Aead</a>   <span class="keyword">func</span>(key, fixedNonce []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="cipher_suites.go.html#line-441" class="ident">aead</a></code></span>
+<span class="codeline" id="line-511"><code>}</code></span>
+<span class="codeline" id="line-512"><code></code></span>
+<span class="codeline" id="line-513"><code><span class="keyword">func</span> (<label for="r39" class="ident">cs</label> *<a href="#line-499" class="ident">PubCipherSuite</a>) <label for="r40" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..PubCipherSuite.getPrivatePtr^a5b76.html" class="ident">getPrivatePtr</a></label>() *<a href="cipher_suites.go.html#line-136" class="ident">cipherSuite</a> {</code></span>
+<span class="codeline" id="line-514"><code>	<span class="keyword">if</span> <label for="r39" class="ident">cs</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-515"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-516"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-517"><code>		<span class="keyword">return</span> &amp;<a href="cipher_suites.go.html#line-136" class="ident">cipherSuite</a>{</code></span>
+<span class="codeline" id="line-518"><code>			<a href="cipher_suites.go.html#line-137" class="ident">id</a>:     <label for="r39" class="ident">cs</label>.<a href="#line-500" class="ident">Id</a>,</code></span>
+<span class="codeline" id="line-519"><code>			<a href="cipher_suites.go.html#line-139" class="ident">keyLen</a>: <label for="r39" class="ident">cs</label>.<a href="#line-502" class="ident">KeyLen</a>,</code></span>
+<span class="codeline" id="line-520"><code>			<a href="cipher_suites.go.html#line-140" class="ident">macLen</a>: <label for="r39" class="ident">cs</label>.<a href="#line-503" class="ident">MacLen</a>,</code></span>
+<span class="codeline" id="line-521"><code>			<a href="cipher_suites.go.html#line-141" class="ident">ivLen</a>:  <label for="r39" class="ident">cs</label>.<a href="#line-504" class="ident">IvLen</a>,</code></span>
+<span class="codeline" id="line-522"><code>			<a href="cipher_suites.go.html#line-142" class="ident">ka</a>:     <label for="r39" class="ident">cs</label>.<a href="#line-505" class="ident">Ka</a>,</code></span>
+<span class="codeline" id="line-523"><code>			<a href="cipher_suites.go.html#line-144" class="ident">flags</a>:  <label for="r39" class="ident">cs</label>.<a href="#line-507" class="ident">Flags</a>,</code></span>
+<span class="codeline" id="line-524"><code>			<a href="cipher_suites.go.html#line-145" class="ident">cipher</a>: <label for="r39" class="ident">cs</label>.<a href="#line-508" class="ident">Cipher</a>,</code></span>
+<span class="codeline" id="line-525"><code>			<a href="cipher_suites.go.html#line-146" class="ident">mac</a>:    <label for="r39" class="ident">cs</label>.<a href="#line-509" class="ident">Mac</a>,</code></span>
+<span class="codeline" id="line-526"><code>			<a href="cipher_suites.go.html#line-147" class="ident">aead</a>:   <label for="r39" class="ident">cs</label>.<a href="#line-510" class="ident">Aead</a>,</code></span>
+<span class="codeline" id="line-527"><code>		}</code></span>
+<span class="codeline" id="line-528"><code>	}</code></span>
+<span class="codeline" id="line-529"><code>}</code></span>
+<span class="codeline" id="line-530"><code></code></span>
+<span class="codeline" id="line-531"><code><span class="keyword">func</span> (<label for="r41" class="ident">cs</label> *<a href="cipher_suites.go.html#line-136" class="ident">cipherSuite</a>) <label for="r42" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..cipherSuite^a16f1.getPublicObj^00061.html" class="ident">getPublicObj</a></label>() <a href="#line-499" class="ident">PubCipherSuite</a> {</code></span>
+<span class="codeline" id="line-532"><code>	<span class="keyword">if</span> <label for="r41" class="ident">cs</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-533"><code>		<span class="keyword">return</span> <a href="#line-499" class="ident">PubCipherSuite</a>{}</code></span>
+<span class="codeline" id="line-534"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-535"><code>		<span class="keyword">return</span> <a href="#line-499" class="ident">PubCipherSuite</a>{</code></span>
+<span class="codeline" id="line-536"><code>			<a href="#line-500" class="ident">Id</a>:     <label for="r41" class="ident">cs</label>.<a href="cipher_suites.go.html#line-137" class="ident">id</a>,</code></span>
+<span class="codeline" id="line-537"><code>			<a href="#line-502" class="ident">KeyLen</a>: <label for="r41" class="ident">cs</label>.<a href="cipher_suites.go.html#line-139" class="ident">keyLen</a>,</code></span>
+<span class="codeline" id="line-538"><code>			<a href="#line-503" class="ident">MacLen</a>: <label for="r41" class="ident">cs</label>.<a href="cipher_suites.go.html#line-140" class="ident">macLen</a>,</code></span>
+<span class="codeline" id="line-539"><code>			<a href="#line-504" class="ident">IvLen</a>:  <label for="r41" class="ident">cs</label>.<a href="cipher_suites.go.html#line-141" class="ident">ivLen</a>,</code></span>
+<span class="codeline" id="line-540"><code>			<a href="#line-505" class="ident">Ka</a>:     <label for="r41" class="ident">cs</label>.<a href="cipher_suites.go.html#line-142" class="ident">ka</a>,</code></span>
+<span class="codeline" id="line-541"><code>			<a href="#line-507" class="ident">Flags</a>:  <label for="r41" class="ident">cs</label>.<a href="cipher_suites.go.html#line-144" class="ident">flags</a>,</code></span>
+<span class="codeline" id="line-542"><code>			<a href="#line-508" class="ident">Cipher</a>: <label for="r41" class="ident">cs</label>.<a href="cipher_suites.go.html#line-145" class="ident">cipher</a>,</code></span>
+<span class="codeline" id="line-543"><code>			<a href="#line-509" class="ident">Mac</a>:    <label for="r41" class="ident">cs</label>.<a href="cipher_suites.go.html#line-146" class="ident">mac</a>,</code></span>
+<span class="codeline" id="line-544"><code>			<a href="#line-510" class="ident">Aead</a>:   <label for="r41" class="ident">cs</label>.<a href="cipher_suites.go.html#line-147" class="ident">aead</a>,</code></span>
+<span class="codeline" id="line-545"><code>		}</code></span>
+<span class="codeline" id="line-546"><code>	}</code></span>
+<span class="codeline" id="line-547"><code>}</code></span>
+<span class="codeline" id="line-548"><code></code></span>
+<span class="codeline" id="line-549"><code><span class="comment">// A FinishedHash calculates the hash of a set of handshake messages suitable</span></code></span>
+<span class="codeline" id="line-550"><code><span class="comment">// for including in a Finished message.</span></code></span>
+<span class="codeline" id="line-551"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FinishedHash" class="ident">FinishedHash</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-552"><code>	<a href="../../../../use/github.com/refraction-networking/utls..FinishedHash.Client.html" class="ident">Client</a> <a href="../../../../pkg/hash.html" class="ident i4">hash</a>.<a href="../../../hash/hash.go.html#line-26" class="ident">Hash</a></code></span>
+<span class="codeline" id="line-553"><code>	<a href="../../../../use/github.com/refraction-networking/utls..FinishedHash.Server.html" class="ident">Server</a> <a href="../../../../pkg/hash.html" class="ident i4">hash</a>.<a href="../../../hash/hash.go.html#line-26" class="ident">Hash</a></code></span>
+<span class="codeline" id="line-554"><code></code></span>
+<span class="codeline" id="line-555"><code>	<span class="comment">// Prior to TLS 1.2, an additional MD5 hash is required.</span></code></span>
+<span class="codeline" id="line-556"><code>	<a href="../../../../use/github.com/refraction-networking/utls..FinishedHash.ClientMD5.html" class="ident">ClientMD5</a> <a href="../../../../pkg/hash.html" class="ident i4">hash</a>.<a href="../../../hash/hash.go.html#line-26" class="ident">Hash</a></code></span>
+<span class="codeline" id="line-557"><code>	<a href="../../../../use/github.com/refraction-networking/utls..FinishedHash.ServerMD5.html" class="ident">ServerMD5</a> <a href="../../../../pkg/hash.html" class="ident i4">hash</a>.<a href="../../../hash/hash.go.html#line-26" class="ident">Hash</a></code></span>
+<span class="codeline" id="line-558"><code></code></span>
+<span class="codeline" id="line-559"><code>	<span class="comment">// In TLS 1.2, a full buffer is sadly required.</span></code></span>
+<span class="codeline" id="line-560"><code>	<a href="../../../../use/github.com/refraction-networking/utls..FinishedHash.Buffer.html" class="ident">Buffer</a> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-561"><code></code></span>
+<span class="codeline" id="line-562"><code>	<a href="../../../../use/github.com/refraction-networking/utls..FinishedHash.Version.html" class="ident">Version</a> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-563"><code>	<a href="../../../../use/github.com/refraction-networking/utls..FinishedHash.Prfv2.html" class="ident">Prfv2</a>   <a href="prf.go.html#line-21" class="ident">prfFunc</a></code></span>
+<span class="codeline" id="line-564"><code></code></span>
+<span class="codeline" id="line-565"><code>	<span class="comment">// Deprecated: Use Prfv2 instead. Prfv2 will be used if both are set.</span></code></span>
+<span class="codeline" id="line-566"><code>	<a href="../../../../use/github.com/refraction-networking/utls..FinishedHash.Prf^6a0d0.html" class="ident">Prf</a> <a href="#line-569" class="ident">prfFuncOld</a></code></span>
+<span class="codeline" id="line-567"><code>}</code></span>
+<span class="codeline" id="line-568"><code></code></span>
+<span class="codeline" id="line-569"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-prfFuncOld" class="ident">prfFuncOld</a> <span class="keyword">func</span>(result, secret, label, seed []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>)</code></span>
+<span class="codeline" id="line-570"><code></code></span>
+<span class="codeline" id="line-571"><code><span class="keyword">func</span> <label for="r43" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-prfFuncV1ToV2" class="ident">prfFuncV1ToV2</a></label>(<label for="r44" class="ident">v1</label> <a href="#line-569" class="ident">prfFuncOld</a>) <a href="prf.go.html#line-21" class="ident">prfFunc</a> {</code></span>
+<span class="codeline" id="line-572"><code>	<span class="keyword">return</span> <span class="keyword">func</span>(<label for="r45" class="ident">secret</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r46" class="ident">label</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r47" class="ident">seed</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r48" class="ident">keyLen</label> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>) []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
+<span class="codeline" id="line-573"><code>		<label for="r49" class="ident">res</label> := <a href="../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r48" class="ident">keyLen</label>)</code></span>
+<span class="codeline" id="line-574"><code>		<label for="r44" class="ident">v1</label>(<label for="r49" class="ident">res</label>, <label for="r45" class="ident">secret</label>, []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>(<label for="r46" class="ident">label</label>), <label for="r47" class="ident">seed</label>)</code></span>
+<span class="codeline" id="line-575"><code>		<span class="keyword">return</span> <label for="r49" class="ident">res</label></code></span>
+<span class="codeline" id="line-576"><code>	}</code></span>
+<span class="codeline" id="line-577"><code>}</code></span>
+<span class="codeline" id="line-578"><code></code></span>
+<span class="codeline" id="line-579"><code><span class="keyword">func</span> <label for="r50" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-prfFuncV2ToV1" class="ident">prfFuncV2ToV1</a></label>(<label for="r51" class="ident">v2</label> <a href="prf.go.html#line-21" class="ident">prfFunc</a>) <a href="#line-569" class="ident">prfFuncOld</a> {</code></span>
+<span class="codeline" id="line-580"><code>	<span class="keyword">return</span> <span class="keyword">func</span>(<label for="r52" class="ident">result</label>, <label for="r53" class="ident">secret</label>, <label for="r54" class="ident">label</label>, <label for="r55" class="ident">seed</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) {</code></span>
+<span class="codeline" id="line-581"><code>		<a href="../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r52" class="ident">result</label>, <label for="r51" class="ident">v2</label>(<label for="r53" class="ident">secret</label>, <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>(<label for="r54" class="ident">label</label>), <label for="r55" class="ident">seed</label>, <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r52" class="ident">result</label>)))</code></span>
+<span class="codeline" id="line-582"><code>	}</code></span>
+<span class="codeline" id="line-583"><code>}</code></span>
+<span class="codeline" id="line-584"><code></code></span>
+<span class="codeline" id="line-585"><code><span class="keyword">func</span> (<label for="r56" class="ident">fh</label> *<a href="#line-551" class="ident">FinishedHash</a>) <label for="r57" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..FinishedHash.getPrivateObj^18d6d.html" class="ident">getPrivateObj</a></label>() <a href="prf.go.html#line-172" class="ident">finishedHash</a> {</code></span>
+<span class="codeline" id="line-586"><code>	<span class="keyword">if</span> <label for="r56" class="ident">fh</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-587"><code>		<span class="keyword">return</span> <a href="prf.go.html#line-172" class="ident">finishedHash</a>{}</code></span>
+<span class="codeline" id="line-588"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-589"><code>		<label for="r58" class="ident">res</label> := <a href="prf.go.html#line-172" class="ident">finishedHash</a>{</code></span>
+<span class="codeline" id="line-590"><code>			<a href="prf.go.html#line-173" class="ident">client</a>:    <label for="r56" class="ident">fh</label>.<a href="#line-552" class="ident">Client</a>,</code></span>
+<span class="codeline" id="line-591"><code>			<a href="prf.go.html#line-174" class="ident">server</a>:    <label for="r56" class="ident">fh</label>.<a href="#line-553" class="ident">Server</a>,</code></span>
+<span class="codeline" id="line-592"><code>			<a href="prf.go.html#line-177" class="ident">clientMD5</a>: <label for="r56" class="ident">fh</label>.<a href="#line-556" class="ident">ClientMD5</a>,</code></span>
+<span class="codeline" id="line-593"><code>			<a href="prf.go.html#line-178" class="ident">serverMD5</a>: <label for="r56" class="ident">fh</label>.<a href="#line-557" class="ident">ServerMD5</a>,</code></span>
+<span class="codeline" id="line-594"><code>			<a href="prf.go.html#line-181" class="ident">buffer</a>:    <label for="r56" class="ident">fh</label>.<a href="#line-560" class="ident">Buffer</a>,</code></span>
+<span class="codeline" id="line-595"><code>			<a href="prf.go.html#line-183" class="ident">version</a>:   <label for="r56" class="ident">fh</label>.<a href="#line-562" class="ident">Version</a>,</code></span>
+<span class="codeline" id="line-596"><code>		}</code></span>
+<span class="codeline" id="line-597"><code></code></span>
+<span class="codeline" id="line-598"><code>		<span class="keyword">if</span> <label for="r56" class="ident">fh</label>.<a href="#line-563" class="ident">Prfv2</a> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-599"><code>			<label for="r58" class="ident">res</label>.<a href="prf.go.html#line-184" class="ident">prf</a> = <label for="r56" class="ident">fh</label>.<a href="#line-563" class="ident">Prfv2</a></code></span>
+<span class="codeline" id="line-600"><code>		} <span class="keyword">else</span> <span class="keyword">if</span> <label for="r56" class="ident">fh</label>.<a href="#line-566" class="ident">Prf</a> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-601"><code>			<label for="r58" class="ident">res</label>.<a href="prf.go.html#line-184" class="ident">prf</a> = <a href="#line-571" class="ident">prfFuncV1ToV2</a>(<label for="r56" class="ident">fh</label>.<a href="#line-566" class="ident">Prf</a>)</code></span>
+<span class="codeline" id="line-602"><code>		}</code></span>
+<span class="codeline" id="line-603"><code></code></span>
+<span class="codeline" id="line-604"><code>		<span class="keyword">return</span> <label for="r58" class="ident">res</label></code></span>
+<span class="codeline" id="line-605"><code>	}</code></span>
+<span class="codeline" id="line-606"><code>}</code></span>
+<span class="codeline" id="line-607"><code></code></span>
+<span class="codeline" id="line-608"><code><span class="keyword">func</span> (<label for="r59" class="ident">fh</label> *<a href="prf.go.html#line-172" class="ident">finishedHash</a>) <label for="r60" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..finishedHash^2afbc.getPublicObj^00061.html" class="ident">getPublicObj</a></label>() <a href="#line-551" class="ident">FinishedHash</a> {</code></span>
+<span class="codeline" id="line-609"><code>	<span class="keyword">if</span> <label for="r59" class="ident">fh</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-610"><code>		<span class="keyword">return</span> <a href="#line-551" class="ident">FinishedHash</a>{}</code></span>
+<span class="codeline" id="line-611"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-612"><code>		<label for="r61" class="ident">res</label> := <a href="#line-551" class="ident">FinishedHash</a>{</code></span>
+<span class="codeline" id="line-613"><code>			<a href="#line-552" class="ident">Client</a>:    <label for="r59" class="ident">fh</label>.<a href="prf.go.html#line-173" class="ident">client</a>,</code></span>
+<span class="codeline" id="line-614"><code>			<a href="#line-553" class="ident">Server</a>:    <label for="r59" class="ident">fh</label>.<a href="prf.go.html#line-174" class="ident">server</a>,</code></span>
+<span class="codeline" id="line-615"><code>			<a href="#line-556" class="ident">ClientMD5</a>: <label for="r59" class="ident">fh</label>.<a href="prf.go.html#line-177" class="ident">clientMD5</a>,</code></span>
+<span class="codeline" id="line-616"><code>			<a href="#line-557" class="ident">ServerMD5</a>: <label for="r59" class="ident">fh</label>.<a href="prf.go.html#line-178" class="ident">serverMD5</a>,</code></span>
+<span class="codeline" id="line-617"><code>			<a href="#line-560" class="ident">Buffer</a>:    <label for="r59" class="ident">fh</label>.<a href="prf.go.html#line-181" class="ident">buffer</a>,</code></span>
+<span class="codeline" id="line-618"><code>			<a href="#line-562" class="ident">Version</a>:   <label for="r59" class="ident">fh</label>.<a href="prf.go.html#line-183" class="ident">version</a>,</code></span>
+<span class="codeline" id="line-619"><code>		}</code></span>
+<span class="codeline" id="line-620"><code></code></span>
+<span class="codeline" id="line-621"><code>		<label for="r61" class="ident">res</label>.<a href="#line-563" class="ident">Prfv2</a> = <label for="r59" class="ident">fh</label>.<a href="prf.go.html#line-184" class="ident">prf</a></code></span>
+<span class="codeline" id="line-622"><code>		<label for="r61" class="ident">res</label>.<a href="#line-566" class="ident">Prf</a> = <a href="#line-579" class="ident">prfFuncV2ToV1</a>(<label for="r59" class="ident">fh</label>.<a href="prf.go.html#line-184" class="ident">prf</a>)</code></span>
+<span class="codeline" id="line-623"><code></code></span>
+<span class="codeline" id="line-624"><code>		<span class="keyword">return</span> <label for="r61" class="ident">res</label></code></span>
+<span class="codeline" id="line-625"><code>	}</code></span>
+<span class="codeline" id="line-626"><code>}</code></span>
+<span class="codeline" id="line-627"><code></code></span>
+<span class="codeline" id="line-628"><code><span class="comment">// TLS 1.3 Key Share. See RFC 8446, Section 4.2.8.</span></code></span>
+<span class="codeline" id="line-629"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-KeyShare" class="ident">KeyShare</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-630"><code>	<a href="../../../../use/github.com/refraction-networking/utls..KeyShare.Group.html" class="ident">Group</a> <a href="common.go.html#line-147" class="ident">CurveID</a> <span class="lit-string">`json:"group"`</span></code></span>
+<span class="codeline" id="line-631"><code>	<a href="../../../../use/github.com/refraction-networking/utls..KeyShare.Data.html" class="ident">Data</a>  []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>  <span class="lit-string">`json:"key_exchange,omitempty"`</span> <span class="comment">// optional</span></code></span>
+<span class="codeline" id="line-632"><code>}</code></span>
+<span class="codeline" id="line-633"><code></code></span>
+<span class="codeline" id="line-634"><code><span class="keyword">func</span> (<label for="r62" class="ident">ks</label> <a href="#line-629" class="ident">KeyShare</a>) <label for="r63" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..KeyShare.ToPrivate.html" class="ident">ToPrivate</a></label>() <a href="common.go.html#line-166" class="ident">keyShare</a> {</code></span>
+<span class="codeline" id="line-635"><code>	<span class="keyword">return</span> <a href="common.go.html#line-166" class="ident">keyShare</a>{<a href="common.go.html#line-167" class="ident">group</a>: <label for="r62" class="ident">ks</label>.<a href="#line-630" class="ident">Group</a>, <a href="common.go.html#line-168" class="ident">data</a>: <label for="r62" class="ident">ks</label>.<a href="#line-631" class="ident">Data</a>}</code></span>
+<span class="codeline" id="line-636"><code>}</code></span>
+<span class="codeline" id="line-637"><code></code></span>
+<span class="codeline" id="line-638"><code><span class="keyword">func</span> (<label for="r64" class="ident">ks</label> <a href="common.go.html#line-166" class="ident">keyShare</a>) <label for="r65" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..keyShare^16fc1.ToPublic.html" class="ident">ToPublic</a></label>() <a href="#line-629" class="ident">KeyShare</a> {</code></span>
+<span class="codeline" id="line-639"><code>	<span class="keyword">return</span> <a href="#line-629" class="ident">KeyShare</a>{<a href="#line-630" class="ident">Group</a>: <label for="r64" class="ident">ks</label>.<a href="common.go.html#line-167" class="ident">group</a>, <a href="#line-631" class="ident">Data</a>: <label for="r64" class="ident">ks</label>.<a href="common.go.html#line-168" class="ident">data</a>}</code></span>
+<span class="codeline" id="line-640"><code>}</code></span>
+<span class="codeline" id="line-641"><code></code></span>
+<span class="codeline" id="line-642"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-KeyShares" class="ident">KeyShares</a> []<a href="#line-629" class="ident">KeyShare</a></code></span>
+<span class="codeline" id="line-643"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-keyShares" class="ident">keyShares</a> []<a href="common.go.html#line-166" class="ident">keyShare</a></code></span>
+<span class="codeline" id="line-644"><code></code></span>
+<span class="codeline" id="line-645"><code><span class="keyword">func</span> (<label for="r66" class="ident">kss</label> <a href="#line-643" class="ident">keyShares</a>) <label for="r67" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..keyShares^de395.ToPublic.html" class="ident">ToPublic</a></label>() []<a href="#line-629" class="ident">KeyShare</a> {</code></span>
+<span class="codeline" id="line-646"><code>	<span class="keyword">var</span> <label for="r68" class="ident">KSS</label> []<a href="#line-629" class="ident">KeyShare</a></code></span>
+<span class="codeline" id="line-647"><code>	<span class="keyword">for</span> <label for="r69" class="ident">_</label>, <label for="r70" class="ident">ks</label> := <span class="keyword">range</span> <label for="r66" class="ident">kss</label> {</code></span>
+<span class="codeline" id="line-648"><code>		<label for="r68" class="ident">KSS</label> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r68" class="ident">KSS</label>, <label for="r70" class="ident">ks</label>.<a href="#line-638" class="ident">ToPublic</a>())</code></span>
+<span class="codeline" id="line-649"><code>	}</code></span>
+<span class="codeline" id="line-650"><code>	<span class="keyword">return</span> <label for="r68" class="ident">KSS</label></code></span>
+<span class="codeline" id="line-651"><code>}</code></span>
+<span class="codeline" id="line-652"><code><span class="keyword">func</span> (<label for="r71" class="ident">KSS</label> <a href="#line-642" class="ident">KeyShares</a>) <label for="r72" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..KeyShares.ToPrivate.html" class="ident">ToPrivate</a></label>() []<a href="common.go.html#line-166" class="ident">keyShare</a> {</code></span>
+<span class="codeline" id="line-653"><code>	<span class="keyword">var</span> <label for="r73" class="ident">kss</label> []<a href="common.go.html#line-166" class="ident">keyShare</a></code></span>
+<span class="codeline" id="line-654"><code>	<span class="keyword">for</span> <label for="r74" class="ident">_</label>, <label for="r75" class="ident">KS</label> := <span class="keyword">range</span> <label for="r71" class="ident">KSS</label> {</code></span>
+<span class="codeline" id="line-655"><code>		<label for="r73" class="ident">kss</label> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r73" class="ident">kss</label>, <label for="r75" class="ident">KS</label>.<a href="#line-634" class="ident">ToPrivate</a>())</code></span>
+<span class="codeline" id="line-656"><code>	}</code></span>
+<span class="codeline" id="line-657"><code>	<span class="keyword">return</span> <label for="r73" class="ident">kss</label></code></span>
+<span class="codeline" id="line-658"><code>}</code></span>
+<span class="codeline" id="line-659"><code></code></span>
+<span class="codeline" id="line-660"><code><span class="comment">// TLS 1.3 PSK Identity. Can be a Session Ticket, or a reference to a saved</span></code></span>
+<span class="codeline" id="line-661"><code><span class="comment">// session. See RFC 8446, Section 4.2.11.</span></code></span>
+<span class="codeline" id="line-662"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-PskIdentity" class="ident">PskIdentity</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-663"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PskIdentity.Label.html" class="ident">Label</a>               []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a> <span class="lit-string">`json:"identity"`</span></code></span>
+<span class="codeline" id="line-664"><code>	<a href="../../../../use/github.com/refraction-networking/utls..PskIdentity.ObfuscatedTicketAge.html" class="ident">ObfuscatedTicketAge</a> <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a> <span class="lit-string">`json:"obfuscated_ticket_age"`</span></code></span>
+<span class="codeline" id="line-665"><code>}</code></span>
+<span class="codeline" id="line-666"><code></code></span>
+<span class="codeline" id="line-667"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-PskIdentities" class="ident">PskIdentities</a> []<a href="#line-662" class="ident">PskIdentity</a></code></span>
+<span class="codeline" id="line-668"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-pskIdentities" class="ident">pskIdentities</a> []<a href="common.go.html#line-179" class="ident">pskIdentity</a></code></span>
+<span class="codeline" id="line-669"><code></code></span>
+<span class="codeline" id="line-670"><code><span class="keyword">func</span> (<label for="r76" class="ident">pss</label> <a href="#line-668" class="ident">pskIdentities</a>) <label for="r77" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..pskIdentities^863e2.ToPublic.html" class="ident">ToPublic</a></label>() []<a href="#line-662" class="ident">PskIdentity</a> {</code></span>
+<span class="codeline" id="line-671"><code>	<span class="keyword">var</span> <label for="r78" class="ident">PSS</label> []<a href="#line-662" class="ident">PskIdentity</a></code></span>
+<span class="codeline" id="line-672"><code>	<span class="keyword">for</span> <label for="r79" class="ident">_</label>, <label for="r80" class="ident">ps</label> := <span class="keyword">range</span> <label for="r76" class="ident">pss</label> {</code></span>
+<span class="codeline" id="line-673"><code>		<label for="r78" class="ident">PSS</label> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r78" class="ident">PSS</label>, <a href="#line-662" class="ident">PskIdentity</a>{<a href="#line-663" class="ident">Label</a>: <label for="r80" class="ident">ps</label>.<a href="common.go.html#line-180" class="ident">label</a>, <a href="#line-664" class="ident">ObfuscatedTicketAge</a>: <label for="r80" class="ident">ps</label>.<a href="common.go.html#line-181" class="ident">obfuscatedTicketAge</a>})</code></span>
+<span class="codeline" id="line-674"><code>	}</code></span>
+<span class="codeline" id="line-675"><code>	<span class="keyword">return</span> <label for="r78" class="ident">PSS</label></code></span>
+<span class="codeline" id="line-676"><code>}</code></span>
+<span class="codeline" id="line-677"><code></code></span>
+<span class="codeline" id="line-678"><code><span class="keyword">func</span> (<label for="r81" class="ident">PSS</label> <a href="#line-667" class="ident">PskIdentities</a>) <label for="r82" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..PskIdentities.ToPrivate.html" class="ident">ToPrivate</a></label>() []<a href="common.go.html#line-179" class="ident">pskIdentity</a> {</code></span>
+<span class="codeline" id="line-679"><code>	<span class="keyword">var</span> <label for="r83" class="ident">pss</label> []<a href="common.go.html#line-179" class="ident">pskIdentity</a></code></span>
+<span class="codeline" id="line-680"><code>	<span class="keyword">for</span> <label for="r84" class="ident">_</label>, <label for="r85" class="ident">PS</label> := <span class="keyword">range</span> <label for="r81" class="ident">PSS</label> {</code></span>
+<span class="codeline" id="line-681"><code>		<label for="r83" class="ident">pss</label> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r83" class="ident">pss</label>, <a href="common.go.html#line-179" class="ident">pskIdentity</a>{<a href="common.go.html#line-180" class="ident">label</a>: <label for="r85" class="ident">PS</label>.<a href="#line-663" class="ident">Label</a>, <a href="common.go.html#line-181" class="ident">obfuscatedTicketAge</a>: <label for="r85" class="ident">PS</label>.<a href="#line-664" class="ident">ObfuscatedTicketAge</a>})</code></span>
+<span class="codeline" id="line-682"><code>	}</code></span>
+<span class="codeline" id="line-683"><code>	<span class="keyword">return</span> <label for="r83" class="ident">pss</label></code></span>
+<span class="codeline" id="line-684"><code>}</code></span>
+<span class="codeline" id="line-685"><code></code></span>
+<span class="codeline" id="line-686"><code><span class="comment">// ClientSessionState is public, but all its fields are private. Let's add setters, getters and constructor</span></code></span>
+<span class="codeline" id="line-687"><code></code></span>
+<span class="codeline" id="line-688"><code><span class="comment">// ClientSessionState contains the state needed by clients to resume TLS sessions.</span></code></span>
+<span class="codeline" id="line-689"><code><span class="keyword">func</span> <label for="r86" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-MakeClientSessionState" class="ident">MakeClientSessionState</a></label>(</code></span>
+<span class="codeline" id="line-690"><code>	<label for="r87" class="ident">SessionTicket</label> []<a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>,</code></span>
+<span class="codeline" id="line-691"><code>	<label for="r88" class="ident">Vers</label> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>,</code></span>
+<span class="codeline" id="line-692"><code>	<label for="r89" class="ident">CipherSuite</label> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>,</code></span>
+<span class="codeline" id="line-693"><code>	<label for="r90" class="ident">MasterSecret</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>,</code></span>
+<span class="codeline" id="line-694"><code>	<label for="r91" class="ident">ServerCertificates</label> []*<a href="../../../../pkg/crypto/x509.html" class="ident i3">x509</a>.<a href="../../../crypto/x509/x509.go.html#line-704" class="ident">Certificate</a>,</code></span>
+<span class="codeline" id="line-695"><code>	<label for="r92" class="ident">VerifiedChains</label> [][]*<a href="../../../../pkg/crypto/x509.html" class="ident i3">x509</a>.<a href="../../../crypto/x509/x509.go.html#line-704" class="ident">Certificate</a>) *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a> {</code></span>
+<span class="codeline" id="line-696"><code>	<span class="comment">// TODO: Add EMS to this constructor in uTLS v2</span></code></span>
+<span class="codeline" id="line-697"><code>	<label for="r93" class="ident">css</label> := &amp;<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>{</code></span>
+<span class="codeline" id="line-698"><code>		<a href="ticket.go.html#line-400" class="ident">session</a>: &amp;<a href="ticket.go.html#line-21" class="ident">SessionState</a>{</code></span>
+<span class="codeline" id="line-699"><code>			<a href="ticket.go.html#line-80" class="ident">version</a>:          <label for="r88" class="ident">Vers</label>,</code></span>
+<span class="codeline" id="line-700"><code>			<a href="ticket.go.html#line-82" class="ident">cipherSuite</a>:      <label for="r89" class="ident">CipherSuite</label>,</code></span>
+<span class="codeline" id="line-701"><code>			<a href="ticket.go.html#line-87" class="ident">secret</a>:           <label for="r90" class="ident">MasterSecret</label>,</code></span>
+<span class="codeline" id="line-702"><code>			<a href="ticket.go.html#line-89" class="ident">peerCertificates</a>: <label for="r91" class="ident">ServerCertificates</label>,</code></span>
+<span class="codeline" id="line-703"><code>			<a href="ticket.go.html#line-93" class="ident">verifiedChains</a>:   <label for="r92" class="ident">VerifiedChains</label>,</code></span>
+<span class="codeline" id="line-704"><code>			<a href="ticket.go.html#line-99" class="ident">ticket</a>:           <label for="r87" class="ident">SessionTicket</label>,</code></span>
+<span class="codeline" id="line-705"><code>		},</code></span>
+<span class="codeline" id="line-706"><code>	}</code></span>
+<span class="codeline" id="line-707"><code>	<span class="keyword">return</span> <label for="r93" class="ident">css</label></code></span>
+<span class="codeline" id="line-708"><code>}</code></span>
+<span class="codeline" id="line-709"><code></code></span>
+<span class="codeline" id="line-710"><code><span class="comment">// Encrypted ticket used for session resumption with server</span></code></span>
+<span class="codeline" id="line-711"><code><span class="keyword">func</span> (<label for="r94" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r95" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.SessionTicket.html" class="ident">SessionTicket</a></label>() []<a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> {</code></span>
+<span class="codeline" id="line-712"><code>	<span class="keyword">return</span> <label for="r94" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-99" class="ident">ticket</a></code></span>
+<span class="codeline" id="line-713"><code>}</code></span>
+<span class="codeline" id="line-714"><code></code></span>
+<span class="codeline" id="line-715"><code><span class="comment">// SSL/TLS version negotiated for the session</span></code></span>
+<span class="codeline" id="line-716"><code><span class="keyword">func</span> (<label for="r96" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r97" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.Vers.html" class="ident">Vers</a></label>() <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> {</code></span>
+<span class="codeline" id="line-717"><code>	<span class="keyword">return</span> <label for="r96" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-80" class="ident">version</a></code></span>
+<span class="codeline" id="line-718"><code>}</code></span>
+<span class="codeline" id="line-719"><code></code></span>
+<span class="codeline" id="line-720"><code><span class="comment">// Ciphersuite negotiated for the session</span></code></span>
+<span class="codeline" id="line-721"><code><span class="keyword">func</span> (<label for="r98" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r99" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.CipherSuite.html" class="ident">CipherSuite</a></label>() <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> {</code></span>
+<span class="codeline" id="line-722"><code>	<span class="keyword">return</span> <label for="r98" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-82" class="ident">cipherSuite</a></code></span>
+<span class="codeline" id="line-723"><code>}</code></span>
+<span class="codeline" id="line-724"><code></code></span>
+<span class="codeline" id="line-725"><code><span class="comment">// MasterSecret generated by client on a full handshake</span></code></span>
+<span class="codeline" id="line-726"><code><span class="keyword">func</span> (<label for="r100" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r101" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.MasterSecret.html" class="ident">MasterSecret</a></label>() []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
+<span class="codeline" id="line-727"><code>	<span class="keyword">return</span> <label for="r100" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-87" class="ident">secret</a></code></span>
+<span class="codeline" id="line-728"><code>}</code></span>
+<span class="codeline" id="line-729"><code></code></span>
+<span class="codeline" id="line-730"><code><span class="keyword">func</span> (<label for="r102" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r103" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.EMS^7fa89.html" class="ident">EMS</a></label>() <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-731"><code>	<span class="keyword">return</span> <label for="r102" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-88" class="ident">extMasterSecret</a></code></span>
+<span class="codeline" id="line-732"><code>}</code></span>
+<span class="codeline" id="line-733"><code></code></span>
+<span class="codeline" id="line-734"><code><span class="comment">// Certificate chain presented by the server</span></code></span>
+<span class="codeline" id="line-735"><code><span class="keyword">func</span> (<label for="r104" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r105" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.ServerCertificates.html" class="ident">ServerCertificates</a></label>() []*<a href="../../../../pkg/crypto/x509.html" class="ident i3">x509</a>.<a href="../../../crypto/x509/x509.go.html#line-704" class="ident">Certificate</a> {</code></span>
+<span class="codeline" id="line-736"><code>	<span class="keyword">return</span> <label for="r104" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-89" class="ident">peerCertificates</a></code></span>
+<span class="codeline" id="line-737"><code>}</code></span>
+<span class="codeline" id="line-738"><code></code></span>
+<span class="codeline" id="line-739"><code><span class="comment">// Certificate chains we built for verification</span></code></span>
+<span class="codeline" id="line-740"><code><span class="keyword">func</span> (<label for="r106" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r107" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.VerifiedChains.html" class="ident">VerifiedChains</a></label>() [][]*<a href="../../../../pkg/crypto/x509.html" class="ident i3">x509</a>.<a href="../../../crypto/x509/x509.go.html#line-704" class="ident">Certificate</a> {</code></span>
+<span class="codeline" id="line-741"><code>	<span class="keyword">return</span> <label for="r106" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-93" class="ident">verifiedChains</a></code></span>
+<span class="codeline" id="line-742"><code>}</code></span>
+<span class="codeline" id="line-743"><code></code></span>
+<span class="codeline" id="line-744"><code><span class="keyword">func</span> (<label for="r108" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r109" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.SetSessionTicket.html" class="ident">SetSessionTicket</a></label>(<label for="r110" class="ident">SessionTicket</label> []<a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>) {</code></span>
+<span class="codeline" id="line-745"><code>	<label for="r108" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-99" class="ident">ticket</a> = <label for="r110" class="ident">SessionTicket</label></code></span>
+<span class="codeline" id="line-746"><code>}</code></span>
+<span class="codeline" id="line-747"><code></code></span>
+<span class="codeline" id="line-748"><code><span class="keyword">func</span> (<label for="r111" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r112" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.SetVers.html" class="ident">SetVers</a></label>(<label for="r113" class="ident">Vers</label> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>) {</code></span>
+<span class="codeline" id="line-749"><code>	<span class="keyword">if</span> <label for="r111" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-750"><code>		<label for="r111" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> = &amp;<a href="ticket.go.html#line-21" class="ident">SessionState</a>{}</code></span>
+<span class="codeline" id="line-751"><code>	}</code></span>
+<span class="codeline" id="line-752"><code>	<label for="r111" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-80" class="ident">version</a> = <label for="r113" class="ident">Vers</label></code></span>
+<span class="codeline" id="line-753"><code>}</code></span>
+<span class="codeline" id="line-754"><code></code></span>
+<span class="codeline" id="line-755"><code><span class="keyword">func</span> (<label for="r114" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r115" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.SetCipherSuite.html" class="ident">SetCipherSuite</a></label>(<label for="r116" class="ident">CipherSuite</label> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>) {</code></span>
+<span class="codeline" id="line-756"><code>	<span class="keyword">if</span> <label for="r114" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-757"><code>		<label for="r114" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> = &amp;<a href="ticket.go.html#line-21" class="ident">SessionState</a>{}</code></span>
+<span class="codeline" id="line-758"><code>	}</code></span>
+<span class="codeline" id="line-759"><code>	<label for="r114" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-82" class="ident">cipherSuite</a> = <label for="r116" class="ident">CipherSuite</label></code></span>
+<span class="codeline" id="line-760"><code>}</code></span>
+<span class="codeline" id="line-761"><code></code></span>
+<span class="codeline" id="line-762"><code><span class="keyword">func</span> (<label for="r117" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r118" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.SetCreatedAt.html" class="ident">SetCreatedAt</a></label>(<label for="r119" class="ident">createdAt</label> <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>) {</code></span>
+<span class="codeline" id="line-763"><code>	<span class="keyword">if</span> <label for="r117" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-764"><code>		<label for="r117" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> = &amp;<a href="ticket.go.html#line-21" class="ident">SessionState</a>{}</code></span>
+<span class="codeline" id="line-765"><code>	}</code></span>
+<span class="codeline" id="line-766"><code>	<label for="r117" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-86" class="ident">createdAt</a> = <label for="r119" class="ident">createdAt</label></code></span>
+<span class="codeline" id="line-767"><code>}</code></span>
+<span class="codeline" id="line-768"><code></code></span>
+<span class="codeline" id="line-769"><code><span class="keyword">func</span> (<label for="r120" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r121" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.SetMasterSecret.html" class="ident">SetMasterSecret</a></label>(<label for="r122" class="ident">MasterSecret</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) {</code></span>
+<span class="codeline" id="line-770"><code>	<span class="keyword">if</span> <label for="r120" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-771"><code>		<label for="r120" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> = &amp;<a href="ticket.go.html#line-21" class="ident">SessionState</a>{}</code></span>
+<span class="codeline" id="line-772"><code>	}</code></span>
+<span class="codeline" id="line-773"><code>	<label for="r120" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-87" class="ident">secret</a> = <label for="r122" class="ident">MasterSecret</label></code></span>
+<span class="codeline" id="line-774"><code>}</code></span>
+<span class="codeline" id="line-775"><code></code></span>
+<span class="codeline" id="line-776"><code><span class="keyword">func</span> (<label for="r123" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r124" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.SetEMS.html" class="ident">SetEMS</a></label>(<label for="r125" class="ident">ems</label> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
+<span class="codeline" id="line-777"><code>	<span class="keyword">if</span> <label for="r123" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-778"><code>		<label for="r123" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> = &amp;<a href="ticket.go.html#line-21" class="ident">SessionState</a>{}</code></span>
+<span class="codeline" id="line-779"><code>	}</code></span>
+<span class="codeline" id="line-780"><code>	<label for="r123" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-88" class="ident">extMasterSecret</a> = <label for="r125" class="ident">ems</label></code></span>
+<span class="codeline" id="line-781"><code>}</code></span>
+<span class="codeline" id="line-782"><code></code></span>
+<span class="codeline" id="line-783"><code><span class="keyword">func</span> (<label for="r126" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r127" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.SetServerCertificates.html" class="ident">SetServerCertificates</a></label>(<label for="r128" class="ident">ServerCertificates</label> []*<a href="../../../../pkg/crypto/x509.html" class="ident i3">x509</a>.<a href="../../../crypto/x509/x509.go.html#line-704" class="ident">Certificate</a>) {</code></span>
+<span class="codeline" id="line-784"><code>	<span class="keyword">if</span> <label for="r126" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-785"><code>		<label for="r126" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> = &amp;<a href="ticket.go.html#line-21" class="ident">SessionState</a>{}</code></span>
+<span class="codeline" id="line-786"><code>	}</code></span>
+<span class="codeline" id="line-787"><code>	<label for="r126" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-89" class="ident">peerCertificates</a> = <label for="r128" class="ident">ServerCertificates</label></code></span>
+<span class="codeline" id="line-788"><code>}</code></span>
+<span class="codeline" id="line-789"><code></code></span>
+<span class="codeline" id="line-790"><code><span class="keyword">func</span> (<label for="r129" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r130" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.SetVerifiedChains.html" class="ident">SetVerifiedChains</a></label>(<label for="r131" class="ident">VerifiedChains</label> [][]*<a href="../../../../pkg/crypto/x509.html" class="ident i3">x509</a>.<a href="../../../crypto/x509/x509.go.html#line-704" class="ident">Certificate</a>) {</code></span>
+<span class="codeline" id="line-791"><code>	<span class="keyword">if</span> <label for="r129" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-792"><code>		<label for="r129" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> = &amp;<a href="ticket.go.html#line-21" class="ident">SessionState</a>{}</code></span>
+<span class="codeline" id="line-793"><code>	}</code></span>
+<span class="codeline" id="line-794"><code>	<label for="r129" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-93" class="ident">verifiedChains</a> = <label for="r131" class="ident">VerifiedChains</label></code></span>
+<span class="codeline" id="line-795"><code>}</code></span>
+<span class="codeline" id="line-796"><code></code></span>
+<span class="codeline" id="line-797"><code><span class="keyword">func</span> (<label for="r132" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r133" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.SetUseBy.html" class="ident">SetUseBy</a></label>(<label for="r134" class="ident">useBy</label> <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>) {</code></span>
+<span class="codeline" id="line-798"><code>	<span class="keyword">if</span> <label for="r132" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-799"><code>		<label for="r132" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> = &amp;<a href="ticket.go.html#line-21" class="ident">SessionState</a>{}</code></span>
+<span class="codeline" id="line-800"><code>	}</code></span>
+<span class="codeline" id="line-801"><code>	<label for="r132" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-97" class="ident">useBy</a> = <label for="r134" class="ident">useBy</label></code></span>
+<span class="codeline" id="line-802"><code>}</code></span>
+<span class="codeline" id="line-803"><code></code></span>
+<span class="codeline" id="line-804"><code><span class="keyword">func</span> (<label for="r135" class="ident">css</label> *<a href="ticket.go.html#line-399" class="ident">ClientSessionState</a>) <label for="r136" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientSessionState.SetAgeAdd.html" class="ident">SetAgeAdd</a></label>(<label for="r137" class="ident">ageAdd</label> <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>) {</code></span>
+<span class="codeline" id="line-805"><code>	<span class="keyword">if</span> <label for="r135" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-806"><code>		<label for="r135" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a> = &amp;<a href="ticket.go.html#line-21" class="ident">SessionState</a>{}</code></span>
+<span class="codeline" id="line-807"><code>	}</code></span>
+<span class="codeline" id="line-808"><code>	<label for="r135" class="ident">css</label>.<a href="ticket.go.html#line-400" class="ident">session</a>.<a href="ticket.go.html#line-98" class="ident">ageAdd</a> = <label for="r137" class="ident">ageAdd</label></code></span>
+<span class="codeline" id="line-809"><code>}</code></span>
+<span class="codeline" id="line-810"><code></code></span>
+<span class="codeline" id="line-811"><code><span class="comment">// TicketKey is the internal representation of a session ticket key.</span></code></span>
+<span class="codeline" id="line-812"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-TicketKey" class="ident">TicketKey</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-813"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TicketKey.AesKey.html" class="ident">AesKey</a>  [<span class="lit-number">16</span>]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-814"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TicketKey.HmacKey.html" class="ident">HmacKey</a> [<span class="lit-number">16</span>]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-815"><code>	<span class="comment">// created is the time at which this ticket key was created. See Config.ticketKeys.</span></code></span>
+<span class="codeline" id="line-816"><code>	<a href="../../../../use/github.com/refraction-networking/utls..TicketKey.Created.html" class="ident">Created</a> <a href="../../../../pkg/time.html" class="ident i5">time</a>.<a href="../../../time/time.go.html#line-140" class="ident">Time</a></code></span>
+<span class="codeline" id="line-817"><code>}</code></span>
+<span class="codeline" id="line-818"><code></code></span>
+<span class="codeline" id="line-819"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-TicketKeys" class="ident">TicketKeys</a> []<a href="#line-812" class="ident">TicketKey</a></code></span>
+<span class="codeline" id="line-820"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-ticketKeys" class="ident">ticketKeys</a> []<a href="common.go.html#line-948" class="ident">ticketKey</a></code></span>
+<span class="codeline" id="line-821"><code></code></span>
+<span class="codeline" id="line-822"><code><span class="keyword">func</span> <label for="r138" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-TicketKeyFromBytes" class="ident">TicketKeyFromBytes</a></label>(<label for="r139" class="ident">b</label> [<span class="lit-number">32</span>]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="#line-812" class="ident">TicketKey</a> {</code></span>
+<span class="codeline" id="line-823"><code>	<span class="comment">// [uTLS]</span></code></span>
+<span class="codeline" id="line-824"><code><span class="comment">	// empty config is required</span></code></span>
+<span class="codeline" id="line-825"><code>	<label for="r140" class="ident">config</label> := &amp;<a href="common.go.html#line-551" class="ident">Config</a>{}</code></span>
+<span class="codeline" id="line-826"><code>	<label for="r141" class="ident">tk</label> := <label for="r140" class="ident">config</label>.<a href="common.go.html#line-958" class="ident">ticketKeyFromBytes</a>(<label for="r139" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-827"><code>	<span class="keyword">return</span> <label for="r141" class="ident">tk</label>.<a href="#line-830" class="ident">ToPublic</a>()</code></span>
+<span class="codeline" id="line-828"><code>}</code></span>
+<span class="codeline" id="line-829"><code></code></span>
+<span class="codeline" id="line-830"><code><span class="keyword">func</span> (<label for="r142" class="ident">tk</label> <a href="common.go.html#line-948" class="ident">ticketKey</a>) <label for="r143" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ticketKey^7fcd4.ToPublic.html" class="ident">ToPublic</a></label>() <a href="#line-812" class="ident">TicketKey</a> {</code></span>
+<span class="codeline" id="line-831"><code>	<span class="keyword">return</span> <a href="#line-812" class="ident">TicketKey</a>{</code></span>
+<span class="codeline" id="line-832"><code>		<a href="#line-813" class="ident">AesKey</a>:  <label for="r142" class="ident">tk</label>.<a href="common.go.html#line-949" class="ident">aesKey</a>,</code></span>
+<span class="codeline" id="line-833"><code>		<a href="#line-814" class="ident">HmacKey</a>: <label for="r142" class="ident">tk</label>.<a href="common.go.html#line-950" class="ident">hmacKey</a>,</code></span>
+<span class="codeline" id="line-834"><code>		<a href="#line-816" class="ident">Created</a>: <label for="r142" class="ident">tk</label>.<a href="common.go.html#line-952" class="ident">created</a>,</code></span>
+<span class="codeline" id="line-835"><code>	}</code></span>
+<span class="codeline" id="line-836"><code>}</code></span>
+<span class="codeline" id="line-837"><code></code></span>
+<span class="codeline" id="line-838"><code><span class="keyword">func</span> (<label for="r144" class="ident">TK</label> <a href="#line-812" class="ident">TicketKey</a>) <label for="r145" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..TicketKey.ToPrivate.html" class="ident">ToPrivate</a></label>() <a href="common.go.html#line-948" class="ident">ticketKey</a> {</code></span>
+<span class="codeline" id="line-839"><code>	<span class="keyword">return</span> <a href="common.go.html#line-948" class="ident">ticketKey</a>{</code></span>
+<span class="codeline" id="line-840"><code>		<a href="common.go.html#line-949" class="ident">aesKey</a>:  <label for="r144" class="ident">TK</label>.<a href="#line-813" class="ident">AesKey</a>,</code></span>
+<span class="codeline" id="line-841"><code>		<a href="common.go.html#line-950" class="ident">hmacKey</a>: <label for="r144" class="ident">TK</label>.<a href="#line-814" class="ident">HmacKey</a>,</code></span>
+<span class="codeline" id="line-842"><code>		<a href="common.go.html#line-952" class="ident">created</a>: <label for="r144" class="ident">TK</label>.<a href="#line-816" class="ident">Created</a>,</code></span>
+<span class="codeline" id="line-843"><code>	}</code></span>
+<span class="codeline" id="line-844"><code>}</code></span>
+<span class="codeline" id="line-845"><code></code></span>
+<span class="codeline" id="line-846"><code><span class="keyword">func</span> (<label for="r146" class="ident">tks</label> <a href="#line-820" class="ident">ticketKeys</a>) <label for="r147" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ticketKeys^fd20e.ToPublic.html" class="ident">ToPublic</a></label>() []<a href="#line-812" class="ident">TicketKey</a> {</code></span>
+<span class="codeline" id="line-847"><code>	<span class="keyword">var</span> <label for="r148" class="ident">TKS</label> []<a href="#line-812" class="ident">TicketKey</a></code></span>
+<span class="codeline" id="line-848"><code>	<span class="keyword">for</span> <label for="r149" class="ident">_</label>, <label for="r150" class="ident">ks</label> := <span class="keyword">range</span> <label for="r146" class="ident">tks</label> {</code></span>
+<span class="codeline" id="line-849"><code>		<label for="r148" class="ident">TKS</label> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r148" class="ident">TKS</label>, <label for="r150" class="ident">ks</label>.<a href="#line-830" class="ident">ToPublic</a>())</code></span>
+<span class="codeline" id="line-850"><code>	}</code></span>
+<span class="codeline" id="line-851"><code>	<span class="keyword">return</span> <label for="r148" class="ident">TKS</label></code></span>
+<span class="codeline" id="line-852"><code>}</code></span>
+<span class="codeline" id="line-853"><code></code></span>
+<span class="codeline" id="line-854"><code><span class="keyword">func</span> (<label for="r151" class="ident">TKS</label> <a href="#line-819" class="ident">TicketKeys</a>) <label for="r152" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..TicketKeys.ToPrivate.html" class="ident">ToPrivate</a></label>() []<a href="common.go.html#line-948" class="ident">ticketKey</a> {</code></span>
+<span class="codeline" id="line-855"><code>	<span class="keyword">var</span> <label for="r153" class="ident">tks</label> []<a href="common.go.html#line-948" class="ident">ticketKey</a></code></span>
+<span class="codeline" id="line-856"><code>	<span class="keyword">for</span> <label for="r154" class="ident">_</label>, <label for="r155" class="ident">TK</label> := <span class="keyword">range</span> <label for="r151" class="ident">TKS</label> {</code></span>
+<span class="codeline" id="line-857"><code>		<label for="r153" class="ident">tks</label> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r153" class="ident">tks</label>, <label for="r155" class="ident">TK</label>.<a href="#line-838" class="ident">ToPrivate</a>())</code></span>
+<span class="codeline" id="line-858"><code>	}</code></span>
+<span class="codeline" id="line-859"><code>	<span class="keyword">return</span> <label for="r153" class="ident">tks</label></code></span>
+<span class="codeline" id="line-860"><code>}</code></span>
+<span class="codeline" id="line-861"><code></code></span>
+<span class="codeline" id="line-862"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-kemPrivateKey" class="ident">kemPrivateKey</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-863"><code>	<a href="../../../../use/github.com/refraction-networking/utls..kemPrivateKey^64d3b.secretKey^b2381.html" class="ident">secretKey</a> <a href="../../../../pkg/builtin.html#name-any" class="ident">any</a></code></span>
+<span class="codeline" id="line-864"><code>	<a href="../../../../use/github.com/refraction-networking/utls..kemPrivateKey^64d3b.curveID^c816e.html" class="ident">curveID</a>   <a href="common.go.html#line-147" class="ident">CurveID</a></code></span>
+<span class="codeline" id="line-865"><code>}</code></span>
+<span class="codeline" id="line-866"><code></code></span>
+<span class="codeline" id="line-867"><code><span class="comment">// Deprecated: Use KeySharePrivateKeys instead. This type is no longer used.</span></code></span>
+<span class="codeline" id="line-868"><code><span class="comment">// Will be removed in the future.</span></code></span>
+<span class="codeline" id="line-869"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-KemPrivateKey" class="ident">KemPrivateKey</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-870"><code>	<a href="../../../../use/github.com/refraction-networking/utls..KemPrivateKey.SecretKey.html" class="ident">SecretKey</a> <a href="../../../../pkg/builtin.html#name-any" class="ident">any</a></code></span>
+<span class="codeline" id="line-871"><code>	<a href="../../../../use/github.com/refraction-networking/utls..KemPrivateKey.CurveID.html" class="ident">CurveID</a>   <a href="common.go.html#line-147" class="ident">CurveID</a></code></span>
+<span class="codeline" id="line-872"><code>}</code></span>
+<span class="codeline" id="line-873"><code></code></span>
+<span class="codeline" id="line-874"><code><span class="keyword">func</span> (<label for="r156" class="ident">kpk</label> *<a href="#line-869" class="ident">KemPrivateKey</a>) <label for="r157" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..KemPrivateKey.ToPrivate.html" class="ident">ToPrivate</a></label>() *<a href="#line-862" class="ident">kemPrivateKey</a> {</code></span>
+<span class="codeline" id="line-875"><code>	<span class="keyword">if</span> <label for="r156" class="ident">kpk</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-876"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-877"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-878"><code>		<span class="keyword">return</span> &amp;<a href="#line-862" class="ident">kemPrivateKey</a>{</code></span>
+<span class="codeline" id="line-879"><code>			<a href="#line-863" class="ident">secretKey</a>: <label for="r156" class="ident">kpk</label>.<a href="#line-870" class="ident">SecretKey</a>,</code></span>
+<span class="codeline" id="line-880"><code>			<a href="#line-864" class="ident">curveID</a>:   <label for="r156" class="ident">kpk</label>.<a href="#line-871" class="ident">CurveID</a>,</code></span>
+<span class="codeline" id="line-881"><code>		}</code></span>
+<span class="codeline" id="line-882"><code>	}</code></span>
+<span class="codeline" id="line-883"><code>}</code></span>
+<span class="codeline" id="line-884"><code></code></span>
+<span class="codeline" id="line-885"><code><span class="keyword">func</span> (<label for="r158" class="ident">kpk</label> *<a href="#line-862" class="ident">kemPrivateKey</a>) <label for="r159" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..kemPrivateKey^64d3b.ToPublic.html" class="ident">ToPublic</a></label>() *<a href="#line-869" class="ident">KemPrivateKey</a> {</code></span>
+<span class="codeline" id="line-886"><code>	<span class="keyword">if</span> <label for="r158" class="ident">kpk</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-887"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-888"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-889"><code>		<span class="keyword">return</span> &amp;<a href="#line-869" class="ident">KemPrivateKey</a>{</code></span>
+<span class="codeline" id="line-890"><code>			<a href="#line-870" class="ident">SecretKey</a>: <label for="r158" class="ident">kpk</label>.<a href="#line-863" class="ident">secretKey</a>,</code></span>
+<span class="codeline" id="line-891"><code>			<a href="#line-871" class="ident">CurveID</a>:   <label for="r158" class="ident">kpk</label>.<a href="#line-864" class="ident">curveID</a>,</code></span>
+<span class="codeline" id="line-892"><code>		}</code></span>
+<span class="codeline" id="line-893"><code>	}</code></span>
+<span class="codeline" id="line-894"><code>}</code></span>
+<span class="codeline" id="line-895"><code></code></span>
+<span class="codeline" id="line-896"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-KeySharePrivateKeys" class="ident">KeySharePrivateKeys</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-897"><code>	<a href="../../../../use/github.com/refraction-networking/utls..KeySharePrivateKeys.CurveID.html" class="ident">CurveID</a>    <a href="common.go.html#line-147" class="ident">CurveID</a></code></span>
+<span class="codeline" id="line-898"><code>	<a href="../../../../use/github.com/refraction-networking/utls..KeySharePrivateKeys.Ecdhe.html" class="ident">Ecdhe</a>      *<a href="../../../../pkg/crypto/ecdh.html" class="ident i1">ecdh</a>.<a href="../../../crypto/ecdh/ecdh.go.html#line-112" class="ident">PrivateKey</a></code></span>
+<span class="codeline" id="line-899"><code>	<a href="../../../../use/github.com/refraction-networking/utls..KeySharePrivateKeys.Mlkem.html" class="ident">Mlkem</a>      *<a href="../../../../pkg/crypto/mlkem.html" class="ident i2">mlkem</a>.<a href="../../../crypto/mlkem/mlkem.go.html#line-41" class="ident">DecapsulationKey768</a></code></span>
+<span class="codeline" id="line-900"><code>	<a href="../../../../use/github.com/refraction-networking/utls..KeySharePrivateKeys.MlkemEcdhe.html" class="ident">MlkemEcdhe</a> *<a href="../../../../pkg/crypto/ecdh.html" class="ident i1">ecdh</a>.<a href="../../../crypto/ecdh/ecdh.go.html#line-112" class="ident">PrivateKey</a></code></span>
+<span class="codeline" id="line-901"><code>}</code></span>
+<span class="codeline" id="line-902"><code></code></span>
+<span class="codeline" id="line-903"><code><span class="keyword">func</span> (<label for="r160" class="ident">ksp</label> *<a href="#line-896" class="ident">KeySharePrivateKeys</a>) <label for="r161" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..KeySharePrivateKeys.ToPrivate.html" class="ident">ToPrivate</a></label>() *<a href="key_schedule.go.html#line-53" class="ident">keySharePrivateKeys</a> {</code></span>
+<span class="codeline" id="line-904"><code>	<span class="keyword">if</span> <label for="r160" class="ident">ksp</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-905"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-906"><code>	}</code></span>
+<span class="codeline" id="line-907"><code>	<span class="keyword">return</span> &amp;<a href="key_schedule.go.html#line-53" class="ident">keySharePrivateKeys</a>{</code></span>
+<span class="codeline" id="line-908"><code>		<a href="key_schedule.go.html#line-54" class="ident">curveID</a>:    <label for="r160" class="ident">ksp</label>.<a href="#line-897" class="ident">CurveID</a>,</code></span>
+<span class="codeline" id="line-909"><code>		<a href="key_schedule.go.html#line-55" class="ident">ecdhe</a>:      <label for="r160" class="ident">ksp</label>.<a href="#line-898" class="ident">Ecdhe</a>,</code></span>
+<span class="codeline" id="line-910"><code>		<a href="key_schedule.go.html#line-56" class="ident">mlkem</a>:      <label for="r160" class="ident">ksp</label>.<a href="#line-899" class="ident">Mlkem</a>,</code></span>
+<span class="codeline" id="line-911"><code>		<a href="key_schedule.go.html#line-57" class="ident">mlkemEcdhe</a>: <label for="r160" class="ident">ksp</label>.<a href="#line-900" class="ident">MlkemEcdhe</a>,</code></span>
+<span class="codeline" id="line-912"><code>	}</code></span>
+<span class="codeline" id="line-913"><code>}</code></span>
+<span class="codeline" id="line-914"><code></code></span>
+<span class="codeline" id="line-915"><code><span class="keyword">func</span> (<label for="r162" class="ident">ksp</label> *<a href="key_schedule.go.html#line-53" class="ident">keySharePrivateKeys</a>) <label for="r163" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..keySharePrivateKeys^f61f1.ToPublic.html" class="ident">ToPublic</a></label>() *<a href="#line-896" class="ident">KeySharePrivateKeys</a> {</code></span>
+<span class="codeline" id="line-916"><code>	<span class="keyword">if</span> <label for="r162" class="ident">ksp</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-917"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-918"><code>	}</code></span>
+<span class="codeline" id="line-919"><code>	<span class="keyword">return</span> &amp;<a href="#line-896" class="ident">KeySharePrivateKeys</a>{</code></span>
+<span class="codeline" id="line-920"><code>		<a href="#line-897" class="ident">CurveID</a>:    <label for="r162" class="ident">ksp</label>.<a href="key_schedule.go.html#line-54" class="ident">curveID</a>,</code></span>
+<span class="codeline" id="line-921"><code>		<a href="#line-898" class="ident">Ecdhe</a>:      <label for="r162" class="ident">ksp</label>.<a href="key_schedule.go.html#line-55" class="ident">ecdhe</a>,</code></span>
+<span class="codeline" id="line-922"><code>		<a href="#line-899" class="ident">Mlkem</a>:      <label for="r162" class="ident">ksp</label>.<a href="key_schedule.go.html#line-56" class="ident">mlkem</a>,</code></span>
+<span class="codeline" id="line-923"><code>		<a href="#line-900" class="ident">MlkemEcdhe</a>: <label for="r162" class="ident">ksp</label>.<a href="key_schedule.go.html#line-57" class="ident">mlkemEcdhe</a>,</code></span>
+<span class="codeline" id="line-924"><code>	}</code></span>
+<span class="codeline" id="line-925"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

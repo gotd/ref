@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: golang.org/x/crypto/sha3.state.a</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/golang.org/x/crypto/sha3.html">golang.org/x/crypto/sha3</a>.<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-57">state</a>.<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-58">a</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">14 uses</span>
+
+	golang.org/x/crypto/sha3 (current package)
+		<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-58">legacy_hash.go#L58</a>: 	<b>a</b> [1600 / 8]byte // main state of the hash
+		<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-93" class="path-duplicate">legacy_hash.go</a><a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-93">#L93</a>: 	for i := range d.<b>a</b> {
+		<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-94" class="path-duplicate">legacy_hash.go</a><a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-94">#L94</a>: 		d.<b>a</b>[i] = 0
+		<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-111" class="path-duplicate">legacy_hash.go</a><a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-111">#L111</a>: 			a[i] = binary.LittleEndian.Uint64(d.<b>a</b>[i*8:])
+		<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-114" class="path-duplicate">legacy_hash.go</a><a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-114">#L114</a>: 		a = (*[25]uint64)(unsafe.Pointer(&amp;d.<b>a</b>))
+		<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-122" class="path-duplicate">legacy_hash.go</a><a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-122">#L122</a>: 			binary.LittleEndian.PutUint64(d.<b>a</b>[i*8:], a[i])
+		<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-134" class="path-duplicate">legacy_hash.go</a><a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-134">#L134</a>: 	d.<b>a</b>[d.n] ^= d.dsbyte
+		<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-138" class="path-duplicate">legacy_hash.go</a><a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-138">#L138</a>: 	d.<b>a</b>[d.rate-1] ^= 0x80
+		<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-154" class="path-duplicate">legacy_hash.go</a><a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-154">#L154</a>: 		x := subtle.XORBytes(d.<b>a</b>[d.n:d.rate], d.<b>a</b>[d.n:d.rate], p)
+		<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-183" class="path-duplicate">legacy_hash.go</a><a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-183">#L183</a>: 		x := copy(out, d.<b>a</b>[d.n:d.rate])
+		<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-225" class="path-duplicate">legacy_hash.go</a><a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-225">#L225</a>: 	b = append(b, d.<b>a</b>[:]...)
+		<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-249" class="path-duplicate">legacy_hash.go</a><a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-249">#L249</a>: 	copy(d.<b>a</b>[:], b)
+		<a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-250" class="path-duplicate">legacy_hash.go</a><a href="../../../../src/golang.org/x/crypto/sha3/legacy_hash.go.html#line-250">#L250</a>: 	b = b[len(d.<b>a</b>):]
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

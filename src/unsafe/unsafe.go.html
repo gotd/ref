@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: unsafe.go in package unsafe</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -128,7 +128,7 @@
 <span class="codeline" id="line-110"><code><span class="comment">//	u := unsafe.Pointer(nil)</span></code></span>
 <span class="codeline" id="line-111"><code><span class="comment">//	p := unsafe.Pointer(uintptr(u) + offset)</span></code></span>
 <span class="codeline" id="line-112"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-113"><code><span class="comment">// (4) Conversion of a Pointer to a uintptr when calling syscall.Syscall.</span></code></span>
+<span class="codeline" id="line-113"><code><span class="comment">// (4) Conversion of a Pointer to a uintptr when calling functions like [syscall.Syscall].</span></code></span>
 <span class="codeline" id="line-114"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-115"><code><span class="comment">// The Syscall functions in package syscall pass their uintptr arguments directly</span></code></span>
 <span class="codeline" id="line-116"><code><span class="comment">// to the operating system, which then may, depending on the details of the call,</span></code></span>
@@ -155,7 +155,7 @@
 <span class="codeline" id="line-137"><code><span class="comment">//	u := uintptr(unsafe.Pointer(p))</span></code></span>
 <span class="codeline" id="line-138"><code><span class="comment">//	syscall.Syscall(SYS_READ, uintptr(fd), u, uintptr(n))</span></code></span>
 <span class="codeline" id="line-139"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-140"><code><span class="comment">// (5) Conversion of the result of reflect.Value.Pointer or reflect.Value.UnsafeAddr</span></code></span>
+<span class="codeline" id="line-140"><code><span class="comment">// (5) Conversion of the result of [reflect.Value.Pointer] or [reflect.Value.UnsafeAddr]</span></code></span>
 <span class="codeline" id="line-141"><code><span class="comment">// from uintptr to Pointer.</span></code></span>
 <span class="codeline" id="line-142"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-143"><code><span class="comment">// Package reflect's Value methods named Pointer and UnsafeAddr return type uintptr</span></code></span>
@@ -173,7 +173,7 @@
 <span class="codeline" id="line-155"><code><span class="comment">//	u := reflect.ValueOf(new(int)).Pointer()</span></code></span>
 <span class="codeline" id="line-156"><code><span class="comment">//	p := (*int)(unsafe.Pointer(u))</span></code></span>
 <span class="codeline" id="line-157"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-158"><code><span class="comment">// (6) Conversion of a reflect.SliceHeader or reflect.StringHeader Data field to or from Pointer.</span></code></span>
+<span class="codeline" id="line-158"><code><span class="comment">// (6) Conversion of a [reflect.SliceHeader] or [reflect.StringHeader] Data field to or from Pointer.</span></code></span>
 <span class="codeline" id="line-159"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-160"><code><span class="comment">// As in the previous case, the reflect data structures SliceHeader and StringHeader</span></code></span>
 <span class="codeline" id="line-161"><code><span class="comment">// declare the field Data as a uintptr to keep callers from changing the result to</span></code></span>
@@ -189,7 +189,7 @@
 <span class="codeline" id="line-171"><code><span class="comment">// In this usage hdr.Data is really an alternate way to refer to the underlying</span></code></span>
 <span class="codeline" id="line-172"><code><span class="comment">// pointer in the string header, not a uintptr variable itself.</span></code></span>
 <span class="codeline" id="line-173"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-174"><code><span class="comment">// In general, reflect.SliceHeader and reflect.StringHeader should be used</span></code></span>
+<span class="codeline" id="line-174"><code><span class="comment">// In general, [reflect.SliceHeader] and [reflect.StringHeader] should be used</span></code></span>
 <span class="codeline" id="line-175"><code><span class="comment">// only as *reflect.SliceHeader and *reflect.StringHeader pointing at actual</span></code></span>
 <span class="codeline" id="line-176"><code><span class="comment">// slices or strings, never as plain structs.</span></code></span>
 <span class="codeline" id="line-177"><code><span class="comment">// A program should not declare or allocate variables of these struct types.</span></code></span>
@@ -205,89 +205,91 @@
 <span class="codeline" id="line-187"><code><span class="comment">// of a hypothetical variable v as if v was declared via var v = x.</span></code></span>
 <span class="codeline" id="line-188"><code><span class="comment">// The size does not include any memory possibly referenced by x.</span></code></span>
 <span class="codeline" id="line-189"><code><span class="comment">// For instance, if x is a slice, Sizeof returns the size of the slice</span></code></span>
-<span class="codeline" id="line-190"><code><span class="comment">// descriptor, not the size of the memory referenced by the slice.</span></code></span>
-<span class="codeline" id="line-191"><code><span class="comment">// For a struct, the size includes any padding introduced by field alignment.</span></code></span>
-<span class="codeline" id="line-192"><code><span class="comment">// The return value of Sizeof is a Go constant if the type of the argument x</span></code></span>
-<span class="codeline" id="line-193"><code><span class="comment">// does not have variable size.</span></code></span>
-<span class="codeline" id="line-194"><code><span class="comment">// (A type has variable size if it is a type parameter or if it is an array</span></code></span>
-<span class="codeline" id="line-195"><code><span class="comment">// or struct type with elements of variable size).</span></code></span>
-<span class="codeline" id="line-196"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-Sizeof" class="ident">Sizeof</a>(x ArbitraryType) uintptr</code></span>
-<span class="codeline" id="line-197"><code></code></span>
-<span class="codeline" id="line-198"><code><span class="comment">// Offsetof returns the offset within the struct of the field represented by x,</span></code></span>
-<span class="codeline" id="line-199"><code><span class="comment">// which must be of the form structValue.field. In other words, it returns the</span></code></span>
-<span class="codeline" id="line-200"><code><span class="comment">// number of bytes between the start of the struct and the start of the field.</span></code></span>
-<span class="codeline" id="line-201"><code><span class="comment">// The return value of Offsetof is a Go constant if the type of the argument x</span></code></span>
-<span class="codeline" id="line-202"><code><span class="comment">// does not have variable size.</span></code></span>
-<span class="codeline" id="line-203"><code><span class="comment">// (See the description of [Sizeof] for a definition of variable sized types.)</span></code></span>
-<span class="codeline" id="line-204"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-Offsetof" class="ident">Offsetof</a>(x ArbitraryType) uintptr</code></span>
-<span class="codeline" id="line-205"><code></code></span>
-<span class="codeline" id="line-206"><code><span class="comment">// Alignof takes an expression x of any type and returns the required alignment</span></code></span>
-<span class="codeline" id="line-207"><code><span class="comment">// of a hypothetical variable v as if v was declared via var v = x.</span></code></span>
-<span class="codeline" id="line-208"><code><span class="comment">// It is the largest value m such that the address of v is always zero mod m.</span></code></span>
-<span class="codeline" id="line-209"><code><span class="comment">// It is the same as the value returned by reflect.TypeOf(x).Align().</span></code></span>
-<span class="codeline" id="line-210"><code><span class="comment">// As a special case, if a variable s is of struct type and f is a field</span></code></span>
-<span class="codeline" id="line-211"><code><span class="comment">// within that struct, then Alignof(s.f) will return the required alignment</span></code></span>
-<span class="codeline" id="line-212"><code><span class="comment">// of a field of that type within a struct. This case is the same as the</span></code></span>
-<span class="codeline" id="line-213"><code><span class="comment">// value returned by reflect.TypeOf(s.f).FieldAlign().</span></code></span>
-<span class="codeline" id="line-214"><code><span class="comment">// The return value of Alignof is a Go constant if the type of the argument</span></code></span>
-<span class="codeline" id="line-215"><code><span class="comment">// does not have variable size.</span></code></span>
-<span class="codeline" id="line-216"><code><span class="comment">// (See the description of [Sizeof] for a definition of variable sized types.)</span></code></span>
-<span class="codeline" id="line-217"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-Alignof" class="ident">Alignof</a>(x ArbitraryType) uintptr</code></span>
-<span class="codeline" id="line-218"><code></code></span>
-<span class="codeline" id="line-219"><code><span class="comment">// The function Add adds len to ptr and returns the updated pointer</span></code></span>
-<span class="codeline" id="line-220"><code><span class="comment">// Pointer(uintptr(ptr) + uintptr(len)).</span></code></span>
-<span class="codeline" id="line-221"><code><span class="comment">// The len argument must be of integer type or an untyped constant.</span></code></span>
-<span class="codeline" id="line-222"><code><span class="comment">// A constant len argument must be representable by a value of type int;</span></code></span>
-<span class="codeline" id="line-223"><code><span class="comment">// if it is an untyped constant it is given type int.</span></code></span>
-<span class="codeline" id="line-224"><code><span class="comment">// The rules for valid uses of Pointer still apply.</span></code></span>
-<span class="codeline" id="line-225"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-Add" class="ident">Add</a>(ptr Pointer, len IntegerType) Pointer</code></span>
-<span class="codeline" id="line-226"><code></code></span>
-<span class="codeline" id="line-227"><code><span class="comment">// The function Slice returns a slice whose underlying array starts at ptr</span></code></span>
-<span class="codeline" id="line-228"><code><span class="comment">// and whose length and capacity are len.</span></code></span>
-<span class="codeline" id="line-229"><code><span class="comment">// Slice(ptr, len) is equivalent to</span></code></span>
-<span class="codeline" id="line-230"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-231"><code><span class="comment">//	(*[len]ArbitraryType)(unsafe.Pointer(ptr))[:]</span></code></span>
+<span class="codeline" id="line-190"><code><span class="comment">// descriptor, not the size of the memory referenced by the slice;</span></code></span>
+<span class="codeline" id="line-191"><code><span class="comment">// if x is an interface, Sizeof returns the size of the interface value itself,</span></code></span>
+<span class="codeline" id="line-192"><code><span class="comment">// not the size of the value stored in the interface.</span></code></span>
+<span class="codeline" id="line-193"><code><span class="comment">// For a struct, the size includes any padding introduced by field alignment.</span></code></span>
+<span class="codeline" id="line-194"><code><span class="comment">// The return value of Sizeof is a Go constant if the type of the argument x</span></code></span>
+<span class="codeline" id="line-195"><code><span class="comment">// does not have variable size.</span></code></span>
+<span class="codeline" id="line-196"><code><span class="comment">// (A type has variable size if it is a type parameter or if it is an array</span></code></span>
+<span class="codeline" id="line-197"><code><span class="comment">// or struct type with elements of variable size).</span></code></span>
+<span class="codeline" id="line-198"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-Sizeof" class="ident">Sizeof</a>(x ArbitraryType) uintptr</code></span>
+<span class="codeline" id="line-199"><code></code></span>
+<span class="codeline" id="line-200"><code><span class="comment">// Offsetof returns the offset within the struct of the field represented by x,</span></code></span>
+<span class="codeline" id="line-201"><code><span class="comment">// which must be of the form structValue.field. In other words, it returns the</span></code></span>
+<span class="codeline" id="line-202"><code><span class="comment">// number of bytes between the start of the struct and the start of the field.</span></code></span>
+<span class="codeline" id="line-203"><code><span class="comment">// The return value of Offsetof is a Go constant if the type of the argument x</span></code></span>
+<span class="codeline" id="line-204"><code><span class="comment">// does not have variable size.</span></code></span>
+<span class="codeline" id="line-205"><code><span class="comment">// (See the description of [Sizeof] for a definition of variable sized types.)</span></code></span>
+<span class="codeline" id="line-206"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-Offsetof" class="ident">Offsetof</a>(x ArbitraryType) uintptr</code></span>
+<span class="codeline" id="line-207"><code></code></span>
+<span class="codeline" id="line-208"><code><span class="comment">// Alignof takes an expression x of any type and returns the required alignment</span></code></span>
+<span class="codeline" id="line-209"><code><span class="comment">// of a hypothetical variable v as if v was declared via var v = x.</span></code></span>
+<span class="codeline" id="line-210"><code><span class="comment">// It is the largest value m such that the address of v is always zero mod m.</span></code></span>
+<span class="codeline" id="line-211"><code><span class="comment">// It is the same as the value returned by [reflect.TypeOf](x).Align().</span></code></span>
+<span class="codeline" id="line-212"><code><span class="comment">// As a special case, if a variable s is of struct type and f is a field</span></code></span>
+<span class="codeline" id="line-213"><code><span class="comment">// within that struct, then Alignof(s.f) will return the required alignment</span></code></span>
+<span class="codeline" id="line-214"><code><span class="comment">// of a field of that type within a struct. This case is the same as the</span></code></span>
+<span class="codeline" id="line-215"><code><span class="comment">// value returned by [reflect.TypeOf](s.f).FieldAlign().</span></code></span>
+<span class="codeline" id="line-216"><code><span class="comment">// The return value of Alignof is a Go constant if the type of the argument</span></code></span>
+<span class="codeline" id="line-217"><code><span class="comment">// does not have variable size.</span></code></span>
+<span class="codeline" id="line-218"><code><span class="comment">// (See the description of [Sizeof] for a definition of variable sized types.)</span></code></span>
+<span class="codeline" id="line-219"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-Alignof" class="ident">Alignof</a>(x ArbitraryType) uintptr</code></span>
+<span class="codeline" id="line-220"><code></code></span>
+<span class="codeline" id="line-221"><code><span class="comment">// The function Add adds len to ptr and returns the updated pointer</span></code></span>
+<span class="codeline" id="line-222"><code><span class="comment">// [Pointer](uintptr(ptr) + uintptr(len)).</span></code></span>
+<span class="codeline" id="line-223"><code><span class="comment">// The len argument must be of integer type or an untyped constant.</span></code></span>
+<span class="codeline" id="line-224"><code><span class="comment">// A constant len argument must be representable by a value of type int;</span></code></span>
+<span class="codeline" id="line-225"><code><span class="comment">// if it is an untyped constant it is given type int.</span></code></span>
+<span class="codeline" id="line-226"><code><span class="comment">// The rules for valid uses of Pointer still apply.</span></code></span>
+<span class="codeline" id="line-227"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-Add" class="ident">Add</a>(ptr Pointer, len IntegerType) Pointer</code></span>
+<span class="codeline" id="line-228"><code></code></span>
+<span class="codeline" id="line-229"><code><span class="comment">// The function Slice returns a slice whose underlying array starts at ptr</span></code></span>
+<span class="codeline" id="line-230"><code><span class="comment">// and whose length and capacity are len.</span></code></span>
+<span class="codeline" id="line-231"><code><span class="comment">// Slice(ptr, len) is equivalent to</span></code></span>
 <span class="codeline" id="line-232"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-233"><code><span class="comment">// except that, as a special case, if ptr is nil and len is zero,</span></code></span>
-<span class="codeline" id="line-234"><code><span class="comment">// Slice returns nil.</span></code></span>
-<span class="codeline" id="line-235"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-236"><code><span class="comment">// The len argument must be of integer type or an untyped constant.</span></code></span>
-<span class="codeline" id="line-237"><code><span class="comment">// A constant len argument must be non-negative and representable by a value of type int;</span></code></span>
-<span class="codeline" id="line-238"><code><span class="comment">// if it is an untyped constant it is given type int.</span></code></span>
-<span class="codeline" id="line-239"><code><span class="comment">// At run time, if len is negative, or if ptr is nil and len is not zero,</span></code></span>
-<span class="codeline" id="line-240"><code><span class="comment">// a run-time panic occurs.</span></code></span>
-<span class="codeline" id="line-241"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-Slice" class="ident">Slice</a>(ptr *ArbitraryType, len IntegerType) []ArbitraryType</code></span>
-<span class="codeline" id="line-242"><code></code></span>
-<span class="codeline" id="line-243"><code><span class="comment">// SliceData returns a pointer to the underlying array of the argument</span></code></span>
-<span class="codeline" id="line-244"><code><span class="comment">// slice.</span></code></span>
-<span class="codeline" id="line-245"><code><span class="comment">//   - If cap(slice) &gt; 0, SliceData returns &amp;slice[:1][0].</span></code></span>
-<span class="codeline" id="line-246"><code><span class="comment">//   - If slice == nil, SliceData returns nil.</span></code></span>
-<span class="codeline" id="line-247"><code><span class="comment">//   - Otherwise, SliceData returns a non-nil pointer to an</span></code></span>
-<span class="codeline" id="line-248"><code><span class="comment">//     unspecified memory address.</span></code></span>
-<span class="codeline" id="line-249"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-SliceData" class="ident">SliceData</a>(slice []ArbitraryType) *ArbitraryType</code></span>
-<span class="codeline" id="line-250"><code></code></span>
-<span class="codeline" id="line-251"><code><span class="comment">// String returns a string value whose underlying bytes</span></code></span>
-<span class="codeline" id="line-252"><code><span class="comment">// start at ptr and whose length is len.</span></code></span>
-<span class="codeline" id="line-253"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-254"><code><span class="comment">// The len argument must be of integer type or an untyped constant.</span></code></span>
-<span class="codeline" id="line-255"><code><span class="comment">// A constant len argument must be non-negative and representable by a value of type int;</span></code></span>
-<span class="codeline" id="line-256"><code><span class="comment">// if it is an untyped constant it is given type int.</span></code></span>
-<span class="codeline" id="line-257"><code><span class="comment">// At run time, if len is negative, or if ptr is nil and len is not zero,</span></code></span>
-<span class="codeline" id="line-258"><code><span class="comment">// a run-time panic occurs.</span></code></span>
-<span class="codeline" id="line-259"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-260"><code><span class="comment">// Since Go strings are immutable, the bytes passed to String</span></code></span>
-<span class="codeline" id="line-261"><code><span class="comment">// must not be modified afterwards.</span></code></span>
-<span class="codeline" id="line-262"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-String" class="ident">String</a>(ptr *byte, len IntegerType) string</code></span>
-<span class="codeline" id="line-263"><code></code></span>
-<span class="codeline" id="line-264"><code><span class="comment">// StringData returns a pointer to the underlying bytes of str.</span></code></span>
-<span class="codeline" id="line-265"><code><span class="comment">// For an empty string the return value is unspecified, and may be nil.</span></code></span>
-<span class="codeline" id="line-266"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-267"><code><span class="comment">// Since Go strings are immutable, the bytes returned by StringData</span></code></span>
-<span class="codeline" id="line-268"><code><span class="comment">// must not be modified.</span></code></span>
-<span class="codeline" id="line-269"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-StringData" class="ident">StringData</a>(str string) *byte</code></span>
+<span class="codeline" id="line-233"><code><span class="comment">//	(*[len]ArbitraryType)(unsafe.Pointer(ptr))[:]</span></code></span>
+<span class="codeline" id="line-234"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-235"><code><span class="comment">// except that, as a special case, if ptr is nil and len is zero,</span></code></span>
+<span class="codeline" id="line-236"><code><span class="comment">// Slice returns nil.</span></code></span>
+<span class="codeline" id="line-237"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-238"><code><span class="comment">// The len argument must be of integer type or an untyped constant.</span></code></span>
+<span class="codeline" id="line-239"><code><span class="comment">// A constant len argument must be non-negative and representable by a value of type int;</span></code></span>
+<span class="codeline" id="line-240"><code><span class="comment">// if it is an untyped constant it is given type int.</span></code></span>
+<span class="codeline" id="line-241"><code><span class="comment">// At run time, if len is negative, or if ptr is nil and len is not zero,</span></code></span>
+<span class="codeline" id="line-242"><code><span class="comment">// a run-time panic occurs.</span></code></span>
+<span class="codeline" id="line-243"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-Slice" class="ident">Slice</a>(ptr *ArbitraryType, len IntegerType) []ArbitraryType</code></span>
+<span class="codeline" id="line-244"><code></code></span>
+<span class="codeline" id="line-245"><code><span class="comment">// SliceData returns a pointer to the underlying array of the argument</span></code></span>
+<span class="codeline" id="line-246"><code><span class="comment">// slice.</span></code></span>
+<span class="codeline" id="line-247"><code><span class="comment">//   - If cap(slice) &gt; 0, SliceData returns &amp;slice[:1][0].</span></code></span>
+<span class="codeline" id="line-248"><code><span class="comment">//   - If slice == nil, SliceData returns nil.</span></code></span>
+<span class="codeline" id="line-249"><code><span class="comment">//   - Otherwise, SliceData returns a non-nil pointer to an</span></code></span>
+<span class="codeline" id="line-250"><code><span class="comment">//     unspecified memory address.</span></code></span>
+<span class="codeline" id="line-251"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-SliceData" class="ident">SliceData</a>(slice []ArbitraryType) *ArbitraryType</code></span>
+<span class="codeline" id="line-252"><code></code></span>
+<span class="codeline" id="line-253"><code><span class="comment">// String returns a string value whose underlying bytes</span></code></span>
+<span class="codeline" id="line-254"><code><span class="comment">// start at ptr and whose length is len.</span></code></span>
+<span class="codeline" id="line-255"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-256"><code><span class="comment">// The len argument must be of integer type or an untyped constant.</span></code></span>
+<span class="codeline" id="line-257"><code><span class="comment">// A constant len argument must be non-negative and representable by a value of type int;</span></code></span>
+<span class="codeline" id="line-258"><code><span class="comment">// if it is an untyped constant it is given type int.</span></code></span>
+<span class="codeline" id="line-259"><code><span class="comment">// At run time, if len is negative, or if ptr is nil and len is not zero,</span></code></span>
+<span class="codeline" id="line-260"><code><span class="comment">// a run-time panic occurs.</span></code></span>
+<span class="codeline" id="line-261"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-262"><code><span class="comment">// Since Go strings are immutable, the bytes passed to String</span></code></span>
+<span class="codeline" id="line-263"><code><span class="comment">// must not be modified as long as the returned string value exists.</span></code></span>
+<span class="codeline" id="line-264"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-String" class="ident">String</a>(ptr *byte, len IntegerType) string</code></span>
+<span class="codeline" id="line-265"><code></code></span>
+<span class="codeline" id="line-266"><code><span class="comment">// StringData returns a pointer to the underlying bytes of str.</span></code></span>
+<span class="codeline" id="line-267"><code><span class="comment">// For an empty string the return value is unspecified, and may be nil.</span></code></span>
+<span class="codeline" id="line-268"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-269"><code><span class="comment">// Since Go strings are immutable, the bytes returned by StringData</span></code></span>
+<span class="codeline" id="line-270"><code><span class="comment">// must not be modified.</span></code></span>
+<span class="codeline" id="line-271"><code><span class="keyword">func</span> <a href="../../pkg/unsafe.html#name-StringData" class="ident">StringData</a>(str string) *byte</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

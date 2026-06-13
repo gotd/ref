@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/fse.bitReader.off</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/fse.html">github.com/klauspost/compress/fse</a>.<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-17">bitReader</a>.<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-19">off</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">15 uses</span>
+
+	github.com/klauspost/compress/fse (current package)
+		<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-19">bitreader.go#L19</a>: 	<b>off</b>      uint // next byte to read is at in[off - 1]
+		<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-30" class="path-duplicate">bitreader.go</a><a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-30">#L30</a>: 	b.<b>off</b> = uint(len(in))
+		<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-72" class="path-duplicate">bitreader.go</a><a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-72">#L72</a>: 	v := b.in[b.<b>off</b>-4:]
+		<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-77" class="path-duplicate">bitreader.go</a><a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-77">#L77</a>: 	b.<b>off</b> -= 4
+		<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-85" class="path-duplicate">bitreader.go</a><a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-85">#L85</a>: 	if b.<b>off</b> &gt; 4 {
+		<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-86" class="path-duplicate">bitreader.go</a><a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-86">#L86</a>: 		v := b.in[b.<b>off</b>-4:]
+		<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-91" class="path-duplicate">bitreader.go</a><a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-91">#L91</a>: 		b.<b>off</b> -= 4
+		<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-94" class="path-duplicate">bitreader.go</a><a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-94">#L94</a>: 	for b.<b>off</b> &gt; 0 {
+		<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-95" class="path-duplicate">bitreader.go</a><a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-95">#L95</a>: 		b.value = (b.value &lt;&lt; 8) | uint64(b.in[b.<b>off</b>-1])
+		<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-97" class="path-duplicate">bitreader.go</a><a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-97">#L97</a>: 		b.<b>off</b>--
+		<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-104" class="path-duplicate">bitreader.go</a><a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-104">#L104</a>: 	b.value = binary.LittleEndian.Uint64(b.in[b.<b>off</b>-8:])
+		<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-106" class="path-duplicate">bitreader.go</a><a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-106">#L106</a>: 	b.<b>off</b> -= 8
+		<a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-111" class="path-duplicate">bitreader.go</a><a href="../../../../src/github.com/klauspost/compress/fse/bitreader.go.html#line-111">#L111</a>: 	return b.bitsRead &gt;= 64 &amp;&amp; b.<b>off</b> == 0
+		<a href="../../../../src/github.com/klauspost/compress/fse/decompress.go.html#line-278">decompress.go#L278</a>: 		for br.<b>off</b> &gt;= 8 {
+		<a href="../../../../src/github.com/klauspost/compress/fse/decompress.go.html#line-295" class="path-duplicate">decompress.go</a><a href="../../../../src/github.com/klauspost/compress/fse/decompress.go.html#line-295">#L295</a>: 		for br.<b>off</b> &gt;= 8 {
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

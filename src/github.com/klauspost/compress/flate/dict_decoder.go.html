@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: dict_decoder.go in package github.com/klauspost/compress/flate</title>
-<link href="../../../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -202,87 +202,84 @@ input[id=r37]:checked ~pre label[for=r37]
 <span class="codeline" id="line-104"><code>	<label for="r22" class="ident">dstBase</label> := <label for="r18" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
 <span class="codeline" id="line-105"><code>	<label for="r23" class="ident">dstPos</label> := <label for="r22" class="ident">dstBase</label></code></span>
 <span class="codeline" id="line-106"><code>	<label for="r24" class="ident">srcPos</label> := <label for="r23" class="ident">dstPos</label> - <label for="r20" class="ident">dist</label></code></span>
-<span class="codeline" id="line-107"><code>	<label for="r25" class="ident">endPos</label> := <label for="r23" class="ident">dstPos</label> + <label for="r21" class="ident">length</label></code></span>
-<span class="codeline" id="line-108"><code>	<span class="keyword">if</span> <label for="r25" class="ident">endPos</label> &gt; <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) {</code></span>
-<span class="codeline" id="line-109"><code>		<label for="r25" class="ident">endPos</label> = <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>)</code></span>
-<span class="codeline" id="line-110"><code>	}</code></span>
-<span class="codeline" id="line-111"><code></code></span>
-<span class="codeline" id="line-112"><code>	<span class="comment">// Copy non-overlapping section after destination position.</span></code></span>
-<span class="codeline" id="line-113"><code><span class="comment">	//</span></code></span>
-<span class="codeline" id="line-114"><code><span class="comment">	// This section is non-overlapping in that the copy length for this section</span></code></span>
-<span class="codeline" id="line-115"><code><span class="comment">	// is always less than or equal to the backwards distance. This can occur</span></code></span>
-<span class="codeline" id="line-116"><code><span class="comment">	// if a distance refers to data that wraps-around in the buffer.</span></code></span>
-<span class="codeline" id="line-117"><code><span class="comment">	// Thus, a backwards copy is performed here; that is, the exact bytes in</span></code></span>
-<span class="codeline" id="line-118"><code><span class="comment">	// the source prior to the copy is placed in the destination.</span></code></span>
-<span class="codeline" id="line-119"><code>	<span class="keyword">if</span> <label for="r24" class="ident">srcPos</label> &lt; <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-120"><code>		<label for="r24" class="ident">srcPos</label> += <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>)</code></span>
-<span class="codeline" id="line-121"><code>		<label for="r23" class="ident">dstPos</label> += <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r23" class="ident">dstPos</label>:<label for="r25" class="ident">endPos</label>], <label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r24" class="ident">srcPos</label>:])</code></span>
-<span class="codeline" id="line-122"><code>		<label for="r24" class="ident">srcPos</label> = <span class="lit-number">0</span></code></span>
-<span class="codeline" id="line-123"><code>	}</code></span>
-<span class="codeline" id="line-124"><code></code></span>
-<span class="codeline" id="line-125"><code>	<span class="comment">// Copy possibly overlapping section before destination position.</span></code></span>
-<span class="codeline" id="line-126"><code><span class="comment">	//</span></code></span>
-<span class="codeline" id="line-127"><code><span class="comment">	// This section can overlap if the copy length for this section is larger</span></code></span>
-<span class="codeline" id="line-128"><code><span class="comment">	// than the backwards distance. This is allowed by LZ77 so that repeated</span></code></span>
-<span class="codeline" id="line-129"><code><span class="comment">	// strings can be succinctly represented using (dist, length) pairs.</span></code></span>
-<span class="codeline" id="line-130"><code><span class="comment">	// Thus, a forwards copy is performed here; that is, the bytes copied is</span></code></span>
-<span class="codeline" id="line-131"><code><span class="comment">	// possibly dependent on the resulting bytes in the destination as the copy</span></code></span>
-<span class="codeline" id="line-132"><code><span class="comment">	// progresses along. This is functionally equivalent to the following:</span></code></span>
-<span class="codeline" id="line-133"><code><span class="comment">	//</span></code></span>
-<span class="codeline" id="line-134"><code><span class="comment">	//	for i := 0; i &lt; endPos-dstPos; i++ {</span></code></span>
-<span class="codeline" id="line-135"><code><span class="comment">	//		dd.hist[dstPos+i] = dd.hist[srcPos+i]</span></code></span>
-<span class="codeline" id="line-136"><code><span class="comment">	//	}</span></code></span>
-<span class="codeline" id="line-137"><code><span class="comment">	//	dstPos = endPos</span></code></span>
-<span class="codeline" id="line-138"><code><span class="comment">	//</span></code></span>
-<span class="codeline" id="line-139"><code>	<span class="keyword">for</span> <label for="r23" class="ident">dstPos</label> &lt; <label for="r25" class="ident">endPos</label> {</code></span>
-<span class="codeline" id="line-140"><code>		<label for="r23" class="ident">dstPos</label> += <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r23" class="ident">dstPos</label>:<label for="r25" class="ident">endPos</label>], <label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r24" class="ident">srcPos</label>:<label for="r23" class="ident">dstPos</label>])</code></span>
-<span class="codeline" id="line-141"><code>	}</code></span>
-<span class="codeline" id="line-142"><code></code></span>
-<span class="codeline" id="line-143"><code>	<label for="r18" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> = <label for="r23" class="ident">dstPos</label></code></span>
-<span class="codeline" id="line-144"><code>	<span class="keyword">return</span> <label for="r23" class="ident">dstPos</label> - <label for="r22" class="ident">dstBase</label></code></span>
-<span class="codeline" id="line-145"><code>}</code></span>
-<span class="codeline" id="line-146"><code></code></span>
-<span class="codeline" id="line-147"><code><span class="comment">// tryWriteCopy tries to copy a string at a given (distance, length) to the</span></code></span>
-<span class="codeline" id="line-148"><code><span class="comment">// output. This specialized version is optimized for short distances.</span></code></span>
-<span class="codeline" id="line-149"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-150"><code><span class="comment">// This method is designed to be inlined for performance reasons.</span></code></span>
-<span class="codeline" id="line-151"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-152"><code><span class="comment">// This invariant must be kept: 0 &lt; dist &lt;= histSize()</span></code></span>
-<span class="codeline" id="line-153"><code><span class="keyword">func</span> (<label for="r26" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r27" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.tryWriteCopy^bb3c6.html" class="ident">tryWriteCopy</a></label>(<label for="r28" class="ident">dist</label>, <label for="r29" class="ident">length</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
-<span class="codeline" id="line-154"><code>	<label for="r30" class="ident">dstPos</label> := <label for="r26" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
-<span class="codeline" id="line-155"><code>	<label for="r31" class="ident">endPos</label> := <label for="r30" class="ident">dstPos</label> + <label for="r29" class="ident">length</label></code></span>
-<span class="codeline" id="line-156"><code>	<span class="keyword">if</span> <label for="r30" class="ident">dstPos</label> &lt; <label for="r28" class="ident">dist</label> || <label for="r31" class="ident">endPos</label> &gt; <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r26" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) {</code></span>
-<span class="codeline" id="line-157"><code>		<span class="keyword">return</span> <span class="lit-number">0</span></code></span>
-<span class="codeline" id="line-158"><code>	}</code></span>
-<span class="codeline" id="line-159"><code>	<label for="r32" class="ident">dstBase</label> := <label for="r30" class="ident">dstPos</label></code></span>
-<span class="codeline" id="line-160"><code>	<label for="r33" class="ident">srcPos</label> := <label for="r30" class="ident">dstPos</label> - <label for="r28" class="ident">dist</label></code></span>
-<span class="codeline" id="line-161"><code></code></span>
-<span class="codeline" id="line-162"><code>	<span class="comment">// Copy possibly overlapping section before destination position.</span></code></span>
-<span class="codeline" id="line-163"><code><label for="r34" class="ident">loop</label>:</code></span>
-<span class="codeline" id="line-164"><code>	<label for="r30" class="ident">dstPos</label> += <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r26" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r30" class="ident">dstPos</label>:<label for="r31" class="ident">endPos</label>], <label for="r26" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r33" class="ident">srcPos</label>:<label for="r30" class="ident">dstPos</label>])</code></span>
-<span class="codeline" id="line-165"><code>	<span class="keyword">if</span> <label for="r30" class="ident">dstPos</label> &lt; <label for="r31" class="ident">endPos</label> {</code></span>
-<span class="codeline" id="line-166"><code>		<span class="keyword">goto</span> <label for="r34" class="ident">loop</label> <span class="comment">// Avoid for-loop so that this function can be inlined</span></code></span>
-<span class="codeline" id="line-167"><code>	}</code></span>
-<span class="codeline" id="line-168"><code></code></span>
-<span class="codeline" id="line-169"><code>	<label for="r26" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> = <label for="r30" class="ident">dstPos</label></code></span>
-<span class="codeline" id="line-170"><code>	<span class="keyword">return</span> <label for="r30" class="ident">dstPos</label> - <label for="r32" class="ident">dstBase</label></code></span>
-<span class="codeline" id="line-171"><code>}</code></span>
-<span class="codeline" id="line-172"><code></code></span>
-<span class="codeline" id="line-173"><code><span class="comment">// readFlush returns a slice of the historical buffer that is ready to be</span></code></span>
-<span class="codeline" id="line-174"><code><span class="comment">// emitted to the user. The data returned by readFlush must be fully consumed</span></code></span>
-<span class="codeline" id="line-175"><code><span class="comment">// before calling any other dictDecoder methods.</span></code></span>
-<span class="codeline" id="line-176"><code><span class="keyword">func</span> (<label for="r35" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r36" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.readFlush^77fce.html" class="ident">readFlush</a></label>() []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
-<span class="codeline" id="line-177"><code>	<label for="r37" class="ident">toRead</label> := <label for="r35" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r35" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a>:<label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>]</code></span>
-<span class="codeline" id="line-178"><code>	<label for="r35" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a> = <label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
-<span class="codeline" id="line-179"><code>	<span class="keyword">if</span> <label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> == <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r35" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) {</code></span>
-<span class="codeline" id="line-180"><code>		<label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>, <label for="r35" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a> = <span class="lit-number">0</span>, <span class="lit-number">0</span></code></span>
-<span class="codeline" id="line-181"><code>		<label for="r35" class="ident">dd</label>.<a href="#line-33" class="ident">full</a> = <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-182"><code>	}</code></span>
-<span class="codeline" id="line-183"><code>	<span class="keyword">return</span> <label for="r37" class="ident">toRead</label></code></span>
-<span class="codeline" id="line-184"><code>}</code></span>
+<span class="codeline" id="line-107"><code>	<label for="r25" class="ident">endPos</label> := <a href="../../../../../pkg/builtin.html#name-min" class="ident">min</a>(<label for="r23" class="ident">dstPos</label>+<label for="r21" class="ident">length</label>, <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>))</code></span>
+<span class="codeline" id="line-108"><code></code></span>
+<span class="codeline" id="line-109"><code>	<span class="comment">// Copy non-overlapping section after destination position.</span></code></span>
+<span class="codeline" id="line-110"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-111"><code><span class="comment">	// This section is non-overlapping in that the copy length for this section</span></code></span>
+<span class="codeline" id="line-112"><code><span class="comment">	// is always less than or equal to the backwards distance. This can occur</span></code></span>
+<span class="codeline" id="line-113"><code><span class="comment">	// if a distance refers to data that wraps-around in the buffer.</span></code></span>
+<span class="codeline" id="line-114"><code><span class="comment">	// Thus, a backwards copy is performed here; that is, the exact bytes in</span></code></span>
+<span class="codeline" id="line-115"><code><span class="comment">	// the source prior to the copy is placed in the destination.</span></code></span>
+<span class="codeline" id="line-116"><code>	<span class="keyword">if</span> <label for="r24" class="ident">srcPos</label> &lt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-117"><code>		<label for="r24" class="ident">srcPos</label> += <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>)</code></span>
+<span class="codeline" id="line-118"><code>		<label for="r23" class="ident">dstPos</label> += <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r23" class="ident">dstPos</label>:<label for="r25" class="ident">endPos</label>], <label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r24" class="ident">srcPos</label>:])</code></span>
+<span class="codeline" id="line-119"><code>		<label for="r24" class="ident">srcPos</label> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-120"><code>	}</code></span>
+<span class="codeline" id="line-121"><code></code></span>
+<span class="codeline" id="line-122"><code>	<span class="comment">// Copy possibly overlapping section before destination position.</span></code></span>
+<span class="codeline" id="line-123"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-124"><code><span class="comment">	// This section can overlap if the copy length for this section is larger</span></code></span>
+<span class="codeline" id="line-125"><code><span class="comment">	// than the backwards distance. This is allowed by LZ77 so that repeated</span></code></span>
+<span class="codeline" id="line-126"><code><span class="comment">	// strings can be succinctly represented using (dist, length) pairs.</span></code></span>
+<span class="codeline" id="line-127"><code><span class="comment">	// Thus, a forwards copy is performed here; that is, the bytes copied is</span></code></span>
+<span class="codeline" id="line-128"><code><span class="comment">	// possibly dependent on the resulting bytes in the destination as the copy</span></code></span>
+<span class="codeline" id="line-129"><code><span class="comment">	// progresses along. This is functionally equivalent to the following:</span></code></span>
+<span class="codeline" id="line-130"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-131"><code><span class="comment">	//	for i := 0; i &lt; endPos-dstPos; i++ {</span></code></span>
+<span class="codeline" id="line-132"><code><span class="comment">	//		dd.hist[dstPos+i] = dd.hist[srcPos+i]</span></code></span>
+<span class="codeline" id="line-133"><code><span class="comment">	//	}</span></code></span>
+<span class="codeline" id="line-134"><code><span class="comment">	//	dstPos = endPos</span></code></span>
+<span class="codeline" id="line-135"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-136"><code>	<span class="keyword">for</span> <label for="r23" class="ident">dstPos</label> &lt; <label for="r25" class="ident">endPos</label> {</code></span>
+<span class="codeline" id="line-137"><code>		<label for="r23" class="ident">dstPos</label> += <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r23" class="ident">dstPos</label>:<label for="r25" class="ident">endPos</label>], <label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r24" class="ident">srcPos</label>:<label for="r23" class="ident">dstPos</label>])</code></span>
+<span class="codeline" id="line-138"><code>	}</code></span>
+<span class="codeline" id="line-139"><code></code></span>
+<span class="codeline" id="line-140"><code>	<label for="r18" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> = <label for="r23" class="ident">dstPos</label></code></span>
+<span class="codeline" id="line-141"><code>	<span class="keyword">return</span> <label for="r23" class="ident">dstPos</label> - <label for="r22" class="ident">dstBase</label></code></span>
+<span class="codeline" id="line-142"><code>}</code></span>
+<span class="codeline" id="line-143"><code></code></span>
+<span class="codeline" id="line-144"><code><span class="comment">// tryWriteCopy tries to copy a string at a given (distance, length) to the</span></code></span>
+<span class="codeline" id="line-145"><code><span class="comment">// output. This specialized version is optimized for short distances.</span></code></span>
+<span class="codeline" id="line-146"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-147"><code><span class="comment">// This method is designed to be inlined for performance reasons.</span></code></span>
+<span class="codeline" id="line-148"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-149"><code><span class="comment">// This invariant must be kept: 0 &lt; dist &lt;= histSize()</span></code></span>
+<span class="codeline" id="line-150"><code><span class="keyword">func</span> (<label for="r26" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r27" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.tryWriteCopy^bb3c6.html" class="ident">tryWriteCopy</a></label>(<label for="r28" class="ident">dist</label>, <label for="r29" class="ident">length</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-151"><code>	<label for="r30" class="ident">dstPos</label> := <label for="r26" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
+<span class="codeline" id="line-152"><code>	<label for="r31" class="ident">endPos</label> := <label for="r30" class="ident">dstPos</label> + <label for="r29" class="ident">length</label></code></span>
+<span class="codeline" id="line-153"><code>	<span class="keyword">if</span> <label for="r30" class="ident">dstPos</label> &lt; <label for="r28" class="ident">dist</label> || <label for="r31" class="ident">endPos</label> &gt; <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r26" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) {</code></span>
+<span class="codeline" id="line-154"><code>		<span class="keyword">return</span> <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-155"><code>	}</code></span>
+<span class="codeline" id="line-156"><code>	<label for="r32" class="ident">dstBase</label> := <label for="r30" class="ident">dstPos</label></code></span>
+<span class="codeline" id="line-157"><code>	<label for="r33" class="ident">srcPos</label> := <label for="r30" class="ident">dstPos</label> - <label for="r28" class="ident">dist</label></code></span>
+<span class="codeline" id="line-158"><code></code></span>
+<span class="codeline" id="line-159"><code>	<span class="comment">// Copy possibly overlapping section before destination position.</span></code></span>
+<span class="codeline" id="line-160"><code><label for="r34" class="ident">loop</label>:</code></span>
+<span class="codeline" id="line-161"><code>	<label for="r30" class="ident">dstPos</label> += <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r26" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r30" class="ident">dstPos</label>:<label for="r31" class="ident">endPos</label>], <label for="r26" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r33" class="ident">srcPos</label>:<label for="r30" class="ident">dstPos</label>])</code></span>
+<span class="codeline" id="line-162"><code>	<span class="keyword">if</span> <label for="r30" class="ident">dstPos</label> &lt; <label for="r31" class="ident">endPos</label> {</code></span>
+<span class="codeline" id="line-163"><code>		<span class="keyword">goto</span> <label for="r34" class="ident">loop</label> <span class="comment">// Avoid for-loop so that this function can be inlined</span></code></span>
+<span class="codeline" id="line-164"><code>	}</code></span>
+<span class="codeline" id="line-165"><code></code></span>
+<span class="codeline" id="line-166"><code>	<label for="r26" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> = <label for="r30" class="ident">dstPos</label></code></span>
+<span class="codeline" id="line-167"><code>	<span class="keyword">return</span> <label for="r30" class="ident">dstPos</label> - <label for="r32" class="ident">dstBase</label></code></span>
+<span class="codeline" id="line-168"><code>}</code></span>
+<span class="codeline" id="line-169"><code></code></span>
+<span class="codeline" id="line-170"><code><span class="comment">// readFlush returns a slice of the historical buffer that is ready to be</span></code></span>
+<span class="codeline" id="line-171"><code><span class="comment">// emitted to the user. The data returned by readFlush must be fully consumed</span></code></span>
+<span class="codeline" id="line-172"><code><span class="comment">// before calling any other dictDecoder methods.</span></code></span>
+<span class="codeline" id="line-173"><code><span class="keyword">func</span> (<label for="r35" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r36" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.readFlush^77fce.html" class="ident">readFlush</a></label>() []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
+<span class="codeline" id="line-174"><code>	<label for="r37" class="ident">toRead</label> := <label for="r35" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r35" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a>:<label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>]</code></span>
+<span class="codeline" id="line-175"><code>	<label for="r35" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a> = <label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
+<span class="codeline" id="line-176"><code>	<span class="keyword">if</span> <label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> == <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r35" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) {</code></span>
+<span class="codeline" id="line-177"><code>		<label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>, <label for="r35" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a> = <span class="lit-number">0</span>, <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-178"><code>		<label for="r35" class="ident">dd</label>.<a href="#line-33" class="ident">full</a> = <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-179"><code>	}</code></span>
+<span class="codeline" id="line-180"><code>	<span class="keyword">return</span> <label for="r37" class="ident">toRead</label></code></span>
+<span class="codeline" id="line-181"><code>}</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: cdn.go in package github.com/gotd/td/telegram/downloader</title>
-<link href="../../../../../../css/light-v0.2.7-preview.css" rel="stylesheet">
-<script src="../../../../../../jvs/golds-v0.2.7-preview.js"></script>
+<link href="../../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -40,15 +40,16 @@ input[id=r20]:checked ~pre label[for=r20],
 input[id=r21]:checked ~pre label[for=r21],
 input[id=r22]:checked ~pre label[for=r22],
 input[id=r23]:checked ~pre label[for=r23],
-input[id=r24]:checked ~pre label[for=r24]
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
 input[id=i1]:checked ~pre .i1,
 input[id=i2]:checked ~pre .i2,
 input[id=i3]:checked ~pre .i3,
-input[id=i4]:checked ~pre .i4,
-input[id=i5]:checked ~pre .i5,
-input[id=i6]:checked ~pre .i6
+input[id=i4]:checked ~pre .i4
 {background: brown; color: #eed;}
 </style><input id="r0" type="radio" name="g"/>
 <input id="r1" type="radio" name="g"/>
@@ -75,116 +76,195 @@ input[id=i6]:checked ~pre .i6
 <input id="r22" type="radio" name="g"/>
 <input id="r23" type="radio" name="g"/>
 <input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
 <input id="i2" type="radio" name="i"/>
 <input id="i3" type="radio" name="i"/>
 <input id="i4" type="radio" name="i"/>
-<input id="i5" type="radio" name="i"/>
-<input id="i6" type="radio" name="i"/>
 
 <pre class="line-numbers">
 <span class="codeline" id="line-1"><code><span class="keyword">package</span> downloader</code></span>
 <span class="codeline" id="line-2"><code></code></span>
 <span class="codeline" id="line-3"><code><span class="keyword">import</span> (</code></span>
-<span class="codeline" id="line-4"><code>	<label for="i0"><span class="lit-string i0">"context"</span></label></code></span>
-<span class="codeline" id="line-5"><code>	<label for="i1"><span class="lit-string i1">"crypto/aes"</span></label></code></span>
-<span class="codeline" id="line-6"><code>	<label for="i2"><span class="lit-string i2">"crypto/cipher"</span></label></code></span>
-<span class="codeline" id="line-7"><code>	<label for="i3"><span class="lit-string i3">"encoding/binary"</span></label></code></span>
+<span class="codeline" id="line-4"><code>	<label for="i0"><span class="lit-string i0">"io"</span></label></code></span>
+<span class="codeline" id="line-5"><code>	<label for="i1"><span class="lit-string i1">"sync"</span></label></code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code>	<label for="i2"><span class="lit-string i2">"golang.org/x/sync/singleflight"</span></label></code></span>
 <span class="codeline" id="line-8"><code></code></span>
-<span class="codeline" id="line-9"><code>	<label for="i4"><span class="lit-string i4">"golang.org/x/xerrors"</span></label></code></span>
-<span class="codeline" id="line-10"><code></code></span>
-<span class="codeline" id="line-11"><code>	<label for="i5"><span class="lit-string i5">"github.com/gotd/td/bin"</span></label></code></span>
-<span class="codeline" id="line-12"><code>	<label for="i6"><span class="lit-string i6">"github.com/gotd/td/tg"</span></label></code></span>
-<span class="codeline" id="line-13"><code>)</code></span>
-<span class="codeline" id="line-14"><code></code></span>
-<span class="codeline" id="line-15"><code><span class="comment">// ExpiredTokenError error is returned when Downloader get expired file token for CDN.</span></code></span>
-<span class="codeline" id="line-16"><code><span class="comment">// See https://core.telegram.org/constructor/upload.fileCdnRedirect.</span></code></span>
-<span class="codeline" id="line-17"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-ExpiredTokenError" class="ident">ExpiredTokenError</a> <span class="keyword">struct</span> {</code></span>
-<span class="codeline" id="line-18"><code>	*<a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i6">tg</a>.<a href="../../tg/tl_upload_cdn_file_gen.go.html#line-40" class="ident">UploadCDNFileReuploadNeeded</a></code></span>
-<span class="codeline" id="line-19"><code>}</code></span>
-<span class="codeline" id="line-20"><code></code></span>
-<span class="codeline" id="line-21"><code><span class="comment">// Error implements error interface.</span></code></span>
-<span class="codeline" id="line-22"><code><span class="keyword">func</span> (<label for="r0" class="ident">r</label> *<a href="#line-17" class="ident">ExpiredTokenError</a>) <label for="r1" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..ExpiredTokenError.Error.html" class="ident">Error</a></label>() <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
-<span class="codeline" id="line-23"><code>	<span class="keyword">return</span> <span class="lit-string">"redirect to master DC for requesting new file token"</span></code></span>
-<span class="codeline" id="line-24"><code>}</code></span>
-<span class="codeline" id="line-25"><code></code></span>
-<span class="codeline" id="line-26"><code><span class="comment">// cdn is a CDN DC download schema.</span></code></span>
-<span class="codeline" id="line-27"><code><span class="comment">// See https://core.telegram.org/cdn#getting-files-from-a-cdn.</span></code></span>
-<span class="codeline" id="line-28"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-cdn" class="ident">cdn</a> <span class="keyword">struct</span> {</code></span>
-<span class="codeline" id="line-29"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn.cdn.html" class="ident">cdn</a>      <a href="client.go.html#line-10" class="ident">CDN</a></code></span>
-<span class="codeline" id="line-30"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn.client.html" class="ident">client</a>   <a href="client.go.html#line-15" class="ident">Client</a></code></span>
-<span class="codeline" id="line-31"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn.pool.html" class="ident">pool</a>     *<a href="../../../../../../pkg/github.com/gotd/td/bin.html" class="ident i5">bin</a>.<a href="../../bin/pool.go.html#line-6" class="ident">Pool</a></code></span>
-<span class="codeline" id="line-32"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn.redirect.html" class="ident">redirect</a> *<a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i6">tg</a>.<a href="../../tg/tl_upload_file_gen.go.html#line-224" class="ident">UploadFileCDNRedirect</a></code></span>
-<span class="codeline" id="line-33"><code>}</code></span>
-<span class="codeline" id="line-34"><code></code></span>
-<span class="codeline" id="line-35"><code><span class="keyword">var</span> _ <a href="client.go.html#line-31" class="ident">schema</a> = <a href="#line-28" class="ident">cdn</a>{}</code></span>
-<span class="codeline" id="line-36"><code></code></span>
-<span class="codeline" id="line-37"><code><span class="comment">// decrypt decrypts file chunk from Telegram CDN.</span></code></span>
-<span class="codeline" id="line-38"><code><span class="comment">// See https://core.telegram.org/cdn#decrypting-files.</span></code></span>
-<span class="codeline" id="line-39"><code><span class="keyword">func</span> (<label for="r2" class="ident">c</label> <a href="#line-28" class="ident">cdn</a>) <label for="r3" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn.decrypt.html" class="ident">decrypt</a></label>(<label for="r4" class="ident">src</label> []<a href="../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r5" class="ident">offset</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) ([]<a href="../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-40"><code>	<label for="r6" class="ident">block</label>, <label for="r7" class="ident">err</label> := <a href="../../../../../../pkg/crypto/aes.html" class="ident i1">aes</a>.<a href="../../../../../crypto/aes/cipher.go.html#line-32" class="ident">NewCipher</a>(<label for="r2" class="ident">c</label>.<a href="#line-32" class="ident">redirect</a>.<a href="../../tg/tl_upload_file_gen.go.html#line-239" class="ident">EncryptionKey</a>)</code></span>
-<span class="codeline" id="line-41"><code>	<span class="keyword">if</span> <label for="r7" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-42"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../../pkg/golang.org/x/xerrors.html" class="ident i4">xerrors</a>.<a href="../../../../../golang.org/x/xerrors/fmt.go.html#line-36" class="ident">Errorf</a>(<span class="lit-string">"create cipher: %w"</span>, <label for="r7" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-43"><code>	}</code></span>
-<span class="codeline" id="line-44"><code></code></span>
-<span class="codeline" id="line-45"><code>	<span class="keyword">if</span> <label for="r6" class="ident">block</label>.<a href="../../../../../crypto/cipher/cipher.go.html#line-17" class="ident">BlockSize</a>() != <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r2" class="ident">c</label>.<a href="#line-32" class="ident">redirect</a>.<a href="../../tg/tl_upload_file_gen.go.html#line-244" class="ident">EncryptionIv</a>) {</code></span>
-<span class="codeline" id="line-46"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../../pkg/golang.org/x/xerrors.html" class="ident i4">xerrors</a>.<a href="../../../../../golang.org/x/xerrors/fmt.go.html#line-36" class="ident">Errorf</a>(</code></span>
-<span class="codeline" id="line-47"><code>			<span class="lit-string">"invalid IV or key length, block size %d != IV %d"</span>,</code></span>
-<span class="codeline" id="line-48"><code>			<label for="r6" class="ident">block</label>.<a href="../../../../../crypto/cipher/cipher.go.html#line-17" class="ident">BlockSize</a>(), <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r2" class="ident">c</label>.<a href="#line-32" class="ident">redirect</a>.<a href="../../tg/tl_upload_file_gen.go.html#line-244" class="ident">EncryptionIv</a>),</code></span>
-<span class="codeline" id="line-49"><code>		)</code></span>
-<span class="codeline" id="line-50"><code>	}</code></span>
-<span class="codeline" id="line-51"><code></code></span>
-<span class="codeline" id="line-52"><code>	<span class="comment">// Copy IV to buffer from Pool.</span></code></span>
-<span class="codeline" id="line-53"><code>	<label for="r8" class="ident">iv</label> := <label for="r2" class="ident">c</label>.<a href="#line-31" class="ident">pool</a>.<a href="../../bin/pool.go.html#line-38" class="ident">GetSize</a>(<a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r2" class="ident">c</label>.<a href="#line-32" class="ident">redirect</a>.<a href="../../tg/tl_upload_file_gen.go.html#line-244" class="ident">EncryptionIv</a>))</code></span>
-<span class="codeline" id="line-54"><code>	<span class="keyword">defer</span> <label for="r2" class="ident">c</label>.<a href="#line-31" class="ident">pool</a>.<a href="../../bin/pool.go.html#line-27" class="ident">Put</a>(<label for="r8" class="ident">iv</label>)</code></span>
-<span class="codeline" id="line-55"><code>	<a href="../../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r8" class="ident">iv</label>.<a href="../../bin/buffer.go.html#line-9" class="ident">Buf</a>, <label for="r2" class="ident">c</label>.<a href="#line-32" class="ident">redirect</a>.<a href="../../tg/tl_upload_file_gen.go.html#line-244" class="ident">EncryptionIv</a>)</code></span>
-<span class="codeline" id="line-56"><code></code></span>
-<span class="codeline" id="line-57"><code>	<span class="comment">// For IV, it should use the value of encryption_iv, modified in the following manner:</span></code></span>
-<span class="codeline" id="line-58"><code><span class="comment">	// for each offset replace the last 4 bytes of the encryption_iv with offset / 16 in big-endian.</span></code></span>
-<span class="codeline" id="line-59"><code>	<a href="../../../../../../pkg/encoding/binary.html" class="ident i3">binary</a>.<a href="../../../../../encoding/binary/binary.go.html#line-48" class="ident">BigEndian</a>.<a href="../../../../../encoding/binary/binary.go.html#line-116" class="ident">PutUint32</a>(<label for="r8" class="ident">iv</label>.<a href="../../bin/buffer.go.html#line-9" class="ident">Buf</a>[<label for="r8" class="ident">iv</label>.<a href="../../bin/buffer.go.html#line-61" class="ident">Len</a>()-<span class="lit-number">4</span>:], <a href="../../../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r5" class="ident">offset</label>/<span class="lit-number">16</span>))</code></span>
-<span class="codeline" id="line-60"><code></code></span>
-<span class="codeline" id="line-61"><code>	<label for="r9" class="ident">dst</label> := <a href="../../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r4" class="ident">src</label>))</code></span>
-<span class="codeline" id="line-62"><code>	<a href="../../../../../../pkg/crypto/cipher.html" class="ident i2">cipher</a>.<a href="../../../../../crypto/cipher/ctr.go.html#line-35" class="ident">NewCTR</a>(<label for="r6" class="ident">block</label>, <label for="r8" class="ident">iv</label>.<a href="../../bin/buffer.go.html#line-9" class="ident">Buf</a>).<a href="../../../../../crypto/cipher/cipher.go.html#line-40" class="ident">XORKeyStream</a>(<label for="r9" class="ident">dst</label>, <label for="r4" class="ident">src</label>)</code></span>
-<span class="codeline" id="line-63"><code>	<span class="keyword">return</span> <label for="r9" class="ident">dst</label>, <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-64"><code>}</code></span>
-<span class="codeline" id="line-65"><code></code></span>
-<span class="codeline" id="line-66"><code><span class="keyword">func</span> (<label for="r10" class="ident">c</label> <a href="#line-28" class="ident">cdn</a>) <label for="r11" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn.Chunk.html" class="ident">Chunk</a></label>(<label for="r12" class="ident">ctx</label> <a href="../../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../../context/context.go.html#line-62" class="ident">Context</a>, <label for="r13" class="ident">offset</label>, <label for="r14" class="ident">limit</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) (<a href="client.go.html#line-25" class="ident">chunk</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-67"><code>	<label for="r15" class="ident">r</label>, <label for="r16" class="ident">err</label> := <label for="r10" class="ident">c</label>.<a href="#line-29" class="ident">cdn</a>.<a href="client.go.html#line-11" class="ident">UploadGetCDNFile</a>(<label for="r12" class="ident">ctx</label>, &amp;<a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i6">tg</a>.<a href="../../tg/tl_upload_get_cdn_file_gen.go.html#line-39" class="ident">UploadGetCDNFileRequest</a>{</code></span>
-<span class="codeline" id="line-68"><code>		<a href="../../tg/tl_upload_get_cdn_file_gen.go.html#line-43" class="ident">Offset</a>:    <label for="r13" class="ident">offset</label>,</code></span>
-<span class="codeline" id="line-69"><code>		<a href="../../tg/tl_upload_get_cdn_file_gen.go.html#line-45" class="ident">Limit</a>:     <label for="r14" class="ident">limit</label>,</code></span>
-<span class="codeline" id="line-70"><code>		<a href="../../tg/tl_upload_get_cdn_file_gen.go.html#line-41" class="ident">FileToken</a>: <label for="r10" class="ident">c</label>.<a href="#line-32" class="ident">redirect</a>.<a href="../../tg/tl_upload_file_gen.go.html#line-234" class="ident">FileToken</a>,</code></span>
-<span class="codeline" id="line-71"><code>	})</code></span>
-<span class="codeline" id="line-72"><code>	<span class="keyword">if</span> <label for="r16" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-73"><code>		<span class="keyword">return</span> <a href="client.go.html#line-25" class="ident">chunk</a>{}, <label for="r16" class="ident">err</label></code></span>
-<span class="codeline" id="line-74"><code>	}</code></span>
-<span class="codeline" id="line-75"><code></code></span>
-<span class="codeline" id="line-76"><code>	<span class="keyword">switch</span> result := <label for="r15" class="ident">r</label>.(<span class="keyword">type</span>) {</code></span>
-<span class="codeline" id="line-77"><code>	<span class="keyword">case</span> *<a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i6">tg</a>.<a href="../../tg/tl_upload_cdn_file_gen.go.html#line-178" class="ident">UploadCDNFile</a>:</code></span>
-<span class="codeline" id="line-78"><code>		<label for="r17" class="ident">data</label>, <label for="r18" class="ident">err</label> := <label for="r10" class="ident">c</label>.<a href="#line-39" class="ident">decrypt</a>(<label for="r19" class="ident">result</label>.<a href="../../tg/tl_upload_cdn_file_gen.go.html#line-180" class="ident">Bytes</a>, <label for="r13" class="ident">offset</label>)</code></span>
-<span class="codeline" id="line-79"><code>		<span class="keyword">if</span> <label for="r18" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-80"><code>			<span class="keyword">return</span> <a href="client.go.html#line-25" class="ident">chunk</a>{}, <label for="r18" class="ident">err</label></code></span>
-<span class="codeline" id="line-81"><code>		}</code></span>
-<span class="codeline" id="line-82"><code></code></span>
-<span class="codeline" id="line-83"><code>		<span class="keyword">return</span> <a href="client.go.html#line-25" class="ident">chunk</a>{</code></span>
-<span class="codeline" id="line-84"><code>			<a href="client.go.html#line-26" class="ident">data</a>: <label for="r17" class="ident">data</label>,</code></span>
-<span class="codeline" id="line-85"><code>		}, <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-86"><code>	<span class="keyword">case</span> *<a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i6">tg</a>.<a href="../../tg/tl_upload_cdn_file_gen.go.html#line-40" class="ident">UploadCDNFileReuploadNeeded</a>:</code></span>
-<span class="codeline" id="line-87"><code>		<span class="keyword">return</span> <a href="client.go.html#line-25" class="ident">chunk</a>{}, &amp;<a href="#line-17" class="ident">ExpiredTokenError</a>{<a href="#line-18" class="ident">UploadCDNFileReuploadNeeded</a>: <label for="r20" class="ident">result</label>}</code></span>
-<span class="codeline" id="line-88"><code>	<span class="keyword">default</span>:</code></span>
-<span class="codeline" id="line-89"><code>		<span class="keyword">return</span> <a href="client.go.html#line-25" class="ident">chunk</a>{}, <a href="../../../../../../pkg/golang.org/x/xerrors.html" class="ident i4">xerrors</a>.<a href="../../../../../golang.org/x/xerrors/fmt.go.html#line-36" class="ident">Errorf</a>(<span class="lit-string">"unexpected type %T"</span>, <label for="r15" class="ident">r</label>)</code></span>
-<span class="codeline" id="line-90"><code>	}</code></span>
-<span class="codeline" id="line-91"><code>}</code></span>
-<span class="codeline" id="line-92"><code></code></span>
-<span class="codeline" id="line-93"><code><span class="keyword">func</span> (<label for="r21" class="ident">c</label> <a href="#line-28" class="ident">cdn</a>) <label for="r22" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn.Hashes.html" class="ident">Hashes</a></label>(<label for="r23" class="ident">ctx</label> <a href="../../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../../context/context.go.html#line-62" class="ident">Context</a>, <label for="r24" class="ident">offset</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) ([]<a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i6">tg</a>.<a href="../../tg/tl_file_hash_gen.go.html#line-35" class="ident">FileHash</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-94"><code>	<span class="keyword">return</span> <label for="r21" class="ident">c</label>.<a href="#line-30" class="ident">client</a>.<a href="client.go.html#line-20" class="ident">UploadGetCDNFileHashes</a>(<label for="r23" class="ident">ctx</label>, &amp;<a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i6">tg</a>.<a href="../../tg/tl_upload_get_cdn_file_hashes_gen.go.html#line-39" class="ident">UploadGetCDNFileHashesRequest</a>{</code></span>
-<span class="codeline" id="line-95"><code>		<a href="../../tg/tl_upload_get_cdn_file_hashes_gen.go.html#line-41" class="ident">FileToken</a>: <label for="r21" class="ident">c</label>.<a href="#line-32" class="ident">redirect</a>.<a href="../../tg/tl_upload_file_gen.go.html#line-234" class="ident">FileToken</a>,</code></span>
-<span class="codeline" id="line-96"><code>		<a href="../../tg/tl_upload_get_cdn_file_hashes_gen.go.html#line-43" class="ident">Offset</a>:    <label for="r24" class="ident">offset</label>,</code></span>
-<span class="codeline" id="line-97"><code>	})</code></span>
-<span class="codeline" id="line-98"><code>}</code></span>
+<span class="codeline" id="line-9"><code>	<label for="i3"><span class="lit-string i3">"github.com/gotd/td/bin"</span></label></code></span>
+<span class="codeline" id="line-10"><code>	<label for="i4"><span class="lit-string i4">"github.com/gotd/td/tg"</span></label></code></span>
+<span class="codeline" id="line-11"><code>)</code></span>
+<span class="codeline" id="line-12"><code></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">// cdn is a download schema that starts on the master DC and switches to CDN on</span></code></span>
+<span class="codeline" id="line-14"><code><span class="comment">// upload.fileCdnRedirect without losing the original request.</span></code></span>
+<span class="codeline" id="line-15"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-cdn" class="ident">cdn</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.provider^5c4c1.html" class="ident">provider</a> <a href="client.go.html#line-29" class="ident">CDNProvider</a></code></span>
+<span class="codeline" id="line-17"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.client^948fe.html" class="ident">client</a>   <a href="client.go.html#line-16" class="ident">Client</a></code></span>
+<span class="codeline" id="line-18"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.pool^27cac.html" class="ident">pool</a>     *<a href="../../../../../../pkg/github.com/gotd/td/bin.html" class="ident i3">bin</a>.<a href="../../bin/pool.go.html#line-6" class="ident">Pool</a></code></span>
+<span class="codeline" id="line-19"><code>	<span class="comment">// retryHandler observes retried transient downloader errors.</span></code></span>
+<span class="codeline" id="line-20"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.retryHandler^19860.html" class="ident">retryHandler</a> <a href="retry_event.go.html#line-24" class="ident">RetryHandler</a></code></span>
+<span class="codeline" id="line-21"><code></code></span>
+<span class="codeline" id="line-22"><code>	<span class="comment">// master preserves regular path that may return redirect errors when</span></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">	// allowCDN=true.</span></code></span>
+<span class="codeline" id="line-24"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.master^fc613.html" class="ident">master</a> <a href="master.go.html#line-25" class="ident">master</a></code></span>
+<span class="codeline" id="line-25"><code>	<span class="comment">// max is forwarded to provider pool creation, usually mapped from number of</span></code></span>
+<span class="codeline" id="line-26"><code><span class="comment">	// download threads.</span></code></span>
+<span class="codeline" id="line-27"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.max^9baf3.html" class="ident">max</a> <a href="../../../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
+<span class="codeline" id="line-28"><code>	<span class="comment">// verify enables inline verification for decrypted CDN chunks.</span></code></span>
+<span class="codeline" id="line-29"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.verify^a12dd.html" class="ident">verify</a> <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-30"><code></code></span>
+<span class="codeline" id="line-31"><code>	<span class="comment">// stateMux guards mode/redirect/client pointer/revision.</span></code></span>
+<span class="codeline" id="line-32"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.stateMux^ffa9e.html" class="ident">stateMux</a> <a href="../../../../../../pkg/sync.html" class="ident i1">sync</a>.<a href="../../../../../sync/rwmutex.go.html#line-39" class="ident">RWMutex</a></code></span>
+<span class="codeline" id="line-33"><code>	<span class="comment">// refreshMux serializes redirect refreshes so only one goroutine asks master</span></code></span>
+<span class="codeline" id="line-34"><code><span class="comment">	// for new token when CDN reports token invalid.</span></code></span>
+<span class="codeline" id="line-35"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.refreshMux^b7c16.html" class="ident">refreshMux</a> <a href="../../../../../../pkg/sync.html" class="ident i1">sync</a>.<a href="../../../../../sync/mutex.go.html#line-30" class="ident">Mutex</a></code></span>
+<span class="codeline" id="line-36"><code>	<span class="comment">// clientMux serializes CDN client (re)creation per schema instance.</span></code></span>
+<span class="codeline" id="line-37"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.clientMux^77a1d.html" class="ident">clientMux</a> <a href="../../../../../../pkg/sync.html" class="ident i1">sync</a>.<a href="../../../../../sync/mutex.go.html#line-30" class="ident">Mutex</a></code></span>
+<span class="codeline" id="line-38"><code>	<span class="comment">// hashesMux guards in-memory cache of CDN hashes by offset.</span></code></span>
+<span class="codeline" id="line-39"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.hashesMux^a4711.html" class="ident">hashesMux</a> <a href="../../../../../../pkg/sync.html" class="ident i1">sync</a>.<a href="../../../../../sync/rwmutex.go.html#line-39" class="ident">RWMutex</a></code></span>
+<span class="codeline" id="line-40"><code>	<span class="comment">// windowsMux guards bounded cache of verified CDN hash windows used to</span></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">	// handle custom part sizes that split hash windows.</span></code></span>
+<span class="codeline" id="line-42"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.windowsMux^6e25b.html" class="ident">windowsMux</a> <a href="../../../../../../pkg/sync.html" class="ident i1">sync</a>.<a href="../../../../../sync/mutex.go.html#line-30" class="ident">Mutex</a></code></span>
+<span class="codeline" id="line-43"><code>	<span class="comment">// windowsLoad deduplicates concurrent fetches of the same full hash window.</span></code></span>
+<span class="codeline" id="line-44"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.windowsLoad^5f09b.html" class="ident">windowsLoad</a> <a href="../../../../../../pkg/golang.org/x/sync/singleflight.html" class="ident i2">singleflight</a>.<a href="../../../../../golang.org/x/sync/singleflight/singleflight.go.html#line-73" class="ident">Group</a></code></span>
+<span class="codeline" id="line-45"><code></code></span>
+<span class="codeline" id="line-46"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.mode^e642b.html" class="ident">mode</a>        <a href="#line-60" class="ident">cdnMode</a></code></span>
+<span class="codeline" id="line-47"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.redirect^09345.html" class="ident">redirect</a>    *<a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i4">tg</a>.<a href="../../tg/tl_upload_file_gen.go.html#line-235" class="ident">UploadFileCDNRedirect</a></code></span>
+<span class="codeline" id="line-48"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.cdn^db983.html" class="ident">cdn</a>         <a href="client.go.html#line-11" class="ident">CDN</a></code></span>
+<span class="codeline" id="line-49"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.closer^be98c.html" class="ident">closer</a>      <a href="../../../../../../pkg/io.html" class="ident i0">io</a>.<a href="../../../../../io/io.go.html#line-107" class="ident">Closer</a></code></span>
+<span class="codeline" id="line-50"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.clientDC^6ac10.html" class="ident">clientDC</a>    <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-51"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.rev^d1e75.html" class="ident">rev</a>         <a href="../../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a></code></span>
+<span class="codeline" id="line-52"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.hashes^3a427.html" class="ident">hashes</a>      <span class="keyword">map</span>[<a href="../../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>]<a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i4">tg</a>.<a href="../../tg/tl_file_hash_gen.go.html#line-37" class="ident">FileHash</a></code></span>
+<span class="codeline" id="line-53"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.hashOffsets^4052a.html" class="ident">hashOffsets</a> []<a href="../../../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
+<span class="codeline" id="line-54"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.windows^340d6.html" class="ident">windows</a>     <span class="keyword">map</span>[<a href="../../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>][]<a href="../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-55"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.windowsFIFO^53c43.html" class="ident">windowsFIFO</a> []<a href="../../../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
+<span class="codeline" id="line-56"><code>}</code></span>
+<span class="codeline" id="line-57"><code></code></span>
+<span class="codeline" id="line-58"><code><span class="keyword">var</span> _ <a href="client.go.html#line-39" class="ident">schema</a> = (*<a href="#line-15" class="ident">cdn</a>)(<a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>)</code></span>
+<span class="codeline" id="line-59"><code></code></span>
+<span class="codeline" id="line-60"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-cdnMode" class="ident">cdnMode</a> <a href="../../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a></code></span>
+<span class="codeline" id="line-61"><code></code></span>
+<span class="codeline" id="line-62"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-63"><code>	<span class="comment">// modeMaster means request master first and switch only on redirect.</span></code></span>
+<span class="codeline" id="line-64"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-modeMaster" class="ident">modeMaster</a> <a href="#line-60" class="ident">cdnMode</a> = <a href="../../../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-65"><code>	<span class="comment">// modeCDN means active redirect exists and chunks should be fetched from CDN.</span></code></span>
+<span class="codeline" id="line-66"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-modeCDN" class="ident">modeCDN</a></code></span>
+<span class="codeline" id="line-67"><code>)</code></span>
+<span class="codeline" id="line-68"><code></code></span>
+<span class="codeline" id="line-69"><code><span class="comment">// maxVerifiedWindowCache bounds memory used by split-window verification.</span></code></span>
+<span class="codeline" id="line-70"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-71"><code><span class="comment">// Split windows are needed only when downloader part size does not align with</span></code></span>
+<span class="codeline" id="line-72"><code><span class="comment">// Telegram CDN hash window size (typically 128KB). In that case we may fetch a</span></code></span>
+<span class="codeline" id="line-73"><code><span class="comment">// full hash window once, verify it, and reuse verified bytes for neighboring</span></code></span>
+<span class="codeline" id="line-74"><code><span class="comment">// chunks. A small bounded cache is enough because sequential/parallel readers</span></code></span>
+<span class="codeline" id="line-75"><code><span class="comment">// usually work on nearby offsets.</span></code></span>
+<span class="codeline" id="line-76"><code><span class="keyword">const</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-maxVerifiedWindowCache" class="ident">maxVerifiedWindowCache</a> = <span class="lit-number">16</span></code></span>
+<span class="codeline" id="line-77"><code></code></span>
+<span class="codeline" id="line-78"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-newCDNSchema" class="ident">newCDNSchema</a></label>(</code></span>
+<span class="codeline" id="line-79"><code>	<label for="r1" class="ident">masterSchema</label> <a href="master.go.html#line-25" class="ident">master</a>,</code></span>
+<span class="codeline" id="line-80"><code>	<label for="r2" class="ident">provider</label> <a href="client.go.html#line-29" class="ident">CDNProvider</a>,</code></span>
+<span class="codeline" id="line-81"><code>	<label for="r3" class="ident">pool</label> *<a href="../../../../../../pkg/github.com/gotd/td/bin.html" class="ident i3">bin</a>.<a href="../../bin/pool.go.html#line-6" class="ident">Pool</a>,</code></span>
+<span class="codeline" id="line-82"><code>	<label for="r4" class="ident">max</label> <a href="../../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>,</code></span>
+<span class="codeline" id="line-83"><code>	<label for="r5" class="ident">verifyCDNInline</label> <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>,</code></span>
+<span class="codeline" id="line-84"><code>	<label for="r6" class="ident">retryHandler</label> <a href="retry_event.go.html#line-24" class="ident">RetryHandler</a>,</code></span>
+<span class="codeline" id="line-85"><code>) *<a href="#line-15" class="ident">cdn</a> {</code></span>
+<span class="codeline" id="line-86"><code>	<span class="keyword">if</span> <label for="r4" class="ident">max</label> &lt; <span class="lit-number">1</span> {</code></span>
+<span class="codeline" id="line-87"><code>		<label for="r4" class="ident">max</label> = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-88"><code>	}</code></span>
+<span class="codeline" id="line-89"><code></code></span>
+<span class="codeline" id="line-90"><code>	<span class="keyword">return</span> &amp;<a href="#line-15" class="ident">cdn</a>{</code></span>
+<span class="codeline" id="line-91"><code>		<a href="#line-16" class="ident">provider</a>:     <label for="r2" class="ident">provider</label>,</code></span>
+<span class="codeline" id="line-92"><code>		<a href="#line-17" class="ident">client</a>:       <label for="r1" class="ident">masterSchema</label>.<a href="master.go.html#line-26" class="ident">client</a>,</code></span>
+<span class="codeline" id="line-93"><code>		<a href="#line-18" class="ident">pool</a>:         <label for="r3" class="ident">pool</label>,</code></span>
+<span class="codeline" id="line-94"><code>		<a href="#line-20" class="ident">retryHandler</a>: <label for="r6" class="ident">retryHandler</label>,</code></span>
+<span class="codeline" id="line-95"><code>		<a href="#line-24" class="ident">master</a>:       <label for="r1" class="ident">masterSchema</label>,</code></span>
+<span class="codeline" id="line-96"><code>		<a href="#line-27" class="ident">max</a>:          <label for="r4" class="ident">max</label>,</code></span>
+<span class="codeline" id="line-97"><code>		<a href="#line-29" class="ident">verify</a>:       <label for="r5" class="ident">verifyCDNInline</label>,</code></span>
+<span class="codeline" id="line-98"><code>		<a href="#line-46" class="ident">mode</a>:         <a href="#line-64" class="ident">modeMaster</a>,</code></span>
+<span class="codeline" id="line-99"><code>	}</code></span>
+<span class="codeline" id="line-100"><code>}</code></span>
+<span class="codeline" id="line-101"><code></code></span>
+<span class="codeline" id="line-102"><code><span class="keyword">func</span> (<label for="r7" class="ident">c</label> *<a href="#line-15" class="ident">cdn</a>) <label for="r8" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.reportRetry^bf87b.html" class="ident">reportRetry</a></label>(<label for="r9" class="ident">operation</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r10" class="ident">attempt</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r11" class="ident">err</label> <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-103"><code>	<span class="keyword">if</span> <label for="r10" class="ident">attempt</label> &lt; <span class="lit-number">1</span> || <label for="r11" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> || <label for="r7" class="ident">c</label>.<a href="#line-20" class="ident">retryHandler</a> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-104"><code>		<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-105"><code>	}</code></span>
+<span class="codeline" id="line-106"><code>	<label for="r7" class="ident">c</label>.<a href="#line-20" class="ident">retryHandler</a>(<a href="retry_event.go.html#line-4" class="ident">RetryEvent</a>{</code></span>
+<span class="codeline" id="line-107"><code>		<a href="retry_event.go.html#line-6" class="ident">Operation</a>: <label for="r9" class="ident">operation</label>,</code></span>
+<span class="codeline" id="line-108"><code>		<a href="retry_event.go.html#line-8" class="ident">Attempt</a>:   <label for="r10" class="ident">attempt</label>,</code></span>
+<span class="codeline" id="line-109"><code>		<a href="retry_event.go.html#line-10" class="ident">Err</a>:       <label for="r11" class="ident">err</label>,</code></span>
+<span class="codeline" id="line-110"><code>	})</code></span>
+<span class="codeline" id="line-111"><code>}</code></span>
+<span class="codeline" id="line-112"><code></code></span>
+<span class="codeline" id="line-113"><code><span class="keyword">func</span> (<label for="r12" class="ident">c</label> *<a href="#line-15" class="ident">cdn</a>) <label for="r13" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.Close.html" class="ident">Close</a></label>() <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-114"><code>	<span class="comment">// Close is called by Builder defer path and should release only schema-local</span></code></span>
+<span class="codeline" id="line-115"><code><span class="comment">	// CDN resources. Shared client-level pools are managed in telegram package.</span></code></span>
+<span class="codeline" id="line-116"><code>	<label for="r12" class="ident">c</label>.<a href="#line-32" class="ident">stateMux</a>.<a href="../../../../../sync/rwmutex.go.html#line-144" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-117"><code>	<label for="r14" class="ident">closer</label> := <label for="r12" class="ident">c</label>.<a href="#line-49" class="ident">closer</a></code></span>
+<span class="codeline" id="line-118"><code>	<label for="r12" class="ident">c</label>.<a href="#line-48" class="ident">cdn</a> = <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-119"><code>	<label for="r12" class="ident">c</label>.<a href="#line-49" class="ident">closer</a> = <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-120"><code>	<label for="r12" class="ident">c</label>.<a href="#line-50" class="ident">clientDC</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-121"><code>	<label for="r12" class="ident">c</label>.<a href="#line-32" class="ident">stateMux</a>.<a href="../../../../../sync/rwmutex.go.html#line-201" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-122"><code></code></span>
+<span class="codeline" id="line-123"><code>	<span class="keyword">if</span> <label for="r14" class="ident">closer</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-124"><code>		<span class="keyword">return</span> <label for="r14" class="ident">closer</label>.<a href="../../../../../io/io.go.html#line-108" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-125"><code>	}</code></span>
+<span class="codeline" id="line-126"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-127"><code>}</code></span>
+<span class="codeline" id="line-128"><code></code></span>
+<span class="codeline" id="line-129"><code><span class="keyword">func</span> (<label for="r15" class="ident">c</label> *<a href="#line-15" class="ident">cdn</a>) <label for="r16" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.closeClient^a6741.html" class="ident">closeClient</a></label>() {</code></span>
+<span class="codeline" id="line-130"><code>	<span class="comment">// Internal best-effort close used on fingerprint/token recovery loops.</span></code></span>
+<span class="codeline" id="line-131"><code>	<label for="r15" class="ident">c</label>.<a href="#line-32" class="ident">stateMux</a>.<a href="../../../../../sync/rwmutex.go.html#line-144" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-132"><code>	<label for="r17" class="ident">closer</label> := <label for="r15" class="ident">c</label>.<a href="#line-49" class="ident">closer</a></code></span>
+<span class="codeline" id="line-133"><code>	<label for="r15" class="ident">c</label>.<a href="#line-48" class="ident">cdn</a> = <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-134"><code>	<label for="r15" class="ident">c</label>.<a href="#line-49" class="ident">closer</a> = <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-135"><code>	<label for="r15" class="ident">c</label>.<a href="#line-50" class="ident">clientDC</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-136"><code>	<label for="r15" class="ident">c</label>.<a href="#line-32" class="ident">stateMux</a>.<a href="../../../../../sync/rwmutex.go.html#line-201" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-137"><code></code></span>
+<span class="codeline" id="line-138"><code>	<span class="keyword">if</span> <label for="r17" class="ident">closer</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-139"><code>		_ = <label for="r17" class="ident">closer</label>.<a href="../../../../../io/io.go.html#line-108" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-140"><code>	}</code></span>
+<span class="codeline" id="line-141"><code>}</code></span>
+<span class="codeline" id="line-142"><code></code></span>
+<span class="codeline" id="line-143"><code><span class="keyword">func</span> (<label for="r18" class="ident">c</label> *<a href="#line-15" class="ident">cdn</a>) <label for="r19" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.snapshot^16a0e.html" class="ident">snapshot</a></label>() (<label for="r20" class="ident">mode</label> <a href="#line-60" class="ident">cdnMode</a>, <label for="r21" class="ident">redirect</label> *<a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i4">tg</a>.<a href="../../tg/tl_upload_file_gen.go.html#line-235" class="ident">UploadFileCDNRedirect</a>, <label for="r22" class="ident">rev</label> <a href="../../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>) {</code></span>
+<span class="codeline" id="line-144"><code>	<label for="r18" class="ident">c</label>.<a href="#line-32" class="ident">stateMux</a>.<a href="../../../../../sync/rwmutex.go.html#line-67" class="ident">RLock</a>()</code></span>
+<span class="codeline" id="line-145"><code>	<span class="keyword">defer</span> <label for="r18" class="ident">c</label>.<a href="#line-32" class="ident">stateMux</a>.<a href="../../../../../sync/rwmutex.go.html#line-114" class="ident">RUnlock</a>()</code></span>
+<span class="codeline" id="line-146"><code></code></span>
+<span class="codeline" id="line-147"><code>	<span class="keyword">return</span> <label for="r18" class="ident">c</label>.<a href="#line-46" class="ident">mode</a>, <label for="r18" class="ident">c</label>.<a href="#line-47" class="ident">redirect</a>, <label for="r18" class="ident">c</label>.<a href="#line-51" class="ident">rev</a></code></span>
+<span class="codeline" id="line-148"><code>}</code></span>
+<span class="codeline" id="line-149"><code></code></span>
+<span class="codeline" id="line-150"><code><span class="keyword">func</span> (<label for="r23" class="ident">c</label> *<a href="#line-15" class="ident">cdn</a>) <label for="r24" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.setRedirect^9e4db.html" class="ident">setRedirect</a></label>(<label for="r25" class="ident">redirect</label> *<a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i4">tg</a>.<a href="../../tg/tl_upload_file_gen.go.html#line-235" class="ident">UploadFileCDNRedirect</a>) {</code></span>
+<span class="codeline" id="line-151"><code>	<label for="r23" class="ident">c</label>.<a href="#line-32" class="ident">stateMux</a>.<a href="../../../../../sync/rwmutex.go.html#line-144" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-152"><code>	<label for="r23" class="ident">c</label>.<a href="#line-46" class="ident">mode</a> = <a href="#line-66" class="ident">modeCDN</a></code></span>
+<span class="codeline" id="line-153"><code>	<label for="r23" class="ident">c</label>.<a href="#line-47" class="ident">redirect</a> = <label for="r25" class="ident">redirect</label></code></span>
+<span class="codeline" id="line-154"><code>	<label for="r23" class="ident">c</label>.<a href="#line-51" class="ident">rev</a>++</code></span>
+<span class="codeline" id="line-155"><code>	<label for="r23" class="ident">c</label>.<a href="#line-32" class="ident">stateMux</a>.<a href="../../../../../sync/rwmutex.go.html#line-201" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-156"><code></code></span>
+<span class="codeline" id="line-157"><code>	<span class="comment">// Redirect update invalidates hash cache scope (file token / offset range</span></code></span>
+<span class="codeline" id="line-158"><code><span class="comment">	// may change). Seed with hashes returned in redirect when available.</span></code></span>
+<span class="codeline" id="line-159"><code>	<label for="r23" class="ident">c</label>.<a href="cdn_verify.go.html#line-18" class="ident">resetHashes</a>()</code></span>
+<span class="codeline" id="line-160"><code>	<label for="r23" class="ident">c</label>.<a href="cdn_verify.go.html#line-25" class="ident">resetWindows</a>()</code></span>
+<span class="codeline" id="line-161"><code>	<span class="keyword">if</span> <label for="r25" class="ident">redirect</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-162"><code>		<label for="r23" class="ident">c</label>.<a href="cdn_verify.go.html#line-74" class="ident">cacheHashes</a>(<label for="r25" class="ident">redirect</label>.<a href="../../tg/tl_upload_file_gen.go.html#line-260" class="ident">FileHashes</a>)</code></span>
+<span class="codeline" id="line-163"><code>	}</code></span>
+<span class="codeline" id="line-164"><code>}</code></span>
+<span class="codeline" id="line-165"><code></code></span>
+<span class="codeline" id="line-166"><code><span class="keyword">func</span> (<label for="r26" class="ident">c</label> *<a href="#line-15" class="ident">cdn</a>) <label for="r27" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdn^db983.setMaster^69eae.html" class="ident">setMaster</a></label>() {</code></span>
+<span class="codeline" id="line-167"><code>	<label for="r26" class="ident">c</label>.<a href="#line-32" class="ident">stateMux</a>.<a href="../../../../../sync/rwmutex.go.html#line-144" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-168"><code>	<label for="r26" class="ident">c</label>.<a href="#line-46" class="ident">mode</a> = <a href="#line-64" class="ident">modeMaster</a></code></span>
+<span class="codeline" id="line-169"><code>	<label for="r26" class="ident">c</label>.<a href="#line-47" class="ident">redirect</a> = <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-170"><code>	<label for="r26" class="ident">c</label>.<a href="#line-51" class="ident">rev</a>++</code></span>
+<span class="codeline" id="line-171"><code>	<label for="r26" class="ident">c</label>.<a href="#line-32" class="ident">stateMux</a>.<a href="../../../../../sync/rwmutex.go.html#line-201" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-172"><code></code></span>
+<span class="codeline" id="line-173"><code>	<span class="comment">// Leaving CDN mode invalidates CDN hash cache.</span></code></span>
+<span class="codeline" id="line-174"><code>	<label for="r26" class="ident">c</label>.<a href="cdn_verify.go.html#line-18" class="ident">resetHashes</a>()</code></span>
+<span class="codeline" id="line-175"><code>	<label for="r26" class="ident">c</label>.<a href="cdn_verify.go.html#line-25" class="ident">resetWindows</a>()</code></span>
+<span class="codeline" id="line-176"><code>}</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.2.7-preview</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: quic_transport_error_codes.go in package github.com/refraction-networking/utls/dicttls</title>
+<link href="../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	quic_transport_error_codes.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html">github.com/refraction-networking/utls/dicttls</a>
+</code></pre>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> dicttls</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// source: https://www.iana.org/assignments/quic/quic.xhtml#quic-transport-error-codes</span></code></span>
+<span class="codeline" id="line-4"><code><span class="comment">// last updated: July 2023</span></code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-7"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_NO_ERROR" class="ident">QUICTransportErrorCode_NO_ERROR</a>                  <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x0000</span></code></span>
+<span class="codeline" id="line-8"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_INTERNAL_ERROR" class="ident">QUICTransportErrorCode_INTERNAL_ERROR</a>            <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x0001</span></code></span>
+<span class="codeline" id="line-9"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_CONNECTION_REFUSED" class="ident">QUICTransportErrorCode_CONNECTION_REFUSED</a>        <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x0002</span></code></span>
+<span class="codeline" id="line-10"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_FLOW_CONTROL_ERROR" class="ident">QUICTransportErrorCode_FLOW_CONTROL_ERROR</a>        <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x0003</span></code></span>
+<span class="codeline" id="line-11"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_STREAM_LIMIT_ERROR" class="ident">QUICTransportErrorCode_STREAM_LIMIT_ERROR</a>        <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x0004</span></code></span>
+<span class="codeline" id="line-12"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_STREAM_STATE_ERROR" class="ident">QUICTransportErrorCode_STREAM_STATE_ERROR</a>        <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x0005</span></code></span>
+<span class="codeline" id="line-13"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_FINAL_SIZE_ERROR" class="ident">QUICTransportErrorCode_FINAL_SIZE_ERROR</a>          <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x0006</span></code></span>
+<span class="codeline" id="line-14"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_FRAME_ENCODING_ERROR" class="ident">QUICTransportErrorCode_FRAME_ENCODING_ERROR</a>      <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x0007</span></code></span>
+<span class="codeline" id="line-15"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_TRANSPORT_PARAMETER_ERROR" class="ident">QUICTransportErrorCode_TRANSPORT_PARAMETER_ERROR</a> <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x0008</span></code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_CONNECTION_ID_LIMIT_ERROR" class="ident">QUICTransportErrorCode_CONNECTION_ID_LIMIT_ERROR</a> <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x0009</span></code></span>
+<span class="codeline" id="line-17"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_PROTOCOL_VIOLATION" class="ident">QUICTransportErrorCode_PROTOCOL_VIOLATION</a>        <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x000A</span></code></span>
+<span class="codeline" id="line-18"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_INVALID_TOKEN" class="ident">QUICTransportErrorCode_INVALID_TOKEN</a>             <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x000B</span></code></span>
+<span class="codeline" id="line-19"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_APPLICATION_ERROR" class="ident">QUICTransportErrorCode_APPLICATION_ERROR</a>         <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x000C</span></code></span>
+<span class="codeline" id="line-20"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_CRYPTO_BUFFER_EXCEEDED" class="ident">QUICTransportErrorCode_CRYPTO_BUFFER_EXCEEDED</a>    <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x000D</span></code></span>
+<span class="codeline" id="line-21"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_KEY_UPDATE_ERROR" class="ident">QUICTransportErrorCode_KEY_UPDATE_ERROR</a>          <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x000E</span></code></span>
+<span class="codeline" id="line-22"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_AEAD_LIMIT_REACHED" class="ident">QUICTransportErrorCode_AEAD_LIMIT_REACHED</a>        <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x000F</span></code></span>
+<span class="codeline" id="line-23"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_NO_VIABLE_PATH" class="ident">QUICTransportErrorCode_NO_VIABLE_PATH</a>            <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x0010</span></code></span>
+<span class="codeline" id="line-24"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_VERSION_NEGOTIATION_ERROR" class="ident">QUICTransportErrorCode_VERSION_NEGOTIATION_ERROR</a> <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x0011</span> <span class="comment">// RFC9368</span></code></span>
+<span class="codeline" id="line-25"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICTransportErrorCode_CRYPTO_ERROR" class="ident">QUICTransportErrorCode_CRYPTO_ERROR</a>              <a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x0100</span> <span class="comment">// 0x0100-0x01FF, use with bitwise operator</span></code></span>
+<span class="codeline" id="line-26"><code>)</code></span>
+<span class="codeline" id="line-27"><code></code></span>
+<span class="codeline" id="line-28"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-DictQUICTransportErrorCodeValueIndexed" class="ident">DictQUICTransportErrorCodeValueIndexed</a> = <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>]<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>{</code></span>
+<span class="codeline" id="line-29"><code>	<span class="lit-number">0x0000</span>: <span class="lit-string">"NO_ERROR"</span>,</code></span>
+<span class="codeline" id="line-30"><code>	<span class="lit-number">0x0001</span>: <span class="lit-string">"INTERNAL_ERROR"</span>,</code></span>
+<span class="codeline" id="line-31"><code>	<span class="lit-number">0x0002</span>: <span class="lit-string">"CONNECTION_REFUSED"</span>,</code></span>
+<span class="codeline" id="line-32"><code>	<span class="lit-number">0x0003</span>: <span class="lit-string">"FLOW_CONTROL_ERROR"</span>,</code></span>
+<span class="codeline" id="line-33"><code>	<span class="lit-number">0x0004</span>: <span class="lit-string">"STREAM_LIMIT_ERROR"</span>,</code></span>
+<span class="codeline" id="line-34"><code>	<span class="lit-number">0x0005</span>: <span class="lit-string">"STREAM_STATE_ERROR"</span>,</code></span>
+<span class="codeline" id="line-35"><code>	<span class="lit-number">0x0006</span>: <span class="lit-string">"FINAL_SIZE_ERROR"</span>,</code></span>
+<span class="codeline" id="line-36"><code>	<span class="lit-number">0x0007</span>: <span class="lit-string">"FRAME_ENCODING_ERROR"</span>,</code></span>
+<span class="codeline" id="line-37"><code>	<span class="lit-number">0x0008</span>: <span class="lit-string">"TRANSPORT_PARAMETER_ERROR"</span>,</code></span>
+<span class="codeline" id="line-38"><code>	<span class="lit-number">0x0009</span>: <span class="lit-string">"CONNECTION_ID_LIMIT_ERROR"</span>,</code></span>
+<span class="codeline" id="line-39"><code>	<span class="lit-number">0x000A</span>: <span class="lit-string">"PROTOCOL_VIOLATION"</span>,</code></span>
+<span class="codeline" id="line-40"><code>	<span class="lit-number">0x000B</span>: <span class="lit-string">"INVALID_TOKEN"</span>,</code></span>
+<span class="codeline" id="line-41"><code>	<span class="lit-number">0x000C</span>: <span class="lit-string">"APPLICATION_ERROR"</span>,</code></span>
+<span class="codeline" id="line-42"><code>	<span class="lit-number">0x000D</span>: <span class="lit-string">"CRYPTO_BUFFER_EXCEEDED"</span>,</code></span>
+<span class="codeline" id="line-43"><code>	<span class="lit-number">0x000E</span>: <span class="lit-string">"KEY_UPDATE_ERROR"</span>,</code></span>
+<span class="codeline" id="line-44"><code>	<span class="lit-number">0x000F</span>: <span class="lit-string">"AEAD_LIMIT_REACHED"</span>,</code></span>
+<span class="codeline" id="line-45"><code>	<span class="lit-number">0x0010</span>: <span class="lit-string">"NO_VIABLE_PATH"</span>,</code></span>
+<span class="codeline" id="line-46"><code>	<span class="lit-number">0x0011</span>: <span class="lit-string">"VERSION_NEGOTIATION_ERROR"</span>,</code></span>
+<span class="codeline" id="line-47"><code>	<span class="lit-number">0x0100</span>: <span class="lit-string">"CRYPTO_ERROR"</span>,</code></span>
+<span class="codeline" id="line-48"><code>}</code></span>
+<span class="codeline" id="line-49"><code></code></span>
+<span class="codeline" id="line-50"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-DictQUICTransportErrorCodeNameIndexed" class="ident">DictQUICTransportErrorCodeNameIndexed</a> = <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="../../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>{</code></span>
+<span class="codeline" id="line-51"><code>	<span class="lit-string">"NO_ERROR"</span>:                  <span class="lit-number">0x0000</span>,</code></span>
+<span class="codeline" id="line-52"><code>	<span class="lit-string">"INTERNAL_ERROR"</span>:            <span class="lit-number">0x0001</span>,</code></span>
+<span class="codeline" id="line-53"><code>	<span class="lit-string">"CONNECTION_REFUSED"</span>:        <span class="lit-number">0x0002</span>,</code></span>
+<span class="codeline" id="line-54"><code>	<span class="lit-string">"FLOW_CONTROL_ERROR"</span>:        <span class="lit-number">0x0003</span>,</code></span>
+<span class="codeline" id="line-55"><code>	<span class="lit-string">"STREAM_LIMIT_ERROR"</span>:        <span class="lit-number">0x0004</span>,</code></span>
+<span class="codeline" id="line-56"><code>	<span class="lit-string">"STREAM_STATE_ERROR"</span>:        <span class="lit-number">0x0005</span>,</code></span>
+<span class="codeline" id="line-57"><code>	<span class="lit-string">"FINAL_SIZE_ERROR"</span>:          <span class="lit-number">0x0006</span>,</code></span>
+<span class="codeline" id="line-58"><code>	<span class="lit-string">"FRAME_ENCODING_ERROR"</span>:      <span class="lit-number">0x0007</span>,</code></span>
+<span class="codeline" id="line-59"><code>	<span class="lit-string">"TRANSPORT_PARAMETER_ERROR"</span>: <span class="lit-number">0x0008</span>,</code></span>
+<span class="codeline" id="line-60"><code>	<span class="lit-string">"CONNECTION_ID_LIMIT_ERROR"</span>: <span class="lit-number">0x0009</span>,</code></span>
+<span class="codeline" id="line-61"><code>	<span class="lit-string">"PROTOCOL_VIOLATION"</span>:        <span class="lit-number">0x000A</span>,</code></span>
+<span class="codeline" id="line-62"><code>	<span class="lit-string">"INVALID_TOKEN"</span>:             <span class="lit-number">0x000B</span>,</code></span>
+<span class="codeline" id="line-63"><code>	<span class="lit-string">"APPLICATION_ERROR"</span>:         <span class="lit-number">0x000C</span>,</code></span>
+<span class="codeline" id="line-64"><code>	<span class="lit-string">"CRYPTO_BUFFER_EXCEEDED"</span>:    <span class="lit-number">0x000D</span>,</code></span>
+<span class="codeline" id="line-65"><code>	<span class="lit-string">"KEY_UPDATE_ERROR"</span>:          <span class="lit-number">0x000E</span>,</code></span>
+<span class="codeline" id="line-66"><code>	<span class="lit-string">"AEAD_LIMIT_REACHED"</span>:        <span class="lit-number">0x000F</span>,</code></span>
+<span class="codeline" id="line-67"><code>	<span class="lit-string">"NO_VIABLE_PATH"</span>:            <span class="lit-number">0x0010</span>,</code></span>
+<span class="codeline" id="line-68"><code>	<span class="lit-string">"VERSION_NEGOTIATION_ERROR"</span>: <span class="lit-number">0x0011</span>,</code></span>
+<span class="codeline" id="line-69"><code>	<span class="lit-string">"CRYPTO_ERROR"</span>:              <span class="lit-number">0x0100</span>,</code></span>
+<span class="codeline" id="line-70"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

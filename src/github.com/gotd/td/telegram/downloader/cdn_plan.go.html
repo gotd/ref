@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: cdn_plan.go in package github.com/gotd/td/telegram/downloader</title>
+<link href="../../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	cdn_plan.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> downloader</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="keyword">import</span> <label for="i0"><span class="lit-string i0">"github.com/go-faster/errors"</span></label></code></span>
+<span class="codeline" id="line-4"><code></code></span>
+<span class="codeline" id="line-5"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-cdnRequestRange" class="ident">cdnRequestRange</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-6"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdnRequestRange^c3e3b.offset^c1d60.html" class="ident">offset</a> <a href="../../../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
+<span class="codeline" id="line-7"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..cdnRequestRange^c3e3b.limit^55ea0.html" class="ident">limit</a>  <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-8"><code>}</code></span>
+<span class="codeline" id="line-9"><code></code></span>
+<span class="codeline" id="line-10"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-11"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-cdnMinChunk" class="ident">cdnMinChunk</a> = <span class="lit-number">4</span> * <span class="lit-number">1024</span></code></span>
+<span class="codeline" id="line-12"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-cdnMaxChunk" class="ident">cdnMaxChunk</a> = <span class="lit-number">1024</span> * <span class="lit-number">1024</span></code></span>
+<span class="codeline" id="line-13"><code>)</code></span>
+<span class="codeline" id="line-14"><code></code></span>
+<span class="codeline" id="line-15"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-largestCDNValidLimit" class="ident">largestCDNValidLimit</a></label>(<label for="r1" class="ident">max</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-16"><code>	<span class="keyword">for</span> <label for="r2" class="ident">size</label> := <label for="r1" class="ident">max</label>; <label for="r2" class="ident">size</label> &gt;= <a href="#line-11" class="ident">cdnMinChunk</a>; <label for="r2" class="ident">size</label> -= <a href="#line-11" class="ident">cdnMinChunk</a> {</code></span>
+<span class="codeline" id="line-17"><code>		<span class="keyword">if</span> <a href="#line-12" class="ident">cdnMaxChunk</a>%<label for="r2" class="ident">size</label> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-18"><code>			<span class="keyword">return</span> <label for="r2" class="ident">size</label></code></span>
+<span class="codeline" id="line-19"><code>		}</code></span>
+<span class="codeline" id="line-20"><code>	}</code></span>
+<span class="codeline" id="line-21"><code>	<span class="keyword">return</span> <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-22"><code>}</code></span>
+<span class="codeline" id="line-23"><code></code></span>
+<span class="codeline" id="line-24"><code><span class="keyword">func</span> <label for="r3" class="ident"><a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-buildCDNRequestPlan" class="ident">buildCDNRequestPlan</a></label>(<label for="r4" class="ident">offset</label> <a href="../../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>, <label for="r5" class="ident">limit</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) ([]<a href="#line-5" class="ident">cdnRequestRange</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-25"><code>	<span class="keyword">if</span> <label for="r5" class="ident">limit</label> &lt;= <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-26"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"invalid CDN limit %d"</span>, <label for="r5" class="ident">limit</label>)</code></span>
+<span class="codeline" id="line-27"><code>	}</code></span>
+<span class="codeline" id="line-28"><code>	<span class="keyword">if</span> <label for="r4" class="ident">offset</label> &lt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-29"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"invalid CDN offset %d"</span>, <label for="r4" class="ident">offset</label>)</code></span>
+<span class="codeline" id="line-30"><code>	}</code></span>
+<span class="codeline" id="line-31"><code>	<span class="keyword">if</span> <label for="r4" class="ident">offset</label>%<a href="#line-11" class="ident">cdnMinChunk</a> != <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-32"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"CDN offset %d must be divisible by %d"</span>, <label for="r4" class="ident">offset</label>, <a href="#line-11" class="ident">cdnMinChunk</a>)</code></span>
+<span class="codeline" id="line-33"><code>	}</code></span>
+<span class="codeline" id="line-34"><code>	<span class="keyword">if</span> <label for="r5" class="ident">limit</label>%<a href="#line-11" class="ident">cdnMinChunk</a> != <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-35"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"CDN limit %d must be divisible by %d"</span>, <label for="r5" class="ident">limit</label>, <a href="#line-11" class="ident">cdnMinChunk</a>)</code></span>
+<span class="codeline" id="line-36"><code>	}</code></span>
+<span class="codeline" id="line-37"><code></code></span>
+<span class="codeline" id="line-38"><code>	<label for="r6" class="ident">remaining</label> := <label for="r5" class="ident">limit</label></code></span>
+<span class="codeline" id="line-39"><code>	<label for="r7" class="ident">current</label> := <label for="r4" class="ident">offset</label></code></span>
+<span class="codeline" id="line-40"><code>	<label for="r8" class="ident">plan</label> := <a href="../../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="#line-5" class="ident">cdnRequestRange</a>, <span class="lit-number">0</span>, <span class="lit-number">1</span>+<label for="r5" class="ident">limit</label>/<a href="#line-12" class="ident">cdnMaxChunk</a>)</code></span>
+<span class="codeline" id="line-41"><code>	<span class="keyword">for</span> <label for="r6" class="ident">remaining</label> &gt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-42"><code>		<label for="r9" class="ident">mbUsed</label> := <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r7" class="ident">current</label> % <a href="#line-12" class="ident">cdnMaxChunk</a>)</code></span>
+<span class="codeline" id="line-43"><code>		<label for="r10" class="ident">mbLeft</label> := <a href="#line-12" class="ident">cdnMaxChunk</a> - <label for="r9" class="ident">mbUsed</label></code></span>
+<span class="codeline" id="line-44"><code>		<label for="r11" class="ident">maxForStep</label> := <label for="r6" class="ident">remaining</label></code></span>
+<span class="codeline" id="line-45"><code>		<span class="keyword">if</span> <label for="r11" class="ident">maxForStep</label> &gt; <label for="r10" class="ident">mbLeft</label> {</code></span>
+<span class="codeline" id="line-46"><code>			<label for="r11" class="ident">maxForStep</label> = <label for="r10" class="ident">mbLeft</label></code></span>
+<span class="codeline" id="line-47"><code>		}</code></span>
+<span class="codeline" id="line-48"><code>		<span class="comment">// Step size is chosen from values allowed by CDN docs:</span></code></span>
+<span class="codeline" id="line-49"><code><span class="comment">		// - divisible by 4KB</span></code></span>
+<span class="codeline" id="line-50"><code><span class="comment">		// - divisor of 1MB.</span></code></span>
+<span class="codeline" id="line-51"><code>		<label for="r12" class="ident">step</label> := <a href="#line-15" class="ident">largestCDNValidLimit</a>(<label for="r11" class="ident">maxForStep</label>)</code></span>
+<span class="codeline" id="line-52"><code>		<span class="keyword">if</span> <label for="r12" class="ident">step</label> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-53"><code>			<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"unable to build CDN request plan for offset=%d limit=%d"</span>, <label for="r4" class="ident">offset</label>, <label for="r5" class="ident">limit</label>)</code></span>
+<span class="codeline" id="line-54"><code>		}</code></span>
+<span class="codeline" id="line-55"><code>		<label for="r8" class="ident">plan</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r8" class="ident">plan</label>, <a href="#line-5" class="ident">cdnRequestRange</a>{</code></span>
+<span class="codeline" id="line-56"><code>			<a href="#line-6" class="ident">offset</a>: <label for="r7" class="ident">current</label>,</code></span>
+<span class="codeline" id="line-57"><code>			<a href="#line-7" class="ident">limit</a>:  <label for="r12" class="ident">step</label>,</code></span>
+<span class="codeline" id="line-58"><code>		})</code></span>
+<span class="codeline" id="line-59"><code>		<label for="r7" class="ident">current</label> += <a href="../../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<label for="r12" class="ident">step</label>)</code></span>
+<span class="codeline" id="line-60"><code>		<label for="r6" class="ident">remaining</label> -= <label for="r12" class="ident">step</label></code></span>
+<span class="codeline" id="line-61"><code>	}</code></span>
+<span class="codeline" id="line-62"><code></code></span>
+<span class="codeline" id="line-63"><code>	<span class="keyword">return</span> <label for="r8" class="ident">plan</label>, <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-64"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

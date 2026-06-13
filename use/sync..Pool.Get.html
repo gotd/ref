@@ -5,27 +5,45 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: sync.Pool.Get</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../pkg/sync.html">sync</a>.<a href="../src/sync/pool.go.html#line-49">Pool</a>.<a href="../src/sync/pool.go.html#line-127">Get</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/sync.html">sync</a>.<a href="../src/sync/pool.go.html#line-51">Pool</a>.<a href="../src/sync/pool.go.html#line-131">Get</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">56 uses</span>
+<span class="title">70 uses</span>
 
 	sync (current package)
-		<a href="../src/sync/pool.go.html#line-127">pool.go#L127</a>: func (p *Pool) <b>Get</b>() any {
+		<a href="../src/sync/pool.go.html#line-131">pool.go#L131</a>: func (p *Pool) <b>Get</b>() any {
+
+	<a href="../pkg/crypto/internal/fips140/drbg.html">crypto/internal/fips140/drbg</a>
+		<a href="../src/crypto/internal/fips140/drbg/entropy_fips140.go.html#line-76">entropy_fips140.go#L76</a>: 		drbg = drbgPool.<b>Get</b>().(*Counter)
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/conn.go.html#line-984">conn.go#L984</a>: 	outBufPtr := outBufPool.<b>Get</b>().(*[]byte)
+		<a href="../src/crypto/tls/conn.go.html#line-994">conn.go#L994</a>: 	outBufPtr := outBufPool.<b>Get</b>().(*[]byte)
 
 	<a href="../pkg/encoding/json.html">encoding/json</a>
-		<a href="../src/encoding/json/encode.go.html#line-268">encode.go#L268</a>: 	if v := encodeStatePool.<b>Get</b>(); v != nil {
-		<a href="../src/encoding/json/scanner.go.html#line-94">scanner.go#L94</a>: 	scan := scannerPool.<b>Get</b>().(*scanner)
+		<a href="../src/encoding/json/encode.go.html#line-316">encode.go#L316</a>: 	if v := encodeStatePool.<b>Get</b>(); v != nil {
+		<a href="../src/encoding/json/scanner.go.html#line-96">scanner.go#L96</a>: 	scan := scannerPool.<b>Get</b>().(*scanner)
 
 	<a href="../pkg/fmt.html">fmt</a>
 		<a href="../src/fmt/print.go.html#line-152">print.go#L152</a>: 	p := ppFree.<b>Get</b>().(*pp)
 		<a href="../src/fmt/scan.go.html#line-384">scan.go#L384</a>: 	s = ssFree.<b>Get</b>().(*ss)
+
+	<a href="../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>
+		<a href="../src/github.com/andybalholm/brotli/backward_references.go.html#line-61">backward_references.go#L61</a>: 	sr2, _ := hasherSearchResultPool.<b>Get</b>().(*hasherSearchResult)
+		<a href="../src/github.com/andybalholm/brotli/backward_references.go.html#line-65" class="path-duplicate">backward_references.go</a><a href="../src/github.com/andybalholm/brotli/backward_references.go.html#line-65">#L65</a>: 	sr, _ := hasherSearchResultPool.<b>Get</b>().(*hasherSearchResult)
+		<a href="../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-478">brotli_bit_stream.go#L478</a>: 		tree, _ := huffmanTreePool.<b>Get</b>().(*[]huffmanTree)
+		<a href="../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-681" class="path-duplicate">brotli_bit_stream.go</a><a href="../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-681">#L681</a>: 		tree, _ := huffmanTreePool.<b>Get</b>().(*[]huffmanTree)
+		<a href="../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-1119" class="path-duplicate">brotli_bit_stream.go</a><a href="../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-1119">#L1119</a>: 	self, _ := blockEncoderPool.<b>Get</b>().(*blockEncoder)
+		<a href="../src/github.com/andybalholm/brotli/metablock.go.html#line-35">metablock.go#L35</a>: 	mb, _ := metaBlockPool.<b>Get</b>().(*metaBlockSplit)
+
+	<a href="../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../src/github.com/coder/websocket/compress.go.html#line-138">compress.go#L138</a>: 	fr, ok := flateReaderPool.<b>Get</b>().(io.Reader)
+		<a href="../src/github.com/coder/websocket/compress.go.html#line-153" class="path-duplicate">compress.go</a><a href="../src/github.com/coder/websocket/compress.go.html#line-153">#L153</a>: 	fw, ok := flateWriterPool.<b>Get</b>().(*flate.Writer)
+		<a href="../src/github.com/coder/websocket/compress.go.html#line-202" class="path-duplicate">compress.go</a><a href="../src/github.com/coder/websocket/compress.go.html#line-202">#L202</a>: 	sw2, ok := p.<b>Get</b>().(*slidingWindow)
+		<a href="../src/github.com/coder/websocket/dial.go.html#line-322">dial.go#L322</a>: 	br, ok := bufioReaderPool.<b>Get</b>().(*bufio.Reader)
+		<a href="../src/github.com/coder/websocket/dial.go.html#line-337" class="path-duplicate">dial.go</a><a href="../src/github.com/coder/websocket/dial.go.html#line-337">#L337</a>: 	bw, ok := bufioWriterPool.<b>Get</b>().(*bufio.Writer)
 
 	<a href="../pkg/github.com/go-faster/jx.html">github.com/go-faster/jx</a>
 		<a href="../src/github.com/go-faster/jx/jx.go.html#line-36">jx.go#L36</a>: 	return decPool.<b>Get</b>().(*Decoder)
@@ -35,77 +53,79 @@
 	<a href="../pkg/github.com/gotd/td/bin.html">github.com/gotd/td/bin</a>
 		<a href="../src/github.com/gotd/td/bin/pool.go.html#line-33">pool.go#L33</a>: 	buf := b.pool.<b>Get</b>().(*Buffer)
 
-	<a href="../pkg/github.com/gotd/td/internal/crypto.html">github.com/gotd/td/internal/crypto</a>
-		<a href="../src/github.com/gotd/td/internal/crypto/sha256.go.html#line-26">sha256.go#L26</a>: 	h := sha256Pool.<b>Get</b>().(hash.Hash)
+	<a href="../pkg/github.com/gotd/td/crypto.html">github.com/gotd/td/crypto</a>
+		<a href="../src/github.com/gotd/td/crypto/sha256.go.html#line-26">sha256.go#L26</a>: 	h := sha256Pool.<b>Get</b>().(hash.Hash)
 
-	<a href="../pkg/github.com/gotd/td/internal/proto.html">github.com/gotd/td/internal/proto</a>
-		<a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-34">gzip.go#L34</a>: 	writer := g.writers.<b>Get</b>().(*gzip.Writer)
-		<a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-44" class="path-duplicate">gzip.go</a><a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-44">#L44</a>: 	reader, ok := g.readers.<b>Get</b>().(*gzip.Reader)
-		<a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-87" class="path-duplicate">gzip.go</a><a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-87">#L87</a>: 	buf := gzipBufPool.<b>Get</b>().(*bytes.Buffer)
+	<a href="../pkg/github.com/gotd/td/proto.html">github.com/gotd/td/proto</a>
+		<a href="../src/github.com/gotd/td/proto/gzip.go.html#line-34">gzip.go#L34</a>: 	writer := g.writers.<b>Get</b>().(*gzip.Writer)
+		<a href="../src/github.com/gotd/td/proto/gzip.go.html#line-44" class="path-duplicate">gzip.go</a><a href="../src/github.com/gotd/td/proto/gzip.go.html#line-44">#L44</a>: 	reader, ok := g.readers.<b>Get</b>().(*gzip.Reader)
+		<a href="../src/github.com/gotd/td/proto/gzip.go.html#line-87" class="path-duplicate">gzip.go</a><a href="../src/github.com/gotd/td/proto/gzip.go.html#line-87">#L87</a>: 	buf := gzipBufPool.<b>Get</b>().(*bytes.Buffer)
 
 	<a href="../pkg/github.com/klauspost/compress/flate.html">github.com/klauspost/compress/flate</a>
-		<a href="../src/github.com/klauspost/compress/flate/stateless.go.html#line-69">stateless.go#L69</a>: 	bw := bitWriterPool.<b>Get</b>().(*huffmanBitWriter)
+		<a href="../src/github.com/klauspost/compress/flate/stateless.go.html#line-77">stateless.go#L77</a>: 	bw := bitWriterPool.<b>Get</b>().(*huffmanBitWriter)
+		<a href="../src/github.com/klauspost/compress/flate/stateless.go.html#line-100" class="path-duplicate">stateless.go</a><a href="../src/github.com/klauspost/compress/flate/stateless.go.html#line-100">#L100</a>: 	dst := tokensPool.<b>Get</b>().(*tokens)
+
+	<a href="../pkg/github.com/klauspost/compress/huff0.html">github.com/klauspost/compress/huff0</a>
+		<a href="../src/github.com/klauspost/compress/huff0/decompress.go.html#line-224">decompress.go#L224</a>: 	buf, ok := d.bufs.<b>Get</b>().(*[4][256]byte)
+
+	<a href="../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>
+		<a href="../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-436">blockdec.go#L436</a>: 			huff = huffDecoderPool.<b>Get</b>().(*huff0.Scratch)
+		<a href="../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-585" class="path-duplicate">blockdec.go</a><a href="../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-585">#L585</a>: 					seq.fse = fseDecoderPool.<b>Get</b>().(*fseDecoder)
+		<a href="../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-601" class="path-duplicate">blockdec.go</a><a href="../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-601">#L601</a>: 					seq.fse = fseDecoderPool.<b>Get</b>().(*fseDecoder)
+		<a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-41">zip.go#L41</a>: 		dec, ok := pool.<b>Get</b>().(*Decoder)
+		<a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-120" class="path-duplicate">zip.go</a><a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-120">#L120</a>: 		enc, ok := pool.<b>Get</b>().(*Encoder)
+
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-989">conn.go#L989</a>: 	outBufPtr := outBufPool.<b>Get</b>().(*[]byte)
 
 	<a href="../pkg/go.opentelemetry.io/otel/attribute.html">go.opentelemetry.io/otel/attribute</a>
-		<a href="../src/go.opentelemetry.io/otel/attribute/encoder.go.html#line-103">encoder.go#L103</a>: 	buf := d.pool.<b>Get</b>().(*bytes.Buffer)
-		<a href="../src/go.opentelemetry.io/otel/attribute/set.go.html#line-194">set.go#L194</a>: 	srt := sortables.<b>Get</b>().(*Sortable)
-		<a href="../src/go.opentelemetry.io/otel/attribute/set.go.html#line-223" class="path-duplicate">set.go</a><a href="../src/go.opentelemetry.io/otel/attribute/set.go.html#line-223">#L223</a>: 	srt := sortables.<b>Get</b>().(*Sortable)
+		<a href="../src/go.opentelemetry.io/otel/attribute/encoder.go.html#line-92">encoder.go#L92</a>: 	buf := d.pool.<b>Get</b>().(*bytes.Buffer)
 
 	<a href="../pkg/go.uber.org/multierr.html">go.uber.org/multierr</a>
 		<a href="../src/go.uber.org/multierr/error.go.html#line-228">error.go#L228</a>: 	buff := _bufferPool.<b>Get</b>().(*bytes.Buffer)
 
-	<a href="../pkg/go.uber.org/zap/internal/pool.html">go.uber.org/zap/internal/pool</a>
-		<a href="../src/go.uber.org/zap/internal/pool/pool.go.html#line-52">pool.go#L52</a>: 	return p.pool.<b>Get</b>().(T)
-
 	<a href="../pkg/internal/poll.html">internal/poll</a>
-		<a href="../src/internal/poll/splice_linux.go.html#line-211">splice_linux.go#L211</a>: 	v := splicePipePool.<b>Get</b>()
+		<a href="../src/internal/poll/splice_linux.go.html#line-205">splice_linux.go#L205</a>: 	v := splicePipePool.<b>Get</b>()
 
 	<a href="../pkg/io.html">io</a>
-		<a href="../src/io/io.go.html#line-655">io.go#L655</a>: 	bufp := blackHolePool.<b>Get</b>().(*[]byte)
+		<a href="../src/io/io.go.html#line-663">io.go#L663</a>: 	bufp := blackHolePool.<b>Get</b>().(*[]byte)
 
 	<a href="../pkg/log.html">log</a>
 		<a href="../src/log/log.go.html#line-169">log.go#L169</a>: 	p := bufferPool.<b>Get</b>().(*[]byte)
 
 	<a href="../pkg/math/big.html">math/big</a>
-		<a href="../src/math/big/nat.go.html#line-642">nat.go#L642</a>: 	if v := natPool.<b>Get</b>(); v != nil {
+		<a href="../src/math/big/nat.go.html#line-286">nat.go#L286</a>: 	s, _ := stackPool.<b>Get</b>().(*stack)
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/h2_bundle.go.html#line-1068">h2_bundle.go#L1068</a>: 	return http2dataChunkPools[i].<b>Get</b>().([]byte)
-		<a href="../src/net/http/h2_bundle.go.html#line-1629" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1629">#L1629</a>: 	bufp := http2fhBytes.<b>Get</b>().(*[]byte)
-		<a href="../src/net/http/h2_bundle.go.html#line-3128" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-3128">#L3128</a>: 	bp := http2littleBuf.<b>Get</b>().(*[]byte)
-		<a href="../src/net/http/h2_bundle.go.html#line-3587" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-3587">#L3587</a>: 		bw := http2bufWriterPool.<b>Get</b>().(*bufio.Writer)
-		<a href="../src/net/http/h2_bundle.go.html#line-4914" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-4914">#L4914</a>: 	ch := http2errChanPool.<b>Get</b>().(chan error)
-		<a href="../src/net/http/h2_bundle.go.html#line-4915" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-4915">#L4915</a>: 	writeArg := http2writeDataPool.<b>Get</b>().(*http2writeData)
-		<a href="../src/net/http/h2_bundle.go.html#line-6103" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6103">#L6103</a>: 	rws := http2responseWriterStatePool.<b>Get</b>().(*http2responseWriterState)
-		<a href="../src/net/http/h2_bundle.go.html#line-6217" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6217">#L6217</a>: 		errc = http2errChanPool.<b>Get</b>().(chan error)
-		<a href="../src/net/http/h2_bundle.go.html#line-6585" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6585">#L6585</a>: 		sorter := http2sorterPool.<b>Get</b>().(*http2sorter)
-		<a href="../src/net/http/h2_bundle.go.html#line-6922" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6922">#L6922</a>: 		done:   http2errChanPool.<b>Get</b>().(chan error),
-		<a href="../src/net/http/h2_bundle.go.html#line-8786" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8786">#L8786</a>: 	if bp, ok := http2bufPool.<b>Get</b>().(*[]byte); ok &amp;&amp; len(*bp) &gt;= scratchLen {
-		<a href="../src/net/http/h2_bundle.go.html#line-10591" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10591">#L10591</a>: 		sorter := http2sorterPool.<b>Get</b>().(*http2sorter)
-		<a href="../src/net/http/header.go.html#line-174">header.go#L174</a>: 	hs = headerSorterPool.<b>Get</b>().(*headerSorter)
-		<a href="../src/net/http/request.go.html#line-1004">request.go#L1004</a>: 	if v := textprotoReaderPool.<b>Get</b>(); v != nil {
-		<a href="../src/net/http/server.go.html#line-579">server.go#L579</a>: 	bufp := copyBufPool.<b>Get</b>().(*[]byte)
-		<a href="../src/net/http/server.go.html#line-829" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-829">#L829</a>: 	if v := bufioReaderPool.<b>Get</b>(); v != nil {
-		<a href="../src/net/http/server.go.html#line-847" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-847">#L847</a>: 		if v := pool.<b>Get</b>(); v != nil {
-
-	<a href="../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../src/nhooyr.io/websocket/compress.go.html#line-139">compress.go#L139</a>: 	fr, ok := flateReaderPool.<b>Get</b>().(io.Reader)
-		<a href="../src/nhooyr.io/websocket/compress.go.html#line-154" class="path-duplicate">compress.go</a><a href="../src/nhooyr.io/websocket/compress.go.html#line-154">#L154</a>: 	fw, ok := flateWriterPool.<b>Get</b>().(*flate.Writer)
-		<a href="../src/nhooyr.io/websocket/compress.go.html#line-201" class="path-duplicate">compress.go</a><a href="../src/nhooyr.io/websocket/compress.go.html#line-201">#L201</a>: 	sw2, ok := p.<b>Get</b>().(*slidingWindow)
-		<a href="../src/nhooyr.io/websocket/dial.go.html#line-305">dial.go#L305</a>: 	br, ok := bufioReaderPool.<b>Get</b>().(*bufio.Reader)
-		<a href="../src/nhooyr.io/websocket/dial.go.html#line-320" class="path-duplicate">dial.go</a><a href="../src/nhooyr.io/websocket/dial.go.html#line-320">#L320</a>: 	bw, ok := bufioWriterPool.<b>Get</b>().(*bufio.Writer)
+		<a href="../src/net/http/h2_bundle.go.html#line-1217">h2_bundle.go#L1217</a>: 		return http2dataChunkPools[0].<b>Get</b>().(*[1 &lt;&lt; 10]byte)[:]
+		<a href="../src/net/http/h2_bundle.go.html#line-1219" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1219">#L1219</a>: 		return http2dataChunkPools[1].<b>Get</b>().(*[2 &lt;&lt; 10]byte)[:]
+		<a href="../src/net/http/h2_bundle.go.html#line-1221" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1221">#L1221</a>: 		return http2dataChunkPools[2].<b>Get</b>().(*[4 &lt;&lt; 10]byte)[:]
+		<a href="../src/net/http/h2_bundle.go.html#line-1223" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1223">#L1223</a>: 		return http2dataChunkPools[3].<b>Get</b>().(*[8 &lt;&lt; 10]byte)[:]
+		<a href="../src/net/http/h2_bundle.go.html#line-1225" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1225">#L1225</a>: 		return http2dataChunkPools[4].<b>Get</b>().(*[16 &lt;&lt; 10]byte)[:]
+		<a href="../src/net/http/h2_bundle.go.html#line-1799" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1799">#L1799</a>: 	bufp := http2fhBytes.<b>Get</b>().(*[]byte)
+		<a href="../src/net/http/h2_bundle.go.html#line-3363" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-3363">#L3363</a>: 	bp := http2littleBuf.<b>Get</b>().(*[]byte)
+		<a href="../src/net/http/h2_bundle.go.html#line-3741" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-3741">#L3741</a>: 		bw := http2bufWriterPool.<b>Get</b>().(*bufio.Writer)
+		<a href="../src/net/http/h2_bundle.go.html#line-4209" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-4209">#L4209</a>: 		return http2errChanPool.<b>Get</b>().(chan error) // Server used without calling ConfigureServer
+		<a href="../src/net/http/h2_bundle.go.html#line-4211" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-4211">#L4211</a>: 	return s.errChanPool.<b>Get</b>().(chan error)
+		<a href="../src/net/http/h2_bundle.go.html#line-5151" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-5151">#L5151</a>: 	writeArg := http2writeDataPool.<b>Get</b>().(*http2writeData)
+		<a href="../src/net/http/h2_bundle.go.html#line-6322" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6322">#L6322</a>: 	rws := http2responseWriterStatePool.<b>Get</b>().(*http2responseWriterState)
+		<a href="../src/net/http/h2_bundle.go.html#line-6798" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-6798">#L6798</a>: 		sorter := http2sorterPool.<b>Get</b>().(*http2sorter)
+		<a href="../src/net/http/h2_bundle.go.html#line-9168" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-9168">#L9168</a>: 	if bp, ok := http2bufPools[index].<b>Get</b>().(*[]byte); ok &amp;&amp; len(*bp) &gt;= scratchLen {
+		<a href="../src/net/http/h2_bundle.go.html#line-10452" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10452">#L10452</a>: 	zr := http2gzipPool.<b>Get</b>().(*gzip.Reader)
+		<a href="../src/net/http/h2_bundle.go.html#line-11089" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-11089">#L11089</a>: 		sorter := http2sorterPool.<b>Get</b>().(*http2sorter)
+		<a href="../src/net/http/header.go.html#line-168">header.go#L168</a>: 	hs = headerSorterPool.<b>Get</b>().(*headerSorter)
+		<a href="../src/net/http/request.go.html#line-1039">request.go#L1039</a>: 	if v := textprotoReaderPool.<b>Get</b>(); v != nil {
+		<a href="../src/net/http/server.go.html#line-837">server.go#L837</a>: 	return copyBufPool.<b>Get</b>().(*[copyBufPoolSize]byte)[:]
+		<a href="../src/net/http/server.go.html#line-858" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-858">#L858</a>: 	if v := bufioReaderPool.<b>Get</b>(); v != nil {
+		<a href="../src/net/http/server.go.html#line-876" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-876">#L876</a>: 		if v := pool.<b>Get</b>(); v != nil {
+		<a href="../src/net/http/transport.go.html#line-3132">transport.go#L3132</a>: 	zr := gzipPool.<b>Get</b>().(*gzip.Reader)
 
 	<a href="../pkg/os.html">os</a>
-		<a href="../src/os/dir_unix.go.html#line-48">dir_unix.go#L48</a>: 		f.dirinfo.buf = dirBufPool.<b>Get</b>().(*[]byte)
+		<a href="../src/os/dir_unix.go.html#line-65">dir_unix.go#L65</a>: 		d.buf = dirBufPool.<b>Get</b>().(*[]byte)
 
 	<a href="../pkg/reflect.html">reflect</a>
-		<a href="../src/reflect/value.go.html#line-489">value.go#L489</a>: 			stackArgs = framePool.<b>Get</b>().(unsafe.Pointer)
-		<a href="../src/reflect/value.go.html#line-982" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-982">#L982</a>: 	methodFrame := methodFramePool.<b>Get</b>().(unsafe.Pointer)
-
-	<a href="../pkg/regexp.html">regexp</a>
-		<a href="../src/regexp/backtrack.go.html#line-50">backtrack.go#L50</a>: 	b, ok := bitStatePool.<b>Get</b>().(*bitState)
-		<a href="../src/regexp/exec.go.html#line-384">exec.go#L384</a>: 	m, ok := onePassPool.<b>Get</b>().(*onePassMachine)
-		<a href="../src/regexp/regexp.go.html#line-239">regexp.go#L239</a>: 	m, ok := matchPool[re.mpool].<b>Get</b>().(*machine)
+		<a href="../src/reflect/value.go.html#line-479">value.go#L479</a>: 			stackArgs = framePool.<b>Get</b>().(unsafe.Pointer)
+		<a href="../src/reflect/value.go.html#line-972" class="path-duplicate">value.go</a><a href="../src/reflect/value.go.html#line-972">#L972</a>: 	methodFrame := methodFramePool.<b>Get</b>().(unsafe.Pointer)
 
 	<a href="../pkg/syscall.html">syscall</a>
 		<a href="../src/syscall/netlink_linux.go.html#line-84">netlink_linux.go#L84</a>: 	rbNew := pageBufPool.<b>Get</b>().(*[]byte)
@@ -115,8 +135,8 @@
 		<a href="../src/vendor/golang.org/x/net/http2/hpack/huffman.go.html#line-22">huffman.go#L22</a>: 	buf := bufPool.<b>Get</b>().(*bytes.Buffer)
 		<a href="../src/vendor/golang.org/x/net/http2/hpack/huffman.go.html#line-33" class="path-duplicate">huffman.go</a><a href="../src/vendor/golang.org/x/net/http2/hpack/huffman.go.html#line-33">#L33</a>: 	buf := bufPool.<b>Get</b>().(*bytes.Buffer)
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

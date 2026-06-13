@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: status.go in package go.opentelemetry.io/otel/trace/internal/telemetry</title>
+<link href="../../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	status.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../../pkg/go.opentelemetry.io/otel/trace/internal/telemetry.html">go.opentelemetry.io/otel/trace/internal/telemetry</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1]
+{background: #226; color: #ff8;}
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright The OpenTelemetry Authors</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></code></span>
+<span class="codeline" id="line-3"><code></code></span>
+<span class="codeline" id="line-4"><code><span class="keyword">package</span> telemetry <span class="comment">// import "go.opentelemetry.io/otel/trace/internal/telemetry"</span></code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code><span class="comment">// StatusCode is the status of a Span.</span></code></span>
+<span class="codeline" id="line-7"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-8"><code><span class="comment">// For the semantics of status codes see</span></code></span>
+<span class="codeline" id="line-9"><code><span class="comment">// https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status</span></code></span>
+<span class="codeline" id="line-10"><code><span class="keyword">type</span> <a href="../../../../../../pkg/go.opentelemetry.io/otel/trace/internal/telemetry.html#name-StatusCode" class="ident">StatusCode</a> <a href="../../../../../../pkg/builtin.html#name-int32" class="ident">int32</a></code></span>
+<span class="codeline" id="line-11"><code></code></span>
+<span class="codeline" id="line-12"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-13"><code>	<span class="comment">// StatusCodeUnset is the default status.</span></code></span>
+<span class="codeline" id="line-14"><code>	<a href="../../../../../../pkg/go.opentelemetry.io/otel/trace/internal/telemetry.html#name-StatusCodeUnset" class="ident">StatusCodeUnset</a> <a href="#line-10" class="ident">StatusCode</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-15"><code>	<span class="comment">// StatusCodeOK is used when the Span has been validated by an Application</span></code></span>
+<span class="codeline" id="line-16"><code><span class="comment">	// developer or Operator to have completed successfully.</span></code></span>
+<span class="codeline" id="line-17"><code>	<a href="../../../../../../pkg/go.opentelemetry.io/otel/trace/internal/telemetry.html#name-StatusCodeOK" class="ident">StatusCodeOK</a> <a href="#line-10" class="ident">StatusCode</a> = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-18"><code>	<span class="comment">// StatusCodeError is used when the Span contains an error.</span></code></span>
+<span class="codeline" id="line-19"><code>	<a href="../../../../../../pkg/go.opentelemetry.io/otel/trace/internal/telemetry.html#name-StatusCodeError" class="ident">StatusCodeError</a> <a href="#line-10" class="ident">StatusCode</a> = <span class="lit-number">2</span></code></span>
+<span class="codeline" id="line-20"><code>)</code></span>
+<span class="codeline" id="line-21"><code></code></span>
+<span class="codeline" id="line-22"><code><span class="keyword">var</span> <a href="../../../../../../pkg/go.opentelemetry.io/otel/trace/internal/telemetry.html#name-statusCodeStrings" class="ident">statusCodeStrings</a> = []<a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>{</code></span>
+<span class="codeline" id="line-23"><code>	<span class="lit-string">"Unset"</span>,</code></span>
+<span class="codeline" id="line-24"><code>	<span class="lit-string">"OK"</span>,</code></span>
+<span class="codeline" id="line-25"><code>	<span class="lit-string">"Error"</span>,</code></span>
+<span class="codeline" id="line-26"><code>}</code></span>
+<span class="codeline" id="line-27"><code></code></span>
+<span class="codeline" id="line-28"><code><span class="keyword">func</span> (<label for="r0" class="ident">s</label> <a href="#line-10" class="ident">StatusCode</a>) <label for="r1" class="ident"><a href="../../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..StatusCode.String.html" class="ident">String</a></label>() <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-29"><code>	<span class="keyword">if</span> <label for="r0" class="ident">s</label> &gt;= <span class="lit-number">0</span> &amp;&amp; <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r0" class="ident">s</label>) &lt; <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<a href="#line-22" class="ident">statusCodeStrings</a>) {</code></span>
+<span class="codeline" id="line-30"><code>		<span class="keyword">return</span> <a href="#line-22" class="ident">statusCodeStrings</a>[<label for="r0" class="ident">s</label>]</code></span>
+<span class="codeline" id="line-31"><code>	}</code></span>
+<span class="codeline" id="line-32"><code>	<span class="keyword">return</span> <span class="lit-string">"&lt;unknown telemetry.StatusCode&gt;"</span></code></span>
+<span class="codeline" id="line-33"><code>}</code></span>
+<span class="codeline" id="line-34"><code></code></span>
+<span class="codeline" id="line-35"><code><span class="comment">// Status defines a logical error model that is suitable for different</span></code></span>
+<span class="codeline" id="line-36"><code><span class="comment">// programming environments, including REST APIs and RPC APIs.</span></code></span>
+<span class="codeline" id="line-37"><code><span class="keyword">type</span> <a href="../../../../../../pkg/go.opentelemetry.io/otel/trace/internal/telemetry.html#name-Status" class="ident">Status</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-38"><code>	<span class="comment">// A developer-facing human readable error message.</span></code></span>
+<span class="codeline" id="line-39"><code>	<a href="../../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Status.Message.html" class="ident">Message</a> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a> <span class="lit-string">`json:"message,omitempty"`</span></code></span>
+<span class="codeline" id="line-40"><code>	<span class="comment">// The status code.</span></code></span>
+<span class="codeline" id="line-41"><code>	<a href="../../../../../../use/go.opentelemetry.io/otel/trace/internal/telemetry..Status.Code.html" class="ident">Code</a> <a href="#line-10" class="ident">StatusCode</a> <span class="lit-string">`json:"code,omitempty"`</span></code></span>
+<span class="codeline" id="line-42"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

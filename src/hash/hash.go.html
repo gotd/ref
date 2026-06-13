@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: hash.go in package hash</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -32,9 +32,9 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-9"><code></code></span>
 <span class="codeline" id="line-10"><code><span class="comment">// Hash is the common interface implemented by all hash functions.</span></code></span>
 <span class="codeline" id="line-11"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-12"><code><span class="comment">// Hash implementations in the standard library (e.g. hash/crc32 and</span></code></span>
-<span class="codeline" id="line-13"><code><span class="comment">// crypto/sha256) implement the encoding.BinaryMarshaler and</span></code></span>
-<span class="codeline" id="line-14"><code><span class="comment">// encoding.BinaryUnmarshaler interfaces. Marshaling a hash implementation</span></code></span>
+<span class="codeline" id="line-12"><code><span class="comment">// Hash implementations in the standard library (e.g. [hash/crc32] and</span></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">// [crypto/sha256]) implement the [encoding.BinaryMarshaler], [encoding.BinaryAppender],</span></code></span>
+<span class="codeline" id="line-14"><code><span class="comment">// [encoding.BinaryUnmarshaler] and [Cloner] interfaces. Marshaling a hash implementation</span></code></span>
 <span class="codeline" id="line-15"><code><span class="comment">// allows its internal state to be saved and used for additional processing</span></code></span>
 <span class="codeline" id="line-16"><code><span class="comment">// later, without having to re-write the data previously written to the hash.</span></code></span>
 <span class="codeline" id="line-17"><code><span class="comment">// The hash state may contain portions of the input in its original form,</span></code></span>
@@ -79,9 +79,43 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-56"><code>	<a href="#line-26" class="ident">Hash</a></code></span>
 <span class="codeline" id="line-57"><code>	<a href="../../imp/hash.Hash64.html#name-Sum64" class="ident">Sum64</a>() <a href="../../pkg/builtin.html#name-uint64" class="ident">uint64</a></code></span>
 <span class="codeline" id="line-58"><code>}</code></span>
+<span class="codeline" id="line-59"><code></code></span>
+<span class="codeline" id="line-60"><code><span class="comment">// A Cloner is a hash function whose state can be cloned, returning a value with</span></code></span>
+<span class="codeline" id="line-61"><code><span class="comment">// equivalent and independent state.</span></code></span>
+<span class="codeline" id="line-62"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-63"><code><span class="comment">// All [Hash] implementations in the standard library implement this interface,</span></code></span>
+<span class="codeline" id="line-64"><code><span class="comment">// unless GOFIPS140=v1.0.0 is set.</span></code></span>
+<span class="codeline" id="line-65"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-66"><code><span class="comment">// If a hash can only determine at runtime if it can be cloned (e.g. if it wraps</span></code></span>
+<span class="codeline" id="line-67"><code><span class="comment">// another hash), Clone may return an error wrapping [errors.ErrUnsupported].</span></code></span>
+<span class="codeline" id="line-68"><code><span class="comment">// Otherwise, Clone must always return a nil error.</span></code></span>
+<span class="codeline" id="line-69"><code><span class="keyword">type</span> <a href="../../pkg/hash.html#name-Cloner" class="ident">Cloner</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-70"><code>	<a href="#line-26" class="ident">Hash</a></code></span>
+<span class="codeline" id="line-71"><code>	<a href="../../imp/hash.Cloner.html#name-Clone" class="ident">Clone</a>() (<a href="#line-69" class="ident">Cloner</a>, <a href="../../pkg/builtin.html#name-error" class="ident">error</a>)</code></span>
+<span class="codeline" id="line-72"><code>}</code></span>
+<span class="codeline" id="line-73"><code></code></span>
+<span class="codeline" id="line-74"><code><span class="comment">// XOF (extendable output function) is a hash function with arbitrary or unlimited output length.</span></code></span>
+<span class="codeline" id="line-75"><code><span class="keyword">type</span> <a href="../../pkg/hash.html#name-XOF" class="ident">XOF</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-76"><code>	<span class="comment">// Write absorbs more data into the XOF's state. It panics if called</span></code></span>
+<span class="codeline" id="line-77"><code><span class="comment">	// after Read.</span></code></span>
+<span class="codeline" id="line-78"><code>	<a href="../../pkg/io.html" class="ident i0">io</a>.<a href="../io/io.go.html#line-99" class="ident">Writer</a></code></span>
+<span class="codeline" id="line-79"><code></code></span>
+<span class="codeline" id="line-80"><code>	<span class="comment">// Read reads more output from the XOF. It may return io.EOF if there</span></code></span>
+<span class="codeline" id="line-81"><code><span class="comment">	// is a limit to the XOF output length.</span></code></span>
+<span class="codeline" id="line-82"><code>	<a href="../../pkg/io.html" class="ident i0">io</a>.<a href="../io/io.go.html#line-86" class="ident">Reader</a></code></span>
+<span class="codeline" id="line-83"><code></code></span>
+<span class="codeline" id="line-84"><code>	<span class="comment">// Reset resets the XOF to its initial state.</span></code></span>
+<span class="codeline" id="line-85"><code>	<a href="../../imp/hash.XOF.html#name-Reset" class="ident">Reset</a>()</code></span>
+<span class="codeline" id="line-86"><code></code></span>
+<span class="codeline" id="line-87"><code>	<span class="comment">// BlockSize returns the XOF's underlying block size.</span></code></span>
+<span class="codeline" id="line-88"><code><span class="comment">	// The Write method must be able to accept any amount</span></code></span>
+<span class="codeline" id="line-89"><code><span class="comment">	// of data, but it may operate more efficiently if all writes</span></code></span>
+<span class="codeline" id="line-90"><code><span class="comment">	// are a multiple of the block size.</span></code></span>
+<span class="codeline" id="line-91"><code>	<a href="../../imp/hash.XOF.html#name-BlockSize" class="ident">BlockSize</a>() <a href="../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-92"><code>}</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

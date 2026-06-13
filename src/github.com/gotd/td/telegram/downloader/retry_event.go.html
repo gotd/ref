@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: retry_event.go in package github.com/gotd/td/telegram/downloader</title>
+<link href="../../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	retry_event.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6]
+{background: #226; color: #ff8;}
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> downloader</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// RetryEvent describes retried transient downloader error.</span></code></span>
+<span class="codeline" id="line-4"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-RetryEvent" class="ident">RetryEvent</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-5"><code>	<span class="comment">// Operation identifies retry source.</span></code></span>
+<span class="codeline" id="line-6"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..RetryEvent.Operation.html" class="ident">Operation</a> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-7"><code>	<span class="comment">// Attempt is 1-based counter inside current retry loop.</span></code></span>
+<span class="codeline" id="line-8"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..RetryEvent.Attempt.html" class="ident">Attempt</a> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-9"><code>	<span class="comment">// Err is the error that triggered retry.</span></code></span>
+<span class="codeline" id="line-10"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..RetryEvent.Err.html" class="ident">Err</a> <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
+<span class="codeline" id="line-11"><code>}</code></span>
+<span class="codeline" id="line-12"><code></code></span>
+<span class="codeline" id="line-13"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-14"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-RetryOperationGetFile" class="ident">RetryOperationGetFile</a>         = <span class="lit-string">"cdn.get_file"</span></code></span>
+<span class="codeline" id="line-15"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-RetryOperationGetFileHashes" class="ident">RetryOperationGetFileHashes</a>   = <span class="lit-string">"cdn.get_file_hashes"</span></code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-RetryOperationReupload" class="ident">RetryOperationReupload</a>        = <span class="lit-string">"cdn.reupload"</span></code></span>
+<span class="codeline" id="line-17"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-RetryOperationRefreshRedirect" class="ident">RetryOperationRefreshRedirect</a> = <span class="lit-string">"cdn.refresh_redirect"</span></code></span>
+<span class="codeline" id="line-18"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-RetryOperationCreateClient" class="ident">RetryOperationCreateClient</a>    = <span class="lit-string">"cdn.create_client"</span></code></span>
+<span class="codeline" id="line-19"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-RetryOperationReaderChunk" class="ident">RetryOperationReaderChunk</a>     = <span class="lit-string">"reader.chunk"</span></code></span>
+<span class="codeline" id="line-20"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-RetryOperationReaderHashes" class="ident">RetryOperationReaderHashes</a>    = <span class="lit-string">"reader.hashes"</span></code></span>
+<span class="codeline" id="line-21"><code>)</code></span>
+<span class="codeline" id="line-22"><code></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">// RetryHandler is called for every downloader error that is retried internally.</span></code></span>
+<span class="codeline" id="line-24"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-RetryHandler" class="ident">RetryHandler</a> <span class="keyword">func</span>(event <a href="#line-4" class="ident">RetryEvent</a>)</code></span>
+<span class="codeline" id="line-25"><code></code></span>
+<span class="codeline" id="line-26"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-retryReporter" class="ident">retryReporter</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-27"><code>	<a href="../../../../../../imp/github.com/gotd/td/telegram/downloader.retryReporter^f7803.html#name-github.com/gotd/td/telegram/downloader.reportRetry" class="ident">reportRetry</a>(operation <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, attempt <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>, err <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>)</code></span>
+<span class="codeline" id="line-28"><code>}</code></span>
+<span class="codeline" id="line-29"><code></code></span>
+<span class="codeline" id="line-30"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-reportSchemaRetry" class="ident">reportSchemaRetry</a></label>(<label for="r1" class="ident">s</label> <a href="client.go.html#line-39" class="ident">schema</a>, <label for="r2" class="ident">operation</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r3" class="ident">attempt</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r4" class="ident">err</label> <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-31"><code>	<span class="keyword">if</span> <label for="r3" class="ident">attempt</label> &lt; <span class="lit-number">1</span> || <label for="r4" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-32"><code>		<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-33"><code>	}</code></span>
+<span class="codeline" id="line-34"><code></code></span>
+<span class="codeline" id="line-35"><code>	<label for="r5" class="ident">reporter</label>, <label for="r6" class="ident">ok</label> := <label for="r1" class="ident">s</label>.(<a href="#line-26" class="ident">retryReporter</a>)</code></span>
+<span class="codeline" id="line-36"><code>	<span class="keyword">if</span> !<label for="r6" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-37"><code>		<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-38"><code>	}</code></span>
+<span class="codeline" id="line-39"><code></code></span>
+<span class="codeline" id="line-40"><code>	<label for="r5" class="ident">reporter</label>.<a href="#line-27" class="ident">reportRetry</a>(<label for="r2" class="ident">operation</label>, <label for="r3" class="ident">attempt</label>, <label for="r4" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-41"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

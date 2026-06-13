@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: quic_frame_types.go in package github.com/refraction-networking/utls/dicttls</title>
+<link href="../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	quic_frame_types.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html">github.com/refraction-networking/utls/dicttls</a>
+</code></pre>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> dicttls</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// source: https://www.iana.org/assignments/quic/quic.xhtml#quic-frame-types</span></code></span>
+<span class="codeline" id="line-4"><code><span class="comment">// last updated: July 2023</span></code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-7"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_PADDING" class="ident">QUICFrameType_PADDING</a>              <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x00</span></code></span>
+<span class="codeline" id="line-8"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_PING" class="ident">QUICFrameType_PING</a>                 <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x01</span></code></span>
+<span class="codeline" id="line-9"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_ACK" class="ident">QUICFrameType_ACK</a>                  <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x02</span></code></span>
+<span class="codeline" id="line-10"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_ACK_ecn" class="ident">QUICFrameType_ACK_ecn</a>              <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x03</span></code></span>
+<span class="codeline" id="line-11"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_RESET_STREAM" class="ident">QUICFrameType_RESET_STREAM</a>         <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x04</span></code></span>
+<span class="codeline" id="line-12"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_STOP_SENDING" class="ident">QUICFrameType_STOP_SENDING</a>         <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x05</span></code></span>
+<span class="codeline" id="line-13"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_CRYPTO" class="ident">QUICFrameType_CRYPTO</a>               <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x06</span></code></span>
+<span class="codeline" id="line-14"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_NEW_TOKEN" class="ident">QUICFrameType_NEW_TOKEN</a>            <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x07</span></code></span>
+<span class="codeline" id="line-15"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_STREAM" class="ident">QUICFrameType_STREAM</a>               <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x08</span></code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_STREAM_fin" class="ident">QUICFrameType_STREAM_fin</a>           <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x09</span></code></span>
+<span class="codeline" id="line-17"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_STREAM_len" class="ident">QUICFrameType_STREAM_len</a>           <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x0a</span></code></span>
+<span class="codeline" id="line-18"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_STREAM_len_fin" class="ident">QUICFrameType_STREAM_len_fin</a>       <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x0b</span></code></span>
+<span class="codeline" id="line-19"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_STREAM_off" class="ident">QUICFrameType_STREAM_off</a>           <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x0c</span></code></span>
+<span class="codeline" id="line-20"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_STREAM_off_fin" class="ident">QUICFrameType_STREAM_off_fin</a>       <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x0d</span></code></span>
+<span class="codeline" id="line-21"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_STREAM_off_len" class="ident">QUICFrameType_STREAM_off_len</a>       <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x0e</span></code></span>
+<span class="codeline" id="line-22"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_STREAM_off_len_fin" class="ident">QUICFrameType_STREAM_off_len_fin</a>   <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x0f</span></code></span>
+<span class="codeline" id="line-23"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_MAX_DATA" class="ident">QUICFrameType_MAX_DATA</a>             <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x10</span></code></span>
+<span class="codeline" id="line-24"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_MAX_STREAM_DATA" class="ident">QUICFrameType_MAX_STREAM_DATA</a>      <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x11</span></code></span>
+<span class="codeline" id="line-25"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_MAX_STREAMS_bidi" class="ident">QUICFrameType_MAX_STREAMS_bidi</a>     <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x12</span></code></span>
+<span class="codeline" id="line-26"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_MAX_STREAMS_uni" class="ident">QUICFrameType_MAX_STREAMS_uni</a>      <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x13</span></code></span>
+<span class="codeline" id="line-27"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_DATA_BLOCKED" class="ident">QUICFrameType_DATA_BLOCKED</a>         <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x14</span></code></span>
+<span class="codeline" id="line-28"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_STREAM_DATA_BLOCKED" class="ident">QUICFrameType_STREAM_DATA_BLOCKED</a>  <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x15</span></code></span>
+<span class="codeline" id="line-29"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_STREAMS_BLOCKED_bidi" class="ident">QUICFrameType_STREAMS_BLOCKED_bidi</a> <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x16</span></code></span>
+<span class="codeline" id="line-30"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_STREAMS_BLOCKED_uni" class="ident">QUICFrameType_STREAMS_BLOCKED_uni</a>  <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x17</span></code></span>
+<span class="codeline" id="line-31"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_NEW_CONNECTION_ID" class="ident">QUICFrameType_NEW_CONNECTION_ID</a>    <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x18</span></code></span>
+<span class="codeline" id="line-32"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_RETIRE_CONNECTION_ID" class="ident">QUICFrameType_RETIRE_CONNECTION_ID</a> <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x19</span></code></span>
+<span class="codeline" id="line-33"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_PATH_CHALLENGE" class="ident">QUICFrameType_PATH_CHALLENGE</a>       <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x1a</span></code></span>
+<span class="codeline" id="line-34"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_PATH_RESPONSE" class="ident">QUICFrameType_PATH_RESPONSE</a>        <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x1b</span></code></span>
+<span class="codeline" id="line-35"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_CONNECTION_CLOSE" class="ident">QUICFrameType_CONNECTION_CLOSE</a>     <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x1c</span></code></span>
+<span class="codeline" id="line-36"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_CONNECTION_CLOSE_app" class="ident">QUICFrameType_CONNECTION_CLOSE_app</a> <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x1d</span></code></span>
+<span class="codeline" id="line-37"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_HANDSHAKE_DONE" class="ident">QUICFrameType_HANDSHAKE_DONE</a>       <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x1e</span></code></span>
+<span class="codeline" id="line-38"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_DATAGRAM" class="ident">QUICFrameType_DATAGRAM</a>             <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x30</span> <span class="comment">// RFC9221</span></code></span>
+<span class="codeline" id="line-39"><code>	<a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-QUICFrameType_DATAGRAM_len" class="ident">QUICFrameType_DATAGRAM_len</a>         <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">0x31</span> <span class="comment">// RFC9221</span></code></span>
+<span class="codeline" id="line-40"><code>)</code></span>
+<span class="codeline" id="line-41"><code></code></span>
+<span class="codeline" id="line-42"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-DictQUICFrameTypeValueIndexed" class="ident">DictQUICFrameTypeValueIndexed</a> = <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>]<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>{</code></span>
+<span class="codeline" id="line-43"><code>	<span class="lit-number">0x00</span>: <span class="lit-string">"PADDING"</span>,</code></span>
+<span class="codeline" id="line-44"><code>	<span class="lit-number">0x01</span>: <span class="lit-string">"PING"</span>,</code></span>
+<span class="codeline" id="line-45"><code>	<span class="lit-number">0x02</span>: <span class="lit-string">"ACK"</span>,</code></span>
+<span class="codeline" id="line-46"><code>	<span class="lit-number">0x03</span>: <span class="lit-string">"ACK_ecn"</span>,</code></span>
+<span class="codeline" id="line-47"><code>	<span class="lit-number">0x04</span>: <span class="lit-string">"RESET_STREAM"</span>,</code></span>
+<span class="codeline" id="line-48"><code>	<span class="lit-number">0x05</span>: <span class="lit-string">"STOP_SENDING"</span>,</code></span>
+<span class="codeline" id="line-49"><code>	<span class="lit-number">0x06</span>: <span class="lit-string">"CRYPTO"</span>,</code></span>
+<span class="codeline" id="line-50"><code>	<span class="lit-number">0x07</span>: <span class="lit-string">"NEW_TOKEN"</span>,</code></span>
+<span class="codeline" id="line-51"><code>	<span class="lit-number">0x08</span>: <span class="lit-string">"STREAM"</span>,</code></span>
+<span class="codeline" id="line-52"><code>	<span class="lit-number">0x09</span>: <span class="lit-string">"STREAM_fin"</span>,</code></span>
+<span class="codeline" id="line-53"><code>	<span class="lit-number">0x0a</span>: <span class="lit-string">"STREAM_len"</span>,</code></span>
+<span class="codeline" id="line-54"><code>	<span class="lit-number">0x0b</span>: <span class="lit-string">"STREAM_len_fin"</span>,</code></span>
+<span class="codeline" id="line-55"><code>	<span class="lit-number">0x0c</span>: <span class="lit-string">"STREAM_off"</span>,</code></span>
+<span class="codeline" id="line-56"><code>	<span class="lit-number">0x0d</span>: <span class="lit-string">"STREAM_off_fin"</span>,</code></span>
+<span class="codeline" id="line-57"><code>	<span class="lit-number">0x0e</span>: <span class="lit-string">"STREAM_off_len"</span>,</code></span>
+<span class="codeline" id="line-58"><code>	<span class="lit-number">0x0f</span>: <span class="lit-string">"STREAM_off_len_fin"</span>,</code></span>
+<span class="codeline" id="line-59"><code>	<span class="lit-number">0x10</span>: <span class="lit-string">"MAX_DATA"</span>,</code></span>
+<span class="codeline" id="line-60"><code>	<span class="lit-number">0x11</span>: <span class="lit-string">"MAX_STREAM_DATA"</span>,</code></span>
+<span class="codeline" id="line-61"><code>	<span class="lit-number">0x12</span>: <span class="lit-string">"MAX_STREAMS_bidi"</span>,</code></span>
+<span class="codeline" id="line-62"><code>	<span class="lit-number">0x13</span>: <span class="lit-string">"MAX_STREAMS_uni"</span>,</code></span>
+<span class="codeline" id="line-63"><code>	<span class="lit-number">0x14</span>: <span class="lit-string">"DATA_BLOCKED"</span>,</code></span>
+<span class="codeline" id="line-64"><code>	<span class="lit-number">0x15</span>: <span class="lit-string">"STREAM_DATA_BLOCKED"</span>,</code></span>
+<span class="codeline" id="line-65"><code>	<span class="lit-number">0x16</span>: <span class="lit-string">"STREAMS_BLOCKED_bidi"</span>,</code></span>
+<span class="codeline" id="line-66"><code>	<span class="lit-number">0x17</span>: <span class="lit-string">"STREAMS_BLOCKED_uni"</span>,</code></span>
+<span class="codeline" id="line-67"><code>	<span class="lit-number">0x18</span>: <span class="lit-string">"NEW_CONNECTION_ID"</span>,</code></span>
+<span class="codeline" id="line-68"><code>	<span class="lit-number">0x19</span>: <span class="lit-string">"RETIRE_CONNECTION_ID"</span>,</code></span>
+<span class="codeline" id="line-69"><code>	<span class="lit-number">0x1a</span>: <span class="lit-string">"PATH_CHALLENGE"</span>,</code></span>
+<span class="codeline" id="line-70"><code>	<span class="lit-number">0x1b</span>: <span class="lit-string">"PATH_RESPONSE"</span>,</code></span>
+<span class="codeline" id="line-71"><code>	<span class="lit-number">0x1c</span>: <span class="lit-string">"CONNECTION_CLOSE"</span>,</code></span>
+<span class="codeline" id="line-72"><code>	<span class="lit-number">0x1d</span>: <span class="lit-string">"CONNECTION_CLOSE_app"</span>,</code></span>
+<span class="codeline" id="line-73"><code>	<span class="lit-number">0x1e</span>: <span class="lit-string">"HANDSHAKE_DONE"</span>,</code></span>
+<span class="codeline" id="line-74"><code>	<span class="lit-number">0x30</span>: <span class="lit-string">"DATAGRAM"</span>,</code></span>
+<span class="codeline" id="line-75"><code>	<span class="lit-number">0x31</span>: <span class="lit-string">"DATAGRAM_len"</span>,</code></span>
+<span class="codeline" id="line-76"><code>}</code></span>
+<span class="codeline" id="line-77"><code></code></span>
+<span class="codeline" id="line-78"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/refraction-networking/utls/dicttls.html#name-DictQUICFrameTypeNameIndexed" class="ident">DictQUICFrameTypeNameIndexed</a> = <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>{</code></span>
+<span class="codeline" id="line-79"><code>	<span class="lit-string">"PADDING"</span>:              <span class="lit-number">0x00</span>,</code></span>
+<span class="codeline" id="line-80"><code>	<span class="lit-string">"PING"</span>:                 <span class="lit-number">0x01</span>,</code></span>
+<span class="codeline" id="line-81"><code>	<span class="lit-string">"ACK"</span>:                  <span class="lit-number">0x02</span>,</code></span>
+<span class="codeline" id="line-82"><code>	<span class="lit-string">"ACK_ecn"</span>:              <span class="lit-number">0x03</span>,</code></span>
+<span class="codeline" id="line-83"><code>	<span class="lit-string">"RESET_STREAM"</span>:         <span class="lit-number">0x04</span>,</code></span>
+<span class="codeline" id="line-84"><code>	<span class="lit-string">"STOP_SENDING"</span>:         <span class="lit-number">0x05</span>,</code></span>
+<span class="codeline" id="line-85"><code>	<span class="lit-string">"CRYPTO"</span>:               <span class="lit-number">0x06</span>,</code></span>
+<span class="codeline" id="line-86"><code>	<span class="lit-string">"NEW_TOKEN"</span>:            <span class="lit-number">0x07</span>,</code></span>
+<span class="codeline" id="line-87"><code>	<span class="lit-string">"STREAM"</span>:               <span class="lit-number">0x08</span>,</code></span>
+<span class="codeline" id="line-88"><code>	<span class="lit-string">"STREAM_fin"</span>:           <span class="lit-number">0x09</span>,</code></span>
+<span class="codeline" id="line-89"><code>	<span class="lit-string">"STREAM_len"</span>:           <span class="lit-number">0x0a</span>,</code></span>
+<span class="codeline" id="line-90"><code>	<span class="lit-string">"STREAM_len_fin"</span>:       <span class="lit-number">0x0b</span>,</code></span>
+<span class="codeline" id="line-91"><code>	<span class="lit-string">"STREAM_off"</span>:           <span class="lit-number">0x0c</span>,</code></span>
+<span class="codeline" id="line-92"><code>	<span class="lit-string">"STREAM_off_fin"</span>:       <span class="lit-number">0x0d</span>,</code></span>
+<span class="codeline" id="line-93"><code>	<span class="lit-string">"STREAM_off_len"</span>:       <span class="lit-number">0x0e</span>,</code></span>
+<span class="codeline" id="line-94"><code>	<span class="lit-string">"STREAM_off_len_fin"</span>:   <span class="lit-number">0x0f</span>,</code></span>
+<span class="codeline" id="line-95"><code>	<span class="lit-string">"MAX_DATA"</span>:             <span class="lit-number">0x10</span>,</code></span>
+<span class="codeline" id="line-96"><code>	<span class="lit-string">"MAX_STREAM_DATA"</span>:      <span class="lit-number">0x11</span>,</code></span>
+<span class="codeline" id="line-97"><code>	<span class="lit-string">"MAX_STREAMS_bidi"</span>:     <span class="lit-number">0x12</span>,</code></span>
+<span class="codeline" id="line-98"><code>	<span class="lit-string">"MAX_STREAMS_uni"</span>:      <span class="lit-number">0x13</span>,</code></span>
+<span class="codeline" id="line-99"><code>	<span class="lit-string">"DATA_BLOCKED"</span>:         <span class="lit-number">0x14</span>,</code></span>
+<span class="codeline" id="line-100"><code>	<span class="lit-string">"STREAM_DATA_BLOCKED"</span>:  <span class="lit-number">0x15</span>,</code></span>
+<span class="codeline" id="line-101"><code>	<span class="lit-string">"STREAMS_BLOCKED_bidi"</span>: <span class="lit-number">0x16</span>,</code></span>
+<span class="codeline" id="line-102"><code>	<span class="lit-string">"STREAMS_BLOCKED_uni"</span>:  <span class="lit-number">0x17</span>,</code></span>
+<span class="codeline" id="line-103"><code>	<span class="lit-string">"NEW_CONNECTION_ID"</span>:    <span class="lit-number">0x18</span>,</code></span>
+<span class="codeline" id="line-104"><code>	<span class="lit-string">"RETIRE_CONNECTION_ID"</span>: <span class="lit-number">0x19</span>,</code></span>
+<span class="codeline" id="line-105"><code>	<span class="lit-string">"PATH_CHALLENGE"</span>:       <span class="lit-number">0x1a</span>,</code></span>
+<span class="codeline" id="line-106"><code>	<span class="lit-string">"PATH_RESPONSE"</span>:        <span class="lit-number">0x1b</span>,</code></span>
+<span class="codeline" id="line-107"><code>	<span class="lit-string">"CONNECTION_CLOSE"</span>:     <span class="lit-number">0x1c</span>,</code></span>
+<span class="codeline" id="line-108"><code>	<span class="lit-string">"CONNECTION_CLOSE_app"</span>: <span class="lit-number">0x1d</span>,</code></span>
+<span class="codeline" id="line-109"><code>	<span class="lit-string">"HANDSHAKE_DONE"</span>:       <span class="lit-number">0x1e</span>,</code></span>
+<span class="codeline" id="line-110"><code>	<span class="lit-string">"DATAGRAM"</span>:             <span class="lit-number">0x30</span>,</code></span>
+<span class="codeline" id="line-111"><code>	<span class="lit-string">"DATAGRAM_len"</span>:         <span class="lit-number">0x31</span>,</code></span>
+<span class="codeline" id="line-112"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

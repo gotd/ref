@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: io.Reader</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../pkg/io.html">io</a>.<a href="../src/io/io.go.html#line-86">Reader</a></b></span>
 
-<span class="title">284 uses</span>
+<span class="title">350 uses</span>
 
 	io (current package)
 		<a href="../src/io/io.go.html#line-86">io.go#L86</a>: type <b>Reader</b> interface {
@@ -24,39 +24,35 @@
 		<a href="../src/io/io.go.html#line-190" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-190">#L190</a>: 	ReadFrom(r <b>Reader</b>) (n int64, err error)
 		<a href="../src/io/io.go.html#line-329" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-329">#L329</a>: func ReadAtLeast(r <b>Reader</b>, buf []byte, min int) (n int, err error) {
 		<a href="../src/io/io.go.html#line-353" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-353">#L353</a>: func ReadFull(r <b>Reader</b>, buf []byte) (n int, err error) {
-		<a href="../src/io/io.go.html#line-364" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-364">#L364</a>: func CopyN(dst Writer, src <b>Reader</b>, n int64) (written int64, err error) {
-		<a href="../src/io/io.go.html#line-388" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-388">#L388</a>: func Copy(dst Writer, src <b>Reader</b>) (written int64, err error) {
-		<a href="../src/io/io.go.html#line-399" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-399">#L399</a>: func CopyBuffer(dst Writer, src <b>Reader</b>, buf []byte) (written int64, err error) {
-		<a href="../src/io/io.go.html#line-408" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-408">#L408</a>: func copyBuffer(dst Writer, src <b>Reader</b>, buf []byte) (written int64, err error) {
-		<a href="../src/io/io.go.html#line-462" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-462">#L462</a>: func LimitReader(r <b>Reader</b>, n int64) <b>Reader</b> { return &amp;LimitedReader{r, n} }
-		<a href="../src/io/io.go.html#line-469" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-469">#L469</a>: 	R <b>Reader</b> // underlying reader
-		<a href="../src/io/io.go.html#line-610" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-610">#L610</a>: func TeeReader(r <b>Reader</b>, w Writer) <b>Reader</b> {
-		<a href="../src/io/io.go.html#line-615" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-615">#L615</a>: 	r <b>Reader</b>
-		<a href="../src/io/io.go.html#line-654" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-654">#L654</a>: func (discard) ReadFrom(r <b>Reader</b>) (n int64, err error) {
-		<a href="../src/io/io.go.html#line-674" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-674">#L674</a>: func NopCloser(r <b>Reader</b>) ReadCloser {
-		<a href="../src/io/io.go.html#line-682" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-682">#L682</a>: 	<b>Reader</b>
-		<a href="../src/io/io.go.html#line-688" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-688">#L688</a>: 	<b>Reader</b>
-		<a href="../src/io/io.go.html#line-701" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-701">#L701</a>: func ReadAll(r <b>Reader</b>) ([]byte, error) {
+		<a href="../src/io/io.go.html#line-363" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-363">#L363</a>: func CopyN(dst Writer, src <b>Reader</b>, n int64) (written int64, err error) {
+		<a href="../src/io/io.go.html#line-387" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-387">#L387</a>: func Copy(dst Writer, src <b>Reader</b>) (written int64, err error) {
+		<a href="../src/io/io.go.html#line-398" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-398">#L398</a>: func CopyBuffer(dst Writer, src <b>Reader</b>, buf []byte) (written int64, err error) {
+		<a href="../src/io/io.go.html#line-407" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-407">#L407</a>: func copyBuffer(dst Writer, src <b>Reader</b>, buf []byte) (written int64, err error) {
+		<a href="../src/io/io.go.html#line-461" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-461">#L461</a>: func LimitReader(r <b>Reader</b>, n int64) <b>Reader</b> { return &amp;LimitedReader{r, n} }
+		<a href="../src/io/io.go.html#line-468" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-468">#L468</a>: 	R <b>Reader</b> // underlying reader
+		<a href="../src/io/io.go.html#line-618" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-618">#L618</a>: func TeeReader(r <b>Reader</b>, w Writer) <b>Reader</b> {
+		<a href="../src/io/io.go.html#line-623" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-623">#L623</a>: 	r <b>Reader</b>
+		<a href="../src/io/io.go.html#line-662" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-662">#L662</a>: func (discard) ReadFrom(r <b>Reader</b>) (n int64, err error) {
+		<a href="../src/io/io.go.html#line-682" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-682">#L682</a>: func NopCloser(r <b>Reader</b>) ReadCloser {
+		<a href="../src/io/io.go.html#line-690" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-690">#L690</a>: 	<b>Reader</b>
+		<a href="../src/io/io.go.html#line-696" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-696">#L696</a>: 	<b>Reader</b>
+		<a href="../src/io/io.go.html#line-709" class="path-duplicate">io.go</a><a href="../src/io/io.go.html#line-709">#L709</a>: func ReadAll(r <b>Reader</b>) ([]byte, error) {
 		<a href="../src/io/multi.go.html#line-14">multi.go#L14</a>: 	readers []<b>Reader</b>
 		<a href="../src/io/multi.go.html#line-73" class="path-duplicate">multi.go</a><a href="../src/io/multi.go.html#line-73">#L73</a>: func MultiReader(readers ...<b>Reader</b>) <b>Reader</b> {
 		<a href="../src/io/multi.go.html#line-74" class="path-duplicate">multi.go</a><a href="../src/io/multi.go.html#line-74">#L74</a>: 	r := make([]<b>Reader</b>, len(readers))
 
-	<a href="../pkg/io/ioutil.html">io/ioutil</a>
-		<a href="../src/io/ioutil/ioutil.go.html#line-26">ioutil.go#L26</a>: func ReadAll(r io.<b>Reader</b>) ([]byte, error) {
-		<a href="../src/io/ioutil/ioutil.go.html#line-87" class="path-duplicate">ioutil.go</a><a href="../src/io/ioutil/ioutil.go.html#line-87">#L87</a>: func NopCloser(r io.<b>Reader</b>) io.ReadCloser {
-
 	<a href="../pkg/bufio.html">bufio</a>
-		<a href="../src/bufio/bufio.go.html#line-34">bufio.go#L34</a>: 	rd           io.<b>Reader</b> // reader provided by the client
-		<a href="../src/bufio/bufio.go.html#line-47" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-47">#L47</a>: func NewReaderSize(rd io.<b>Reader</b>, size int) *Reader {
+		<a href="../src/bufio/bufio.go.html#line-37">bufio.go#L37</a>: 	rd           io.<b>Reader</b> // reader provided by the client
+		<a href="../src/bufio/bufio.go.html#line-50" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-50">#L50</a>: func NewReaderSize(rd io.<b>Reader</b>, size int) *Reader {
 		<a href="../src/bufio/bufio.go.html#line-62" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-62">#L62</a>: func NewReader(rd io.<b>Reader</b>) *Reader {
 		<a href="../src/bufio/bufio.go.html#line-74" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-74">#L74</a>: func (b *Reader) Reset(r io.<b>Reader</b>) {
 		<a href="../src/bufio/bufio.go.html#line-87" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-87">#L87</a>: func (b *Reader) reset(buf []byte, r io.<b>Reader</b>) {
 		<a href="../src/bufio/bufio.go.html#line-784" class="path-duplicate">bufio.go</a><a href="../src/bufio/bufio.go.html#line-784">#L784</a>: func (b *Writer) ReadFrom(r io.<b>Reader</b>) (n int64, err error) {
 		<a href="../src/bufio/scan.go.html#line-30">scan.go#L30</a>: 	r            io.<b>Reader</b> // The reader provided by the client.
-		<a href="../src/bufio/scan.go.html#line-87" class="path-duplicate">scan.go</a><a href="../src/bufio/scan.go.html#line-87">#L87</a>: func NewScanner(r io.<b>Reader</b>) *Scanner {
+		<a href="../src/bufio/scan.go.html#line-89" class="path-duplicate">scan.go</a><a href="../src/bufio/scan.go.html#line-89">#L89</a>: func NewScanner(r io.<b>Reader</b>) *Scanner {
 
 	<a href="../pkg/bytes.html">bytes</a>
-		<a href="../src/bytes/buffer.go.html#line-206">buffer.go#L206</a>: func (b *Buffer) ReadFrom(r io.<b>Reader</b>) (n int64, err error) {
+		<a href="../src/bytes/buffer.go.html#line-224">buffer.go#L224</a>: func (b *Buffer) ReadFrom(r io.<b>Reader</b>) (n int64, err error) {
 
 	<a href="../pkg/compress/flate.html">compress/flate</a>
 		<a href="../src/compress/flate/inflate.go.html#line-74">inflate.go#L74</a>: 	Reset(r io.<b>Reader</b>, dict []byte) error
@@ -70,100 +66,143 @@
 		<a href="../src/compress/gzip/gunzip.go.html#line-92">gunzip.go#L92</a>: func NewReader(r io.<b>Reader</b>) (*Reader, error) {
 		<a href="../src/compress/gzip/gunzip.go.html#line-103" class="path-duplicate">gunzip.go</a><a href="../src/compress/gzip/gunzip.go.html#line-103">#L103</a>: func (z *Reader) Reset(r io.<b>Reader</b>) error {
 
+	<a href="../pkg/compress/zlib.html">compress/zlib</a>
+		<a href="../src/compress/zlib/reader.go.html#line-64">reader.go#L64</a>: 	Reset(r io.<b>Reader</b>, dict []byte) error
+		<a href="../src/compress/zlib/reader.go.html#line-74" class="path-duplicate">reader.go</a><a href="../src/compress/zlib/reader.go.html#line-74">#L74</a>: func NewReader(r io.<b>Reader</b>) (io.ReadCloser, error) {
+		<a href="../src/compress/zlib/reader.go.html#line-83" class="path-duplicate">reader.go</a><a href="../src/compress/zlib/reader.go.html#line-83">#L83</a>: func NewReaderDict(r io.<b>Reader</b>, dict []byte) (io.ReadCloser, error) {
+		<a href="../src/compress/zlib/reader.go.html#line-133" class="path-duplicate">reader.go</a><a href="../src/compress/zlib/reader.go.html#line-133">#L133</a>: func (z *reader) Reset(r io.<b>Reader</b>, dict []byte) error {
+
 	<a href="../pkg/crypto.html">crypto</a>
 		<a href="../src/crypto/crypto.go.html#line-198">crypto.go#L198</a>: 	Sign(rand io.<b>Reader</b>, digest []byte, opts SignerOpts) (signature []byte, err error)
-		<a href="../src/crypto/crypto.go.html#line-220" class="path-duplicate">crypto.go</a><a href="../src/crypto/crypto.go.html#line-220">#L220</a>: 	Decrypt(rand io.<b>Reader</b>, msg []byte, opts DecrypterOpts) (plaintext []byte, err error)
+		<a href="../src/crypto/crypto.go.html#line-215" class="path-duplicate">crypto.go</a><a href="../src/crypto/crypto.go.html#line-215">#L215</a>: 	SignMessage(rand io.<b>Reader</b>, msg []byte, opts SignerOpts) (signature []byte, err error)
+		<a href="../src/crypto/crypto.go.html#line-237" class="path-duplicate">crypto.go</a><a href="../src/crypto/crypto.go.html#line-237">#L237</a>: 	Decrypt(rand io.<b>Reader</b>, msg []byte, opts DecrypterOpts) (plaintext []byte, err error)
+		<a href="../src/crypto/crypto.go.html#line-245" class="path-duplicate">crypto.go</a><a href="../src/crypto/crypto.go.html#line-245">#L245</a>: func SignMessage(signer Signer, rand io.<b>Reader</b>, msg []byte, opts SignerOpts) (signature []byte, err error) {
 
 	<a href="../pkg/crypto/cipher.html">crypto/cipher</a>
 		<a href="../src/crypto/cipher/io.go.html#line-16">io.go#L16</a>: 	R io.<b>Reader</b>
 
 	<a href="../pkg/crypto/dsa.html">crypto/dsa</a>
-		<a href="../src/crypto/dsa/dsa.go.html#line-65">dsa.go#L65</a>: func GenerateParameters(params *Parameters, rand io.<b>Reader</b>, sizes ParameterSizes) error {
-		<a href="../src/crypto/dsa/dsa.go.html#line-159" class="path-duplicate">dsa.go</a><a href="../src/crypto/dsa/dsa.go.html#line-159">#L159</a>: func GenerateKey(priv *PrivateKey, rand io.<b>Reader</b>) error {
-		<a href="../src/crypto/dsa/dsa.go.html#line-205" class="path-duplicate">dsa.go</a><a href="../src/crypto/dsa/dsa.go.html#line-205">#L205</a>: func Sign(rand io.<b>Reader</b>, priv *PrivateKey, hash []byte) (r, s *big.Int, err error) {
+		<a href="../src/crypto/dsa/dsa.go.html#line-66">dsa.go#L66</a>: func GenerateParameters(params *Parameters, rand io.<b>Reader</b>, sizes ParameterSizes) error {
+		<a href="../src/crypto/dsa/dsa.go.html#line-164" class="path-duplicate">dsa.go</a><a href="../src/crypto/dsa/dsa.go.html#line-164">#L164</a>: func GenerateKey(priv *PrivateKey, rand io.<b>Reader</b>) error {
+		<a href="../src/crypto/dsa/dsa.go.html#line-218" class="path-duplicate">dsa.go</a><a href="../src/crypto/dsa/dsa.go.html#line-218">#L218</a>: func Sign(random io.<b>Reader</b>, priv *PrivateKey, hash []byte) (r, s *big.Int, err error) {
 
 	<a href="../pkg/crypto/ecdh.html">crypto/ecdh</a>
 		<a href="../src/crypto/ecdh/ecdh.go.html#line-24">ecdh.go#L24</a>: 	GenerateKey(rand io.<b>Reader</b>) (*PrivateKey, error)
-		<a href="../src/crypto/ecdh/nist.go.html#line-38">nist.go#L38</a>: func (c *nistCurve[Point]) GenerateKey(rand io.<b>Reader</b>) (*PrivateKey, error) {
-		<a href="../src/crypto/ecdh/x25519.go.html#line-35">x25519.go#L35</a>: func (c *x25519Curve) GenerateKey(rand io.<b>Reader</b>) (*PrivateKey, error) {
+		<a href="../src/crypto/ecdh/nist.go.html#line-19">nist.go#L19</a>: 	generate      func(io.<b>Reader</b>) (*ecdh.PrivateKey, error)
+		<a href="../src/crypto/ecdh/nist.go.html#line-29" class="path-duplicate">nist.go</a><a href="../src/crypto/ecdh/nist.go.html#line-29">#L29</a>: func (c *nistCurve) GenerateKey(r io.<b>Reader</b>) (*PrivateKey, error) {
+		<a href="../src/crypto/ecdh/nist.go.html#line-169" class="path-duplicate">nist.go</a><a href="../src/crypto/ecdh/nist.go.html#line-169">#L169</a>: 	generate: func(r io.<b>Reader</b>) (*ecdh.PrivateKey, error) {
+		<a href="../src/crypto/ecdh/nist.go.html#line-192" class="path-duplicate">nist.go</a><a href="../src/crypto/ecdh/nist.go.html#line-192">#L192</a>: 	generate: func(r io.<b>Reader</b>) (*ecdh.PrivateKey, error) {
+		<a href="../src/crypto/ecdh/nist.go.html#line-215" class="path-duplicate">nist.go</a><a href="../src/crypto/ecdh/nist.go.html#line-215">#L215</a>: 	generate: func(r io.<b>Reader</b>) (*ecdh.PrivateKey, error) {
+		<a href="../src/crypto/ecdh/x25519.go.html#line-37">x25519.go#L37</a>: func (c *x25519Curve) GenerateKey(r io.<b>Reader</b>) (*PrivateKey, error) {
 
 	<a href="../pkg/crypto/ecdsa.html">crypto/ecdsa</a>
-		<a href="../src/crypto/ecdsa/ecdsa.go.html#line-149">ecdsa.go#L149</a>: func (priv *PrivateKey) Sign(rand io.<b>Reader</b>, digest []byte, opts crypto.SignerOpts) ([]byte, error) {
-		<a href="../src/crypto/ecdsa/ecdsa.go.html#line-158" class="path-duplicate">ecdsa.go</a><a href="../src/crypto/ecdsa/ecdsa.go.html#line-158">#L158</a>: func GenerateKey(c elliptic.Curve, rand io.<b>Reader</b>) (*PrivateKey, error) {
-		<a href="../src/crypto/ecdsa/ecdsa.go.html#line-184" class="path-duplicate">ecdsa.go</a><a href="../src/crypto/ecdsa/ecdsa.go.html#line-184">#L184</a>: func generateNISTEC[Point nistPoint[Point]](c *nistCurve[Point], rand io.<b>Reader</b>) (*PrivateKey, error) {
-		<a href="../src/crypto/ecdsa/ecdsa.go.html#line-202" class="path-duplicate">ecdsa.go</a><a href="../src/crypto/ecdsa/ecdsa.go.html#line-202">#L202</a>: func randomPoint[Point nistPoint[Point]](c *nistCurve[Point], rand io.<b>Reader</b>) (k *bigmod.Nat, p Point, err error) {
-		<a href="../src/crypto/ecdsa/ecdsa.go.html#line-256" class="path-duplicate">ecdsa.go</a><a href="../src/crypto/ecdsa/ecdsa.go.html#line-256">#L256</a>: func SignASN1(rand io.<b>Reader</b>, priv *PrivateKey, hash []byte) ([]byte, error) {
-		<a href="../src/crypto/ecdsa/ecdsa.go.html#line-291" class="path-duplicate">ecdsa.go</a><a href="../src/crypto/ecdsa/ecdsa.go.html#line-291">#L291</a>: func signNISTEC[Point nistPoint[Point]](c *nistCurve[Point], priv *PrivateKey, csprng io.<b>Reader</b>, hash []byte) (sig []byte, err error) {
-		<a href="../src/crypto/ecdsa/ecdsa.go.html#line-413" class="path-duplicate">ecdsa.go</a><a href="../src/crypto/ecdsa/ecdsa.go.html#line-413">#L413</a>: func mixedCSPRNG(rand io.<b>Reader</b>, priv *PrivateKey, hash []byte) (io.<b>Reader</b>, error) {
-		<a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-20">ecdsa_legacy.go#L20</a>: func generateLegacy(c elliptic.Curve, rand io.<b>Reader</b>) (*PrivateKey, error) {
-		<a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-58" class="path-duplicate">ecdsa_legacy.go</a><a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-58">#L58</a>: func Sign(rand io.<b>Reader</b>, priv *PrivateKey, hash []byte) (r, s *big.Int, err error) {
-		<a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-77" class="path-duplicate">ecdsa_legacy.go</a><a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-77">#L77</a>: func signLegacy(priv *PrivateKey, csprng io.<b>Reader</b>, hash []byte) (sig []byte, err error) {
-		<a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-170" class="path-duplicate">ecdsa_legacy.go</a><a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-170">#L170</a>: func randFieldElement(c elliptic.Curve, rand io.<b>Reader</b>) (k *big.Int, err error) {
-		<a href="../src/crypto/ecdsa/ecdsa_noasm.go.html#line-15">ecdsa_noasm.go#L15</a>: func signAsm(priv *PrivateKey, csprng io.<b>Reader</b>, hash []byte) (sig []byte, err error) {
+		<a href="../src/crypto/ecdsa/ecdsa.go.html#line-323">ecdsa.go#L323</a>: func (priv *PrivateKey) Sign(random io.<b>Reader</b>, digest []byte, opts crypto.SignerOpts) ([]byte, error) {
+		<a href="../src/crypto/ecdsa/ecdsa.go.html#line-336" class="path-duplicate">ecdsa.go</a><a href="../src/crypto/ecdsa/ecdsa.go.html#line-336">#L336</a>: func GenerateKey(c elliptic.Curve, r io.<b>Reader</b>) (*PrivateKey, error) {
+		<a href="../src/crypto/ecdsa/ecdsa.go.html#line-362" class="path-duplicate">ecdsa.go</a><a href="../src/crypto/ecdsa/ecdsa.go.html#line-362">#L362</a>: func generateFIPS[P ecdsa.Point[P]](curve elliptic.Curve, c *ecdsa.Curve[P], rand io.<b>Reader</b>) (*PrivateKey, error) {
+		<a href="../src/crypto/ecdsa/ecdsa.go.html#line-382" class="path-duplicate">ecdsa.go</a><a href="../src/crypto/ecdsa/ecdsa.go.html#line-382">#L382</a>: func SignASN1(r io.<b>Reader</b>, priv *PrivateKey, hash []byte) ([]byte, error) {
+		<a href="../src/crypto/ecdsa/ecdsa.go.html#line-408" class="path-duplicate">ecdsa.go</a><a href="../src/crypto/ecdsa/ecdsa.go.html#line-408">#L408</a>: func signFIPS[P ecdsa.Point[P]](c *ecdsa.Curve[P], priv *PrivateKey, rand io.<b>Reader</b>, hash []byte) ([]byte, error) {
+		<a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-22">ecdsa_legacy.go#L22</a>: func generateLegacy(c elliptic.Curve, rand io.<b>Reader</b>) (*PrivateKey, error) {
+		<a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-69" class="path-duplicate">ecdsa_legacy.go</a><a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-69">#L69</a>: func Sign(rand io.<b>Reader</b>, priv *PrivateKey, hash []byte) (r, s *big.Int, err error) {
+		<a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-88" class="path-duplicate">ecdsa_legacy.go</a><a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-88">#L88</a>: func signLegacy(priv *PrivateKey, csprng io.<b>Reader</b>, hash []byte) (sig []byte, err error) {
+		<a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-205" class="path-duplicate">ecdsa_legacy.go</a><a href="../src/crypto/ecdsa/ecdsa_legacy.go.html#line-205">#L205</a>: func randFieldElement(c elliptic.Curve, rand io.<b>Reader</b>) (k *big.Int, err error) {
 
 	<a href="../pkg/crypto/ed25519.html">crypto/ed25519</a>
-		<a href="../src/crypto/ed25519/ed25519.go.html#line-88">ed25519.go#L88</a>: func (priv PrivateKey) Sign(rand io.<b>Reader</b>, message []byte, opts crypto.SignerOpts) (signature []byte, err error) {
-		<a href="../src/crypto/ed25519/ed25519.go.html#line-138" class="path-duplicate">ed25519.go</a><a href="../src/crypto/ed25519/ed25519.go.html#line-138">#L138</a>: func GenerateKey(rand io.<b>Reader</b>) (PublicKey, PrivateKey, error) {
+		<a href="../src/crypto/ed25519/ed25519.go.html#line-97">ed25519.go#L97</a>: func (priv PrivateKey) Sign(rand io.<b>Reader</b>, message []byte, opts crypto.SignerOpts) (signature []byte, err error) {
+		<a href="../src/crypto/ed25519/ed25519.go.html#line-151" class="path-duplicate">ed25519.go</a><a href="../src/crypto/ed25519/ed25519.go.html#line-151">#L151</a>: func GenerateKey(random io.<b>Reader</b>) (PublicKey, PrivateKey, error) {
 
 	<a href="../pkg/crypto/elliptic.html">crypto/elliptic</a>
 		<a href="../src/crypto/elliptic/elliptic.go.html#line-75">elliptic.go#L75</a>: func GenerateKey(curve Curve, rand io.<b>Reader</b>) (priv []byte, x, y *big.Int, err error) {
 
+	<a href="../pkg/crypto/internal/fips140/drbg.html">crypto/internal/fips140/drbg</a>
+		<a href="../src/crypto/internal/fips140/drbg/rand.go.html#line-38">rand.go#L38</a>: var testingReader io.<b>Reader</b>
+		<a href="../src/crypto/internal/fips140/drbg/rand.go.html#line-45" class="path-duplicate">rand.go</a><a href="../src/crypto/internal/fips140/drbg/rand.go.html#line-45">#L45</a>: func SetTestingReader(r io.<b>Reader</b>) {
+		<a href="../src/crypto/internal/fips140/drbg/rand.go.html#line-59" class="path-duplicate">rand.go</a><a href="../src/crypto/internal/fips140/drbg/rand.go.html#line-59">#L59</a>: func ReadWithReader(r io.<b>Reader</b>, b []byte) error {
+
+	<a href="../pkg/crypto/internal/fips140/ecdh.html">crypto/internal/fips140/ecdh</a>
+		<a href="../src/crypto/internal/fips140/ecdh/ecdh.go.html#line-139">ecdh.go#L139</a>: func GenerateKey[P Point[P]](c *Curve[P], rand io.<b>Reader</b>) (*PrivateKey, error) {
+
+	<a href="../pkg/crypto/internal/fips140/ecdsa.html">crypto/internal/fips140/ecdsa</a>
+		<a href="../src/crypto/internal/fips140/ecdsa/ecdsa.go.html#line-199">ecdsa.go#L199</a>: func GenerateKey[P Point[P]](c *Curve[P], rand io.<b>Reader</b>) (*PrivateKey, error) {
+		<a href="../src/crypto/internal/fips140/ecdsa/ecdsa.go.html#line-281" class="path-duplicate">ecdsa.go</a><a href="../src/crypto/internal/fips140/ecdsa/ecdsa.go.html#line-281">#L281</a>: func Sign[P Point[P], H hash.Hash](c *Curve[P], h func() H, priv *PrivateKey, rand io.<b>Reader</b>, hash []byte) (*Signature, error) {
+
+	<a href="../pkg/crypto/internal/fips140/rsa.html">crypto/internal/fips140/rsa</a>
+		<a href="../src/crypto/internal/fips140/rsa/keygen.go.html#line-17">keygen.go#L17</a>: func GenerateKey(rand io.<b>Reader</b>, bits int) (*PrivateKey, error) {
+		<a href="../src/crypto/internal/fips140/rsa/keygen.go.html#line-181" class="path-duplicate">keygen.go</a><a href="../src/crypto/internal/fips140/rsa/keygen.go.html#line-181">#L181</a>: func randomPrime(rand io.<b>Reader</b>, bits int) ([]byte, error) {
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-269">pkcs1v22.go#L269</a>: func SignPSS(rand io.<b>Reader</b>, priv *PrivateKey, hash hash.Hash, hashed []byte, saltLength int) ([]byte, error) {
+		<a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-373" class="path-duplicate">pkcs1v22.go</a><a href="../src/crypto/internal/fips140/rsa/pkcs1v22.go.html#line-373">#L373</a>: func EncryptOAEP(hash, mgfHash hash.Hash, random io.<b>Reader</b>, pub *PublicKey, msg []byte, label []byte) ([]byte, error) {
+
+	<a href="../pkg/crypto/internal/fips140only.html">crypto/internal/fips140only</a>
+		<a href="../src/crypto/internal/fips140only/fips140only.go.html#line-32">fips140only.go#L32</a>: func ApprovedRandomReader(r io.<b>Reader</b>) bool {
+
+	<a href="../pkg/crypto/internal/rand.html">crypto/internal/rand</a>
+		<a href="../src/crypto/internal/rand/rand.go.html#line-36">rand.go#L36</a>: var Reader io.<b>Reader</b> = reader{}
+		<a href="../src/crypto/internal/rand/rand.go.html#line-46" class="path-duplicate">rand.go</a><a href="../src/crypto/internal/rand/rand.go.html#line-46">#L46</a>: func SetTestingReader(r io.<b>Reader</b>) {
+		<a href="../src/crypto/internal/rand/rand.go.html#line-56" class="path-duplicate">rand.go</a><a href="../src/crypto/internal/rand/rand.go.html#line-56">#L56</a>: func CustomReader(r io.<b>Reader</b>) io.<b>Reader</b> {
+		<a href="../src/crypto/internal/rand/rand.go.html#line-70" class="path-duplicate">rand.go</a><a href="../src/crypto/internal/rand/rand.go.html#line-70">#L70</a>: func IsDefaultReader(r io.<b>Reader</b>) bool {
+		<a href="../src/crypto/internal/rand/rand_fips140v1.26.go.html#line-14">rand_fips140v1.26.go#L14</a>: func fips140SetTestingReader(r io.<b>Reader</b>) {
+
 	<a href="../pkg/crypto/internal/randutil.html">crypto/internal/randutil</a>
-		<a href="../src/crypto/internal/randutil/randutil.go.html#line-25">randutil.go#L25</a>: func MaybeReadByte(r io.<b>Reader</b>) {
+		<a href="../src/crypto/internal/randutil/randutil.go.html#line-20">randutil.go#L20</a>: func MaybeReadByte(r io.<b>Reader</b>) {
 
 	<a href="../pkg/crypto/rand.html">crypto/rand</a>
-		<a href="../src/crypto/rand/rand.go.html#line-21">rand.go#L21</a>: var Reader io.<b>Reader</b>
-		<a href="../src/crypto/rand/rand_unix.go.html#line-35">rand_unix.go#L35</a>: 	f    io.<b>Reader</b>
-		<a href="../src/crypto/rand/rand_unix.go.html#line-78" class="path-duplicate">rand_unix.go</a><a href="../src/crypto/rand/rand_unix.go.html#line-78">#L78</a>: 	r io.<b>Reader</b>
-		<a href="../src/crypto/rand/util.go.html#line-16">util.go#L16</a>: func Prime(rand io.<b>Reader</b>, bits int) (*big.Int, error) {
-		<a href="../src/crypto/rand/util.go.html#line-62" class="path-duplicate">util.go</a><a href="../src/crypto/rand/util.go.html#line-62">#L62</a>: func Int(rand io.<b>Reader</b>, max *big.Int) (n *big.Int, err error) {
+		<a href="../src/crypto/rand/rand.go.html#line-34">rand.go#L34</a>: var Reader io.<b>Reader</b> = rand.Reader
+		<a href="../src/crypto/rand/util.go.html#line-21">util.go#L21</a>: func Prime(r io.<b>Reader</b>, bits int) (*big.Int, error) {
+		<a href="../src/crypto/rand/util.go.html#line-71" class="path-duplicate">util.go</a><a href="../src/crypto/rand/util.go.html#line-71">#L71</a>: func Int(rand io.<b>Reader</b>, max *big.Int) (n *big.Int, err error) {
 
 	<a href="../pkg/crypto/rsa.html">crypto/rsa</a>
-		<a href="../src/crypto/rsa/pkcs1v15.go.html#line-41">pkcs1v15.go#L41</a>: func EncryptPKCS1v15(random io.<b>Reader</b>, pub *PublicKey, msg []byte) ([]byte, error) {
-		<a href="../src/crypto/rsa/pkcs1v15.go.html#line-92" class="path-duplicate">pkcs1v15.go</a><a href="../src/crypto/rsa/pkcs1v15.go.html#line-92">#L92</a>: func DecryptPKCS1v15(random io.<b>Reader</b>, priv *PrivateKey, ciphertext []byte) ([]byte, error) {
-		<a href="../src/crypto/rsa/pkcs1v15.go.html#line-153" class="path-duplicate">pkcs1v15.go</a><a href="../src/crypto/rsa/pkcs1v15.go.html#line-153">#L153</a>: func DecryptPKCS1v15SessionKey(random io.<b>Reader</b>, priv *PrivateKey, ciphertext []byte, key []byte) error {
-		<a href="../src/crypto/rsa/pkcs1v15.go.html#line-233" class="path-duplicate">pkcs1v15.go</a><a href="../src/crypto/rsa/pkcs1v15.go.html#line-233">#L233</a>: func nonZeroRandomBytes(s []byte, random io.<b>Reader</b>) (err error) {
-		<a href="../src/crypto/rsa/pkcs1v15.go.html#line-287" class="path-duplicate">pkcs1v15.go</a><a href="../src/crypto/rsa/pkcs1v15.go.html#line-287">#L287</a>: func SignPKCS1v15(random io.<b>Reader</b>, priv *PrivateKey, hash crypto.Hash, hashed []byte) ([]byte, error) {
-		<a href="../src/crypto/rsa/pss.go.html#line-292">pss.go#L292</a>: func SignPSS(rand io.<b>Reader</b>, priv *PrivateKey, hash crypto.Hash, digest []byte, opts *PSSOptions) ([]byte, error) {
-		<a href="../src/crypto/rsa/rsa.go.html#line-160">rsa.go#L160</a>: func (priv *PrivateKey) Sign(rand io.<b>Reader</b>, digest []byte, opts crypto.SignerOpts) ([]byte, error) {
-		<a href="../src/crypto/rsa/rsa.go.html#line-171" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-171">#L171</a>: func (priv *PrivateKey) Decrypt(rand io.<b>Reader</b>, ciphertext []byte, opts crypto.DecrypterOpts) (plaintext []byte, err error) {
-		<a href="../src/crypto/rsa/rsa.go.html#line-271" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-271">#L271</a>: func GenerateKey(random io.<b>Reader</b>, bits int) (*PrivateKey, error) {
-		<a href="../src/crypto/rsa/rsa.go.html#line-294" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-294">#L294</a>: func GenerateMultiPrimeKey(random io.<b>Reader</b>, nprimes int, bits int) (*PrivateKey, error) {
-		<a href="../src/crypto/rsa/rsa.go.html#line-516" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-516">#L516</a>: func EncryptOAEP(hash hash.Hash, random io.<b>Reader</b>, pub *PublicKey, msg []byte, label []byte) ([]byte, error) {
-		<a href="../src/crypto/rsa/rsa.go.html#line-708" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-708">#L708</a>: func DecryptOAEP(hash hash.Hash, random io.<b>Reader</b>, priv *PrivateKey, ciphertext []byte, label []byte) ([]byte, error) {
-		<a href="../src/crypto/rsa/rsa.go.html#line-712" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-712">#L712</a>: func decryptOAEP(hash, mgfHash hash.Hash, random io.<b>Reader</b>, priv *PrivateKey, ciphertext []byte, label []byte) ([]byte, error) {
+		<a href="../src/crypto/rsa/fips.go.html#line-65">fips.go#L65</a>: func SignPSS(random io.<b>Reader</b>, priv *PrivateKey, hash crypto.Hash, digest []byte, opts *PSSOptions) ([]byte, error) {
+		<a href="../src/crypto/rsa/fips.go.html#line-194" class="path-duplicate">fips.go</a><a href="../src/crypto/rsa/fips.go.html#line-194">#L194</a>: func EncryptOAEP(hash hash.Hash, random io.<b>Reader</b>, pub *PublicKey, msg []byte, label []byte) ([]byte, error) {
+		<a href="../src/crypto/rsa/fips.go.html#line-205" class="path-duplicate">fips.go</a><a href="../src/crypto/rsa/fips.go.html#line-205">#L205</a>: func EncryptOAEPWithOptions(random io.<b>Reader</b>, pub *PublicKey, msg []byte, opts *OAEPOptions) ([]byte, error) {
+		<a href="../src/crypto/rsa/fips.go.html#line-212" class="path-duplicate">fips.go</a><a href="../src/crypto/rsa/fips.go.html#line-212">#L212</a>: func encryptOAEP(hash hash.Hash, mgfHash hash.Hash, random io.<b>Reader</b>, pub *PublicKey, msg []byte, label []byte) ([]byte, error) {
+		<a href="../src/crypto/rsa/fips.go.html#line-262" class="path-duplicate">fips.go</a><a href="../src/crypto/rsa/fips.go.html#line-262">#L262</a>: func DecryptOAEP(hash hash.Hash, random io.<b>Reader</b>, priv *PrivateKey, ciphertext []byte, label []byte) ([]byte, error) {
+		<a href="../src/crypto/rsa/fips.go.html#line-321" class="path-duplicate">fips.go</a><a href="../src/crypto/rsa/fips.go.html#line-321">#L321</a>: func SignPKCS1v15(random io.<b>Reader</b>, priv *PrivateKey, hash crypto.Hash, hashed []byte) ([]byte, error) {
+		<a href="../src/crypto/rsa/pkcs1v15.go.html#line-50">pkcs1v15.go#L50</a>: func EncryptPKCS1v15(random io.<b>Reader</b>, pub *PublicKey, msg []byte) ([]byte, error) {
+		<a href="../src/crypto/rsa/pkcs1v15.go.html#line-113" class="path-duplicate">pkcs1v15.go</a><a href="../src/crypto/rsa/pkcs1v15.go.html#line-113">#L113</a>: func DecryptPKCS1v15(random io.<b>Reader</b>, priv *PrivateKey, ciphertext []byte) ([]byte, error) {
+		<a href="../src/crypto/rsa/pkcs1v15.go.html#line-181" class="path-duplicate">pkcs1v15.go</a><a href="../src/crypto/rsa/pkcs1v15.go.html#line-181">#L181</a>: func DecryptPKCS1v15SessionKey(random io.<b>Reader</b>, priv *PrivateKey, ciphertext []byte, key []byte) error {
+		<a href="../src/crypto/rsa/pkcs1v15.go.html#line-270" class="path-duplicate">pkcs1v15.go</a><a href="../src/crypto/rsa/pkcs1v15.go.html#line-270">#L270</a>: func nonZeroRandomBytes(s []byte, random io.<b>Reader</b>) (err error) {
+		<a href="../src/crypto/rsa/rsa.go.html#line-161">rsa.go#L161</a>: func (priv *PrivateKey) Sign(rand io.<b>Reader</b>, digest []byte, opts crypto.SignerOpts) ([]byte, error) {
+		<a href="../src/crypto/rsa/rsa.go.html#line-172" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-172">#L172</a>: func (priv *PrivateKey) Decrypt(rand io.<b>Reader</b>, ciphertext []byte, opts crypto.DecrypterOpts) (plaintext []byte, err error) {
+		<a href="../src/crypto/rsa/rsa.go.html#line-312" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-312">#L312</a>: func GenerateKey(random io.<b>Reader</b>, bits int) (*PrivateKey, error) {
+		<a href="../src/crypto/rsa/rsa.go.html#line-429" class="path-duplicate">rsa.go</a><a href="../src/crypto/rsa/rsa.go.html#line-429">#L429</a>: func GenerateMultiPrimeKey(random io.<b>Reader</b>, nprimes int, bits int) (*PrivateKey, error) {
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/common.go.html#line-529">common.go#L529</a>: 	Rand io.<b>Reader</b>
-		<a href="../src/crypto/tls/common.go.html#line-993" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-993">#L993</a>: func (c *Config) rand() io.<b>Reader</b> {
-		<a href="../src/crypto/tls/conn.go.html#line-478">conn.go#L478</a>: func (hc *halfConn) encrypt(record, payload []byte, rand io.<b>Reader</b>) ([]byte, error) {
-		<a href="../src/crypto/tls/conn.go.html#line-797" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-797">#L797</a>: 	R io.<b>Reader</b>
-		<a href="../src/crypto/tls/conn.go.html#line-818" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-818">#L818</a>: func (c *Conn) readFromUntil(r io.<b>Reader</b>, n int) error {
-		<a href="../src/crypto/tls/key_schedule.go.html#line-122">key_schedule.go#L122</a>: func generateECDHEKey(rand io.<b>Reader</b>, curveID CurveID) (*ecdh.PrivateKey, error) {
+		<a href="../src/crypto/tls/common.go.html#line-571">common.go#L571</a>: 	Rand io.<b>Reader</b>
+		<a href="../src/crypto/tls/common.go.html#line-1167" class="path-duplicate">common.go</a><a href="../src/crypto/tls/common.go.html#line-1167">#L1167</a>: func (c *Config) rand() io.<b>Reader</b> {
+		<a href="../src/crypto/tls/conn.go.html#line-479">conn.go#L479</a>: func (hc *halfConn) encrypt(record, payload []byte, rand io.<b>Reader</b>) ([]byte, error) {
+		<a href="../src/crypto/tls/conn.go.html#line-807" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-807">#L807</a>: 	R io.<b>Reader</b>
+		<a href="../src/crypto/tls/conn.go.html#line-828" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-828">#L828</a>: func (c *Conn) readFromUntil(r io.<b>Reader</b>, n int) error {
+		<a href="../src/crypto/tls/key_agreement.go.html#line-381">key_agreement.go#L381</a>: func generateECDHEKey(rand io.<b>Reader</b>, curveID CurveID) (*ecdh.PrivateKey, error) {
+		<a href="../src/crypto/tls/key_schedule.go.html#line-66">key_schedule.go#L66</a>: 	keyShares(rand io.<b>Reader</b>) (*keySharePrivateKeys, []keyShare, error)
+		<a href="../src/crypto/tls/key_schedule.go.html#line-69" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-69">#L69</a>: 	serverSharedSecret(rand io.<b>Reader</b>, clientKeyShare []byte) ([]byte, keyShare, error)
+		<a href="../src/crypto/tls/key_schedule.go.html#line-120" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-120">#L120</a>: func (ke *ecdhKeyExchange) keyShares(rand io.<b>Reader</b>) (*keySharePrivateKeys, []keyShare, error) {
+		<a href="../src/crypto/tls/key_schedule.go.html#line-128" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-128">#L128</a>: func (ke *ecdhKeyExchange) serverSharedSecret(rand io.<b>Reader</b>, clientKeyShare []byte) ([]byte, keyShare, error) {
+		<a href="../src/crypto/tls/key_schedule.go.html#line-168" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-168">#L168</a>: func (ke *hybridKeyExchange) keyShares(rand io.<b>Reader</b>) (*keySharePrivateKeys, []keyShare, error) {
+		<a href="../src/crypto/tls/key_schedule.go.html#line-200" class="path-duplicate">key_schedule.go</a><a href="../src/crypto/tls/key_schedule.go.html#line-200">#L200</a>: func (ke *hybridKeyExchange) serverSharedSecret(rand io.<b>Reader</b>, clientKeyShare []byte) ([]byte, keyShare, error) {
 
 	<a href="../pkg/crypto/x509.html">crypto/x509</a>
 		<a href="../src/crypto/x509/pem_decrypt.go.html#line-195">pem_decrypt.go#L195</a>: func EncryptPEMBlock(rand io.<b>Reader</b>, blockType string, data, password []byte, alg PEMCipher) (*pem.Block, error) {
-		<a href="../src/crypto/x509/x509.go.html#line-1538">x509.go#L1538</a>: func CreateCertificate(rand io.<b>Reader</b>, template, parent *Certificate, pub, priv any) ([]byte, error) {
-		<a href="../src/crypto/x509/x509.go.html#line-1711" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1711">#L1711</a>: func (c *Certificate) CreateCRL(rand io.<b>Reader</b>, priv any, revokedCerts []pkix.RevokedCertificate, now, expiry time.Time) (crlBytes []byte, err error) {
-		<a href="../src/crypto/x509/x509.go.html#line-1931" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1931">#L1931</a>: func CreateCertificateRequest(rand io.<b>Reader</b>, template *CertificateRequest, priv any) (csr []byte, err error) {
-		<a href="../src/crypto/x509/x509.go.html#line-2292" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-2292">#L2292</a>: func CreateRevocationList(rand io.<b>Reader</b>, template *RevocationList, issuer *Certificate, priv crypto.Signer) ([]byte, error) {
+		<a href="../src/crypto/x509/x509.go.html#line-1588">x509.go#L1588</a>: func signTBS(tbs []byte, key crypto.Signer, sigAlg SignatureAlgorithm, rand io.<b>Reader</b>) ([]byte, error) {
+		<a href="../src/crypto/x509/x509.go.html#line-1679" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1679">#L1679</a>: func CreateCertificate(rand io.<b>Reader</b>, template, parent *Certificate, pub, priv any) ([]byte, error) {
+		<a href="../src/crypto/x509/x509.go.html#line-1855" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-1855">#L1855</a>: func (c *Certificate) CreateCRL(rand io.<b>Reader</b>, priv any, revokedCerts []pkix.RevokedCertificate, now, expiry time.Time) (crlBytes []byte, err error) {
+		<a href="../src/crypto/x509/x509.go.html#line-2068" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-2068">#L2068</a>: func CreateCertificateRequest(rand io.<b>Reader</b>, template *CertificateRequest, priv any) (csr []byte, err error) {
+		<a href="../src/crypto/x509/x509.go.html#line-2417" class="path-duplicate">x509.go</a><a href="../src/crypto/x509/x509.go.html#line-2417">#L2417</a>: func CreateRevocationList(rand io.<b>Reader</b>, template *RevocationList, issuer *Certificate, priv crypto.Signer) ([]byte, error) {
 
 	<a href="../pkg/encoding/base64.html">encoding/base64</a>
-		<a href="../src/encoding/base64/base64.go.html#line-409">base64.go#L409</a>: 	r       io.<b>Reader</b>
-		<a href="../src/encoding/base64/base64.go.html#line-592" class="path-duplicate">base64.go</a><a href="../src/encoding/base64/base64.go.html#line-592">#L592</a>: 	wrapped io.<b>Reader</b>
-		<a href="../src/encoding/base64/base64.go.html#line-617" class="path-duplicate">base64.go</a><a href="../src/encoding/base64/base64.go.html#line-617">#L617</a>: func NewDecoder(enc *Encoding, r io.<b>Reader</b>) io.<b>Reader</b> {
+		<a href="../src/encoding/base64/base64.go.html#line-439">base64.go#L439</a>: 	r       io.<b>Reader</b>
+		<a href="../src/encoding/base64/base64.go.html#line-623" class="path-duplicate">base64.go</a><a href="../src/encoding/base64/base64.go.html#line-623">#L623</a>: 	wrapped io.<b>Reader</b>
+		<a href="../src/encoding/base64/base64.go.html#line-648" class="path-duplicate">base64.go</a><a href="../src/encoding/base64/base64.go.html#line-648">#L648</a>: func NewDecoder(enc *Encoding, r io.<b>Reader</b>) io.<b>Reader</b> {
 
 	<a href="../pkg/encoding/binary.html">encoding/binary</a>
-		<a href="../src/encoding/binary/binary.go.html#line-233">binary.go#L233</a>: func Read(r io.<b>Reader</b>, order ByteOrder, data any) error {
+		<a href="../src/encoding/binary/binary.go.html#line-258">binary.go#L258</a>: func Read(r io.<b>Reader</b>, order ByteOrder, data any) error {
 
 	<a href="../pkg/encoding/hex.html">encoding/hex</a>
-		<a href="../src/encoding/hex/hex.go.html#line-176">hex.go#L176</a>: 	r   io.<b>Reader</b>
-		<a href="../src/encoding/hex/hex.go.html#line-184" class="path-duplicate">hex.go</a><a href="../src/encoding/hex/hex.go.html#line-184">#L184</a>: func NewDecoder(r io.<b>Reader</b>) io.<b>Reader</b> {
+		<a href="../src/encoding/hex/hex.go.html#line-194">hex.go#L194</a>: 	r   io.<b>Reader</b>
+		<a href="../src/encoding/hex/hex.go.html#line-202" class="path-duplicate">hex.go</a><a href="../src/encoding/hex/hex.go.html#line-202">#L202</a>: func NewDecoder(r io.<b>Reader</b>) io.<b>Reader</b> {
 
 	<a href="../pkg/encoding/json.html">encoding/json</a>
-		<a href="../src/encoding/json/stream.go.html#line-15">stream.go#L15</a>: 	r       io.<b>Reader</b>
-		<a href="../src/encoding/json/stream.go.html#line-31" class="path-duplicate">stream.go</a><a href="../src/encoding/json/stream.go.html#line-31">#L31</a>: func NewDecoder(r io.<b>Reader</b>) *Decoder {
-		<a href="../src/encoding/json/stream.go.html#line-83" class="path-duplicate">stream.go</a><a href="../src/encoding/json/stream.go.html#line-83">#L83</a>: func (dec *Decoder) Buffered() io.<b>Reader</b> {
+		<a href="../src/encoding/json/stream.go.html#line-17">stream.go#L17</a>: 	r       io.<b>Reader</b>
+		<a href="../src/encoding/json/stream.go.html#line-33" class="path-duplicate">stream.go</a><a href="../src/encoding/json/stream.go.html#line-33">#L33</a>: func NewDecoder(r io.<b>Reader</b>) *Decoder {
+		<a href="../src/encoding/json/stream.go.html#line-85" class="path-duplicate">stream.go</a><a href="../src/encoding/json/stream.go.html#line-85">#L85</a>: func (dec *Decoder) Buffered() io.<b>Reader</b> {
 
 	<a href="../pkg/fmt.html">fmt</a>
 		<a href="../src/fmt/scan.go.html#line-121">scan.go#L121</a>: func Fscan(r io.<b>Reader</b>, a ...any) (n int, err error) {
@@ -172,101 +211,128 @@
 		<a href="../src/fmt/scan.go.html#line-305" class="path-duplicate">scan.go</a><a href="../src/fmt/scan.go.html#line-305">#L305</a>: 	reader   io.<b>Reader</b>
 		<a href="../src/fmt/scan.go.html#line-383" class="path-duplicate">scan.go</a><a href="../src/fmt/scan.go.html#line-383">#L383</a>: func newScanState(r io.<b>Reader</b>, nlIsSpace, nlIsEnd bool) (s *ss, old ssave) {
 
+	<a href="../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>
+		<a href="../src/github.com/andybalholm/brotli/reader.go.html#line-23">reader.go#L23</a>: func NewReader(src io.<b>Reader</b>) *Reader {
+		<a href="../src/github.com/andybalholm/brotli/reader.go.html#line-33" class="path-duplicate">reader.go</a><a href="../src/github.com/andybalholm/brotli/reader.go.html#line-33">#L33</a>: func (r *Reader) Reset(src io.<b>Reader</b>) error {
+		<a href="../src/github.com/andybalholm/brotli/state.go.html#line-90">state.go#L90</a>: 	src io.<b>Reader</b>
+
+	<a href="../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../src/github.com/coder/websocket/compress.go.html#line-137">compress.go#L137</a>: func getFlateReader(r io.<b>Reader</b>, dict []byte) io.<b>Reader</b> {
+		<a href="../src/github.com/coder/websocket/compress.go.html#line-138" class="path-duplicate">compress.go</a><a href="../src/github.com/coder/websocket/compress.go.html#line-138">#L138</a>: 	fr, ok := flateReaderPool.Get().(io.<b>Reader</b>)
+		<a href="../src/github.com/coder/websocket/compress.go.html#line-146" class="path-duplicate">compress.go</a><a href="../src/github.com/coder/websocket/compress.go.html#line-146">#L146</a>: func putFlateReader(fr io.<b>Reader</b>) {
+		<a href="../src/github.com/coder/websocket/dial.go.html#line-124">dial.go#L124</a>: func dial(ctx context.Context, urls string, opts *DialOptions, rand io.<b>Reader</b>) (_ *Conn, _ *http.Response, err error) {
+		<a href="../src/github.com/coder/websocket/dial.go.html#line-230" class="path-duplicate">dial.go</a><a href="../src/github.com/coder/websocket/dial.go.html#line-230">#L230</a>: func secWebSocketKey(rr io.<b>Reader</b>) (string, error) {
+		<a href="../src/github.com/coder/websocket/dial.go.html#line-321" class="path-duplicate">dial.go</a><a href="../src/github.com/coder/websocket/dial.go.html#line-321">#L321</a>: func getBufioReader(r io.<b>Reader</b>) *bufio.Reader {
+		<a href="../src/github.com/coder/websocket/netconn.go.html#line-112">netconn.go#L112</a>: 	reader      io.<b>Reader</b>
+		<a href="../src/github.com/coder/websocket/read.go.html#line-35">read.go#L35</a>: func (c *Conn) Reader(ctx context.Context) (MessageType, io.<b>Reader</b>, error) {
+		<a href="../src/github.com/coder/websocket/read.go.html#line-368" class="path-duplicate">read.go</a><a href="../src/github.com/coder/websocket/read.go.html#line-368">#L368</a>: func (c *Conn) reader(ctx context.Context) (_ MessageType, _ io.<b>Reader</b>, err error) {
+		<a href="../src/github.com/coder/websocket/read.go.html#line-402" class="path-duplicate">read.go</a><a href="../src/github.com/coder/websocket/read.go.html#line-402">#L402</a>: 	flateReader io.<b>Reader</b>
+		<a href="../src/github.com/coder/websocket/read.go.html#line-501" class="path-duplicate">read.go</a><a href="../src/github.com/coder/websocket/read.go.html#line-501">#L501</a>: 	r     io.<b>Reader</b>
+		<a href="../src/github.com/coder/websocket/read.go.html#line-506" class="path-duplicate">read.go</a><a href="../src/github.com/coder/websocket/read.go.html#line-506">#L506</a>: func newLimitReader(c *Conn, r io.<b>Reader</b>, limit int64) *limitReader {
+		<a href="../src/github.com/coder/websocket/read.go.html#line-515" class="path-duplicate">read.go</a><a href="../src/github.com/coder/websocket/read.go.html#line-515">#L515</a>: func (lr *limitReader) reset(r io.<b>Reader</b>) {
+
 	<a href="../pkg/github.com/go-faster/jx.html">github.com/go-faster/jx</a>
 		<a href="../src/github.com/go-faster/jx/dec.go.html#line-78">dec.go#L78</a>: 	reader io.<b>Reader</b>
 		<a href="../src/github.com/go-faster/jx/dec.go.html#line-95" class="path-duplicate">dec.go</a><a href="../src/github.com/go-faster/jx/dec.go.html#line-95">#L95</a>: func Decode(reader io.<b>Reader</b>, bufSize int) *Decoder {
 		<a href="../src/github.com/go-faster/jx/dec.go.html#line-123" class="path-duplicate">dec.go</a><a href="../src/github.com/go-faster/jx/dec.go.html#line-123">#L123</a>: func (d *Decoder) Reset(reader io.<b>Reader</b>) {
 		<a href="../src/github.com/go-faster/jx/dec_raw.go.html#line-14">dec_raw.go#L14</a>: 	orig     io.<b>Reader</b>
 
-	<a href="../pkg/github.com/gotd/td/internal/crypto.html">github.com/gotd/td/internal/crypto</a>
-		<a href="../src/github.com/gotd/td/internal/crypto/cipher.go.html#line-7">cipher.go#L7</a>: 	rand        io.<b>Reader</b>
-		<a href="../src/github.com/gotd/td/internal/crypto/cipher.go.html#line-12" class="path-duplicate">cipher.go</a><a href="../src/github.com/gotd/td/internal/crypto/cipher.go.html#line-12">#L12</a>: func (c Cipher) Rand() io.<b>Reader</b> {
-		<a href="../src/github.com/gotd/td/internal/crypto/cipher.go.html#line-17" class="path-duplicate">cipher.go</a><a href="../src/github.com/gotd/td/internal/crypto/cipher.go.html#line-17">#L17</a>: func NewClientCipher(rand io.<b>Reader</b>) Cipher {
-		<a href="../src/github.com/gotd/td/internal/crypto/cipher.go.html#line-22" class="path-duplicate">cipher.go</a><a href="../src/github.com/gotd/td/internal/crypto/cipher.go.html#line-22">#L22</a>: func NewServerCipher(rand io.<b>Reader</b>) Cipher {
-		<a href="../src/github.com/gotd/td/internal/crypto/data_with_hash.go.html#line-46">data_with_hash.go#L46</a>: func DataWithHash(data []byte, randomSource io.<b>Reader</b>) ([]byte, error) {
-		<a href="../src/github.com/gotd/td/internal/crypto/exchange.go.html#line-42">exchange.go#L42</a>: func EncryptExchangeAnswer(rand io.<b>Reader</b>, answer, key, iv []byte) (dst []byte, err error) {
-		<a href="../src/github.com/gotd/td/internal/crypto/pq.go.html#line-28">pq.go#L28</a>: func DecomposePQ(pq *big.Int, randSource io.<b>Reader</b>) (p, q *big.Int, err error) { // nolint:gocognit
-		<a href="../src/github.com/gotd/td/internal/crypto/rand.go.html#line-10">rand.go#L10</a>: func RandInt64n(randSource io.<b>Reader</b>, n int64) (int64, error) {
-		<a href="../src/github.com/gotd/td/internal/crypto/rand.go.html#line-22" class="path-duplicate">rand.go</a><a href="../src/github.com/gotd/td/internal/crypto/rand.go.html#line-22">#L22</a>: func RandInt64(randSource io.<b>Reader</b>) (int64, error) {
-		<a href="../src/github.com/gotd/td/internal/crypto/rand.go.html#line-34" class="path-duplicate">rand.go</a><a href="../src/github.com/gotd/td/internal/crypto/rand.go.html#line-34">#L34</a>: func RandInt128(randSource io.<b>Reader</b>) (bin.Int128, error) {
-		<a href="../src/github.com/gotd/td/internal/crypto/rand.go.html#line-46" class="path-duplicate">rand.go</a><a href="../src/github.com/gotd/td/internal/crypto/rand.go.html#line-46">#L46</a>: func RandInt256(randSource io.<b>Reader</b>) (bin.Int256, error) {
-		<a href="../src/github.com/gotd/td/internal/crypto/rand_notjs.go.html#line-12">rand_notjs.go#L12</a>: func DefaultRand() io.<b>Reader</b> {
-		<a href="../src/github.com/gotd/td/internal/crypto/rsa_hashed.go.html#line-13">rsa_hashed.go#L13</a>: func RSAEncryptHashed(data []byte, key *rsa.PublicKey, randomSource io.<b>Reader</b>) ([]byte, error) {
-		<a href="../src/github.com/gotd/td/internal/crypto/rsa_pad.go.html#line-36">rsa_pad.go#L36</a>: func RSAPad(data []byte, key *rsa.PublicKey, randomSource io.<b>Reader</b>) ([]byte, error) {
-		<a href="../src/github.com/gotd/td/internal/crypto/session_id.go.html#line-11">session_id.go#L11</a>: func NewSessionID(reader io.<b>Reader</b>) (int64, error) {
+	<a href="../pkg/github.com/gotd/td/crypto.html">github.com/gotd/td/crypto</a>
+		<a href="../src/github.com/gotd/td/crypto/bind.go.html#line-104">bind.go#L104</a>: func EncryptBindMessage(rand io.<b>Reader</b>, permKey AuthKey, msgID int64, inner *BindAuthKeyInner) ([]byte, error) {
+		<a href="../src/github.com/gotd/td/crypto/cipher.go.html#line-7">cipher.go#L7</a>: 	rand        io.<b>Reader</b>
+		<a href="../src/github.com/gotd/td/crypto/cipher.go.html#line-12" class="path-duplicate">cipher.go</a><a href="../src/github.com/gotd/td/crypto/cipher.go.html#line-12">#L12</a>: func (c Cipher) Rand() io.<b>Reader</b> {
+		<a href="../src/github.com/gotd/td/crypto/cipher.go.html#line-17" class="path-duplicate">cipher.go</a><a href="../src/github.com/gotd/td/crypto/cipher.go.html#line-17">#L17</a>: func NewClientCipher(rand io.<b>Reader</b>) Cipher {
+		<a href="../src/github.com/gotd/td/crypto/cipher.go.html#line-22" class="path-duplicate">cipher.go</a><a href="../src/github.com/gotd/td/crypto/cipher.go.html#line-22">#L22</a>: func NewServerCipher(rand io.<b>Reader</b>) Cipher {
+		<a href="../src/github.com/gotd/td/crypto/data_with_hash.go.html#line-46">data_with_hash.go#L46</a>: func DataWithHash(data []byte, randomSource io.<b>Reader</b>) ([]byte, error) {
+		<a href="../src/github.com/gotd/td/crypto/exchange.go.html#line-41">exchange.go#L41</a>: func EncryptExchangeAnswer(rand io.<b>Reader</b>, answer, key, iv []byte) (dst []byte, err error) {
+		<a href="../src/github.com/gotd/td/crypto/pq.go.html#line-28">pq.go#L28</a>: func DecomposePQ(pq *big.Int, randSource io.<b>Reader</b>) (p, q *big.Int, err error) { // nolint:gocognit
+		<a href="../src/github.com/gotd/td/crypto/rand.go.html#line-10">rand.go#L10</a>: func RandInt64n(randSource io.<b>Reader</b>, n int64) (int64, error) {
+		<a href="../src/github.com/gotd/td/crypto/rand.go.html#line-22" class="path-duplicate">rand.go</a><a href="../src/github.com/gotd/td/crypto/rand.go.html#line-22">#L22</a>: func RandInt64(randSource io.<b>Reader</b>) (int64, error) {
+		<a href="../src/github.com/gotd/td/crypto/rand.go.html#line-34" class="path-duplicate">rand.go</a><a href="../src/github.com/gotd/td/crypto/rand.go.html#line-34">#L34</a>: func RandInt128(randSource io.<b>Reader</b>) (bin.Int128, error) {
+		<a href="../src/github.com/gotd/td/crypto/rand.go.html#line-46" class="path-duplicate">rand.go</a><a href="../src/github.com/gotd/td/crypto/rand.go.html#line-46">#L46</a>: func RandInt256(randSource io.<b>Reader</b>) (bin.Int256, error) {
+		<a href="../src/github.com/gotd/td/crypto/rand_notjs.go.html#line-12">rand_notjs.go#L12</a>: func DefaultRand() io.<b>Reader</b> {
+		<a href="../src/github.com/gotd/td/crypto/rsa_hashed.go.html#line-13">rsa_hashed.go#L13</a>: func RSAEncryptHashed(data []byte, key *rsa.PublicKey, randomSource io.<b>Reader</b>) ([]byte, error) {
+		<a href="../src/github.com/gotd/td/crypto/rsa_pad.go.html#line-34">rsa_pad.go#L34</a>: func RSAPad(data []byte, key *rsa.PublicKey, randomSource io.<b>Reader</b>) ([]byte, error) {
+		<a href="../src/github.com/gotd/td/crypto/session_id.go.html#line-11">session_id.go#L11</a>: func NewSessionID(reader io.<b>Reader</b>) (int64, error) {
 
-	<a href="../pkg/github.com/gotd/td/internal/crypto/srp.html">github.com/gotd/td/internal/crypto/srp</a>
-		<a href="../src/github.com/gotd/td/internal/crypto/srp/srp.go.html#line-18">srp.go#L18</a>: 	random io.<b>Reader</b>
-		<a href="../src/github.com/gotd/td/internal/crypto/srp/srp.go.html#line-22" class="path-duplicate">srp.go</a><a href="../src/github.com/gotd/td/internal/crypto/srp/srp.go.html#line-22">#L22</a>: func NewSRP(random io.<b>Reader</b>) SRP {
+	<a href="../pkg/github.com/gotd/td/crypto/srp.html">github.com/gotd/td/crypto/srp</a>
+		<a href="../src/github.com/gotd/td/crypto/srp/srp.go.html#line-18">srp.go#L18</a>: 	random io.<b>Reader</b>
+		<a href="../src/github.com/gotd/td/crypto/srp/srp.go.html#line-22" class="path-duplicate">srp.go</a><a href="../src/github.com/gotd/td/crypto/srp/srp.go.html#line-22">#L22</a>: func NewSRP(random io.<b>Reader</b>) SRP {
 
-	<a href="../pkg/github.com/gotd/td/internal/exchange.html">github.com/gotd/td/internal/exchange</a>
-		<a href="../src/github.com/gotd/td/internal/exchange/client.go.html#line-14">client.go#L14</a>: 	rand io.<b>Reader</b>
-		<a href="../src/github.com/gotd/td/internal/exchange/flow.go.html#line-25">flow.go#L25</a>: 	rand    io.<b>Reader</b>
-		<a href="../src/github.com/gotd/td/internal/exchange/flow.go.html#line-38" class="path-duplicate">flow.go</a><a href="../src/github.com/gotd/td/internal/exchange/flow.go.html#line-38">#L38</a>: func (e Exchanger) WithRand(reader io.<b>Reader</b>) Exchanger {
-		<a href="../src/github.com/gotd/td/internal/exchange/generator.go.html#line-25">generator.go#L25</a>: 	rand io.<b>Reader</b>
-		<a href="../src/github.com/gotd/td/internal/exchange/server.go.html#line-14">server.go#L14</a>: 	rand io.<b>Reader</b>
+	<a href="../pkg/github.com/gotd/td/exchange.html">github.com/gotd/td/exchange</a>
+		<a href="../src/github.com/gotd/td/exchange/client.go.html#line-14">client.go#L14</a>: 	rand io.<b>Reader</b>
+		<a href="../src/github.com/gotd/td/exchange/flow.go.html#line-35">flow.go#L35</a>: 	rand    io.<b>Reader</b>
+		<a href="../src/github.com/gotd/td/exchange/flow.go.html#line-51" class="path-duplicate">flow.go</a><a href="../src/github.com/gotd/td/exchange/flow.go.html#line-51">#L51</a>: func (e Exchanger) WithRand(reader io.<b>Reader</b>) Exchanger {
+		<a href="../src/github.com/gotd/td/exchange/generator.go.html#line-25">generator.go#L25</a>: 	rand io.<b>Reader</b>
+		<a href="../src/github.com/gotd/td/exchange/server.go.html#line-14">server.go#L14</a>: 	rand io.<b>Reader</b>
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproto.html">github.com/gotd/td/internal/mtproto</a>
-		<a href="../src/github.com/gotd/td/internal/mtproto/conn.go.html#line-64">conn.go#L64</a>: 	rand         io.<b>Reader</b>
-		<a href="../src/github.com/gotd/td/internal/mtproto/options.go.html#line-31">options.go#L31</a>: 	Random io.<b>Reader</b>
+	<a href="../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../src/github.com/gotd/td/mtproto/conn.go.html#line-64">conn.go#L64</a>: 	rand         io.<b>Reader</b>
+		<a href="../src/github.com/gotd/td/mtproto/options.go.html#line-32">options.go#L32</a>: 	Random io.<b>Reader</b>
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproxy/faketls.html">github.com/gotd/td/internal/mtproxy/faketls</a>
-		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/faketls.go.html#line-16">faketls.go#L16</a>: 	rand  io.<b>Reader</b>
-		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/faketls.go.html#line-28" class="path-duplicate">faketls.go</a><a href="../src/github.com/gotd/td/internal/mtproxy/faketls/faketls.go.html#line-28">#L28</a>: func NewFakeTLS(r io.<b>Reader</b>, conn io.ReadWriter) *FakeTLS {
-		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/record.go.html#line-19">record.go#L19</a>: func readRecord(r io.<b>Reader</b>) (record, error) {
-		<a href="../src/github.com/gotd/td/internal/mtproxy/faketls/server_hello.go.html#line-13">server_hello.go#L13</a>: func readServerHello(r io.<b>Reader</b>, clientRandom [32]byte, secret []byte) error {
+	<a href="../pkg/github.com/gotd/td/mtproxy/faketls.html">github.com/gotd/td/mtproxy/faketls</a>
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/client_hello.go.html#line-37">client_hello.go#L37</a>: func generateClientHello(rand io.<b>Reader</b>, domain string) ([]byte, error) {
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/client_hello.go.html#line-71" class="path-duplicate">client_hello.go</a><a href="../src/github.com/gotd/td/mtproxy/faketls/client_hello.go.html#line-71">#L71</a>: 	rand io.<b>Reader</b>,
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/faketls.go.html#line-16">faketls.go#L16</a>: 	rand  io.<b>Reader</b>
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/faketls.go.html#line-28" class="path-duplicate">faketls.go</a><a href="../src/github.com/gotd/td/mtproxy/faketls/faketls.go.html#line-28">#L28</a>: func NewFakeTLS(r io.<b>Reader</b>, conn io.ReadWriter) *FakeTLS {
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/record.go.html#line-22">record.go#L22</a>: func readRecord(r io.<b>Reader</b>) (record, error) {
+		<a href="../src/github.com/gotd/td/mtproxy/faketls/server_hello.go.html#line-17">server_hello.go#L17</a>: func readServerHello(r io.<b>Reader</b>, clientRandom [32]byte, secret []byte) error {
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproxy/obfuscated2.html">github.com/gotd/td/internal/mtproxy/obfuscated2</a>
-		<a href="../src/github.com/gotd/td/internal/mtproxy/obfuscated2/keys.go.html#line-54">keys.go#L54</a>: func generateKeys(randSource io.<b>Reader</b>, protocol [4]byte, secret []byte, dc int) (keys, error) {
-		<a href="../src/github.com/gotd/td/internal/mtproxy/obfuscated2/keys_util.go.html#line-29">keys_util.go#L29</a>: func generateInit(randSource io.<b>Reader</b>) (init [64]byte, err error) {
-		<a href="../src/github.com/gotd/td/internal/mtproxy/obfuscated2/obfuscated2.go.html#line-13">obfuscated2.go#L13</a>: 	rand io.<b>Reader</b>
-		<a href="../src/github.com/gotd/td/internal/mtproxy/obfuscated2/obfuscated2.go.html#line-20" class="path-duplicate">obfuscated2.go</a><a href="../src/github.com/gotd/td/internal/mtproxy/obfuscated2/obfuscated2.go.html#line-20">#L20</a>: func NewObfuscated2(r io.<b>Reader</b>, conn io.ReadWriter) *Obfuscated2 {
+	<a href="../pkg/github.com/gotd/td/mtproxy/obfuscated2.html">github.com/gotd/td/mtproxy/obfuscated2</a>
+		<a href="../src/github.com/gotd/td/mtproxy/obfuscated2/keys.go.html#line-54">keys.go#L54</a>: func generateKeys(randSource io.<b>Reader</b>, protocol [4]byte, secret []byte, dc int) (keys, error) {
+		<a href="../src/github.com/gotd/td/mtproxy/obfuscated2/keys_util.go.html#line-29">keys_util.go#L29</a>: func generateInit(randSource io.<b>Reader</b>) (init [64]byte, err error) {
+		<a href="../src/github.com/gotd/td/mtproxy/obfuscated2/obfuscated2.go.html#line-13">obfuscated2.go#L13</a>: 	rand io.<b>Reader</b>
+		<a href="../src/github.com/gotd/td/mtproxy/obfuscated2/obfuscated2.go.html#line-20" class="path-duplicate">obfuscated2.go</a><a href="../src/github.com/gotd/td/mtproxy/obfuscated2/obfuscated2.go.html#line-20">#L20</a>: func NewObfuscated2(r io.<b>Reader</b>, conn io.ReadWriter) *Obfuscated2 {
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproxy/obfuscator.html">github.com/gotd/td/internal/mtproxy/obfuscator</a>
-		<a href="../src/github.com/gotd/td/internal/mtproxy/obfuscator/dialer.go.html#line-17">dialer.go#L17</a>: func Obfuscated2(rand io.<b>Reader</b>, conn net.Conn) *Conn {
-		<a href="../src/github.com/gotd/td/internal/mtproxy/obfuscator/dialer.go.html#line-25" class="path-duplicate">dialer.go</a><a href="../src/github.com/gotd/td/internal/mtproxy/obfuscator/dialer.go.html#line-25">#L25</a>: func FakeTLS(rand io.<b>Reader</b>, conn net.Conn) *Conn {
-		<a href="../src/github.com/gotd/td/internal/mtproxy/obfuscator/obfuscator.go.html#line-25">obfuscator.go#L25</a>: func newTLS(rand io.<b>Reader</b>, conn io.ReadWriter) tls {
+	<a href="../pkg/github.com/gotd/td/mtproxy/obfuscator.html">github.com/gotd/td/mtproxy/obfuscator</a>
+		<a href="../src/github.com/gotd/td/mtproxy/obfuscator/dialer.go.html#line-17">dialer.go#L17</a>: func Obfuscated2(rand io.<b>Reader</b>, conn net.Conn) *Conn {
+		<a href="../src/github.com/gotd/td/mtproxy/obfuscator/dialer.go.html#line-25" class="path-duplicate">dialer.go</a><a href="../src/github.com/gotd/td/mtproxy/obfuscator/dialer.go.html#line-25">#L25</a>: func FakeTLS(rand io.<b>Reader</b>, conn net.Conn) *Conn {
+		<a href="../src/github.com/gotd/td/mtproxy/obfuscator/obfuscator.go.html#line-25">obfuscator.go#L25</a>: func newTLS(rand io.<b>Reader</b>, conn io.ReadWriter) tls {
 
-	<a href="../pkg/github.com/gotd/td/internal/proto.html">github.com/gotd/td/internal/proto</a>
-		<a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-43">gzip.go#L43</a>: func (g *gzipPool) GetReader(r io.<b>Reader</b>) (*gzip.Reader, error) {
-		<a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-113" class="path-duplicate">gzip.go</a><a href="../src/github.com/gotd/td/internal/proto/gzip.go.html#line-113">#L113</a>: 	reader io.<b>Reader</b>
+	<a href="../pkg/github.com/gotd/td/proto.html">github.com/gotd/td/proto</a>
+		<a href="../src/github.com/gotd/td/proto/gzip.go.html#line-43">gzip.go#L43</a>: func (g *gzipPool) GetReader(r io.<b>Reader</b>) (*gzip.Reader, error) {
+		<a href="../src/github.com/gotd/td/proto/gzip.go.html#line-113" class="path-duplicate">gzip.go</a><a href="../src/github.com/gotd/td/proto/gzip.go.html#line-113">#L113</a>: 	reader io.<b>Reader</b>
 
-	<a href="../pkg/github.com/gotd/td/internal/proto/codec.html">github.com/gotd/td/internal/proto/codec</a>
-		<a href="../src/github.com/gotd/td/internal/proto/codec/abridged.go.html#line-36">abridged.go#L36</a>: func (i Abridged) ReadHeader(r io.<b>Reader</b>) error {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/abridged.go.html#line-73" class="path-duplicate">abridged.go</a><a href="../src/github.com/gotd/td/internal/proto/codec/abridged.go.html#line-73">#L73</a>: func (i Abridged) Read(r io.<b>Reader</b>, b *bin.Buffer) error {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/abridged.go.html#line-119" class="path-duplicate">abridged.go</a><a href="../src/github.com/gotd/td/internal/proto/codec/abridged.go.html#line-119">#L119</a>: func readAbridged(r io.<b>Reader</b>, b *bin.Buffer) error {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/codec.go.html#line-17">codec.go#L17</a>: 	ReadHeader(r io.<b>Reader</b>) error
-		<a href="../src/github.com/gotd/td/internal/proto/codec/codec.go.html#line-21" class="path-duplicate">codec.go</a><a href="../src/github.com/gotd/td/internal/proto/codec/codec.go.html#line-21">#L21</a>: 	Read(r io.<b>Reader</b>, b *bin.Buffer) error
-		<a href="../src/github.com/gotd/td/internal/proto/codec/codec.go.html#line-32" class="path-duplicate">codec.go</a><a href="../src/github.com/gotd/td/internal/proto/codec/codec.go.html#line-32">#L32</a>: func readLen(r io.<b>Reader</b>, b *bin.Buffer) (int, error) {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/full.go.html#line-27">full.go#L27</a>: func (i *Full) ReadHeader(r io.<b>Reader</b>) (err error) {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/full.go.html#line-45" class="path-duplicate">full.go</a><a href="../src/github.com/gotd/td/internal/proto/codec/full.go.html#line-45">#L45</a>: func (i *Full) Read(r io.<b>Reader</b>, b *bin.Buffer) error {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/full.go.html#line-77" class="path-duplicate">full.go</a><a href="../src/github.com/gotd/td/internal/proto/codec/full.go.html#line-77">#L77</a>: func readFull(r io.<b>Reader</b>, seqNo int, b *bin.Buffer) error {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/intermediate.go.html#line-35">intermediate.go#L35</a>: func (i Intermediate) ReadHeader(r io.<b>Reader</b>) (err error) {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/intermediate.go.html#line-71" class="path-duplicate">intermediate.go</a><a href="../src/github.com/gotd/td/internal/proto/codec/intermediate.go.html#line-71">#L71</a>: func (i Intermediate) Read(r io.<b>Reader</b>, b *bin.Buffer) error {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/intermediate.go.html#line-98" class="path-duplicate">intermediate.go</a><a href="../src/github.com/gotd/td/internal/proto/codec/intermediate.go.html#line-98">#L98</a>: func readIntermediate(r io.<b>Reader</b>, b *bin.Buffer, padding bool) error {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/no_header.go.html#line-16">no_header.go#L16</a>: func (NoHeader) ReadHeader(io.<b>Reader</b>) error {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/padded_intermediate.go.html#line-36">padded_intermediate.go#L36</a>: func (i PaddedIntermediate) ReadHeader(r io.<b>Reader</b>) error {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/padded_intermediate.go.html#line-72" class="path-duplicate">padded_intermediate.go</a><a href="../src/github.com/gotd/td/internal/proto/codec/padded_intermediate.go.html#line-72">#L72</a>: func (i PaddedIntermediate) Read(r io.<b>Reader</b>, b *bin.Buffer) error {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/padded_intermediate.go.html#line-80" class="path-duplicate">padded_intermediate.go</a><a href="../src/github.com/gotd/td/internal/proto/codec/padded_intermediate.go.html#line-80">#L80</a>: func writePaddedIntermediate(randSource io.<b>Reader</b>, w io.Writer, b *bin.Buffer) error {
-		<a href="../src/github.com/gotd/td/internal/proto/codec/padded_intermediate.go.html#line-98" class="path-duplicate">padded_intermediate.go</a><a href="../src/github.com/gotd/td/internal/proto/codec/padded_intermediate.go.html#line-98">#L98</a>: func readPaddedIntermediate(r io.<b>Reader</b>, b *bin.Buffer) error {
+	<a href="../pkg/github.com/gotd/td/proto/codec.html">github.com/gotd/td/proto/codec</a>
+		<a href="../src/github.com/gotd/td/proto/codec/abridged.go.html#line-36">abridged.go#L36</a>: func (i Abridged) ReadHeader(r io.<b>Reader</b>) error {
+		<a href="../src/github.com/gotd/td/proto/codec/abridged.go.html#line-73" class="path-duplicate">abridged.go</a><a href="../src/github.com/gotd/td/proto/codec/abridged.go.html#line-73">#L73</a>: func (i Abridged) Read(r io.<b>Reader</b>, b *bin.Buffer) error {
+		<a href="../src/github.com/gotd/td/proto/codec/abridged.go.html#line-119" class="path-duplicate">abridged.go</a><a href="../src/github.com/gotd/td/proto/codec/abridged.go.html#line-119">#L119</a>: func readAbridged(r io.<b>Reader</b>, b *bin.Buffer) error {
+		<a href="../src/github.com/gotd/td/proto/codec/codec.go.html#line-17">codec.go#L17</a>: 	ReadHeader(r io.<b>Reader</b>) error
+		<a href="../src/github.com/gotd/td/proto/codec/codec.go.html#line-21" class="path-duplicate">codec.go</a><a href="../src/github.com/gotd/td/proto/codec/codec.go.html#line-21">#L21</a>: 	Read(r io.<b>Reader</b>, b *bin.Buffer) error
+		<a href="../src/github.com/gotd/td/proto/codec/codec.go.html#line-32" class="path-duplicate">codec.go</a><a href="../src/github.com/gotd/td/proto/codec/codec.go.html#line-32">#L32</a>: func readLen(r io.<b>Reader</b>, b *bin.Buffer) (int, error) {
+		<a href="../src/github.com/gotd/td/proto/codec/full.go.html#line-27">full.go#L27</a>: func (i *Full) ReadHeader(r io.<b>Reader</b>) (err error) {
+		<a href="../src/github.com/gotd/td/proto/codec/full.go.html#line-45" class="path-duplicate">full.go</a><a href="../src/github.com/gotd/td/proto/codec/full.go.html#line-45">#L45</a>: func (i *Full) Read(r io.<b>Reader</b>, b *bin.Buffer) error {
+		<a href="../src/github.com/gotd/td/proto/codec/full.go.html#line-77" class="path-duplicate">full.go</a><a href="../src/github.com/gotd/td/proto/codec/full.go.html#line-77">#L77</a>: func readFull(r io.<b>Reader</b>, seqNo int, b *bin.Buffer) error {
+		<a href="../src/github.com/gotd/td/proto/codec/intermediate.go.html#line-35">intermediate.go#L35</a>: func (i Intermediate) ReadHeader(r io.<b>Reader</b>) (err error) {
+		<a href="../src/github.com/gotd/td/proto/codec/intermediate.go.html#line-71" class="path-duplicate">intermediate.go</a><a href="../src/github.com/gotd/td/proto/codec/intermediate.go.html#line-71">#L71</a>: func (i Intermediate) Read(r io.<b>Reader</b>, b *bin.Buffer) error {
+		<a href="../src/github.com/gotd/td/proto/codec/intermediate.go.html#line-98" class="path-duplicate">intermediate.go</a><a href="../src/github.com/gotd/td/proto/codec/intermediate.go.html#line-98">#L98</a>: func readIntermediate(r io.<b>Reader</b>, b *bin.Buffer, padding bool) error {
+		<a href="../src/github.com/gotd/td/proto/codec/no_header.go.html#line-16">no_header.go#L16</a>: func (NoHeader) ReadHeader(io.<b>Reader</b>) error {
+		<a href="../src/github.com/gotd/td/proto/codec/padded_intermediate.go.html#line-36">padded_intermediate.go#L36</a>: func (i PaddedIntermediate) ReadHeader(r io.<b>Reader</b>) error {
+		<a href="../src/github.com/gotd/td/proto/codec/padded_intermediate.go.html#line-72" class="path-duplicate">padded_intermediate.go</a><a href="../src/github.com/gotd/td/proto/codec/padded_intermediate.go.html#line-72">#L72</a>: func (i PaddedIntermediate) Read(r io.<b>Reader</b>, b *bin.Buffer) error {
+		<a href="../src/github.com/gotd/td/proto/codec/padded_intermediate.go.html#line-80" class="path-duplicate">padded_intermediate.go</a><a href="../src/github.com/gotd/td/proto/codec/padded_intermediate.go.html#line-80">#L80</a>: func writePaddedIntermediate(randSource io.<b>Reader</b>, w io.Writer, b *bin.Buffer) error {
+		<a href="../src/github.com/gotd/td/proto/codec/padded_intermediate.go.html#line-98" class="path-duplicate">padded_intermediate.go</a><a href="../src/github.com/gotd/td/proto/codec/padded_intermediate.go.html#line-98">#L98</a>: func readPaddedIntermediate(r io.<b>Reader</b>, b *bin.Buffer) error {
 
 	<a href="../pkg/github.com/gotd/td/session/tdesktop.html">github.com/gotd/td/session/tdesktop</a>
-		<a href="../src/github.com/gotd/td/session/tdesktop/file.go.html#line-67">file.go#L67</a>: func fromFile(r io.<b>Reader</b>) (*tdesktopFile, error) {
+		<a href="../src/github.com/gotd/td/session/tdesktop/file.go.html#line-74">file.go#L74</a>: func fromFile(r io.<b>Reader</b>) (*tdesktopFile, error) {
+
+	<a href="../pkg/github.com/gotd/td/syncio.html">github.com/gotd/td/syncio</a>
+		<a href="../src/github.com/gotd/td/syncio/reader.go.html#line-10">reader.go#L10</a>: 	r   io.<b>Reader</b>
+		<a href="../src/github.com/gotd/td/syncio/reader.go.html#line-15" class="path-duplicate">reader.go</a><a href="../src/github.com/gotd/td/syncio/reader.go.html#line-15">#L15</a>: func NewReader(r io.<b>Reader</b>) *Reader {
 
 	<a href="../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
-		<a href="../src/github.com/gotd/td/telegram/client.go.html#line-106">client.go#L106</a>: 	rand  io.<b>Reader</b>   // immutable
-		<a href="../src/github.com/gotd/td/telegram/options.go.html#line-55">options.go#L55</a>: 	Random io.<b>Reader</b>
+		<a href="../src/github.com/gotd/td/telegram/client.go.html#line-130">client.go#L130</a>: 	rand  io.<b>Reader</b>   // immutable
+		<a href="../src/github.com/gotd/td/telegram/options.go.html#line-73">options.go#L73</a>: 	Random io.<b>Reader</b>
 
 	<a href="../pkg/github.com/gotd/td/telegram/auth.html">github.com/gotd/td/telegram/auth</a>
 		<a href="../src/github.com/gotd/td/telegram/auth/client.go.html#line-12">client.go#L12</a>: 	rand    io.<b>Reader</b>
 		<a href="../src/github.com/gotd/td/telegram/auth/client.go.html#line-20" class="path-duplicate">client.go</a><a href="../src/github.com/gotd/td/telegram/auth/client.go.html#line-20">#L20</a>: 	rand io.<b>Reader</b>,
-		<a href="../src/github.com/gotd/td/telegram/auth/flow.go.html#line-285">flow.go#L285</a>: func Test(randReader io.<b>Reader</b>, dc int) UserAuthenticator {
+		<a href="../src/github.com/gotd/td/telegram/auth/flow.go.html#line-310">flow.go#L310</a>: func Test(randReader io.<b>Reader</b>, dc int) UserAuthenticator {
 
 	<a href="../pkg/github.com/gotd/td/telegram/dcs.html">github.com/gotd/td/telegram/dcs</a>
 		<a href="../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html#line-27">mtproxy.go#L27</a>: 	rand   io.<b>Reader</b>
 		<a href="../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html#line-93" class="path-duplicate">mtproxy.go</a><a href="../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html#line-93">#L93</a>: 	Rand io.<b>Reader</b>
 		<a href="../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-25">plain.go#L25</a>: 	rand         io.<b>Reader</b>
-		<a href="../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-189" class="path-duplicate">plain.go</a><a href="../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-189">#L189</a>: 	Rand io.<b>Reader</b>
+		<a href="../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-214" class="path-duplicate">plain.go</a><a href="../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-214">#L214</a>: 	Rand io.<b>Reader</b>
 		<a href="../src/github.com/gotd/td/telegram/dcs/websocket.go.html#line-25">websocket.go#L25</a>: 	rand io.<b>Reader</b>
 		<a href="../src/github.com/gotd/td/telegram/dcs/websocket.go.html#line-76" class="path-duplicate">websocket.go</a><a href="../src/github.com/gotd/td/telegram/dcs/websocket.go.html#line-76">#L76</a>: 	Rand io.<b>Reader</b>
 
@@ -281,17 +347,56 @@
 	<a href="../pkg/github.com/klauspost/compress/flate.html">github.com/klauspost/compress/flate</a>
 		<a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-74">inflate.go#L74</a>: 	Reset(r io.<b>Reader</b>, dict []byte) error
 		<a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-285" class="path-duplicate">inflate.go</a><a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-285">#L285</a>: 	io.<b>Reader</b>
-		<a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-751" class="path-duplicate">inflate.go</a><a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-751">#L751</a>: func makeReader(r io.<b>Reader</b>) Reader {
-		<a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-778" class="path-duplicate">inflate.go</a><a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-778">#L778</a>: func (f *decompressor) Reset(r io.<b>Reader</b>, dict []byte) error {
-		<a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-800" class="path-duplicate">inflate.go</a><a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-800">#L800</a>: func NewReader(r io.<b>Reader</b>) io.ReadCloser {
-		<a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-819" class="path-duplicate">inflate.go</a><a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-819">#L819</a>: func NewReaderDict(r io.<b>Reader</b>, dict []byte) io.ReadCloser {
+		<a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-768" class="path-duplicate">inflate.go</a><a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-768">#L768</a>: func makeReader(r io.<b>Reader</b>) Reader {
+		<a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-795" class="path-duplicate">inflate.go</a><a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-795">#L795</a>: func (f *decompressor) Reset(r io.<b>Reader</b>, dict []byte) error {
+		<a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-827" class="path-duplicate">inflate.go</a><a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-827">#L827</a>: func NewReaderOpts(r io.<b>Reader</b>, opts ...ReaderOpt) io.ReadCloser {
+		<a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-852" class="path-duplicate">inflate.go</a><a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-852">#L852</a>: func NewReader(r io.<b>Reader</b>) io.ReadCloser {
+		<a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-863" class="path-duplicate">inflate.go</a><a href="../src/github.com/klauspost/compress/flate/inflate.go.html#line-863">#L863</a>: func NewReaderDict(r io.<b>Reader</b>, dict []byte) io.ReadCloser {
 
 	<a href="../pkg/github.com/klauspost/compress/gzip.html">github.com/klauspost/compress/gzip</a>
 		<a href="../src/github.com/klauspost/compress/gzip/gunzip.go.html#line-94">gunzip.go#L94</a>: func NewReader(r io.<b>Reader</b>) (*Reader, error) {
 		<a href="../src/github.com/klauspost/compress/gzip/gunzip.go.html#line-105" class="path-duplicate">gunzip.go</a><a href="../src/github.com/klauspost/compress/gzip/gunzip.go.html#line-105">#L105</a>: func (z *Reader) Reset(r io.<b>Reader</b>) error {
 
-	<a href="../pkg/go.uber.org/zap.html">go.uber.org/zap</a>
-		<a href="../src/go.uber.org/zap/http_handler.go.html#line-129">http_handler.go#L129</a>: func decodePutJSON(body io.<b>Reader</b>) (zapcore.Level, error) {
+	<a href="../pkg/github.com/klauspost/compress/internal/snapref.html">github.com/klauspost/compress/internal/snapref</a>
+		<a href="../src/github.com/klauspost/compress/internal/snapref/decode.go.html#line-79">decode.go#L79</a>: func NewReader(r io.<b>Reader</b>) *Reader {
+		<a href="../src/github.com/klauspost/compress/internal/snapref/decode.go.html#line-91" class="path-duplicate">decode.go</a><a href="../src/github.com/klauspost/compress/internal/snapref/decode.go.html#line-91">#L91</a>: 	r       io.<b>Reader</b>
+		<a href="../src/github.com/klauspost/compress/internal/snapref/decode.go.html#line-103" class="path-duplicate">decode.go</a><a href="../src/github.com/klauspost/compress/internal/snapref/decode.go.html#line-103">#L103</a>: func (r *Reader) Reset(reader io.<b>Reader</b>) {
+
+	<a href="../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>
+		<a href="../src/github.com/klauspost/compress/zstd/bytebuf.go.html#line-78">bytebuf.go#L78</a>: 	r   io.<b>Reader</b>
+		<a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-67">decoder.go#L67</a>: 	_ = io.<b>Reader</b>(&amp;Decoder{})
+		<a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-84" class="path-duplicate">decoder.go</a><a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-84">#L84</a>: func NewReader(r io.<b>Reader</b>, opts ...DOption) (*Decoder, error) {
+		<a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-166" class="path-duplicate">decoder.go</a><a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-166">#L166</a>: func (d *Decoder) Reset(r io.<b>Reader</b>) error {
+		<a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-240" class="path-duplicate">decoder.go</a><a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-240">#L240</a>: func (d *Decoder) ResetWithOptions(r io.<b>Reader</b>, opts ...DOption) error {
+		<a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-640" class="path-duplicate">decoder.go</a><a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-640">#L640</a>: func (d *Decoder) startSyncDecoder(r io.<b>Reader</b>) error {
+		<a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-655" class="path-duplicate">decoder.go</a><a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-655">#L655</a>: func (d *Decoder) startStreamDecoder(ctx context.Context, r io.<b>Reader</b>, output chan decodeOutput) {
+		<a href="../src/github.com/klauspost/compress/zstd/encoder.go.html#line-372">encoder.go#L372</a>: func (e *Encoder) ReadFrom(r io.<b>Reader</b>) (n int64, err error) {
+		<a href="../src/github.com/klauspost/compress/zstd/frameenc.go.html#line-120">frameenc.go#L120</a>: func skippableFrame(dst []byte, total int, r io.<b>Reader</b>) ([]byte, error) {
+		<a href="../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-186">fse_decoder.go#L186</a>: func (s *fseDecoder) mustReadFrom(r io.<b>Reader</b>) {
+		<a href="../src/github.com/klauspost/compress/zstd/snappy.go.html#line-73">snappy.go#L73</a>: 	r     io.<b>Reader</b>
+		<a href="../src/github.com/klauspost/compress/zstd/snappy.go.html#line-82" class="path-duplicate">snappy.go</a><a href="../src/github.com/klauspost/compress/zstd/snappy.go.html#line-82">#L82</a>: func (r *SnappyConverter) Convert(in io.<b>Reader</b>, w io.Writer) (int64, error) {
+		<a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-31">zip.go#L31</a>: func newZipReader(opts ...DOption) func(r io.<b>Reader</b>) io.ReadCloser {
+		<a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-40" class="path-duplicate">zip.go</a><a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-40">#L40</a>: 	return func(r io.<b>Reader</b>) io.ReadCloser {
+		<a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-139" class="path-duplicate">zip.go</a><a href="../src/github.com/klauspost/compress/zstd/zip.go.html#line-139">#L139</a>: func ZipDecompressor(opts ...DOption) func(r io.<b>Reader</b>) io.ReadCloser {
+
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-556">common.go#L556</a>: 	Rand io.<b>Reader</b>
+		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-1152" class="path-duplicate">common.go</a><a href="../src/github.com/refraction-networking/utls/common.go.html#line-1152">#L1152</a>: func (c *Config) rand() io.<b>Reader</b> {
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-483">conn.go#L483</a>: func (hc *halfConn) encrypt(record, payload []byte, rand io.<b>Reader</b>) ([]byte, error) {
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-802" class="path-duplicate">conn.go</a><a href="../src/github.com/refraction-networking/utls/conn.go.html#line-802">#L802</a>: 	R io.<b>Reader</b>
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-823" class="path-duplicate">conn.go</a><a href="../src/github.com/refraction-networking/utls/conn.go.html#line-823">#L823</a>: func (c *Conn) readFromUntil(r io.<b>Reader</b>, n int) error {
+		<a href="../src/github.com/refraction-networking/utls/key_schedule.go.html#line-64">key_schedule.go#L64</a>: func generateECDHEKey(rand io.<b>Reader</b>, curveID CurveID) (*ecdh.PrivateKey, error) {
+		<a href="../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-53">u_handshake_client.go#L53</a>: 		decompressed io.<b>Reader</b>
+
+	<a href="../pkg/golang.org/x/crypto/hkdf.html">golang.org/x/crypto/hkdf</a>
+		<a href="../src/golang.org/x/crypto/hkdf/hkdf.go.html#line-90">hkdf.go#L90</a>: func Expand(hash func() hash.Hash, pseudorandomKey, info []byte) io.<b>Reader</b> {
+		<a href="../src/golang.org/x/crypto/hkdf/hkdf.go.html#line-97" class="path-duplicate">hkdf.go</a><a href="../src/golang.org/x/crypto/hkdf/hkdf.go.html#line-97">#L97</a>: func New(hash func() hash.Hash, secret, salt, info []byte) io.<b>Reader</b> {
+
+	<a href="../pkg/golang.org/x/crypto/sha3.html">golang.org/x/crypto/sha3</a>
+		<a href="../src/golang.org/x/crypto/sha3/shake.go.html#line-24">shake.go#L24</a>: 	io.<b>Reader</b>
+
+	<a href="../pkg/hash.html">hash</a>
+		<a href="../src/hash/hash.go.html#line-82">hash.go#L82</a>: 	io.<b>Reader</b>
 
 	<a href="../pkg/image.html">image</a>
 		<a href="../src/image/format.go.html#line-21">format.go#L21</a>: 	decode       func(io.<b>Reader</b>) (Image, error)
@@ -301,6 +406,9 @@
 		<a href="../src/image/format.go.html#line-51" class="path-duplicate">format.go</a><a href="../src/image/format.go.html#line-51">#L51</a>: func asReader(r io.<b>Reader</b>) reader {
 		<a href="../src/image/format.go.html#line-87" class="path-duplicate">format.go</a><a href="../src/image/format.go.html#line-87">#L87</a>: func Decode(r io.<b>Reader</b>) (Image, string, error) {
 		<a href="../src/image/format.go.html#line-101" class="path-duplicate">format.go</a><a href="../src/image/format.go.html#line-101">#L101</a>: func DecodeConfig(r io.<b>Reader</b>) (Config, string, error) {
+
+	<a href="../pkg/internal/saferio.html">internal/saferio</a>
+		<a href="../src/internal/saferio/io.go.html#line-28">io.go#L28</a>: func ReadData(r io.<b>Reader</b>, n uint64) ([]byte, error) {
 
 	<a href="../pkg/mime.html">mime</a>
 		<a href="../src/mime/encodedword.go.html#line-194">encodedword.go#L194</a>: 	CharsetReader func(charset string, input io.<b>Reader</b>) (io.<b>Reader</b>, error)
@@ -315,73 +423,57 @@
 		<a href="../src/mime/quotedprintable/reader.go.html#line-24">reader.go#L24</a>: func NewReader(r io.<b>Reader</b>) *Reader {
 
 	<a href="../pkg/net.html">net</a>
-		<a href="../src/net/net.go.html#line-669">net.go#L669</a>: func genericReadFrom(w io.Writer, r io.<b>Reader</b>) (n int64, err error) {
-		<a href="../src/net/net.go.html#line-712" class="path-duplicate">net.go</a><a href="../src/net/net.go.html#line-712">#L712</a>: 	_ io.<b>Reader</b>   = (*Buffers)(nil)
-		<a href="../src/net/sendfile_linux.go.html#line-20">sendfile_linux.go#L20</a>: func sendFile(c *netFD, r io.<b>Reader</b>) (written int64, err error, handled bool) {
-		<a href="../src/net/splice_linux.go.html#line-17">splice_linux.go#L17</a>: func splice(c *netFD, r io.<b>Reader</b>) (written int64, err error, handled bool) {
-		<a href="../src/net/tcpsock.go.html#line-126">tcpsock.go#L126</a>: func (c *TCPConn) ReadFrom(r io.<b>Reader</b>) (int64, error) {
+		<a href="../src/net/net.go.html#line-756">net.go#L756</a>: func (noReadFrom) ReadFrom(io.<b>Reader</b>) (int64, error) {
+		<a href="../src/net/net.go.html#line-770" class="path-duplicate">net.go</a><a href="../src/net/net.go.html#line-770">#L770</a>: func genericReadFrom(c *TCPConn, r io.<b>Reader</b>) (n int64, err error) {
+		<a href="../src/net/net.go.html#line-842" class="path-duplicate">net.go</a><a href="../src/net/net.go.html#line-842">#L842</a>: 	_ io.<b>Reader</b>   = (*Buffers)(nil)
+		<a href="../src/net/sendfile.go.html#line-24">sendfile.go#L24</a>: func sendFile(c *netFD, r io.<b>Reader</b>) (written int64, err error, handled bool) {
+		<a href="../src/net/splice_linux.go.html#line-19">splice_linux.go#L19</a>: func spliceFrom(c *netFD, r io.<b>Reader</b>) (written int64, err error, handled bool) {
+		<a href="../src/net/tcpsock.go.html#line-161">tcpsock.go#L161</a>: func (c *TCPConn) ReadFrom(r io.<b>Reader</b>) (int64, error) {
 		<a href="../src/net/tcpsock_posix.go.html#line-47">tcpsock_posix.go#L47</a>: func (c *TCPConn) readFrom(r io.<b>Reader</b>) (int64, error) {
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/client.go.html#line-833">client.go#L833</a>: func Post(url, contentType string, body io.<b>Reader</b>) (resp *Response, err error) {
-		<a href="../src/net/http/client.go.html#line-851" class="path-duplicate">client.go</a><a href="../src/net/http/client.go.html#line-851">#L851</a>: func (c *Client) Post(url, contentType string, body io.<b>Reader</b>) (resp *Response, err error) {
-		<a href="../src/net/http/fs.go.html#line-106">fs.go#L106</a>: 	io.<b>Reader</b>
-		<a href="../src/net/http/fs.go.html#line-267" class="path-duplicate">fs.go</a><a href="../src/net/http/fs.go.html#line-267">#L267</a>: 	var sendContent io.<b>Reader</b> = content
-		<a href="../src/net/http/h2_bundle.go.html#line-1628">h2_bundle.go#L1628</a>: func http2ReadFrameHeader(r io.<b>Reader</b>) (http2FrameHeader, error) {
-		<a href="../src/net/http/h2_bundle.go.html#line-1634" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1634">#L1634</a>: func http2readFrameHeader(buf []byte, r io.<b>Reader</b>) (http2FrameHeader, error) {
-		<a href="../src/net/http/h2_bundle.go.html#line-1664" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1664">#L1664</a>: 	r         io.<b>Reader</b>
-		<a href="../src/net/http/h2_bundle.go.html#line-1831" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1831">#L1831</a>: func http2NewFramer(w io.Writer, r io.<b>Reader</b>) *http2Framer {
-		<a href="../src/net/http/h2_bundle.go.html#line-3719" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-3719">#L3719</a>: 	io.<b>Reader</b>
-		<a href="../src/net/http/request.go.html#line-838">request.go#L838</a>: func NewRequest(method, url string, body io.<b>Reader</b>) (*Request, error) {
-		<a href="../src/net/http/request.go.html#line-864" class="path-duplicate">request.go</a><a href="../src/net/http/request.go.html#line-864">#L864</a>: func NewRequestWithContext(ctx context.Context, method, url string, body io.<b>Reader</b>) (*Request, error) {
-		<a href="../src/net/http/request.go.html#line-1231" class="path-duplicate">request.go</a><a href="../src/net/http/request.go.html#line-1231">#L1231</a>: 		var reader io.<b>Reader</b> = r.Body
+		<a href="../src/net/http/client.go.html#line-856">client.go#L856</a>: func Post(url, contentType string, body io.<b>Reader</b>) (resp *Response, err error) {
+		<a href="../src/net/http/client.go.html#line-874" class="path-duplicate">client.go</a><a href="../src/net/http/client.go.html#line-874">#L874</a>: func (c *Client) Post(url, contentType string, body io.<b>Reader</b>) (resp *Response, err error) {
+		<a href="../src/net/http/fs.go.html#line-115">fs.go#L115</a>: 	io.<b>Reader</b>
+		<a href="../src/net/http/fs.go.html#line-318" class="path-duplicate">fs.go</a><a href="../src/net/http/fs.go.html#line-318">#L318</a>: 	var sendContent io.<b>Reader</b> = content
+		<a href="../src/net/http/h2_bundle.go.html#line-1798">h2_bundle.go#L1798</a>: func http2ReadFrameHeader(r io.<b>Reader</b>) (http2FrameHeader, error) {
+		<a href="../src/net/http/h2_bundle.go.html#line-1804" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1804">#L1804</a>: func http2readFrameHeader(buf []byte, r io.<b>Reader</b>) (http2FrameHeader, error) {
+		<a href="../src/net/http/h2_bundle.go.html#line-1834" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-1834">#L1834</a>: 	r         io.<b>Reader</b>
+		<a href="../src/net/http/h2_bundle.go.html#line-2003" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-2003">#L2003</a>: func http2NewFramer(w io.Writer, r io.<b>Reader</b>) *http2Framer {
+		<a href="../src/net/http/h2_bundle.go.html#line-3882" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-3882">#L3882</a>: 	io.<b>Reader</b>
+		<a href="../src/net/http/h2_bundle.go.html#line-10451" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10451">#L10451</a>: func http2gzipPoolGet(r io.<b>Reader</b>) (*gzip.Reader, error) {
+		<a href="../src/net/http/request.go.html#line-862">request.go#L862</a>: func NewRequest(method, url string, body io.<b>Reader</b>) (*Request, error) {
+		<a href="../src/net/http/request.go.html#line-889" class="path-duplicate">request.go</a><a href="../src/net/http/request.go.html#line-889">#L889</a>: func NewRequestWithContext(ctx context.Context, method, url string, body io.<b>Reader</b>) (*Request, error) {
+		<a href="../src/net/http/request.go.html#line-1277" class="path-duplicate">request.go</a><a href="../src/net/http/request.go.html#line-1277">#L1277</a>: 		var reader io.<b>Reader</b> = r.Body
 		<a href="../src/net/http/response.go.html#line-280">response.go#L280</a>: 				io.<b>Reader</b>
-		<a href="../src/net/http/server.go.html#line-578">server.go#L578</a>: func (w *response) ReadFrom(src io.<b>Reader</b>) (n int64, err error) {
-		<a href="../src/net/http/server.go.html#line-828" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-828">#L828</a>: func newBufioReader(r io.<b>Reader</b>) *bufio.Reader {
-		<a href="../src/net/http/transfer.go.html#line-61">transfer.go#L61</a>: 	Body             io.<b>Reader</b>
-		<a href="../src/net/http/transfer.go.html#line-208" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-208">#L208</a>: 	go func(body io.<b>Reader</b>) {
-		<a href="../src/net/http/transfer.go.html#line-411" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-411">#L411</a>: func (t *transferWriter) doBodyCopy(dst io.Writer, src io.<b>Reader</b>) (n int64, err error) {
-		<a href="../src/net/http/transfer.go.html#line-424" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-424">#L424</a>: func (t *transferWriter) unwrapBody() io.<b>Reader</b> {
-		<a href="../src/net/http/transfer.go.html#line-806" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-806">#L806</a>: 	src          io.<b>Reader</b>
-		<a href="../src/net/http/transfer.go.html#line-1079" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-1079">#L1079</a>: 	io.<b>Reader</b>
-		<a href="../src/net/http/transfer.go.html#line-1085" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-1085">#L1085</a>: func unwrapNopCloser(r io.<b>Reader</b>) (underlyingReader io.<b>Reader</b>, isNopCloser bool) {
-		<a href="../src/net/http/transfer.go.html#line-1088" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-1088">#L1088</a>: 		return reflect.ValueOf(r).Field(0).Interface().(io.<b>Reader</b>), true
-		<a href="../src/net/http/transfer.go.html#line-1097" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-1097">#L1097</a>: func isKnownInMemoryReader(r io.<b>Reader</b>) bool {
-		<a href="../src/net/http/transport.go.html#line-1800">transport.go#L1800</a>: func (w persistConnWriter) ReadFrom(r io.<b>Reader</b>) (n int64, err error) {
+		<a href="../src/net/http/server.go.html#line-589">server.go#L589</a>: func (w *response) ReadFrom(src io.<b>Reader</b>) (n int64, err error) {
+		<a href="../src/net/http/server.go.html#line-857" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-857">#L857</a>: func newBufioReader(r io.<b>Reader</b>) *bufio.Reader {
+		<a href="../src/net/http/transfer.go.html#line-63">transfer.go#L63</a>: 	Body             io.<b>Reader</b>
+		<a href="../src/net/http/transfer.go.html#line-210" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-210">#L210</a>: 	go func(body io.<b>Reader</b>) {
+		<a href="../src/net/http/transfer.go.html#line-413" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-413">#L413</a>: func (t *transferWriter) doBodyCopy(dst io.Writer, src io.<b>Reader</b>) (n int64, err error) {
+		<a href="../src/net/http/transfer.go.html#line-429" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-429">#L429</a>: func (t *transferWriter) unwrapBody() io.<b>Reader</b> {
+		<a href="../src/net/http/transfer.go.html#line-812" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-812">#L812</a>: 	src          io.<b>Reader</b>
+		<a href="../src/net/http/transfer.go.html#line-1095" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-1095">#L1095</a>: 	io.<b>Reader</b>
+		<a href="../src/net/http/transfer.go.html#line-1101" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-1101">#L1101</a>: func unwrapNopCloser(r io.<b>Reader</b>) (underlyingReader io.<b>Reader</b>, isNopCloser bool) {
+		<a href="../src/net/http/transfer.go.html#line-1104" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-1104">#L1104</a>: 		return reflect.ValueOf(r).Field(0).Interface().(io.<b>Reader</b>), true
+		<a href="../src/net/http/transfer.go.html#line-1113" class="path-duplicate">transfer.go</a><a href="../src/net/http/transfer.go.html#line-1113">#L1113</a>: func isKnownInMemoryReader(r io.<b>Reader</b>) bool {
+		<a href="../src/net/http/transport.go.html#line-2018">transport.go#L2018</a>: func (w persistConnWriter) ReadFrom(r io.<b>Reader</b>) (n int64, err error) {
+		<a href="../src/net/http/transport.go.html#line-3131" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-3131">#L3131</a>: func gzipPoolGet(r io.<b>Reader</b>) (*gzip.Reader, error) {
 
 	<a href="../pkg/net/http/internal.html">net/http/internal</a>
 		<a href="../src/net/http/internal/chunked.go.html#line-29">chunked.go#L29</a>: func NewChunkedReader(r io.<b>Reader</b>) io.<b>Reader</b> {
 
 	<a href="../pkg/net/textproto.html">net/textproto</a>
-		<a href="../src/net/textproto/reader.go.html#line-308">reader.go#L308</a>: func (r *Reader) DotReader() io.<b>Reader</b> {
-
-	<a href="../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../src/nhooyr.io/websocket/compress.go.html#line-138">compress.go#L138</a>: func getFlateReader(r io.<b>Reader</b>, dict []byte) io.<b>Reader</b> {
-		<a href="../src/nhooyr.io/websocket/compress.go.html#line-139" class="path-duplicate">compress.go</a><a href="../src/nhooyr.io/websocket/compress.go.html#line-139">#L139</a>: 	fr, ok := flateReaderPool.Get().(io.<b>Reader</b>)
-		<a href="../src/nhooyr.io/websocket/compress.go.html#line-147" class="path-duplicate">compress.go</a><a href="../src/nhooyr.io/websocket/compress.go.html#line-147">#L147</a>: func putFlateReader(fr io.<b>Reader</b>) {
-		<a href="../src/nhooyr.io/websocket/dial.go.html#line-109">dial.go#L109</a>: func dial(ctx context.Context, urls string, opts *DialOptions, rand io.<b>Reader</b>) (_ *Conn, _ *http.Response, err error) {
-		<a href="../src/nhooyr.io/websocket/dial.go.html#line-213" class="path-duplicate">dial.go</a><a href="../src/nhooyr.io/websocket/dial.go.html#line-213">#L213</a>: func secWebSocketKey(rr io.<b>Reader</b>) (string, error) {
-		<a href="../src/nhooyr.io/websocket/dial.go.html#line-304" class="path-duplicate">dial.go</a><a href="../src/nhooyr.io/websocket/dial.go.html#line-304">#L304</a>: func getBufioReader(r io.<b>Reader</b>) *bufio.Reader {
-		<a href="../src/nhooyr.io/websocket/netconn.go.html#line-112">netconn.go#L112</a>: 	reader      io.<b>Reader</b>
-		<a href="../src/nhooyr.io/websocket/read.go.html#line-36">read.go#L36</a>: func (c *Conn) Reader(ctx context.Context) (MessageType, io.<b>Reader</b>, error) {
-		<a href="../src/nhooyr.io/websocket/read.go.html#line-329" class="path-duplicate">read.go</a><a href="../src/nhooyr.io/websocket/read.go.html#line-329">#L329</a>: func (c *Conn) reader(ctx context.Context) (_ MessageType, _ io.<b>Reader</b>, err error) {
-		<a href="../src/nhooyr.io/websocket/read.go.html#line-365" class="path-duplicate">read.go</a><a href="../src/nhooyr.io/websocket/read.go.html#line-365">#L365</a>: 	flateReader io.<b>Reader</b>
-		<a href="../src/nhooyr.io/websocket/read.go.html#line-465" class="path-duplicate">read.go</a><a href="../src/nhooyr.io/websocket/read.go.html#line-465">#L465</a>: 	r     io.<b>Reader</b>
-		<a href="../src/nhooyr.io/websocket/read.go.html#line-470" class="path-duplicate">read.go</a><a href="../src/nhooyr.io/websocket/read.go.html#line-470">#L470</a>: func newLimitReader(c *Conn, r io.<b>Reader</b>, limit int64) *limitReader {
-		<a href="../src/nhooyr.io/websocket/read.go.html#line-479" class="path-duplicate">read.go</a><a href="../src/nhooyr.io/websocket/read.go.html#line-479">#L479</a>: func (lr *limitReader) reset(r io.<b>Reader</b>) {
+		<a href="../src/net/textproto/reader.go.html#line-334">reader.go#L334</a>: func (r *Reader) DotReader() io.<b>Reader</b> {
 
 	<a href="../pkg/os.html">os</a>
-		<a href="../src/os/file.go.html#line-149">file.go#L149</a>: func (f *File) ReadFrom(r io.<b>Reader</b>) (n int64, err error) {
-		<a href="../src/os/file.go.html#line-160" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-160">#L160</a>: func genericReadFrom(f *File, r io.<b>Reader</b>) (int64, error) {
-		<a href="../src/os/readfrom_linux.go.html#line-18">readfrom_linux.go#L18</a>: func (f *File) readFrom(r io.<b>Reader</b>) (written int64, handled bool, err error) {
-		<a href="../src/os/readfrom_linux.go.html#line-35" class="path-duplicate">readfrom_linux.go</a><a href="../src/os/readfrom_linux.go.html#line-35">#L35</a>: func (f *File) spliceToFile(r io.<b>Reader</b>) (written int64, handled bool, err error) {
-		<a href="../src/os/readfrom_linux.go.html#line-69" class="path-duplicate">readfrom_linux.go</a><a href="../src/os/readfrom_linux.go.html#line-69">#L69</a>: func getPollFD(r io.<b>Reader</b>) *poll.FD {
-		<a href="../src/os/readfrom_linux.go.html#line-85" class="path-duplicate">readfrom_linux.go</a><a href="../src/os/readfrom_linux.go.html#line-85">#L85</a>: func (f *File) copyFileRange(r io.<b>Reader</b>) (written int64, handled bool, err error) {
-		<a href="../src/os/readfrom_linux.go.html#line-114" class="path-duplicate">readfrom_linux.go</a><a href="../src/os/readfrom_linux.go.html#line-114">#L114</a>: func tryLimitedReader(r io.<b>Reader</b>) (*io.LimitedReader, io.<b>Reader</b>, int64) {
-
-	<a href="../pkg/vendor/golang.org/x/crypto/hkdf.html">vendor/golang.org/x/crypto/hkdf</a>
-		<a href="../src/vendor/golang.org/x/crypto/hkdf/hkdf.go.html#line-83">hkdf.go#L83</a>: func Expand(hash func() hash.Hash, pseudorandomKey, info []byte) io.<b>Reader</b> {
-		<a href="../src/vendor/golang.org/x/crypto/hkdf/hkdf.go.html#line-90" class="path-duplicate">hkdf.go</a><a href="../src/vendor/golang.org/x/crypto/hkdf/hkdf.go.html#line-90">#L90</a>: func New(hash func() hash.Hash, secret, salt, info []byte) io.<b>Reader</b> {
+		<a href="../src/os/file.go.html#line-175">file.go#L175</a>: func (f *File) ReadFrom(r io.<b>Reader</b>) (n int64, err error) {
+		<a href="../src/os/file.go.html#line-192" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-192">#L192</a>: func (noReadFrom) ReadFrom(io.<b>Reader</b>) (int64, error) {
+		<a href="../src/os/file.go.html#line-204" class="path-duplicate">file.go</a><a href="../src/os/file.go.html#line-204">#L204</a>: func genericReadFrom(f *File, r io.<b>Reader</b>) (int64, error) {
+		<a href="../src/os/zero_copy_linux.go.html#line-42">zero_copy_linux.go#L42</a>: func (f *File) readFrom(r io.<b>Reader</b>) (written int64, handled bool, err error) {
+		<a href="../src/os/zero_copy_linux.go.html#line-59" class="path-duplicate">zero_copy_linux.go</a><a href="../src/os/zero_copy_linux.go.html#line-59">#L59</a>: func (f *File) spliceToFile(r io.<b>Reader</b>) (written int64, handled bool, err error) {
+		<a href="../src/os/zero_copy_linux.go.html#line-89" class="path-duplicate">zero_copy_linux.go</a><a href="../src/os/zero_copy_linux.go.html#line-89">#L89</a>: func (f *File) copyFileRange(r io.<b>Reader</b>) (written int64, handled bool, err error) {
+		<a href="../src/os/zero_copy_posix.go.html#line-26">zero_copy_posix.go#L26</a>: func tryLimitedReader(r io.<b>Reader</b>) (*io.LimitedReader, io.<b>Reader</b>, int64) {
 
 	<a href="../pkg/vendor/golang.org/x/text/transform.html">vendor/golang.org/x/text/transform</a>
 		<a href="../src/vendor/golang.org/x/text/transform/transform.go.html#line-111">transform.go#L111</a>: 	r   io.<b>Reader</b>
@@ -391,8 +483,8 @@
 		<a href="../src/vendor/golang.org/x/text/unicode/norm/readwriter.go.html#line-74">readwriter.go#L74</a>: 	r            io.<b>Reader</b>
 		<a href="../src/vendor/golang.org/x/text/unicode/norm/readwriter.go.html#line-119" class="path-duplicate">readwriter.go</a><a href="../src/vendor/golang.org/x/text/unicode/norm/readwriter.go.html#line-119">#L119</a>: func (f Form) Reader(r io.<b>Reader</b>) io.<b>Reader</b> {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,32 +5,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: internal/abi.MapType.Flags</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/internal/abi.html">internal/abi</a>.<a href="../../src/internal/abi/type.go.html#line-440">MapType</a>.<a href="../../src/internal/abi/type.go.html#line-450">Flags</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/internal/abi.html">internal/abi</a>.<a href="../../src/internal/abi/map.go.html#line-32">MapType</a>.<a href="../../src/internal/abi/map.go.html#line-42">Flags</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">12 uses</span>
+<span class="title">10 uses</span>
 
 	internal/abi (current package)
-		<a href="../../src/internal/abi/type.go.html#line-450">type.go#L450</a>: 	<b>Flags</b>      uint32
-		<a href="../../src/internal/abi/type.go.html#line-456" class="path-duplicate">type.go</a><a href="../../src/internal/abi/type.go.html#line-456">#L456</a>: 	return mt.<b>Flags</b>&amp;1 != 0
-		<a href="../../src/internal/abi/type.go.html#line-459" class="path-duplicate">type.go</a><a href="../../src/internal/abi/type.go.html#line-459">#L459</a>: 	return mt.<b>Flags</b>&amp;2 != 0
-		<a href="../../src/internal/abi/type.go.html#line-462" class="path-duplicate">type.go</a><a href="../../src/internal/abi/type.go.html#line-462">#L462</a>: 	return mt.<b>Flags</b>&amp;4 != 0
-		<a href="../../src/internal/abi/type.go.html#line-465" class="path-duplicate">type.go</a><a href="../../src/internal/abi/type.go.html#line-465">#L465</a>: 	return mt.<b>Flags</b>&amp;8 != 0
-		<a href="../../src/internal/abi/type.go.html#line-468" class="path-duplicate">type.go</a><a href="../../src/internal/abi/type.go.html#line-468">#L468</a>: 	return mt.<b>Flags</b>&amp;16 != 0
+		<a href="../../src/internal/abi/map.go.html#line-42">map.go#L42</a>: 	<b>Flags</b>     uint32
+		<a href="../../src/internal/abi/map.go.html#line-54" class="path-duplicate">map.go</a><a href="../../src/internal/abi/map.go.html#line-54">#L54</a>: 	return mt.<b>Flags</b>&amp;MapNeedKeyUpdate != 0
+		<a href="../../src/internal/abi/map.go.html#line-57" class="path-duplicate">map.go</a><a href="../../src/internal/abi/map.go.html#line-57">#L57</a>: 	return mt.<b>Flags</b>&amp;MapHashMightPanic != 0
+		<a href="../../src/internal/abi/map.go.html#line-60" class="path-duplicate">map.go</a><a href="../../src/internal/abi/map.go.html#line-60">#L60</a>: 	return mt.<b>Flags</b>&amp;MapIndirectKey != 0
+		<a href="../../src/internal/abi/map.go.html#line-63" class="path-duplicate">map.go</a><a href="../../src/internal/abi/map.go.html#line-63">#L63</a>: 	return mt.<b>Flags</b>&amp;MapIndirectElem != 0
 
 	<a href="../../pkg/reflect.html">reflect</a>
-		<a href="../../src/reflect/type.go.html#line-1687">type.go#L1687</a>: 	mt.<b>Flags</b> = 0
-		<a href="../../src/reflect/type.go.html#line-1690" class="path-duplicate">type.go</a><a href="../../src/reflect/type.go.html#line-1690">#L1690</a>: 		mt.<b>Flags</b> |= 1 // indirect key
-		<a href="../../src/reflect/type.go.html#line-1696" class="path-duplicate">type.go</a><a href="../../src/reflect/type.go.html#line-1696">#L1696</a>: 		mt.<b>Flags</b> |= 2 // indirect value
-		<a href="../../src/reflect/type.go.html#line-1702" class="path-duplicate">type.go</a><a href="../../src/reflect/type.go.html#line-1702">#L1702</a>: 		mt.<b>Flags</b> |= 4
-		<a href="../../src/reflect/type.go.html#line-1705" class="path-duplicate">type.go</a><a href="../../src/reflect/type.go.html#line-1705">#L1705</a>: 		mt.<b>Flags</b> |= 8
-		<a href="../../src/reflect/type.go.html#line-1708" class="path-duplicate">type.go</a><a href="../../src/reflect/type.go.html#line-1708">#L1708</a>: 		mt.<b>Flags</b> |= 16
+		<a href="../../src/reflect/map.go.html#line-72">map.go#L72</a>: 	mt.<b>Flags</b> = 0
+		<a href="../../src/reflect/map.go.html#line-74" class="path-duplicate">map.go</a><a href="../../src/reflect/map.go.html#line-74">#L74</a>: 		mt.<b>Flags</b> |= abi.MapNeedKeyUpdate
+		<a href="../../src/reflect/map.go.html#line-77" class="path-duplicate">map.go</a><a href="../../src/reflect/map.go.html#line-77">#L77</a>: 		mt.<b>Flags</b> |= abi.MapHashMightPanic
+		<a href="../../src/reflect/map.go.html#line-80" class="path-duplicate">map.go</a><a href="../../src/reflect/map.go.html#line-80">#L80</a>: 		mt.<b>Flags</b> |= abi.MapIndirectKey
+		<a href="../../src/reflect/map.go.html#line-83" class="path-duplicate">map.go</a><a href="../../src/reflect/map.go.html#line-83">#L83</a>: 		mt.<b>Flags</b> |= abi.MapIndirectElem
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

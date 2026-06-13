@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/andybalholm/brotli.distanceParams.num_direct_distance_codes</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>.<a href="../../../src/github.com/andybalholm/brotli/params.go.html#line-18">distanceParams</a>.<a href="../../../src/github.com/andybalholm/brotli/params.go.html#line-20">num_direct_distance_codes</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">18 uses</span>
+
+	github.com/andybalholm/brotli (current package)
+		<a href="../../../src/github.com/andybalholm/brotli/backward_references_hq.go.html#line-478">backward_references_hq.go#L478</a>: 				prefixEncodeCopyDistance(dist_code, uint(params.dist.<b>num_direct_distance_codes</b>), uint(params.dist.distance_postfix_bits), &amp;dist_symbol, &amp;distextra)
+		<a href="../../../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-1298">brotli_bit_stream.go#L1298</a>: 	writeBits(4, uint64(dist.<b>num_direct_distance_codes</b>)&gt;&gt;dist.distance_postfix_bits, storage_ix, storage)
+		<a href="../../../src/github.com/andybalholm/brotli/command.go.html#line-206">command.go#L206</a>: 	prefixEncodeCopyDistance(distance_code, uint(dist.<b>num_direct_distance_codes</b>), uint(dist.distance_postfix_bits), &amp;cmd.dist_prefix_, &amp;cmd.dist_extra_)
+		<a href="../../../src/github.com/andybalholm/brotli/command.go.html#line-222" class="path-duplicate">command.go</a><a href="../../../src/github.com/andybalholm/brotli/command.go.html#line-222">#L222</a>: 	if uint32(self.dist_prefix_&amp;0x3FF) &lt; numDistanceShortCodes+dist.<b>num_direct_distance_codes</b> {
+		<a href="../../../src/github.com/andybalholm/brotli/command.go.html#line-229" class="path-duplicate">command.go</a><a href="../../../src/github.com/andybalholm/brotli/command.go.html#line-229">#L229</a>: 		var hcode uint32 = (dcode - dist.<b>num_direct_distance_codes</b> - numDistanceShortCodes) &gt;&gt; dist.distance_postfix_bits
+		<a href="../../../src/github.com/andybalholm/brotli/command.go.html#line-230" class="path-duplicate">command.go</a><a href="../../../src/github.com/andybalholm/brotli/command.go.html#line-230">#L230</a>: 		var lcode uint32 = (dcode - dist.<b>num_direct_distance_codes</b> - numDistanceShortCodes) &amp; postfix_mask
+		<a href="../../../src/github.com/andybalholm/brotli/command.go.html#line-232" class="path-duplicate">command.go</a><a href="../../../src/github.com/andybalholm/brotli/command.go.html#line-232">#L232</a>: 		return ((offset + extra) &lt;&lt; dist.distance_postfix_bits) + lcode + dist.<b>num_direct_distance_codes</b> + numDistanceShortCodes
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-518">encode.go#L518</a>: 			num_direct_distance_codes = params.dist.<b>num_direct_distance_codes</b>
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-605" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-605">#L605</a>: 	params.dist.<b>num_direct_distance_codes</b> = 0
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-64">metablock.go#L64</a>: 	dist_params.<b>num_direct_distance_codes</b> = ndirect
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-91" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-91">#L91</a>: 	if orig_params.distance_postfix_bits == new_params.distance_postfix_bits &amp;&amp; orig_params.<b>num_direct_distance_codes</b> == new_params.<b>num_direct_distance_codes</b> {
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-98" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-98">#L98</a>: 			prefixEncodeCopyDistance(uint(commandRestoreDistanceCode(cmd, orig_params)), uint(new_params.<b>num_direct_distance_codes</b>), uint(new_params.distance_postfix_bits), &amp;cmd.dist_prefix_, &amp;cmd.dist_extra_)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-111" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-111">#L111</a>: 	if orig_params.distance_postfix_bits == new_params.distance_postfix_bits &amp;&amp; orig_params.<b>num_direct_distance_codes</b> == new_params.<b>num_direct_distance_codes</b> {
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-126" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-126">#L126</a>: 				prefixEncodeCopyDistance(uint(distance), uint(new_params.<b>num_direct_distance_codes</b>), uint(new_params.distance_postfix_bits), &amp;dist_prefix, &amp;dist_extra)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-163" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-163">#L163</a>: 			if npostfix == orig_params.dist.distance_postfix_bits &amp;&amp; ndirect == orig_params.dist.<b>num_direct_distance_codes</b> {
+		<a href="../../../src/github.com/andybalholm/brotli/params.go.html#line-20">params.go#L20</a>: 	<b>num_direct_distance_codes</b> uint32
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

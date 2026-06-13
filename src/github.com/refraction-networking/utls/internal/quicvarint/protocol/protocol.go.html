@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: protocol.go in package github.com/refraction-networking/utls/internal/quicvarint/protocol</title>
+<link href="../../../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	protocol.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html">github.com/refraction-networking/utls/internal/quicvarint/protocol</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright 2024 The quic-go Authors. All rights reserved.</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// Use of this source code is governed by a MIT-style</span></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// license that can be found in the LICENSE file of</span></code></span>
+<span class="codeline" id="line-4"><code><span class="comment">// the quic-go repository.</span></code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code><span class="keyword">package</span> protocol</code></span>
+<span class="codeline" id="line-7"><code></code></span>
+<span class="codeline" id="line-8"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-9"><code>	<label for="i0"><span class="lit-string i0">"fmt"</span></label></code></span>
+<span class="codeline" id="line-10"><code>	<label for="i1"><span class="lit-string i1">"time"</span></label></code></span>
+<span class="codeline" id="line-11"><code>)</code></span>
+<span class="codeline" id="line-12"><code></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">// The PacketType is the Long Header Type</span></code></span>
+<span class="codeline" id="line-14"><code><span class="keyword">type</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-PacketType" class="ident">PacketType</a> <a href="../../../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a></code></span>
+<span class="codeline" id="line-15"><code></code></span>
+<span class="codeline" id="line-16"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-17"><code>	<span class="comment">// PacketTypeInitial is the packet type of an Initial packet</span></code></span>
+<span class="codeline" id="line-18"><code>	<a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-PacketTypeInitial" class="ident">PacketTypeInitial</a> <a href="#line-14" class="ident">PacketType</a> = <span class="lit-number">1</span> + <a href="../../../../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-19"><code>	<span class="comment">// PacketTypeRetry is the packet type of a Retry packet</span></code></span>
+<span class="codeline" id="line-20"><code>	<a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-PacketTypeRetry" class="ident">PacketTypeRetry</a></code></span>
+<span class="codeline" id="line-21"><code>	<span class="comment">// PacketTypeHandshake is the packet type of a Handshake packet</span></code></span>
+<span class="codeline" id="line-22"><code>	<a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-PacketTypeHandshake" class="ident">PacketTypeHandshake</a></code></span>
+<span class="codeline" id="line-23"><code>	<span class="comment">// PacketType0RTT is the packet type of a 0-RTT packet</span></code></span>
+<span class="codeline" id="line-24"><code>	<a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-PacketType0RTT" class="ident">PacketType0RTT</a></code></span>
+<span class="codeline" id="line-25"><code>)</code></span>
+<span class="codeline" id="line-26"><code></code></span>
+<span class="codeline" id="line-27"><code><span class="keyword">func</span> (<label for="r0" class="ident">t</label> <a href="#line-14" class="ident">PacketType</a>) <label for="r1" class="ident"><a href="../../../../../../../use/github.com/refraction-networking/utls/internal/quicvarint/protocol..PacketType.String.html" class="ident">String</a></label>() <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-28"><code>	<span class="keyword">switch</span> <label for="r0" class="ident">t</label> {</code></span>
+<span class="codeline" id="line-29"><code>	<span class="keyword">case</span> <a href="#line-18" class="ident">PacketTypeInitial</a>:</code></span>
+<span class="codeline" id="line-30"><code>		<span class="keyword">return</span> <span class="lit-string">"Initial"</span></code></span>
+<span class="codeline" id="line-31"><code>	<span class="keyword">case</span> <a href="#line-20" class="ident">PacketTypeRetry</a>:</code></span>
+<span class="codeline" id="line-32"><code>		<span class="keyword">return</span> <span class="lit-string">"Retry"</span></code></span>
+<span class="codeline" id="line-33"><code>	<span class="keyword">case</span> <a href="#line-22" class="ident">PacketTypeHandshake</a>:</code></span>
+<span class="codeline" id="line-34"><code>		<span class="keyword">return</span> <span class="lit-string">"Handshake"</span></code></span>
+<span class="codeline" id="line-35"><code>	<span class="keyword">case</span> <a href="#line-24" class="ident">PacketType0RTT</a>:</code></span>
+<span class="codeline" id="line-36"><code>		<span class="keyword">return</span> <span class="lit-string">"0-RTT Protected"</span></code></span>
+<span class="codeline" id="line-37"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-38"><code>		<span class="keyword">return</span> <a href="../../../../../../../pkg/fmt.html" class="ident i0">fmt</a>.<a href="../../../../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"unknown packet type: %d"</span>, <label for="r0" class="ident">t</label>)</code></span>
+<span class="codeline" id="line-39"><code>	}</code></span>
+<span class="codeline" id="line-40"><code>}</code></span>
+<span class="codeline" id="line-41"><code></code></span>
+<span class="codeline" id="line-42"><code><span class="keyword">type</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-ECN" class="ident">ECN</a> <a href="../../../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a></code></span>
+<span class="codeline" id="line-43"><code></code></span>
+<span class="codeline" id="line-44"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-45"><code>	<a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-ECNUnsupported" class="ident">ECNUnsupported</a> <a href="#line-42" class="ident">ECN</a> = <a href="../../../../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-46"><code>	<a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-ECNNon" class="ident">ECNNon</a>             <span class="comment">// 00</span></code></span>
+<span class="codeline" id="line-47"><code>	<a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-ECT1" class="ident">ECT1</a>               <span class="comment">// 01</span></code></span>
+<span class="codeline" id="line-48"><code>	<a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-ECT0" class="ident">ECT0</a>               <span class="comment">// 10</span></code></span>
+<span class="codeline" id="line-49"><code>	<a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-ECNCE" class="ident">ECNCE</a>              <span class="comment">// 11</span></code></span>
+<span class="codeline" id="line-50"><code>)</code></span>
+<span class="codeline" id="line-51"><code></code></span>
+<span class="codeline" id="line-52"><code><span class="keyword">func</span> <label for="r2" class="ident"><a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-ParseECNHeaderBits" class="ident">ParseECNHeaderBits</a></label>(<label for="r3" class="ident">bits</label> <a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="#line-42" class="ident">ECN</a> {</code></span>
+<span class="codeline" id="line-53"><code>	<span class="keyword">switch</span> <label for="r3" class="ident">bits</label> {</code></span>
+<span class="codeline" id="line-54"><code>	<span class="keyword">case</span> <span class="lit-number">0</span>:</code></span>
+<span class="codeline" id="line-55"><code>		<span class="keyword">return</span> <a href="#line-46" class="ident">ECNNon</a></code></span>
+<span class="codeline" id="line-56"><code>	<span class="keyword">case</span> <span class="lit-number">0b00000010</span>:</code></span>
+<span class="codeline" id="line-57"><code>		<span class="keyword">return</span> <a href="#line-48" class="ident">ECT0</a></code></span>
+<span class="codeline" id="line-58"><code>	<span class="keyword">case</span> <span class="lit-number">0b00000001</span>:</code></span>
+<span class="codeline" id="line-59"><code>		<span class="keyword">return</span> <a href="#line-47" class="ident">ECT1</a></code></span>
+<span class="codeline" id="line-60"><code>	<span class="keyword">case</span> <span class="lit-number">0b00000011</span>:</code></span>
+<span class="codeline" id="line-61"><code>		<span class="keyword">return</span> <a href="#line-49" class="ident">ECNCE</a></code></span>
+<span class="codeline" id="line-62"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-63"><code>		<a href="../../../../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<span class="lit-string">"invalid ECN bits"</span>)</code></span>
+<span class="codeline" id="line-64"><code>	}</code></span>
+<span class="codeline" id="line-65"><code>}</code></span>
+<span class="codeline" id="line-66"><code></code></span>
+<span class="codeline" id="line-67"><code><span class="keyword">func</span> (<label for="r4" class="ident">e</label> <a href="#line-42" class="ident">ECN</a>) <label for="r5" class="ident"><a href="../../../../../../../use/github.com/refraction-networking/utls/internal/quicvarint/protocol..ECN.ToHeaderBits.html" class="ident">ToHeaderBits</a></label>() <a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
+<span class="codeline" id="line-68"><code>	<span class="comment">//nolint:exhaustive // There are only 4 values.</span></code></span>
+<span class="codeline" id="line-69"><code>	<span class="keyword">switch</span> <label for="r4" class="ident">e</label> {</code></span>
+<span class="codeline" id="line-70"><code>	<span class="keyword">case</span> <a href="#line-46" class="ident">ECNNon</a>:</code></span>
+<span class="codeline" id="line-71"><code>		<span class="keyword">return</span> <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-72"><code>	<span class="keyword">case</span> <a href="#line-48" class="ident">ECT0</a>:</code></span>
+<span class="codeline" id="line-73"><code>		<span class="keyword">return</span> <span class="lit-number">0b00000010</span></code></span>
+<span class="codeline" id="line-74"><code>	<span class="keyword">case</span> <a href="#line-47" class="ident">ECT1</a>:</code></span>
+<span class="codeline" id="line-75"><code>		<span class="keyword">return</span> <span class="lit-number">0b00000001</span></code></span>
+<span class="codeline" id="line-76"><code>	<span class="keyword">case</span> <a href="#line-49" class="ident">ECNCE</a>:</code></span>
+<span class="codeline" id="line-77"><code>		<span class="keyword">return</span> <span class="lit-number">0b00000011</span></code></span>
+<span class="codeline" id="line-78"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-79"><code>		<a href="../../../../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<span class="lit-string">"ECN unsupported"</span>)</code></span>
+<span class="codeline" id="line-80"><code>	}</code></span>
+<span class="codeline" id="line-81"><code>}</code></span>
+<span class="codeline" id="line-82"><code></code></span>
+<span class="codeline" id="line-83"><code><span class="keyword">func</span> (<label for="r6" class="ident">e</label> <a href="#line-42" class="ident">ECN</a>) <label for="r7" class="ident"><a href="../../../../../../../use/github.com/refraction-networking/utls/internal/quicvarint/protocol..ECN.String.html" class="ident">String</a></label>() <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-84"><code>	<span class="keyword">switch</span> <label for="r6" class="ident">e</label> {</code></span>
+<span class="codeline" id="line-85"><code>	<span class="keyword">case</span> <a href="#line-45" class="ident">ECNUnsupported</a>:</code></span>
+<span class="codeline" id="line-86"><code>		<span class="keyword">return</span> <span class="lit-string">"ECN unsupported"</span></code></span>
+<span class="codeline" id="line-87"><code>	<span class="keyword">case</span> <a href="#line-46" class="ident">ECNNon</a>:</code></span>
+<span class="codeline" id="line-88"><code>		<span class="keyword">return</span> <span class="lit-string">"Not-ECT"</span></code></span>
+<span class="codeline" id="line-89"><code>	<span class="keyword">case</span> <a href="#line-47" class="ident">ECT1</a>:</code></span>
+<span class="codeline" id="line-90"><code>		<span class="keyword">return</span> <span class="lit-string">"ECT(1)"</span></code></span>
+<span class="codeline" id="line-91"><code>	<span class="keyword">case</span> <a href="#line-48" class="ident">ECT0</a>:</code></span>
+<span class="codeline" id="line-92"><code>		<span class="keyword">return</span> <span class="lit-string">"ECT(0)"</span></code></span>
+<span class="codeline" id="line-93"><code>	<span class="keyword">case</span> <a href="#line-49" class="ident">ECNCE</a>:</code></span>
+<span class="codeline" id="line-94"><code>		<span class="keyword">return</span> <span class="lit-string">"CE"</span></code></span>
+<span class="codeline" id="line-95"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-96"><code>		<span class="keyword">return</span> <a href="../../../../../../../pkg/fmt.html" class="ident i0">fmt</a>.<a href="../../../../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"invalid ECN value: %d"</span>, <label for="r6" class="ident">e</label>)</code></span>
+<span class="codeline" id="line-97"><code>	}</code></span>
+<span class="codeline" id="line-98"><code>}</code></span>
+<span class="codeline" id="line-99"><code></code></span>
+<span class="codeline" id="line-100"><code><span class="comment">// A ByteCount in QUIC</span></code></span>
+<span class="codeline" id="line-101"><code><span class="keyword">type</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-ByteCount" class="ident">ByteCount</a> <a href="../../../../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
+<span class="codeline" id="line-102"><code></code></span>
+<span class="codeline" id="line-103"><code><span class="comment">// MaxByteCount is the maximum value of a ByteCount</span></code></span>
+<span class="codeline" id="line-104"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-MaxByteCount" class="ident">MaxByteCount</a> = <a href="#line-101" class="ident">ByteCount</a>(<span class="lit-number">1</span>&lt;&lt;<span class="lit-number">62</span> - <span class="lit-number">1</span>)</code></span>
+<span class="codeline" id="line-105"><code></code></span>
+<span class="codeline" id="line-106"><code><span class="comment">// InvalidByteCount is an invalid byte count</span></code></span>
+<span class="codeline" id="line-107"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-InvalidByteCount" class="ident">InvalidByteCount</a> <a href="#line-101" class="ident">ByteCount</a> = -<span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-108"><code></code></span>
+<span class="codeline" id="line-109"><code><span class="comment">// A StatelessResetToken is a stateless reset token.</span></code></span>
+<span class="codeline" id="line-110"><code><span class="keyword">type</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-StatelessResetToken" class="ident">StatelessResetToken</a> [<span class="lit-number">16</span>]<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-111"><code></code></span>
+<span class="codeline" id="line-112"><code><span class="comment">// MaxPacketBufferSize maximum packet size of any QUIC packet, based on</span></code></span>
+<span class="codeline" id="line-113"><code><span class="comment">// ethernet's max size, minus the IP and UDP headers. IPv6 has a 40 byte header,</span></code></span>
+<span class="codeline" id="line-114"><code><span class="comment">// UDP adds an additional 8 bytes.  This is a total overhead of 48 bytes.</span></code></span>
+<span class="codeline" id="line-115"><code><span class="comment">// Ethernet's max packet size is 1500 bytes,  1500 - 48 = 1452.</span></code></span>
+<span class="codeline" id="line-116"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-MaxPacketBufferSize" class="ident">MaxPacketBufferSize</a> = <span class="lit-number">1452</span></code></span>
+<span class="codeline" id="line-117"><code></code></span>
+<span class="codeline" id="line-118"><code><span class="comment">// MaxLargePacketBufferSize is used when using GSO</span></code></span>
+<span class="codeline" id="line-119"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-MaxLargePacketBufferSize" class="ident">MaxLargePacketBufferSize</a> = <span class="lit-number">20</span> * <span class="lit-number">1024</span></code></span>
+<span class="codeline" id="line-120"><code></code></span>
+<span class="codeline" id="line-121"><code><span class="comment">// MinInitialPacketSize is the minimum size an Initial packet is required to have.</span></code></span>
+<span class="codeline" id="line-122"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-MinInitialPacketSize" class="ident">MinInitialPacketSize</a> = <span class="lit-number">1200</span></code></span>
+<span class="codeline" id="line-123"><code></code></span>
+<span class="codeline" id="line-124"><code><span class="comment">// MinUnknownVersionPacketSize is the minimum size a packet with an unknown version</span></code></span>
+<span class="codeline" id="line-125"><code><span class="comment">// needs to have in order to trigger a Version Negotiation packet.</span></code></span>
+<span class="codeline" id="line-126"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-MinUnknownVersionPacketSize" class="ident">MinUnknownVersionPacketSize</a> = <a href="#line-122" class="ident">MinInitialPacketSize</a></code></span>
+<span class="codeline" id="line-127"><code></code></span>
+<span class="codeline" id="line-128"><code><span class="comment">// MinStatelessResetSize is the minimum size of a stateless reset packet that we send</span></code></span>
+<span class="codeline" id="line-129"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-MinStatelessResetSize" class="ident">MinStatelessResetSize</a> = <span class="lit-number">1</span> <span class="comment">/* first byte */</span> + <span class="lit-number">20</span> <span class="comment">/* max. conn ID length */</span> + <span class="lit-number">4</span> <span class="comment">/* max. packet number length */</span> + <span class="lit-number">1</span> <span class="comment">/* min. payload length */</span> + <span class="lit-number">16</span> <span class="comment">/* token */</span></code></span>
+<span class="codeline" id="line-130"><code></code></span>
+<span class="codeline" id="line-131"><code><span class="comment">// MinConnectionIDLenInitial is the minimum length of the destination connection ID on an Initial packet.</span></code></span>
+<span class="codeline" id="line-132"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-MinConnectionIDLenInitial" class="ident">MinConnectionIDLenInitial</a> = <span class="lit-number">8</span></code></span>
+<span class="codeline" id="line-133"><code></code></span>
+<span class="codeline" id="line-134"><code><span class="comment">// DefaultAckDelayExponent is the default ack delay exponent</span></code></span>
+<span class="codeline" id="line-135"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-DefaultAckDelayExponent" class="ident">DefaultAckDelayExponent</a> = <span class="lit-number">3</span></code></span>
+<span class="codeline" id="line-136"><code></code></span>
+<span class="codeline" id="line-137"><code><span class="comment">// DefaultActiveConnectionIDLimit is the default active connection ID limit</span></code></span>
+<span class="codeline" id="line-138"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-DefaultActiveConnectionIDLimit" class="ident">DefaultActiveConnectionIDLimit</a> = <span class="lit-number">2</span></code></span>
+<span class="codeline" id="line-139"><code></code></span>
+<span class="codeline" id="line-140"><code><span class="comment">// MaxAckDelayExponent is the maximum ack delay exponent</span></code></span>
+<span class="codeline" id="line-141"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-MaxAckDelayExponent" class="ident">MaxAckDelayExponent</a> = <span class="lit-number">20</span></code></span>
+<span class="codeline" id="line-142"><code></code></span>
+<span class="codeline" id="line-143"><code><span class="comment">// DefaultMaxAckDelay is the default max_ack_delay</span></code></span>
+<span class="codeline" id="line-144"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-DefaultMaxAckDelay" class="ident">DefaultMaxAckDelay</a> = <span class="lit-number">25</span> * <a href="../../../../../../../pkg/time.html" class="ident i1">time</a>.<a href="../../../../../../time/time.go.html#line-937" class="ident">Millisecond</a></code></span>
+<span class="codeline" id="line-145"><code></code></span>
+<span class="codeline" id="line-146"><code><span class="comment">// MaxMaxAckDelay is the maximum max_ack_delay</span></code></span>
+<span class="codeline" id="line-147"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-MaxMaxAckDelay" class="ident">MaxMaxAckDelay</a> = (<span class="lit-number">1</span>&lt;&lt;<span class="lit-number">14</span> - <span class="lit-number">1</span>) * <a href="../../../../../../../pkg/time.html" class="ident i1">time</a>.<a href="../../../../../../time/time.go.html#line-937" class="ident">Millisecond</a></code></span>
+<span class="codeline" id="line-148"><code></code></span>
+<span class="codeline" id="line-149"><code><span class="comment">// MaxConnIDLen is the maximum length of the connection ID</span></code></span>
+<span class="codeline" id="line-150"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-MaxConnIDLen" class="ident">MaxConnIDLen</a> = <span class="lit-number">20</span></code></span>
+<span class="codeline" id="line-151"><code></code></span>
+<span class="codeline" id="line-152"><code><span class="comment">// InvalidPacketLimitAES is the maximum number of packets that we can fail to decrypt when using</span></code></span>
+<span class="codeline" id="line-153"><code><span class="comment">// AEAD_AES_128_GCM or AEAD_AES_265_GCM.</span></code></span>
+<span class="codeline" id="line-154"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-InvalidPacketLimitAES" class="ident">InvalidPacketLimitAES</a> = <span class="lit-number">1</span> &lt;&lt; <span class="lit-number">52</span></code></span>
+<span class="codeline" id="line-155"><code></code></span>
+<span class="codeline" id="line-156"><code><span class="comment">// InvalidPacketLimitChaCha is the maximum number of packets that we can fail to decrypt when using AEAD_CHACHA20_POLY1305.</span></code></span>
+<span class="codeline" id="line-157"><code><span class="keyword">const</span> <a href="../../../../../../../pkg/github.com/refraction-networking/utls/internal/quicvarint/protocol.html#name-InvalidPacketLimitChaCha" class="ident">InvalidPacketLimitChaCha</a> = <span class="lit-number">1</span> &lt;&lt; <span class="lit-number">36</span></code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

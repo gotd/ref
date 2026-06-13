@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: ycbcr.go in package image/color</title>
-<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -441,7 +441,7 @@ input[id=r96]:checked ~pre label[for=r96]
 <span class="codeline" id="line-225"><code>	<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r25" class="ident">r</label>), <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r26" class="ident">g</label>), <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r27" class="ident">b</label>), <span class="lit-number">0xffff</span></code></span>
 <span class="codeline" id="line-226"><code>}</code></span>
 <span class="codeline" id="line-227"><code></code></span>
-<span class="codeline" id="line-228"><code><span class="comment">// YCbCrModel is the Model for Y'CbCr colors.</span></code></span>
+<span class="codeline" id="line-228"><code><span class="comment">// YCbCrModel is the [Model] for Y'CbCr colors.</span></code></span>
 <span class="codeline" id="line-229"><code><span class="keyword">var</span> <a href="../../../pkg/image/color.html#name-YCbCrModel" class="ident">YCbCrModel</a> <a href="color.go.html#line-142" class="ident">Model</a> = <a href="color.go.html#line-147" class="ident">ModelFunc</a>(<a href="#line-231" class="ident">yCbCrModel</a>)</code></span>
 <span class="codeline" id="line-230"><code></code></span>
 <span class="codeline" id="line-231"><code><span class="keyword">func</span> <label for="r28" class="ident"><a href="../../../pkg/image/color.html#name-yCbCrModel" class="ident">yCbCrModel</a></label>(<label for="r29" class="ident">c</label> <a href="color.go.html#line-10" class="ident">Color</a>) <a href="color.go.html#line-10" class="ident">Color</a> {</code></span>
@@ -503,7 +503,7 @@ input[id=r96]:checked ~pre label[for=r96]
 <span class="codeline" id="line-287"><code>	<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r44" class="ident">r</label>) * <label for="r47" class="ident">a</label> / <span class="lit-number">0xffff</span>, <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r45" class="ident">g</label>) * <label for="r47" class="ident">a</label> / <span class="lit-number">0xffff</span>, <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r46" class="ident">b</label>) * <label for="r47" class="ident">a</label> / <span class="lit-number">0xffff</span>, <label for="r47" class="ident">a</label></code></span>
 <span class="codeline" id="line-288"><code>}</code></span>
 <span class="codeline" id="line-289"><code></code></span>
-<span class="codeline" id="line-290"><code><span class="comment">// NYCbCrAModel is the Model for non-alpha-premultiplied Y'CbCr-with-alpha</span></code></span>
+<span class="codeline" id="line-290"><code><span class="comment">// NYCbCrAModel is the [Model] for non-alpha-premultiplied Y'CbCr-with-alpha</span></code></span>
 <span class="codeline" id="line-291"><code><span class="comment">// colors.</span></code></span>
 <span class="codeline" id="line-292"><code><span class="keyword">var</span> <a href="../../../pkg/image/color.html#name-NYCbCrAModel" class="ident">NYCbCrAModel</a> <a href="color.go.html#line-142" class="ident">Model</a> = <a href="color.go.html#line-147" class="ident">ModelFunc</a>(<a href="#line-294" class="ident">nYCbCrAModel</a>)</code></span>
 <span class="codeline" id="line-293"><code></code></span>
@@ -548,7 +548,7 @@ input[id=r96]:checked ~pre label[for=r96]
 <span class="codeline" id="line-332"><code>	<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>(<label for="r67" class="ident">c</label>), <a href="../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>(<label for="r68" class="ident">m</label>), <a href="../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>(<label for="r69" class="ident">y</label>), <a href="../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>(<span class="lit-number">0xff</span> - <label for="r66" class="ident">w</label>)</code></span>
 <span class="codeline" id="line-333"><code>}</code></span>
 <span class="codeline" id="line-334"><code></code></span>
-<span class="codeline" id="line-335"><code><span class="comment">// CMYKToRGB converts a CMYK quadruple to an RGB triple.</span></code></span>
+<span class="codeline" id="line-335"><code><span class="comment">// CMYKToRGB converts a [CMYK] quadruple to an RGB triple.</span></code></span>
 <span class="codeline" id="line-336"><code><span class="keyword">func</span> <label for="r70" class="ident"><a href="../../../pkg/image/color.html#name-CMYKToRGB" class="ident">CMYKToRGB</a></label>(<label for="r71" class="ident">c</label>, <label for="r72" class="ident">m</label>, <label for="r73" class="ident">y</label>, <label for="r74" class="ident">k</label> <a href="../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>) (<a href="../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>, <a href="../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>, <a href="../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>) {</code></span>
 <span class="codeline" id="line-337"><code>	<label for="r75" class="ident">w</label> := <span class="lit-number">0xffff</span> - <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r74" class="ident">k</label>)*<span class="lit-number">0x101</span></code></span>
 <span class="codeline" id="line-338"><code>	<label for="r76" class="ident">r</label> := (<span class="lit-number">0xffff</span> - <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r71" class="ident">c</label>)*<span class="lit-number">0x101</span>) * <label for="r75" class="ident">w</label> / <span class="lit-number">0xffff</span></code></span>
@@ -576,7 +576,7 @@ input[id=r96]:checked ~pre label[for=r96]
 <span class="codeline" id="line-360"><code>	<span class="keyword">return</span> <label for="r82" class="ident">r</label>, <label for="r83" class="ident">g</label>, <label for="r84" class="ident">b</label>, <span class="lit-number">0xffff</span></code></span>
 <span class="codeline" id="line-361"><code>}</code></span>
 <span class="codeline" id="line-362"><code></code></span>
-<span class="codeline" id="line-363"><code><span class="comment">// CMYKModel is the Model for CMYK colors.</span></code></span>
+<span class="codeline" id="line-363"><code><span class="comment">// CMYKModel is the [Model] for CMYK colors.</span></code></span>
 <span class="codeline" id="line-364"><code><span class="keyword">var</span> <a href="../../../pkg/image/color.html#name-CMYKModel" class="ident">CMYKModel</a> <a href="color.go.html#line-142" class="ident">Model</a> = <a href="color.go.html#line-147" class="ident">ModelFunc</a>(<a href="#line-366" class="ident">cmykModel</a>)</code></span>
 <span class="codeline" id="line-365"><code></code></span>
 <span class="codeline" id="line-366"><code><span class="keyword">func</span> <label for="r85" class="ident"><a href="../../../pkg/image/color.html#name-cmykModel" class="ident">cmykModel</a></label>(<label for="r86" class="ident">c</label> <a href="color.go.html#line-10" class="ident">Color</a>) <a href="color.go.html#line-10" class="ident">Color</a> {</code></span>
@@ -588,8 +588,8 @@ input[id=r96]:checked ~pre label[for=r96]
 <span class="codeline" id="line-372"><code>	<span class="keyword">return</span> <a href="#line-348" class="ident">CMYK</a>{<label for="r93" class="ident">cc</label>, <label for="r94" class="ident">mm</label>, <label for="r95" class="ident">yy</label>, <label for="r96" class="ident">kk</label>}</code></span>
 <span class="codeline" id="line-373"><code>}</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

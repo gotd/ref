@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/refraction-networking/utls.UConn.greaseSeed</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>.<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-29">UConn</a>.<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-41">greaseSeed</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">12 uses</span>
+
+	github.com/refraction-networking/utls (current package)
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-41">u_conn.go#L41</a>: 	<b>greaseSeed</b> [ssl_grease_last_index]uint16
+		<a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2813">u_parrots.go#L2813</a>: 	for i := range uconn.<b>greaseSeed</b> {
+		<a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2814" class="path-duplicate">u_parrots.go</a><a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2814">#L2814</a>: 		uconn.<b>greaseSeed</b>[i] = binary.LittleEndian.Uint16(grease_bytes[2*i : 2*i+2])
+		<a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2816" class="path-duplicate">u_parrots.go</a><a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2816">#L2816</a>: 	if GetBoringGREASEValue(uconn.<b>greaseSeed</b>, ssl_grease_extension1) == GetBoringGREASEValue(uconn.<b>greaseSeed</b>, ssl_grease_extension2) {
+		<a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2817" class="path-duplicate">u_parrots.go</a><a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2817">#L2817</a>: 		uconn.<b>greaseSeed</b>[ssl_grease_extension2] ^= 0x1010
+		<a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2824" class="path-duplicate">u_parrots.go</a><a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2824">#L2824</a>: 			hello.CipherSuites[i] = GetBoringGREASEValue(uconn.<b>greaseSeed</b>, ssl_grease_cipher)
+		<a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2861" class="path-duplicate">u_parrots.go</a><a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2861">#L2861</a>: 				ext.Value = GetBoringGREASEValue(uconn.<b>greaseSeed</b>, ssl_grease_extension1)
+		<a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2863" class="path-duplicate">u_parrots.go</a><a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2863">#L2863</a>: 				ext.Value = GetBoringGREASEValue(uconn.<b>greaseSeed</b>, ssl_grease_extension2)
+		<a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2872" class="path-duplicate">u_parrots.go</a><a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2872">#L2872</a>: 					ext.Curves[i] = CurveID(GetBoringGREASEValue(uconn.<b>greaseSeed</b>, ssl_grease_group))
+		<a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2880" class="path-duplicate">u_parrots.go</a><a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2880">#L2880</a>: 					ext.KeyShares[i].Group = CurveID(GetBoringGREASEValue(uconn.<b>greaseSeed</b>, ssl_grease_group))
+		<a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2926" class="path-duplicate">u_parrots.go</a><a href="../../../src/github.com/refraction-networking/utls/u_parrots.go.html#line-2926">#L2926</a>: 					ext.Versions[i] = GetBoringGREASEValue(uconn.<b>greaseSeed</b>, ssl_grease_version)
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

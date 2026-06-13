@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.fastBase.hist</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-14">fastBase</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-20">hist</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">49 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-20">enc_base.go#L20</a>: 	<b>hist</b>        []byte
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-62" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-62">#L62</a>: 	if len(e.<b>hist</b>)+len(src) &gt; cap(e.<b>hist</b>) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-63" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-63">#L63</a>: 		if cap(e.<b>hist</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-66" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-66">#L66</a>: 			if cap(e.<b>hist</b>) &lt; int(e.maxMatchOff+maxCompressedBlockSize) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-67" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-67">#L67</a>: 				panic(fmt.Errorf("unexpected buffer cap %d, want at least %d with window %d", cap(e.<b>hist</b>), e.maxMatchOff+maxCompressedBlockSize, e.maxMatchOff))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-70" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-70">#L70</a>: 			offset := int32(len(e.<b>hist</b>)) - e.maxMatchOff
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-71" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-71">#L71</a>: 			copy(e.<b>hist</b>[0:e.maxMatchOff], e.<b>hist</b>[offset:])
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-73" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-73">#L73</a>: 			e.<b>hist</b> = e.<b>hist</b>[:e.maxMatchOff]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-76" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-76">#L76</a>: 	s := int32(len(e.<b>hist</b>))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-77" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-77">#L77</a>: 	e.<b>hist</b> = append(e.<b>hist</b>, src...)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-83" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-83">#L83</a>: 	if cap(e.<b>hist</b>) &gt;= n {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-100" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-100">#L100</a>: 	e.<b>hist</b> = make([]byte, 0, l)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-158" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-158">#L158</a>: 		e.cur += e.maxMatchOff + int32(len(e.<b>hist</b>))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-160" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-160">#L160</a>: 	e.<b>hist</b> = e.<b>hist</b>[:0]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-169" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-169">#L169</a>: 		e.<b>hist</b> = append(e.<b>hist</b>, d.content...)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-87">enc_best.go#L87</a>: 	for e.cur &gt;= e.bufferReset-int32(len(e.<b>hist</b>)) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-88" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-88">#L88</a>: 		if len(e.<b>hist</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-95" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-95">#L95</a>: 		minOff := e.cur + int32(len(e.<b>hist</b>)) - e.maxMatchOff
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-166" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-166">#L166</a>: 	src = e.<b>hist</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-65">enc_better.go#L65</a>: 	for e.cur &gt;= e.bufferReset-int32(len(e.<b>hist</b>)) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-66" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-66">#L66</a>: 		if len(e.<b>hist</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-73" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-73">#L73</a>: 		minOff := e.cur + int32(len(e.<b>hist</b>)) - e.maxMatchOff
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-127" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-127">#L127</a>: 	src = e.<b>hist</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-588" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-588">#L588</a>: 	for e.cur &gt;= e.bufferReset-int32(len(e.<b>hist</b>)) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-589" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-589">#L589</a>: 		if len(e.<b>hist</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-601" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-601">#L601</a>: 		minOff := e.cur + int32(len(e.<b>hist</b>)) - e.maxMatchOff
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-645" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-645">#L645</a>: 	src = e.<b>hist</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-47">enc_dfast.go#L47</a>: 	for e.cur &gt;= e.bufferReset-int32(len(e.<b>hist</b>)) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-48" class="path-duplicate">enc_dfast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-48">#L48</a>: 		if len(e.<b>hist</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-55" class="path-duplicate">enc_dfast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-55">#L55</a>: 		minOff := e.cur + int32(len(e.<b>hist</b>)) - e.maxMatchOff
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-88" class="path-duplicate">enc_dfast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-88">#L88</a>: 	src = e.<b>hist</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-687" class="path-duplicate">enc_dfast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-687">#L687</a>: 	for e.cur &gt;= e.bufferReset-int32(len(e.<b>hist</b>)) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-688" class="path-duplicate">enc_dfast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-688">#L688</a>: 		if len(e.<b>hist</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-700" class="path-duplicate">enc_dfast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-700">#L700</a>: 		minOff := e.cur + int32(len(e.<b>hist</b>)) - e.maxMatchOff
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-734" class="path-duplicate">enc_dfast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-734">#L734</a>: 	src = e.<b>hist</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-46">enc_fast.go#L46</a>: 	for e.cur &gt;= e.bufferReset-int32(len(e.<b>hist</b>)) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-47" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-47">#L47</a>: 		if len(e.<b>hist</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-55" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-55">#L55</a>: 		minOff := e.cur + int32(len(e.<b>hist</b>)) - e.maxMatchOff
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-79" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-79">#L79</a>: 	src = e.<b>hist</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-545" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-545">#L545</a>: 	for e.cur &gt;= e.bufferReset-int32(len(e.<b>hist</b>)) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-546" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-546">#L546</a>: 		if len(e.<b>hist</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-552" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-552">#L552</a>: 		minOff := e.cur + int32(len(e.<b>hist</b>)) - e.maxMatchOff
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-576" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-576">#L576</a>: 	src = e.<b>hist</b>
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

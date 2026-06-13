@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.Decoder.frame</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-22">Decoder</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-40">frame</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">30 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-40">decoder.go#L40</a>: 	<b>frame</b> *frameDec
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-219" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-219">#L219</a>: 	if d.<b>frame</b> == nil {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-220" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-220">#L220</a>: 		d.<b>frame</b> = newFrameDec(d.o)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-492" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-492">#L492</a>: 			d.<b>frame</b>.history.reset()
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-493" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-493">#L493</a>: 			d.current.err = d.<b>frame</b>.reset(&amp;d.syncStream.br)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-495" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-495">#L495</a>: 				d.current.err = d.setDict(d.<b>frame</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-500" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-500">#L500</a>: 			if d.<b>frame</b>.WindowSize &gt; d.o.maxDecodedSize || d.<b>frame</b>.WindowSize &gt; d.o.maxWindowSize {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-508" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-508">#L508</a>: 		d.current.err = d.<b>frame</b>.next(d.current.d)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-512" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-512">#L512</a>: 		d.<b>frame</b>.history.ensureBlock()
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-514" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-514">#L514</a>: 			println("History trimmed:", len(d.<b>frame</b>.history.b), "decoded already:", d.syncStream.decodedFrame)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-516" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-516">#L516</a>: 		histBefore := len(d.<b>frame</b>.history.b)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-517" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-517">#L517</a>: 		d.current.err = d.current.d.decodeBuf(&amp;d.<b>frame</b>.history)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-523" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-523">#L523</a>: 		d.current.b = d.<b>frame</b>.history.b[histBefore:]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-525" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-525">#L525</a>: 			println("history after:", len(d.<b>frame</b>.history.b))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-530" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-530">#L530</a>: 		if d.syncStream.decodedFrame &gt; d.<b>frame</b>.FrameContentSize {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-532" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-532">#L532</a>: 				printf("DecodedFrame (%d) &gt; FrameContentSize (%d)\n", d.syncStream.decodedFrame, d.<b>frame</b>.FrameContentSize)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-539" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-539">#L539</a>: 		if d.current.d.Last &amp;&amp; d.<b>frame</b>.FrameContentSize != fcsUnknown &amp;&amp; d.syncStream.decodedFrame != d.<b>frame</b>.FrameContentSize {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-541" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-541">#L541</a>: 				printf("DecodedFrame (%d) != FrameContentSize (%d)\n", d.syncStream.decodedFrame, d.<b>frame</b>.FrameContentSize)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-548" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-548">#L548</a>: 		if d.<b>frame</b>.HasCheckSum {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-550" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-550">#L550</a>: 				d.<b>frame</b>.crc.Write(d.current.b)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-554" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-554">#L554</a>: 					d.current.err = d.<b>frame</b>.checkCRC()
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-556" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-556">#L556</a>: 					d.current.err = d.<b>frame</b>.consumeCRC()
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-641" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-641">#L641</a>: 	d.<b>frame</b>.history.reset()
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-717" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-717">#L717</a>: 	frameHistCache := d.<b>frame</b>.history.b
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-848" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-848">#L848</a>: 		frame := d.<b>frame</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-861" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-861">#L861</a>: 		if err == nil &amp;&amp; d.<b>frame</b>.WindowSize &gt; d.o.maxWindowSize {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-863" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-863">#L863</a>: 				println("decoder size exceeded, fws:", d.<b>frame</b>.WindowSize, "&gt; mws:", d.o.maxWindowSize)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-939" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-939">#L939</a>: 	d.<b>frame</b>.history.b = frameHistCache
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

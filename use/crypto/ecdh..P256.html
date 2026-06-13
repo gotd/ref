@@ -5,29 +5,42 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto/ecdh.P256</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../../pkg/crypto/ecdh.html">crypto/ecdh</a>.<a href="../../src/crypto/ecdh/nist.go.html#line-219">P256</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../../pkg/crypto/ecdh.html">crypto/ecdh</a>.<a href="../../src/crypto/ecdh/nist.go.html#line-165">P256</a></b></span>
 
-<span class="title">5 uses</span>
+<span class="title">14 uses</span>
 
 	crypto/ecdh (current package)
-		<a href="../../src/crypto/ecdh/nist.go.html#line-219">nist.go#L219</a>: func <b>P256</b>() Curve { return p256 }
+		<a href="../../src/crypto/ecdh/nist.go.html#line-165">nist.go#L165</a>: func <b>P256</b>() Curve { return p256 }
 
 	<a href="../../pkg/crypto/ecdsa.html">crypto/ecdsa</a>
-		<a href="../../src/crypto/ecdsa/ecdsa.go.html#line-110">ecdsa.go#L110</a>: 		return ecdh.<b>P256</b>()
+		<a href="../../src/crypto/ecdsa/ecdsa.go.html#line-200">ecdsa.go#L200</a>: 		return ecdh.<b>P256</b>()
+
+	<a href="../../pkg/crypto/hpke.html">crypto/hpke</a>
+		<a href="../../src/crypto/hpke/kem.go.html#line-49">kem.go#L49</a>: 		return DHKEM(ecdh.<b>P256</b>()), nil
+		<a href="../../src/crypto/hpke/kem.go.html#line-134" class="path-duplicate">kem.go</a><a href="../../src/crypto/hpke/kem.go.html#line-134">#L134</a>: var dhKEMP256 = &amp;dhKEM{HKDFSHA256(), 0x0010, ecdh.<b>P256</b>(), 32, 32, 65}
+		<a href="../../src/crypto/hpke/kem.go.html#line-149" class="path-duplicate">kem.go</a><a href="../../src/crypto/hpke/kem.go.html#line-149">#L149</a>: 	case ecdh.<b>P256</b>():
+		<a href="../../src/crypto/hpke/pq.go.html#line-48">pq.go#L48</a>: 	curve: ecdh.<b>P256</b>(),
+		<a href="../../src/crypto/hpke/pq.go.html#line-149" class="path-duplicate">pq.go</a><a href="../../src/crypto/hpke/pq.go.html#line-149">#L149</a>: 	case ecdh.<b>P256</b>():
+		<a href="../../src/crypto/hpke/pq.go.html#line-290" class="path-duplicate">pq.go</a><a href="../../src/crypto/hpke/pq.go.html#line-290">#L290</a>: 	case ecdh.<b>P256</b>():
 
 	<a href="../../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../../src/crypto/tls/key_schedule.go.html#line-136">key_schedule.go#L136</a>: 		return ecdh.<b>P256</b>(), true
-		<a href="../../src/crypto/tls/key_schedule.go.html#line-150" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-150">#L150</a>: 	case ecdh.<b>P256</b>():
+		<a href="../../src/crypto/tls/key_agreement.go.html#line-395">key_agreement.go#L395</a>: 		return ecdh.<b>P256</b>(), true
+		<a href="../../src/crypto/tls/key_schedule.go.html#line-93">key_schedule.go#L93</a>: 		return &amp;ecdhKeyExchange{id, ecdh.<b>P256</b>()}, nil
+		<a href="../../src/crypto/tls/key_schedule.go.html#line-103" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-103">#L103</a>: 		return &amp;hybridKeyExchange{id, ecdhKeyExchange{CurveP256, ecdh.<b>P256</b>()},
 
 	<a href="../../pkg/crypto/x509.html">crypto/x509</a>
-		<a href="../../src/crypto/x509/x509.go.html#line-560">x509.go#L560</a>: 	case ecdh.<b>P256</b>():
+		<a href="../../src/crypto/x509/x509.go.html#line-570">x509.go#L570</a>: 	case ecdh.<b>P256</b>():
+
+	<a href="../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../../src/github.com/refraction-networking/utls/key_schedule.go.html#line-78">key_schedule.go#L78</a>: 		return ecdh.<b>P256</b>(), true
+		<a href="../../src/github.com/refraction-networking/utls/key_schedule.go.html#line-92" class="path-duplicate">key_schedule.go</a><a href="../../src/github.com/refraction-networking/utls/key_schedule.go.html#line-92">#L92</a>: 	case ecdh.<b>P256</b>():
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

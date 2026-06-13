@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.cState.state</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/fse_encoder.go.html#line-675">cState</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/fse_encoder.go.html#line-678">state</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">19 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-753">blockenc.go#L753</a>: 		println("Encoded seq", seq, s, "codes:", s.llCode, s.mlCode, s.ofCode, "states:", ll.<b>state</b>, ml.<b>state</b>, of.<b>state</b>, "bits:", llB, mlB, ofB)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-763" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-763">#L763</a>: 		nbBitsOut := (uint32(of.<b>state</b>) + ofB.deltaNbBits) &gt;&gt; 16
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-764" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-764">#L764</a>: 		dstState := int32(of.<b>state</b>&gt;&gt;(nbBitsOut&amp;15)) + int32(ofB.deltaFindState)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-765" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-765">#L765</a>: 		wr.addBits16NC(of.<b>state</b>, uint8(nbBitsOut))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-766" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-766">#L766</a>: 		of.<b>state</b> = of.stateTable[dstState]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-775" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-775">#L775</a>: 		nbBitsOut = (uint32(ml.<b>state</b>) + mlB.deltaNbBits) &gt;&gt; 16
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-776" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-776">#L776</a>: 		dstState = int32(ml.<b>state</b>&gt;&gt;(nbBitsOut&amp;15)) + int32(mlB.deltaFindState)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-777" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-777">#L777</a>: 		wr.addBits16NC(ml.<b>state</b>, uint8(nbBitsOut))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-778" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-778">#L778</a>: 		ml.<b>state</b> = ml.stateTable[dstState]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-786" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-786">#L786</a>: 		nbBitsOut = (uint32(ll.<b>state</b>) + llB.deltaNbBits) &gt;&gt; 16
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-787" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-787">#L787</a>: 		dstState = int32(ll.<b>state</b>&gt;&gt;(nbBitsOut&amp;15)) + int32(llB.deltaFindState)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-788" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-788">#L788</a>: 		wr.addBits16NC(ll.<b>state</b>, uint8(nbBitsOut))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-789" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-789">#L789</a>: 		ll.<b>state</b> = ll.stateTable[dstState]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_encoder.go.html#line-678">fse_encoder.go#L678</a>: 	<b>state</b>      uint16
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_encoder.go.html#line-688" class="path-duplicate">fse_encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_encoder.go.html#line-688">#L688</a>: 		c.<b>state</b> = 0
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_encoder.go.html#line-694" class="path-duplicate">fse_encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_encoder.go.html#line-694">#L694</a>: 	c.<b>state</b> = c.stateTable[lu]
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_encoder.go.html#line-700" class="path-duplicate">fse_encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_encoder.go.html#line-700">#L700</a>: 	c.bw.addBits16NC(c.<b>state</b>, tableLog)
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

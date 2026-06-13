@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.decSymbol</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">type <b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-213">decSymbol</a></b></span>
+
+<span class="title">36 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-35">fse_decoder.go#L35</a>: 	dt             [maxTablesize]<b>decSymbol</b> // Decompression table.
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-213" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-213">#L213</a>: type <b>decSymbol</b> uint64
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-215" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-215">#L215</a>: func newDecSymbol(nbits, addBits uint8, newState uint16, baseline uint32) <b>decSymbol</b> {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-216" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-216">#L216</a>: 	return <b>decSymbol</b>(nbits) | (<b>decSymbol</b>(addBits) &lt;&lt; 8) | (<b>decSymbol</b>(newState) &lt;&lt; 16) | (<b>decSymbol</b>(baseline) &lt;&lt; 32)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-219" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-219">#L219</a>: func (d <b>decSymbol</b>) nbBits() uint8 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-223" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-223">#L223</a>: func (d <b>decSymbol</b>) addBits() uint8 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-227" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-227">#L227</a>: func (d <b>decSymbol</b>) newState() uint16 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-231" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-231">#L231</a>: func (d <b>decSymbol</b>) baselineInt() int {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-235" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-235">#L235</a>: func (d *<b>decSymbol</b>) setNBits(nBits uint8) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-237" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-237">#L237</a>: 	*d = (*d &amp; mask) | <b>decSymbol</b>(nBits)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-240" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-240">#L240</a>: func (d *<b>decSymbol</b>) setAddBits(addBits uint8) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-242" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-242">#L242</a>: 	*d = (*d &amp; mask) | (<b>decSymbol</b>(addBits) &lt;&lt; 8)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-245" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-245">#L245</a>: func (d *<b>decSymbol</b>) setNewState(state uint16) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-247" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-247">#L247</a>: 	*d = (*d &amp; mask) | <b>decSymbol</b>(state)&lt;&lt;16
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-250" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-250">#L250</a>: func (d *<b>decSymbol</b>) setExt(addBits uint8, baseline uint32) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-252" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-252">#L252</a>: 	*d = (*d &amp; mask) | (<b>decSymbol</b>(addBits) &lt;&lt; 8) | (<b>decSymbol</b>(baseline) &lt;&lt; 32)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-256" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-256">#L256</a>: func decSymbolValue(symb uint8, t []baseOffset) (<b>decSymbol</b>, error) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-265" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-265">#L265</a>: func (s *fseDecoder) setRLE(symbol <b>decSymbol</b>) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-293" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-293">#L293</a>: 	dt    []<b>decSymbol</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-294" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-294">#L294</a>: 	state <b>decSymbol</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-298" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-298">#L298</a>: func (s *fseState) init(br *bitReader, tableLog uint8, dt []<b>decSymbol</b>) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-305" class="path-duplicate">fse_decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder.go.html#line-305">#L305</a>: func (s <b>decSymbol</b>) final() (int, uint8) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder_amd64.go.html#line-50">fse_decoder_amd64.go#L50</a>: 			newState := <b>decSymbol</b>(ctx.errParam1)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder_amd64.go.html#line-55" class="path-duplicate">fse_decoder_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder_amd64.go.html#line-55">#L55</a>: 			newState := <b>decSymbol</b>(ctx.errParam1)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder_amd64.go.html#line-56" class="path-duplicate">fse_decoder_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/fse_decoder_amd64.go.html#line-56">#L56</a>: 			oldState := <b>decSymbol</b>(ctx.errParam2)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-444">seqdec.go#L444</a>: func (s *sequenceDecs) next(br *bitReader, llState, mlState, ofState <b>decSymbol</b>) (ll, mo, ml int) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-13">seqdec_amd64.go#L13</a>: 	llTable     []<b>decSymbol</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-14" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-14">#L14</a>: 	mlTable     []<b>decSymbol</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-15" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-15">#L15</a>: 	ofTable     []<b>decSymbol</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-177" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-177">#L177</a>: 	llTable   []<b>decSymbol</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-178" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-178">#L178</a>: 	mlTable   []<b>decSymbol</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-179" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-179">#L179</a>: 	ofTable   []<b>decSymbol</b>
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

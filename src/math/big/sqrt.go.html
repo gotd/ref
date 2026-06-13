@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: sqrt.go in package math/big</title>
-<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -78,12 +78,12 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-10"><code>)</code></span>
 <span class="codeline" id="line-11"><code></code></span>
 <span class="codeline" id="line-12"><code><span class="keyword">var</span> <a href="../../../pkg/math/big.html#name-threeOnce" class="ident">threeOnce</a> <span class="keyword">struct</span> {</code></span>
-<span class="codeline" id="line-13"><code>	<a href="../../../pkg/sync.html" class="ident i1">sync</a>.<a href="../../sync/once.go.html#line-18" class="ident">Once</a></code></span>
+<span class="codeline" id="line-13"><code>	<a href="../../../pkg/sync.html" class="ident i1">sync</a>.<a href="../../sync/once.go.html#line-20" class="ident">Once</a></code></span>
 <span class="codeline" id="line-14"><code>	v *<a href="float.go.html#line-65" class="ident">Float</a></code></span>
 <span class="codeline" id="line-15"><code>}</code></span>
 <span class="codeline" id="line-16"><code></code></span>
 <span class="codeline" id="line-17"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../pkg/math/big.html#name-three" class="ident">three</a></label>() *<a href="float.go.html#line-65" class="ident">Float</a> {</code></span>
-<span class="codeline" id="line-18"><code>	<a href="#line-12" class="ident">threeOnce</a>.<a href="../../sync/once.go.html#line-48" class="ident">Do</a>(<span class="keyword">func</span>() {</code></span>
+<span class="codeline" id="line-18"><code>	<a href="#line-12" class="ident">threeOnce</a>.<a href="../../sync/once.go.html#line-52" class="ident">Do</a>(<span class="keyword">func</span>() {</code></span>
 <span class="codeline" id="line-19"><code>		<a href="#line-12" class="ident">threeOnce</a>.<a href="#line-14" class="ident">v</a> = <a href="float.go.html#line-88" class="ident">NewFloat</a>(<span class="lit-number">3.0</span>)</code></span>
 <span class="codeline" id="line-20"><code>	})</code></span>
 <span class="codeline" id="line-21"><code>	<span class="keyword">return</span> <a href="#line-12" class="ident">threeOnce</a>.<a href="#line-14" class="ident">v</a></code></span>
@@ -100,14 +100,14 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-32"><code><span class="comment">// case.</span></code></span>
 <span class="codeline" id="line-33"><code><span class="keyword">func</span> (<label for="r1" class="ident">z</label> *<a href="float.go.html#line-65" class="ident">Float</a>) <label for="r2" class="ident"><a href="../../../use/math/big..Float.Sqrt.html" class="ident">Sqrt</a></label>(<label for="r3" class="ident">x</label> *<a href="float.go.html#line-65" class="ident">Float</a>) *<a href="float.go.html#line-65" class="ident">Float</a> {</code></span>
 <span class="codeline" id="line-34"><code>	<span class="keyword">if</span> <a href="float.go.html#line-20" class="ident">debugFloat</a> {</code></span>
-<span class="codeline" id="line-35"><code>		<label for="r3" class="ident">x</label>.<a href="float.go.html#line-363" class="ident">validate</a>()</code></span>
+<span class="codeline" id="line-35"><code>		<label for="r3" class="ident">x</label>.<a href="float.go.html#line-362" class="ident">validate</a>()</code></span>
 <span class="codeline" id="line-36"><code>	}</code></span>
 <span class="codeline" id="line-37"><code></code></span>
 <span class="codeline" id="line-38"><code>	<span class="keyword">if</span> <label for="r1" class="ident">z</label>.<a href="float.go.html#line-66" class="ident">prec</a> == <span class="lit-number">0</span> {</code></span>
 <span class="codeline" id="line-39"><code>		<label for="r1" class="ident">z</label>.<a href="float.go.html#line-66" class="ident">prec</a> = <label for="r3" class="ident">x</label>.<a href="float.go.html#line-66" class="ident">prec</a></code></span>
 <span class="codeline" id="line-40"><code>	}</code></span>
 <span class="codeline" id="line-41"><code></code></span>
-<span class="codeline" id="line-42"><code>	<span class="keyword">if</span> <label for="r3" class="ident">x</label>.<a href="float.go.html#line-239" class="ident">Sign</a>() == -<span class="lit-number">1</span> {</code></span>
+<span class="codeline" id="line-42"><code>	<span class="keyword">if</span> <label for="r3" class="ident">x</label>.<a href="float.go.html#line-238" class="ident">Sign</a>() == -<span class="lit-number">1</span> {</code></span>
 <span class="codeline" id="line-43"><code>		<span class="comment">// following IEEE754-2008 (section 7.2)</span></code></span>
 <span class="codeline" id="line-44"><code>		<a href="../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<a href="float.go.html#line-77" class="ident">ErrNaN</a>{<span class="lit-string">"square root of negative operand"</span>})</code></span>
 <span class="codeline" id="line-45"><code>	}</code></span>
@@ -124,7 +124,7 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-56"><code><span class="comment">	// when z.prec &gt; x.prec this will lower z.prec. Restore it after</span></code></span>
 <span class="codeline" id="line-57"><code><span class="comment">	// the MantExp call.</span></code></span>
 <span class="codeline" id="line-58"><code>	<label for="r4" class="ident">prec</label> := <label for="r1" class="ident">z</label>.<a href="float.go.html#line-66" class="ident">prec</a></code></span>
-<span class="codeline" id="line-59"><code>	<label for="r5" class="ident">b</label> := <label for="r3" class="ident">x</label>.<a href="float.go.html#line-267" class="ident">MantExp</a>(<label for="r1" class="ident">z</label>)</code></span>
+<span class="codeline" id="line-59"><code>	<label for="r5" class="ident">b</label> := <label for="r3" class="ident">x</label>.<a href="float.go.html#line-266" class="ident">MantExp</a>(<label for="r1" class="ident">z</label>)</code></span>
 <span class="codeline" id="line-60"><code>	<label for="r1" class="ident">z</label>.<a href="float.go.html#line-66" class="ident">prec</a> = <label for="r4" class="ident">prec</label></code></span>
 <span class="codeline" id="line-61"><code></code></span>
 <span class="codeline" id="line-62"><code>	<span class="comment">// Compute √(z·2**b) as</span></code></span>
@@ -146,7 +146,7 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-78"><code>	<label for="r1" class="ident">z</label>.<a href="#line-89" class="ident">sqrtInverse</a>(<label for="r1" class="ident">z</label>)</code></span>
 <span class="codeline" id="line-79"><code></code></span>
 <span class="codeline" id="line-80"><code>	<span class="comment">// re-attach halved exponent</span></code></span>
-<span class="codeline" id="line-81"><code>	<span class="keyword">return</span> <label for="r1" class="ident">z</label>.<a href="float.go.html#line-320" class="ident">SetMantExp</a>(<label for="r1" class="ident">z</label>, <label for="r5" class="ident">b</label>/<span class="lit-number">2</span>)</code></span>
+<span class="codeline" id="line-81"><code>	<span class="keyword">return</span> <label for="r1" class="ident">z</label>.<a href="float.go.html#line-319" class="ident">SetMantExp</a>(<label for="r1" class="ident">z</label>, <label for="r5" class="ident">b</label>/<span class="lit-number">2</span>)</code></span>
 <span class="codeline" id="line-82"><code>}</code></span>
 <span class="codeline" id="line-83"><code></code></span>
 <span class="codeline" id="line-84"><code><span class="comment">// Compute √x (to z.prec precision) by solving</span></code></span>
@@ -172,12 +172,12 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-104"><code>		<label for="r10" class="ident">v</label>.<a href="float.go.html#line-1523" class="ident">Sub</a>(<label for="r11" class="ident">three</label>, <label for="r9" class="ident">u</label>) <span class="comment">// v = 3 - xt²</span></code></span>
 <span class="codeline" id="line-105"><code>		<label for="r9" class="ident">u</label>.<a href="float.go.html#line-1590" class="ident">Mul</a>(<label for="r13" class="ident">t</label>, <label for="r10" class="ident">v</label>)     <span class="comment">// u = t(3 - xt²)</span></code></span>
 <span class="codeline" id="line-106"><code>		<label for="r9" class="ident">u</label>.<a href="float.go.html#line-72" class="ident">exp</a>--         <span class="comment">//   = ½t(3 - xt²)</span></code></span>
-<span class="codeline" id="line-107"><code>		<span class="keyword">return</span> <label for="r13" class="ident">t</label>.<a href="float.go.html#line-654" class="ident">Set</a>(<label for="r9" class="ident">u</label>)</code></span>
+<span class="codeline" id="line-107"><code>		<span class="keyword">return</span> <label for="r13" class="ident">t</label>.<a href="float.go.html#line-653" class="ident">Set</a>(<label for="r9" class="ident">u</label>)</code></span>
 <span class="codeline" id="line-108"><code>	}</code></span>
 <span class="codeline" id="line-109"><code></code></span>
-<span class="codeline" id="line-110"><code>	<label for="r14" class="ident">xf</label>, <label for="r15" class="ident">_</label> := <label for="r8" class="ident">x</label>.<a href="float.go.html#line-961" class="ident">Float64</a>()</code></span>
+<span class="codeline" id="line-110"><code>	<label for="r14" class="ident">xf</label>, <label for="r15" class="ident">_</label> := <label for="r8" class="ident">x</label>.<a href="float.go.html#line-959" class="ident">Float64</a>()</code></span>
 <span class="codeline" id="line-111"><code>	<label for="r16" class="ident">sqi</label> := <a href="#line-125" class="ident">newFloat</a>(<label for="r6" class="ident">z</label>.<a href="float.go.html#line-66" class="ident">prec</a>)</code></span>
-<span class="codeline" id="line-112"><code>	<label for="r16" class="ident">sqi</label>.<a href="float.go.html#line-552" class="ident">SetFloat64</a>(<span class="lit-number">1</span> / <a href="../../../pkg/math.html" class="ident i0">math</a>.<a href="../sqrt.go.html#line-93" class="ident">Sqrt</a>(<label for="r14" class="ident">xf</label>))</code></span>
+<span class="codeline" id="line-112"><code>	<label for="r16" class="ident">sqi</label>.<a href="float.go.html#line-551" class="ident">SetFloat64</a>(<span class="lit-number">1</span> / <a href="../../../pkg/math.html" class="ident i0">math</a>.<a href="../sqrt.go.html#line-93" class="ident">Sqrt</a>(<label for="r14" class="ident">xf</label>))</code></span>
 <span class="codeline" id="line-113"><code>	<span class="keyword">for</span> <label for="r17" class="ident">prec</label> := <label for="r6" class="ident">z</label>.<a href="float.go.html#line-66" class="ident">prec</a> + <span class="lit-number">32</span>; <label for="r16" class="ident">sqi</label>.<a href="float.go.html#line-66" class="ident">prec</a> &lt; <label for="r17" class="ident">prec</label>; {</code></span>
 <span class="codeline" id="line-114"><code>		<label for="r16" class="ident">sqi</label>.<a href="float.go.html#line-66" class="ident">prec</a> *= <span class="lit-number">2</span></code></span>
 <span class="codeline" id="line-115"><code>		<label for="r16" class="ident">sqi</label> = <label for="r12" class="ident">ng</label>(<label for="r16" class="ident">sqi</label>)</code></span>
@@ -193,12 +193,12 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-125"><code><span class="keyword">func</span> <label for="r18" class="ident"><a href="../../../pkg/math/big.html#name-newFloat" class="ident">newFloat</a></label>(<label for="r19" class="ident">prec2</label> <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>) *<a href="float.go.html#line-65" class="ident">Float</a> {</code></span>
 <span class="codeline" id="line-126"><code>	<label for="r20" class="ident">z</label> := <a href="../../../pkg/builtin.html#name-new" class="ident">new</a>(<a href="float.go.html#line-65" class="ident">Float</a>)</code></span>
 <span class="codeline" id="line-127"><code>	<span class="comment">// nat.make ensures the slice length is &gt; 0</span></code></span>
-<span class="codeline" id="line-128"><code>	<label for="r20" class="ident">z</label>.<a href="float.go.html#line-71" class="ident">mant</a> = <label for="r20" class="ident">z</label>.<a href="float.go.html#line-71" class="ident">mant</a>.<a href="nat.go.html#line-61" class="ident">make</a>(<a href="../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r19" class="ident">prec2</label>/<a href="arith.go.html#line-21" class="ident">_W</a>) * <span class="lit-number">2</span>)</code></span>
+<span class="codeline" id="line-128"><code>	<label for="r20" class="ident">z</label>.<a href="float.go.html#line-71" class="ident">mant</a> = <label for="r20" class="ident">z</label>.<a href="float.go.html#line-71" class="ident">mant</a>.<a href="nat.go.html#line-56" class="ident">make</a>(<a href="../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r19" class="ident">prec2</label>/<a href="arith.go.html#line-24" class="ident">_W</a>) * <span class="lit-number">2</span>)</code></span>
 <span class="codeline" id="line-129"><code>	<span class="keyword">return</span> <label for="r20" class="ident">z</label></code></span>
 <span class="codeline" id="line-130"><code>}</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

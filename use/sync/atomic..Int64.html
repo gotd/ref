@@ -5,30 +5,35 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: sync/atomic.Int64</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/sync/atomic.html">sync/atomic</a>.<a href="../../src/sync/atomic/type.go.html#line-91">Int64</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/sync/atomic.html">sync/atomic</a>.<a href="../../src/sync/atomic/type.go.html#line-107">Int64</a></b></span>
 
-<span class="title">8 uses</span>
+<span class="title">13 uses</span>
 
 	sync/atomic (current package)
-		<a href="../../src/sync/atomic/type.go.html#line-91">type.go#L91</a>: type <b>Int64</b> struct {
-		<a href="../../src/sync/atomic/type.go.html#line-98" class="path-duplicate">type.go</a><a href="../../src/sync/atomic/type.go.html#line-98">#L98</a>: func (x *<b>Int64</b>) Load() int64 { return LoadInt64(&amp;x.v) }
-		<a href="../../src/sync/atomic/type.go.html#line-101" class="path-duplicate">type.go</a><a href="../../src/sync/atomic/type.go.html#line-101">#L101</a>: func (x *<b>Int64</b>) Store(val int64) { StoreInt64(&amp;x.v, val) }
-		<a href="../../src/sync/atomic/type.go.html#line-104" class="path-duplicate">type.go</a><a href="../../src/sync/atomic/type.go.html#line-104">#L104</a>: func (x *<b>Int64</b>) Swap(new int64) (old int64) { return SwapInt64(&amp;x.v, new) }
-		<a href="../../src/sync/atomic/type.go.html#line-107" class="path-duplicate">type.go</a><a href="../../src/sync/atomic/type.go.html#line-107">#L107</a>: func (x *<b>Int64</b>) CompareAndSwap(old, new int64) (swapped bool) {
-		<a href="../../src/sync/atomic/type.go.html#line-112" class="path-duplicate">type.go</a><a href="../../src/sync/atomic/type.go.html#line-112">#L112</a>: func (x *<b>Int64</b>) Add(delta int64) (new int64) { return AddInt64(&amp;x.v, delta) }
+		<a href="../../src/sync/atomic/type.go.html#line-107">type.go#L107</a>: type <b>Int64</b> struct {
+		<a href="../../src/sync/atomic/type.go.html#line-114" class="path-duplicate">type.go</a><a href="../../src/sync/atomic/type.go.html#line-114">#L114</a>: func (x *<b>Int64</b>) Load() int64 { return LoadInt64(&amp;x.v) }
+		<a href="../../src/sync/atomic/type.go.html#line-117" class="path-duplicate">type.go</a><a href="../../src/sync/atomic/type.go.html#line-117">#L117</a>: func (x *<b>Int64</b>) Store(val int64) { StoreInt64(&amp;x.v, val) }
+		<a href="../../src/sync/atomic/type.go.html#line-120" class="path-duplicate">type.go</a><a href="../../src/sync/atomic/type.go.html#line-120">#L120</a>: func (x *<b>Int64</b>) Swap(new int64) (old int64) { return SwapInt64(&amp;x.v, new) }
+		<a href="../../src/sync/atomic/type.go.html#line-123" class="path-duplicate">type.go</a><a href="../../src/sync/atomic/type.go.html#line-123">#L123</a>: func (x *<b>Int64</b>) CompareAndSwap(old, new int64) (swapped bool) {
+		<a href="../../src/sync/atomic/type.go.html#line-128" class="path-duplicate">type.go</a><a href="../../src/sync/atomic/type.go.html#line-128">#L128</a>: func (x *<b>Int64</b>) Add(delta int64) (new int64) { return AddInt64(&amp;x.v, delta) }
+		<a href="../../src/sync/atomic/type.go.html#line-132" class="path-duplicate">type.go</a><a href="../../src/sync/atomic/type.go.html#line-132">#L132</a>: func (x *<b>Int64</b>) And(mask int64) (old int64) { return AndInt64(&amp;x.v, mask) }
+		<a href="../../src/sync/atomic/type.go.html#line-136" class="path-duplicate">type.go</a><a href="../../src/sync/atomic/type.go.html#line-136">#L136</a>: func (x *<b>Int64</b>) Or(mask int64) (old int64) { return OrInt64(&amp;x.v, mask) }
 
-	<a href="../../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../../src/crypto/tls/cache.go.html#line-15">cache.go#L15</a>: 	refs atomic.<b>Int64</b>
+	<a href="../../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../../src/github.com/coder/websocket/conn.go.html#line-84">conn.go#L84</a>: 	pingCounter    atomic.<b>Int64</b>
+		<a href="../../src/github.com/coder/websocket/netconn.go.html#line-102">netconn.go#L102</a>: 	writeExpired atomic.<b>Int64</b>
+		<a href="../../src/github.com/coder/websocket/netconn.go.html#line-108" class="path-duplicate">netconn.go</a><a href="../../src/github.com/coder/websocket/netconn.go.html#line-108">#L108</a>: 	readExpired atomic.<b>Int64</b>
+		<a href="../../src/github.com/coder/websocket/read.go.html#line-502">read.go#L502</a>: 	limit atomic.<b>Int64</b>
 
-	<a href="../../pkg/go.uber.org/zap/zapcore.html">go.uber.org/zap/zapcore</a>
-		<a href="../../src/go.uber.org/zap/zapcore/sampler.go.html#line-34">sampler.go#L34</a>: 	resetAt atomic.<b>Int64</b>
+	<a href="../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../../src/github.com/refraction-networking/utls/cache.go.html#line-15">cache.go#L15</a>: 	refs atomic.<b>Int64</b>
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

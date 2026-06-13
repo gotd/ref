@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/andybalholm/brotli.Writer.input_pos_</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>.<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-74">Writer</a>.<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-81">input_pos_</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">15 uses</span>
+
+	github.com/andybalholm/brotli (current package)
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-81">encode.go#L81</a>: 	<b>input_pos_</b>          uint64
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-119" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-119">#L119</a>: 	return s.<b>input_pos_</b> - s.last_processed_pos_
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-612" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-612">#L612</a>: 	s.<b>input_pos_</b> = 0
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-652" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-652">#L652</a>: 	s.<b>input_pos_</b> += uint64(input_size)
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-706" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-706">#L706</a>: 	var wrapped_input_pos uint32 = wrapPosition(s.<b>input_pos_</b>)
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-707" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-707">#L707</a>: 	s.last_processed_pos_ = s.<b>input_pos_</b>
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-831" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-831">#L831</a>: 	literal_context_mode = chooseContextMode(&amp;s.params, data, uint(wrapPosition(s.last_flush_pos_)), uint(mask), uint(s.<b>input_pos_</b>-s.last_flush_pos_))
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-850" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-850">#L850</a>: 		var processed_bytes uint = uint(s.<b>input_pos_</b> - s.last_flush_pos_)
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-875" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-875">#L875</a>: 	if !is_last &amp;&amp; s.<b>input_pos_</b> == s.last_flush_pos_ {
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-881" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-881">#L881</a>: 	assert(s.<b>input_pos_</b> &gt;= s.last_flush_pos_)
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-882" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-882">#L882</a>: 	assert(s.<b>input_pos_</b> &gt; s.last_flush_pos_ || is_last)
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-883" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-883">#L883</a>: 	assert(s.<b>input_pos_</b>-s.last_flush_pos_ &lt;= 1&lt;&lt;24)
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-885" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-885">#L885</a>: 		var metablock_size uint32 = uint32(s.<b>input_pos_</b> - s.last_flush_pos_)
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-893" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-893">#L893</a>: 		s.last_flush_pos_ = s.<b>input_pos_</b>
+		<a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-1081" class="path-duplicate">encode.go</a><a href="../../../src/github.com/andybalholm/brotli/encode.go.html#line-1081">#L1081</a>: 		if s.<b>input_pos_</b> != s.last_flush_pos_ {
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

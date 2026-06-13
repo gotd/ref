@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: u_hpke.go in package github.com/refraction-networking/utls</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	u_hpke.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> tls</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-4"><code>	<label for="i0"><span class="lit-string i0">"github.com/refraction-networking/utls/internal/hpke"</span></label></code></span>
+<span class="codeline" id="line-5"><code>)</code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HPKERawPublicKey" class="ident">HPKERawPublicKey</a> = []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-8"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HPKE_KEM_ID" class="ident">HPKE_KEM_ID</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>  <span class="comment">// RFC 9180</span></code></span>
+<span class="codeline" id="line-9"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HPKE_KDF_ID" class="ident">HPKE_KDF_ID</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>  <span class="comment">// RFC 9180</span></code></span>
+<span class="codeline" id="line-10"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HPKE_AEAD_ID" class="ident">HPKE_AEAD_ID</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> <span class="comment">// RFC 9180</span></code></span>
+<span class="codeline" id="line-11"><code></code></span>
+<span class="codeline" id="line-12"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HPKESymmetricCipherSuite" class="ident">HPKESymmetricCipherSuite</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-13"><code>	<a href="../../../../use/github.com/refraction-networking/utls..HPKESymmetricCipherSuite.KdfId^acf03.html" class="ident">KdfId</a>  <a href="#line-9" class="ident">HPKE_KDF_ID</a></code></span>
+<span class="codeline" id="line-14"><code>	<a href="../../../../use/github.com/refraction-networking/utls..HPKESymmetricCipherSuite.AeadId^6ee0f.html" class="ident">AeadId</a> <a href="#line-10" class="ident">HPKE_AEAD_ID</a></code></span>
+<span class="codeline" id="line-15"><code>}</code></span>
+<span class="codeline" id="line-16"><code></code></span>
+<span class="codeline" id="line-17"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-defaultHpkeKdf" class="ident">defaultHpkeKdf</a> = <a href="../../../../pkg/github.com/refraction-networking/utls/internal/hpke.html" class="ident i0">hpke</a>.<a href="internal/hpke/hpke.go.html#line-175" class="ident">KDF_HKDF_SHA256</a></code></span>
+<span class="codeline" id="line-18"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-defaultHpkeKem" class="ident">defaultHpkeKem</a> = <a href="../../../../pkg/github.com/refraction-networking/utls/internal/hpke.html" class="ident i0">hpke</a>.<a href="internal/hpke/hpke.go.html#line-59" class="ident">DHKEM_X25519_HKDF_SHA256</a></code></span>
+<span class="codeline" id="line-19"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-defaultHpkeAead" class="ident">defaultHpkeAead</a> = <a href="../../../../pkg/github.com/refraction-networking/utls/internal/hpke.html" class="ident i0">hpke</a>.<a href="internal/hpke/hpke.go.html#line-157" class="ident">AEAD_AES_128_GCM</a></code></span>
+<span class="codeline" id="line-20"><code></code></span>
+<span class="codeline" id="line-21"><code><span class="keyword">var</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-dummyX25519PublicKey" class="ident">dummyX25519PublicKey</a> = []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>{</code></span>
+<span class="codeline" id="line-22"><code>	<span class="lit-number">143</span>, <span class="lit-number">38</span>, <span class="lit-number">37</span>, <span class="lit-number">36</span>, <span class="lit-number">12</span>, <span class="lit-number">6</span>, <span class="lit-number">229</span>, <span class="lit-number">30</span>, <span class="lit-number">140</span>, <span class="lit-number">27</span>, <span class="lit-number">167</span>, <span class="lit-number">73</span>, <span class="lit-number">26</span>, <span class="lit-number">100</span>, <span class="lit-number">203</span>, <span class="lit-number">107</span>, <span class="lit-number">216</span>,</code></span>
+<span class="codeline" id="line-23"><code>	<span class="lit-number">81</span>, <span class="lit-number">163</span>, <span class="lit-number">222</span>, <span class="lit-number">52</span>, <span class="lit-number">211</span>, <span class="lit-number">54</span>, <span class="lit-number">210</span>, <span class="lit-number">46</span>, <span class="lit-number">37</span>, <span class="lit-number">78</span>, <span class="lit-number">216</span>, <span class="lit-number">157</span>, <span class="lit-number">97</span>, <span class="lit-number">241</span>, <span class="lit-number">244</span>,</code></span>
+<span class="codeline" id="line-24"><code>}</code></span>
+<span class="codeline" id="line-25"><code></code></span>
+<span class="codeline" id="line-26"><code><span class="comment">// cipherLen returns the length of a ciphertext corresponding to a message of</span></code></span>
+<span class="codeline" id="line-27"><code><span class="comment">// length mLen.</span></code></span>
+<span class="codeline" id="line-28"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-cipherLen" class="ident">cipherLen</a></label>(<label for="r1" class="ident">a</label> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>, <label for="r2" class="ident">mLen</label> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-29"><code>	<span class="keyword">switch</span> <label for="r1" class="ident">a</label> {</code></span>
+<span class="codeline" id="line-30"><code>	<span class="keyword">case</span> <a href="../../../../pkg/github.com/refraction-networking/utls/internal/hpke.html" class="ident i0">hpke</a>.<a href="internal/hpke/hpke.go.html#line-157" class="ident">AEAD_AES_128_GCM</a>, <a href="../../../../pkg/github.com/refraction-networking/utls/internal/hpke.html" class="ident i0">hpke</a>.<a href="internal/hpke/hpke.go.html#line-158" class="ident">AEAD_AES_256_GCM</a>, <a href="../../../../pkg/github.com/refraction-networking/utls/internal/hpke.html" class="ident i0">hpke</a>.<a href="internal/hpke/hpke.go.html#line-159" class="ident">AEAD_ChaCha20Poly1305</a>:</code></span>
+<span class="codeline" id="line-31"><code>		<span class="keyword">return</span> <label for="r2" class="ident">mLen</label> + <span class="lit-number">16</span></code></span>
+<span class="codeline" id="line-32"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-33"><code>		<a href="../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<span class="lit-string">"hpke: invalid AEAD identifier"</span>)</code></span>
+<span class="codeline" id="line-34"><code>	}</code></span>
+<span class="codeline" id="line-35"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

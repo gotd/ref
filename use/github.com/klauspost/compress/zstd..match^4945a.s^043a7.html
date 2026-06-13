@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.match.s</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-29">match</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-31">s</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">27 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-31">enc_best.go#L31</a>: 	<b>s</b>      int32
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-44" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-44">#L44</a>: 		ofc = ofCode(uint32(m.<b>s</b>-m.offset) + 3)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-216" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-216">#L216</a>: 				left := len(src) - int(m.<b>s</b>+m.length)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-221" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-221">#L221</a>: 				checkLen := m.length - (s - m.<b>s</b>) - 8
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-251" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-251">#L251</a>: 			cand := match{offset: offset, <b>s</b>: s, length: l, rep: rep}
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-253" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-253">#L253</a>: 			if m.est &gt;= highScore || cand.est-m.est+(cand.<b>s</b>-m.<b>s</b>)*bitsPerByte&gt;&gt;10 &lt; 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-258" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-258">#L258</a>: 		best := match{<b>s</b>: s, est: highScore}
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-329" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-329">#L329</a>: 			if best.<b>s</b> &gt; s-skipBeginning {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-332" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-332">#L332</a>: 				if sAt := best.<b>s</b> + best.length; sAt &lt; sLimit {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-337" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-337">#L337</a>: 						improve(&amp;best, off, best.<b>s</b>+skipBeginning, load3232(src, best.<b>s</b>+skipBeginning), -1)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-339" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-339">#L339</a>: 							improve(&amp;best, off, best.<b>s</b>+skipBeginning, load3232(src, best.<b>s</b>+skipBeginning), -1)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-347" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-347">#L347</a>: 			if best.offset &gt;= best.<b>s</b> {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-348" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-348">#L348</a>: 				panic(fmt.Sprintf("best.offset &gt; s: %d &gt;= %d", best.offset, best.<b>s</b>))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-350" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-350">#L350</a>: 			if best.<b>s</b> &lt; nextEmit {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-351" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-351">#L351</a>: 				panic(fmt.Sprintf("s %d &lt; nextEmit %d", best.<b>s</b>, nextEmit))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-356" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-356">#L356</a>: 			if !bytes.Equal(src[best.<b>s</b>:best.<b>s</b>+best.length], src[best.offset:best.offset+best.length]) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-357" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-357">#L357</a>: 				panic(fmt.Sprintf("match mismatch: %v != %v", src[best.<b>s</b>:best.<b>s</b>+best.length], src[best.offset:best.offset+best.length]))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-362" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-362">#L362</a>: 		s = best.<b>s</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-366" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-366">#L366</a>: 			addLiterals(&amp;seq, best.<b>s</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-371" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-371">#L371</a>: 				println("repeat sequence", seq, "next s:", best.<b>s</b>, "off:", best.<b>s</b>-best.offset)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-376" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-376">#L376</a>: 			s = best.<b>s</b> + best.length
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: bits.go in package math/bits</title>
-<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -468,7 +468,7 @@ input[id=r212]:checked ~pre label[for=r212]
 <span class="codeline" id="line-21"><code></code></span>
 <span class="codeline" id="line-22"><code><span class="comment">// --- LeadingZeros ---</span></code></span>
 <span class="codeline" id="line-23"><code></code></span>
-<span class="codeline" id="line-24"><code><span class="comment">// LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">// LeadingZeros returns the number of leading zero bits in x; the result is [UintSize] for x == 0.</span></code></span>
 <span class="codeline" id="line-25"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../pkg/math/bits.html#name-LeadingZeros" class="ident">LeadingZeros</a></label>(<label for="r1" class="ident">x</label> <a href="../../../pkg/builtin.html#name-uint" class="ident">uint</a>) <a href="../../../pkg/builtin.html#name-int" class="ident">int</a> { <span class="keyword">return</span> <a href="#line-20" class="ident">UintSize</a> - <a href="#line-302" class="ident">Len</a>(<label for="r1" class="ident">x</label>) }</code></span>
 <span class="codeline" id="line-26"><code></code></span>
 <span class="codeline" id="line-27"><code><span class="comment">// LeadingZeros8 returns the number of leading zero bits in x; the result is 8 for x == 0.</span></code></span>
@@ -485,7 +485,7 @@ input[id=r212]:checked ~pre label[for=r212]
 <span class="codeline" id="line-38"><code></code></span>
 <span class="codeline" id="line-39"><code><span class="comment">// --- TrailingZeros ---</span></code></span>
 <span class="codeline" id="line-40"><code></code></span>
-<span class="codeline" id="line-41"><code><span class="comment">// See http://supertech.csail.mit.edu/papers/debruijn.pdf</span></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">// See http://keithandkatie.com/keith/papers/debruijn.html</span></code></span>
 <span class="codeline" id="line-42"><code><span class="keyword">const</span> <a href="../../../pkg/math/bits.html#name-deBruijn32" class="ident">deBruijn32</a> = <span class="lit-number">0x077CB531</span></code></span>
 <span class="codeline" id="line-43"><code></code></span>
 <span class="codeline" id="line-44"><code><span class="keyword">var</span> <a href="../../../pkg/math/bits.html#name-deBruijn32tab" class="ident">deBruijn32tab</a> = [<span class="lit-number">32</span>]<a href="../../../pkg/builtin.html#name-byte" class="ident">byte</a>{</code></span>
@@ -502,7 +502,7 @@ input[id=r212]:checked ~pre label[for=r212]
 <span class="codeline" id="line-55"><code>	<span class="lit-number">54</span>, <span class="lit-number">26</span>, <span class="lit-number">40</span>, <span class="lit-number">15</span>, <span class="lit-number">34</span>, <span class="lit-number">20</span>, <span class="lit-number">31</span>, <span class="lit-number">10</span>, <span class="lit-number">25</span>, <span class="lit-number">14</span>, <span class="lit-number">19</span>, <span class="lit-number">9</span>, <span class="lit-number">13</span>, <span class="lit-number">8</span>, <span class="lit-number">7</span>, <span class="lit-number">6</span>,</code></span>
 <span class="codeline" id="line-56"><code>}</code></span>
 <span class="codeline" id="line-57"><code></code></span>
-<span class="codeline" id="line-58"><code><span class="comment">// TrailingZeros returns the number of trailing zero bits in x; the result is UintSize for x == 0.</span></code></span>
+<span class="codeline" id="line-58"><code><span class="comment">// TrailingZeros returns the number of trailing zero bits in x; the result is [UintSize] for x == 0.</span></code></span>
 <span class="codeline" id="line-59"><code><span class="keyword">func</span> <label for="r10" class="ident"><a href="../../../pkg/math/bits.html#name-TrailingZeros" class="ident">TrailingZeros</a></label>(<label for="r11" class="ident">x</label> <a href="../../../pkg/builtin.html#name-uint" class="ident">uint</a>) <a href="../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
 <span class="codeline" id="line-60"><code>	<span class="keyword">if</span> <a href="#line-20" class="ident">UintSize</a> == <span class="lit-number">32</span> {</code></span>
 <span class="codeline" id="line-61"><code>		<span class="keyword">return</span> <a href="#line-81" class="ident">TrailingZeros32</a>(<a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r11" class="ident">x</label>))</code></span>
@@ -616,7 +616,7 @@ input[id=r212]:checked ~pre label[for=r212]
 <span class="codeline" id="line-169"><code></code></span>
 <span class="codeline" id="line-170"><code><span class="comment">// --- RotateLeft ---</span></code></span>
 <span class="codeline" id="line-171"><code></code></span>
-<span class="codeline" id="line-172"><code><span class="comment">// RotateLeft returns the value of x rotated left by (k mod UintSize) bits.</span></code></span>
+<span class="codeline" id="line-172"><code><span class="comment">// RotateLeft returns the value of x rotated left by (k mod [UintSize]) bits.</span></code></span>
 <span class="codeline" id="line-173"><code><span class="comment">// To rotate x right by k bits, call RotateLeft(x, -k).</span></code></span>
 <span class="codeline" id="line-174"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-175"><code><span class="comment">// This function's execution time does not depend on the inputs.</span></code></span>
@@ -764,7 +764,7 @@ input[id=r212]:checked ~pre label[for=r212]
 <span class="codeline" id="line-317"><code>		<label for="r81" class="ident">x</label> &gt;&gt;= <span class="lit-number">8</span></code></span>
 <span class="codeline" id="line-318"><code>		<label for="r82" class="ident">n</label> = <span class="lit-number">8</span></code></span>
 <span class="codeline" id="line-319"><code>	}</code></span>
-<span class="codeline" id="line-320"><code>	<span class="keyword">return</span> <label for="r82" class="ident">n</label> + <a href="../../../pkg/builtin.html#name-int" class="ident">int</a>(<a href="bits_tables.go.html#line-63" class="ident">len8tab</a>[<label for="r81" class="ident">x</label>])</code></span>
+<span class="codeline" id="line-320"><code>	<span class="keyword">return</span> <label for="r82" class="ident">n</label> + <a href="../../../pkg/builtin.html#name-int" class="ident">int</a>(<a href="bits_tables.go.html#line-63" class="ident">len8tab</a>[<a href="../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>(<label for="r81" class="ident">x</label>)])</code></span>
 <span class="codeline" id="line-321"><code>}</code></span>
 <span class="codeline" id="line-322"><code></code></span>
 <span class="codeline" id="line-323"><code><span class="comment">// Len32 returns the minimum number of bits required to represent x; the result is 0 for x == 0.</span></code></span>
@@ -777,7 +777,7 @@ input[id=r212]:checked ~pre label[for=r212]
 <span class="codeline" id="line-330"><code>		<label for="r84" class="ident">x</label> &gt;&gt;= <span class="lit-number">8</span></code></span>
 <span class="codeline" id="line-331"><code>		<label for="r85" class="ident">n</label> += <span class="lit-number">8</span></code></span>
 <span class="codeline" id="line-332"><code>	}</code></span>
-<span class="codeline" id="line-333"><code>	<span class="keyword">return</span> <label for="r85" class="ident">n</label> + <a href="../../../pkg/builtin.html#name-int" class="ident">int</a>(<a href="bits_tables.go.html#line-63" class="ident">len8tab</a>[<label for="r84" class="ident">x</label>])</code></span>
+<span class="codeline" id="line-333"><code>	<span class="keyword">return</span> <label for="r85" class="ident">n</label> + <a href="../../../pkg/builtin.html#name-int" class="ident">int</a>(<a href="bits_tables.go.html#line-63" class="ident">len8tab</a>[<a href="../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>(<label for="r84" class="ident">x</label>)])</code></span>
 <span class="codeline" id="line-334"><code>}</code></span>
 <span class="codeline" id="line-335"><code></code></span>
 <span class="codeline" id="line-336"><code><span class="comment">// Len64 returns the minimum number of bits required to represent x; the result is 0 for x == 0.</span></code></span>
@@ -794,7 +794,7 @@ input[id=r212]:checked ~pre label[for=r212]
 <span class="codeline" id="line-347"><code>		<label for="r87" class="ident">x</label> &gt;&gt;= <span class="lit-number">8</span></code></span>
 <span class="codeline" id="line-348"><code>		<label for="r88" class="ident">n</label> += <span class="lit-number">8</span></code></span>
 <span class="codeline" id="line-349"><code>	}</code></span>
-<span class="codeline" id="line-350"><code>	<span class="keyword">return</span> <label for="r88" class="ident">n</label> + <a href="../../../pkg/builtin.html#name-int" class="ident">int</a>(<a href="bits_tables.go.html#line-63" class="ident">len8tab</a>[<label for="r87" class="ident">x</label>])</code></span>
+<span class="codeline" id="line-350"><code>	<span class="keyword">return</span> <label for="r88" class="ident">n</label> + <a href="../../../pkg/builtin.html#name-int" class="ident">int</a>(<a href="bits_tables.go.html#line-63" class="ident">len8tab</a>[<a href="../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>(<label for="r87" class="ident">x</label>)])</code></span>
 <span class="codeline" id="line-351"><code>}</code></span>
 <span class="codeline" id="line-352"><code></code></span>
 <span class="codeline" id="line-353"><code><span class="comment">// --- Add with carry ---</span></code></span>
@@ -951,7 +951,7 @@ input[id=r212]:checked ~pre label[for=r212]
 <span class="codeline" id="line-504"><code><span class="comment">// Div32 panics for y == 0 (division by zero) or y &lt;= hi (quotient overflow).</span></code></span>
 <span class="codeline" id="line-505"><code><span class="keyword">func</span> <label for="r173" class="ident"><a href="../../../pkg/math/bits.html#name-Div32" class="ident">Div32</a></label>(<label for="r174" class="ident">hi</label>, <label for="r175" class="ident">lo</label>, <label for="r176" class="ident">y</label> <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>) (<label for="r177" class="ident">quo</label>, <label for="r178" class="ident">rem</label> <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>) {</code></span>
 <span class="codeline" id="line-506"><code>	<span class="keyword">if</span> <label for="r176" class="ident">y</label> != <span class="lit-number">0</span> &amp;&amp; <label for="r176" class="ident">y</label> &lt;= <label for="r174" class="ident">hi</label> {</code></span>
-<span class="codeline" id="line-507"><code>		<a href="../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<a href="bits_errors.go.html#line-13" class="ident">overflowError</a>)</code></span>
+<span class="codeline" id="line-507"><code>		<a href="../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<a href="bits_errors.go.html#line-12" class="ident">overflowError</a>)</code></span>
 <span class="codeline" id="line-508"><code>	}</code></span>
 <span class="codeline" id="line-509"><code>	<label for="r179" class="ident">z</label> := <a href="../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r174" class="ident">hi</label>)&lt;&lt;<span class="lit-number">32</span> | <a href="../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r175" class="ident">lo</label>)</code></span>
 <span class="codeline" id="line-510"><code>	<label for="r177" class="ident">quo</label>, <label for="r178" class="ident">rem</label> = <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r179" class="ident">z</label>/<a href="../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r176" class="ident">y</label>)), <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r179" class="ident">z</label>%<a href="../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r176" class="ident">y</label>))</code></span>
@@ -964,10 +964,10 @@ input[id=r212]:checked ~pre label[for=r212]
 <span class="codeline" id="line-517"><code><span class="comment">// Div64 panics for y == 0 (division by zero) or y &lt;= hi (quotient overflow).</span></code></span>
 <span class="codeline" id="line-518"><code><span class="keyword">func</span> <label for="r180" class="ident"><a href="../../../pkg/math/bits.html#name-Div64" class="ident">Div64</a></label>(<label for="r181" class="ident">hi</label>, <label for="r182" class="ident">lo</label>, <label for="r183" class="ident">y</label> <a href="../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>) (<label for="r184" class="ident">quo</label>, <label for="r185" class="ident">rem</label> <a href="../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>) {</code></span>
 <span class="codeline" id="line-519"><code>	<span class="keyword">if</span> <label for="r183" class="ident">y</label> == <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-520"><code>		<a href="../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<a href="bits_errors.go.html#line-16" class="ident">divideError</a>)</code></span>
+<span class="codeline" id="line-520"><code>		<a href="../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<a href="bits_errors.go.html#line-15" class="ident">divideError</a>)</code></span>
 <span class="codeline" id="line-521"><code>	}</code></span>
 <span class="codeline" id="line-522"><code>	<span class="keyword">if</span> <label for="r183" class="ident">y</label> &lt;= <label for="r181" class="ident">hi</label> {</code></span>
-<span class="codeline" id="line-523"><code>		<a href="../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<a href="bits_errors.go.html#line-13" class="ident">overflowError</a>)</code></span>
+<span class="codeline" id="line-523"><code>		<a href="../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<a href="bits_errors.go.html#line-12" class="ident">overflowError</a>)</code></span>
 <span class="codeline" id="line-524"><code>	}</code></span>
 <span class="codeline" id="line-525"><code></code></span>
 <span class="codeline" id="line-526"><code>	<span class="comment">// If high part is zero, we can directly return the results.</span></code></span>
@@ -1025,14 +1025,14 @@ input[id=r212]:checked ~pre label[for=r212]
 <span class="codeline" id="line-578"><code>}</code></span>
 <span class="codeline" id="line-579"><code></code></span>
 <span class="codeline" id="line-580"><code><span class="comment">// Rem32 returns the remainder of (hi, lo) divided by y. Rem32 panics</span></code></span>
-<span class="codeline" id="line-581"><code><span class="comment">// for y == 0 (division by zero) but, unlike Div32, it doesn't panic</span></code></span>
+<span class="codeline" id="line-581"><code><span class="comment">// for y == 0 (division by zero) but, unlike [Div32], it doesn't panic</span></code></span>
 <span class="codeline" id="line-582"><code><span class="comment">// on a quotient overflow.</span></code></span>
 <span class="codeline" id="line-583"><code><span class="keyword">func</span> <label for="r203" class="ident"><a href="../../../pkg/math/bits.html#name-Rem32" class="ident">Rem32</a></label>(<label for="r204" class="ident">hi</label>, <label for="r205" class="ident">lo</label>, <label for="r206" class="ident">y</label> <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>) <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a> {</code></span>
 <span class="codeline" id="line-584"><code>	<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>((<a href="../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r204" class="ident">hi</label>)&lt;&lt;<span class="lit-number">32</span> | <a href="../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r205" class="ident">lo</label>)) % <a href="../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r206" class="ident">y</label>))</code></span>
 <span class="codeline" id="line-585"><code>}</code></span>
 <span class="codeline" id="line-586"><code></code></span>
 <span class="codeline" id="line-587"><code><span class="comment">// Rem64 returns the remainder of (hi, lo) divided by y. Rem64 panics</span></code></span>
-<span class="codeline" id="line-588"><code><span class="comment">// for y == 0 (division by zero) but, unlike Div64, it doesn't panic</span></code></span>
+<span class="codeline" id="line-588"><code><span class="comment">// for y == 0 (division by zero) but, unlike [Div64], it doesn't panic</span></code></span>
 <span class="codeline" id="line-589"><code><span class="comment">// on a quotient overflow.</span></code></span>
 <span class="codeline" id="line-590"><code><span class="keyword">func</span> <label for="r207" class="ident"><a href="../../../pkg/math/bits.html#name-Rem64" class="ident">Rem64</a></label>(<label for="r208" class="ident">hi</label>, <label for="r209" class="ident">lo</label>, <label for="r210" class="ident">y</label> <a href="../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>) <a href="../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> {</code></span>
 <span class="codeline" id="line-591"><code>	<span class="comment">// We scale down hi so that hi &lt; y, then use Div64 to compute the</span></code></span>
@@ -1045,8 +1045,8 @@ input[id=r212]:checked ~pre label[for=r212]
 <span class="codeline" id="line-598"><code>	<span class="keyword">return</span> <label for="r212" class="ident">rem</label></code></span>
 <span class="codeline" id="line-599"><code>}</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

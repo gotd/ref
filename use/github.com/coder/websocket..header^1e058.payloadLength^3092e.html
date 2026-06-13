@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/coder/websocket.header.payloadLength</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>.<a href="../../../src/github.com/coder/websocket/frame.go.html#line-37">header</a>.<a href="../../../src/github.com/coder/websocket/frame.go.html#line-44">payloadLength</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">21 uses</span>
+
+	github.com/coder/websocket (current package)
+		<a href="../../../src/github.com/coder/websocket/close.go.html#line-221">close.go#L221</a>: 		for i := int64(0); i &lt; h.<b>payloadLength</b>; i++ {
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-44">frame.go#L44</a>: 	<b>payloadLength</b> int64
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-77" class="path-duplicate">frame.go</a><a href="../../../src/github.com/coder/websocket/frame.go.html#line-77">#L77</a>: 		h.<b>payloadLength</b> = int64(payloadLength)
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-80" class="path-duplicate">frame.go</a><a href="../../../src/github.com/coder/websocket/frame.go.html#line-80">#L80</a>: 		h.<b>payloadLength</b> = int64(binary.BigEndian.Uint16(readBuf))
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-83" class="path-duplicate">frame.go</a><a href="../../../src/github.com/coder/websocket/frame.go.html#line-83">#L83</a>: 		h.<b>payloadLength</b> = int64(binary.BigEndian.Uint64(readBuf))
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-89" class="path-duplicate">frame.go</a><a href="../../../src/github.com/coder/websocket/frame.go.html#line-89">#L89</a>: 	if h.<b>payloadLength</b> &lt; 0 {
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-90" class="path-duplicate">frame.go</a><a href="../../../src/github.com/coder/websocket/frame.go.html#line-90">#L90</a>: 		return header{}, fmt.Errorf("received negative payload length: %v", h.<b>payloadLength</b>)
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-140" class="path-duplicate">frame.go</a><a href="../../../src/github.com/coder/websocket/frame.go.html#line-140">#L140</a>: 	case h.<b>payloadLength</b> &gt; math.MaxUint16:
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-142" class="path-duplicate">frame.go</a><a href="../../../src/github.com/coder/websocket/frame.go.html#line-142">#L142</a>: 	case h.<b>payloadLength</b> &gt; 125:
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-144" class="path-duplicate">frame.go</a><a href="../../../src/github.com/coder/websocket/frame.go.html#line-144">#L144</a>: 	case h.<b>payloadLength</b> &gt;= 0:
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-145" class="path-duplicate">frame.go</a><a href="../../../src/github.com/coder/websocket/frame.go.html#line-145">#L145</a>: 		lengthByte |= byte(h.<b>payloadLength</b>)
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-153" class="path-duplicate">frame.go</a><a href="../../../src/github.com/coder/websocket/frame.go.html#line-153">#L153</a>: 	case h.<b>payloadLength</b> &gt; math.MaxUint16:
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-154" class="path-duplicate">frame.go</a><a href="../../../src/github.com/coder/websocket/frame.go.html#line-154">#L154</a>: 		binary.BigEndian.PutUint64(buf, uint64(h.<b>payloadLength</b>))
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-156" class="path-duplicate">frame.go</a><a href="../../../src/github.com/coder/websocket/frame.go.html#line-156">#L156</a>: 	case h.<b>payloadLength</b> &gt; 125:
+		<a href="../../../src/github.com/coder/websocket/frame.go.html#line-157" class="path-duplicate">frame.go</a><a href="../../../src/github.com/coder/websocket/frame.go.html#line-157">#L157</a>: 		binary.BigEndian.PutUint16(buf, uint16(h.<b>payloadLength</b>))
+		<a href="../../../src/github.com/coder/websocket/read.go.html#line-290">read.go#L290</a>: 	if h.<b>payloadLength</b> &lt; 0 || h.<b>payloadLength</b> &gt; maxControlPayload {
+		<a href="../../../src/github.com/coder/websocket/read.go.html#line-291" class="path-duplicate">read.go</a><a href="../../../src/github.com/coder/websocket/read.go.html#line-291">#L291</a>: 		err := fmt.Errorf("received control frame payload with invalid length: %d", h.<b>payloadLength</b>)
+		<a href="../../../src/github.com/coder/websocket/read.go.html#line-305" class="path-duplicate">read.go</a><a href="../../../src/github.com/coder/websocket/read.go.html#line-305">#L305</a>: 	b := c.readControlBuf[:h.<b>payloadLength</b>]
+		<a href="../../../src/github.com/coder/websocket/read.go.html#line-430" class="path-duplicate">read.go</a><a href="../../../src/github.com/coder/websocket/read.go.html#line-430">#L430</a>: 	mr.payloadLength = h.<b>payloadLength</b>
+		<a href="../../../src/github.com/coder/websocket/write.go.html#line-281">write.go#L281</a>: 	c.writeHeader.<b>payloadLength</b> = int64(len(p))
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

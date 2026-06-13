@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.Decoder.decoders</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-22">Decoder</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-26">decoders</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">18 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-26">decoder.go#L26</a>: 	<b>decoders</b> chan *blockDec
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-107" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-107">#L107</a>: 	d.<b>decoders</b> = make(chan *blockDec, d.o.concurrent)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-111" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-111">#L111</a>: 		d.<b>decoders</b> &lt;- dec
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-156" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-156">#L156</a>: 		println("returning", n, d.current.err, len(d.<b>decoders</b>))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-262" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-262">#L262</a>: 			printf("re-adding current decoder %p, decoders: %d", d.current.d, len(d.<b>decoders</b>))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-264" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-264">#L264</a>: 		d.<b>decoders</b> &lt;- d.current.d
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-277" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-277">#L277</a>: 			d.<b>decoders</b> &lt;- v.d
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-320" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-320">#L320</a>: 	if d.<b>decoders</b> == nil {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-325" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-325">#L325</a>: 	block := &lt;-d.<b>decoders</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-338" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-338">#L338</a>: 		d.<b>decoders</b> &lt;- block
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-488" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-488">#L488</a>: 		d.current.d = &lt;-d.<b>decoders</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-574" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-574">#L574</a>: 		d.<b>decoders</b> &lt;- d.current.d
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-591" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-591">#L591</a>: 	if d.<b>decoders</b> != nil {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-592" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-592">#L592</a>: 		close(d.<b>decoders</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-593" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-593">#L593</a>: 		for dec := range d.<b>decoders</b> {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-596" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-596">#L596</a>: 		d.<b>decoders</b> = nil
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-871" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-871">#L871</a>: 			case dec := &lt;-d.<b>decoders</b>:
+		<a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-884" class="path-duplicate">decoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/decoder.go.html#line-884">#L884</a>: 			case dec = &lt;-d.<b>decoders</b>:
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

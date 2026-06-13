@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: math/bits.UintSize</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">const <b><a href="../../pkg/math/bits.html">math/bits</a>.<a href="../../src/math/bits/bits.go.html#line-20">UintSize</a></b></span>
 
-<span class="title">18 uses</span>
+<span class="title">21 uses</span>
 
 	math/bits (current package)
 		<a href="../../src/math/bits/bits.go.html#line-20">bits.go#L20</a>: const <b>UintSize</b> = uintSize
@@ -29,15 +29,20 @@
 		<a href="../../src/math/bits/bits.go.html#line-574" class="path-duplicate">bits.go</a><a href="../../src/math/bits/bits.go.html#line-574">#L574</a>: 	if <b>UintSize</b> == 32 {
 
 	<a href="../../pkg/math/big.html">math/big</a>
-		<a href="../../src/math/big/arith.go.html#line-21">arith.go#L21</a>: 	_W = bits.<b>UintSize</b> // word size in bits
+		<a href="../../src/math/big/arith.go.html#line-24">arith.go#L24</a>: 	_W = bits.<b>UintSize</b> // word size in bits
 
-	<a href="../../pkg/crypto/internal/bigmod.html">crypto/internal/bigmod</a>
-		<a href="../../src/crypto/internal/bigmod/nat.go.html#line-16">nat.go#L16</a>: 	_W = bits.<b>UintSize</b>
-		<a href="../../src/crypto/internal/bigmod/nat.go.html#line-763" class="path-duplicate">nat.go</a><a href="../../src/crypto/internal/bigmod/nat.go.html#line-763">#L763</a>: 	for i := bits.<b>UintSize</b> - bitLen(e); i &lt; bits.<b>UintSize</b>; i++ {
-		<a href="../../src/crypto/internal/bigmod/nat.go.html#line-765" class="path-duplicate">nat.go</a><a href="../../src/crypto/internal/bigmod/nat.go.html#line-765">#L765</a>: 		k := (e &gt;&gt; (bits.<b>UintSize</b> - i - 1)) &amp; 1
+	<a href="../../pkg/crypto/internal/fips140/bigmod.html">crypto/internal/fips140/bigmod</a>
+		<a href="../../src/crypto/internal/fips140/bigmod/nat.go.html#line-16">nat.go#L16</a>: 	_W = bits.<b>UintSize</b>
+		<a href="../../src/crypto/internal/fips140/bigmod/nat.go.html#line-507" class="path-duplicate">nat.go</a><a href="../../src/crypto/internal/fips140/bigmod/nat.go.html#line-507">#L507</a>: 	i := bits.<b>UintSize</b>
+		<a href="../../src/crypto/internal/fips140/bigmod/nat.go.html#line-1051" class="path-duplicate">nat.go</a><a href="../../src/crypto/internal/fips140/bigmod/nat.go.html#line-1051">#L1051</a>: 	for i := bits.<b>UintSize</b> - bits.Len(e) + 1; i &lt; bits.<b>UintSize</b>; i++ {
+		<a href="../../src/crypto/internal/fips140/bigmod/nat.go.html#line-1053" class="path-duplicate">nat.go</a><a href="../../src/crypto/internal/fips140/bigmod/nat.go.html#line-1053">#L1053</a>: 		if k := (e &gt;&gt; (bits.<b>UintSize</b> - i - 1)) &amp; 1; k != 0 {
+
+	<a href="../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>
+		<a href="../../src/github.com/klauspost/compress/zstd/decoder_options.go.html#line-133">decoder_options.go#L133</a>: 		if bits.<b>UintSize</b> &gt; 32 &amp;&amp; uint(len(content)) &gt; dictMaxLength {
+		<a href="../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-363">encoder_options.go#L363</a>: 		if bits.<b>UintSize</b> &gt; 32 &amp;&amp; uint(len(content)) &gt; dictMaxLength {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

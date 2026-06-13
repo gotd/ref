@@ -5,65 +5,70 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: math/big.Int.Bytes</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/math/big.html">math/big</a>.<a href="../../src/math/big/int.go.html#line-33">Int</a>.<a href="../../src/math/big/int.go.html#line-523">Bytes</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/math/big.html">math/big</a>.<a href="../../src/math/big/int.go.html#line-33">Int</a>.<a href="../../src/math/big/int.go.html#line-527">Bytes</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">37 uses</span>
+<span class="title">47 uses</span>
 
 	math/big (current package)
-		<a href="../../src/math/big/int.go.html#line-523">int.go#L523</a>: func (x *Int) <b>Bytes</b>() []byte {
+		<a href="../../src/math/big/int.go.html#line-527">int.go#L527</a>: func (x *Int) <b>Bytes</b>() []byte {
 
 	<a href="../../pkg/crypto/ecdsa.html">crypto/ecdsa</a>
-		<a href="../../src/crypto/ecdsa/ecdsa.go.html#line-139">ecdsa.go#L139</a>: 	return subtle.ConstantTimeCompare(a.<b>Bytes</b>(), b.<b>Bytes</b>()) == 1
-		<a href="../../src/crypto/ecdsa/ecdsa.go.html#line-322" class="path-duplicate">ecdsa.go</a><a href="../../src/crypto/ecdsa/ecdsa.go.html#line-322">#L322</a>: 	s, err := bigmod.NewNat().SetBytes(priv.D.<b>Bytes</b>(), c.N)
-		<a href="../../src/crypto/ecdsa/ecdsa.go.html#line-433" class="path-duplicate">ecdsa.go</a><a href="../../src/crypto/ecdsa/ecdsa.go.html#line-433">#L433</a>: 	md.Write(priv.D.<b>Bytes</b>()) // the private key,
-		<a href="../../src/crypto/ecdsa/ecdsa.go.html#line-671" class="path-duplicate">ecdsa.go</a><a href="../../src/crypto/ecdsa/ecdsa.go.html#line-671">#L671</a>: 	c.nMinus2 = new(big.Int).Sub(params.N, big.NewInt(2)).<b>Bytes</b>()
-		<a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-29">ecdsa_legacy.go#L29</a>: 	priv.PublicKey.X, priv.PublicKey.Y = c.ScalarBaseMult(k.<b>Bytes</b>())
-		<a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-95" class="path-duplicate">ecdsa_legacy.go</a><a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-95">#L95</a>: 			r, _ = c.ScalarBaseMult(k.<b>Bytes</b>())
-		<a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-112" class="path-duplicate">ecdsa_legacy.go</a><a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-112">#L112</a>: 	return encodeSignature(r.<b>Bytes</b>(), s.<b>Bytes</b>())
-		<a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-122" class="path-duplicate">ecdsa_legacy.go</a><a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-122">#L122</a>: 	sig, err := encodeSignature(r.<b>Bytes</b>(), s.<b>Bytes</b>())
-		<a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-155" class="path-duplicate">ecdsa_legacy.go</a><a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-155">#L155</a>: 	x1, y1 := c.ScalarBaseMult(u1.<b>Bytes</b>())
-		<a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-156" class="path-duplicate">ecdsa_legacy.go</a><a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-156">#L156</a>: 	x2, y2 := c.ScalarMult(pub.X, pub.Y, u2.<b>Bytes</b>())
+		<a href="../../src/crypto/ecdsa/ecdsa.go.html#line-229">ecdsa.go#L229</a>: 	return subtle.ConstantTimeCompare(a.<b>Bytes</b>(), b.<b>Bytes</b>()) == 1
+		<a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-35">ecdsa_legacy.go#L35</a>: 	priv.PublicKey.X, priv.PublicKey.Y = c.ScalarBaseMult(k.<b>Bytes</b>())
+		<a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-100" class="path-duplicate">ecdsa_legacy.go</a><a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-100">#L100</a>: 	for i, b := range priv.D.<b>Bytes</b>() {
+		<a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-123" class="path-duplicate">ecdsa_legacy.go</a><a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-123">#L123</a>: 			r, _ = c.ScalarBaseMult(k.<b>Bytes</b>())
+		<a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-140" class="path-duplicate">ecdsa_legacy.go</a><a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-140">#L140</a>: 	return encodeSignature(r.<b>Bytes</b>(), s.<b>Bytes</b>())
+		<a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-153" class="path-duplicate">ecdsa_legacy.go</a><a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-153">#L153</a>: 	sig, err := encodeSignature(r.<b>Bytes</b>(), s.<b>Bytes</b>())
+		<a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-190" class="path-duplicate">ecdsa_legacy.go</a><a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-190">#L190</a>: 	x1, y1 := c.ScalarBaseMult(u1.<b>Bytes</b>())
+		<a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-191" class="path-duplicate">ecdsa_legacy.go</a><a href="../../src/crypto/ecdsa/ecdsa_legacy.go.html#line-191">#L191</a>: 	x2, y2 := c.ScalarMult(pub.X, pub.Y, u2.<b>Bytes</b>())
 
 	<a href="../../pkg/crypto/rsa.html">crypto/rsa</a>
-		<a href="../../src/crypto/rsa/rsa.go.html#line-149">rsa.go#L149</a>: 	return subtle.ConstantTimeCompare(a.<b>Bytes</b>(), b.<b>Bytes</b>()) == 1
-		<a href="../../src/crypto/rsa/rsa.go.html#line-661" class="path-duplicate">rsa.go</a><a href="../../src/crypto/rsa/rsa.go.html#line-661">#L661</a>: 		m = bigmod.NewNat().Exp(c, priv.D.<b>Bytes</b>(), N)
-		<a href="../../src/crypto/rsa/rsa.go.html#line-665" class="path-duplicate">rsa.go</a><a href="../../src/crypto/rsa/rsa.go.html#line-665">#L665</a>: 		Qinv, err := bigmod.NewNat().SetBytes(priv.Precomputed.Qinv.<b>Bytes</b>(), P)
-		<a href="../../src/crypto/rsa/rsa.go.html#line-675" class="path-duplicate">rsa.go</a><a href="../../src/crypto/rsa/rsa.go.html#line-675">#L675</a>: 		m = bigmod.NewNat().Exp(t0.Mod(c, P), priv.Precomputed.Dp.<b>Bytes</b>(), P)
-		<a href="../../src/crypto/rsa/rsa.go.html#line-677" class="path-duplicate">rsa.go</a><a href="../../src/crypto/rsa/rsa.go.html#line-677">#L677</a>: 		m2 := bigmod.NewNat().Exp(t0.Mod(c, Q), priv.Precomputed.Dq.<b>Bytes</b>(), Q)
+		<a href="../../src/crypto/rsa/rsa.go.html#line-150">rsa.go#L150</a>: 	return subtle.ConstantTimeCompare(a.<b>Bytes</b>(), b.<b>Bytes</b>()) == 1
+		<a href="../../src/crypto/rsa/rsa.go.html#line-583" class="path-duplicate">rsa.go</a><a href="../../src/crypto/rsa/rsa.go.html#line-583">#L583</a>: 		k, err := rsa.NewPrivateKeyWithPrecomputation(priv.N.<b>Bytes</b>(), priv.E, priv.D.<b>Bytes</b>(),
+		<a href="../../src/crypto/rsa/rsa.go.html#line-584" class="path-duplicate">rsa.go</a><a href="../../src/crypto/rsa/rsa.go.html#line-584">#L584</a>: 			priv.Primes[0].<b>Bytes</b>(), priv.Primes[1].<b>Bytes</b>(),
+		<a href="../../src/crypto/rsa/rsa.go.html#line-585" class="path-duplicate">rsa.go</a><a href="../../src/crypto/rsa/rsa.go.html#line-585">#L585</a>: 			priv.Precomputed.Dp.<b>Bytes</b>(), priv.Precomputed.Dq.<b>Bytes</b>(), priv.Precomputed.Qinv.<b>Bytes</b>())
+		<a href="../../src/crypto/rsa/rsa.go.html#line-595" class="path-duplicate">rsa.go</a><a href="../../src/crypto/rsa/rsa.go.html#line-595">#L595</a>: 	k, err := rsa.NewPrivateKey(priv.N.<b>Bytes</b>(), priv.E, priv.D.<b>Bytes</b>(),
+		<a href="../../src/crypto/rsa/rsa.go.html#line-596" class="path-duplicate">rsa.go</a><a href="../../src/crypto/rsa/rsa.go.html#line-596">#L596</a>: 		priv.Primes[0].<b>Bytes</b>(), priv.Primes[1].<b>Bytes</b>())
+		<a href="../../src/crypto/rsa/rsa.go.html#line-613" class="path-duplicate">rsa.go</a><a href="../../src/crypto/rsa/rsa.go.html#line-613">#L613</a>: 	k, err := rsa.NewPrivateKeyWithoutCRT(priv.N.<b>Bytes</b>(), priv.E, priv.D.<b>Bytes</b>())
+		<a href="../../src/crypto/rsa/rsa.go.html#line-666" class="path-duplicate">rsa.go</a><a href="../../src/crypto/rsa/rsa.go.html#line-666">#L666</a>: 	N, err := bigmod.NewModulus(pub.N.<b>Bytes</b>())
 
 	<a href="../../pkg/crypto/x509.html">crypto/x509</a>
-		<a href="../../src/crypto/x509/x509.go.html#line-2380">x509.go#L2380</a>: 	if numBytes := template.Number.<b>Bytes</b>(); len(numBytes) &gt; 20 || (len(numBytes) == 20 &amp;&amp; numBytes[0]&amp;0x80 != 0) {
+		<a href="../../src/crypto/x509/x509.go.html#line-2505">x509.go#L2505</a>: 	if numBytes := template.Number.<b>Bytes</b>(); len(numBytes) &gt; 20 || (len(numBytes) == 20 &amp;&amp; numBytes[0]&amp;0x80 != 0) {
 
 	<a href="../../pkg/encoding/asn1.html">encoding/asn1</a>
-		<a href="../../src/encoding/asn1/marshal.go.html#line-209">marshal.go#L209</a>: 		bytes := nMinus1.<b>Bytes</b>()
-		<a href="../../src/encoding/asn1/marshal.go.html#line-221" class="path-duplicate">marshal.go</a><a href="../../src/encoding/asn1/marshal.go.html#line-221">#L221</a>: 		bytes := n.<b>Bytes</b>()
+		<a href="../../src/encoding/asn1/marshal.go.html#line-207">marshal.go#L207</a>: 		bytes := nMinus1.<b>Bytes</b>()
+		<a href="../../src/encoding/asn1/marshal.go.html#line-219" class="path-duplicate">marshal.go</a><a href="../../src/encoding/asn1/marshal.go.html#line-219">#L219</a>: 		bytes := n.<b>Bytes</b>()
 
-	<a href="../../pkg/github.com/gotd/td/internal/crypto.html">github.com/gotd/td/internal/crypto</a>
-		<a href="../../src/github.com/gotd/td/internal/crypto/rsa.go.html#line-37">rsa.go#L37</a>: 	return m.<b>Bytes</b>(), nil
-		<a href="../../src/github.com/gotd/td/internal/crypto/rsa_fingerprint.go.html#line-20">rsa_fingerprint.go#L20</a>: 	buf.PutBytes(key.N.<b>Bytes</b>())
-		<a href="../../src/github.com/gotd/td/internal/crypto/rsa_fingerprint.go.html#line-21" class="path-duplicate">rsa_fingerprint.go</a><a href="../../src/github.com/gotd/td/internal/crypto/rsa_fingerprint.go.html#line-21">#L21</a>: 	buf.PutBytes(e.<b>Bytes</b>())
-		<a href="../../src/github.com/gotd/td/internal/crypto/temp_keys.go.html#line-11">temp_keys.go#L11</a>: 	buf = append(buf, a.<b>Bytes</b>()...)
-		<a href="../../src/github.com/gotd/td/internal/crypto/temp_keys.go.html#line-12" class="path-duplicate">temp_keys.go</a><a href="../../src/github.com/gotd/td/internal/crypto/temp_keys.go.html#line-12">#L12</a>: 	buf = append(buf, b.<b>Bytes</b>()...)
-		<a href="../../src/github.com/gotd/td/internal/crypto/temp_keys.go.html#line-33" class="path-duplicate">temp_keys.go</a><a href="../../src/github.com/gotd/td/internal/crypto/temp_keys.go.html#line-33">#L33</a>: 	iv = append(iv, newNonce.<b>Bytes</b>()[:4]...)
+	<a href="../../pkg/github.com/gotd/td/crypto.html">github.com/gotd/td/crypto</a>
+		<a href="../../src/github.com/gotd/td/crypto/rsa.go.html#line-37">rsa.go#L37</a>: 	return m.<b>Bytes</b>(), nil
+		<a href="../../src/github.com/gotd/td/crypto/rsa_fingerprint.go.html#line-20">rsa_fingerprint.go#L20</a>: 	buf.PutBytes(key.N.<b>Bytes</b>())
+		<a href="../../src/github.com/gotd/td/crypto/rsa_fingerprint.go.html#line-21" class="path-duplicate">rsa_fingerprint.go</a><a href="../../src/github.com/gotd/td/crypto/rsa_fingerprint.go.html#line-21">#L21</a>: 	buf.PutBytes(e.<b>Bytes</b>())
+		<a href="../../src/github.com/gotd/td/crypto/temp_keys.go.html#line-11">temp_keys.go#L11</a>: 	buf = append(buf, a.<b>Bytes</b>()...)
+		<a href="../../src/github.com/gotd/td/crypto/temp_keys.go.html#line-12" class="path-duplicate">temp_keys.go</a><a href="../../src/github.com/gotd/td/crypto/temp_keys.go.html#line-12">#L12</a>: 	buf = append(buf, b.<b>Bytes</b>()...)
+		<a href="../../src/github.com/gotd/td/crypto/temp_keys.go.html#line-33" class="path-duplicate">temp_keys.go</a><a href="../../src/github.com/gotd/td/crypto/temp_keys.go.html#line-33">#L33</a>: 	iv = append(iv, newNonce.<b>Bytes</b>()[:4]...)
 
-	<a href="../../pkg/github.com/gotd/td/internal/exchange.html">github.com/gotd/td/internal/exchange</a>
-		<a href="../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-78">client_flow.go#L78</a>: 	pBytes := p.<b>Bytes</b>()
-		<a href="../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-79" class="path-duplicate">client_flow.go</a><a href="../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-79">#L79</a>: 	qBytes := q.<b>Bytes</b>()
-		<a href="../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-194" class="path-duplicate">client_flow.go</a><a href="../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-194">#L194</a>: 			GB:          gB.<b>Bytes</b>(),
-		<a href="../../src/github.com/gotd/td/internal/exchange/server_flow.go.html#line-128">server_flow.go#L128</a>: 		Pq:          pq.<b>Bytes</b>(),
-		<a href="../../src/github.com/gotd/td/internal/exchange/server_flow.go.html#line-204" class="path-duplicate">server_flow.go</a><a href="../../src/github.com/gotd/td/internal/exchange/server_flow.go.html#line-204">#L204</a>: 		GA:          ga.<b>Bytes</b>(),
-		<a href="../../src/github.com/gotd/td/internal/exchange/server_flow.go.html#line-205" class="path-duplicate">server_flow.go</a><a href="../../src/github.com/gotd/td/internal/exchange/server_flow.go.html#line-205">#L205</a>: 		DhPrime:     dhPrime.<b>Bytes</b>(),
+	<a href="../../pkg/github.com/gotd/td/exchange.html">github.com/gotd/td/exchange</a>
+		<a href="../../src/github.com/gotd/td/exchange/client_flow.go.html#line-78">client_flow.go#L78</a>: 	pBytes := p.<b>Bytes</b>()
+		<a href="../../src/github.com/gotd/td/exchange/client_flow.go.html#line-79" class="path-duplicate">client_flow.go</a><a href="../../src/github.com/gotd/td/exchange/client_flow.go.html#line-79">#L79</a>: 	qBytes := q.<b>Bytes</b>()
+		<a href="../../src/github.com/gotd/td/exchange/client_flow.go.html#line-214" class="path-duplicate">client_flow.go</a><a href="../../src/github.com/gotd/td/exchange/client_flow.go.html#line-214">#L214</a>: 			GB:          gB.<b>Bytes</b>(),
+		<a href="../../src/github.com/gotd/td/exchange/server_flow.go.html#line-128">server_flow.go#L128</a>: 		Pq:          pq.<b>Bytes</b>(),
+		<a href="../../src/github.com/gotd/td/exchange/server_flow.go.html#line-217" class="path-duplicate">server_flow.go</a><a href="../../src/github.com/gotd/td/exchange/server_flow.go.html#line-217">#L217</a>: 		GA:          ga.<b>Bytes</b>(),
+		<a href="../../src/github.com/gotd/td/exchange/server_flow.go.html#line-218" class="path-duplicate">server_flow.go</a><a href="../../src/github.com/gotd/td/exchange/server_flow.go.html#line-218">#L218</a>: 		DhPrime:     dhPrime.<b>Bytes</b>(),
+
+	<a href="../../pkg/golang.org/x/crypto/cryptobyte.html">golang.org/x/crypto/cryptobyte</a>
+		<a href="../../src/golang.org/x/crypto/cryptobyte/asn1.go.html#line-80">asn1.go#L80</a>: 			bytes := nMinus1.<b>Bytes</b>()
+		<a href="../../src/golang.org/x/crypto/cryptobyte/asn1.go.html#line-91" class="path-duplicate">asn1.go</a><a href="../../src/golang.org/x/crypto/cryptobyte/asn1.go.html#line-91">#L91</a>: 			bytes := n.<b>Bytes</b>()
 
 	<a href="../../pkg/vendor/golang.org/x/crypto/cryptobyte.html">vendor/golang.org/x/crypto/cryptobyte</a>
 		<a href="../../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-80">asn1.go#L80</a>: 			bytes := nMinus1.<b>Bytes</b>()
 		<a href="../../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-91" class="path-duplicate">asn1.go</a><a href="../../src/vendor/golang.org/x/crypto/cryptobyte/asn1.go.html#line-91">#L91</a>: 			bytes := n.<b>Bytes</b>()
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

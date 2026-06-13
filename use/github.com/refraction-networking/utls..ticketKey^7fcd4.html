@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/refraction-networking/utls.ticketKey</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">type <b><a href="../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>.<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-948">ticketKey</a></b></span>
+
+<span class="title">17 uses</span>
+
+	github.com/refraction-networking/utls (current package)
+		<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-913">common.go#L913</a>: 	sessionTicketKeys []<b>ticketKey</b>
+		<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-916" class="path-duplicate">common.go</a><a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-916">#L916</a>: 	autoSessionTicketKeys []<b>ticketKey</b>
+		<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-948" class="path-duplicate">common.go</a><a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-948">#L948</a>: type <b>ticketKey</b> struct {
+		<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-958" class="path-duplicate">common.go</a><a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-958">#L958</a>: func (c *Config) ticketKeyFromBytes(b [32]byte) (key <b>ticketKey</b>) {
+		<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1055" class="path-duplicate">common.go</a><a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1055">#L1055</a>: 		c.sessionTicketKeys = []<b>ticketKey</b>{c.ticketKeyFromBytes(c.SessionTicketKey)}
+		<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1069" class="path-duplicate">common.go</a><a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1069">#L1069</a>: func (c *Config) ticketKeys(configForClient *Config) []<b>ticketKey</b> {
+		<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1111" class="path-duplicate">common.go</a><a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1111">#L1111</a>: 		valid := make([]<b>ticketKey</b>, 0, len(c.autoSessionTicketKeys)+1)
+		<a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1142" class="path-duplicate">common.go</a><a href="../../../src/github.com/refraction-networking/utls/common.go.html#line-1142">#L1142</a>: 	newKeys := make([]<b>ticketKey</b>, len(keys))
+		<a href="../../../src/github.com/refraction-networking/utls/conn.go.html#line-78">conn.go#L78</a>: 	ticketKeys []<b>ticketKey</b>
+		<a href="../../../src/github.com/refraction-networking/utls/ticket.go.html#line-320">ticket.go#L320</a>: func (c *Config) encryptTicket(state []byte, ticketKeys []<b>ticketKey</b>) ([]byte, error) {
+		<a href="../../../src/github.com/refraction-networking/utls/ticket.go.html#line-365" class="path-duplicate">ticket.go</a><a href="../../../src/github.com/refraction-networking/utls/ticket.go.html#line-365">#L365</a>: func (c *Config) decryptTicket(encrypted []byte, ticketKeys []<b>ticketKey</b>) []byte {
+		<a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-820">u_public.go#L820</a>: type ticketKeys []<b>ticketKey</b>
+		<a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-830" class="path-duplicate">u_public.go</a><a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-830">#L830</a>: func (tk <b>ticketKey</b>) ToPublic() TicketKey {
+		<a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-838" class="path-duplicate">u_public.go</a><a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-838">#L838</a>: func (TK TicketKey) ToPrivate() <b>ticketKey</b> {
+		<a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-839" class="path-duplicate">u_public.go</a><a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-839">#L839</a>: 	return <b>ticketKey</b>{
+		<a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-854" class="path-duplicate">u_public.go</a><a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-854">#L854</a>: func (TKS TicketKeys) ToPrivate() []<b>ticketKey</b> {
+		<a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-855" class="path-duplicate">u_public.go</a><a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-855">#L855</a>: 	var tks []<b>ticketKey</b>
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

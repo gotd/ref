@@ -5,38 +5,45 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: context.Canceled</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">var <b><a href="../pkg/context.html">context</a>.<a href="../src/context/context.go.html#line-163">Canceled</a></b></span>
+<pre><code><span style="font-size:x-large;">var <b><a href="../pkg/context.html">context</a>.<a href="../src/context/context.go.html#line-167">Canceled</a></b></span>
 
-<span class="title">12 uses</span>
+<span class="title">17 uses</span>
 
 	context (current package)
-		<a href="../src/context/context.go.html#line-163">context.go#L163</a>: var <b>Canceled</b> = errors.New("context canceled")
-		<a href="../src/context/context.go.html#line-237" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-237">#L237</a>: 	return c, func() { c.cancel(true, <b>Canceled</b>, nil) }
-		<a href="../src/context/context.go.html#line-265" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-265">#L265</a>: 	return c, func(cause error) { c.cancel(true, <b>Canceled</b>, cause) }
-		<a href="../src/context/context.go.html#line-321" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-321">#L321</a>: 			a.cancel(true, <b>Canceled</b>, nil)
-		<a href="../src/context/context.go.html#line-628" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-628">#L628</a>: 		return c, func() { c.cancel(false, <b>Canceled</b>, nil) }
-		<a href="../src/context/context.go.html#line-637" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-637">#L637</a>: 	return c, func() { c.cancel(true, <b>Canceled</b>, nil) }
+		<a href="../src/context/context.go.html#line-167">context.go#L167</a>: var <b>Canceled</b> = errors.New("context canceled")
+		<a href="../src/context/context.go.html#line-242" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-242">#L242</a>: 	return c, func() { c.cancel(true, <b>Canceled</b>, nil) }
+		<a href="../src/context/context.go.html#line-270" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-270">#L270</a>: 	return c, func(cause error) { c.cancel(true, <b>Canceled</b>, cause) }
+		<a href="../src/context/context.go.html#line-336" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-336">#L336</a>: 			a.cancel(true, <b>Canceled</b>, nil)
+		<a href="../src/context/context.go.html#line-647" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-647">#L647</a>: 		return c, func() { c.cancel(false, <b>Canceled</b>, nil) }
+		<a href="../src/context/context.go.html#line-656" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-656">#L656</a>: 	return c, func() { c.cancel(true, <b>Canceled</b>, nil) }
 
-	<a href="../pkg/github.com/gotd/td/internal/rpc.html">github.com/gotd/td/internal/rpc</a>
-		<a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-213">engine.go#L213</a>: 					if errors.Is(err, context.<b>Canceled</b>) {
+	<a href="../pkg/github.com/gotd/td/rpc.html">github.com/gotd/td/rpc</a>
+		<a href="../src/github.com/gotd/td/rpc/engine.go.html#line-234">engine.go#L234</a>: 					if errors.Is(err, context.<b>Canceled</b>) {
 
 	<a href="../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
-		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-123">connect.go#L123</a>: 			if closeErr := conn.Close(); !errors.Is(closeErr, context.<b>Canceled</b>) {
-		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-160" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/telegram/connect.go.html#line-160">#L160</a>: 	if err := g.Wait(); !errors.Is(err, context.<b>Canceled</b>) {
+		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-186">connect.go#L186</a>: 			if closeErr := conn.Close(); !errors.Is(closeErr, context.<b>Canceled</b>) {
+		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-191" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/telegram/connect.go.html#line-191">#L191</a>: 			if closeErr := conn.Close(); !errors.Is(closeErr, context.<b>Canceled</b>) {
+		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-231" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/telegram/connect.go.html#line-231">#L231</a>: 	if err := g.Wait(); !errors.Is(err, context.<b>Canceled</b>) {
+
+	<a href="../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-126">cdn_state_machine.go#L126</a>: 			if errors.Is(err, context.<b>Canceled</b>) || errors.Is(err, context.DeadlineExceeded) {
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-163" class="path-duplicate">cdn_state_machine.go</a><a href="../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-163">#L163</a>: 					if errors.Is(err, context.<b>Canceled</b>) || errors.Is(err, context.DeadlineExceeded) {
+		<a href="../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-188" class="path-duplicate">cdn_state_machine.go</a><a href="../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-188">#L188</a>: 				if errors.Is(err, context.<b>Canceled</b>) || errors.Is(err, context.DeadlineExceeded) {
 
 	<a href="../pkg/net.html">net</a>
-		<a href="../src/net/net.go.html#line-422">net.go#L422</a>: func (canceledError) Is(err error) bool { return err == context.<b>Canceled</b> }
-		<a href="../src/net/net.go.html#line-428" class="path-duplicate">net.go</a><a href="../src/net/net.go.html#line-428">#L428</a>: 	case context.<b>Canceled</b>:
+		<a href="../src/net/net.go.html#line-454">net.go#L454</a>: func (canceledError) Is(err error) bool { return err == context.<b>Canceled</b> }
+		<a href="../src/net/net.go.html#line-460" class="path-duplicate">net.go</a><a href="../src/net/net.go.html#line-460">#L460</a>: 	case context.<b>Canceled</b>:
+		<a href="../src/net/net.go.html#line-698" class="path-duplicate">net.go</a><a href="../src/net/net.go.html#line-698">#L698</a>: 	if errors.Is(err, context.DeadlineExceeded) || errors.Is(err, context.<b>Canceled</b>) {
 
 	<a href="../pkg/net/http.html">net/http</a>
 		<a href="../src/net/http/h2_bundle.go.html#line-1024">h2_bundle.go#L1024</a>: 	if !errors.Is(call.err, context.<b>Canceled</b>) &amp;&amp; !errors.Is(call.err, context.DeadlineExceeded) {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

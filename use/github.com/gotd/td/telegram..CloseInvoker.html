@@ -5,24 +5,49 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: github.com/gotd/td/telegram.CloseInvoker</title>
-<link href="../../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>.<a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-19">CloseInvoker</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>.<a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-21">CloseInvoker</a></b></span>
 
-<span class="title">6 uses</span>
+<span class="title">33 uses</span>
 
 	github.com/gotd/td/telegram (current package)
-		<a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-100">client.go#L100</a>: 	subConns    map[int]<b>CloseInvoker</b>
-		<a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-216" class="path-duplicate">client.go</a><a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-216">#L216</a>: 	c.subConns = map[int]<b>CloseInvoker</b>{}
-		<a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-19">pool.go#L19</a>: type <b>CloseInvoker</b> interface {
-		<a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-40" class="path-duplicate">pool.go</a><a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-40">#L40</a>: func (c *Client) Pool(max int64) (<b>CloseInvoker</b>, error) {
-		<a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-113" class="path-duplicate">pool.go</a><a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-113">#L113</a>: func (c *Client) DC(ctx context.Context, dc int, max int64) (<b>CloseInvoker</b>, error) {
-		<a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-119" class="path-duplicate">pool.go</a><a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-119">#L119</a>: func (c *Client) MediaOnly(ctx context.Context, dc int, max int64) (<b>CloseInvoker</b>, error) {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-15">cdn_pool_manager.go#L15</a>: 	conn <b>CloseInvoker</b>
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-30" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-30">#L30</a>: 	conn    <b>CloseInvoker</b>
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-34" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-34">#L34</a>: var _ <b>CloseInvoker</b> = (*cdnPoolHandle)(nil)
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-58" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-58">#L58</a>: 	refs map[<b>CloseInvoker</b>]int
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-63" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-63">#L63</a>: 	closing map[<b>CloseInvoker</b>]bool
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-68" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-68">#L68</a>: 	closeQueue   []<b>CloseInvoker</b>
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-69" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-69">#L69</a>: 	closePending []<b>CloseInvoker</b>
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-85" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-85">#L85</a>: 		refs:    map[<b>CloseInvoker</b>]int{},
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-86" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-86">#L86</a>: 		closing: map[<b>CloseInvoker</b>]bool{},
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-102" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-102">#L102</a>: func pickCDNPool(pools []cachedCDNPool, need int64) (<b>CloseInvoker</b>, bool) {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-128" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-128">#L128</a>: func (m *cdnPoolManager) cachedHandleLocked(conn <b>CloseInvoker</b>) <b>CloseInvoker</b> {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-143" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-143">#L143</a>: func (m *cdnPoolManager) releaseCachedHandle(conn <b>CloseInvoker</b>) bool {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-161" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-161">#L161</a>: func (m *cdnPoolManager) acquire(dc int, need int64) (<b>CloseInvoker</b>, bool) {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-172" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-172">#L172</a>: func (m *cdnPoolManager) publishOrAcquire(dc int, need int64, created <b>CloseInvoker</b>) (<b>CloseInvoker</b>, bool) {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-186" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-186">#L186</a>: func (m *cdnPoolManager) drain() []<b>CloseInvoker</b> {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-190" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-190">#L190</a>: 	seen := map[<b>CloseInvoker</b>]struct{}{}
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-191" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-191">#L191</a>: 	cdnConns := make([]<b>CloseInvoker</b>, 0, len(m.conns)+len(m.closeQueue)+len(m.closePending))
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-192" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-192">#L192</a>: 	add := func(conn <b>CloseInvoker</b>) {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-214" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-214">#L214</a>: 	m.refs = map[<b>CloseInvoker</b>]int{}
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-215" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-215">#L215</a>: 	m.closing = map[<b>CloseInvoker</b>]bool{}
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-240" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-240">#L240</a>: func (m *cdnPoolManager) enqueueCloseLocked(stale []<b>CloseInvoker</b>) {
+		<a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-310" class="path-duplicate">cdn_pool_manager.go</a><a href="../../../../src/github.com/gotd/td/telegram/cdn_pool_manager.go.html#line-310">#L310</a>: 	toClose := make([]<b>CloseInvoker</b>, 0, len(stale))
+		<a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-110">client.go#L110</a>: 	subConns    map[int]<b>CloseInvoker</b>
+		<a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-272" class="path-duplicate">client.go</a><a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-272">#L272</a>: 	c.subConns = map[int]<b>CloseInvoker</b>{}
+		<a href="../../../../src/github.com/gotd/td/telegram/connect.go.html#line-175">connect.go#L175</a>: 		subConns := make([]<b>CloseInvoker</b>, 0, len(c.subConns))
+		<a href="../../../../src/github.com/gotd/td/telegram/connect.go.html#line-179" class="path-duplicate">connect.go</a><a href="../../../../src/github.com/gotd/td/telegram/connect.go.html#line-179">#L179</a>: 		c.subConns = map[int]<b>CloseInvoker</b>{}
+		<a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-21">pool.go#L21</a>: type <b>CloseInvoker</b> interface {
+		<a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-42" class="path-duplicate">pool.go</a><a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-42">#L42</a>: func (c *Client) Pool(max int64) (<b>CloseInvoker</b>, error) {
+		<a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-195" class="path-duplicate">pool.go</a><a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-195">#L195</a>: func (c *Client) DC(ctx context.Context, dc int, max int64) (<b>CloseInvoker</b>, error) {
+		<a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-201" class="path-duplicate">pool.go</a><a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-201">#L201</a>: func (c *Client) MediaOnly(ctx context.Context, dc int, max int64) (<b>CloseInvoker</b>, error) {
+		<a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-209" class="path-duplicate">pool.go</a><a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-209">#L209</a>: func (c *Client) CDN(ctx context.Context, dc int, max int64) (<b>CloseInvoker</b>, error) {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/andybalholm/brotli.metaBlockSplit.literal_split</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>.<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-16">metaBlockSplit</a>.<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-17">literal_split</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">18 uses</span>
+
+	github.com/andybalholm/brotli (current package)
+		<a href="../../../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-1289">brotli_bit_stream.go#L1289</a>: 	literal_enc := getBlockEncoder(numLiteralSymbols, mb.<b>literal_split</b>.num_types, mb.<b>literal_split</b>.types, mb.<b>literal_split</b>.lengths, mb.<b>literal_split</b>.num_blocks)
+		<a href="../../../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-1299" class="path-duplicate">brotli_bit_stream.go</a><a href="../../../src/github.com/andybalholm/brotli/brotli_bit_stream.go.html#line-1299">#L1299</a>: 	for i = 0; i &lt; mb.<b>literal_split</b>.num_types; i++ {
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-17">metablock.go#L17</a>: 	<b>literal_split</b>             blockSplit
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-40" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-40">#L40</a>: 		initBlockSplit(&amp;mb.<b>literal_split</b>)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-194" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-194">#L194</a>: 	splitBlock(cmds, ringbuffer, pos, mask, params, &amp;mb.<b>literal_split</b>, &amp;mb.command_split, &amp;mb.distance_split)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-198" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-198">#L198</a>: 		literal_context_modes = make([]int, (mb.<b>literal_split</b>.num_types))
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-199" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-199">#L199</a>: 		for i = 0; i &lt; mb.<b>literal_split</b>.num_types; i++ {
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-204" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-204">#L204</a>: 	literal_histograms_size = mb.<b>literal_split</b>.num_types * literal_context_multiplier
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-220" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-220">#L220</a>: 	buildHistogramsWithContext(cmds, &amp;mb.<b>literal_split</b>, &amp;mb.command_split, &amp;mb.distance_split, ringbuffer, pos, mask, prev_byte, prev_byte2, literal_context_modes, literal_histograms, mb.command_histograms, distance_histograms)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-223" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-223">#L223</a>: 	mb.literal_context_map_size = mb.<b>literal_split</b>.num_types &lt;&lt; literalContextBits
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-242" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-242">#L242</a>: 		for i = mb.<b>literal_split</b>.num_types; i != 0; {
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-474" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-474">#L474</a>: 	mb.literal_context_map_size = mb.<b>literal_split</b>.num_types &lt;&lt; literalContextBits
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-481" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-481">#L481</a>: 	for i = 0; i &lt; mb.<b>literal_split</b>.num_types; i++ {
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-503" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-503">#L503</a>: 		initBlockSplitterLiteral(&amp;lit_blocks.plain, 256, 512, 400.0, num_literals, &amp;mb.<b>literal_split</b>, &amp;mb.literal_histograms, &amp;mb.literal_histograms_size)
+		<a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-505" class="path-duplicate">metablock.go</a><a href="../../../src/github.com/andybalholm/brotli/metablock.go.html#line-505">#L505</a>: 		initContextBlockSplitter(&amp;lit_blocks.ctx, 256, num_contexts, 512, 400.0, num_literals, &amp;mb.<b>literal_split</b>, &amp;mb.literal_histograms, &amp;mb.literal_histograms_size)
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

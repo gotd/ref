@@ -5,40 +5,49 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: runtime.itab</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/runtime2.go.html#line-951">itab</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/runtime2.go.html#line-1129">itab</a></b></span>
 
-<span class="title">25 uses</span>
+<span class="title">32 uses</span>
 
 	runtime (current package)
-		<a href="../src/runtime/alg.go.html#line-260">alg.go#L260</a>: func ifaceeq(tab *<b>itab</b>, x, y unsafe.Pointer) bool {
-		<a href="../src/runtime/heapdump.go.html#line-541">heapdump.go#L541</a>: func itab_callback(tab *<b>itab</b>) {
-		<a href="../src/runtime/iface.go.html#line-26">iface.go#L26</a>: 	entries [itabInitSize]*<b>itab</b> // really [size] large
-		<a href="../src/runtime/iface.go.html#line-34" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-34">#L34</a>: func getitab(inter *interfacetype, typ *_type, canfail bool) *<b>itab</b> {
-		<a href="../src/runtime/iface.go.html#line-48" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-48">#L48</a>: 	var m *<b>itab</b>
-		<a href="../src/runtime/iface.go.html#line-67" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-67">#L67</a>: 	m = (*<b>itab</b>)(persistentalloc(unsafe.Sizeof(<b>itab</b>{})+uintptr(len(inter.Methods)-1)*goarch.PtrSize, 0, &amp;memstats.other_sys))
-		<a href="../src/runtime/iface.go.html#line-97" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-97">#L97</a>: func (t *itabTableType) find(inter *interfacetype, typ *_type) *<b>itab</b> {
-		<a href="../src/runtime/iface.go.html#line-104" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-104">#L104</a>: 		p := (**<b>itab</b>)(add(unsafe.Pointer(&amp;t.entries), h*goarch.PtrSize))
-		<a href="../src/runtime/iface.go.html#line-108" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-108">#L108</a>: 		m := (*<b>itab</b>)(atomic.Loadp(unsafe.Pointer(p)))
-		<a href="../src/runtime/iface.go.html#line-122" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-122">#L122</a>: func itabAdd(m *<b>itab</b>) {
-		<a href="../src/runtime/iface.go.html#line-159" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-159">#L159</a>: func (t *itabTableType) add(m *<b>itab</b>) {
-		<a href="../src/runtime/iface.go.html#line-165" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-165">#L165</a>: 		p := (**<b>itab</b>)(add(unsafe.Pointer(&amp;t.entries), h*goarch.PtrSize))
-		<a href="../src/runtime/iface.go.html#line-192" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-192">#L192</a>: func (m *<b>itab</b>) init() string {
-		<a href="../src/runtime/iface.go.html#line-268" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-268">#L268</a>: func panicdottypeI(have *<b>itab</b>, want, iface *_type) {
-		<a href="../src/runtime/iface.go.html#line-412" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-412">#L412</a>: func convI2I(dst *interfacetype, src *<b>itab</b>) *<b>itab</b> {
-		<a href="../src/runtime/iface.go.html#line-422" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-422">#L422</a>: func assertI2I(inter *interfacetype, tab *<b>itab</b>) *<b>itab</b> {
+		<a href="../src/runtime/alg.go.html#line-330">alg.go#L330</a>: func ifaceeq(tab *<b>itab</b>, x, y unsafe.Pointer) bool {
+		<a href="../src/runtime/heapdump.go.html#line-550">heapdump.go#L550</a>: func itab_callback(tab *<b>itab</b>) {
+		<a href="../src/runtime/iface.go.html#line-27">iface.go#L27</a>: 	entries [itabInitSize]*<b>itab</b> // really [size] large
+		<a href="../src/runtime/iface.go.html#line-44" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-44">#L44</a>: func getitab(inter *interfacetype, typ *_type, canfail bool) *<b>itab</b> {
+		<a href="../src/runtime/iface.go.html#line-58" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-58">#L58</a>: 	var m *<b>itab</b>
+		<a href="../src/runtime/iface.go.html#line-77" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-77">#L77</a>: 	m = (*<b>itab</b>)(persistentalloc(unsafe.Sizeof(<b>itab</b>{})+uintptr(len(inter.Methods)-1)*goarch.PtrSize, 0, &amp;memstats.other_sys))
+		<a href="../src/runtime/iface.go.html#line-107" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-107">#L107</a>: func (t *itabTableType) find(inter *interfacetype, typ *_type) *<b>itab</b> {
+		<a href="../src/runtime/iface.go.html#line-114" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-114">#L114</a>: 		p := (**<b>itab</b>)(add(unsafe.Pointer(&amp;t.entries), h*goarch.PtrSize))
+		<a href="../src/runtime/iface.go.html#line-118" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-118">#L118</a>: 		m := (*<b>itab</b>)(atomic.Loadp(unsafe.Pointer(p)))
+		<a href="../src/runtime/iface.go.html#line-132" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-132">#L132</a>: func itabAdd(m *<b>itab</b>) {
+		<a href="../src/runtime/iface.go.html#line-169" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-169">#L169</a>: func (t *itabTableType) add(m *<b>itab</b>) {
+		<a href="../src/runtime/iface.go.html#line-175" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-175">#L175</a>: 		p := (**<b>itab</b>)(add(unsafe.Pointer(&amp;t.entries), h*goarch.PtrSize))
+		<a href="../src/runtime/iface.go.html#line-204" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-204">#L204</a>: func itabInit(m *<b>itab</b>, firstTime bool) string {
+		<a href="../src/runtime/iface.go.html#line-280" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-280">#L280</a>: func panicdottypeI(have *<b>itab</b>, want, iface *_type) {
 		<a href="../src/runtime/iface.go.html#line-449" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-449">#L449</a>: func assertE2I(inter *interfacetype, t *_type) *<b>itab</b> {
-		<a href="../src/runtime/iface.go.html#line-481" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-481">#L481</a>: func iterate_itabs(fn func(*<b>itab</b>)) {
-		<a href="../src/runtime/iface.go.html#line-486" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-486">#L486</a>: 		m := *(**<b>itab</b>)(add(unsafe.Pointer(&amp;t.entries), i*goarch.PtrSize))
-		<a href="../src/runtime/runtime2.go.html#line-205">runtime2.go#L205</a>: 	tab  *<b>itab</b>
-		<a href="../src/runtime/runtime2.go.html#line-951" class="path-duplicate">runtime2.go</a><a href="../src/runtime/runtime2.go.html#line-951">#L951</a>: type <b>itab</b> struct {
-		<a href="../src/runtime/symtab.go.html#line-360">symtab.go#L360</a>: 	itablinks   []*<b>itab</b>
+		<a href="../src/runtime/iface.go.html#line-457" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-457">#L457</a>: func assertE2I2(inter *interfacetype, t *_type) *<b>itab</b> {
+		<a href="../src/runtime/iface.go.html#line-467" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-467">#L467</a>: func typeAssert(s *abi.TypeAssert, t *_type) *<b>itab</b> {
+		<a href="../src/runtime/iface.go.html#line-468" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-468">#L468</a>: 	var tab *<b>itab</b>
+		<a href="../src/runtime/iface.go.html#line-507" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-507">#L507</a>: func buildTypeAssertCache(oldC *abi.TypeAssertCache, typ *_type, tab *<b>itab</b>) *abi.TypeAssertCache {
+		<a href="../src/runtime/iface.go.html#line-531" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-531">#L531</a>: 	addEntry := func(typ *_type, tab *<b>itab</b>) {
+		<a href="../src/runtime/iface.go.html#line-544" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-544">#L544</a>: 			addEntry((*_type)(unsafe.Pointer(e.Typ)), (*<b>itab</b>)(unsafe.Pointer(e.Itab)))
+		<a href="../src/runtime/iface.go.html#line-561" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-561">#L561</a>: func interfaceSwitch(s *abi.InterfaceSwitch, t *_type) (int, *<b>itab</b>) {
+		<a href="../src/runtime/iface.go.html#line-566" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-566">#L566</a>: 	var tab *<b>itab</b>
+		<a href="../src/runtime/iface.go.html#line-613" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-613">#L613</a>: func buildInterfaceSwitchCache(oldC *abi.InterfaceSwitchCache, typ *_type, case_ int, tab *<b>itab</b>) *abi.InterfaceSwitchCache {
+		<a href="../src/runtime/iface.go.html#line-637" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-637">#L637</a>: 	addEntry := func(typ *_type, case_ int, tab *<b>itab</b>) {
+		<a href="../src/runtime/iface.go.html#line-651" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-651">#L651</a>: 			addEntry((*_type)(unsafe.Pointer(e.Typ)), e.Case, (*<b>itab</b>)(unsafe.Pointer(e.Itab)))
+		<a href="../src/runtime/iface.go.html#line-682" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-682">#L682</a>: func iterate_itabs(fn func(*<b>itab</b>)) {
+		<a href="../src/runtime/iface.go.html#line-687" class="path-duplicate">iface.go</a><a href="../src/runtime/iface.go.html#line-687">#L687</a>: 		m := *(**<b>itab</b>)(add(unsafe.Pointer(&amp;t.entries), i*goarch.PtrSize))
+		<a href="../src/runtime/runtime2.go.html#line-185">runtime2.go#L185</a>: 	tab  *<b>itab</b>
+		<a href="../src/runtime/runtime2.go.html#line-1129" class="path-duplicate">runtime2.go</a><a href="../src/runtime/runtime2.go.html#line-1129">#L1129</a>: type <b>itab</b> = abi.ITab
+		<a href="../src/runtime/symtab.go.html#line-429">symtab.go#L429</a>: 	itablinks   []*<b>itab</b>
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

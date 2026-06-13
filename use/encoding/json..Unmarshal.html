@@ -5,22 +5,59 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: encoding/json.Unmarshal</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">func <b><a href="../../pkg/encoding/json.html">encoding/json</a>.<a href="../../src/encoding/json/decode.go.html#line-97">Unmarshal</a></b></span>
+<pre><code><span style="font-size:x-large;">func <b><a href="../../pkg/encoding/json.html">encoding/json</a>.<a href="../../src/encoding/json/decode.go.html#line-102">Unmarshal</a></b></span>
 
-<span class="title">13 uses</span>
+<span class="title">43 uses</span>
 
 	encoding/json (current package)
-		<a href="../../src/encoding/json/decode.go.html#line-97">decode.go#L97</a>: func <b>Unmarshal</b>(data []byte, v any) error {
+		<a href="../../src/encoding/json/decode.go.html#line-102">decode.go#L102</a>: func <b>Unmarshal</b>(data []byte, v any) error {
 
 	<a href="../../pkg/github.com/gotd/td/session.html">github.com/gotd/td/session</a>
 		<a href="../../src/github.com/gotd/td/session/session.go.html#line-134">session.go#L134</a>: 	if err := json.<b>Unmarshal</b>(buf, &amp;v); err != nil {
 
+	<a href="../../pkg/github.com/gotd/td/tg.html">github.com/gotd/td/tg</a>
+		<a href="../../src/github.com/gotd/td/tg/json_invoke.go.html#line-625">json_invoke.go#L625</a>: 	if err := json.<b>Unmarshal</b>(data, &amp;result); err != nil {
+
+	<a href="../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../../src/github.com/refraction-networking/utls/u_clienthello_json.go.html#line-38">u_clienthello_json.go#L38</a>: 	if err := json.<b>Unmarshal</b>(jsonStr, &amp;cipherSuiteNames); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_clienthello_json.go.html#line-68" class="path-duplicate">u_clienthello_json.go</a><a href="../../src/github.com/refraction-networking/utls/u_clienthello_json.go.html#line-68">#L68</a>: 	if err := json.<b>Unmarshal</b>(jsonStr, &amp;compressionMethodNames); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_clienthello_json.go.html#line-95" class="path-duplicate">u_clienthello_json.go</a><a href="../../src/github.com/refraction-networking/utls/u_clienthello_json.go.html#line-95">#L95</a>: 	if err := json.<b>Unmarshal</b>(jsonStr, &amp;accepters); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_clienthello_json.go.html#line-141" class="path-duplicate">u_clienthello_json.go</a><a href="../../src/github.com/refraction-networking/utls/u_clienthello_json.go.html#line-141">#L141</a>: 		if err := json.<b>Unmarshal</b>(accepters[idx].origJsonInput, ext); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_clienthello_json.go.html#line-183" class="path-duplicate">u_clienthello_json.go</a><a href="../../src/github.com/refraction-networking/utls/u_clienthello_json.go.html#line-183">#L183</a>: 	return json.<b>Unmarshal</b>(jsonStr, &amp;t.extNameOnly)
+		<a href="../../src/github.com/refraction-networking/utls/u_common.go.html#line-473">u_common.go#L473</a>: 	err := json.<b>Unmarshal</b>(jsonB, &amp;data)
+		<a href="../../src/github.com/refraction-networking/utls/u_common.go.html#line-580" class="path-duplicate">u_common.go</a><a href="../../src/github.com/refraction-networking/utls/u_common.go.html#line-580">#L580</a>: 	if err := json.<b>Unmarshal</b>(jsonB, &amp;chsju); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_pre_shared_key.go.html#line-468">u_pre_shared_key.go#L468</a>: 	if err := json.<b>Unmarshal</b>(data, &amp;pskAccepter); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-293">u_tls_extensions.go#L293</a>: 	if err := json.<b>Unmarshal</b>(data, &amp;namedGroups); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-367" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-367">#L367</a>: 	if err := json.<b>Unmarshal</b>(data, &amp;pointFormatList); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-430" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-430">#L430</a>: 	if err := json.<b>Unmarshal</b>(data, &amp;signatureAlgorithms); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-560" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-560">#L560</a>: 	if err := json.<b>Unmarshal</b>(data, &amp;signatureAlgorithms); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-660" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-660">#L660</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;protocolNames); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-779" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-779">#L779</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;applicationSettingsSupport); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-818" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-818">#L818</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;applicationSettingsSupport); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-904" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-904">#L904</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;genericExtension); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1023" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1023">#L1023</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;jsonObj); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1091" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1091">#L1091</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;jsonObj); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1211" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1211">#L1211</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;certificateCompressionAlgorithms); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1309" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1309">#L1309</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;keyShareClientHello); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1431" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1431">#L1431</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;pskKeyExchangeModes); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1507" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1507">#L1507</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;supportedVersions); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1584" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1584">#L1584</a>: 	if err := json.<b>Unmarshal</b>(data, &amp;cookie); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1786" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1786">#L1786</a>: 	if err := json.<b>Unmarshal</b>(data, &amp;limitAccepter); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1850" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1850">#L1850</a>: 	if err := json.<b>Unmarshal</b>(data, &amp;tokenBindingAccepter); err != nil {
+		<a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1929" class="path-duplicate">u_tls_extensions.go</a><a href="../../src/github.com/refraction-networking/utls/u_tls_extensions.go.html#line-1929">#L1929</a>: 	if err := json.<b>Unmarshal</b>(data, &amp;signatureAlgorithms); err != nil {
+
 	<a href="../../pkg/go.opentelemetry.io/otel/codes.html">go.opentelemetry.io/otel/codes</a>
-		<a href="../../src/go.opentelemetry.io/otel/codes/codes.go.html#line-81">codes.go#L81</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;x); err != nil {
+		<a href="../../src/go.opentelemetry.io/otel/codes/codes.go.html#line-71">codes.go#L71</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;x); err != nil {
+
+	<a href="../../pkg/go.opentelemetry.io/otel/trace/internal/telemetry.html">go.opentelemetry.io/otel/trace/internal/telemetry</a>
+		<a href="../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html#line-22">number.go#L22</a>: 		if err := json.<b>Unmarshal</b>(data, &amp;str); err != nil {
+		<a href="../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html#line-32" class="path-duplicate">number.go</a><a href="../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html#line-32">#L32</a>: 		if err := json.<b>Unmarshal</b>(data, &amp;parsedInt); err != nil {
+		<a href="../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html#line-51" class="path-duplicate">number.go</a><a href="../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html#line-51">#L51</a>: 		if err := json.<b>Unmarshal</b>(data, &amp;str); err != nil {
+		<a href="../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html#line-61" class="path-duplicate">number.go</a><a href="../../src/go.opentelemetry.io/otel/trace/internal/telemetry/number.go.html#line-61">#L61</a>: 		if err := json.<b>Unmarshal</b>(data, &amp;parsedUint); err != nil {
 
 	<a href="../../pkg/go.uber.org/atomic.html">go.uber.org/atomic</a>
 		<a href="../../src/go.uber.org/atomic/bool.go.html#line-83">bool.go#L83</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;v); err != nil {
@@ -32,12 +69,9 @@
 		<a href="../../src/go.uber.org/atomic/uint32.go.html#line-98">uint32.go#L98</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;v); err != nil {
 		<a href="../../src/go.uber.org/atomic/uint64.go.html#line-98">uint64.go#L98</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;v); err != nil {
 		<a href="../../src/go.uber.org/atomic/uintptr.go.html#line-98">uintptr.go#L98</a>: 	if err := json.<b>Unmarshal</b>(b, &amp;v); err != nil {
-
-	<a href="../../pkg/go.uber.org/zap/zapcore.html">go.uber.org/zap/zapcore</a>
-		<a href="../../src/go.uber.org/zap/zapcore/encoder.go.html#line-217">encoder.go#L217</a>: 		return json.<b>Unmarshal</b>(data, v)
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

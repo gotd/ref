@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: github.com/go-faster/errors.Errorf</title>
-<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../../../pkg/github.com/go-faster/errors.html">github.com/go-faster/errors</a>.<a href="../../../src/github.com/go-faster/errors/format.go.html#line-42">Errorf</a></b></span>
 
-<span class="title">73 uses</span>
+<span class="title">117 uses</span>
 
 	github.com/go-faster/errors (current package)
 		<a href="../../../src/github.com/go-faster/errors/format.go.html#line-42">format.go#L42</a>: func <b>Errorf</b>(format string, a ...interface{}) error {
@@ -20,44 +20,46 @@
 		<a href="../../../src/github.com/go-faster/jx/dec_num.go.html#line-75">dec_num.go#L75</a>: 		return v, errors.<b>Errorf</b>("unexpected %s", d.Next())
 		<a href="../../../src/github.com/go-faster/jx/num.go.html#line-56">num.go#L56</a>: 			return dotIdx, errors.<b>Errorf</b>("non-zero fractional part %q at %d", c, i)
 
-	<a href="../../../pkg/github.com/gotd/td/internal/crypto.html">github.com/gotd/td/internal/crypto</a>
-		<a href="../../../src/github.com/gotd/td/internal/crypto/check_gp.go.html#line-41">check_gp.go#L41</a>: 		return errors.<b>Errorf</b>("unexpected g = %d: g should be equal to 2, 3, 4, 5, 6 or 7", g)
-		<a href="../../../src/github.com/gotd/td/internal/crypto/cipher_decrypt.go.html#line-54">cipher_decrypt.go#L54</a>: 			return nil, errors.<b>Errorf</b>("message length is invalid: %d less than zero", n)
-		<a href="../../../src/github.com/gotd/td/internal/crypto/cipher_decrypt.go.html#line-56" class="path-duplicate">cipher_decrypt.go</a><a href="../../../src/github.com/gotd/td/internal/crypto/cipher_decrypt.go.html#line-56">#L56</a>: 			return nil, errors.<b>Errorf</b>("message length is invalid: %d is not divisible by 4", n)
-		<a href="../../../src/github.com/gotd/td/internal/crypto/cipher_decrypt.go.html#line-58" class="path-duplicate">cipher_decrypt.go</a><a href="../../../src/github.com/gotd/td/internal/crypto/cipher_decrypt.go.html#line-58">#L58</a>: 			return nil, errors.<b>Errorf</b>("padding %d of message is too big", paddingLen)
-		<a href="../../../src/github.com/gotd/td/internal/crypto/encrypted_message_data.go.html#line-96">encrypted_message_data.go#L96</a>: 		return errors.<b>Errorf</b>(
-		<a href="../../../src/github.com/gotd/td/internal/crypto/encrypted_message_data.go.html#line-145" class="path-duplicate">encrypted_message_data.go</a><a href="../../../src/github.com/gotd/td/internal/crypto/encrypted_message_data.go.html#line-145">#L145</a>: 		return errors.<b>Errorf</b>(
-		<a href="../../../src/github.com/gotd/td/internal/crypto/exchange.go.html#line-26">exchange.go#L26</a>: 		return nil, errors.<b>Errorf</b>("invalid len of data_with_hash (%d %% 16 != 0)", len(dataWithHash))
-		<a href="../../../src/github.com/gotd/td/internal/crypto/public_keys.go.html#line-45">public_keys.go#L45</a>: 		return nil, errors.<b>Errorf</b>("parsed unexpected key type %T", k)
-		<a href="../../../src/github.com/gotd/td/internal/crypto/rsa_hashed.go.html#line-19">rsa_hashed.go#L19</a>: 		return nil, errors.<b>Errorf</b>("data length %d is too big", len(data))
-		<a href="../../../src/github.com/gotd/td/internal/crypto/rsa_pad.go.html#line-43">rsa_pad.go#L43</a>: 		return nil, errors.<b>Errorf</b>("data length is bigger that 144 (%d)", len(data))
+	<a href="../../../pkg/github.com/gotd/td/crypto.html">github.com/gotd/td/crypto</a>
+		<a href="../../../src/github.com/gotd/td/crypto/check_gp.go.html#line-41">check_gp.go#L41</a>: 		return errors.<b>Errorf</b>("unexpected g = %d: g should be equal to 2, 3, 4, 5, 6 or 7", g)
+		<a href="../../../src/github.com/gotd/td/crypto/cipher_decrypt.go.html#line-54">cipher_decrypt.go#L54</a>: 			return nil, errors.<b>Errorf</b>("message length is invalid: %d less than zero", n)
+		<a href="../../../src/github.com/gotd/td/crypto/cipher_decrypt.go.html#line-56" class="path-duplicate">cipher_decrypt.go</a><a href="../../../src/github.com/gotd/td/crypto/cipher_decrypt.go.html#line-56">#L56</a>: 			return nil, errors.<b>Errorf</b>("message length is invalid: %d is not divisible by 4", n)
+		<a href="../../../src/github.com/gotd/td/crypto/cipher_decrypt.go.html#line-58" class="path-duplicate">cipher_decrypt.go</a><a href="../../../src/github.com/gotd/td/crypto/cipher_decrypt.go.html#line-58">#L58</a>: 			return nil, errors.<b>Errorf</b>("padding %d of message is too big", paddingLen)
+		<a href="../../../src/github.com/gotd/td/crypto/encrypted_message_data.go.html#line-96">encrypted_message_data.go#L96</a>: 		return errors.<b>Errorf</b>(
+		<a href="../../../src/github.com/gotd/td/crypto/encrypted_message_data.go.html#line-145" class="path-duplicate">encrypted_message_data.go</a><a href="../../../src/github.com/gotd/td/crypto/encrypted_message_data.go.html#line-145">#L145</a>: 		return errors.<b>Errorf</b>(
+		<a href="../../../src/github.com/gotd/td/crypto/exchange.go.html#line-25">exchange.go#L25</a>: 		return nil, errors.<b>Errorf</b>("invalid len of data_with_hash (%d %% 16 != 0)", len(dataWithHash))
+		<a href="../../../src/github.com/gotd/td/crypto/public_keys.go.html#line-45">public_keys.go#L45</a>: 		return nil, errors.<b>Errorf</b>("parsed unexpected key type %T", k)
+		<a href="../../../src/github.com/gotd/td/crypto/rsa_hashed.go.html#line-19">rsa_hashed.go#L19</a>: 		return nil, errors.<b>Errorf</b>("data length %d is too big", len(data))
+		<a href="../../../src/github.com/gotd/td/crypto/rsa_pad.go.html#line-41">rsa_pad.go#L41</a>: 		return nil, errors.<b>Errorf</b>("data length is bigger that 144 (%d)", len(data))
 
-	<a href="../../../pkg/github.com/gotd/td/internal/exchange.html">github.com/gotd/td/internal/exchange</a>
-		<a href="../../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-267">client_flow.go#L267</a>: 			return ClientExchangeResult{}, errors.<b>Errorf</b>("retry required: %x", v.NewNonceHash2)
-		<a href="../../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-269" class="path-duplicate">client_flow.go</a><a href="../../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-269">#L269</a>: 			return ClientExchangeResult{}, errors.<b>Errorf</b>("dh_hen_fail: %x", v.NewNonceHash3)
-		<a href="../../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-271" class="path-duplicate">client_flow.go</a><a href="../../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-271">#L271</a>: 			return ClientExchangeResult{}, errors.<b>Errorf</b>("unexpected SetClientDHParamsRequest result %T", v)
-		<a href="../../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-276" class="path-duplicate">client_flow.go</a><a href="../../../src/github.com/gotd/td/internal/exchange/client_flow.go.html#line-276">#L276</a>: 		return ClientExchangeResult{}, errors.<b>Errorf</b>("unexpected ReqDHParamsRequest result %T", p)
-		<a href="../../../src/github.com/gotd/td/internal/exchange/server_flow.go.html#line-172">server_flow.go#L172</a>: 			err := errors.<b>Errorf</b>(
+	<a href="../../../pkg/github.com/gotd/td/exchange.html">github.com/gotd/td/exchange</a>
+		<a href="../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-293">client_flow.go#L293</a>: 			return ClientExchangeResult{}, errors.<b>Errorf</b>("retry required: %x", v.NewNonceHash2)
+		<a href="../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-295" class="path-duplicate">client_flow.go</a><a href="../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-295">#L295</a>: 			return ClientExchangeResult{}, errors.<b>Errorf</b>("dh_hen_fail: %x", v.NewNonceHash3)
+		<a href="../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-297" class="path-duplicate">client_flow.go</a><a href="../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-297">#L297</a>: 			return ClientExchangeResult{}, errors.<b>Errorf</b>("unexpected SetClientDHParamsRequest result %T", v)
+		<a href="../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-302" class="path-duplicate">client_flow.go</a><a href="../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-302">#L302</a>: 		return ClientExchangeResult{}, errors.<b>Errorf</b>("unexpected ReqDHParamsRequest result %T", p)
+		<a href="../../../src/github.com/gotd/td/exchange/server_flow.go.html#line-175">server_flow.go#L175</a>: 				err := errors.<b>Errorf</b>(
+		<a href="../../../src/github.com/gotd/td/exchange/server_flow.go.html#line-184" class="path-duplicate">server_flow.go</a><a href="../../../src/github.com/gotd/td/exchange/server_flow.go.html#line-184">#L184</a>: 				err := errors.<b>Errorf</b>(
 
-	<a href="../../../pkg/github.com/gotd/td/internal/mtproto.html">github.com/gotd/td/internal/mtproto</a>
-		<a href="../../../src/github.com/gotd/td/internal/mtproto/handle_bad_msg.go.html#line-66">handle_bad_msg.go#L66</a>: 		return errors.<b>Errorf</b>("unknown type id 0x%d", id)
-		<a href="../../../src/github.com/gotd/td/internal/mtproto/ping.go.html#line-41">ping.go#L41</a>: 		return errors.<b>Errorf</b>("decode: %x", err)
-		<a href="../../../src/github.com/gotd/td/internal/mtproto/rpc.go.html#line-69">rpc.go#L69</a>: 		return errors.<b>Errorf</b>("unexpected response type: %T", resp.RpcDropAnswer)
+	<a href="../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../../../src/github.com/gotd/td/mtproto/handle_bad_msg.go.html#line-66">handle_bad_msg.go#L66</a>: 		return errors.<b>Errorf</b>("unknown type id 0x%d", id)
+		<a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-41">ping.go#L41</a>: 		return errors.<b>Errorf</b>("decode: %x", err)
+		<a href="../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-69">rpc.go#L69</a>: 		return errors.<b>Errorf</b>("unexpected response type: %T", resp.RpcDropAnswer)
 
-	<a href="../../../pkg/github.com/gotd/td/internal/mtproxy.html">github.com/gotd/td/internal/mtproxy</a>
-		<a href="../../../src/github.com/gotd/td/internal/mtproxy/secret.go.html#line-70">secret.go#L70</a>: 		return Secret{}, errors.<b>Errorf</b>("invalid secret %q", string(secret))
-		<a href="../../../src/github.com/gotd/td/internal/mtproxy/secret.go.html#line-79" class="path-duplicate">secret.go</a><a href="../../../src/github.com/gotd/td/internal/mtproxy/secret.go.html#line-79">#L79</a>: 			return Secret{}, errors.<b>Errorf</b>("unknown tag %+x", r.Tag)
+	<a href="../../../pkg/github.com/gotd/td/mtproxy.html">github.com/gotd/td/mtproxy</a>
+		<a href="../../../src/github.com/gotd/td/mtproxy/secret.go.html#line-70">secret.go#L70</a>: 		return Secret{}, errors.<b>Errorf</b>("invalid secret %q", string(secret))
+		<a href="../../../src/github.com/gotd/td/mtproxy/secret.go.html#line-79" class="path-duplicate">secret.go</a><a href="../../../src/github.com/gotd/td/mtproxy/secret.go.html#line-79">#L79</a>: 			return Secret{}, errors.<b>Errorf</b>("unknown tag %+x", r.Tag)
 
-	<a href="../../../pkg/github.com/gotd/td/internal/mtproxy/faketls.html">github.com/gotd/td/internal/mtproxy/faketls</a>
-		<a href="../../../src/github.com/gotd/td/internal/mtproxy/faketls/faketls.go.html#line-107">faketls.go#L107</a>: 		return 0, errors.<b>Errorf</b>("unsupported record type %v", rec.Type)
-		<a href="../../../src/github.com/gotd/td/internal/mtproxy/faketls/record.go.html#line-39">record.go#L39</a>: 		return record{}, errors.<b>Errorf</b>("unknown protocol version %v", versionRaw)
+	<a href="../../../pkg/github.com/gotd/td/mtproxy/faketls.html">github.com/gotd/td/mtproxy/faketls</a>
+		<a href="../../../src/github.com/gotd/td/mtproxy/faketls/client_hello.go.html#line-81">client_hello.go#L81</a>: 		return [32]byte{}, errors.<b>Errorf</b>("ClientHello is too short: %d bytes", len(record))
+		<a href="../../../src/github.com/gotd/td/mtproxy/faketls/faketls.go.html#line-104">faketls.go#L104</a>: 			return 0, errors.<b>Errorf</b>("unsupported record type %v", rec.Type)
+		<a href="../../../src/github.com/gotd/td/mtproxy/faketls/record.go.html#line-42">record.go#L42</a>: 		return record{}, errors.<b>Errorf</b>("unknown protocol version %v", versionRaw)
 
-	<a href="../../../pkg/github.com/gotd/td/internal/mtproxy/obfuscated2.html">github.com/gotd/td/internal/mtproxy/obfuscated2</a>
-		<a href="../../../src/github.com/gotd/td/internal/mtproxy/obfuscated2/keys.go.html#line-32">keys.go#L32</a>: 			return errors.<b>Errorf</b>("invalid secret size %d", len(secret))
+	<a href="../../../pkg/github.com/gotd/td/mtproxy/obfuscated2.html">github.com/gotd/td/mtproxy/obfuscated2</a>
+		<a href="../../../src/github.com/gotd/td/mtproxy/obfuscated2/keys.go.html#line-32">keys.go#L32</a>: 			return errors.<b>Errorf</b>("invalid secret size %d", len(secret))
 
-	<a href="../../../pkg/github.com/gotd/td/internal/proto.html">github.com/gotd/td/internal/proto</a>
-		<a href="../../../src/github.com/gotd/td/internal/proto/container.go.html#line-59">container.go#L59</a>: 		return errors.<b>Errorf</b>("message length %d is invalid", m.Bytes)
-		<a href="../../../src/github.com/gotd/td/internal/proto/unencrypted_message.go.html#line-24">unencrypted_message.go#L24</a>: 			return errors.<b>Errorf</b>("unexpected auth_key_id %d of plaintext message", id)
+	<a href="../../../pkg/github.com/gotd/td/proto.html">github.com/gotd/td/proto</a>
+		<a href="../../../src/github.com/gotd/td/proto/container.go.html#line-59">container.go#L59</a>: 		return errors.<b>Errorf</b>("message length %d is invalid", m.Bytes)
+		<a href="../../../src/github.com/gotd/td/proto/unencrypted_message.go.html#line-26">unencrypted_message.go#L26</a>: 			return errors.<b>Errorf</b>("unexpected auth_key_id %d of plaintext message", id)
 
 	<a href="../../../pkg/github.com/gotd/td/session.html">github.com/gotd/td/session</a>
 		<a href="../../../src/github.com/gotd/td/session/tdesktop.go.html#line-61">tdesktop.go#L61</a>: 		return nil, errors.<b>Errorf</b>("key for main DC (%d) not found", dc)
@@ -67,57 +69,105 @@
 		<a href="../../../src/github.com/gotd/td/session/telethon.go.html#line-63" class="path-duplicate">telethon.go</a><a href="../../../src/github.com/gotd/td/session/telethon.go.html#line-63">#L63</a>: 		return nil, errors.<b>Errorf</b>("decoded hex has invalid length: %d", len(data))
 
 	<a href="../../../pkg/github.com/gotd/td/session/tdesktop.html">github.com/gotd/td/session/tdesktop</a>
-		<a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-60">file.go#L60</a>: 	return nil, errors.<b>Errorf</b>("file %q not found", fileName)
-		<a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-88" class="path-duplicate">file.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-88">#L88</a>: 		return nil, errors.<b>Errorf</b>("invalid data length %d", l)
-		<a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-163" class="path-duplicate">file.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-163">#L163</a>: 		return errors.<b>Errorf</b>("data length too big (%d)", length)
+		<a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-67">file.go#L67</a>: 	return nil, errors.<b>Errorf</b>("file %q not found", fileName)
+		<a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-95" class="path-duplicate">file.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-95">#L95</a>: 		return nil, errors.<b>Errorf</b>("invalid data length %d", l)
+		<a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-170" class="path-duplicate">file.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/file.go.html#line-170">#L170</a>: 		return errors.<b>Errorf</b>("data length too big (%d)", length)
 		<a href="../../../src/github.com/gotd/td/session/tdesktop/key_data.go.html#line-23">key_data.go#L23</a>: 		return keyData{}, errors.<b>Errorf</b>("invalid salt length %d", l)
 		<a href="../../../src/github.com/gotd/td/session/tdesktop/key_data.go.html#line-41" class="path-duplicate">key_data.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/key_data.go.html#line-41">#L41</a>: 		return keyData{}, errors.<b>Errorf</b>("key too small (%d)", l)
-		<a href="../../../src/github.com/gotd/td/session/tdesktop/local_key.go.html#line-49">local_key.go#L49</a>: 		return nil, errors.<b>Errorf</b>("invalid length %d, must be padded to 16", l)
-		<a href="../../../src/github.com/gotd/td/session/tdesktop/local_key.go.html#line-74" class="path-duplicate">local_key.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/local_key.go.html#line-74">#L74</a>: 		return nil, errors.<b>Errorf</b>("invalid length %d, must be padded to 16", l)
+		<a href="../../../src/github.com/gotd/td/session/tdesktop/local_key.go.html#line-50">local_key.go#L50</a>: 		return nil, errors.<b>Errorf</b>("invalid length %d, must be padded to 16", l)
+		<a href="../../../src/github.com/gotd/td/session/tdesktop/local_key.go.html#line-75" class="path-duplicate">local_key.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/local_key.go.html#line-75">#L75</a>: 		return nil, errors.<b>Errorf</b>("invalid length %d, must be padded to 16", l)
 		<a href="../../../src/github.com/gotd/td/session/tdesktop/mtp_authorization.go.html#line-64">mtp_authorization.go#L64</a>: 		return errors.<b>Errorf</b>("unexpected id %d", id)
 		<a href="../../../src/github.com/gotd/td/session/tdesktop/mtp_config.go.html#line-105">mtp_config.go#L105</a>: 		return errors.<b>Errorf</b>("wrong version (expected %d, got %d)", kVersion, version)
 		<a href="../../../src/github.com/gotd/td/session/tdesktop/mtp_config.go.html#line-114" class="path-duplicate">mtp_config.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/mtp_config.go.html#line-114">#L114</a>: 		return errors.<b>Errorf</b>("invalid environment %d", environment)
 		<a href="../../../src/github.com/gotd/td/session/tdesktop/mtp_dcoptions.go.html#line-70">mtp_dcoptions.go#L70</a>: 		return errors.<b>Errorf</b>("too big IP string (%d &gt; %d)", l, maxIPSize)
 		<a href="../../../src/github.com/gotd/td/session/tdesktop/mtp_dcoptions.go.html#line-81" class="path-duplicate">mtp_dcoptions.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/mtp_dcoptions.go.html#line-81">#L81</a>: 			return errors.<b>Errorf</b>("too big DC secret (%d &gt; %d)", l, maxSecretSize)
-		<a href="../../../src/github.com/gotd/td/session/tdesktop/mtp_dcoptions.go.html#line-121" class="path-duplicate">mtp_dcoptions.go</a><a href="../../../src/github.com/gotd/td/session/tdesktop/mtp_dcoptions.go.html#line-121">#L121</a>: 			return errors.<b>Errorf</b>("read option %d: %w", i, err)
+
+	<a href="../../../pkg/github.com/gotd/td/syncio.html">github.com/gotd/td/syncio</a>
+		<a href="../../../src/github.com/gotd/td/syncio/writer_at.go.html#line-55">writer_at.go#L55</a>: 		return 0, errors.<b>Errorf</b>("invalid offset %d", off)
+		<a href="../../../src/github.com/gotd/td/syncio/writer_at.go.html#line-80" class="path-duplicate">writer_at.go</a><a href="../../../src/github.com/gotd/td/syncio/writer_at.go.html#line-80">#L80</a>: 		return 0, errors.<b>Errorf</b>("invalid offset %d", off)
 
 	<a href="../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
-		<a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-42">pool.go#L42</a>: 		return nil, errors.<b>Errorf</b>("invalid max value %d", max)
-		<a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-54" class="path-duplicate">pool.go</a><a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-54">#L54</a>: 		return nil, errors.<b>Errorf</b>("invalid max value %d", max)
-		<a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-59" class="path-duplicate">pool.go</a><a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-59">#L59</a>: 		return nil, errors.<b>Errorf</b>("unknown DC %d", dcID)
+		<a href="../../../src/github.com/gotd/td/telegram/cdn.go.html#line-183">cdn.go#L183</a>: 			return fetchedCDNKeys{}, errors.<b>Errorf</b>("unexpected CDN keys type %T", result.Val)
+		<a href="../../../src/github.com/gotd/td/telegram/cdn.go.html#line-290" class="path-duplicate">cdn.go</a><a href="../../../src/github.com/gotd/td/telegram/cdn.go.html#line-290">#L290</a>: 	return nil, errors.<b>Errorf</b>("no CDN public keys for CDN DC %d after %d refresh attempts", dcID, maxRefreshAttempts)
+		<a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-44">pool.go#L44</a>: 		return nil, errors.<b>Errorf</b>("invalid max value %d", max)
+		<a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-68" class="path-duplicate">pool.go</a><a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-68">#L68</a>: 		return nil, errors.<b>Errorf</b>("invalid max value %d", max)
+		<a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-73" class="path-duplicate">pool.go</a><a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-73">#L73</a>: 		return nil, errors.<b>Errorf</b>("unknown DC %d", dcID)
+		<a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-102" class="path-duplicate">pool.go</a><a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-102">#L102</a>: 			return nil, errors.<b>Errorf</b>("no CDN public keys available for CDN DC %d", dcID)
+		<a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-211" class="path-duplicate">pool.go</a><a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-211">#L211</a>: 		return nil, errors.<b>Errorf</b>("invalid max value %d", max)
 		<a href="../../../src/github.com/gotd/td/telegram/self.go.html#line-22">self.go#L22</a>: 		return nil, errors.<b>Errorf</b>("users response count: %v", users)
+		<a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-90">tdlib_json.go#L90</a>: 			return "", errors.<b>Errorf</b>("unknown method: %q", typeID)
+		<a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-98" class="path-duplicate">tdlib_json.go</a><a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-98">#L98</a>: 		return "", errors.<b>Errorf</b>("type not found: %q", telegramName)
+		<a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-105" class="path-duplicate">tdlib_json.go</a><a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-105">#L105</a>: 		return "", errors.<b>Errorf</b>("constructor not found for type: %q (id: 0x%x)", telegramName, typeIDValue)
+		<a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-110" class="path-duplicate">tdlib_json.go</a><a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-110">#L110</a>: 		return "", errors.<b>Errorf</b>("failed to create instance for type: %q", telegramName)
+		<a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-116" class="path-duplicate">tdlib_json.go</a><a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-116">#L116</a>: 		return "", errors.<b>Errorf</b>("type %q does not support TDLib JSON decoding", telegramName)
+		<a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-129" class="path-duplicate">tdlib_json.go</a><a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-129">#L129</a>: 		return "", errors.<b>Errorf</b>("type %q does not implement bin.Encoder", telegramName)
+		<a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-150" class="path-duplicate">tdlib_json.go</a><a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-150">#L150</a>: 		return "", errors.<b>Errorf</b>("response type does not support TDLib JSON encoding")
+		<a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-179" class="path-duplicate">tdlib_json.go</a><a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-179">#L179</a>: 		return errors.<b>Errorf</b>("unknown response type: 0x%x", id)
+		<a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-184" class="path-duplicate">tdlib_json.go</a><a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-184">#L184</a>: 		return errors.<b>Errorf</b>("failed to create response instance for type: 0x%x", id)
+		<a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-190" class="path-duplicate">tdlib_json.go</a><a href="../../../src/github.com/gotd/td/telegram/tdlib_json.go.html#line-190">#L190</a>: 		return errors.<b>Errorf</b>("response type does not implement bin.Decoder")
 
 	<a href="../../../pkg/github.com/gotd/td/telegram/auth.html">github.com/gotd/td/telegram/auth</a>
-		<a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-108">flow.go#L108</a>: 			return errors.<b>Errorf</b>("unexpected authorization type: %T", a)
-		<a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-111" class="path-duplicate">flow.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-111">#L111</a>: 		return errors.<b>Errorf</b>("unexpected sent code type: %T", sentCode)
-		<a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-194" class="path-duplicate">flow.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-194">#L194</a>: 		return "", errors.<b>Errorf</b>("environment variable %q not set", env)
-		<a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-262" class="path-duplicate">flow.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-262">#L262</a>: 			return "", errors.<b>Errorf</b>("unexpected type: %T", sentCode.Type)
+		<a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-101">flow.go#L101</a>: 			return errors.<b>Errorf</b>("unexpected authorization type: %T", a)
+		<a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-104" class="path-duplicate">flow.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-104">#L104</a>: 		return errors.<b>Errorf</b>("unexpected sent code type: %T", sentCode)
+		<a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-219" class="path-duplicate">flow.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-219">#L219</a>: 		return "", errors.<b>Errorf</b>("environment variable %q not set", env)
+		<a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-287" class="path-duplicate">flow.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-287">#L287</a>: 			return "", errors.<b>Errorf</b>("unexpected type: %T", sentCode.Type)
 		<a href="../../../src/github.com/gotd/td/telegram/auth/password.go.html#line-28">password.go#L28</a>: 		return nil, errors.<b>Errorf</b>("unsupported algo: %T", alg)
 		<a href="../../../src/github.com/gotd/td/telegram/auth/password.go.html#line-92" class="path-duplicate">password.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/password.go.html#line-92">#L92</a>: 		return errors.<b>Errorf</b>("unsupported algo: %T", p.NewAlgo)
 		<a href="../../../src/github.com/gotd/td/telegram/auth/password.go.html#line-167" class="path-duplicate">password.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/password.go.html#line-167">#L167</a>: 		return time.Time{}, errors.<b>Errorf</b>("unexpected type %T", v)
+		<a href="../../../src/github.com/gotd/td/telegram/auth/password.go.html#line-243" class="path-duplicate">password.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/password.go.html#line-243">#L243</a>: 			return nil, errors.<b>Errorf</b>("unsupported algo: %T", p.NewAlgo)
 		<a href="../../../src/github.com/gotd/td/telegram/auth/self.go.html#line-22">self.go#L22</a>: 		return nil, errors.<b>Errorf</b>("users response count: %v", users)
 		<a href="../../../src/github.com/gotd/td/telegram/auth/signup.go.html#line-35">signup.go#L35</a>: 		return nil, errors.<b>Errorf</b>("got unexpected response %T", a)
 
 	<a href="../../../pkg/github.com/gotd/td/telegram/auth/qrlogin.html">github.com/gotd/td/telegram/auth/qrlogin</a>
-		<a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-52">qrlogin.go#L52</a>: 		return Token{}, errors.<b>Errorf</b>("unexpected type %T", result)
-		<a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-94" class="path-duplicate">qrlogin.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-94">#L94</a>: 			return nil, errors.<b>Errorf</b>("unexpected type %T", res)
-		<a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-99" class="path-duplicate">qrlogin.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-99">#L99</a>: 			return nil, errors.<b>Errorf</b>("unexpected type %T", success.Authorization)
-		<a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-105" class="path-duplicate">qrlogin.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-105">#L105</a>: 			return nil, errors.<b>Errorf</b>("unexpected type %T", t.Authorization)
-		<a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-109" class="path-duplicate">qrlogin.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-109">#L109</a>: 		return nil, errors.<b>Errorf</b>("unexpected type %T", result)
+		<a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-63">qrlogin.go#L63</a>: 		return Token{}, errors.<b>Errorf</b>("unexpected type %T", result)
+		<a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-104" class="path-duplicate">qrlogin.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-104">#L104</a>: 			return nil, errors.<b>Errorf</b>("unexpected type %T", res)
+		<a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-109" class="path-duplicate">qrlogin.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-109">#L109</a>: 			return nil, errors.<b>Errorf</b>("unexpected type %T", success.Authorization)
+		<a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-115" class="path-duplicate">qrlogin.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-115">#L115</a>: 			return nil, errors.<b>Errorf</b>("unexpected type %T", t.Authorization)
+		<a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-119" class="path-duplicate">qrlogin.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-119">#L119</a>: 		return nil, errors.<b>Errorf</b>("unexpected type %T", result)
 		<a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/token.go.html#line-27">token.go#L27</a>: 		return Token{}, errors.<b>Errorf</b>("unexpected scheme %q", parsed.Scheme)
 		<a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/token.go.html#line-29" class="path-duplicate">token.go</a><a href="../../../src/github.com/gotd/td/telegram/auth/qrlogin/token.go.html#line-29">#L29</a>: 		return Token{}, errors.<b>Errorf</b>("wrong path %q", parsed.Host)
 
 	<a href="../../../pkg/github.com/gotd/td/telegram/dcs.html">github.com/gotd/td/telegram/dcs</a>
 		<a href="../../../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-155">dns.go#L155</a>: 		return DNSConfig{}, errors.<b>Errorf</b>("invalid input length %d", totalLength)
 		<a href="../../../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html#line-69">mtproxy.go#L69</a>: 		return nil, errors.<b>Errorf</b>("unknown MTProxy secret type: %d", m.secret.Type)
-		<a href="../../../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-60">plain.go#L60</a>: 	return nil, errors.<b>Errorf</b>("can't resolve %d: CDN is unsupported", dc)
-		<a href="../../../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-127" class="path-duplicate">plain.go</a><a href="../../../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-127">#L127</a>: 		return nil, errors.<b>Errorf</b>("no addresses for DC %d", dc)
+		<a href="../../../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-152">plain.go#L152</a>: 		return nil, errors.<b>Errorf</b>("no addresses for DC %d", dc)
 		<a href="../../../src/github.com/gotd/td/telegram/dcs/websocket.go.html#line-31">websocket.go#L31</a>: 		return nil, errors.<b>Errorf</b>("domain for %d not found", dc)
 		<a href="../../../src/github.com/gotd/td/telegram/dcs/websocket.go.html#line-63" class="path-duplicate">websocket.go</a><a href="../../../src/github.com/gotd/td/telegram/dcs/websocket.go.html#line-63">#L63</a>: 	return nil, errors.<b>Errorf</b>("can't resolve %d: MediaOnly is unsupported", dc)
 		<a href="../../../src/github.com/gotd/td/telegram/dcs/websocket.go.html#line-67" class="path-duplicate">websocket.go</a><a href="../../../src/github.com/gotd/td/telegram/dcs/websocket.go.html#line-67">#L67</a>: 	return nil, errors.<b>Errorf</b>("can't resolve %d: CDN is unsupported", dc)
+
+	<a href="../../../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_plan.go.html#line-26">cdn_plan.go#L26</a>: 		return nil, errors.<b>Errorf</b>("invalid CDN limit %d", limit)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_plan.go.html#line-29" class="path-duplicate">cdn_plan.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_plan.go.html#line-29">#L29</a>: 		return nil, errors.<b>Errorf</b>("invalid CDN offset %d", offset)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_plan.go.html#line-32" class="path-duplicate">cdn_plan.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_plan.go.html#line-32">#L32</a>: 		return nil, errors.<b>Errorf</b>("CDN offset %d must be divisible by %d", offset, cdnMinChunk)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_plan.go.html#line-35" class="path-duplicate">cdn_plan.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_plan.go.html#line-35">#L35</a>: 		return nil, errors.<b>Errorf</b>("CDN limit %d must be divisible by %d", limit, cdnMinChunk)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_plan.go.html#line-53" class="path-duplicate">cdn_plan.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_plan.go.html#line-53">#L53</a>: 			return nil, errors.<b>Errorf</b>("unable to build CDN request plan for offset=%d limit=%d", offset, limit)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_state_machine.go.html#line-286">cdn_state_machine.go#L286</a>: 					return chunk{}, errors.<b>Errorf</b>("unexpected type %T", result)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-167">cdn_verify.go#L167</a>: 		errors.<b>Errorf</b>("hash for offset %d not found", offset),
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-199" class="path-duplicate">cdn_verify.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-199">#L199</a>: 			return nil, errors.<b>Errorf</b>(
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-221" class="path-duplicate">cdn_verify.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-221">#L221</a>: 		return nil, errors.<b>Errorf</b>("unexpected window type %T", v)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-243" class="path-duplicate">cdn_verify.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-243">#L243</a>: 			return errors.<b>Errorf</b>("invalid CDN hash limit %d at offset %d", hash.Limit, current)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-248" class="path-duplicate">cdn_verify.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-248">#L248</a>: 			return errors.<b>Errorf</b>("invalid CDN hash window [%d,%d) at offset %d", windowStart, windowEnd, current)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-294" class="path-duplicate">cdn_verify.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-294">#L294</a>: 				return errors.<b>Errorf</b>(
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-320" class="path-duplicate">cdn_verify.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-320">#L320</a>: 		return nil, errors.<b>Errorf</b>(
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/master.go.html#line-68">master.go#L68</a>: 		return chunk{}, errors.<b>Errorf</b>("unexpected type %T", r)
+
+	<a href="../../../pkg/github.com/gotd/td/tg.html">github.com/gotd/td/tg</a>
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-67">json_invoke.go#L67</a>: 		return "", errors.<b>Errorf</b>("unknown method or type: %q", typeField)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-74" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-74">#L74</a>: 		return "", errors.<b>Errorf</b>("no constructor for type ID: 0x%x (%s)", typeID, typeField)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-79" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-79">#L79</a>: 		return "", errors.<b>Errorf</b>("constructor returned nil for type ID: 0x%x (%s)", typeID, typeField)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-133" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-133">#L133</a>: 		return errors.<b>Errorf</b>("unknown response type: 0x%x", id)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-138" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-138">#L138</a>: 		return errors.<b>Errorf</b>("failed to create response instance for type: 0x%x", id)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-144" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-144">#L144</a>: 		return errors.<b>Errorf</b>("response type does not implement bin.Decoder")
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-334" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-334">#L334</a>: 		return jsonValue{}, errors.<b>Errorf</b>("unexpected JSON token: %v", tt)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-412" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-412">#L412</a>: 		return errors.<b>Errorf</b>("unsupported JSON value type: %v", val.typ)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-435" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-435">#L435</a>: 		return errors.<b>Errorf</b>("unknown type: %q", typeName)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-441" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-441">#L441</a>: 		return errors.<b>Errorf</b>("no constructor for type: %q", typeName)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-446" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-446">#L446</a>: 		return errors.<b>Errorf</b>("constructor returned nil for type: %q", typeName)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-580" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-580">#L580</a>: 		return "", errors.<b>Errorf</b>("type name not found for ID: 0x%x", typeID)
+		<a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-587" class="path-duplicate">json_invoke.go</a><a href="../../../src/github.com/gotd/td/tg/json_invoke.go.html#line-587">#L587</a>: 		return "", errors.<b>Errorf</b>("no constructor for type ID: 0x%x", typeID)
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

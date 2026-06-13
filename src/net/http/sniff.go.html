@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: sniff.go in package net/http</title>
-<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -302,7 +302,7 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-200"><code>}</code></span>
 <span class="codeline" id="line-201"><code></code></span>
 <span class="codeline" id="line-202"><code><span class="keyword">func</span> (<label for="r10" class="ident">e</label> *<a href="#line-197" class="ident">exactSig</a>) <label for="r11" class="ident"><a href="../../../use/net/http..exactSig^517d1.match^4945a.html" class="ident">match</a></label>(<label for="r12" class="ident">data</label> []<a href="../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r13" class="ident">firstNonWS</label> <a href="../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
-<span class="codeline" id="line-203"><code>	<span class="keyword">if</span> <a href="../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../bytes/bytes.go.html#line-561" class="ident">HasPrefix</a>(<label for="r12" class="ident">data</label>, <label for="r10" class="ident">e</label>.<a href="#line-198" class="ident">sig</a>) {</code></span>
+<span class="codeline" id="line-203"><code>	<span class="keyword">if</span> <a href="../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../bytes/bytes.go.html#line-594" class="ident">HasPrefix</a>(<label for="r12" class="ident">data</label>, <label for="r10" class="ident">e</label>.<a href="#line-198" class="ident">sig</a>) {</code></span>
 <span class="codeline" id="line-204"><code>		<span class="keyword">return</span> <label for="r10" class="ident">e</label>.<a href="#line-199" class="ident">ct</a></code></span>
 <span class="codeline" id="line-205"><code>	}</code></span>
 <span class="codeline" id="line-206"><code>	<span class="keyword">return</span> <span class="lit-string">""</span></code></span>
@@ -370,11 +370,11 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-268"><code>	<span class="keyword">if</span> <a href="../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r29" class="ident">data</label>) &lt; <span class="lit-number">12</span> {</code></span>
 <span class="codeline" id="line-269"><code>		<span class="keyword">return</span> <span class="lit-string">""</span></code></span>
 <span class="codeline" id="line-270"><code>	}</code></span>
-<span class="codeline" id="line-271"><code>	<label for="r31" class="ident">boxSize</label> := <a href="../../../pkg/builtin.html#name-int" class="ident">int</a>(<a href="../../../pkg/encoding/binary.html" class="ident i1">binary</a>.<a href="../../encoding/binary/binary.go.html#line-57" class="ident">BigEndian</a>.<a href="../../encoding/binary/binary.go.html#line-156" class="ident">Uint32</a>(<label for="r29" class="ident">data</label>[:<span class="lit-number">4</span>]))</code></span>
+<span class="codeline" id="line-271"><code>	<label for="r31" class="ident">boxSize</label> := <a href="../../../pkg/builtin.html#name-int" class="ident">int</a>(<a href="../../../pkg/encoding/binary.html" class="ident i1">binary</a>.<a href="../../encoding/binary/binary.go.html#line-64" class="ident">BigEndian</a>.<a href="../../encoding/binary/binary.go.html#line-176" class="ident">Uint32</a>(<label for="r29" class="ident">data</label>[:<span class="lit-number">4</span>]))</code></span>
 <span class="codeline" id="line-272"><code>	<span class="keyword">if</span> <a href="../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r29" class="ident">data</label>) &lt; <label for="r31" class="ident">boxSize</label> || <label for="r31" class="ident">boxSize</label>%<span class="lit-number">4</span> != <span class="lit-number">0</span> {</code></span>
 <span class="codeline" id="line-273"><code>		<span class="keyword">return</span> <span class="lit-string">""</span></code></span>
 <span class="codeline" id="line-274"><code>	}</code></span>
-<span class="codeline" id="line-275"><code>	<span class="keyword">if</span> !<a href="../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../bytes/bytes.go.html#line-18" class="ident">Equal</a>(<label for="r29" class="ident">data</label>[<span class="lit-number">4</span>:<span class="lit-number">8</span>], <a href="#line-260" class="ident">mp4ftype</a>) {</code></span>
+<span class="codeline" id="line-275"><code>	<span class="keyword">if</span> !<a href="../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../bytes/bytes.go.html#line-20" class="ident">Equal</a>(<label for="r29" class="ident">data</label>[<span class="lit-number">4</span>:<span class="lit-number">8</span>], <a href="#line-260" class="ident">mp4ftype</a>) {</code></span>
 <span class="codeline" id="line-276"><code>		<span class="keyword">return</span> <span class="lit-string">""</span></code></span>
 <span class="codeline" id="line-277"><code>	}</code></span>
 <span class="codeline" id="line-278"><code>	<span class="keyword">for</span> <label for="r32" class="ident">st</label> := <span class="lit-number">8</span>; <label for="r32" class="ident">st</label> &lt; <label for="r31" class="ident">boxSize</label>; <label for="r32" class="ident">st</label> += <span class="lit-number">4</span> {</code></span>
@@ -382,7 +382,7 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-280"><code>			<span class="comment">// Ignores the four bytes that correspond to the version number of the "major brand".</span></code></span>
 <span class="codeline" id="line-281"><code>			<span class="keyword">continue</span></code></span>
 <span class="codeline" id="line-282"><code>		}</code></span>
-<span class="codeline" id="line-283"><code>		<span class="keyword">if</span> <a href="../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../bytes/bytes.go.html#line-18" class="ident">Equal</a>(<label for="r29" class="ident">data</label>[<label for="r32" class="ident">st</label>:<label for="r32" class="ident">st</label>+<span class="lit-number">3</span>], <a href="#line-261" class="ident">mp4</a>) {</code></span>
+<span class="codeline" id="line-283"><code>		<span class="keyword">if</span> <a href="../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../bytes/bytes.go.html#line-20" class="ident">Equal</a>(<label for="r29" class="ident">data</label>[<label for="r32" class="ident">st</label>:<label for="r32" class="ident">st</label>+<span class="lit-number">3</span>], <a href="#line-261" class="ident">mp4</a>) {</code></span>
 <span class="codeline" id="line-284"><code>			<span class="keyword">return</span> <span class="lit-string">"video/mp4"</span></code></span>
 <span class="codeline" id="line-285"><code>		}</code></span>
 <span class="codeline" id="line-286"><code>	}</code></span>
@@ -405,8 +405,8 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-303"><code>	<span class="keyword">return</span> <span class="lit-string">"text/plain; charset=utf-8"</span></code></span>
 <span class="codeline" id="line-304"><code>}</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

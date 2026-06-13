@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.blockEnc.litEnc</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-17">blockEnc</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-22">litEnc</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">21 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-22">blockenc.go#L22</a>: 	<b>litEnc</b>     *huff0.Scratch
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-72" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-72">#L72</a>: 	b.<b>litEnc</b> = &amp;huff0.Scratch{WantLogLess: 4}
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-79" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-79">#L79</a>: 	b.<b>litEnc</b>.Reuse = huff0.ReusePolicyNone
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-105" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-105">#L105</a>: 	b.<b>litEnc</b>, prev.<b>litEnc</b> = prev.<b>litEnc</b>, b.<b>litEnc</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-359" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-359">#L359</a>: 		b.<b>litEnc</b>.TransferCTable(b.dictLitEnc)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-360" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-360">#L360</a>: 		b.<b>litEnc</b>.Reuse = huff0.ReusePolicyAllow
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-365" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-365">#L365</a>: 		out, reUsed, err = huff0.Compress4X(lits, b.<b>litEnc</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-369" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-369">#L369</a>: 		out, reUsed, err = huff0.Compress1X(lits, b.<b>litEnc</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-404" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-404">#L404</a>: 	b.<b>litEnc</b>.Reuse = huff0.ReusePolicyAllow
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-414" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-414">#L414</a>: 			println("New tree, compressed to", len(out), "tree size:", len(b.<b>litEnc</b>.OutTable))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-519" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-519">#L519</a>: 		b.<b>litEnc</b>.TransferCTable(b.dictLitEnc)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-520" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-520">#L520</a>: 		b.<b>litEnc</b>.Reuse = huff0.ReusePolicyAllow
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-525" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-525">#L525</a>: 		out, reUsed, err = huff0.Compress4X(b.literals, b.<b>litEnc</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-529" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-529">#L529</a>: 		out, reUsed, err = huff0.Compress1X(b.literals, b.<b>litEnc</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-571" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-571">#L571</a>: 				println("new tree, size:", len(b.<b>litEnc</b>.OutTable))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-588" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-588">#L588</a>: 		b.<b>litEnc</b>.Reuse = huff0.ReusePolicyAllow
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-815" class="path-duplicate">blockenc.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-815">#L815</a>: 		b.<b>litEnc</b>.Reuse = huff0.ReusePolicyNone
+		<a href="../../../../src/github.com/klauspost/compress/zstd/snappy.go.html#line-94">snappy.go#L94</a>: 	r.block.<b>litEnc</b>.Reuse = huff0.ReusePolicyNone
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,28 +5,29 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: runtime.mspan.gcmarkBits</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/mheap.go.html#line-410">mspan</a>.<a href="../src/runtime/mheap.go.html#line-472">gcmarkBits</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/mheap.go.html#line-422">mspan</a>.<a href="../src/runtime/mheap.go.html#line-491">gcmarkBits</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">10 uses</span>
+<span class="title">11 uses</span>
 
 	runtime (current package)
-		<a href="../src/runtime/mbitmap.go.html#line-236">mbitmap.go#L236</a>: 	bytep, mask := s.<b>gcmarkBits</b>.bitp(objIndex)
-		<a href="../src/runtime/mbitmap.go.html#line-241" class="path-duplicate">mbitmap.go</a><a href="../src/runtime/mbitmap.go.html#line-241">#L241</a>: 	return markBits{&amp;s.<b>gcmarkBits</b>.x, uint8(1), 0}
-		<a href="../src/runtime/mbitmap.go.html#line-764" class="path-duplicate">mbitmap.go</a><a href="../src/runtime/mbitmap.go.html#line-764">#L764</a>: 		mrkBits := *(*uint64)(unsafe.Pointer(s.<b>gcmarkBits</b>.bytep(i)))
-		<a href="../src/runtime/mgcsweep.go.html#line-638">mgcsweep.go#L638</a>: 		if (*s.<b>gcmarkBits</b>.bytep(obj / 8)&amp;^*s.allocBits.bytep(obj / 8))&gt;&gt;(obj%8) != 0 {
-		<a href="../src/runtime/mgcsweep.go.html#line-643" class="path-duplicate">mgcsweep.go</a><a href="../src/runtime/mgcsweep.go.html#line-643">#L643</a>: 			if *s.<b>gcmarkBits</b>.bytep(i)&amp;^*s.allocBits.bytep(i) != 0 {
-		<a href="../src/runtime/mgcsweep.go.html#line-668" class="path-duplicate">mgcsweep.go</a><a href="../src/runtime/mgcsweep.go.html#line-668">#L668</a>: 	s.allocBits = s.<b>gcmarkBits</b>
-		<a href="../src/runtime/mgcsweep.go.html#line-669" class="path-duplicate">mgcsweep.go</a><a href="../src/runtime/mgcsweep.go.html#line-669">#L669</a>: 	s.<b>gcmarkBits</b> = newMarkBits(s.nelems)
-		<a href="../src/runtime/mheap.go.html#line-472">mheap.go#L472</a>: 	<b>gcmarkBits</b> *gcBits
-		<a href="../src/runtime/mheap.go.html#line-1412" class="path-duplicate">mheap.go</a><a href="../src/runtime/mheap.go.html#line-1412">#L1412</a>: 		s.<b>gcmarkBits</b> = newMarkBits(s.nelems)
-		<a href="../src/runtime/mheap.go.html#line-1693" class="path-duplicate">mheap.go</a><a href="../src/runtime/mheap.go.html#line-1693">#L1693</a>: 	span.<b>gcmarkBits</b> = nil
+		<a href="../src/runtime/mbitmap.go.html#line-1507">mbitmap.go#L1507</a>: 		mrkBits := *(*uint64)(unsafe.Pointer(s.<b>gcmarkBits</b>.bytep(i)))
+		<a href="../src/runtime/mgcmark_greenteagc.go.html#line-232">mgcmark_greenteagc.go#L232</a>: 		bits.bytep = s.<b>gcmarkBits</b>.bytep(objIndex / 8)
+		<a href="../src/runtime/mgcmark_greenteagc.go.html#line-243" class="path-duplicate">mgcmark_greenteagc.go</a><a href="../src/runtime/mgcmark_greenteagc.go.html#line-243">#L243</a>: 	return markBits{&amp;s.<b>gcmarkBits</b>.x, uint8(1), 0}
+		<a href="../src/runtime/mgcsweep.go.html#line-656">mgcsweep.go#L656</a>: 		s.moveInlineMarks(s.<b>gcmarkBits</b>)
+		<a href="../src/runtime/mgcsweep.go.html#line-667" class="path-duplicate">mgcsweep.go</a><a href="../src/runtime/mgcsweep.go.html#line-667">#L667</a>: 		if (*s.<b>gcmarkBits</b>.bytep(obj / 8)&amp;^*s.allocBits.bytep(obj / 8))&gt;&gt;(obj%8) != 0 {
+		<a href="../src/runtime/mgcsweep.go.html#line-672" class="path-duplicate">mgcsweep.go</a><a href="../src/runtime/mgcsweep.go.html#line-672">#L672</a>: 			if *s.<b>gcmarkBits</b>.bytep(i)&amp;^*s.allocBits.bytep(i) != 0 {
+		<a href="../src/runtime/mgcsweep.go.html#line-697" class="path-duplicate">mgcsweep.go</a><a href="../src/runtime/mgcsweep.go.html#line-697">#L697</a>: 	s.allocBits = s.<b>gcmarkBits</b>
+		<a href="../src/runtime/mgcsweep.go.html#line-698" class="path-duplicate">mgcsweep.go</a><a href="../src/runtime/mgcsweep.go.html#line-698">#L698</a>: 	s.<b>gcmarkBits</b> = newMarkBits(uintptr(s.nelems))
+		<a href="../src/runtime/mheap.go.html#line-491">mheap.go#L491</a>: 	<b>gcmarkBits</b> *gcBits
+		<a href="../src/runtime/mheap.go.html#line-1493" class="path-duplicate">mheap.go</a><a href="../src/runtime/mheap.go.html#line-1493">#L1493</a>: 		s.<b>gcmarkBits</b> = newMarkBits(uintptr(s.nelems))
+		<a href="../src/runtime/mheap.go.html#line-1836" class="path-duplicate">mheap.go</a><a href="../src/runtime/mheap.go.html#line-1836">#L1836</a>: 	span.<b>gcmarkBits</b> = nil
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

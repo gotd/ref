@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: u_common.go in package github.com/refraction-networking/utls</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	u_common.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33],
+input[id=r34]:checked ~pre label[for=r34],
+input[id=r35]:checked ~pre label[for=r35],
+input[id=r36]:checked ~pre label[for=r36],
+input[id=r37]:checked ~pre label[for=r37],
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40],
+input[id=r41]:checked ~pre label[for=r41],
+input[id=r42]:checked ~pre label[for=r42],
+input[id=r43]:checked ~pre label[for=r43],
+input[id=r44]:checked ~pre label[for=r44],
+input[id=r45]:checked ~pre label[for=r45],
+input[id=r46]:checked ~pre label[for=r46],
+input[id=r47]:checked ~pre label[for=r47],
+input[id=r48]:checked ~pre label[for=r48],
+input[id=r49]:checked ~pre label[for=r49],
+input[id=r50]:checked ~pre label[for=r50],
+input[id=r51]:checked ~pre label[for=r51],
+input[id=r52]:checked ~pre label[for=r52],
+input[id=r53]:checked ~pre label[for=r53],
+input[id=r54]:checked ~pre label[for=r54],
+input[id=r55]:checked ~pre label[for=r55],
+input[id=r56]:checked ~pre label[for=r56],
+input[id=r57]:checked ~pre label[for=r57],
+input[id=r58]:checked ~pre label[for=r58],
+input[id=r59]:checked ~pre label[for=r59],
+input[id=r60]:checked ~pre label[for=r60],
+input[id=r61]:checked ~pre label[for=r61],
+input[id=r62]:checked ~pre label[for=r62],
+input[id=r63]:checked ~pre label[for=r63],
+input[id=r64]:checked ~pre label[for=r64],
+input[id=r65]:checked ~pre label[for=r65],
+input[id=r66]:checked ~pre label[for=r66],
+input[id=r67]:checked ~pre label[for=r67],
+input[id=r68]:checked ~pre label[for=r68],
+input[id=r69]:checked ~pre label[for=r69],
+input[id=r70]:checked ~pre label[for=r70],
+input[id=r71]:checked ~pre label[for=r71],
+input[id=r72]:checked ~pre label[for=r72],
+input[id=r73]:checked ~pre label[for=r73],
+input[id=r74]:checked ~pre label[for=r74],
+input[id=r75]:checked ~pre label[for=r75],
+input[id=r76]:checked ~pre label[for=r76],
+input[id=r77]:checked ~pre label[for=r77],
+input[id=r78]:checked ~pre label[for=r78],
+input[id=r79]:checked ~pre label[for=r79],
+input[id=r80]:checked ~pre label[for=r80],
+input[id=r81]:checked ~pre label[for=r81],
+input[id=r82]:checked ~pre label[for=r82],
+input[id=r83]:checked ~pre label[for=r83],
+input[id=r84]:checked ~pre label[for=r84],
+input[id=r85]:checked ~pre label[for=r85],
+input[id=r86]:checked ~pre label[for=r86],
+input[id=r87]:checked ~pre label[for=r87],
+input[id=r88]:checked ~pre label[for=r88],
+input[id=r89]:checked ~pre label[for=r89],
+input[id=r90]:checked ~pre label[for=r90],
+input[id=r91]:checked ~pre label[for=r91],
+input[id=r92]:checked ~pre label[for=r92],
+input[id=r93]:checked ~pre label[for=r93],
+input[id=r94]:checked ~pre label[for=r94],
+input[id=r95]:checked ~pre label[for=r95],
+input[id=r96]:checked ~pre label[for=r96],
+input[id=r97]:checked ~pre label[for=r97],
+input[id=r98]:checked ~pre label[for=r98],
+input[id=r99]:checked ~pre label[for=r99],
+input[id=r100]:checked ~pre label[for=r100],
+input[id=r101]:checked ~pre label[for=r101],
+input[id=r102]:checked ~pre label[for=r102],
+input[id=r103]:checked ~pre label[for=r103],
+input[id=r104]:checked ~pre label[for=r104],
+input[id=r105]:checked ~pre label[for=r105],
+input[id=r106]:checked ~pre label[for=r106],
+input[id=r107]:checked ~pre label[for=r107],
+input[id=r108]:checked ~pre label[for=r108],
+input[id=r109]:checked ~pre label[for=r109],
+input[id=r110]:checked ~pre label[for=r110],
+input[id=r111]:checked ~pre label[for=r111],
+input[id=r112]:checked ~pre label[for=r112],
+input[id=r113]:checked ~pre label[for=r113],
+input[id=r114]:checked ~pre label[for=r114],
+input[id=r115]:checked ~pre label[for=r115],
+input[id=r116]:checked ~pre label[for=r116],
+input[id=r117]:checked ~pre label[for=r117],
+input[id=r118]:checked ~pre label[for=r118],
+input[id=r119]:checked ~pre label[for=r119],
+input[id=r120]:checked ~pre label[for=r120],
+input[id=r121]:checked ~pre label[for=r121],
+input[id=r122]:checked ~pre label[for=r122],
+input[id=r123]:checked ~pre label[for=r123],
+input[id=r124]:checked ~pre label[for=r124],
+input[id=r125]:checked ~pre label[for=r125]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2,
+input[id=i3]:checked ~pre .i3,
+input[id=i4]:checked ~pre .i4,
+input[id=i5]:checked ~pre .i5,
+input[id=i6]:checked ~pre .i6,
+input[id=i7]:checked ~pre .i7,
+input[id=i8]:checked ~pre .i8
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="r34" type="radio" name="g"/>
+<input id="r35" type="radio" name="g"/>
+<input id="r36" type="radio" name="g"/>
+<input id="r37" type="radio" name="g"/>
+<input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="r41" type="radio" name="g"/>
+<input id="r42" type="radio" name="g"/>
+<input id="r43" type="radio" name="g"/>
+<input id="r44" type="radio" name="g"/>
+<input id="r45" type="radio" name="g"/>
+<input id="r46" type="radio" name="g"/>
+<input id="r47" type="radio" name="g"/>
+<input id="r48" type="radio" name="g"/>
+<input id="r49" type="radio" name="g"/>
+<input id="r50" type="radio" name="g"/>
+<input id="r51" type="radio" name="g"/>
+<input id="r52" type="radio" name="g"/>
+<input id="r53" type="radio" name="g"/>
+<input id="r54" type="radio" name="g"/>
+<input id="r55" type="radio" name="g"/>
+<input id="r56" type="radio" name="g"/>
+<input id="r57" type="radio" name="g"/>
+<input id="r58" type="radio" name="g"/>
+<input id="r59" type="radio" name="g"/>
+<input id="r60" type="radio" name="g"/>
+<input id="r61" type="radio" name="g"/>
+<input id="r62" type="radio" name="g"/>
+<input id="r63" type="radio" name="g"/>
+<input id="r64" type="radio" name="g"/>
+<input id="r65" type="radio" name="g"/>
+<input id="r66" type="radio" name="g"/>
+<input id="r67" type="radio" name="g"/>
+<input id="r68" type="radio" name="g"/>
+<input id="r69" type="radio" name="g"/>
+<input id="r70" type="radio" name="g"/>
+<input id="r71" type="radio" name="g"/>
+<input id="r72" type="radio" name="g"/>
+<input id="r73" type="radio" name="g"/>
+<input id="r74" type="radio" name="g"/>
+<input id="r75" type="radio" name="g"/>
+<input id="r76" type="radio" name="g"/>
+<input id="r77" type="radio" name="g"/>
+<input id="r78" type="radio" name="g"/>
+<input id="r79" type="radio" name="g"/>
+<input id="r80" type="radio" name="g"/>
+<input id="r81" type="radio" name="g"/>
+<input id="r82" type="radio" name="g"/>
+<input id="r83" type="radio" name="g"/>
+<input id="r84" type="radio" name="g"/>
+<input id="r85" type="radio" name="g"/>
+<input id="r86" type="radio" name="g"/>
+<input id="r87" type="radio" name="g"/>
+<input id="r88" type="radio" name="g"/>
+<input id="r89" type="radio" name="g"/>
+<input id="r90" type="radio" name="g"/>
+<input id="r91" type="radio" name="g"/>
+<input id="r92" type="radio" name="g"/>
+<input id="r93" type="radio" name="g"/>
+<input id="r94" type="radio" name="g"/>
+<input id="r95" type="radio" name="g"/>
+<input id="r96" type="radio" name="g"/>
+<input id="r97" type="radio" name="g"/>
+<input id="r98" type="radio" name="g"/>
+<input id="r99" type="radio" name="g"/>
+<input id="r100" type="radio" name="g"/>
+<input id="r101" type="radio" name="g"/>
+<input id="r102" type="radio" name="g"/>
+<input id="r103" type="radio" name="g"/>
+<input id="r104" type="radio" name="g"/>
+<input id="r105" type="radio" name="g"/>
+<input id="r106" type="radio" name="g"/>
+<input id="r107" type="radio" name="g"/>
+<input id="r108" type="radio" name="g"/>
+<input id="r109" type="radio" name="g"/>
+<input id="r110" type="radio" name="g"/>
+<input id="r111" type="radio" name="g"/>
+<input id="r112" type="radio" name="g"/>
+<input id="r113" type="radio" name="g"/>
+<input id="r114" type="radio" name="g"/>
+<input id="r115" type="radio" name="g"/>
+<input id="r116" type="radio" name="g"/>
+<input id="r117" type="radio" name="g"/>
+<input id="r118" type="radio" name="g"/>
+<input id="r119" type="radio" name="g"/>
+<input id="r120" type="radio" name="g"/>
+<input id="r121" type="radio" name="g"/>
+<input id="r122" type="radio" name="g"/>
+<input id="r123" type="radio" name="g"/>
+<input id="r124" type="radio" name="g"/>
+<input id="r125" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+<input id="i3" type="radio" name="i"/>
+<input id="i4" type="radio" name="i"/>
+<input id="i5" type="radio" name="i"/>
+<input id="i6" type="radio" name="i"/>
+<input id="i7" type="radio" name="i"/>
+<input id="i8" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright 2017 Google Inc. All rights reserved.</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// Use of this source code is governed by a BSD-style</span></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// license that can be found in the LICENSE file.</span></code></span>
+<span class="codeline" id="line-4"><code></code></span>
+<span class="codeline" id="line-5"><code><span class="keyword">package</span> tls</code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-8"><code>	<label for="i0"><span class="lit-string i0">"crypto/hmac"</span></label></code></span>
+<span class="codeline" id="line-9"><code>	<label for="i1"><span class="lit-string i1">"crypto/sha512"</span></label></code></span>
+<span class="codeline" id="line-10"><code>	<label for="i2"><span class="lit-string i2">"encoding/json"</span></label></code></span>
+<span class="codeline" id="line-11"><code>	<label for="i3"><span class="lit-string i3">"errors"</span></label></code></span>
+<span class="codeline" id="line-12"><code>	<label for="i4"><span class="lit-string i4">"fmt"</span></label></code></span>
+<span class="codeline" id="line-13"><code>	<label for="i5"><span class="lit-string i5">"hash"</span></label></code></span>
+<span class="codeline" id="line-14"><code>	<label for="i6"><span class="lit-string i6">"log"</span></label></code></span>
+<span class="codeline" id="line-15"><code></code></span>
+<span class="codeline" id="line-16"><code>	<label for="i7"><span class="lit-string i7">"github.com/refraction-networking/utls/internal/helper"</span></label></code></span>
+<span class="codeline" id="line-17"><code>	<label for="i8"><span class="lit-string i8">"golang.org/x/crypto/cryptobyte"</span></label></code></span>
+<span class="codeline" id="line-18"><code>)</code></span>
+<span class="codeline" id="line-19"><code></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">// Naming convention:</span></code></span>
+<span class="codeline" id="line-21"><code><span class="comment">// Unsupported things are prefixed with "Fake"</span></code></span>
+<span class="codeline" id="line-22"><code><span class="comment">// Things, supported by utls, but not crypto/tls' are prefixed with "utls"</span></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">// Supported things, that have changed their ID are prefixed with "Old"</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">// Supported but disabled things are prefixed with "Disabled". We will _enable_ them.</span></code></span>
+<span class="codeline" id="line-25"><code></code></span>
+<span class="codeline" id="line-26"><code><span class="comment">// TLS handshake message types.</span></code></span>
+<span class="codeline" id="line-27"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-28"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-utlsTypeEncryptedExtensions" class="ident">utlsTypeEncryptedExtensions</a> <a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">8</span> <span class="comment">// implemention incomplete by crypto/tls</span></code></span>
+<span class="codeline" id="line-29"><code>	<span class="comment">// https://datatracker.ietf.org/doc/html/rfc8879#section-7.2</span></code></span>
+<span class="codeline" id="line-30"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-utlsTypeCompressedCertificate" class="ident">utlsTypeCompressedCertificate</a> <a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <span class="lit-number">25</span></code></span>
+<span class="codeline" id="line-31"><code>)</code></span>
+<span class="codeline" id="line-32"><code></code></span>
+<span class="codeline" id="line-33"><code><span class="comment">// TLS</span></code></span>
+<span class="codeline" id="line-34"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-35"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-extensionNextProtoNeg" class="ident">extensionNextProtoNeg</a> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">13172</span> <span class="comment">// not IANA assigned. Removed by crypto/tls since Nov 2019</span></code></span>
+<span class="codeline" id="line-36"><code></code></span>
+<span class="codeline" id="line-37"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-utlsExtensionPadding" class="ident">utlsExtensionPadding</a>                <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">21</span></code></span>
+<span class="codeline" id="line-38"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-utlsExtensionCompressCertificate" class="ident">utlsExtensionCompressCertificate</a>    <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">27</span>     <span class="comment">// https://datatracker.ietf.org/doc/html/rfc8879#section-7.1</span></code></span>
+<span class="codeline" id="line-39"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-utlsExtensionApplicationSettings" class="ident">utlsExtensionApplicationSettings</a>    <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">17513</span>  <span class="comment">// not IANA assigned</span></code></span>
+<span class="codeline" id="line-40"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-utlsExtensionApplicationSettingsNew" class="ident">utlsExtensionApplicationSettingsNew</a> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">17613</span>  <span class="comment">// not IANA assigned</span></code></span>
+<span class="codeline" id="line-41"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-utlsFakeExtensionCustom" class="ident">utlsFakeExtensionCustom</a>             <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">1234</span>   <span class="comment">// not IANA assigned, for ALPS</span></code></span>
+<span class="codeline" id="line-42"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-utlsExtensionECH" class="ident">utlsExtensionECH</a>                    <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0xfe0d</span> <span class="comment">// draft-ietf-tls-esni-17</span></code></span>
+<span class="codeline" id="line-43"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-utlsExtensionECHOuterExtensions" class="ident">utlsExtensionECHOuterExtensions</a>     <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0xfd00</span> <span class="comment">// draft-ietf-tls-esni-17</span></code></span>
+<span class="codeline" id="line-44"><code></code></span>
+<span class="codeline" id="line-45"><code>	<span class="comment">// extensions with 'fake' prefix break connection, if server echoes them back</span></code></span>
+<span class="codeline" id="line-46"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-fakeExtensionEncryptThenMAC" class="ident">fakeExtensionEncryptThenMAC</a>       <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">22</span></code></span>
+<span class="codeline" id="line-47"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-fakeExtensionTokenBinding" class="ident">fakeExtensionTokenBinding</a>         <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">24</span></code></span>
+<span class="codeline" id="line-48"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-fakeExtensionDelegatedCredentials" class="ident">fakeExtensionDelegatedCredentials</a> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">34</span></code></span>
+<span class="codeline" id="line-49"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-fakeExtensionPreSharedKey" class="ident">fakeExtensionPreSharedKey</a>         <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">41</span></code></span>
+<span class="codeline" id="line-50"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-fakeOldExtensionChannelID" class="ident">fakeOldExtensionChannelID</a>         <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">30031</span> <span class="comment">// not IANA assigned</span></code></span>
+<span class="codeline" id="line-51"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-fakeExtensionChannelID" class="ident">fakeExtensionChannelID</a>            <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">30032</span> <span class="comment">// not IANA assigned</span></code></span>
+<span class="codeline" id="line-52"><code>)</code></span>
+<span class="codeline" id="line-53"><code></code></span>
+<span class="codeline" id="line-54"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-55"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-OLD_TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256" class="ident">OLD_TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256</a>   = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0xcc13</span>)</code></span>
+<span class="codeline" id="line-56"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-OLD_TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256" class="ident">OLD_TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0xcc14</span>)</code></span>
+<span class="codeline" id="line-57"><code></code></span>
+<span class="codeline" id="line-58"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-DISABLED_TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384" class="ident">DISABLED_TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0xc024</span>)</code></span>
+<span class="codeline" id="line-59"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-DISABLED_TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384" class="ident">DISABLED_TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384</a>   = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0xc028</span>)</code></span>
+<span class="codeline" id="line-60"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-DISABLED_TLS_RSA_WITH_AES_256_CBC_SHA256" class="ident">DISABLED_TLS_RSA_WITH_AES_256_CBC_SHA256</a>         = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0x003d</span>)</code></span>
+<span class="codeline" id="line-61"><code></code></span>
+<span class="codeline" id="line-62"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FAKE_OLD_TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256" class="ident">FAKE_OLD_TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0xcc15</span>) <span class="comment">// we can try to craft these ciphersuites</span></code></span>
+<span class="codeline" id="line-63"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FAKE_TLS_DHE_RSA_WITH_AES_128_GCM_SHA256" class="ident">FAKE_TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</a>           = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0x009e</span>) <span class="comment">// from existing pieces, if needed</span></code></span>
+<span class="codeline" id="line-64"><code></code></span>
+<span class="codeline" id="line-65"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FAKE_TLS_DHE_RSA_WITH_AES_128_CBC_SHA" class="ident">FAKE_TLS_DHE_RSA_WITH_AES_128_CBC_SHA</a>    = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0x0033</span>)</code></span>
+<span class="codeline" id="line-66"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FAKE_TLS_DHE_RSA_WITH_AES_256_CBC_SHA" class="ident">FAKE_TLS_DHE_RSA_WITH_AES_256_CBC_SHA</a>    = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0x0039</span>)</code></span>
+<span class="codeline" id="line-67"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FAKE_TLS_RSA_WITH_RC4_128_MD5" class="ident">FAKE_TLS_RSA_WITH_RC4_128_MD5</a>            = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0x0004</span>)</code></span>
+<span class="codeline" id="line-68"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FAKE_TLS_DHE_RSA_WITH_AES_256_GCM_SHA384" class="ident">FAKE_TLS_DHE_RSA_WITH_AES_256_GCM_SHA384</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0x009f</span>)</code></span>
+<span class="codeline" id="line-69"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FAKE_TLS_DHE_DSS_WITH_AES_128_CBC_SHA" class="ident">FAKE_TLS_DHE_DSS_WITH_AES_128_CBC_SHA</a>    = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0x0032</span>)</code></span>
+<span class="codeline" id="line-70"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FAKE_TLS_DHE_RSA_WITH_AES_256_CBC_SHA256" class="ident">FAKE_TLS_DHE_RSA_WITH_AES_256_CBC_SHA256</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0x006b</span>)</code></span>
+<span class="codeline" id="line-71"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FAKE_TLS_DHE_RSA_WITH_AES_128_CBC_SHA256" class="ident">FAKE_TLS_DHE_RSA_WITH_AES_128_CBC_SHA256</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0x0067</span>)</code></span>
+<span class="codeline" id="line-72"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FAKE_TLS_EMPTY_RENEGOTIATION_INFO_SCSV" class="ident">FAKE_TLS_EMPTY_RENEGOTIATION_INFO_SCSV</a>   = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0x00ff</span>)</code></span>
+<span class="codeline" id="line-73"><code></code></span>
+<span class="codeline" id="line-74"><code>	<span class="comment">// https://docs.microsoft.com/en-us/dotnet/api/system.net.security.tlsciphersuite?view=netcore-3.1</span></code></span>
+<span class="codeline" id="line-75"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FAKE_TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA" class="ident">FAKE_TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0xc008</span>)</code></span>
+<span class="codeline" id="line-76"><code>)</code></span>
+<span class="codeline" id="line-77"><code></code></span>
+<span class="codeline" id="line-78"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-79"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-CurveSECP256R1" class="ident">CurveSECP256R1</a> <a href="common.go.html#line-147" class="ident">CurveID</a> = <span class="lit-number">0x0017</span></code></span>
+<span class="codeline" id="line-80"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-CurveSECP384R1" class="ident">CurveSECP384R1</a> <a href="common.go.html#line-147" class="ident">CurveID</a> = <span class="lit-number">0x0018</span></code></span>
+<span class="codeline" id="line-81"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-CurveSECP521R1" class="ident">CurveSECP521R1</a> <a href="common.go.html#line-147" class="ident">CurveID</a> = <span class="lit-number">0x0019</span></code></span>
+<span class="codeline" id="line-82"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-CurveX25519" class="ident">CurveX25519</a>    <a href="common.go.html#line-147" class="ident">CurveID</a> = <span class="lit-number">0x001d</span></code></span>
+<span class="codeline" id="line-83"><code></code></span>
+<span class="codeline" id="line-84"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakeCurveFFDHE2048" class="ident">FakeCurveFFDHE2048</a> <a href="common.go.html#line-147" class="ident">CurveID</a> = <span class="lit-number">0x0100</span></code></span>
+<span class="codeline" id="line-85"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakeCurveFFDHE3072" class="ident">FakeCurveFFDHE3072</a> <a href="common.go.html#line-147" class="ident">CurveID</a> = <span class="lit-number">0x0101</span></code></span>
+<span class="codeline" id="line-86"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakeCurveFFDHE4096" class="ident">FakeCurveFFDHE4096</a> <a href="common.go.html#line-147" class="ident">CurveID</a> = <span class="lit-number">0x0102</span></code></span>
+<span class="codeline" id="line-87"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakeCurveFFDHE6144" class="ident">FakeCurveFFDHE6144</a> <a href="common.go.html#line-147" class="ident">CurveID</a> = <span class="lit-number">0x0103</span></code></span>
+<span class="codeline" id="line-88"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakeCurveFFDHE8192" class="ident">FakeCurveFFDHE8192</a> <a href="common.go.html#line-147" class="ident">CurveID</a> = <span class="lit-number">0x0104</span></code></span>
+<span class="codeline" id="line-89"><code>)</code></span>
+<span class="codeline" id="line-90"><code></code></span>
+<span class="codeline" id="line-91"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-92"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-X25519Kyber768Draft00" class="ident">X25519Kyber768Draft00</a> <a href="common.go.html#line-147" class="ident">CurveID</a> = <span class="lit-number">0x6399</span></code></span>
+<span class="codeline" id="line-93"><code></code></span>
+<span class="codeline" id="line-94"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakeCurveX25519Kyber512Draft00" class="ident">FakeCurveX25519Kyber512Draft00</a>    <a href="common.go.html#line-147" class="ident">CurveID</a> = <span class="lit-number">0xfe30</span></code></span>
+<span class="codeline" id="line-95"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakeCurveX25519Kyber768Draft00Old" class="ident">FakeCurveX25519Kyber768Draft00Old</a> <a href="common.go.html#line-147" class="ident">CurveID</a> = <span class="lit-number">0xfe31</span></code></span>
+<span class="codeline" id="line-96"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakeCurveP256Kyber768Draft00" class="ident">FakeCurveP256Kyber768Draft00</a>      <a href="common.go.html#line-147" class="ident">CurveID</a> = <span class="lit-number">0xfe32</span></code></span>
+<span class="codeline" id="line-97"><code></code></span>
+<span class="codeline" id="line-98"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-X25519Kyber512Draft00" class="ident">X25519Kyber512Draft00</a>    <a href="common.go.html#line-147" class="ident">CurveID</a> = <a href="#line-94" class="ident">FakeCurveX25519Kyber512Draft00</a></code></span>
+<span class="codeline" id="line-99"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-X25519Kyber768Draft00Old" class="ident">X25519Kyber768Draft00Old</a> <a href="common.go.html#line-147" class="ident">CurveID</a> = <a href="#line-95" class="ident">FakeCurveX25519Kyber768Draft00Old</a></code></span>
+<span class="codeline" id="line-100"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-P256Kyber768Draft00" class="ident">P256Kyber768Draft00</a>      <a href="common.go.html#line-147" class="ident">CurveID</a> = <a href="#line-96" class="ident">FakeCurveP256Kyber768Draft00</a></code></span>
+<span class="codeline" id="line-101"><code>)</code></span>
+<span class="codeline" id="line-102"><code></code></span>
+<span class="codeline" id="line-103"><code><span class="comment">// Other things</span></code></span>
+<span class="codeline" id="line-104"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-105"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-fakeRecordSizeLimit" class="ident">fakeRecordSizeLimit</a> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> = <span class="lit-number">0x001c</span></code></span>
+<span class="codeline" id="line-106"><code>)</code></span>
+<span class="codeline" id="line-107"><code></code></span>
+<span class="codeline" id="line-108"><code><span class="comment">// newest signatures</span></code></span>
+<span class="codeline" id="line-109"><code><span class="keyword">var</span> (</code></span>
+<span class="codeline" id="line-110"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakePKCS1WithSHA224" class="ident">FakePKCS1WithSHA224</a> <a href="common.go.html#line-396" class="ident">SignatureScheme</a> = <span class="lit-number">0x0301</span></code></span>
+<span class="codeline" id="line-111"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakeECDSAWithSHA224" class="ident">FakeECDSAWithSHA224</a> <a href="common.go.html#line-396" class="ident">SignatureScheme</a> = <span class="lit-number">0x0303</span></code></span>
+<span class="codeline" id="line-112"><code></code></span>
+<span class="codeline" id="line-113"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakeSHA1WithDSA" class="ident">FakeSHA1WithDSA</a>   <a href="common.go.html#line-396" class="ident">SignatureScheme</a> = <span class="lit-number">0x0202</span></code></span>
+<span class="codeline" id="line-114"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakeSHA256WithDSA" class="ident">FakeSHA256WithDSA</a> <a href="common.go.html#line-396" class="ident">SignatureScheme</a> = <span class="lit-number">0x0402</span></code></span>
+<span class="codeline" id="line-115"><code></code></span>
+<span class="codeline" id="line-116"><code>	<span class="comment">// fakeEd25519 = SignatureAndHash{0x08, 0x07}</span></code></span>
+<span class="codeline" id="line-117"><code><span class="comment">	// fakeEd448 = SignatureAndHash{0x08, 0x08}</span></code></span>
+<span class="codeline" id="line-118"><code>)</code></span>
+<span class="codeline" id="line-119"><code></code></span>
+<span class="codeline" id="line-120"><code><span class="comment">// fake curves(groups)</span></code></span>
+<span class="codeline" id="line-121"><code><span class="keyword">var</span> (</code></span>
+<span class="codeline" id="line-122"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakeFFDHE2048" class="ident">FakeFFDHE2048</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0x0100</span>)</code></span>
+<span class="codeline" id="line-123"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-FakeFFDHE3072" class="ident">FakeFFDHE3072</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">0x0101</span>)</code></span>
+<span class="codeline" id="line-124"><code>)</code></span>
+<span class="codeline" id="line-125"><code></code></span>
+<span class="codeline" id="line-126"><code><span class="comment">// https://tools.ietf.org/html/draft-ietf-tls-certificate-compression-04</span></code></span>
+<span class="codeline" id="line-127"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-CertCompressionAlgo" class="ident">CertCompressionAlgo</a> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-128"><code></code></span>
+<span class="codeline" id="line-129"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-130"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-CertCompressionZlib" class="ident">CertCompressionZlib</a>   <a href="#line-127" class="ident">CertCompressionAlgo</a> = <span class="lit-number">0x0001</span></code></span>
+<span class="codeline" id="line-131"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-CertCompressionBrotli" class="ident">CertCompressionBrotli</a> <a href="#line-127" class="ident">CertCompressionAlgo</a> = <span class="lit-number">0x0002</span></code></span>
+<span class="codeline" id="line-132"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-CertCompressionZstd" class="ident">CertCompressionZstd</a>   <a href="#line-127" class="ident">CertCompressionAlgo</a> = <span class="lit-number">0x0003</span></code></span>
+<span class="codeline" id="line-133"><code>)</code></span>
+<span class="codeline" id="line-134"><code></code></span>
+<span class="codeline" id="line-135"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-136"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-PskModePlain" class="ident">PskModePlain</a> <a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <a href="common.go.html#line-173" class="ident">pskModePlain</a></code></span>
+<span class="codeline" id="line-137"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-PskModeDHE" class="ident">PskModeDHE</a>   <a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a> = <a href="common.go.html#line-174" class="ident">pskModeDHE</a></code></span>
+<span class="codeline" id="line-138"><code>)</code></span>
+<span class="codeline" id="line-139"><code></code></span>
+<span class="codeline" id="line-140"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-ClientHelloID" class="ident">ClientHelloID</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-141"><code>	<a href="../../../../use/github.com/refraction-networking/utls..ClientHelloID.Client.html" class="ident">Client</a> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-142"><code></code></span>
+<span class="codeline" id="line-143"><code>	<span class="comment">// Version specifies version of a mimicked clients (e.g. browsers).</span></code></span>
+<span class="codeline" id="line-144"><code><span class="comment">	// Not used in randomized, custom handshake, and default Go.</span></code></span>
+<span class="codeline" id="line-145"><code>	<a href="../../../../use/github.com/refraction-networking/utls..ClientHelloID.Version.html" class="ident">Version</a> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-146"><code></code></span>
+<span class="codeline" id="line-147"><code>	<span class="comment">// Seed is only used for randomized fingerprints to seed PRNG.</span></code></span>
+<span class="codeline" id="line-148"><code><span class="comment">	// Must not be modified once set.</span></code></span>
+<span class="codeline" id="line-149"><code>	<a href="../../../../use/github.com/refraction-networking/utls..ClientHelloID.Seed.html" class="ident">Seed</a> *<a href="u_prng.go.html#line-31" class="ident">PRNGSeed</a></code></span>
+<span class="codeline" id="line-150"><code></code></span>
+<span class="codeline" id="line-151"><code>	<span class="comment">// Weights are only used for randomized fingerprints in func</span></code></span>
+<span class="codeline" id="line-152"><code><span class="comment">	// generateRandomizedSpec(). Must not be modified once set.</span></code></span>
+<span class="codeline" id="line-153"><code>	<a href="../../../../use/github.com/refraction-networking/utls..ClientHelloID.Weights.html" class="ident">Weights</a> *<a href="#line-671" class="ident">Weights</a></code></span>
+<span class="codeline" id="line-154"><code>}</code></span>
+<span class="codeline" id="line-155"><code></code></span>
+<span class="codeline" id="line-156"><code><span class="keyword">func</span> (<label for="r0" class="ident">p</label> *<a href="#line-140" class="ident">ClientHelloID</a>) <label for="r1" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientHelloID.Str.html" class="ident">Str</a></label>() <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-157"><code>	<span class="keyword">return</span> <a href="../../../../pkg/fmt.html" class="ident i4">fmt</a>.<a href="../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"%s-%s"</span>, <label for="r0" class="ident">p</label>.<a href="#line-141" class="ident">Client</a>, <label for="r0" class="ident">p</label>.<a href="#line-145" class="ident">Version</a>)</code></span>
+<span class="codeline" id="line-158"><code>}</code></span>
+<span class="codeline" id="line-159"><code></code></span>
+<span class="codeline" id="line-160"><code><span class="keyword">func</span> (<label for="r2" class="ident">p</label> *<a href="#line-140" class="ident">ClientHelloID</a>) <label for="r3" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientHelloID.IsSet.html" class="ident">IsSet</a></label>() <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-161"><code>	<span class="keyword">return</span> (<label for="r2" class="ident">p</label>.<a href="#line-141" class="ident">Client</a> == <span class="lit-string">""</span>) &amp;&amp; (<label for="r2" class="ident">p</label>.<a href="#line-145" class="ident">Version</a> == <span class="lit-string">""</span>)</code></span>
+<span class="codeline" id="line-162"><code>}</code></span>
+<span class="codeline" id="line-163"><code></code></span>
+<span class="codeline" id="line-164"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-165"><code>	<span class="comment">// clients</span></code></span>
+<span class="codeline" id="line-166"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-helloGolang" class="ident">helloGolang</a>           = <span class="lit-string">"Golang"</span></code></span>
+<span class="codeline" id="line-167"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-helloRandomized" class="ident">helloRandomized</a>       = <span class="lit-string">"Randomized"</span></code></span>
+<span class="codeline" id="line-168"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-helloRandomizedALPN" class="ident">helloRandomizedALPN</a>   = <span class="lit-string">"Randomized-ALPN"</span></code></span>
+<span class="codeline" id="line-169"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-helloRandomizedNoALPN" class="ident">helloRandomizedNoALPN</a> = <span class="lit-string">"Randomized-NoALPN"</span></code></span>
+<span class="codeline" id="line-170"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-helloCustom" class="ident">helloCustom</a>           = <span class="lit-string">"Custom"</span></code></span>
+<span class="codeline" id="line-171"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-helloFirefox" class="ident">helloFirefox</a>          = <span class="lit-string">"Firefox"</span></code></span>
+<span class="codeline" id="line-172"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-helloChrome" class="ident">helloChrome</a>           = <span class="lit-string">"Chrome"</span></code></span>
+<span class="codeline" id="line-173"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-helloIOS" class="ident">helloIOS</a>              = <span class="lit-string">"iOS"</span></code></span>
+<span class="codeline" id="line-174"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-helloAndroid" class="ident">helloAndroid</a>          = <span class="lit-string">"Android"</span></code></span>
+<span class="codeline" id="line-175"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-helloEdge" class="ident">helloEdge</a>             = <span class="lit-string">"Edge"</span></code></span>
+<span class="codeline" id="line-176"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-helloSafari" class="ident">helloSafari</a>           = <span class="lit-string">"Safari"</span></code></span>
+<span class="codeline" id="line-177"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-hello360" class="ident">hello360</a>              = <span class="lit-string">"360Browser"</span></code></span>
+<span class="codeline" id="line-178"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-helloQQ" class="ident">helloQQ</a>               = <span class="lit-string">"QQBrowser"</span></code></span>
+<span class="codeline" id="line-179"><code></code></span>
+<span class="codeline" id="line-180"><code>	<span class="comment">// versions</span></code></span>
+<span class="codeline" id="line-181"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-helloAutoVers" class="ident">helloAutoVers</a> = <span class="lit-string">"0"</span></code></span>
+<span class="codeline" id="line-182"><code>)</code></span>
+<span class="codeline" id="line-183"><code></code></span>
+<span class="codeline" id="line-184"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-ClientHelloSpec" class="ident">ClientHelloSpec</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-185"><code>	<a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.CipherSuites.html" class="ident">CipherSuites</a>       []<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>       <span class="comment">// nil =&gt; default</span></code></span>
+<span class="codeline" id="line-186"><code>	<a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.CompressionMethods.html" class="ident">CompressionMethods</a> []<a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>        <span class="comment">// nil =&gt; no compression</span></code></span>
+<span class="codeline" id="line-187"><code>	<a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.Extensions.html" class="ident">Extensions</a>         []<a href="u_tls_extensions.go.html#line-92" class="ident">TLSExtension</a> <span class="comment">// nil =&gt; no extensions</span></code></span>
+<span class="codeline" id="line-188"><code></code></span>
+<span class="codeline" id="line-189"><code>	<a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.TLSVersMin.html" class="ident">TLSVersMin</a> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> <span class="comment">// [1.0-1.3] default: parse from .Extensions, if SupportedVersions ext is not present =&gt; 1.0</span></code></span>
+<span class="codeline" id="line-190"><code>	<a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.TLSVersMax.html" class="ident">TLSVersMax</a> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> <span class="comment">// [1.2-1.3] default: parse from .Extensions, if SupportedVersions ext is not present =&gt; 1.2</span></code></span>
+<span class="codeline" id="line-191"><code></code></span>
+<span class="codeline" id="line-192"><code>	<span class="comment">// GreaseStyle: currently only random</span></code></span>
+<span class="codeline" id="line-193"><code><span class="comment">	// sessionID may or may not depend on ticket; nil =&gt; random</span></code></span>
+<span class="codeline" id="line-194"><code>	<a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.GetSessionID.html" class="ident">GetSessionID</a> <span class="keyword">func</span>(ticket []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) [<span class="lit-number">32</span>]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-195"><code></code></span>
+<span class="codeline" id="line-196"><code>	<span class="comment">// TLSFingerprintLink string // ?? link to tlsfingerprint.io for informational purposes</span></code></span>
+<span class="codeline" id="line-197"><code>}</code></span>
+<span class="codeline" id="line-198"><code></code></span>
+<span class="codeline" id="line-199"><code><span class="comment">// ReadCipherSuites is a helper function to construct a list of cipher suites from</span></code></span>
+<span class="codeline" id="line-200"><code><span class="comment">// a []byte into []uint16.</span></code></span>
+<span class="codeline" id="line-201"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-202"><code><span class="comment">// example: []byte{0x13, 0x01, 0x13, 0x02, 0x13, 0x03} =&gt; []uint16{0x1301, 0x1302, 0x1303}</span></code></span>
+<span class="codeline" id="line-203"><code><span class="keyword">func</span> (<label for="r4" class="ident">chs</label> *<a href="#line-184" class="ident">ClientHelloSpec</a>) <label for="r5" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.ReadCipherSuites.html" class="ident">ReadCipherSuites</a></label>(<label for="r6" class="ident">b</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-204"><code>	<label for="r7" class="ident">cipherSuites</label> := []<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>{}</code></span>
+<span class="codeline" id="line-205"><code>	<label for="r8" class="ident">s</label> := <a href="../../../../pkg/golang.org/x/crypto/cryptobyte.html" class="ident i8">cryptobyte</a>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-22" class="ident">String</a>(<label for="r6" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-206"><code>	<span class="keyword">for</span> !<label for="r8" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-181" class="ident">Empty</a>() {</code></span>
+<span class="codeline" id="line-207"><code>		<span class="keyword">var</span> <label for="r9" class="ident">suite</label> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-208"><code>		<span class="keyword">if</span> !<label for="r8" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-53" class="ident">ReadUint16</a>(&amp;<label for="r9" class="ident">suite</label>) {</code></span>
+<span class="codeline" id="line-209"><code>			<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"unable to read ciphersuite"</span>)</code></span>
+<span class="codeline" id="line-210"><code>		}</code></span>
+<span class="codeline" id="line-211"><code>		<label for="r7" class="ident">cipherSuites</label> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r7" class="ident">cipherSuites</label>, <a href="#line-723" class="ident">unGREASEUint16</a>(<label for="r9" class="ident">suite</label>))</code></span>
+<span class="codeline" id="line-212"><code>	}</code></span>
+<span class="codeline" id="line-213"><code>	<label for="r4" class="ident">chs</label>.<a href="#line-185" class="ident">CipherSuites</a> = <label for="r7" class="ident">cipherSuites</label></code></span>
+<span class="codeline" id="line-214"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-215"><code>}</code></span>
+<span class="codeline" id="line-216"><code></code></span>
+<span class="codeline" id="line-217"><code><span class="comment">// ReadCompressionMethods is a helper function to construct a list of compression</span></code></span>
+<span class="codeline" id="line-218"><code><span class="comment">// methods from a []byte into []uint8.</span></code></span>
+<span class="codeline" id="line-219"><code><span class="keyword">func</span> (<label for="r10" class="ident">chs</label> *<a href="#line-184" class="ident">ClientHelloSpec</a>) <label for="r11" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.ReadCompressionMethods.html" class="ident">ReadCompressionMethods</a></label>(<label for="r12" class="ident">compressionMethods</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-220"><code>	<label for="r10" class="ident">chs</label>.<a href="#line-186" class="ident">CompressionMethods</a> = <label for="r12" class="ident">compressionMethods</label></code></span>
+<span class="codeline" id="line-221"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-222"><code>}</code></span>
+<span class="codeline" id="line-223"><code></code></span>
+<span class="codeline" id="line-224"><code><span class="comment">// ReadTLSExtensions is a helper function to construct a list of TLS extensions from</span></code></span>
+<span class="codeline" id="line-225"><code><span class="comment">// a byte slice into []TLSExtension.</span></code></span>
+<span class="codeline" id="line-226"><code><span class="keyword">func</span> (<label for="r13" class="ident">chs</label> *<a href="#line-184" class="ident">ClientHelloSpec</a>) <label for="r14" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.ReadTLSExtensions.html" class="ident">ReadTLSExtensions</a></label>(<label for="r15" class="ident">b</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r16" class="ident">allowBluntMimicry</label> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <label for="r17" class="ident">realPSK</label> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-227"><code>	<label for="r18" class="ident">extensions</label> := <a href="../../../../pkg/golang.org/x/crypto/cryptobyte.html" class="ident i8">cryptobyte</a>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-22" class="ident">String</a>(<label for="r15" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-228"><code>	<span class="keyword">for</span> !<label for="r18" class="ident">extensions</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-181" class="ident">Empty</a>() {</code></span>
+<span class="codeline" id="line-229"><code>		<span class="keyword">var</span> <label for="r19" class="ident">extension</label> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-230"><code>		<span class="keyword">var</span> <label for="r20" class="ident">extData</label> <a href="../../../../pkg/golang.org/x/crypto/cryptobyte.html" class="ident i8">cryptobyte</a>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-22" class="ident">String</a></code></span>
+<span class="codeline" id="line-231"><code>		<span class="keyword">if</span> !<label for="r18" class="ident">extensions</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-53" class="ident">ReadUint16</a>(&amp;<label for="r19" class="ident">extension</label>) {</code></span>
+<span class="codeline" id="line-232"><code>			<span class="keyword">return</span> <a href="../../../../pkg/fmt.html" class="ident i4">fmt</a>.<a href="../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to read extension ID"</span>)</code></span>
+<span class="codeline" id="line-233"><code>		}</code></span>
+<span class="codeline" id="line-234"><code>		<span class="keyword">if</span> !<label for="r18" class="ident">extensions</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-147" class="ident">ReadUint16LengthPrefixed</a>(&amp;<label for="r20" class="ident">extData</label>) {</code></span>
+<span class="codeline" id="line-235"><code>			<span class="keyword">return</span> <a href="../../../../pkg/fmt.html" class="ident i4">fmt</a>.<a href="../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to read data for extension %x"</span>, <label for="r19" class="ident">extension</label>)</code></span>
+<span class="codeline" id="line-236"><code>		}</code></span>
+<span class="codeline" id="line-237"><code></code></span>
+<span class="codeline" id="line-238"><code>		<label for="r21" class="ident">ext</label> := <a href="u_tls_extensions.go.html#line-19" class="ident">ExtensionFromID</a>(<label for="r19" class="ident">extension</label>)</code></span>
+<span class="codeline" id="line-239"><code>		<label for="r22" class="ident">extWriter</label>, <label for="r23" class="ident">ok</label> := <label for="r21" class="ident">ext</label>.(<a href="u_tls_extensions.go.html#line-104" class="ident">TLSExtensionWriter</a>)</code></span>
+<span class="codeline" id="line-240"><code>		<span class="keyword">if</span> <label for="r21" class="ident">ext</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; <label for="r23" class="ident">ok</label> { <span class="comment">// known extension and implements TLSExtensionWriter properly</span></code></span>
+<span class="codeline" id="line-241"><code>			<span class="keyword">switch</span> <label for="r19" class="ident">extension</label> {</code></span>
+<span class="codeline" id="line-242"><code>			<span class="keyword">case</span> <a href="common.go.html#line-121" class="ident">extensionPreSharedKey</a>:</code></span>
+<span class="codeline" id="line-243"><code>				<span class="comment">// PSK extension, need to see if we do real or fake PSK</span></code></span>
+<span class="codeline" id="line-244"><code>				<span class="keyword">if</span> <label for="r17" class="ident">realPSK</label> {</code></span>
+<span class="codeline" id="line-245"><code>					<label for="r22" class="ident">extWriter</label> = &amp;<a href="u_pre_shared_key.go.html#line-132" class="ident">UtlsPreSharedKeyExtension</a>{}</code></span>
+<span class="codeline" id="line-246"><code>				} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-247"><code>					<label for="r22" class="ident">extWriter</label> = &amp;<a href="u_pre_shared_key.go.html#line-324" class="ident">FakePreSharedKeyExtension</a>{}</code></span>
+<span class="codeline" id="line-248"><code>				}</code></span>
+<span class="codeline" id="line-249"><code>			<span class="keyword">case</span> <a href="common.go.html#line-123" class="ident">extensionSupportedVersions</a>:</code></span>
+<span class="codeline" id="line-250"><code>				<label for="r13" class="ident">chs</label>.<a href="#line-189" class="ident">TLSVersMin</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-251"><code>				<label for="r13" class="ident">chs</label>.<a href="#line-190" class="ident">TLSVersMax</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-252"><code>			}</code></span>
+<span class="codeline" id="line-253"><code></code></span>
+<span class="codeline" id="line-254"><code>			<span class="keyword">if</span> <label for="r24" class="ident">_</label>, <label for="r25" class="ident">err</label> := <label for="r22" class="ident">extWriter</label>.<a href="u_tls_extensions.go.html#line-112" class="ident">Write</a>(<label for="r20" class="ident">extData</label>); <label for="r25" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-255"><code>				<span class="keyword">return</span> <label for="r25" class="ident">err</label></code></span>
+<span class="codeline" id="line-256"><code>			}</code></span>
+<span class="codeline" id="line-257"><code></code></span>
+<span class="codeline" id="line-258"><code>			<label for="r13" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r13" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a>, <label for="r22" class="ident">extWriter</label>)</code></span>
+<span class="codeline" id="line-259"><code>		} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-260"><code>			<span class="keyword">if</span> <label for="r16" class="ident">allowBluntMimicry</label> {</code></span>
+<span class="codeline" id="line-261"><code>				<label for="r13" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r13" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a>, &amp;<a href="u_tls_extensions.go.html#line-871" class="ident">GenericExtension</a>{<label for="r19" class="ident">extension</label>, <label for="r20" class="ident">extData</label>})</code></span>
+<span class="codeline" id="line-262"><code>			} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-263"><code>				<span class="keyword">return</span> <a href="../../../../pkg/fmt.html" class="ident i4">fmt</a>.<a href="../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unsupported extension %d"</span>, <label for="r19" class="ident">extension</label>)</code></span>
+<span class="codeline" id="line-264"><code>			}</code></span>
+<span class="codeline" id="line-265"><code>		}</code></span>
+<span class="codeline" id="line-266"><code>	}</code></span>
+<span class="codeline" id="line-267"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-268"><code>}</code></span>
+<span class="codeline" id="line-269"><code></code></span>
+<span class="codeline" id="line-270"><code><span class="keyword">func</span> (<label for="r26" class="ident">chs</label> *<a href="#line-184" class="ident">ClientHelloSpec</a>) <label for="r27" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.AlwaysAddPadding.html" class="ident">AlwaysAddPadding</a></label>() {</code></span>
+<span class="codeline" id="line-271"><code>	<label for="r28" class="ident">alreadyHasPadding</label> := <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-272"><code>	<span class="keyword">for</span> <label for="r29" class="ident">idx</label>, <label for="r30" class="ident">ext</label> := <span class="keyword">range</span> <label for="r26" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a> {</code></span>
+<span class="codeline" id="line-273"><code>		<span class="keyword">if</span> <label for="r31" class="ident">_</label>, <label for="r32" class="ident">ok</label> := <label for="r30" class="ident">ext</label>.(*<a href="u_tls_extensions.go.html#line-1045" class="ident">UtlsPaddingExtension</a>); <label for="r32" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-274"><code>			<label for="r28" class="ident">alreadyHasPadding</label> = <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-275"><code>			<span class="keyword">break</span></code></span>
+<span class="codeline" id="line-276"><code>		}</code></span>
+<span class="codeline" id="line-277"><code>		<span class="keyword">if</span> <label for="r33" class="ident">_</label>, <label for="r34" class="ident">ok</label> := <label for="r30" class="ident">ext</label>.(<a href="u_pre_shared_key.go.html#line-71" class="ident">PreSharedKeyExtension</a>); <label for="r34" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-278"><code>			<label for="r28" class="ident">alreadyHasPadding</label> = <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a> <span class="comment">// PSK must be last, so we can't append padding after it</span></code></span>
+<span class="codeline" id="line-279"><code>			<span class="comment">// instead we will insert padding before PSK</span></code></span>
+<span class="codeline" id="line-280"><code>			<label for="r26" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r26" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a>[:<label for="r29" class="ident">idx</label>], <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>([]<a href="u_tls_extensions.go.html#line-92" class="ident">TLSExtension</a>{&amp;<a href="u_tls_extensions.go.html#line-1045" class="ident">UtlsPaddingExtension</a>{<a href="u_tls_extensions.go.html#line-1051" class="ident">GetPaddingLen</a>: <a href="u_tls_extensions.go.html#line-1111" class="ident">BoringPaddingStyle</a>}}, <label for="r26" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a>[<label for="r29" class="ident">idx</label>:]...)...)</code></span>
+<span class="codeline" id="line-281"><code>			<span class="keyword">break</span></code></span>
+<span class="codeline" id="line-282"><code>		}</code></span>
+<span class="codeline" id="line-283"><code>	}</code></span>
+<span class="codeline" id="line-284"><code>	<span class="keyword">if</span> !<label for="r28" class="ident">alreadyHasPadding</label> {</code></span>
+<span class="codeline" id="line-285"><code>		<label for="r26" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r26" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a>, &amp;<a href="u_tls_extensions.go.html#line-1045" class="ident">UtlsPaddingExtension</a>{<a href="u_tls_extensions.go.html#line-1051" class="ident">GetPaddingLen</a>: <a href="u_tls_extensions.go.html#line-1111" class="ident">BoringPaddingStyle</a>})</code></span>
+<span class="codeline" id="line-286"><code>	}</code></span>
+<span class="codeline" id="line-287"><code>}</code></span>
+<span class="codeline" id="line-288"><code></code></span>
+<span class="codeline" id="line-289"><code><span class="comment">// Import TLS ClientHello data from client.tlsfingerprint.io:8443</span></code></span>
+<span class="codeline" id="line-290"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-291"><code><span class="comment">// data is a map of []byte with following keys:</span></code></span>
+<span class="codeline" id="line-292"><code><span class="comment">// - cipher_suites: [10, 10, 19, 1, 19, 2, 19, 3, 192, 43, 192, 47, 192, 44, 192, 48, 204, 169, 204, 168, 192, 19, 192, 20, 0, 156, 0, 157, 0, 47, 0, 53]</span></code></span>
+<span class="codeline" id="line-293"><code><span class="comment">// - compression_methods: [0] =&gt; null</span></code></span>
+<span class="codeline" id="line-294"><code><span class="comment">// - extensions: [10, 10, 255, 1, 0, 45, 0, 35, 0, 16, 68, 105, 0, 11, 0, 43, 0, 18, 0, 13, 0, 0, 0, 10, 0, 27, 0, 5, 0, 51, 0, 23, 10, 10, 0, 21]</span></code></span>
+<span class="codeline" id="line-295"><code><span class="comment">// - pt_fmts (ec_point_formats): [1, 0] =&gt; len: 1, content: 0x00</span></code></span>
+<span class="codeline" id="line-296"><code><span class="comment">// - sig_algs （signature_algorithms): [0, 16, 4, 3, 8, 4, 4, 1, 5, 3, 8, 5, 5, 1, 8, 6, 6, 1] =&gt; len: 16, content: 0x0403, 0x0804, 0x0401, 0x0503, 0x0805, 0x0501, 0x0806, 0x0601</span></code></span>
+<span class="codeline" id="line-297"><code><span class="comment">// - supported_versions: [10, 10, 3, 4, 3, 3] =&gt; 0x0a0a, 0x0304, 0x0303 (GREASE, TLS 1.3, TLS 1.2)</span></code></span>
+<span class="codeline" id="line-298"><code><span class="comment">// - curves (named_groups, supported_groups): [0, 8, 10, 10, 0, 29, 0, 23, 0, 24] =&gt; len: 8, content: GREASE, 0x001d, 0x0017, 0x0018</span></code></span>
+<span class="codeline" id="line-299"><code><span class="comment">// - alpn: [0, 12, 2, 104, 50, 8, 104, 116, 116, 112, 47, 49, 46, 49] =&gt; len: 12, content: h2, http/1.1</span></code></span>
+<span class="codeline" id="line-300"><code><span class="comment">// - key_share: [10, 10, 0, 1, 0, 29, 0, 32] =&gt; {group: 0x0a0a, len:1}, {group: 0x001d, len:32}</span></code></span>
+<span class="codeline" id="line-301"><code><span class="comment">// - psk_key_exchange_modes: [1] =&gt; psk_dhe_ke(0x01)</span></code></span>
+<span class="codeline" id="line-302"><code><span class="comment">// - cert_compression_algs: [2, 0, 2] =&gt; brotli (0x0002)</span></code></span>
+<span class="codeline" id="line-303"><code><span class="comment">// - record_size_limit: [0, 255] =&gt; 255</span></code></span>
+<span class="codeline" id="line-304"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-305"><code><span class="comment">// TLSVersMin/TLSVersMax are set to 0 if supported_versions is present.</span></code></span>
+<span class="codeline" id="line-306"><code><span class="comment">// To prevent conflict, they should be set manually if needed BEFORE calling this function.</span></code></span>
+<span class="codeline" id="line-307"><code><span class="keyword">func</span> (<label for="r35" class="ident">chs</label> *<a href="#line-184" class="ident">ClientHelloSpec</a>) <label for="r36" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.ImportTLSClientHello.html" class="ident">ImportTLSClientHello</a></label>(<label for="r37" class="ident">data</label> <span class="keyword">map</span>[<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>][]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-308"><code>	<span class="keyword">var</span> <label for="r38" class="ident">tlsExtensionTypes</label> []<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-309"><code>	<span class="keyword">var</span> <label for="r39" class="ident">err</label> <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
+<span class="codeline" id="line-310"><code></code></span>
+<span class="codeline" id="line-311"><code>	<span class="keyword">if</span> <label for="r37" class="ident">data</label>[<span class="lit-string">"cipher_suites"</span>] == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-312"><code>		<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"cipher_suites is required"</span>)</code></span>
+<span class="codeline" id="line-313"><code>	}</code></span>
+<span class="codeline" id="line-314"><code>	<label for="r35" class="ident">chs</label>.<a href="#line-185" class="ident">CipherSuites</a>, <label for="r39" class="ident">err</label> = <a href="../../../../pkg/github.com/refraction-networking/utls/internal/helper.html" class="ident i7">helper</a>.<a href="internal/helper/typeconv.go.html#line-11" class="ident">Uint8to16</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"cipher_suites"</span>])</code></span>
+<span class="codeline" id="line-315"><code>	<span class="keyword">if</span> <label for="r39" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-316"><code>		<span class="keyword">return</span> <label for="r39" class="ident">err</label></code></span>
+<span class="codeline" id="line-317"><code>	}</code></span>
+<span class="codeline" id="line-318"><code></code></span>
+<span class="codeline" id="line-319"><code>	<span class="keyword">if</span> <label for="r37" class="ident">data</label>[<span class="lit-string">"compression_methods"</span>] == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-320"><code>		<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"compression_methods is required"</span>)</code></span>
+<span class="codeline" id="line-321"><code>	}</code></span>
+<span class="codeline" id="line-322"><code>	<label for="r35" class="ident">chs</label>.<a href="#line-186" class="ident">CompressionMethods</a> = <label for="r37" class="ident">data</label>[<span class="lit-string">"compression_methods"</span>]</code></span>
+<span class="codeline" id="line-323"><code></code></span>
+<span class="codeline" id="line-324"><code>	<span class="keyword">if</span> <label for="r37" class="ident">data</label>[<span class="lit-string">"extensions"</span>] == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-325"><code>		<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"extensions is required"</span>)</code></span>
+<span class="codeline" id="line-326"><code>	}</code></span>
+<span class="codeline" id="line-327"><code>	<label for="r38" class="ident">tlsExtensionTypes</label>, <label for="r39" class="ident">err</label> = <a href="../../../../pkg/github.com/refraction-networking/utls/internal/helper.html" class="ident i7">helper</a>.<a href="internal/helper/typeconv.go.html#line-11" class="ident">Uint8to16</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"extensions"</span>])</code></span>
+<span class="codeline" id="line-328"><code>	<span class="keyword">if</span> <label for="r39" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-329"><code>		<span class="keyword">return</span> <label for="r39" class="ident">err</label></code></span>
+<span class="codeline" id="line-330"><code>	}</code></span>
+<span class="codeline" id="line-331"><code></code></span>
+<span class="codeline" id="line-332"><code>	<span class="keyword">for</span> <label for="r40" class="ident">_</label>, <label for="r41" class="ident">extType</label> := <span class="keyword">range</span> <label for="r38" class="ident">tlsExtensionTypes</label> {</code></span>
+<span class="codeline" id="line-333"><code>		<label for="r42" class="ident">extension</label> := <a href="u_tls_extensions.go.html#line-19" class="ident">ExtensionFromID</a>(<label for="r41" class="ident">extType</label>)</code></span>
+<span class="codeline" id="line-334"><code>		<label for="r43" class="ident">extWriter</label>, <label for="r44" class="ident">ok</label> := <label for="r42" class="ident">extension</label>.(<a href="u_tls_extensions.go.html#line-104" class="ident">TLSExtensionWriter</a>)</code></span>
+<span class="codeline" id="line-335"><code>		<span class="keyword">if</span> !<label for="r44" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-336"><code>			<span class="keyword">return</span> <a href="../../../../pkg/fmt.html" class="ident i4">fmt</a>.<a href="../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unsupported extension %d"</span>, <label for="r41" class="ident">extType</label>)</code></span>
+<span class="codeline" id="line-337"><code>		}</code></span>
+<span class="codeline" id="line-338"><code>		<span class="keyword">if</span> <label for="r42" class="ident">extension</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> || !<label for="r44" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-339"><code>			<a href="../../../../pkg/log.html" class="ident i6">log</a>.<a href="../../../log/log.go.html#line-407" class="ident">Printf</a>(<span class="lit-string">"[Warning] Unsupported extension %d added as a &amp;GenericExtension without Data"</span>, <label for="r41" class="ident">extType</label>)</code></span>
+<span class="codeline" id="line-340"><code>			<label for="r35" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r35" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a>, &amp;<a href="u_tls_extensions.go.html#line-871" class="ident">GenericExtension</a>{<label for="r41" class="ident">extType</label>, []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>{}})</code></span>
+<span class="codeline" id="line-341"><code>		} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-342"><code>			<span class="keyword">switch</span> <label for="r41" class="ident">extType</label> {</code></span>
+<span class="codeline" id="line-343"><code>			<span class="keyword">case</span> <a href="common.go.html#line-113" class="ident">extensionSupportedPoints</a>:</code></span>
+<span class="codeline" id="line-344"><code>				<span class="keyword">if</span> <label for="r37" class="ident">data</label>[<span class="lit-string">"pt_fmts"</span>] == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-345"><code>					<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"pt_fmts is required"</span>)</code></span>
+<span class="codeline" id="line-346"><code>				}</code></span>
+<span class="codeline" id="line-347"><code>				_, <label for="r39" class="ident">err</label> = <label for="r43" class="ident">extWriter</label>.<a href="u_tls_extensions.go.html#line-112" class="ident">Write</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"pt_fmts"</span>])</code></span>
+<span class="codeline" id="line-348"><code>				<span class="keyword">if</span> <label for="r39" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-349"><code>					<span class="keyword">return</span> <label for="r39" class="ident">err</label></code></span>
+<span class="codeline" id="line-350"><code>				}</code></span>
+<span class="codeline" id="line-351"><code>			<span class="keyword">case</span> <a href="common.go.html#line-114" class="ident">extensionSignatureAlgorithms</a>:</code></span>
+<span class="codeline" id="line-352"><code>				<span class="keyword">if</span> <label for="r37" class="ident">data</label>[<span class="lit-string">"sig_algs"</span>] == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-353"><code>					<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"sig_algs is required"</span>)</code></span>
+<span class="codeline" id="line-354"><code>				}</code></span>
+<span class="codeline" id="line-355"><code>				_, <label for="r39" class="ident">err</label> = <label for="r43" class="ident">extWriter</label>.<a href="u_tls_extensions.go.html#line-112" class="ident">Write</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"sig_algs"</span>])</code></span>
+<span class="codeline" id="line-356"><code>				<span class="keyword">if</span> <label for="r39" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-357"><code>					<span class="keyword">return</span> <label for="r39" class="ident">err</label></code></span>
+<span class="codeline" id="line-358"><code>				}</code></span>
+<span class="codeline" id="line-359"><code>			<span class="keyword">case</span> <a href="common.go.html#line-123" class="ident">extensionSupportedVersions</a>:</code></span>
+<span class="codeline" id="line-360"><code>				<label for="r35" class="ident">chs</label>.<a href="#line-189" class="ident">TLSVersMin</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-361"><code>				<label for="r35" class="ident">chs</label>.<a href="#line-190" class="ident">TLSVersMax</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-362"><code></code></span>
+<span class="codeline" id="line-363"><code>				<span class="keyword">if</span> <label for="r37" class="ident">data</label>[<span class="lit-string">"supported_versions"</span>] == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-364"><code>					<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"supported_versions is required"</span>)</code></span>
+<span class="codeline" id="line-365"><code>				}</code></span>
+<span class="codeline" id="line-366"><code></code></span>
+<span class="codeline" id="line-367"><code>				<span class="comment">// need to add uint8 length prefix</span></code></span>
+<span class="codeline" id="line-368"><code>				<label for="r45" class="ident">fixedData</label> := <a href="../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"supported_versions"</span>])+<span class="lit-number">1</span>)</code></span>
+<span class="codeline" id="line-369"><code>				<label for="r45" class="ident">fixedData</label>[<span class="lit-number">0</span>] = <a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>(<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"supported_versions"</span>]) &amp; <span class="lit-number">0xff</span>)</code></span>
+<span class="codeline" id="line-370"><code>				<a href="../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r45" class="ident">fixedData</label>[<span class="lit-number">1</span>:], <label for="r37" class="ident">data</label>[<span class="lit-string">"supported_versions"</span>])</code></span>
+<span class="codeline" id="line-371"><code>				_, <label for="r39" class="ident">err</label> = <label for="r43" class="ident">extWriter</label>.<a href="u_tls_extensions.go.html#line-112" class="ident">Write</a>(<label for="r45" class="ident">fixedData</label>)</code></span>
+<span class="codeline" id="line-372"><code>				<span class="keyword">if</span> <label for="r39" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-373"><code>					<span class="keyword">return</span> <label for="r39" class="ident">err</label></code></span>
+<span class="codeline" id="line-374"><code>				}</code></span>
+<span class="codeline" id="line-375"><code>			<span class="keyword">case</span> <a href="common.go.html#line-112" class="ident">extensionSupportedCurves</a>:</code></span>
+<span class="codeline" id="line-376"><code>				<span class="keyword">if</span> <label for="r37" class="ident">data</label>[<span class="lit-string">"curves"</span>] == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-377"><code>					<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"curves is required"</span>)</code></span>
+<span class="codeline" id="line-378"><code>				}</code></span>
+<span class="codeline" id="line-379"><code></code></span>
+<span class="codeline" id="line-380"><code>				_, <label for="r39" class="ident">err</label> = <label for="r43" class="ident">extWriter</label>.<a href="u_tls_extensions.go.html#line-112" class="ident">Write</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"curves"</span>])</code></span>
+<span class="codeline" id="line-381"><code>				<span class="keyword">if</span> <label for="r39" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-382"><code>					<span class="keyword">return</span> <label for="r39" class="ident">err</label></code></span>
+<span class="codeline" id="line-383"><code>				}</code></span>
+<span class="codeline" id="line-384"><code>			<span class="keyword">case</span> <a href="common.go.html#line-115" class="ident">extensionALPN</a>:</code></span>
+<span class="codeline" id="line-385"><code>				<span class="keyword">if</span> <label for="r37" class="ident">data</label>[<span class="lit-string">"alpn"</span>] == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-386"><code>					<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"alpn is required"</span>)</code></span>
+<span class="codeline" id="line-387"><code>				}</code></span>
+<span class="codeline" id="line-388"><code></code></span>
+<span class="codeline" id="line-389"><code>				_, <label for="r39" class="ident">err</label> = <label for="r43" class="ident">extWriter</label>.<a href="u_tls_extensions.go.html#line-112" class="ident">Write</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"alpn"</span>])</code></span>
+<span class="codeline" id="line-390"><code>				<span class="keyword">if</span> <label for="r39" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-391"><code>					<span class="keyword">return</span> <label for="r39" class="ident">err</label></code></span>
+<span class="codeline" id="line-392"><code>				}</code></span>
+<span class="codeline" id="line-393"><code>			<span class="keyword">case</span> <a href="common.go.html#line-128" class="ident">extensionKeyShare</a>:</code></span>
+<span class="codeline" id="line-394"><code>				<span class="keyword">if</span> <label for="r37" class="ident">data</label>[<span class="lit-string">"key_share"</span>] == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-395"><code>					<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"key_share is required"</span>)</code></span>
+<span class="codeline" id="line-396"><code>				}</code></span>
+<span class="codeline" id="line-397"><code></code></span>
+<span class="codeline" id="line-398"><code>				<span class="comment">// need to add (zero) data per each key share, [10, 10, 0, 1] =&gt; [10, 10, 0, 1, 0]</span></code></span>
+<span class="codeline" id="line-399"><code>				<label for="r46" class="ident">fixedData</label> := <a href="../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <span class="lit-number">0</span>)</code></span>
+<span class="codeline" id="line-400"><code>				<span class="keyword">for</span> <label for="r47" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r47" class="ident">i</label> &lt; <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"key_share"</span>]); <label for="r47" class="ident">i</label> += <span class="lit-number">4</span> {</code></span>
+<span class="codeline" id="line-401"><code>					<label for="r46" class="ident">fixedData</label> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r46" class="ident">fixedData</label>, <label for="r37" class="ident">data</label>[<span class="lit-string">"key_share"</span>][<label for="r47" class="ident">i</label>:<label for="r47" class="ident">i</label>+<span class="lit-number">4</span>]...)</code></span>
+<span class="codeline" id="line-402"><code>					<span class="keyword">for</span> <label for="r48" class="ident">j</label> := <span class="lit-number">0</span>; <label for="r48" class="ident">j</label> &lt; <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"key_share"</span>][<label for="r47" class="ident">i</label>+<span class="lit-number">3</span>]); <label for="r48" class="ident">j</label>++ {</code></span>
+<span class="codeline" id="line-403"><code>						<label for="r46" class="ident">fixedData</label> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r46" class="ident">fixedData</label>, <span class="lit-number">0</span>)</code></span>
+<span class="codeline" id="line-404"><code>					}</code></span>
+<span class="codeline" id="line-405"><code>				}</code></span>
+<span class="codeline" id="line-406"><code>				<span class="comment">// add uint16 length prefix</span></code></span>
+<span class="codeline" id="line-407"><code>				<label for="r46" class="ident">fixedData</label> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>([]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>{<a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>(<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r46" class="ident">fixedData</label>) &gt;&gt; <span class="lit-number">8</span>), <a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>(<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r46" class="ident">fixedData</label>) &amp; <span class="lit-number">0xff</span>)}, <label for="r46" class="ident">fixedData</label>...)</code></span>
+<span class="codeline" id="line-408"><code></code></span>
+<span class="codeline" id="line-409"><code>				_, <label for="r39" class="ident">err</label> = <label for="r43" class="ident">extWriter</label>.<a href="u_tls_extensions.go.html#line-112" class="ident">Write</a>(<label for="r46" class="ident">fixedData</label>)</code></span>
+<span class="codeline" id="line-410"><code>				<span class="keyword">if</span> <label for="r39" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-411"><code>					<span class="keyword">return</span> <label for="r39" class="ident">err</label></code></span>
+<span class="codeline" id="line-412"><code>				}</code></span>
+<span class="codeline" id="line-413"><code>			<span class="keyword">case</span> <a href="common.go.html#line-125" class="ident">extensionPSKModes</a>:</code></span>
+<span class="codeline" id="line-414"><code>				<span class="keyword">if</span> <label for="r37" class="ident">data</label>[<span class="lit-string">"psk_key_exchange_modes"</span>] == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-415"><code>					<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"psk_key_exchange_modes is required"</span>)</code></span>
+<span class="codeline" id="line-416"><code>				}</code></span>
+<span class="codeline" id="line-417"><code></code></span>
+<span class="codeline" id="line-418"><code>				<span class="comment">// need to add uint8 length prefix</span></code></span>
+<span class="codeline" id="line-419"><code>				<label for="r49" class="ident">fixedData</label> := <a href="../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"psk_key_exchange_modes"</span>])+<span class="lit-number">1</span>)</code></span>
+<span class="codeline" id="line-420"><code>				<label for="r49" class="ident">fixedData</label>[<span class="lit-number">0</span>] = <a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>(<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"psk_key_exchange_modes"</span>]) &amp; <span class="lit-number">0xff</span>)</code></span>
+<span class="codeline" id="line-421"><code>				<a href="../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r49" class="ident">fixedData</label>[<span class="lit-number">1</span>:], <label for="r37" class="ident">data</label>[<span class="lit-string">"psk_key_exchange_modes"</span>])</code></span>
+<span class="codeline" id="line-422"><code>				_, <label for="r39" class="ident">err</label> = <label for="r43" class="ident">extWriter</label>.<a href="u_tls_extensions.go.html#line-112" class="ident">Write</a>(<label for="r49" class="ident">fixedData</label>)</code></span>
+<span class="codeline" id="line-423"><code>				<span class="keyword">if</span> <label for="r39" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-424"><code>					<span class="keyword">return</span> <label for="r39" class="ident">err</label></code></span>
+<span class="codeline" id="line-425"><code>				}</code></span>
+<span class="codeline" id="line-426"><code>			<span class="keyword">case</span> <a href="#line-38" class="ident">utlsExtensionCompressCertificate</a>:</code></span>
+<span class="codeline" id="line-427"><code>				<span class="keyword">if</span> <label for="r37" class="ident">data</label>[<span class="lit-string">"cert_compression_algs"</span>] == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-428"><code>					<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"cert_compression_algs is required"</span>)</code></span>
+<span class="codeline" id="line-429"><code>				}</code></span>
+<span class="codeline" id="line-430"><code></code></span>
+<span class="codeline" id="line-431"><code>				<span class="comment">// need to add uint8 length prefix</span></code></span>
+<span class="codeline" id="line-432"><code>				<label for="r50" class="ident">fixedData</label> := <a href="../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"cert_compression_algs"</span>])+<span class="lit-number">1</span>)</code></span>
+<span class="codeline" id="line-433"><code>				<label for="r50" class="ident">fixedData</label>[<span class="lit-number">0</span>] = <a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a>(<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"cert_compression_algs"</span>]) &amp; <span class="lit-number">0xff</span>)</code></span>
+<span class="codeline" id="line-434"><code>				<a href="../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r50" class="ident">fixedData</label>[<span class="lit-number">1</span>:], <label for="r37" class="ident">data</label>[<span class="lit-string">"cert_compression_algs"</span>])</code></span>
+<span class="codeline" id="line-435"><code>				_, <label for="r39" class="ident">err</label> = <label for="r43" class="ident">extWriter</label>.<a href="u_tls_extensions.go.html#line-112" class="ident">Write</a>(<label for="r50" class="ident">fixedData</label>)</code></span>
+<span class="codeline" id="line-436"><code>				<span class="keyword">if</span> <label for="r39" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-437"><code>					<span class="keyword">return</span> <label for="r39" class="ident">err</label></code></span>
+<span class="codeline" id="line-438"><code>				}</code></span>
+<span class="codeline" id="line-439"><code>			<span class="keyword">case</span> <a href="#line-105" class="ident">fakeRecordSizeLimit</a>:</code></span>
+<span class="codeline" id="line-440"><code>				<span class="keyword">if</span> <label for="r37" class="ident">data</label>[<span class="lit-string">"record_size_limit"</span>] == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-441"><code>					<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"record_size_limit is required"</span>)</code></span>
+<span class="codeline" id="line-442"><code>				}</code></span>
+<span class="codeline" id="line-443"><code></code></span>
+<span class="codeline" id="line-444"><code>				_, <label for="r39" class="ident">err</label> = <label for="r43" class="ident">extWriter</label>.<a href="u_tls_extensions.go.html#line-112" class="ident">Write</a>(<label for="r37" class="ident">data</label>[<span class="lit-string">"record_size_limit"</span>]) <span class="comment">// uint16 as []byte</span></code></span>
+<span class="codeline" id="line-445"><code>				<span class="keyword">if</span> <label for="r39" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-446"><code>					<span class="keyword">return</span> <label for="r39" class="ident">err</label></code></span>
+<span class="codeline" id="line-447"><code>				}</code></span>
+<span class="codeline" id="line-448"><code>			<span class="keyword">case</span> <a href="#line-39" class="ident">utlsExtensionApplicationSettings</a>:</code></span>
+<span class="codeline" id="line-449"><code>				<span class="comment">// TODO: tlsfingerprint.io should record/provide application settings data</span></code></span>
+<span class="codeline" id="line-450"><code>				<label for="r43" class="ident">extWriter</label>.(*<a href="u_tls_extensions.go.html#line-760" class="ident">ApplicationSettingsExtension</a>).<a href="u_tls_extensions.go.html#line-762" class="ident">SupportedProtocols</a> = []<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>{<span class="lit-string">"h2"</span>}</code></span>
+<span class="codeline" id="line-451"><code>			<span class="keyword">case</span> <a href="#line-40" class="ident">utlsExtensionApplicationSettingsNew</a>:</code></span>
+<span class="codeline" id="line-452"><code>				<label for="r43" class="ident">extWriter</label>.(*<a href="u_tls_extensions.go.html#line-799" class="ident">ApplicationSettingsExtensionNew</a>).<a href="u_tls_extensions.go.html#line-801" class="ident">SupportedProtocols</a> = []<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>{<span class="lit-string">"h2"</span>}</code></span>
+<span class="codeline" id="line-453"><code>			<span class="keyword">case</span> <a href="common.go.html#line-121" class="ident">extensionPreSharedKey</a>:</code></span>
+<span class="codeline" id="line-454"><code>				<a href="../../../../pkg/log.html" class="ident i6">log</a>.<a href="../../../log/log.go.html#line-407" class="ident">Printf</a>(<span class="lit-string">"[Warning] PSK extension added without data"</span>)</code></span>
+<span class="codeline" id="line-455"><code>			<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-456"><code>				<span class="keyword">if</span> !<a href="#line-717" class="ident">isGREASEUint16</a>(<label for="r41" class="ident">extType</label>) {</code></span>
+<span class="codeline" id="line-457"><code>					<a href="../../../../pkg/log.html" class="ident i6">log</a>.<a href="../../../log/log.go.html#line-407" class="ident">Printf</a>(<span class="lit-string">"[Warning] extension %d added without data"</span>, <label for="r41" class="ident">extType</label>)</code></span>
+<span class="codeline" id="line-458"><code>				} <span class="comment">/*else {</span></code></span>
+<span class="codeline" id="line-459"><code><span class="comment">					log.Printf("[Warning] GREASE extension added but ID/Data discarded. They will be automatically re-GREASEd on ApplyPreset() call.")</span></code></span>
+<span class="codeline" id="line-460"><code><span class="comment">				}*/</span></code></span>
+<span class="codeline" id="line-461"><code>			}</code></span>
+<span class="codeline" id="line-462"><code>			<label for="r35" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r35" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a>, <label for="r43" class="ident">extWriter</label>)</code></span>
+<span class="codeline" id="line-463"><code>		}</code></span>
+<span class="codeline" id="line-464"><code>	}</code></span>
+<span class="codeline" id="line-465"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-466"><code>}</code></span>
+<span class="codeline" id="line-467"><code></code></span>
+<span class="codeline" id="line-468"><code><span class="comment">// ImportTLSClientHelloFromJSON imports ClientHelloSpec from JSON data from client.tlsfingerprint.io format</span></code></span>
+<span class="codeline" id="line-469"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-470"><code><span class="comment">// It calls ImportTLSClientHello internally after unmarshaling JSON data into map[string][]byte</span></code></span>
+<span class="codeline" id="line-471"><code><span class="keyword">func</span> (<label for="r51" class="ident">chs</label> *<a href="#line-184" class="ident">ClientHelloSpec</a>) <label for="r52" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.ImportTLSClientHelloFromJSON.html" class="ident">ImportTLSClientHelloFromJSON</a></label>(<label for="r53" class="ident">jsonB</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-472"><code>	<span class="keyword">var</span> <label for="r54" class="ident">data</label> <span class="keyword">map</span>[<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>][]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-473"><code>	<label for="r55" class="ident">err</label> := <a href="../../../../pkg/encoding/json.html" class="ident i2">json</a>.<a href="../../../encoding/json/decode.go.html#line-102" class="ident">Unmarshal</a>(<label for="r53" class="ident">jsonB</label>, &amp;<label for="r54" class="ident">data</label>)</code></span>
+<span class="codeline" id="line-474"><code>	<span class="keyword">if</span> <label for="r55" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-475"><code>		<span class="keyword">return</span> <label for="r55" class="ident">err</label></code></span>
+<span class="codeline" id="line-476"><code>	}</code></span>
+<span class="codeline" id="line-477"><code>	<span class="keyword">return</span> <label for="r51" class="ident">chs</label>.<a href="#line-307" class="ident">ImportTLSClientHello</a>(<label for="r54" class="ident">data</label>)</code></span>
+<span class="codeline" id="line-478"><code>}</code></span>
+<span class="codeline" id="line-479"><code></code></span>
+<span class="codeline" id="line-480"><code><span class="comment">// FromRaw converts a ClientHello message in the form of raw bytes into a ClientHelloSpec.</span></code></span>
+<span class="codeline" id="line-481"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-482"><code><span class="comment">// ctrlFlags: []bool{bluntMimicry, realPSK}</span></code></span>
+<span class="codeline" id="line-483"><code><span class="keyword">func</span> (<label for="r56" class="ident">chs</label> *<a href="#line-184" class="ident">ClientHelloSpec</a>) <label for="r57" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.FromRaw.html" class="ident">FromRaw</a></label>(<label for="r58" class="ident">raw</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r59" class="ident">ctrlFlags</label> ...<a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-484"><code>	<span class="keyword">if</span> <label for="r56" class="ident">chs</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-485"><code>		<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"cannot unmarshal into nil ClientHelloSpec"</span>)</code></span>
+<span class="codeline" id="line-486"><code>	}</code></span>
+<span class="codeline" id="line-487"><code></code></span>
+<span class="codeline" id="line-488"><code>	<span class="keyword">var</span> <label for="r60" class="ident">bluntMimicry</label> = <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-489"><code>	<span class="keyword">var</span> <label for="r61" class="ident">realPSK</label> = <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-490"><code>	<span class="keyword">if</span> <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r59" class="ident">ctrlFlags</label>) &gt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-491"><code>		<label for="r60" class="ident">bluntMimicry</label> = <label for="r59" class="ident">ctrlFlags</label>[<span class="lit-number">0</span>]</code></span>
+<span class="codeline" id="line-492"><code>	}</code></span>
+<span class="codeline" id="line-493"><code>	<span class="keyword">if</span> <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r59" class="ident">ctrlFlags</label>) &gt; <span class="lit-number">1</span> {</code></span>
+<span class="codeline" id="line-494"><code>		<label for="r61" class="ident">realPSK</label> = <label for="r59" class="ident">ctrlFlags</label>[<span class="lit-number">1</span>]</code></span>
+<span class="codeline" id="line-495"><code>	}</code></span>
+<span class="codeline" id="line-496"><code></code></span>
+<span class="codeline" id="line-497"><code>	*<label for="r56" class="ident">chs</label> = <a href="#line-184" class="ident">ClientHelloSpec</a>{} <span class="comment">// reset</span></code></span>
+<span class="codeline" id="line-498"><code>	<label for="r62" class="ident">s</label> := <a href="../../../../pkg/golang.org/x/crypto/cryptobyte.html" class="ident i8">cryptobyte</a>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-22" class="ident">String</a>(<label for="r58" class="ident">raw</label>)</code></span>
+<span class="codeline" id="line-499"><code></code></span>
+<span class="codeline" id="line-500"><code>	<span class="keyword">var</span> <label for="r63" class="ident">contentType</label> <a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a></code></span>
+<span class="codeline" id="line-501"><code>	<span class="keyword">var</span> <label for="r64" class="ident">recordVersion</label> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-502"><code>	<span class="keyword">if</span> !<label for="r62" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-42" class="ident">ReadUint8</a>(&amp;<label for="r63" class="ident">contentType</label>) || <span class="comment">// record type</span></code></span>
+<span class="codeline" id="line-503"><code>		!<label for="r62" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-53" class="ident">ReadUint16</a>(&amp;<label for="r64" class="ident">recordVersion</label>) || !<label for="r62" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-36" class="ident">Skip</a>(<span class="lit-number">2</span>) { <span class="comment">// record version and length</span></code></span>
+<span class="codeline" id="line-504"><code>		<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"unable to read record type, version, and length"</span>)</code></span>
+<span class="codeline" id="line-505"><code>	}</code></span>
+<span class="codeline" id="line-506"><code></code></span>
+<span class="codeline" id="line-507"><code>	<span class="keyword">if</span> <a href="common.go.html#line-74" class="ident">recordType</a>(<label for="r63" class="ident">contentType</label>) != <a href="common.go.html#line-79" class="ident">recordTypeHandshake</a> {</code></span>
+<span class="codeline" id="line-508"><code>		<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"record is not a handshake"</span>)</code></span>
+<span class="codeline" id="line-509"><code>	}</code></span>
+<span class="codeline" id="line-510"><code></code></span>
+<span class="codeline" id="line-511"><code>	<span class="keyword">var</span> <label for="r65" class="ident">handshakeVersion</label> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-512"><code>	<span class="keyword">var</span> <label for="r66" class="ident">handshakeType</label> <a href="../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a></code></span>
+<span class="codeline" id="line-513"><code></code></span>
+<span class="codeline" id="line-514"><code>	<span class="keyword">if</span> !<label for="r62" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-42" class="ident">ReadUint8</a>(&amp;<label for="r66" class="ident">handshakeType</label>) || !<label for="r62" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-36" class="ident">Skip</a>(<span class="lit-number">3</span>) || <span class="comment">// message type and 3 byte length</span></code></span>
+<span class="codeline" id="line-515"><code>		!<label for="r62" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-53" class="ident">ReadUint16</a>(&amp;<label for="r65" class="ident">handshakeVersion</label>) || !<label for="r62" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-36" class="ident">Skip</a>(<span class="lit-number">32</span>) { <span class="comment">// 32 byte random</span></code></span>
+<span class="codeline" id="line-516"><code>		<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"unable to read handshake message type, length, and random"</span>)</code></span>
+<span class="codeline" id="line-517"><code>	}</code></span>
+<span class="codeline" id="line-518"><code></code></span>
+<span class="codeline" id="line-519"><code>	<span class="keyword">if</span> <label for="r66" class="ident">handshakeType</label> != <a href="common.go.html#line-86" class="ident">typeClientHello</a> {</code></span>
+<span class="codeline" id="line-520"><code>		<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"handshake message is not a ClientHello"</span>)</code></span>
+<span class="codeline" id="line-521"><code>	}</code></span>
+<span class="codeline" id="line-522"><code></code></span>
+<span class="codeline" id="line-523"><code>	<label for="r56" class="ident">chs</label>.<a href="#line-189" class="ident">TLSVersMin</a> = <label for="r64" class="ident">recordVersion</label></code></span>
+<span class="codeline" id="line-524"><code>	<label for="r56" class="ident">chs</label>.<a href="#line-190" class="ident">TLSVersMax</a> = <label for="r65" class="ident">handshakeVersion</label></code></span>
+<span class="codeline" id="line-525"><code></code></span>
+<span class="codeline" id="line-526"><code>	<span class="keyword">var</span> <label for="r67" class="ident">ignoredSessionID</label> <a href="../../../../pkg/golang.org/x/crypto/cryptobyte.html" class="ident i8">cryptobyte</a>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-22" class="ident">String</a></code></span>
+<span class="codeline" id="line-527"><code>	<span class="keyword">if</span> !<label for="r62" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-140" class="ident">ReadUint8LengthPrefixed</a>(&amp;<label for="r67" class="ident">ignoredSessionID</label>) {</code></span>
+<span class="codeline" id="line-528"><code>		<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"unable to read session id"</span>)</code></span>
+<span class="codeline" id="line-529"><code>	}</code></span>
+<span class="codeline" id="line-530"><code></code></span>
+<span class="codeline" id="line-531"><code>	<span class="comment">// CipherSuites</span></code></span>
+<span class="codeline" id="line-532"><code>	<span class="keyword">var</span> <label for="r68" class="ident">cipherSuitesBytes</label> <a href="../../../../pkg/golang.org/x/crypto/cryptobyte.html" class="ident i8">cryptobyte</a>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-22" class="ident">String</a></code></span>
+<span class="codeline" id="line-533"><code>	<span class="keyword">if</span> !<label for="r62" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-147" class="ident">ReadUint16LengthPrefixed</a>(&amp;<label for="r68" class="ident">cipherSuitesBytes</label>) {</code></span>
+<span class="codeline" id="line-534"><code>		<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"unable to read ciphersuites"</span>)</code></span>
+<span class="codeline" id="line-535"><code>	}</code></span>
+<span class="codeline" id="line-536"><code></code></span>
+<span class="codeline" id="line-537"><code>	<span class="keyword">if</span> <label for="r69" class="ident">err</label> := <label for="r56" class="ident">chs</label>.<a href="#line-203" class="ident">ReadCipherSuites</a>(<label for="r68" class="ident">cipherSuitesBytes</label>); <label for="r69" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-538"><code>		<span class="keyword">return</span> <label for="r69" class="ident">err</label></code></span>
+<span class="codeline" id="line-539"><code>	}</code></span>
+<span class="codeline" id="line-540"><code></code></span>
+<span class="codeline" id="line-541"><code>	<span class="comment">// CompressionMethods</span></code></span>
+<span class="codeline" id="line-542"><code>	<span class="keyword">var</span> <label for="r70" class="ident">compressionMethods</label> <a href="../../../../pkg/golang.org/x/crypto/cryptobyte.html" class="ident i8">cryptobyte</a>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-22" class="ident">String</a></code></span>
+<span class="codeline" id="line-543"><code>	<span class="keyword">if</span> !<label for="r62" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-140" class="ident">ReadUint8LengthPrefixed</a>(&amp;<label for="r70" class="ident">compressionMethods</label>) {</code></span>
+<span class="codeline" id="line-544"><code>		<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"unable to read compression methods"</span>)</code></span>
+<span class="codeline" id="line-545"><code>	}</code></span>
+<span class="codeline" id="line-546"><code></code></span>
+<span class="codeline" id="line-547"><code>	<span class="keyword">if</span> <label for="r71" class="ident">err</label> := <label for="r56" class="ident">chs</label>.<a href="#line-219" class="ident">ReadCompressionMethods</a>(<label for="r70" class="ident">compressionMethods</label>); <label for="r71" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-548"><code>		<span class="keyword">return</span> <label for="r71" class="ident">err</label></code></span>
+<span class="codeline" id="line-549"><code>	}</code></span>
+<span class="codeline" id="line-550"><code></code></span>
+<span class="codeline" id="line-551"><code>	<span class="keyword">if</span> <label for="r62" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-181" class="ident">Empty</a>() {</code></span>
+<span class="codeline" id="line-552"><code>		<span class="comment">// Extensions are optional</span></code></span>
+<span class="codeline" id="line-553"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-554"><code>	}</code></span>
+<span class="codeline" id="line-555"><code></code></span>
+<span class="codeline" id="line-556"><code>	<span class="keyword">var</span> <label for="r72" class="ident">extensions</label> <a href="../../../../pkg/golang.org/x/crypto/cryptobyte.html" class="ident i8">cryptobyte</a>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-22" class="ident">String</a></code></span>
+<span class="codeline" id="line-557"><code>	<span class="keyword">if</span> !<label for="r62" class="ident">s</label>.<a href="../../../golang.org/x/crypto/cryptobyte/string.go.html#line-147" class="ident">ReadUint16LengthPrefixed</a>(&amp;<label for="r72" class="ident">extensions</label>) {</code></span>
+<span class="codeline" id="line-558"><code>		<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i3">errors</a>.<a href="../../../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"unable to read extensions data"</span>)</code></span>
+<span class="codeline" id="line-559"><code>	}</code></span>
+<span class="codeline" id="line-560"><code></code></span>
+<span class="codeline" id="line-561"><code>	<span class="keyword">if</span> <label for="r73" class="ident">err</label> := <label for="r56" class="ident">chs</label>.<a href="#line-226" class="ident">ReadTLSExtensions</a>(<label for="r72" class="ident">extensions</label>, <label for="r60" class="ident">bluntMimicry</label>, <label for="r61" class="ident">realPSK</label>); <label for="r73" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-562"><code>		<span class="keyword">return</span> <label for="r73" class="ident">err</label></code></span>
+<span class="codeline" id="line-563"><code>	}</code></span>
+<span class="codeline" id="line-564"><code></code></span>
+<span class="codeline" id="line-565"><code>	<span class="comment">// if extension list includes padding, we update the padding-to-len according to</span></code></span>
+<span class="codeline" id="line-566"><code><span class="comment">	// the raw ClientHello length</span></code></span>
+<span class="codeline" id="line-567"><code>	<span class="keyword">for</span> <label for="r74" class="ident">_</label>, <label for="r75" class="ident">ext</label> := <span class="keyword">range</span> <label for="r56" class="ident">chs</label>.<a href="#line-187" class="ident">Extensions</a> {</code></span>
+<span class="codeline" id="line-568"><code>		<span class="keyword">if</span> <label for="r76" class="ident">_</label>, <label for="r77" class="ident">ok</label> := <label for="r75" class="ident">ext</label>.(*<a href="u_tls_extensions.go.html#line-1045" class="ident">UtlsPaddingExtension</a>); <label for="r77" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-569"><code>			<label for="r75" class="ident">ext</label>.(*<a href="u_tls_extensions.go.html#line-1045" class="ident">UtlsPaddingExtension</a>).<a href="u_tls_extensions.go.html#line-1051" class="ident">GetPaddingLen</a> = <a href="u_tls_extensions.go.html#line-1126" class="ident">AlwaysPadToLen</a>(<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r58" class="ident">raw</label>) - <span class="lit-number">5</span>)</code></span>
+<span class="codeline" id="line-570"><code>			<span class="keyword">break</span></code></span>
+<span class="codeline" id="line-571"><code>		}</code></span>
+<span class="codeline" id="line-572"><code>	}</code></span>
+<span class="codeline" id="line-573"><code></code></span>
+<span class="codeline" id="line-574"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-575"><code>}</code></span>
+<span class="codeline" id="line-576"><code></code></span>
+<span class="codeline" id="line-577"><code><span class="comment">// UnmarshalJSON unmarshals a ClientHello message in the form of JSON into a ClientHelloSpec.</span></code></span>
+<span class="codeline" id="line-578"><code><span class="keyword">func</span> (<label for="r78" class="ident">chs</label> *<a href="#line-184" class="ident">ClientHelloSpec</a>) <label for="r79" class="ident"><a href="../../../../use/github.com/refraction-networking/utls..ClientHelloSpec.UnmarshalJSON.html" class="ident">UnmarshalJSON</a></label>(<label for="r80" class="ident">jsonB</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-579"><code>	<span class="keyword">var</span> <label for="r81" class="ident">chsju</label> <a href="u_clienthello_json.go.html#line-14" class="ident">ClientHelloSpecJSONUnmarshaler</a></code></span>
+<span class="codeline" id="line-580"><code>	<span class="keyword">if</span> <label for="r82" class="ident">err</label> := <a href="../../../../pkg/encoding/json.html" class="ident i2">json</a>.<a href="../../../encoding/json/decode.go.html#line-102" class="ident">Unmarshal</a>(<label for="r80" class="ident">jsonB</label>, &amp;<label for="r81" class="ident">chsju</label>); <label for="r82" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-581"><code>		<span class="keyword">return</span> <label for="r82" class="ident">err</label></code></span>
+<span class="codeline" id="line-582"><code>	}</code></span>
+<span class="codeline" id="line-583"><code></code></span>
+<span class="codeline" id="line-584"><code>	*<label for="r78" class="ident">chs</label> = <label for="r81" class="ident">chsju</label>.<a href="u_clienthello_json.go.html#line-22" class="ident">ClientHelloSpec</a>()</code></span>
+<span class="codeline" id="line-585"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-586"><code>}</code></span>
+<span class="codeline" id="line-587"><code></code></span>
+<span class="codeline" id="line-588"><code><span class="keyword">var</span> (</code></span>
+<span class="codeline" id="line-589"><code>	<span class="comment">// HelloGolang will use default "crypto/tls" handshake marshaling codepath, which WILL</span></code></span>
+<span class="codeline" id="line-590"><code><span class="comment">	// overwrite your changes to Hello(Config, Session are fine).</span></code></span>
+<span class="codeline" id="line-591"><code><span class="comment">	// You might want to call BuildHandshakeState() before applying any changes.</span></code></span>
+<span class="codeline" id="line-592"><code><span class="comment">	// UConn.Extensions will be completely ignored.</span></code></span>
+<span class="codeline" id="line-593"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloGolang" class="ident">HelloGolang</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-166" class="ident">helloGolang</a>, <a href="#line-181" class="ident">helloAutoVers</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-594"><code></code></span>
+<span class="codeline" id="line-595"><code>	<span class="comment">// HelloCustom will prepare ClientHello with empty uconn.Extensions so you can fill it with</span></code></span>
+<span class="codeline" id="line-596"><code><span class="comment">	// TLSExtensions manually or use ApplyPreset function</span></code></span>
+<span class="codeline" id="line-597"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloCustom" class="ident">HelloCustom</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-170" class="ident">helloCustom</a>, <a href="#line-181" class="ident">helloAutoVers</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-598"><code></code></span>
+<span class="codeline" id="line-599"><code>	<span class="comment">// HelloRandomized* randomly adds/reorders extensions, ciphersuites, etc.</span></code></span>
+<span class="codeline" id="line-600"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloRandomized" class="ident">HelloRandomized</a>       = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-167" class="ident">helloRandomized</a>, <a href="#line-181" class="ident">helloAutoVers</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-601"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloRandomizedALPN" class="ident">HelloRandomizedALPN</a>   = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-168" class="ident">helloRandomizedALPN</a>, <a href="#line-181" class="ident">helloAutoVers</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-602"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloRandomizedNoALPN" class="ident">HelloRandomizedNoALPN</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-169" class="ident">helloRandomizedNoALPN</a>, <a href="#line-181" class="ident">helloAutoVers</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-603"><code></code></span>
+<span class="codeline" id="line-604"><code>	<span class="comment">// The rest will will parrot given browser.</span></code></span>
+<span class="codeline" id="line-605"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloFirefox_Auto" class="ident">HelloFirefox_Auto</a> = <a href="#line-613" class="ident">HelloFirefox_120</a></code></span>
+<span class="codeline" id="line-606"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloFirefox_55" class="ident">HelloFirefox_55</a>   = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-171" class="ident">helloFirefox</a>, <span class="lit-string">"55"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-607"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloFirefox_56" class="ident">HelloFirefox_56</a>   = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-171" class="ident">helloFirefox</a>, <span class="lit-string">"56"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-608"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloFirefox_63" class="ident">HelloFirefox_63</a>   = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-171" class="ident">helloFirefox</a>, <span class="lit-string">"63"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-609"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloFirefox_65" class="ident">HelloFirefox_65</a>   = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-171" class="ident">helloFirefox</a>, <span class="lit-string">"65"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-610"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloFirefox_99" class="ident">HelloFirefox_99</a>   = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-171" class="ident">helloFirefox</a>, <span class="lit-string">"99"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-611"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloFirefox_102" class="ident">HelloFirefox_102</a>  = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-171" class="ident">helloFirefox</a>, <span class="lit-string">"102"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-612"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloFirefox_105" class="ident">HelloFirefox_105</a>  = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-171" class="ident">helloFirefox</a>, <span class="lit-string">"105"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-613"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloFirefox_120" class="ident">HelloFirefox_120</a>  = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-171" class="ident">helloFirefox</a>, <span class="lit-string">"120"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-614"><code></code></span>
+<span class="codeline" id="line-615"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_Auto" class="ident">HelloChrome_Auto</a>        = <a href="#line-646" class="ident">HelloChrome_133</a></code></span>
+<span class="codeline" id="line-616"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_58" class="ident">HelloChrome_58</a>          = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"58"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-617"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_62" class="ident">HelloChrome_62</a>          = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"62"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-618"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_70" class="ident">HelloChrome_70</a>          = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"70"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-619"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_72" class="ident">HelloChrome_72</a>          = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"72"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-620"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_83" class="ident">HelloChrome_83</a>          = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"83"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-621"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_87" class="ident">HelloChrome_87</a>          = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"87"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-622"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_96" class="ident">HelloChrome_96</a>          = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"96"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-623"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_100" class="ident">HelloChrome_100</a>         = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"100"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-624"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_102" class="ident">HelloChrome_102</a>         = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"102"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-625"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_106_Shuffle" class="ident">HelloChrome_106_Shuffle</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"106"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>} <span class="comment">// TLS Extension shuffler enabled starting from 106</span></code></span>
+<span class="codeline" id="line-626"><code></code></span>
+<span class="codeline" id="line-627"><code>	<span class="comment">// Chrome w/ PSK: Chrome start sending this ClientHello after doing TLS 1.3 handshake with the same server.</span></code></span>
+<span class="codeline" id="line-628"><code><span class="comment">	// Beta: PSK extension added. However, uTLS doesn't ship with full PSK support.</span></code></span>
+<span class="codeline" id="line-629"><code><span class="comment">	// Use at your own discretion.</span></code></span>
+<span class="codeline" id="line-630"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_100_PSK" class="ident">HelloChrome_100_PSK</a>              = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"100_PSK"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-631"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_112_PSK_Shuf" class="ident">HelloChrome_112_PSK_Shuf</a>         = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"112_PSK"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-632"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_114_Padding_PSK_Shuf" class="ident">HelloChrome_114_Padding_PSK_Shuf</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"114_PSK"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-633"><code></code></span>
+<span class="codeline" id="line-634"><code>	<span class="comment">// Chrome w/ Post-Quantum Key Agreement</span></code></span>
+<span class="codeline" id="line-635"><code><span class="comment">	// Beta: PQ extension added. However, uTLS doesn't ship with full PQ support. Use at your own discretion.</span></code></span>
+<span class="codeline" id="line-636"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_115_PQ" class="ident">HelloChrome_115_PQ</a>     = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"115_PQ"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-637"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_115_PQ_PSK" class="ident">HelloChrome_115_PQ_PSK</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"115_PQ_PSK"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-638"><code></code></span>
+<span class="codeline" id="line-639"><code>	<span class="comment">// Chrome ECH</span></code></span>
+<span class="codeline" id="line-640"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_120" class="ident">HelloChrome_120</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"120"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-641"><code>	<span class="comment">// Chrome w/ Post-Quantum Key Agreement and Encrypted ClientHello</span></code></span>
+<span class="codeline" id="line-642"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_120_PQ" class="ident">HelloChrome_120_PQ</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"120_PQ"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-643"><code>	<span class="comment">// Chrome w/ ML-KEM curve</span></code></span>
+<span class="codeline" id="line-644"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_131" class="ident">HelloChrome_131</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"131"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-645"><code>	<span class="comment">// Chrome w/ New ALPS codepoint</span></code></span>
+<span class="codeline" id="line-646"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloChrome_133" class="ident">HelloChrome_133</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-172" class="ident">helloChrome</a>, <span class="lit-string">"133"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-647"><code></code></span>
+<span class="codeline" id="line-648"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloIOS_Auto" class="ident">HelloIOS_Auto</a> = <a href="#line-652" class="ident">HelloIOS_14</a></code></span>
+<span class="codeline" id="line-649"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloIOS_11_1" class="ident">HelloIOS_11_1</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-173" class="ident">helloIOS</a>, <span class="lit-string">"111"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>} <span class="comment">// legacy "111" means 11.1</span></code></span>
+<span class="codeline" id="line-650"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloIOS_12_1" class="ident">HelloIOS_12_1</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-173" class="ident">helloIOS</a>, <span class="lit-string">"12.1"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-651"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloIOS_13" class="ident">HelloIOS_13</a>   = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-173" class="ident">helloIOS</a>, <span class="lit-string">"13"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-652"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloIOS_14" class="ident">HelloIOS_14</a>   = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-173" class="ident">helloIOS</a>, <span class="lit-string">"14"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-653"><code></code></span>
+<span class="codeline" id="line-654"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloAndroid_11_OkHttp" class="ident">HelloAndroid_11_OkHttp</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-174" class="ident">helloAndroid</a>, <span class="lit-string">"11"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-655"><code></code></span>
+<span class="codeline" id="line-656"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloEdge_Auto" class="ident">HelloEdge_Auto</a> = <a href="#line-657" class="ident">HelloEdge_85</a> <span class="comment">// HelloEdge_106 seems to be incompatible with this library</span></code></span>
+<span class="codeline" id="line-657"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloEdge_85" class="ident">HelloEdge_85</a>   = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-175" class="ident">helloEdge</a>, <span class="lit-string">"85"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-658"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloEdge_106" class="ident">HelloEdge_106</a>  = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-175" class="ident">helloEdge</a>, <span class="lit-string">"106"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-659"><code></code></span>
+<span class="codeline" id="line-660"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloSafari_Auto" class="ident">HelloSafari_Auto</a> = <a href="#line-661" class="ident">HelloSafari_16_0</a></code></span>
+<span class="codeline" id="line-661"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloSafari_16_0" class="ident">HelloSafari_16_0</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-176" class="ident">helloSafari</a>, <span class="lit-string">"16.0"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-662"><code></code></span>
+<span class="codeline" id="line-663"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-Hello360_Auto" class="ident">Hello360_Auto</a> = <a href="#line-664" class="ident">Hello360_7_5</a> <span class="comment">// Hello360_11_0 seems to be incompatible with this library</span></code></span>
+<span class="codeline" id="line-664"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-Hello360_7_5" class="ident">Hello360_7_5</a>  = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-177" class="ident">hello360</a>, <span class="lit-string">"7.5"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-665"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-Hello360_11_0" class="ident">Hello360_11_0</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-177" class="ident">hello360</a>, <span class="lit-string">"11.0"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-666"><code></code></span>
+<span class="codeline" id="line-667"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloQQ_Auto" class="ident">HelloQQ_Auto</a> = <a href="#line-668" class="ident">HelloQQ_11_1</a></code></span>
+<span class="codeline" id="line-668"><code>	<a href="../../../../pkg/github.com/refraction-networking/utls.html#name-HelloQQ_11_1" class="ident">HelloQQ_11_1</a> = <a href="#line-140" class="ident">ClientHelloID</a>{<a href="#line-178" class="ident">helloQQ</a>, <span class="lit-string">"11.1"</span>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>}</code></span>
+<span class="codeline" id="line-669"><code>)</code></span>
+<span class="codeline" id="line-670"><code></code></span>
+<span class="codeline" id="line-671"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-Weights" class="ident">Weights</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-672"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.Extensions_Append_ALPN.html" class="ident">Extensions_Append_ALPN</a>                             <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-673"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.TLSVersMax_Set_VersionTLS13.html" class="ident">TLSVersMax_Set_VersionTLS13</a>                        <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-674"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.CipherSuites_Remove_RandomCiphers.html" class="ident">CipherSuites_Remove_RandomCiphers</a>                  <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-675"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.SigAndHashAlgos_Append_ECDSAWithSHA1.html" class="ident">SigAndHashAlgos_Append_ECDSAWithSHA1</a>               <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-676"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.SigAndHashAlgos_Append_ECDSAWithP521AndSHA512.html" class="ident">SigAndHashAlgos_Append_ECDSAWithP521AndSHA512</a>      <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-677"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.SigAndHashAlgos_Append_PSSWithSHA256.html" class="ident">SigAndHashAlgos_Append_PSSWithSHA256</a>               <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-678"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.SigAndHashAlgos_Append_PSSWithSHA384_PSSWithSHA512.html" class="ident">SigAndHashAlgos_Append_PSSWithSHA384_PSSWithSHA512</a> <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-679"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.CurveIDs_Append_X25519.html" class="ident">CurveIDs_Append_X25519</a>                             <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-680"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.CurveIDs_Append_CurveP521.html" class="ident">CurveIDs_Append_CurveP521</a>                          <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-681"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.Extensions_Append_Padding.html" class="ident">Extensions_Append_Padding</a>                          <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-682"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.Extensions_Append_Status.html" class="ident">Extensions_Append_Status</a>                           <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-683"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.Extensions_Append_SCT.html" class="ident">Extensions_Append_SCT</a>                              <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-684"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.Extensions_Append_Reneg.html" class="ident">Extensions_Append_Reneg</a>                            <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-685"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.Extensions_Append_EMS.html" class="ident">Extensions_Append_EMS</a>                              <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-686"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.FirstKeyShare_Set_CurveP256.html" class="ident">FirstKeyShare_Set_CurveP256</a>                        <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-687"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.KeyShare_Append_RandomGroups.html" class="ident">KeyShare_Append_RandomGroups</a>                       <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-688"><code>	<a href="../../../../use/github.com/refraction-networking/utls..Weights.Extensions_Append_ALPS.html" class="ident">Extensions_Append_ALPS</a>                             <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a></code></span>
+<span class="codeline" id="line-689"><code>}</code></span>
+<span class="codeline" id="line-690"><code></code></span>
+<span class="codeline" id="line-691"><code><span class="comment">// Do not modify them directly as they may being used. If you</span></code></span>
+<span class="codeline" id="line-692"><code><span class="comment">// want to use your custom weights, please make a copy first.</span></code></span>
+<span class="codeline" id="line-693"><code><span class="keyword">var</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-DefaultWeights" class="ident">DefaultWeights</a> = <a href="#line-671" class="ident">Weights</a>{</code></span>
+<span class="codeline" id="line-694"><code>	<a href="#line-672" class="ident">Extensions_Append_ALPN</a>:                             <span class="lit-number">0.7</span>,</code></span>
+<span class="codeline" id="line-695"><code>	<a href="#line-673" class="ident">TLSVersMax_Set_VersionTLS13</a>:                        <span class="lit-number">0.4</span>,</code></span>
+<span class="codeline" id="line-696"><code>	<a href="#line-674" class="ident">CipherSuites_Remove_RandomCiphers</a>:                  <span class="lit-number">0.4</span>,</code></span>
+<span class="codeline" id="line-697"><code>	<a href="#line-675" class="ident">SigAndHashAlgos_Append_ECDSAWithSHA1</a>:               <span class="lit-number">0.63</span>,</code></span>
+<span class="codeline" id="line-698"><code>	<a href="#line-676" class="ident">SigAndHashAlgos_Append_ECDSAWithP521AndSHA512</a>:      <span class="lit-number">0.59</span>,</code></span>
+<span class="codeline" id="line-699"><code>	<a href="#line-677" class="ident">SigAndHashAlgos_Append_PSSWithSHA256</a>:               <span class="lit-number">0.51</span>,</code></span>
+<span class="codeline" id="line-700"><code>	<a href="#line-678" class="ident">SigAndHashAlgos_Append_PSSWithSHA384_PSSWithSHA512</a>: <span class="lit-number">0.9</span>,</code></span>
+<span class="codeline" id="line-701"><code>	<a href="#line-679" class="ident">CurveIDs_Append_X25519</a>:                             <span class="lit-number">0.71</span>,</code></span>
+<span class="codeline" id="line-702"><code>	<a href="#line-680" class="ident">CurveIDs_Append_CurveP521</a>:                          <span class="lit-number">0.46</span>,</code></span>
+<span class="codeline" id="line-703"><code>	<a href="#line-681" class="ident">Extensions_Append_Padding</a>:                          <span class="lit-number">0.62</span>,</code></span>
+<span class="codeline" id="line-704"><code>	<a href="#line-682" class="ident">Extensions_Append_Status</a>:                           <span class="lit-number">0.74</span>,</code></span>
+<span class="codeline" id="line-705"><code>	<a href="#line-683" class="ident">Extensions_Append_SCT</a>:                              <span class="lit-number">0.46</span>,</code></span>
+<span class="codeline" id="line-706"><code>	<a href="#line-684" class="ident">Extensions_Append_Reneg</a>:                            <span class="lit-number">0.75</span>,</code></span>
+<span class="codeline" id="line-707"><code>	<a href="#line-685" class="ident">Extensions_Append_EMS</a>:                              <span class="lit-number">0.77</span>,</code></span>
+<span class="codeline" id="line-708"><code>	<a href="#line-686" class="ident">FirstKeyShare_Set_CurveP256</a>:                        <span class="lit-number">0.00</span>, <span class="comment">// legacy setting</span></code></span>
+<span class="codeline" id="line-709"><code>	<a href="#line-687" class="ident">KeyShare_Append_RandomGroups</a>:                       <span class="lit-number">0.50</span>,</code></span>
+<span class="codeline" id="line-710"><code>	<a href="#line-688" class="ident">Extensions_Append_ALPS</a>:                             <span class="lit-number">0.33</span>,</code></span>
+<span class="codeline" id="line-711"><code>}</code></span>
+<span class="codeline" id="line-712"><code></code></span>
+<span class="codeline" id="line-713"><code><span class="comment">// based on spec's GreaseStyle, GREASE_PLACEHOLDER may be replaced by another GREASE value</span></code></span>
+<span class="codeline" id="line-714"><code><span class="comment">// https://tools.ietf.org/html/draft-ietf-tls-grease-01</span></code></span>
+<span class="codeline" id="line-715"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-GREASE_PLACEHOLDER" class="ident">GREASE_PLACEHOLDER</a> = <span class="lit-number">0x0a0a</span></code></span>
+<span class="codeline" id="line-716"><code></code></span>
+<span class="codeline" id="line-717"><code><span class="keyword">func</span> <label for="r83" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-isGREASEUint16" class="ident">isGREASEUint16</a></label>(<label for="r84" class="ident">v</label> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-718"><code>	<span class="comment">// First byte is same as second byte</span></code></span>
+<span class="codeline" id="line-719"><code><span class="comment">	// and lowest nibble is 0xa</span></code></span>
+<span class="codeline" id="line-720"><code>	<span class="keyword">return</span> ((<label for="r84" class="ident">v</label> &gt;&gt; <span class="lit-number">8</span>) == <label for="r84" class="ident">v</label>&amp;<span class="lit-number">0xff</span>) &amp;&amp; <label for="r84" class="ident">v</label>&amp;<span class="lit-number">0xf</span> == <span class="lit-number">0xa</span></code></span>
+<span class="codeline" id="line-721"><code>}</code></span>
+<span class="codeline" id="line-722"><code></code></span>
+<span class="codeline" id="line-723"><code><span class="keyword">func</span> <label for="r85" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-unGREASEUint16" class="ident">unGREASEUint16</a></label>(<label for="r86" class="ident">v</label> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>) <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a> {</code></span>
+<span class="codeline" id="line-724"><code>	<span class="keyword">if</span> <a href="#line-717" class="ident">isGREASEUint16</a>(<label for="r86" class="ident">v</label>) {</code></span>
+<span class="codeline" id="line-725"><code>		<span class="keyword">return</span> <a href="#line-715" class="ident">GREASE_PLACEHOLDER</a></code></span>
+<span class="codeline" id="line-726"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-727"><code>		<span class="keyword">return</span> <label for="r86" class="ident">v</label></code></span>
+<span class="codeline" id="line-728"><code>	}</code></span>
+<span class="codeline" id="line-729"><code>}</code></span>
+<span class="codeline" id="line-730"><code></code></span>
+<span class="codeline" id="line-731"><code><span class="comment">// utlsMacSHA384 returns a SHA-384 based MAC. These are only supported in TLS 1.2</span></code></span>
+<span class="codeline" id="line-732"><code><span class="comment">// so the given version is ignored.</span></code></span>
+<span class="codeline" id="line-733"><code><span class="keyword">func</span> <label for="r87" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-utlsMacSHA384" class="ident">utlsMacSHA384</a></label>(<label for="r88" class="ident">key</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../../../pkg/hash.html" class="ident i5">hash</a>.<a href="../../../hash/hash.go.html#line-26" class="ident">Hash</a> {</code></span>
+<span class="codeline" id="line-734"><code>	<span class="keyword">return</span> <a href="../../../../pkg/crypto/hmac.html" class="ident i0">hmac</a>.<a href="../../../crypto/hmac/hmac.go.html#line-39" class="ident">New</a>(<a href="../../../../pkg/crypto/sha512.html" class="ident i1">sha512</a>.<a href="../../../crypto/sha512/sha512.go.html#line-76" class="ident">New384</a>, <label for="r88" class="ident">key</label>)</code></span>
+<span class="codeline" id="line-735"><code>}</code></span>
+<span class="codeline" id="line-736"><code></code></span>
+<span class="codeline" id="line-737"><code><span class="keyword">var</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-utlsSupportedCipherSuites" class="ident">utlsSupportedCipherSuites</a> []*<a href="cipher_suites.go.html#line-136" class="ident">cipherSuite</a></code></span>
+<span class="codeline" id="line-738"><code></code></span>
+<span class="codeline" id="line-739"><code><span class="keyword">func</span> <label for="r89" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-init" class="ident">init</a></label>() {</code></span>
+<span class="codeline" id="line-740"><code>	<a href="#line-737" class="ident">utlsSupportedCipherSuites</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<a href="cipher_suites.go.html#line-150" class="ident">cipherSuites</a>, []*<a href="cipher_suites.go.html#line-136" class="ident">cipherSuite</a>{</code></span>
+<span class="codeline" id="line-741"><code>		{<a href="#line-55" class="ident">OLD_TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256</a>, <span class="lit-number">32</span>, <span class="lit-number">0</span>, <span class="lit-number">12</span>, <a href="cipher_suites.go.html#line-638" class="ident">ecdheRSAKA</a>,</code></span>
+<span class="codeline" id="line-742"><code>			<a href="cipher_suites.go.html#line-120" class="ident">suiteECDHE</a> | <a href="cipher_suites.go.html#line-128" class="ident">suiteTLS12</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="cipher_suites.go.html#line-576" class="ident">aeadChaCha20Poly1305</a>},</code></span>
+<span class="codeline" id="line-743"><code>		{<a href="#line-56" class="ident">OLD_TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256</a>, <span class="lit-number">32</span>, <span class="lit-number">0</span>, <span class="lit-number">12</span>, <a href="cipher_suites.go.html#line-631" class="ident">ecdheECDSAKA</a>,</code></span>
+<span class="codeline" id="line-744"><code>			<a href="cipher_suites.go.html#line-120" class="ident">suiteECDHE</a> | <a href="cipher_suites.go.html#line-125" class="ident">suiteECSign</a> | <a href="cipher_suites.go.html#line-128" class="ident">suiteTLS12</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="cipher_suites.go.html#line-576" class="ident">aeadChaCha20Poly1305</a>},</code></span>
+<span class="codeline" id="line-745"><code>	}...)</code></span>
+<span class="codeline" id="line-746"><code>}</code></span>
+<span class="codeline" id="line-747"><code></code></span>
+<span class="codeline" id="line-748"><code><span class="comment">// EnableWeakCiphers allows utls connections to continue in some cases, when weak cipher was chosen.</span></code></span>
+<span class="codeline" id="line-749"><code><span class="comment">// This provides better compatibility with servers on the web, but weakens security. Feel free</span></code></span>
+<span class="codeline" id="line-750"><code><span class="comment">// to use this option if you establish additional secure connection inside of utls connection.</span></code></span>
+<span class="codeline" id="line-751"><code><span class="comment">// This option does not change the shape of parrots (i.e. same ciphers will be offered either way).</span></code></span>
+<span class="codeline" id="line-752"><code><span class="comment">// Must be called before establishing any connections.</span></code></span>
+<span class="codeline" id="line-753"><code><span class="keyword">func</span> <label for="r90" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-EnableWeakCiphers" class="ident">EnableWeakCiphers</a></label>() {</code></span>
+<span class="codeline" id="line-754"><code>	<a href="#line-737" class="ident">utlsSupportedCipherSuites</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<a href="cipher_suites.go.html#line-150" class="ident">cipherSuites</a>, []*<a href="cipher_suites.go.html#line-136" class="ident">cipherSuite</a>{</code></span>
+<span class="codeline" id="line-755"><code>		{<a href="#line-60" class="ident">DISABLED_TLS_RSA_WITH_AES_256_CBC_SHA256</a>, <span class="lit-number">32</span>, <span class="lit-number">32</span>, <span class="lit-number">16</span>, <a href="cipher_suites.go.html#line-627" class="ident">rsaKA</a>,</code></span>
+<span class="codeline" id="line-756"><code>			<a href="cipher_suites.go.html#line-128" class="ident">suiteTLS12</a>, <a href="cipher_suites.go.html#line-416" class="ident">cipherAES</a>, <a href="cipher_suites.go.html#line-437" class="ident">macSHA256</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>},</code></span>
+<span class="codeline" id="line-757"><code></code></span>
+<span class="codeline" id="line-758"><code>		{<a href="#line-58" class="ident">DISABLED_TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384</a>, <span class="lit-number">32</span>, <span class="lit-number">48</span>, <span class="lit-number">16</span>, <a href="cipher_suites.go.html#line-631" class="ident">ecdheECDSAKA</a>,</code></span>
+<span class="codeline" id="line-759"><code>			<a href="cipher_suites.go.html#line-120" class="ident">suiteECDHE</a> | <a href="cipher_suites.go.html#line-125" class="ident">suiteECSign</a> | <a href="cipher_suites.go.html#line-128" class="ident">suiteTLS12</a> | <a href="cipher_suites.go.html#line-131" class="ident">suiteSHA384</a>, <a href="cipher_suites.go.html#line-416" class="ident">cipherAES</a>, <a href="#line-733" class="ident">utlsMacSHA384</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>},</code></span>
+<span class="codeline" id="line-760"><code>		{<a href="#line-59" class="ident">DISABLED_TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384</a>, <span class="lit-number">32</span>, <span class="lit-number">48</span>, <span class="lit-number">16</span>, <a href="cipher_suites.go.html#line-638" class="ident">ecdheRSAKA</a>,</code></span>
+<span class="codeline" id="line-761"><code>			<a href="cipher_suites.go.html#line-120" class="ident">suiteECDHE</a> | <a href="cipher_suites.go.html#line-128" class="ident">suiteTLS12</a> | <a href="cipher_suites.go.html#line-131" class="ident">suiteSHA384</a>, <a href="cipher_suites.go.html#line-416" class="ident">cipherAES</a>, <a href="#line-733" class="ident">utlsMacSHA384</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>},</code></span>
+<span class="codeline" id="line-762"><code>	}...)</code></span>
+<span class="codeline" id="line-763"><code>}</code></span>
+<span class="codeline" id="line-764"><code></code></span>
+<span class="codeline" id="line-765"><code><span class="keyword">func</span> <label for="r91" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-mapSlice" class="ident">mapSlice</a></label>[<label for="r92" class="ident">T</label> <a href="../../../../pkg/builtin.html#name-any" class="ident">any</a>, <label for="r93" class="ident">U</label> <a href="../../../../pkg/builtin.html#name-any" class="ident">any</a>](<label for="r94" class="ident">slice</label> []<label for="r92" class="ident">T</label>, <label for="r95" class="ident">transform</label> <span class="keyword">func</span>(<label for="r92" class="ident">T</label>) <label for="r93" class="ident">U</label>) []<label for="r93" class="ident">U</label> {</code></span>
+<span class="codeline" id="line-766"><code>	<label for="r96" class="ident">newSlice</label> := <a href="../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<label for="r93" class="ident">U</label>, <span class="lit-number">0</span>, <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r94" class="ident">slice</label>))</code></span>
+<span class="codeline" id="line-767"><code>	<span class="keyword">for</span> <label for="r97" class="ident">_</label>, <label for="r98" class="ident">t</label> := <span class="keyword">range</span> <label for="r94" class="ident">slice</label> {</code></span>
+<span class="codeline" id="line-768"><code>		<label for="r96" class="ident">newSlice</label> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r96" class="ident">newSlice</label>, <label for="r95" class="ident">transform</label>(<label for="r98" class="ident">t</label>))</code></span>
+<span class="codeline" id="line-769"><code>	}</code></span>
+<span class="codeline" id="line-770"><code>	<span class="keyword">return</span> <label for="r96" class="ident">newSlice</label></code></span>
+<span class="codeline" id="line-771"><code>}</code></span>
+<span class="codeline" id="line-772"><code></code></span>
+<span class="codeline" id="line-773"><code><span class="keyword">func</span> <label for="r99" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-panicOnNil" class="ident">panicOnNil</a></label>(<label for="r100" class="ident">caller</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r101" class="ident">params</label> ...<a href="../../../../pkg/builtin.html#name-any" class="ident">any</a>) {</code></span>
+<span class="codeline" id="line-774"><code>	<span class="keyword">for</span> <label for="r102" class="ident">i</label>, <label for="r103" class="ident">p</label> := <span class="keyword">range</span> <label for="r101" class="ident">params</label> {</code></span>
+<span class="codeline" id="line-775"><code>		<span class="keyword">if</span> <label for="r103" class="ident">p</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-776"><code>			<a href="../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<a href="../../../../pkg/fmt.html" class="ident i4">fmt</a>.<a href="../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"tls: %s failed: the [%d] parameter is nil"</span>, <label for="r100" class="ident">caller</label>, <label for="r102" class="ident">i</label>))</code></span>
+<span class="codeline" id="line-777"><code>		}</code></span>
+<span class="codeline" id="line-778"><code>	}</code></span>
+<span class="codeline" id="line-779"><code>}</code></span>
+<span class="codeline" id="line-780"><code></code></span>
+<span class="codeline" id="line-781"><code><span class="keyword">func</span> <label for="r104" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-anyTrue" class="ident">anyTrue</a></label>[<label for="r105" class="ident">T</label> <a href="../../../../pkg/builtin.html#name-any" class="ident">any</a>](<label for="r106" class="ident">slice</label> []<label for="r105" class="ident">T</label>, <label for="r107" class="ident">predicate</label> <span class="keyword">func</span>(<label for="r108" class="ident">i</label> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r109" class="ident">t</label> *<label for="r105" class="ident">T</label>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-782"><code>	<span class="keyword">for</span> <label for="r110" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r110" class="ident">i</label> &lt; <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r106" class="ident">slice</label>); <label for="r110" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-783"><code>		<span class="keyword">if</span> <label for="r107" class="ident">predicate</label>(<label for="r110" class="ident">i</label>, &amp;<label for="r106" class="ident">slice</label>[<label for="r110" class="ident">i</label>]) {</code></span>
+<span class="codeline" id="line-784"><code>			<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-785"><code>		}</code></span>
+<span class="codeline" id="line-786"><code>	}</code></span>
+<span class="codeline" id="line-787"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-788"><code>}</code></span>
+<span class="codeline" id="line-789"><code></code></span>
+<span class="codeline" id="line-790"><code><span class="keyword">func</span> <label for="r111" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-allTrue" class="ident">allTrue</a></label>[<label for="r112" class="ident">T</label> <a href="../../../../pkg/builtin.html#name-any" class="ident">any</a>](<label for="r113" class="ident">slice</label> []<label for="r112" class="ident">T</label>, <label for="r114" class="ident">predicate</label> <span class="keyword">func</span>(<label for="r115" class="ident">i</label> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r116" class="ident">t</label> *<label for="r112" class="ident">T</label>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-791"><code>	<span class="keyword">for</span> <label for="r117" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r117" class="ident">i</label> &lt; <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r113" class="ident">slice</label>); <label for="r117" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-792"><code>		<span class="keyword">if</span> !<label for="r114" class="ident">predicate</label>(<label for="r117" class="ident">i</label>, &amp;<label for="r113" class="ident">slice</label>[<label for="r117" class="ident">i</label>]) {</code></span>
+<span class="codeline" id="line-793"><code>			<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-794"><code>		}</code></span>
+<span class="codeline" id="line-795"><code>	}</code></span>
+<span class="codeline" id="line-796"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-797"><code>}</code></span>
+<span class="codeline" id="line-798"><code></code></span>
+<span class="codeline" id="line-799"><code><span class="keyword">func</span> <label for="r118" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-uAssert" class="ident">uAssert</a></label>(<label for="r119" class="ident">condition</label> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <label for="r120" class="ident">msg</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) {</code></span>
+<span class="codeline" id="line-800"><code>	<span class="keyword">if</span> !<label for="r119" class="ident">condition</label> {</code></span>
+<span class="codeline" id="line-801"><code>		<a href="../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<label for="r120" class="ident">msg</label>)</code></span>
+<span class="codeline" id="line-802"><code>	}</code></span>
+<span class="codeline" id="line-803"><code>}</code></span>
+<span class="codeline" id="line-804"><code></code></span>
+<span class="codeline" id="line-805"><code><span class="keyword">func</span> <label for="r121" class="ident"><a href="../../../../pkg/github.com/refraction-networking/utls.html#name-sliceEq" class="ident">sliceEq</a></label>[<label for="r122" class="ident">T</label> <a href="../../../../pkg/builtin.html#name-comparable" class="ident">comparable</a>](<label for="r123" class="ident">sliceA</label> []<label for="r122" class="ident">T</label>, <label for="r124" class="ident">sliceB</label> []<label for="r122" class="ident">T</label>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-806"><code>	<span class="keyword">if</span> <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r123" class="ident">sliceA</label>) != <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r124" class="ident">sliceB</label>) {</code></span>
+<span class="codeline" id="line-807"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-808"><code>	}</code></span>
+<span class="codeline" id="line-809"><code>	<span class="keyword">for</span> <label for="r125" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r125" class="ident">i</label> &lt; <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r123" class="ident">sliceA</label>); <label for="r125" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-810"><code>		<span class="keyword">if</span> <label for="r123" class="ident">sliceA</label>[<label for="r125" class="ident">i</label>] != <label for="r124" class="ident">sliceB</label>[<label for="r125" class="ident">i</label>] {</code></span>
+<span class="codeline" id="line-811"><code>			<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-812"><code>		}</code></span>
+<span class="codeline" id="line-813"><code>	}</code></span>
+<span class="codeline" id="line-814"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-815"><code>}</code></span>
+<span class="codeline" id="line-816"><code></code></span>
+<span class="codeline" id="line-817"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/refraction-networking/utls.html#name-Initializable" class="ident">Initializable</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-818"><code>	<span class="comment">// IsInitialized returns a boolean indicating whether the extension has been initialized.</span></code></span>
+<span class="codeline" id="line-819"><code><span class="comment">	// If false is returned, utls will initialize the extension.</span></code></span>
+<span class="codeline" id="line-820"><code>	<a href="../../../../imp/github.com/refraction-networking/utls.Initializable.html#name-IsInitialized" class="ident">IsInitialized</a>() <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-821"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

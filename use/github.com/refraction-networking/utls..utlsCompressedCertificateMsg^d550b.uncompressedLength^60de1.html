@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/refraction-networking/utls.utlsCompressedCertificateMsg.uncompressedLength</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>.<a href="../../../src/github.com/refraction-networking/utls/u_handshake_messages.go.html#line-15">utlsCompressedCertificateMsg</a>.<a href="../../../src/github.com/refraction-networking/utls/u_handshake_messages.go.html#line-19">uncompressedLength</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">8 uses</span>
+
+	github.com/refraction-networking/utls (current package)
+		<a href="../../../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-97">u_handshake_client.go#L97</a>: 	rawMsg := make([]byte, m.<b>uncompressedLength</b>+4) // +4 for message type and uint24 length field
+		<a href="../../../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-99" class="path-duplicate">u_handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-99">#L99</a>: 	rawMsg[1] = uint8(m.<b>uncompressedLength</b> &gt;&gt; 16)
+		<a href="../../../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-100" class="path-duplicate">u_handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-100">#L100</a>: 	rawMsg[2] = uint8(m.<b>uncompressedLength</b> &gt;&gt; 8)
+		<a href="../../../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-101" class="path-duplicate">u_handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-101">#L101</a>: 	rawMsg[3] = uint8(m.<b>uncompressedLength</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-113" class="path-duplicate">u_handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-113">#L113</a>: 		return nil, fmt.Errorf("decompressed len (%d) does not match specified len (%d)", n, m.<b>uncompressedLength</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/u_handshake_messages.go.html#line-19">u_handshake_messages.go#L19</a>: 	<b>uncompressedLength</b>           uint32 // uint24
+		<a href="../../../src/github.com/refraction-networking/utls/u_handshake_messages.go.html#line-32" class="path-duplicate">u_handshake_messages.go</a><a href="../../../src/github.com/refraction-networking/utls/u_handshake_messages.go.html#line-32">#L32</a>: 		b.AddUint24(m.<b>uncompressedLength</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/u_handshake_messages.go.html#line-49" class="path-duplicate">u_handshake_messages.go</a><a href="../../../src/github.com/refraction-networking/utls/u_handshake_messages.go.html#line-49">#L49</a>: 		!s.ReadUint24(&amp;m.<b>uncompressedLength</b>) ||
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

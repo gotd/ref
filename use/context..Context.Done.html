@@ -5,83 +5,111 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: context.Context.Done</title>
-<link href="../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../jvs/golds-v0.6.7.js"></script>
+<link href="../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../pkg/context.html">context</a>.<a href="../src/context/context.go.html#line-68">Context</a>.<a href="../src/context/context.go.html#line-105">Done</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../pkg/context.html">context</a>.<a href="../src/context/context.go.html#line-71">Context</a>.<a href="../src/context/context.go.html#line-108">Done</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">85 uses</span>
+<span class="title">100 uses</span>
 
 	context (current package)
-		<a href="../src/context/context.go.html#line-105">context.go#L105</a>: 	<b>Done</b>() &lt;-chan struct{}
-		<a href="../src/context/context.go.html#line-368" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-368">#L368</a>: 	done := parent.<b>Done</b>()
-		<a href="../src/context/context.go.html#line-460" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-460">#L460</a>: 	done := parent.<b>Done</b>()
-		<a href="../src/context/context.go.html#line-506" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-506">#L506</a>: 		case &lt;-parent.<b>Done</b>():
+		<a href="../src/context/context.go.html#line-108">context.go#L108</a>: 	<b>Done</b>() &lt;-chan struct{}
+		<a href="../src/context/context.go.html#line-383" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-383">#L383</a>: 	done := parent.<b>Done</b>()
+		<a href="../src/context/context.go.html#line-478" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-478">#L478</a>: 	done := parent.<b>Done</b>()
+		<a href="../src/context/context.go.html#line-524" class="path-duplicate">context.go</a><a href="../src/context/context.go.html#line-524">#L524</a>: 		case &lt;-parent.<b>Done</b>():
 
 	<a href="../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../src/crypto/tls/conn.go.html#line-1510">conn.go#L1510</a>: 		c.quic.cancelc = handshakeCtx.<b>Done</b>()
-		<a href="../src/crypto/tls/conn.go.html#line-1512" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-1512">#L1512</a>: 	} else if ctx.<b>Done</b>() != nil {
-		<a href="../src/crypto/tls/conn.go.html#line-1529" class="path-duplicate">conn.go</a><a href="../src/crypto/tls/conn.go.html#line-1529">#L1529</a>: 			case &lt;-handshakeCtx.<b>Done</b>():
+		<a href="../src/crypto/tls/conn.go.html#line-1536">conn.go#L1536</a>: 	} else if ctx.<b>Done</b>() != nil {
 
 	<a href="../pkg/github.com/cenkalti/backoff/v4.html">github.com/cenkalti/backoff/v4</a>
 		<a href="../src/github.com/cenkalti/backoff/v4/context.go.html#line-57">context.go#L57</a>: 	case &lt;-b.ctx.<b>Done</b>():
 		<a href="../src/github.com/cenkalti/backoff/v4/retry.go.html#line-113">retry.go#L113</a>: 		case &lt;-ctx.<b>Done</b>():
 		<a href="../src/github.com/cenkalti/backoff/v4/ticker.go.html#line-76">ticker.go#L76</a>: 		case &lt;-t.ctx.<b>Done</b>():
 
-	<a href="../pkg/github.com/gotd/td/internal/mtproto.html">github.com/gotd/td/internal/mtproto</a>
-		<a href="../src/github.com/gotd/td/internal/mtproto/ack.go.html#line-32">ack.go#L32</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/mtproto/conn.go.html#line-171">conn.go#L171</a>: 	&lt;-ctx.<b>Done</b>()
-		<a href="../src/github.com/gotd/td/internal/mtproto/ping.go.html#line-33">ping.go#L33</a>: 	case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/mtproto/ping.go.html#line-77" class="path-duplicate">ping.go</a><a href="../src/github.com/gotd/td/internal/mtproto/ping.go.html#line-77">#L77</a>: 	case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/mtproto/ping.go.html#line-106" class="path-duplicate">ping.go</a><a href="../src/github.com/gotd/td/internal/mtproto/ping.go.html#line-106">#L106</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/mtproto/read.go.html#line-94">read.go#L94</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/mtproto/read.go.html#line-172" class="path-duplicate">read.go</a><a href="../src/github.com/gotd/td/internal/mtproto/read.go.html#line-172">#L172</a>: 			case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/mtproto/read.go.html#line-190" class="path-duplicate">read.go</a><a href="../src/github.com/gotd/td/internal/mtproto/read.go.html#line-190">#L190</a>: 			case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/mtproto/salt.go.html#line-53">salt.go#L53</a>: 	case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/mtproto/salt.go.html#line-70" class="path-duplicate">salt.go</a><a href="../src/github.com/gotd/td/internal/mtproto/salt.go.html#line-70">#L70</a>: 		case &lt;-ctx.<b>Done</b>():
+	<a href="../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+		<a href="../src/github.com/coder/websocket/conn.go.html#line-244">conn.go#L244</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/coder/websocket/conn.go.html#line-280" class="path-duplicate">conn.go</a><a href="../src/github.com/coder/websocket/conn.go.html#line-280">#L280</a>: 	case &lt;-ctx.<b>Done</b>():
 
-	<a href="../pkg/github.com/gotd/td/internal/pool.html">github.com/gotd/td/internal/pool</a>
-		<a href="../src/github.com/gotd/td/internal/pool/pool.go.html#line-183">pool.go#L183</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/pool/pool.go.html#line-185" class="path-duplicate">pool.go</a><a href="../src/github.com/gotd/td/internal/pool/pool.go.html#line-185">#L185</a>: 		case &lt;-c.ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/pool/pool.go.html#line-220" class="path-duplicate">pool.go</a><a href="../src/github.com/gotd/td/internal/pool/pool.go.html#line-220">#L220</a>: 	case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/pool/pool.go.html#line-222" class="path-duplicate">pool.go</a><a href="../src/github.com/gotd/td/internal/pool/pool.go.html#line-222">#L222</a>: 	case &lt;-c.ctx.<b>Done</b>():
+	<a href="../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../src/github.com/gotd/td/mtproto/ack.go.html#line-32">ack.go#L32</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/mtproto/conn.go.html#line-192">conn.go#L192</a>: 	&lt;-ctx.<b>Done</b>()
+		<a href="../src/github.com/gotd/td/mtproto/pfs.go.html#line-22">pfs.go#L22</a>: 		&lt;-ctx.<b>Done</b>()
+		<a href="../src/github.com/gotd/td/mtproto/pfs.go.html#line-45" class="path-duplicate">pfs.go</a><a href="../src/github.com/gotd/td/mtproto/pfs.go.html#line-45">#L45</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/mtproto/ping.go.html#line-33">ping.go#L33</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/mtproto/ping.go.html#line-77" class="path-duplicate">ping.go</a><a href="../src/github.com/gotd/td/mtproto/ping.go.html#line-77">#L77</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/mtproto/ping.go.html#line-106" class="path-duplicate">ping.go</a><a href="../src/github.com/gotd/td/mtproto/ping.go.html#line-106">#L106</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/mtproto/read.go.html#line-94">read.go#L94</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/mtproto/read.go.html#line-177" class="path-duplicate">read.go</a><a href="../src/github.com/gotd/td/mtproto/read.go.html#line-177">#L177</a>: 			case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/mtproto/read.go.html#line-195" class="path-duplicate">read.go</a><a href="../src/github.com/gotd/td/mtproto/read.go.html#line-195">#L195</a>: 			case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/mtproto/salt.go.html#line-53">salt.go#L53</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/mtproto/salt.go.html#line-70" class="path-duplicate">salt.go</a><a href="../src/github.com/gotd/td/mtproto/salt.go.html#line-70">#L70</a>: 		case &lt;-ctx.<b>Done</b>():
 
-	<a href="../pkg/github.com/gotd/td/internal/rpc.html">github.com/gotd/td/internal/rpc</a>
-		<a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-145">engine.go#L145</a>: 	case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-167" class="path-duplicate">engine.go</a><a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-167">#L167</a>: 	case &lt;-e.reqCtx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-201" class="path-duplicate">engine.go</a><a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-201">#L201</a>: 			case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-203" class="path-duplicate">engine.go</a><a href="../src/github.com/gotd/td/internal/rpc/engine.go.html#line-203">#L203</a>: 			case &lt;-e.reqCtx.<b>Done</b>():
+	<a href="../pkg/github.com/gotd/td/pool.html">github.com/gotd/td/pool</a>
+		<a href="../src/github.com/gotd/td/pool/pool.go.html#line-185">pool.go#L185</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/pool/pool.go.html#line-187" class="path-duplicate">pool.go</a><a href="../src/github.com/gotd/td/pool/pool.go.html#line-187">#L187</a>: 		case &lt;-c.ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/pool/pool.go.html#line-222" class="path-duplicate">pool.go</a><a href="../src/github.com/gotd/td/pool/pool.go.html#line-222">#L222</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/pool/pool.go.html#line-224" class="path-duplicate">pool.go</a><a href="../src/github.com/gotd/td/pool/pool.go.html#line-224">#L224</a>: 	case &lt;-c.ctx.<b>Done</b>():
+
+	<a href="../pkg/github.com/gotd/td/rpc.html">github.com/gotd/td/rpc</a>
+		<a href="../src/github.com/gotd/td/rpc/engine.go.html#line-146">engine.go#L146</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/rpc/engine.go.html#line-168" class="path-duplicate">engine.go</a><a href="../src/github.com/gotd/td/rpc/engine.go.html#line-168">#L168</a>: 	case &lt;-e.reqCtx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/rpc/engine.go.html#line-212" class="path-duplicate">engine.go</a><a href="../src/github.com/gotd/td/rpc/engine.go.html#line-212">#L212</a>: 			case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/rpc/engine.go.html#line-214" class="path-duplicate">engine.go</a><a href="../src/github.com/gotd/td/rpc/engine.go.html#line-214">#L214</a>: 			case &lt;-e.reqCtx.<b>Done</b>():
 
 	<a href="../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
 		<a href="../src/github.com/gotd/td/telegram/bot.go.html#line-13">bot.go#L13</a>: 	&lt;-ctx.<b>Done</b>()
-		<a href="../src/github.com/gotd/td/telegram/builder.go.html#line-127">builder.go#L127</a>: 				case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-42">connect.go#L42</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-104" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/telegram/connect.go.html#line-104">#L104</a>: 		case &lt;-c.ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-138" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/telegram/connect.go.html#line-138">#L138</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-141" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/telegram/connect.go.html#line-141">#L141</a>: 		case &lt;-c.ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-147" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/telegram/connect.go.html#line-147">#L147</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/builder.go.html#line-128">builder.go#L128</a>: 				case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/cdn.go.html#line-174">cdn.go#L174</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-39">connect.go#L39</a>: 				case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-80" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/telegram/connect.go.html#line-80">#L80</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-161" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/telegram/connect.go.html#line-161">#L161</a>: 		case &lt;-c.ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-209" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/telegram/connect.go.html#line-209">#L209</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-212" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/telegram/connect.go.html#line-212">#L212</a>: 		case &lt;-c.ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/connect.go.html#line-218" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/telegram/connect.go.html#line-218">#L218</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/invoke.go.html#line-106">invoke.go#L106</a>: 			clientDone = c.ctx.<b>Done</b>()
+		<a href="../src/github.com/gotd/td/telegram/invoke.go.html#line-112" class="path-duplicate">invoke.go</a><a href="../src/github.com/gotd/td/telegram/invoke.go.html#line-112">#L112</a>: 		case &lt;-ctx.<b>Done</b>():
 		<a href="../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-16">migrate_to_dc.go#L16</a>: 	case &lt;-ctx.<b>Done</b>():
 		<a href="../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-23" class="path-duplicate">migrate_to_dc.go</a><a href="../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-23">#L23</a>: 	case &lt;-ctx.<b>Done</b>():
 		<a href="../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-35" class="path-duplicate">migrate_to_dc.go</a><a href="../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-35">#L35</a>: 	case &lt;-ctx.<b>Done</b>():
 		<a href="../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-69" class="path-duplicate">migrate_to_dc.go</a><a href="../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-69">#L69</a>: 	case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/telegram/pool.go.html#line-26">pool.go#L26</a>: 	case &lt;-c.ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/pool.go.html#line-28">pool.go#L28</a>: 	case &lt;-c.ctx.<b>Done</b>():
 
 	<a href="../pkg/github.com/gotd/td/telegram/auth/qrlogin.html">github.com/gotd/td/telegram/auth/qrlogin</a>
-		<a href="../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-159">qrlogin.go#L159</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-165">qrlogin.go#L165</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-181" class="path-duplicate">qrlogin.go</a><a href="../src/github.com/gotd/td/telegram/auth/qrlogin/qrlogin.go.html#line-181">#L181</a>: 		case &lt;-ctx.<b>Done</b>():
 
 	<a href="../pkg/github.com/gotd/td/telegram/dcs.html">github.com/gotd/td/telegram/dcs</a>
-		<a href="../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-147">plain.go#L147</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-165" class="path-duplicate">plain.go</a><a href="../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-165">#L165</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-172">plain.go#L172</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-190" class="path-duplicate">plain.go</a><a href="../src/github.com/gotd/td/telegram/dcs/plain.go.html#line-190">#L190</a>: 		case &lt;-ctx.<b>Done</b>():
+
+	<a href="../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>
+		<a href="../src/github.com/gotd/td/telegram/downloader/parallel.go.html#line-43">parallel.go#L43</a>: 					case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/downloader/parallel.go.html#line-63" class="path-duplicate">parallel.go</a><a href="../src/github.com/gotd/td/telegram/downloader/parallel.go.html#line-63">#L63</a>: 					case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/downloader/sink.go.html#line-14">sink.go#L14</a>: 			case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/downloader/sink.go.html#line-34" class="path-duplicate">sink.go</a><a href="../src/github.com/gotd/td/telegram/downloader/sink.go.html#line-34">#L34</a>: 			case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/downloader/stream.go.html#line-38">stream.go#L38</a>: 			case &lt;-ctx.<b>Done</b>():
 
 	<a href="../pkg/github.com/gotd/td/telegram/internal/manager.html">github.com/gotd/td/telegram/internal/manager</a>
-		<a href="../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-145">conn.go#L145</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-188">conn.go#L188</a>: 	case &lt;-ctx.<b>Done</b>():
 
 	<a href="../pkg/github.com/gotd/td/tgerr.html">github.com/gotd/td/tgerr</a>
-		<a href="../src/github.com/gotd/td/tgerr/flood_wait.go.html#line-63">flood_wait.go#L63</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/gotd/td/tgerr/flood_wait.go.html#line-71">flood_wait.go#L71</a>: 		case &lt;-ctx.<b>Done</b>():
 
 	<a href="../pkg/github.com/gotd/td/transport.html">github.com/gotd/td/transport</a>
 		<a href="../src/github.com/gotd/td/transport/websocket.go.html#line-69">websocket.go#L69</a>: 	reqCtx := r.Context().<b>Done</b>()
+
+	<a href="../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>
+		<a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-870">decoder.go#L870</a>: 			case &lt;-ctx.<b>Done</b>():
+		<a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-882" class="path-duplicate">decoder.go</a><a href="../src/github.com/klauspost/compress/zstd/decoder.go.html#line-882">#L882</a>: 			case &lt;-ctx.<b>Done</b>():
+
+	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-1536">conn.go#L1536</a>: 		c.quic.cancelc = handshakeCtx.<b>Done</b>()
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-1538" class="path-duplicate">conn.go</a><a href="../src/github.com/refraction-networking/utls/conn.go.html#line-1538">#L1538</a>: 	} else if ctx.<b>Done</b>() != nil {
+		<a href="../src/github.com/refraction-networking/utls/conn.go.html#line-1555" class="path-duplicate">conn.go</a><a href="../src/github.com/refraction-networking/utls/conn.go.html#line-1555">#L1555</a>: 			case &lt;-handshakeCtx.<b>Done</b>():
+		<a href="../src/github.com/refraction-networking/utls/u_conn.go.html#line-337">u_conn.go#L337</a>: 		c.quic.cancelc = handshakeCtx.<b>Done</b>()
+		<a href="../src/github.com/refraction-networking/utls/u_conn.go.html#line-339" class="path-duplicate">u_conn.go</a><a href="../src/github.com/refraction-networking/utls/u_conn.go.html#line-339">#L339</a>: 	} else if ctx.<b>Done</b>() != nil {
+		<a href="../src/github.com/refraction-networking/utls/u_conn.go.html#line-351" class="path-duplicate">u_conn.go</a><a href="../src/github.com/refraction-networking/utls/u_conn.go.html#line-351">#L351</a>: 			case &lt;-handshakeCtx.<b>Done</b>():
 
 	<a href="../pkg/golang.org/x/net/internal/socks.html">golang.org/x/net/internal/socks</a>
 		<a href="../src/golang.org/x/net/internal/socks/client.go.html#line-41">client.go#L41</a>: 			case &lt;-ctx.<b>Done</b>():
@@ -90,50 +118,43 @@
 		<a href="../src/golang.org/x/net/proxy/dial.go.html#line-49">dial.go#L49</a>: 	case &lt;-ctx.<b>Done</b>():
 
 	<a href="../pkg/net.html">net</a>
-		<a href="../src/net/cgo_unix.go.html#line-44">cgo_unix.go#L44</a>: 	if ctx.<b>Done</b>() == nil {
-		<a href="../src/net/cgo_unix.go.html#line-63" class="path-duplicate">cgo_unix.go</a><a href="../src/net/cgo_unix.go.html#line-63">#L63</a>: 	case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/dial.go.html#line-473">dial.go#L473</a>: 			case &lt;-subCtx.<b>Done</b>():
-		<a href="../src/net/dial.go.html#line-592" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-592">#L592</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/fd_unix.go.html#line-63">fd_unix.go#L63</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/fd_unix.go.html#line-98" class="path-duplicate">fd_unix.go</a><a href="../src/net/fd_unix.go.html#line-98">#L98</a>: 	ctxDone := ctx.<b>Done</b>()
-		<a href="../src/net/lookup.go.html#line-277">lookup.go#L277</a>: 	case &lt;-ovc.lookupValues.<b>Done</b>():
-		<a href="../src/net/lookup.go.html#line-333" class="path-duplicate">lookup.go</a><a href="../src/net/lookup.go.html#line-333">#L333</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/cgo_unix.go.html#line-53">cgo_unix.go#L53</a>: 	if ctx.<b>Done</b>() == nil {
+		<a href="../src/net/cgo_unix.go.html#line-74" class="path-duplicate">cgo_unix.go</a><a href="../src/net/cgo_unix.go.html#line-74">#L74</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/dial.go.html#line-580">dial.go#L580</a>: 			case &lt;-subCtx.<b>Done</b>():
+		<a href="../src/net/dial.go.html#line-734" class="path-duplicate">dial.go</a><a href="../src/net/dial.go.html#line-734">#L734</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/fd_unix.go.html#line-52">fd_unix.go#L52</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/fd_unix.go.html#line-78" class="path-duplicate">fd_unix.go</a><a href="../src/net/fd_unix.go.html#line-78">#L78</a>: 	ctxDone := ctx.<b>Done</b>()
+		<a href="../src/net/lookup.go.html#line-288">lookup.go#L288</a>: 	case &lt;-ovc.lookupValues.<b>Done</b>():
+		<a href="../src/net/lookup.go.html#line-344" class="path-duplicate">lookup.go</a><a href="../src/net/lookup.go.html#line-344">#L344</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/net.go.html#line-816">net.go#L816</a>: 	case &lt;-ctx.<b>Done</b>():
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/h2_bundle.go.html#line-7666">h2_bundle.go#L7666</a>: 				case &lt;-req.Context().<b>Done</b>():
-		<a href="../src/net/http/h2_bundle.go.html#line-8164" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8164">#L8164</a>: 	case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/http/h2_bundle.go.html#line-8323" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8323">#L8323</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/http/h2_bundle.go.html#line-8396" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8396">#L8396</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/http/h2_bundle.go.html#line-8440" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8440">#L8440</a>: 	case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/http/h2_bundle.go.html#line-8513" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8513">#L8513</a>: 			case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/http/h2_bundle.go.html#line-8559" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8559">#L8559</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/http/h2_bundle.go.html#line-8578" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8578">#L8578</a>: 	case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/http/h2_bundle.go.html#line-8920" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8920">#L8920</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/http/h2_bundle.go.html#line-9696" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-9696">#L9696</a>: 	case &lt;-cs.ctx.<b>Done</b>():
-		<a href="../src/net/http/h2_bundle.go.html#line-10040" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10040">#L10040</a>: 	case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/http/server.go.html#line-2816">server.go#L2816</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/http/server.go.html#line-3415" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-3415">#L3415</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/h2_bundle.go.html#line-7918">h2_bundle.go#L7918</a>: 				case &lt;-req.Context().<b>Done</b>():
+		<a href="../src/net/http/h2_bundle.go.html#line-8498" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8498">#L8498</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/h2_bundle.go.html#line-8630" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8630">#L8630</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/h2_bundle.go.html#line-8703" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8703">#L8703</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/h2_bundle.go.html#line-8752" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8752">#L8752</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/h2_bundle.go.html#line-8764" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8764">#L8764</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/h2_bundle.go.html#line-8821" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8821">#L8821</a>: 			case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/h2_bundle.go.html#line-8867" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8867">#L8867</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/h2_bundle.go.html#line-8886" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-8886">#L8886</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/h2_bundle.go.html#line-9302" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-9302">#L9302</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/h2_bundle.go.html#line-9926" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-9926">#L9926</a>: 	case &lt;-cs.ctx.<b>Done</b>():
+		<a href="../src/net/http/h2_bundle.go.html#line-10311" class="path-duplicate">h2_bundle.go</a><a href="../src/net/http/h2_bundle.go.html#line-10311">#L10311</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/server.go.html#line-3180">server.go#L3180</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/server.go.html#line-3853" class="path-duplicate">server.go</a><a href="../src/net/http/server.go.html#line-3853">#L3853</a>: 	case &lt;-ctx.<b>Done</b>():
 		<a href="../src/net/http/socks_bundle.go.html#line-47">socks_bundle.go#L47</a>: 			case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/http/transport.go.html#line-573">transport.go#L573</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/net/http/transport.go.html#line-1407" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1407">#L1407</a>: 			case &lt;-req.Context().<b>Done</b>():
-		<a href="../src/net/http/transport.go.html#line-1421" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1421">#L1421</a>: 	case &lt;-req.Context().<b>Done</b>():
-		<a href="../src/net/http/transport.go.html#line-1703" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1703">#L1703</a>: 		if ctx.<b>Done</b>() == nil {
-		<a href="../src/net/http/transport.go.html#line-1727" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1727">#L1727</a>: 		case &lt;-connectCtx.<b>Done</b>():
-		<a href="../src/net/http/transport.go.html#line-2252" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-2252">#L2252</a>: 		case &lt;-rc.req.Context().<b>Done</b>():
-		<a href="../src/net/http/transport.go.html#line-2647" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-2647">#L2647</a>: 	ctxDoneChan := req.Context().<b>Done</b>()
-
-	<a href="../pkg/nhooyr.io/websocket.html">nhooyr.io/websocket</a>
-		<a href="../src/nhooyr.io/websocket/conn.go.html#line-189">conn.go#L189</a>: 		case &lt;-readCtx.<b>Done</b>():
-		<a href="../src/nhooyr.io/websocket/conn.go.html#line-196" class="path-duplicate">conn.go</a><a href="../src/nhooyr.io/websocket/conn.go.html#line-196">#L196</a>: 		case &lt;-writeCtx.<b>Done</b>():
-		<a href="../src/nhooyr.io/websocket/conn.go.html#line-245" class="path-duplicate">conn.go</a><a href="../src/nhooyr.io/websocket/conn.go.html#line-245">#L245</a>: 	case &lt;-ctx.<b>Done</b>():
-		<a href="../src/nhooyr.io/websocket/conn.go.html#line-283" class="path-duplicate">conn.go</a><a href="../src/nhooyr.io/websocket/conn.go.html#line-283">#L283</a>: 	case &lt;-ctx.<b>Done</b>():
-		<a href="../src/nhooyr.io/websocket/read.go.html#line-222">read.go#L222</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/nhooyr.io/websocket/read.go.html#line-251" class="path-duplicate">read.go</a><a href="../src/nhooyr.io/websocket/read.go.html#line-251">#L251</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/nhooyr.io/websocket/write.go.html#line-263">write.go#L263</a>: 		case &lt;-ctx.<b>Done</b>():
-		<a href="../src/nhooyr.io/websocket/write.go.html#line-282" class="path-duplicate">write.go</a><a href="../src/nhooyr.io/websocket/write.go.html#line-282">#L282</a>: 			case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/transport.go.html#line-675">transport.go#L675</a>: 		case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/transport.go.html#line-755" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-755">#L755</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/transport.go.html#line-1572" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1572">#L1572</a>: 			case &lt;-treq.ctx.<b>Done</b>():
+		<a href="../src/net/http/transport.go.html#line-1583" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1583">#L1583</a>: 	case &lt;-treq.ctx.<b>Done</b>():
+		<a href="../src/net/http/transport.go.html#line-1911" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-1911">#L1911</a>: 		case &lt;-connectCtx.<b>Done</b>():
+		<a href="../src/net/http/transport.go.html#line-2460" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-2460">#L2460</a>: 		case &lt;-rc.treq.ctx.<b>Done</b>():
+		<a href="../src/net/http/transport.go.html#line-2808" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-2808">#L2808</a>: 	case &lt;-ctx.<b>Done</b>():
+		<a href="../src/net/http/transport.go.html#line-2907" class="path-duplicate">transport.go</a><a href="../src/net/http/transport.go.html#line-2907">#L2907</a>: 	ctxDoneChan := req.ctx.<b>Done</b>()
 </code></pre><pre id="footer">
-<table><tr><td><img src="../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

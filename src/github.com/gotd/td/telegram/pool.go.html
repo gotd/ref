@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: pool.go in package github.com/gotd/td/telegram</title>
-<link href="../../../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -52,7 +52,31 @@ input[id=r32]:checked ~pre label[for=r32],
 input[id=r33]:checked ~pre label[for=r33],
 input[id=r34]:checked ~pre label[for=r34],
 input[id=r35]:checked ~pre label[for=r35],
-input[id=r36]:checked ~pre label[for=r36]
+input[id=r36]:checked ~pre label[for=r36],
+input[id=r37]:checked ~pre label[for=r37],
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40],
+input[id=r41]:checked ~pre label[for=r41],
+input[id=r42]:checked ~pre label[for=r42],
+input[id=r43]:checked ~pre label[for=r43],
+input[id=r44]:checked ~pre label[for=r44],
+input[id=r45]:checked ~pre label[for=r45],
+input[id=r46]:checked ~pre label[for=r46],
+input[id=r47]:checked ~pre label[for=r47],
+input[id=r48]:checked ~pre label[for=r48],
+input[id=r49]:checked ~pre label[for=r49],
+input[id=r50]:checked ~pre label[for=r50],
+input[id=r51]:checked ~pre label[for=r51],
+input[id=r52]:checked ~pre label[for=r52],
+input[id=r53]:checked ~pre label[for=r53],
+input[id=r54]:checked ~pre label[for=r54],
+input[id=r55]:checked ~pre label[for=r55],
+input[id=r56]:checked ~pre label[for=r56],
+input[id=r57]:checked ~pre label[for=r57],
+input[id=r58]:checked ~pre label[for=r58],
+input[id=r59]:checked ~pre label[for=r59],
+input[id=r60]:checked ~pre label[for=r60]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
 input[id=i1]:checked ~pre .i1,
@@ -63,7 +87,8 @@ input[id=i5]:checked ~pre .i5,
 input[id=i6]:checked ~pre .i6,
 input[id=i7]:checked ~pre .i7,
 input[id=i8]:checked ~pre .i8,
-input[id=i9]:checked ~pre .i9
+input[id=i9]:checked ~pre .i9,
+input[id=i10]:checked ~pre .i10
 {background: brown; color: #eed;}
 </style><input id="r0" type="radio" name="g"/>
 <input id="r1" type="radio" name="g"/>
@@ -102,6 +127,30 @@ input[id=i9]:checked ~pre .i9
 <input id="r34" type="radio" name="g"/>
 <input id="r35" type="radio" name="g"/>
 <input id="r36" type="radio" name="g"/>
+<input id="r37" type="radio" name="g"/>
+<input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="r41" type="radio" name="g"/>
+<input id="r42" type="radio" name="g"/>
+<input id="r43" type="radio" name="g"/>
+<input id="r44" type="radio" name="g"/>
+<input id="r45" type="radio" name="g"/>
+<input id="r46" type="radio" name="g"/>
+<input id="r47" type="radio" name="g"/>
+<input id="r48" type="radio" name="g"/>
+<input id="r49" type="radio" name="g"/>
+<input id="r50" type="radio" name="g"/>
+<input id="r51" type="radio" name="g"/>
+<input id="r52" type="radio" name="g"/>
+<input id="r53" type="radio" name="g"/>
+<input id="r54" type="radio" name="g"/>
+<input id="r55" type="radio" name="g"/>
+<input id="r56" type="radio" name="g"/>
+<input id="r57" type="radio" name="g"/>
+<input id="r58" type="radio" name="g"/>
+<input id="r59" type="radio" name="g"/>
+<input id="r60" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
 <input id="i2" type="radio" name="i"/>
@@ -112,134 +161,247 @@ input[id=i9]:checked ~pre .i9
 <input id="i7" type="radio" name="i"/>
 <input id="i8" type="radio" name="i"/>
 <input id="i9" type="radio" name="i"/>
+<input id="i10" type="radio" name="i"/>
 
 <pre class="line-numbers">
 <span class="codeline" id="line-1"><code><span class="keyword">package</span> telegram</code></span>
 <span class="codeline" id="line-2"><code></code></span>
 <span class="codeline" id="line-3"><code><span class="keyword">import</span> (</code></span>
 <span class="codeline" id="line-4"><code>	<label for="i0"><span class="lit-string i0">"context"</span></label></code></span>
-<span class="codeline" id="line-5"><code></code></span>
-<span class="codeline" id="line-6"><code>	<label for="i1"><span class="lit-string i1">"github.com/go-faster/errors"</span></label></code></span>
-<span class="codeline" id="line-7"><code>	<label for="i2"><span class="lit-string i2">"go.uber.org/zap"</span></label></code></span>
+<span class="codeline" id="line-5"><code>	<label for="i1"><span class="lit-string i1">"sync/atomic"</span></label></code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code>	<label for="i2"><span class="lit-string i2">"github.com/go-faster/errors"</span></label></code></span>
 <span class="codeline" id="line-8"><code></code></span>
-<span class="codeline" id="line-9"><code>	<label for="i3"><span class="lit-string i3">"github.com/gotd/td/internal/mtproto"</span></label></code></span>
-<span class="codeline" id="line-10"><code>	<label for="i4"><span class="lit-string i4">"github.com/gotd/td/internal/pool"</span></label></code></span>
-<span class="codeline" id="line-11"><code>	<label for="i5"><span class="lit-string i5">"github.com/gotd/td/telegram/auth"</span></label></code></span>
-<span class="codeline" id="line-12"><code>	<label for="i6"><span class="lit-string i6">"github.com/gotd/td/telegram/dcs"</span></label></code></span>
-<span class="codeline" id="line-13"><code>	<label for="i7"><span class="lit-string i7">"github.com/gotd/td/telegram/internal/manager"</span></label></code></span>
-<span class="codeline" id="line-14"><code>	<label for="i8"><span class="lit-string i8">"github.com/gotd/td/tg"</span></label></code></span>
-<span class="codeline" id="line-15"><code>	<label for="i9"><span class="lit-string i9">"github.com/gotd/td/transport"</span></label></code></span>
-<span class="codeline" id="line-16"><code>)</code></span>
-<span class="codeline" id="line-17"><code></code></span>
-<span class="codeline" id="line-18"><code><span class="comment">// CloseInvoker is a closeable tg.Invoker.</span></code></span>
-<span class="codeline" id="line-19"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-CloseInvoker" class="ident">CloseInvoker</a> <span class="keyword">interface</span> {</code></span>
-<span class="codeline" id="line-20"><code>	<a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i8">tg</a>.<a href="../tg/tl_client_gen.go.html#line-35" class="ident">Invoker</a></code></span>
-<span class="codeline" id="line-21"><code>	<a href="../../../../../imp/github.com/gotd/td/telegram.CloseInvoker.html#name-Close" class="ident">Close</a>() <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
-<span class="codeline" id="line-22"><code>}</code></span>
-<span class="codeline" id="line-23"><code></code></span>
-<span class="codeline" id="line-24"><code><span class="keyword">func</span> (<label for="r0" class="ident">c</label> *<a href="client.go.html#line-55" class="ident">Client</a>) <label for="r1" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.createPool^6fae9.html" class="ident">createPool</a></label>(<label for="r2" class="ident">dc</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r3" class="ident">max</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>, <label for="r4" class="ident">creator</label> <span class="keyword">func</span>() <a href="../../../../../pkg/github.com/gotd/td/internal/pool.html" class="ident i4">pool</a>.<a href="../internal/pool/pool_conn.go.html#line-17" class="ident">Conn</a>) (*<a href="../../../../../pkg/github.com/gotd/td/internal/pool.html" class="ident i4">pool</a>.<a href="../internal/pool/pool.go.html#line-17" class="ident">DC</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-25"><code>	<a href="../../../../runtime/chan.go.html#line-713"><span class="keyword">select</span></a> {</code></span>
-<span class="codeline" id="line-26"><code>	<span class="keyword">case</span> <a href="../../../../runtime/chan.go.html#line-441">&lt;-</a><label for="r0" class="ident">c</label>.<a href="client.go.html#line-111" class="ident">ctx</a>.<a href="../../../../context/context.go.html#line-105" class="ident">Done</a>():</code></span>
-<span class="codeline" id="line-27"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i1">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r0" class="ident">c</label>.<a href="client.go.html#line-111" class="ident">ctx</a>.<a href="../../../../context/context.go.html#line-112" class="ident">Err</a>(), <span class="lit-string">"client already closed"</span>)</code></span>
-<span class="codeline" id="line-28"><code>	<span class="keyword">default</span>:</code></span>
-<span class="codeline" id="line-29"><code>	}</code></span>
-<span class="codeline" id="line-30"><code></code></span>
-<span class="codeline" id="line-31"><code>	<label for="r5" class="ident">p</label> := <a href="../../../../../pkg/github.com/gotd/td/internal/pool.html" class="ident i4">pool</a>.<a href="../internal/pool/pool.go.html#line-53" class="ident">NewDC</a>(<label for="r0" class="ident">c</label>.<a href="client.go.html#line-111" class="ident">ctx</a>, <label for="r2" class="ident">dc</label>, <label for="r4" class="ident">creator</label>, <a href="../../../../../pkg/github.com/gotd/td/internal/pool.html" class="ident i4">pool</a>.<a href="../internal/pool/options.go.html#line-6" class="ident">DCOptions</a>{</code></span>
-<span class="codeline" id="line-32"><code>		<a href="../internal/pool/options.go.html#line-8" class="ident">Logger</a>:             <label for="r0" class="ident">c</label>.<a href="client.go.html#line-107" class="ident">log</a>.<a href="../../../../go.uber.org/zap/logger.go.html#line-153" class="ident">Named</a>(<span class="lit-string">"pool"</span>).<a href="../../../../go.uber.org/zap/logger.go.html#line-179" class="ident">With</a>(<a href="../../../../../pkg/go.uber.org/zap.html" class="ident i2">zap</a>.<a href="../../../../go.uber.org/zap/field.go.html#line-152" class="ident">Int</a>(<span class="lit-string">"dc_id"</span>, <label for="r2" class="ident">dc</label>)),</code></span>
-<span class="codeline" id="line-33"><code>		<a href="../internal/pool/options.go.html#line-11" class="ident">MaxOpenConnections</a>: <label for="r3" class="ident">max</label>,</code></span>
-<span class="codeline" id="line-34"><code>	})</code></span>
-<span class="codeline" id="line-35"><code></code></span>
-<span class="codeline" id="line-36"><code>	<span class="keyword">return</span> <label for="r5" class="ident">p</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-37"><code>}</code></span>
-<span class="codeline" id="line-38"><code></code></span>
-<span class="codeline" id="line-39"><code><span class="comment">// Pool creates new multi-connection invoker to current DC.</span></code></span>
-<span class="codeline" id="line-40"><code><span class="keyword">func</span> (<label for="r6" class="ident">c</label> *<a href="client.go.html#line-55" class="ident">Client</a>) <label for="r7" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.Pool.html" class="ident">Pool</a></label>(<label for="r8" class="ident">max</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>) (<a href="#line-19" class="ident">CloseInvoker</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-41"><code>	<span class="keyword">if</span> <label for="r8" class="ident">max</label> &lt; <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-42"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i1">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"invalid max value %d"</span>, <label for="r8" class="ident">max</label>)</code></span>
-<span class="codeline" id="line-43"><code>	}</code></span>
-<span class="codeline" id="line-44"><code></code></span>
-<span class="codeline" id="line-45"><code>	<label for="r9" class="ident">s</label> := <label for="r6" class="ident">c</label>.<a href="client.go.html#line-85" class="ident">session</a>.<a href="../internal/pool/session.go.html#line-58" class="ident">Load</a>()</code></span>
-<span class="codeline" id="line-46"><code>	<span class="keyword">return</span> <label for="r6" class="ident">c</label>.<a href="#line-24" class="ident">createPool</a>(<label for="r9" class="ident">s</label>.<a href="../internal/pool/session.go.html#line-12" class="ident">DC</a>, <label for="r8" class="ident">max</label>, <span class="keyword">func</span>() <a href="../../../../../pkg/github.com/gotd/td/internal/pool.html" class="ident i4">pool</a>.<a href="../internal/pool/pool_conn.go.html#line-17" class="ident">Conn</a> {</code></span>
-<span class="codeline" id="line-47"><code>		<label for="r10" class="ident">id</label> := <label for="r6" class="ident">c</label>.<a href="client.go.html#line-94" class="ident">connsCounter</a>.<a href="../../../../go.uber.org/atomic/int64.go.html#line-59" class="ident">Inc</a>()</code></span>
-<span class="codeline" id="line-48"><code>		<span class="keyword">return</span> <label for="r6" class="ident">c</label>.<a href="conn_builder.go.html#line-74" class="ident">createConn</a>(<label for="r10" class="ident">id</label>, <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i7">manager</a>.<a href="internal/manager/conn.go.html#line-36" class="ident">ConnModeData</a>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>)</code></span>
-<span class="codeline" id="line-49"><code>	})</code></span>
-<span class="codeline" id="line-50"><code>}</code></span>
-<span class="codeline" id="line-51"><code></code></span>
-<span class="codeline" id="line-52"><code><span class="keyword">func</span> (<label for="r11" class="ident">c</label> *<a href="client.go.html#line-55" class="ident">Client</a>) <label for="r12" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.dc^abecd.html" class="ident">dc</a></label>(<label for="r13" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-68" class="ident">Context</a>, <label for="r14" class="ident">dcID</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r15" class="ident">max</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>, <label for="r16" class="ident">dialer</label> <a href="../../../../../pkg/github.com/gotd/td/internal/mtproto.html" class="ident i3">mtproto</a>.<a href="../internal/mtproto/conn.go.html#line-48" class="ident">Dialer</a>) (*<a href="../../../../../pkg/github.com/gotd/td/internal/pool.html" class="ident i4">pool</a>.<a href="../internal/pool/pool.go.html#line-17" class="ident">DC</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-53"><code>	<span class="keyword">if</span> <label for="r15" class="ident">max</label> &lt; <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-54"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i1">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"invalid max value %d"</span>, <label for="r15" class="ident">max</label>)</code></span>
-<span class="codeline" id="line-55"><code>	}</code></span>
-<span class="codeline" id="line-56"><code></code></span>
-<span class="codeline" id="line-57"><code>	<label for="r17" class="ident">dcList</label> := <a href="../../../../../pkg/github.com/gotd/td/telegram/dcs.html" class="ident i6">dcs</a>.<a href="dcs/find.go.html#line-10" class="ident">FindDCs</a>(<label for="r11" class="ident">c</label>.<a href="client.go.html#line-86" class="ident">cfg</a>.<a href="internal/manager/sync.go.html#line-22" class="ident">Load</a>().<a href="../tg/tl_config_gen.go.html#line-71" class="ident">DCOptions</a>, <label for="r14" class="ident">dcID</label>, <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a>)</code></span>
-<span class="codeline" id="line-58"><code>	<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r17" class="ident">dcList</label>) &lt; <span class="lit-number">1</span> {</code></span>
-<span class="codeline" id="line-59"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i1">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"unknown DC %d"</span>, <label for="r14" class="ident">dcID</label>)</code></span>
-<span class="codeline" id="line-60"><code>	}</code></span>
-<span class="codeline" id="line-61"><code>	<label for="r11" class="ident">c</label>.<a href="client.go.html#line-107" class="ident">log</a>.<a href="../../../../go.uber.org/zap/logger.go.html#line-236" class="ident">Debug</a>(<span class="lit-string">"Creating pool"</span>,</code></span>
-<span class="codeline" id="line-62"><code>		<a href="../../../../../pkg/go.uber.org/zap.html" class="ident i2">zap</a>.<a href="../../../../go.uber.org/zap/field.go.html#line-152" class="ident">Int</a>(<span class="lit-string">"dc_id"</span>, <label for="r14" class="ident">dcID</label>),</code></span>
-<span class="codeline" id="line-63"><code>		<a href="../../../../../pkg/go.uber.org/zap.html" class="ident i2">zap</a>.<a href="../../../../go.uber.org/zap/field.go.html#line-166" class="ident">Int64</a>(<span class="lit-string">"max"</span>, <label for="r15" class="ident">max</label>),</code></span>
-<span class="codeline" id="line-64"><code>		<a href="../../../../../pkg/go.uber.org/zap.html" class="ident i2">zap</a>.<a href="../../../../go.uber.org/zap/field.go.html#line-152" class="ident">Int</a>(<span class="lit-string">"candidates"</span>, <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r17" class="ident">dcList</label>)),</code></span>
-<span class="codeline" id="line-65"><code>	)</code></span>
-<span class="codeline" id="line-66"><code></code></span>
-<span class="codeline" id="line-67"><code>	<label for="r18" class="ident">opts</label> := <label for="r11" class="ident">c</label>.<a href="client.go.html#line-76" class="ident">opts</a></code></span>
-<span class="codeline" id="line-68"><code>	<label for="r19" class="ident">p</label>, <label for="r20" class="ident">err</label> := <label for="r11" class="ident">c</label>.<a href="#line-24" class="ident">createPool</a>(<label for="r14" class="ident">dcID</label>, <label for="r15" class="ident">max</label>, <span class="keyword">func</span>() <a href="../../../../../pkg/github.com/gotd/td/internal/pool.html" class="ident i4">pool</a>.<a href="../internal/pool/pool_conn.go.html#line-17" class="ident">Conn</a> {</code></span>
-<span class="codeline" id="line-69"><code>		<label for="r21" class="ident">id</label> := <label for="r11" class="ident">c</label>.<a href="client.go.html#line-94" class="ident">connsCounter</a>.<a href="../../../../go.uber.org/atomic/int64.go.html#line-59" class="ident">Inc</a>()</code></span>
+<span class="codeline" id="line-9"><code>	<label for="i3"><span class="lit-string i3">"github.com/gotd/log"</span></label></code></span>
+<span class="codeline" id="line-10"><code></code></span>
+<span class="codeline" id="line-11"><code>	<label for="i4"><span class="lit-string i4">"github.com/gotd/td/mtproto"</span></label></code></span>
+<span class="codeline" id="line-12"><code>	<label for="i5"><span class="lit-string i5">"github.com/gotd/td/pool"</span></label></code></span>
+<span class="codeline" id="line-13"><code>	<label for="i6"><span class="lit-string i6">"github.com/gotd/td/telegram/auth"</span></label></code></span>
+<span class="codeline" id="line-14"><code>	<label for="i7"><span class="lit-string i7">"github.com/gotd/td/telegram/dcs"</span></label></code></span>
+<span class="codeline" id="line-15"><code>	<label for="i8"><span class="lit-string i8">"github.com/gotd/td/telegram/internal/manager"</span></label></code></span>
+<span class="codeline" id="line-16"><code>	<label for="i9"><span class="lit-string i9">"github.com/gotd/td/tg"</span></label></code></span>
+<span class="codeline" id="line-17"><code>	<label for="i10"><span class="lit-string i10">"github.com/gotd/td/transport"</span></label></code></span>
+<span class="codeline" id="line-18"><code>)</code></span>
+<span class="codeline" id="line-19"><code></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">// CloseInvoker is a closeable tg.Invoker.</span></code></span>
+<span class="codeline" id="line-21"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-CloseInvoker" class="ident">CloseInvoker</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-22"><code>	<a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i9">tg</a>.<a href="../tg/tl_client_gen.go.html#line-35" class="ident">Invoker</a></code></span>
+<span class="codeline" id="line-23"><code>	<a href="../../../../../imp/github.com/gotd/td/telegram.CloseInvoker.html#name-Close" class="ident">Close</a>() <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
+<span class="codeline" id="line-24"><code>}</code></span>
+<span class="codeline" id="line-25"><code></code></span>
+<span class="codeline" id="line-26"><code><span class="keyword">func</span> (<label for="r0" class="ident">c</label> *<a href="client.go.html#line-57" class="ident">Client</a>) <label for="r1" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.createPool^6fae9.html" class="ident">createPool</a></label>(<label for="r2" class="ident">dc</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r3" class="ident">max</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>, <label for="r4" class="ident">creator</label> <span class="keyword">func</span>() <a href="../../../../../pkg/github.com/gotd/td/pool.html" class="ident i5">pool</a>.<a href="../pool/pool_conn.go.html#line-26" class="ident">Conn</a>) (*<a href="../../../../../pkg/github.com/gotd/td/pool.html" class="ident i5">pool</a>.<a href="../pool/pool.go.html#line-17" class="ident">DC</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-27"><code>	<a href="../../../../runtime/chan.go.html#line-804"><span class="keyword">select</span></a> {</code></span>
+<span class="codeline" id="line-28"><code>	<span class="keyword">case</span> <a href="../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r0" class="ident">c</label>.<a href="client.go.html#line-135" class="ident">ctx</a>.<a href="../../../../context/context.go.html#line-108" class="ident">Done</a>():</code></span>
+<span class="codeline" id="line-29"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r0" class="ident">c</label>.<a href="client.go.html#line-135" class="ident">ctx</a>.<a href="../../../../context/context.go.html#line-115" class="ident">Err</a>(), <span class="lit-string">"client already closed"</span>)</code></span>
+<span class="codeline" id="line-30"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-31"><code>	}</code></span>
+<span class="codeline" id="line-32"><code></code></span>
+<span class="codeline" id="line-33"><code>	<label for="r5" class="ident">p</label> := <a href="../../../../../pkg/github.com/gotd/td/pool.html" class="ident i5">pool</a>.<a href="../pool/pool.go.html#line-53" class="ident">NewDC</a>(<label for="r0" class="ident">c</label>.<a href="client.go.html#line-135" class="ident">ctx</a>, <label for="r2" class="ident">dc</label>, <label for="r4" class="ident">creator</label>, <a href="../../../../../pkg/github.com/gotd/td/pool.html" class="ident i5">pool</a>.<a href="../pool/options.go.html#line-6" class="ident">DCOptions</a>{</code></span>
+<span class="codeline" id="line-34"><code>		<a href="../pool/options.go.html#line-8" class="ident">Logger</a>:             <label for="r0" class="ident">c</label>.<a href="client.go.html#line-131" class="ident">log</a>.<a href="../../log/helper.go.html#line-36" class="ident">Named</a>(<span class="lit-string">"pool"</span>).<a href="../../log/helper.go.html#line-31" class="ident">With</a>(<a href="../../../../../pkg/github.com/gotd/log.html" class="ident i3">log</a>.<a href="../../log/attr.go.html#line-143" class="ident">Int</a>(<span class="lit-string">"dc_id"</span>, <label for="r2" class="ident">dc</label>)).<a href="../../log/helper.go.html#line-26" class="ident">Logger</a>(),</code></span>
+<span class="codeline" id="line-35"><code>		<a href="../pool/options.go.html#line-11" class="ident">MaxOpenConnections</a>: <label for="r3" class="ident">max</label>,</code></span>
+<span class="codeline" id="line-36"><code>	})</code></span>
+<span class="codeline" id="line-37"><code></code></span>
+<span class="codeline" id="line-38"><code>	<span class="keyword">return</span> <label for="r5" class="ident">p</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-39"><code>}</code></span>
+<span class="codeline" id="line-40"><code></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">// Pool creates new multi-connection invoker to current DC.</span></code></span>
+<span class="codeline" id="line-42"><code><span class="keyword">func</span> (<label for="r6" class="ident">c</label> *<a href="client.go.html#line-57" class="ident">Client</a>) <label for="r7" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.Pool.html" class="ident">Pool</a></label>(<label for="r8" class="ident">max</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>) (<a href="#line-21" class="ident">CloseInvoker</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-43"><code>	<span class="keyword">if</span> <label for="r8" class="ident">max</label> &lt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-44"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"invalid max value %d"</span>, <label for="r8" class="ident">max</label>)</code></span>
+<span class="codeline" id="line-45"><code>	}</code></span>
+<span class="codeline" id="line-46"><code></code></span>
+<span class="codeline" id="line-47"><code>	<label for="r9" class="ident">s</label> := <label for="r6" class="ident">c</label>.<a href="client.go.html#line-97" class="ident">session</a>.<a href="../pool/session.go.html#line-66" class="ident">Load</a>()</code></span>
+<span class="codeline" id="line-48"><code>	<span class="keyword">return</span> <label for="r6" class="ident">c</label>.<a href="#line-26" class="ident">createPool</a>(<label for="r9" class="ident">s</label>.<a href="../pool/session.go.html#line-12" class="ident">DC</a>, <label for="r8" class="ident">max</label>, <span class="keyword">func</span>() <a href="../../../../../pkg/github.com/gotd/td/pool.html" class="ident i5">pool</a>.<a href="../pool/pool_conn.go.html#line-26" class="ident">Conn</a> {</code></span>
+<span class="codeline" id="line-49"><code>		<label for="r10" class="ident">id</label> := <label for="r6" class="ident">c</label>.<a href="client.go.html#line-64" class="ident">connsCounter</a>.<a href="../../../../go.uber.org/atomic/int64.go.html#line-59" class="ident">Inc</a>()</code></span>
+<span class="codeline" id="line-50"><code>		<span class="keyword">return</span> <label for="r6" class="ident">c</label>.<a href="conn_builder.go.html#line-94" class="ident">createConn</a>(<label for="r10" class="ident">id</label>, <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i8">manager</a>.<a href="internal/manager/conn.go.html#line-37" class="ident">ConnModeData</a>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <span class="keyword">func</span>(<label for="r11" class="ident">err</label> <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-51"><code>			<span class="comment">// Primary pool connections share persisted primary session state.</span></code></span>
+<span class="codeline" id="line-52"><code>			<label for="r6" class="ident">c</label>.<a href="pfs.go.html#line-14" class="ident">handlePrimaryConnDead</a>(<label for="r11" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-53"><code>			<span class="keyword">if</span> <label for="r6" class="ident">c</label>.<a href="client.go.html#line-67" class="ident">onDead</a> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-54"><code>				<label for="r6" class="ident">c</label>.<a href="client.go.html#line-67" class="ident">onDead</a>(<label for="r11" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-55"><code>			}</code></span>
+<span class="codeline" id="line-56"><code>		})</code></span>
+<span class="codeline" id="line-57"><code>	})</code></span>
+<span class="codeline" id="line-58"><code>}</code></span>
+<span class="codeline" id="line-59"><code></code></span>
+<span class="codeline" id="line-60"><code><span class="keyword">func</span> (<label for="r12" class="ident">c</label> *<a href="client.go.html#line-57" class="ident">Client</a>) <label for="r13" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.dc^abecd.html" class="ident">dc</a></label>(</code></span>
+<span class="codeline" id="line-61"><code>	<label for="r14" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>,</code></span>
+<span class="codeline" id="line-62"><code>	<label for="r15" class="ident">dcID</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>,</code></span>
+<span class="codeline" id="line-63"><code>	<label for="r16" class="ident">max</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>,</code></span>
+<span class="codeline" id="line-64"><code>	<label for="r17" class="ident">dialer</label> <a href="../../../../../pkg/github.com/gotd/td/mtproto.html" class="ident i4">mtproto</a>.<a href="../mtproto/conn.go.html#line-48" class="ident">Dialer</a>,</code></span>
+<span class="codeline" id="line-65"><code>	<label for="r18" class="ident">mode</label> <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i8">manager</a>.<a href="internal/manager/conn.go.html#line-31" class="ident">ConnMode</a>,</code></span>
+<span class="codeline" id="line-66"><code>) (*<a href="../../../../../pkg/github.com/gotd/td/pool.html" class="ident i5">pool</a>.<a href="../pool/pool.go.html#line-17" class="ident">DC</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-67"><code>	<span class="keyword">if</span> <label for="r16" class="ident">max</label> &lt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-68"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"invalid max value %d"</span>, <label for="r16" class="ident">max</label>)</code></span>
+<span class="codeline" id="line-69"><code>	}</code></span>
 <span class="codeline" id="line-70"><code></code></span>
-<span class="codeline" id="line-71"><code>		<label for="r11" class="ident">c</label>.<a href="client.go.html#line-103" class="ident">sessionsMux</a>.<a href="../../../../sync/mutex.go.html#line-81" class="ident">Lock</a>()</code></span>
-<span class="codeline" id="line-72"><code>		<label for="r22" class="ident">session</label>, <label for="r23" class="ident">ok</label> := <label for="r11" class="ident">c</label>.<a href="client.go.html#line-102" class="ident">sessions</a>[<label for="r14" class="ident">dcID</label>]</code></span>
-<span class="codeline" id="line-73"><code>		<span class="keyword">if</span> !<label for="r23" class="ident">ok</label> {</code></span>
-<span class="codeline" id="line-74"><code>			<label for="r22" class="ident">session</label> = <a href="../../../../../pkg/github.com/gotd/td/internal/pool.html" class="ident i4">pool</a>.<a href="../internal/pool/session.go.html#line-24" class="ident">NewSyncSession</a>(<a href="../../../../../pkg/github.com/gotd/td/internal/pool.html" class="ident i4">pool</a>.<a href="../internal/pool/session.go.html#line-11" class="ident">Session</a>{})</code></span>
-<span class="codeline" id="line-75"><code>			<label for="r11" class="ident">c</label>.<a href="client.go.html#line-102" class="ident">sessions</a>[<label for="r14" class="ident">dcID</label>] = <label for="r22" class="ident">session</label></code></span>
-<span class="codeline" id="line-76"><code>		}</code></span>
-<span class="codeline" id="line-77"><code>		<label for="r11" class="ident">c</label>.<a href="client.go.html#line-103" class="ident">sessionsMux</a>.<a href="../../../../sync/mutex.go.html#line-212" class="ident">Unlock</a>()</code></span>
-<span class="codeline" id="line-78"><code></code></span>
-<span class="codeline" id="line-79"><code>		<label for="r24" class="ident">options</label>, <label for="r25" class="ident">_</label> := <label for="r22" class="ident">session</label>.<a href="../internal/pool/session.go.html#line-47" class="ident">Options</a>(<label for="r18" class="ident">opts</label>)</code></span>
-<span class="codeline" id="line-80"><code>		<label for="r24" class="ident">options</label>.<a href="../internal/mtproto/options.go.html#line-33" class="ident">Logger</a> = <label for="r11" class="ident">c</label>.<a href="client.go.html#line-107" class="ident">log</a>.<a href="../../../../go.uber.org/zap/logger.go.html#line-153" class="ident">Named</a>(<span class="lit-string">"conn"</span>).<a href="../../../../go.uber.org/zap/logger.go.html#line-179" class="ident">With</a>(</code></span>
-<span class="codeline" id="line-81"><code>			<a href="../../../../../pkg/go.uber.org/zap.html" class="ident i2">zap</a>.<a href="../../../../go.uber.org/zap/field.go.html#line-166" class="ident">Int64</a>(<span class="lit-string">"conn_id"</span>, <label for="r21" class="ident">id</label>),</code></span>
-<span class="codeline" id="line-82"><code>			<a href="../../../../../pkg/go.uber.org/zap.html" class="ident i2">zap</a>.<a href="../../../../go.uber.org/zap/field.go.html#line-152" class="ident">Int</a>(<span class="lit-string">"dc_id"</span>, <label for="r14" class="ident">dcID</label>),</code></span>
-<span class="codeline" id="line-83"><code>		)</code></span>
-<span class="codeline" id="line-84"><code>		<span class="keyword">return</span> <label for="r11" class="ident">c</label>.<a href="client.go.html#line-90" class="ident">create</a>(</code></span>
-<span class="codeline" id="line-85"><code>			<label for="r16" class="ident">dialer</label>, <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i7">manager</a>.<a href="internal/manager/conn.go.html#line-36" class="ident">ConnModeData</a>, <label for="r11" class="ident">c</label>.<a href="client.go.html#line-115" class="ident">appID</a>,</code></span>
-<span class="codeline" id="line-86"><code>			<label for="r24" class="ident">options</label>, <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i7">manager</a>.<a href="internal/manager/create.go.html#line-19" class="ident">ConnOptions</a>{</code></span>
-<span class="codeline" id="line-87"><code>				<a href="internal/manager/create.go.html#line-20" class="ident">DC</a>:      <label for="r14" class="ident">dcID</label>,</code></span>
-<span class="codeline" id="line-88"><code>				<a href="internal/manager/create.go.html#line-22" class="ident">Device</a>:  <label for="r11" class="ident">c</label>.<a href="client.go.html#line-73" class="ident">device</a>,</code></span>
-<span class="codeline" id="line-89"><code>				<a href="internal/manager/create.go.html#line-23" class="ident">Handler</a>: <label for="r11" class="ident">c</label>.<a href="conn_builder.go.html#line-29" class="ident">asHandler</a>(),</code></span>
-<span class="codeline" id="line-90"><code>			},</code></span>
-<span class="codeline" id="line-91"><code>		)</code></span>
-<span class="codeline" id="line-92"><code>	})</code></span>
-<span class="codeline" id="line-93"><code>	<span class="keyword">if</span> <label for="r20" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-94"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i1">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r20" class="ident">err</label>, <span class="lit-string">"create pool"</span>)</code></span>
-<span class="codeline" id="line-95"><code>	}</code></span>
-<span class="codeline" id="line-96"><code></code></span>
-<span class="codeline" id="line-97"><code>	_, <label for="r20" class="ident">err</label> = <label for="r11" class="ident">c</label>.<a href="transfer.go.html#line-22" class="ident">transfer</a>(<label for="r13" class="ident">ctx</label>, <a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i8">tg</a>.<a href="../tg/tl_client_gen.go.html#line-50" class="ident">NewClient</a>(<label for="r19" class="ident">p</label>), <label for="r14" class="ident">dcID</label>)</code></span>
-<span class="codeline" id="line-98"><code>	<span class="keyword">if</span> <label for="r20" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-99"><code>		<span class="comment">// Ignore case then we are not authorized.</span></code></span>
-<span class="codeline" id="line-100"><code>		<span class="keyword">if</span> <a href="../../../../../pkg/github.com/gotd/td/telegram/auth.html" class="ident i5">auth</a>.<a href="auth/auth.go.html#line-18" class="ident">IsUnauthorized</a>(<label for="r20" class="ident">err</label>) {</code></span>
-<span class="codeline" id="line-101"><code>			<span class="keyword">return</span> <label for="r19" class="ident">p</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-102"><code>		}</code></span>
-<span class="codeline" id="line-103"><code></code></span>
-<span class="codeline" id="line-104"><code>		<span class="comment">// Kill pool if we got error.</span></code></span>
-<span class="codeline" id="line-105"><code>		_ = <label for="r19" class="ident">p</label>.<a href="../internal/pool/pool.go.html#line-269" class="ident">Close</a>()</code></span>
-<span class="codeline" id="line-106"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i1">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r20" class="ident">err</label>, <span class="lit-string">"transfer"</span>)</code></span>
+<span class="codeline" id="line-71"><code>	<label for="r19" class="ident">dcList</label> := <a href="../../../../../pkg/github.com/gotd/td/telegram/dcs.html" class="ident i7">dcs</a>.<a href="dcs/find.go.html#line-10" class="ident">FindDCs</a>(<label for="r12" class="ident">c</label>.<a href="client.go.html#line-98" class="ident">cfg</a>.<a href="internal/manager/sync.go.html#line-22" class="ident">Load</a>().<a href="../tg/tl_config_gen.go.html#line-71" class="ident">DCOptions</a>, <label for="r15" class="ident">dcID</label>, <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a>)</code></span>
+<span class="codeline" id="line-72"><code>	<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r19" class="ident">dcList</label>) &lt; <span class="lit-number">1</span> {</code></span>
+<span class="codeline" id="line-73"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"unknown DC %d"</span>, <label for="r15" class="ident">dcID</label>)</code></span>
+<span class="codeline" id="line-74"><code>	}</code></span>
+<span class="codeline" id="line-75"><code>	<label for="r12" class="ident">c</label>.<a href="client.go.html#line-131" class="ident">log</a>.<a href="../../log/helper.go.html#line-46" class="ident">Debug</a>(<label for="r14" class="ident">ctx</label>, <span class="lit-string">"Creating pool"</span>,</code></span>
+<span class="codeline" id="line-76"><code>		<a href="../../../../../pkg/github.com/gotd/log.html" class="ident i3">log</a>.<a href="../../log/attr.go.html#line-143" class="ident">Int</a>(<span class="lit-string">"dc_id"</span>, <label for="r15" class="ident">dcID</label>),</code></span>
+<span class="codeline" id="line-77"><code>		<a href="../../../../../pkg/github.com/gotd/log.html" class="ident i3">log</a>.<a href="../../log/attr.go.html#line-148" class="ident">Int64</a>(<span class="lit-string">"max"</span>, <label for="r16" class="ident">max</label>),</code></span>
+<span class="codeline" id="line-78"><code>		<a href="../../../../../pkg/github.com/gotd/log.html" class="ident i3">log</a>.<a href="../../log/attr.go.html#line-143" class="ident">Int</a>(<span class="lit-string">"candidates"</span>, <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r19" class="ident">dcList</label>)),</code></span>
+<span class="codeline" id="line-79"><code>	)</code></span>
+<span class="codeline" id="line-80"><code></code></span>
+<span class="codeline" id="line-81"><code>	<label for="r20" class="ident">opts</label> := <label for="r12" class="ident">c</label>.<a href="client.go.html#line-88" class="ident">opts</a></code></span>
+<span class="codeline" id="line-82"><code>	<span class="keyword">if</span> <label for="r18" class="ident">mode</label> == <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i8">manager</a>.<a href="internal/manager/conn.go.html#line-39" class="ident">ConnModeCDN</a> {</code></span>
+<span class="codeline" id="line-83"><code>		<span class="comment">// CDN datacenters reject auth.bindTempAuthKey with CDN_METHOD_INVALID:</span></code></span>
+<span class="codeline" id="line-84"><code><span class="comment">		// a CDN connection must authenticate with a permanent key only, without</span></code></span>
+<span class="codeline" id="line-85"><code><span class="comment">		// PFS. The official clients do the same, forcing perm-key-only on CDN</span></code></span>
+<span class="codeline" id="line-86"><code><span class="comment">		// DCs regardless of the global PFS setting. opts is a local copy of</span></code></span>
+<span class="codeline" id="line-87"><code><span class="comment">		// c.opts, so this disables PFS for the CDN pool only and leaves it</span></code></span>
+<span class="codeline" id="line-88"><code><span class="comment">		// intact for the primary and data connections.</span></code></span>
+<span class="codeline" id="line-89"><code>		<label for="r20" class="ident">opts</label>.<a href="../mtproto/options.go.html#line-81" class="ident">EnablePFS</a> = <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-90"><code></code></span>
+<span class="codeline" id="line-91"><code>		<span class="comment">// TDesktop-compatible gate: CDN connection is allowed only when keyset</span></code></span>
+<span class="codeline" id="line-92"><code><span class="comment">		// for requested CDN DC is present (or can be fetched).</span></code></span>
+<span class="codeline" id="line-93"><code>		<label for="r21" class="ident">cdnKeys</label>, <label for="r22" class="ident">set</label> := <label for="r12" class="ident">c</label>.<a href="cdn.go.html#line-138" class="ident">cachedCDNKeysForDC</a>(<label for="r15" class="ident">dcID</label>)</code></span>
+<span class="codeline" id="line-94"><code>		<span class="keyword">if</span> !<label for="r22" class="ident">set</label> || <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r21" class="ident">cdnKeys</label>) == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-95"><code>			<label for="r23" class="ident">fetched</label>, <label for="r24" class="ident">err</label> := <label for="r12" class="ident">c</label>.<a href="cdn.go.html#line-261" class="ident">fetchCDNKeysForDC</a>(<label for="r14" class="ident">ctx</label>, <label for="r15" class="ident">dcID</label>)</code></span>
+<span class="codeline" id="line-96"><code>			<span class="keyword">if</span> <label for="r24" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-97"><code>				<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-90" class="ident">Wrapf</a>(<label for="r24" class="ident">err</label>, <span class="lit-string">"fetch CDN public keys for DC %d"</span>, <label for="r15" class="ident">dcID</label>)</code></span>
+<span class="codeline" id="line-98"><code>			}</code></span>
+<span class="codeline" id="line-99"><code>			<label for="r21" class="ident">cdnKeys</label> = <label for="r23" class="ident">fetched</label></code></span>
+<span class="codeline" id="line-100"><code>		}</code></span>
+<span class="codeline" id="line-101"><code>		<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r21" class="ident">cdnKeys</label>) == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-102"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"no CDN public keys available for CDN DC %d"</span>, <label for="r15" class="ident">dcID</label>)</code></span>
+<span class="codeline" id="line-103"><code>		}</code></span>
+<span class="codeline" id="line-104"><code>		<span class="comment">// Keep CDN keys first and extend with bundled keys for fingerprint</span></code></span>
+<span class="codeline" id="line-105"><code><span class="comment">		// compatibility fallback, matching TDesktop key lookup behavior.</span></code></span>
+<span class="codeline" id="line-106"><code>		<label for="r20" class="ident">opts</label>.<a href="../mtproto/options.go.html#line-29" class="ident">PublicKeys</a> = <a href="cdn.go.html#line-32" class="ident">mergePublicKeys</a>(<label for="r21" class="ident">cdnKeys</label>, <label for="r20" class="ident">opts</label>.<a href="../mtproto/options.go.html#line-29" class="ident">PublicKeys</a>)</code></span>
 <span class="codeline" id="line-107"><code>	}</code></span>
-<span class="codeline" id="line-108"><code></code></span>
-<span class="codeline" id="line-109"><code>	<span class="keyword">return</span> <label for="r19" class="ident">p</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-110"><code>}</code></span>
-<span class="codeline" id="line-111"><code></code></span>
-<span class="codeline" id="line-112"><code><span class="comment">// DC creates new multi-connection invoker to given DC.</span></code></span>
-<span class="codeline" id="line-113"><code><span class="keyword">func</span> (<label for="r26" class="ident">c</label> *<a href="client.go.html#line-55" class="ident">Client</a>) <label for="r27" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.DC.html" class="ident">DC</a></label>(<label for="r28" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-68" class="ident">Context</a>, <label for="r29" class="ident">dc</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r30" class="ident">max</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>) (<a href="#line-19" class="ident">CloseInvoker</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-114"><code>	<span class="keyword">return</span> <label for="r26" class="ident">c</label>.<a href="#line-52" class="ident">dc</a>(<label for="r28" class="ident">ctx</label>, <label for="r29" class="ident">dc</label>, <label for="r30" class="ident">max</label>, <label for="r26" class="ident">c</label>.<a href="conn_builder.go.html#line-64" class="ident">primaryDC</a>(<label for="r29" class="ident">dc</label>))</code></span>
-<span class="codeline" id="line-115"><code>}</code></span>
-<span class="codeline" id="line-116"><code></code></span>
-<span class="codeline" id="line-117"><code><span class="comment">// MediaOnly creates new multi-connection invoker to given DC ID.</span></code></span>
-<span class="codeline" id="line-118"><code><span class="comment">// It connects to MediaOnly DCs.</span></code></span>
-<span class="codeline" id="line-119"><code><span class="keyword">func</span> (<label for="r31" class="ident">c</label> *<a href="client.go.html#line-55" class="ident">Client</a>) <label for="r32" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.MediaOnly.html" class="ident">MediaOnly</a></label>(<label for="r33" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-68" class="ident">Context</a>, <label for="r34" class="ident">dc</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r35" class="ident">max</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>) (<a href="#line-19" class="ident">CloseInvoker</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-120"><code>	<span class="keyword">return</span> <label for="r31" class="ident">c</label>.<a href="#line-52" class="ident">dc</a>(<label for="r33" class="ident">ctx</label>, <label for="r34" class="ident">dc</label>, <label for="r35" class="ident">max</label>, <span class="keyword">func</span>(<label for="r36" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-68" class="ident">Context</a>) (<a href="../../../../../pkg/github.com/gotd/td/transport.html" class="ident i9">transport</a>.<a href="../transport/connection.go.html#line-15" class="ident">Conn</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-121"><code>		<span class="keyword">return</span> <label for="r31" class="ident">c</label>.<a href="client.go.html#line-91" class="ident">resolver</a>.<a href="dcs/resolver.go.html#line-15" class="ident">MediaOnly</a>(<label for="r36" class="ident">ctx</label>, <label for="r34" class="ident">dc</label>, <label for="r31" class="ident">c</label>.<a href="conn_builder.go.html#line-55" class="ident">dcList</a>())</code></span>
-<span class="codeline" id="line-122"><code>	})</code></span>
-<span class="codeline" id="line-123"><code>}</code></span>
+<span class="codeline" id="line-108"><code>	<span class="comment">// suppressSetup temporarily disables per-connection transfer hook while</span></code></span>
+<span class="codeline" id="line-109"><code><span class="comment">	// explicit first transfer below is running, avoiding duplicate import.</span></code></span>
+<span class="codeline" id="line-110"><code>	<span class="keyword">var</span> <label for="r25" class="ident">suppressSetup</label> <a href="../../../../../pkg/sync/atomic.html" class="ident i1">atomic</a>.<a href="../../../../sync/atomic/type.go.html#line-13" class="ident">Bool</a></code></span>
+<span class="codeline" id="line-111"><code>	<label for="r26" class="ident">p</label>, <label for="r27" class="ident">err</label> := <label for="r12" class="ident">c</label>.<a href="#line-26" class="ident">createPool</a>(<label for="r15" class="ident">dcID</label>, <label for="r16" class="ident">max</label>, <span class="keyword">func</span>() <a href="../../../../../pkg/github.com/gotd/td/pool.html" class="ident i5">pool</a>.<a href="../pool/pool_conn.go.html#line-26" class="ident">Conn</a> {</code></span>
+<span class="codeline" id="line-112"><code>		<label for="r28" class="ident">id</label> := <label for="r12" class="ident">c</label>.<a href="client.go.html#line-64" class="ident">connsCounter</a>.<a href="../../../../go.uber.org/atomic/int64.go.html#line-59" class="ident">Inc</a>()</code></span>
+<span class="codeline" id="line-113"><code></code></span>
+<span class="codeline" id="line-114"><code>		<label for="r12" class="ident">c</label>.<a href="client.go.html#line-118" class="ident">sessionsMux</a>.<a href="../../../../sync/mutex.go.html#line-45" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-115"><code>		<label for="r29" class="ident">sessions</label> := <label for="r12" class="ident">c</label>.<a href="client.go.html#line-115" class="ident">sessions</a></code></span>
+<span class="codeline" id="line-116"><code>		<span class="keyword">if</span> <label for="r18" class="ident">mode</label> == <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i8">manager</a>.<a href="internal/manager/conn.go.html#line-39" class="ident">ConnModeCDN</a> {</code></span>
+<span class="codeline" id="line-117"><code>			<span class="comment">// Keep CDN auth key lifecycle separated from regular DC sessions.</span></code></span>
+<span class="codeline" id="line-118"><code>			<label for="r29" class="ident">sessions</label> = <label for="r12" class="ident">c</label>.<a href="client.go.html#line-117" class="ident">cdnSessions</a></code></span>
+<span class="codeline" id="line-119"><code>		}</code></span>
+<span class="codeline" id="line-120"><code>		<label for="r30" class="ident">session</label>, <label for="r31" class="ident">ok</label> := <label for="r29" class="ident">sessions</label>[<label for="r15" class="ident">dcID</label>]</code></span>
+<span class="codeline" id="line-121"><code>		<span class="keyword">if</span> !<label for="r31" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-122"><code>			<label for="r30" class="ident">session</label> = <a href="../../../../../pkg/github.com/gotd/td/pool.html" class="ident i5">pool</a>.<a href="../pool/session.go.html#line-24" class="ident">NewSyncSession</a>(<a href="../../../../../pkg/github.com/gotd/td/pool.html" class="ident i5">pool</a>.<a href="../pool/session.go.html#line-11" class="ident">Session</a>{<a href="../pool/session.go.html#line-12" class="ident">DC</a>: <label for="r15" class="ident">dcID</label>})</code></span>
+<span class="codeline" id="line-123"><code>			<label for="r29" class="ident">sessions</label>[<label for="r15" class="ident">dcID</label>] = <label for="r30" class="ident">session</label></code></span>
+<span class="codeline" id="line-124"><code>		}</code></span>
+<span class="codeline" id="line-125"><code>		<label for="r12" class="ident">c</label>.<a href="client.go.html#line-118" class="ident">sessionsMux</a>.<a href="../../../../sync/mutex.go.html#line-64" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-126"><code></code></span>
+<span class="codeline" id="line-127"><code>		<label for="r32" class="ident">options</label>, <label for="r33" class="ident">data</label> := <label for="r30" class="ident">session</label>.<a href="../pool/session.go.html#line-47" class="ident">Options</a>(<label for="r20" class="ident">opts</label>)</code></span>
+<span class="codeline" id="line-128"><code>		<label for="r34" class="ident">setup</label> := <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i8">manager</a>.<a href="internal/manager/create.go.html#line-17" class="ident">SetupCallback</a>(<a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>)</code></span>
+<span class="codeline" id="line-129"><code>		<label for="r35" class="ident">handler</label> := <label for="r12" class="ident">c</label>.<a href="conn_builder.go.html#line-29" class="ident">asHandler</a>()</code></span>
+<span class="codeline" id="line-130"><code>		<span class="keyword">if</span> <label for="r18" class="ident">mode</label> != <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i8">manager</a>.<a href="internal/manager/conn.go.html#line-39" class="ident">ConnModeCDN</a> &amp;&amp;</code></span>
+<span class="codeline" id="line-131"><code>			<label for="r33" class="ident">data</label>.<a href="../pool/session.go.html#line-13" class="ident">AuthKey</a>.<a href="../crypto/key.go.html#line-109" class="ident">Zero</a>() &amp;&amp;</code></span>
+<span class="codeline" id="line-132"><code>			<label for="r12" class="ident">c</label>.<a href="client.go.html#line-97" class="ident">session</a>.<a href="../pool/session.go.html#line-66" class="ident">Load</a>().<a href="../pool/session.go.html#line-12" class="ident">DC</a> != <label for="r15" class="ident">dcID</label> &amp;&amp;</code></span>
+<span class="codeline" id="line-133"><code>			!<label for="r25" class="ident">suppressSetup</label>.<a href="../../../../sync/atomic/type.go.html#line-19" class="ident">Load</a>() {</code></span>
+<span class="codeline" id="line-134"><code>			<span class="comment">// Non-main DC key must be authorized via auth.export/import after</span></code></span>
+<span class="codeline" id="line-135"><code><span class="comment">			// local key generation.</span></code></span>
+<span class="codeline" id="line-136"><code>			<label for="r34" class="ident">setup</label> = <label for="r12" class="ident">c</label>.<a href="dc_transfer.go.html#line-11" class="ident">dcTransferSetup</a>(<label for="r15" class="ident">dcID</label>)</code></span>
+<span class="codeline" id="line-137"><code>		}</code></span>
+<span class="codeline" id="line-138"><code>		<span class="keyword">if</span> <label for="r18" class="ident">mode</label> == <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i8">manager</a>.<a href="internal/manager/conn.go.html#line-39" class="ident">ConnModeCDN</a> {</code></span>
+<span class="codeline" id="line-139"><code>			<span class="comment">// CDN pools do not process updates and use dedicated session store.</span></code></span>
+<span class="codeline" id="line-140"><code>			<label for="r35" class="ident">handler</label> = <label for="r12" class="ident">c</label>.<a href="conn_builder.go.html#line-49" class="ident">asCDNHandler</a>()</code></span>
+<span class="codeline" id="line-141"><code>		}</code></span>
+<span class="codeline" id="line-142"><code>		<label for="r32" class="ident">options</label>.<a href="../mtproto/options.go.html#line-34" class="ident">Logger</a> = <label for="r12" class="ident">c</label>.<a href="client.go.html#line-131" class="ident">log</a>.<a href="../../log/helper.go.html#line-36" class="ident">Named</a>(<span class="lit-string">"conn"</span>).<a href="../../log/helper.go.html#line-31" class="ident">With</a>(</code></span>
+<span class="codeline" id="line-143"><code>			<a href="../../../../../pkg/github.com/gotd/log.html" class="ident i3">log</a>.<a href="../../log/attr.go.html#line-148" class="ident">Int64</a>(<span class="lit-string">"conn_id"</span>, <label for="r28" class="ident">id</label>),</code></span>
+<span class="codeline" id="line-144"><code>			<a href="../../../../../pkg/github.com/gotd/log.html" class="ident i3">log</a>.<a href="../../log/attr.go.html#line-143" class="ident">Int</a>(<span class="lit-string">"dc_id"</span>, <label for="r15" class="ident">dcID</label>),</code></span>
+<span class="codeline" id="line-145"><code>		).<a href="../../log/helper.go.html#line-26" class="ident">Logger</a>()</code></span>
+<span class="codeline" id="line-146"><code>		<span class="keyword">return</span> <label for="r12" class="ident">c</label>.<a href="client.go.html#line-65" class="ident">create</a>(</code></span>
+<span class="codeline" id="line-147"><code>			<label for="r17" class="ident">dialer</label>, <label for="r18" class="ident">mode</label>, <label for="r12" class="ident">c</label>.<a href="client.go.html#line-139" class="ident">appID</a>,</code></span>
+<span class="codeline" id="line-148"><code>			<label for="r32" class="ident">options</label>, <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i8">manager</a>.<a href="internal/manager/create.go.html#line-20" class="ident">ConnOptions</a>{</code></span>
+<span class="codeline" id="line-149"><code>				<a href="internal/manager/create.go.html#line-21" class="ident">DC</a>:      <label for="r15" class="ident">dcID</label>,</code></span>
+<span class="codeline" id="line-150"><code>				<a href="internal/manager/create.go.html#line-23" class="ident">Device</a>:  <label for="r12" class="ident">c</label>.<a href="client.go.html#line-85" class="ident">device</a>,</code></span>
+<span class="codeline" id="line-151"><code>				<a href="internal/manager/create.go.html#line-24" class="ident">Handler</a>: <label for="r35" class="ident">handler</label>,</code></span>
+<span class="codeline" id="line-152"><code>				<a href="internal/manager/create.go.html#line-25" class="ident">Setup</a>:   <label for="r34" class="ident">setup</label>,</code></span>
+<span class="codeline" id="line-153"><code>				<a href="internal/manager/create.go.html#line-26" class="ident">OnDead</a>: <span class="keyword">func</span>(<label for="r36" class="ident">err</label> <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-154"><code>					<span class="keyword">if</span> <label for="r18" class="ident">mode</label> == <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i8">manager</a>.<a href="internal/manager/conn.go.html#line-39" class="ident">ConnModeCDN</a> {</code></span>
+<span class="codeline" id="line-155"><code>						<span class="comment">// CDN dead handler also manages CDN key invalidation.</span></code></span>
+<span class="codeline" id="line-156"><code>						<label for="r12" class="ident">c</label>.<a href="cdn_conn_dead.go.html#line-15" class="ident">handleCDNConnDead</a>(<label for="r15" class="ident">dcID</label>, <label for="r36" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-157"><code>						<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-158"><code>					}</code></span>
+<span class="codeline" id="line-159"><code>					<label for="r12" class="ident">c</label>.<a href="pfs.go.html#line-33" class="ident">handleDCConnDead</a>(<label for="r15" class="ident">dcID</label>, <label for="r36" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-160"><code>				},</code></span>
+<span class="codeline" id="line-161"><code>			},</code></span>
+<span class="codeline" id="line-162"><code>		)</code></span>
+<span class="codeline" id="line-163"><code>	})</code></span>
+<span class="codeline" id="line-164"><code>	<span class="keyword">if</span> <label for="r27" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-165"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r27" class="ident">err</label>, <span class="lit-string">"create pool"</span>)</code></span>
+<span class="codeline" id="line-166"><code>	}</code></span>
+<span class="codeline" id="line-167"><code></code></span>
+<span class="codeline" id="line-168"><code>	<span class="keyword">if</span> <label for="r18" class="ident">mode</label> == <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i8">manager</a>.<a href="internal/manager/conn.go.html#line-39" class="ident">ConnModeCDN</a> {</code></span>
+<span class="codeline" id="line-169"><code>		<span class="comment">// No auth transfer for CDN mode: CDN API uses file tokens and does not</span></code></span>
+<span class="codeline" id="line-170"><code><span class="comment">		// require auth.export/import bootstrap.</span></code></span>
+<span class="codeline" id="line-171"><code>		<span class="keyword">return</span> <label for="r26" class="ident">p</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-172"><code>	}</code></span>
+<span class="codeline" id="line-173"><code></code></span>
+<span class="codeline" id="line-174"><code>	<span class="comment">// First transfer is done explicitly to preserve old behavior: return</span></code></span>
+<span class="codeline" id="line-175"><code><span class="comment">	// transfer errors from DC pool creation. Setup callback remains enabled for</span></code></span>
+<span class="codeline" id="line-176"><code><span class="comment">	// future reconnections when keys are re-generated inside the pool.</span></code></span>
+<span class="codeline" id="line-177"><code>	<label for="r25" class="ident">suppressSetup</label>.<a href="../../../../sync/atomic/type.go.html#line-22" class="ident">Store</a>(<a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a>)</code></span>
+<span class="codeline" id="line-178"><code>	_, <label for="r27" class="ident">err</label> = <label for="r12" class="ident">c</label>.<a href="transfer.go.html#line-34" class="ident">transfer</a>(<label for="r14" class="ident">ctx</label>, <a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i9">tg</a>.<a href="../tg/tl_client_gen.go.html#line-50" class="ident">NewClient</a>(<label for="r26" class="ident">p</label>), <label for="r15" class="ident">dcID</label>)</code></span>
+<span class="codeline" id="line-179"><code>	<label for="r25" class="ident">suppressSetup</label>.<a href="../../../../sync/atomic/type.go.html#line-22" class="ident">Store</a>(<a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a>)</code></span>
+<span class="codeline" id="line-180"><code>	<span class="keyword">if</span> <label for="r27" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-181"><code>		<span class="comment">// Ignore case then we are not authorized.</span></code></span>
+<span class="codeline" id="line-182"><code>		<span class="keyword">if</span> <a href="../../../../../pkg/github.com/gotd/td/telegram/auth.html" class="ident i6">auth</a>.<a href="auth/auth.go.html#line-18" class="ident">IsUnauthorized</a>(<label for="r27" class="ident">err</label>) {</code></span>
+<span class="codeline" id="line-183"><code>			<span class="keyword">return</span> <label for="r26" class="ident">p</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-184"><code>		}</code></span>
+<span class="codeline" id="line-185"><code></code></span>
+<span class="codeline" id="line-186"><code>		<span class="comment">// Kill pool if we got error.</span></code></span>
+<span class="codeline" id="line-187"><code>		_ = <label for="r26" class="ident">p</label>.<a href="../pool/pool.go.html#line-284" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-188"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r27" class="ident">err</label>, <span class="lit-string">"transfer"</span>)</code></span>
+<span class="codeline" id="line-189"><code>	}</code></span>
+<span class="codeline" id="line-190"><code></code></span>
+<span class="codeline" id="line-191"><code>	<span class="keyword">return</span> <label for="r26" class="ident">p</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-192"><code>}</code></span>
+<span class="codeline" id="line-193"><code></code></span>
+<span class="codeline" id="line-194"><code><span class="comment">// DC creates new multi-connection invoker to given DC.</span></code></span>
+<span class="codeline" id="line-195"><code><span class="keyword">func</span> (<label for="r37" class="ident">c</label> *<a href="client.go.html#line-57" class="ident">Client</a>) <label for="r38" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.DC.html" class="ident">DC</a></label>(<label for="r39" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r40" class="ident">dc</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r41" class="ident">max</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>) (<a href="#line-21" class="ident">CloseInvoker</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-196"><code>	<span class="keyword">return</span> <label for="r37" class="ident">c</label>.<a href="#line-60" class="ident">dc</a>(<label for="r39" class="ident">ctx</label>, <label for="r40" class="ident">dc</label>, <label for="r41" class="ident">max</label>, <label for="r37" class="ident">c</label>.<a href="conn_builder.go.html#line-84" class="ident">primaryDC</a>(<label for="r40" class="ident">dc</label>), <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i8">manager</a>.<a href="internal/manager/conn.go.html#line-37" class="ident">ConnModeData</a>)</code></span>
+<span class="codeline" id="line-197"><code>}</code></span>
+<span class="codeline" id="line-198"><code></code></span>
+<span class="codeline" id="line-199"><code><span class="comment">// MediaOnly creates new multi-connection invoker to given DC ID.</span></code></span>
+<span class="codeline" id="line-200"><code><span class="comment">// It connects to MediaOnly DCs.</span></code></span>
+<span class="codeline" id="line-201"><code><span class="keyword">func</span> (<label for="r42" class="ident">c</label> *<a href="client.go.html#line-57" class="ident">Client</a>) <label for="r43" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.MediaOnly.html" class="ident">MediaOnly</a></label>(<label for="r44" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r45" class="ident">dc</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r46" class="ident">max</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>) (<a href="#line-21" class="ident">CloseInvoker</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-202"><code>	<span class="keyword">return</span> <label for="r42" class="ident">c</label>.<a href="#line-60" class="ident">dc</a>(<label for="r44" class="ident">ctx</label>, <label for="r45" class="ident">dc</label>, <label for="r46" class="ident">max</label>, <span class="keyword">func</span>(<label for="r47" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>) (<a href="../../../../../pkg/github.com/gotd/td/transport.html" class="ident i10">transport</a>.<a href="../transport/connection.go.html#line-15" class="ident">Conn</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-203"><code>		<span class="keyword">return</span> <label for="r42" class="ident">c</label>.<a href="client.go.html#line-66" class="ident">resolver</a>.<a href="dcs/resolver.go.html#line-15" class="ident">MediaOnly</a>(<label for="r47" class="ident">ctx</label>, <label for="r45" class="ident">dc</label>, <label for="r42" class="ident">c</label>.<a href="conn_builder.go.html#line-75" class="ident">dcList</a>())</code></span>
+<span class="codeline" id="line-204"><code>	}, <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i8">manager</a>.<a href="internal/manager/conn.go.html#line-37" class="ident">ConnModeData</a>)</code></span>
+<span class="codeline" id="line-205"><code>}</code></span>
+<span class="codeline" id="line-206"><code></code></span>
+<span class="codeline" id="line-207"><code><span class="comment">// CDN creates new multi-connection invoker to given CDN DC ID.</span></code></span>
+<span class="codeline" id="line-208"><code><span class="comment">// It connects to CDN DCs.</span></code></span>
+<span class="codeline" id="line-209"><code><span class="keyword">func</span> (<label for="r48" class="ident">c</label> *<a href="client.go.html#line-57" class="ident">Client</a>) <label for="r49" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.CDN.html" class="ident">CDN</a></label>(<label for="r50" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r51" class="ident">dc</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r52" class="ident">max</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>) (<a href="#line-21" class="ident">CloseInvoker</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-210"><code>	<span class="keyword">if</span> <label for="r52" class="ident">max</label> &lt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-211"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"invalid max value %d"</span>, <label for="r52" class="ident">max</label>)</code></span>
+<span class="codeline" id="line-212"><code>	}</code></span>
+<span class="codeline" id="line-213"><code>	<label for="r53" class="ident">need</label> := <a href="cdn_pool_manager.go.html#line-318" class="ident">normalizeCDNPoolMax</a>(<label for="r52" class="ident">max</label>)</code></span>
+<span class="codeline" id="line-214"><code></code></span>
+<span class="codeline" id="line-215"><code>	<span class="keyword">if</span> <label for="r54" class="ident">cached</label>, <label for="r55" class="ident">ok</label> := <label for="r48" class="ident">c</label>.<a href="client.go.html#line-113" class="ident">cdnPools</a>.<a href="cdn_pool_manager.go.html#line-161" class="ident">acquire</a>(<label for="r51" class="ident">dc</label>, <label for="r53" class="ident">need</label>); <label for="r55" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-216"><code>		<span class="comment">// Reuse existing pool to avoid extra TCP/MTProto handshakes.</span></code></span>
+<span class="codeline" id="line-217"><code>		<span class="keyword">return</span> <label for="r54" class="ident">cached</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-218"><code>	}</code></span>
+<span class="codeline" id="line-219"><code></code></span>
+<span class="codeline" id="line-220"><code>	<span class="comment">// Keep shared CDN pools per DC with max-aware reuse.</span></code></span>
+<span class="codeline" id="line-221"><code>	<label for="r56" class="ident">created</label>, <label for="r57" class="ident">err</label> := <label for="r48" class="ident">c</label>.<a href="#line-60" class="ident">dc</a>(<label for="r50" class="ident">ctx</label>, <label for="r51" class="ident">dc</label>, <label for="r53" class="ident">need</label>, <span class="keyword">func</span>(<label for="r58" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>) (<a href="../../../../../pkg/github.com/gotd/td/transport.html" class="ident i10">transport</a>.<a href="../transport/connection.go.html#line-15" class="ident">Conn</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-222"><code>		<span class="keyword">return</span> <label for="r48" class="ident">c</label>.<a href="client.go.html#line-66" class="ident">resolver</a>.<a href="dcs/resolver.go.html#line-16" class="ident">CDN</a>(<label for="r58" class="ident">ctx</label>, <label for="r51" class="ident">dc</label>, <label for="r48" class="ident">c</label>.<a href="conn_builder.go.html#line-75" class="ident">dcList</a>())</code></span>
+<span class="codeline" id="line-223"><code>	}, <a href="../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html" class="ident i8">manager</a>.<a href="internal/manager/conn.go.html#line-39" class="ident">ConnModeCDN</a>)</code></span>
+<span class="codeline" id="line-224"><code>	<span class="keyword">if</span> <label for="r57" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-225"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r57" class="ident">err</label></code></span>
+<span class="codeline" id="line-226"><code>	}</code></span>
+<span class="codeline" id="line-227"><code></code></span>
+<span class="codeline" id="line-228"><code>	<label for="r59" class="ident">handle</label>, <label for="r60" class="ident">reused</label> := <label for="r48" class="ident">c</label>.<a href="client.go.html#line-113" class="ident">cdnPools</a>.<a href="cdn_pool_manager.go.html#line-172" class="ident">publishOrAcquire</a>(<label for="r51" class="ident">dc</label>, <label for="r53" class="ident">need</label>, <label for="r56" class="ident">created</label>)</code></span>
+<span class="codeline" id="line-229"><code>	<span class="keyword">if</span> <label for="r60" class="ident">reused</label> {</code></span>
+<span class="codeline" id="line-230"><code>		<span class="comment">// Lost race: another goroutine already published suitable pool.</span></code></span>
+<span class="codeline" id="line-231"><code>		_ = <label for="r56" class="ident">created</label>.<a href="../pool/pool.go.html#line-284" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-232"><code>		<span class="keyword">return</span> <label for="r59" class="ident">handle</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-233"><code>	}</code></span>
+<span class="codeline" id="line-234"><code>	<span class="keyword">return</span> <label for="r59" class="ident">handle</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-235"><code>}</code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

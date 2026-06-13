@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/klauspost/compress/zstd.sequenceDecs.dict</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-63">sequenceDecs</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-68">dict</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">22 uses</span>
+
+	github.com/klauspost/compress/zstd (current package)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/history.go.html#line-65">history.go#L65</a>: 	h.decoders.<b>dict</b> = dict.content
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-68">seqdec.go#L68</a>: 	<b>dict</b>         []byte
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-95" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-95">#L95</a>: 	s.<b>dict</b> = nil
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-97" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-97">#L97</a>: 		s.<b>dict</b> = hist.dict.content
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-120" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-120">#L120</a>: 	if len(s.<b>dict</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-132" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-132">#L132</a>: 		printf("Execute %d seqs with hist %d, dict %d, literals: %d into %d bytes\n", len(seqs), len(hist), len(s.<b>dict</b>), len(s.literals), s.seqSize)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-146" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-146">#L146</a>: 			if len(s.<b>dict</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-151" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-151">#L151</a>: 			dictO := len(s.<b>dict</b>) - (seq.mo - (t + len(hist)))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-152" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-152">#L152</a>: 			if dictO &lt; 0 || dictO &gt;= len(s.<b>dict</b>) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-153" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-153">#L153</a>: 				return fmt.Errorf("match offset (%d) bigger than current history+dict (%d)", seq.mo, t+len(hist)+len(s.<b>dict</b>))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-156" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-156">#L156</a>: 			if end &gt; len(s.<b>dict</b>) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-157" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-157">#L157</a>: 				n := len(s.<b>dict</b>) - dictO
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-158" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-158">#L158</a>: 				copy(out[t:], s.<b>dict</b>[dictO:])
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-162" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-162">#L162</a>: 				copy(out[t:], s.<b>dict</b>[dictO:end])
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-346" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-346">#L346</a>: 			if len(s.<b>dict</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-351" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-351">#L351</a>: 			dictO := len(s.<b>dict</b>) - (mo - (len(out) + len(hist)))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-352" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-352">#L352</a>: 			if dictO &lt; 0 || dictO &gt;= len(s.<b>dict</b>) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-356" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-356">#L356</a>: 			if end &gt; len(s.<b>dict</b>) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-357" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-357">#L357</a>: 				out = append(out, s.<b>dict</b>[dictO:]...)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-358" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-358">#L358</a>: 				ml -= len(s.<b>dict</b>) - dictO
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-360" class="path-duplicate">seqdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-360">#L360</a>: 				out = append(out, s.<b>dict</b>[dictO:end]...)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-56">seqdec_amd64.go#L56</a>: 	if len(s.<b>dict</b>) &gt; 0 {
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

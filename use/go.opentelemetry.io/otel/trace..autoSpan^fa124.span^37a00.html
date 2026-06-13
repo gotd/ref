@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: go.opentelemetry.io/otel/trace.autoSpan.span</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/go.opentelemetry.io/otel/trace.html">go.opentelemetry.io/otel/trace</a>.<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-165">autoSpan</a>.<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-173">span</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">38 uses</span>
+
+	go.opentelemetry.io/otel/trace (current package)
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-75">auto.go#L75</a>: 		span.traces, span.<b>span</b> = t.traces(name, cfg, span.spanContext, psc)
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-173" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-173">#L173</a>: 	<b>span</b>   *telemetry.Span
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-200" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-200">#L200</a>: 	if s.<b>span</b>.Status == nil {
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-201" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-201">#L201</a>: 		s.<b>span</b>.Status = new(telemetry.Status)
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-204" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-204">#L204</a>: 	s.<b>span</b>.Status.Message = msg
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-208" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-208">#L208</a>: 		s.<b>span</b>.Status.Code = telemetry.StatusCodeUnset
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-210" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-210">#L210</a>: 		s.<b>span</b>.Status.Code = telemetry.StatusCodeError
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-212" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-212">#L212</a>: 		s.<b>span</b>.Status.Code = telemetry.StatusCodeOK
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-229" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-229">#L229</a>: 			s.<b>span</b>.DroppedAttrs += uint32(min(n, math.MaxUint32)) // nolint: gosec  // Bounds checked.
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-235" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-235">#L235</a>: 	for i, a := range s.<b>span</b>.Attrs {
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-242" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-242">#L242</a>: 			s.<b>span</b>.DroppedAttrs++
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-247" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-247">#L247</a>: 			s.<b>span</b>.Attrs[idx] = telemetry.Attr{
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-251" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-251">#L251</a>: 		} else if limit &lt; 0 || len(s.<b>span</b>.Attrs) &lt; limit {
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-252" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-252">#L252</a>: 			s.<b>span</b>.Attrs = append(s.<b>span</b>.Attrs, telemetry.Attr{
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-256" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-256">#L256</a>: 			m[string(a.Key)] = len(s.<b>span</b>.Attrs) - 1
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-258" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-258">#L258</a>: 			s.<b>span</b>.DroppedAttrs++
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-456" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-456">#L456</a>: 		s.<b>span</b>.EndTime = cfg.Timestamp()
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-458" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-458">#L458</a>: 		s.<b>span</b>.EndTime = time.Now()
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-526" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-526">#L526</a>: 		s.<b>span</b>.DroppedEvents++
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-530" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-530">#L530</a>: 	if limit &gt; 0 &amp;&amp; len(s.<b>span</b>.Events) == limit {
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-532" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-532">#L532</a>: 		copy(s.<b>span</b>.Events[:limit-1], s.<b>span</b>.Events[1:])
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-533" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-533">#L533</a>: 		s.<b>span</b>.Events = s.<b>span</b>.Events[:limit-1]
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-534" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-534">#L534</a>: 		s.<b>span</b>.DroppedEvents++
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-540" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-540">#L540</a>: 	s.<b>span</b>.Events = append(s.<b>span</b>.Events, e)
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-554" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-554">#L554</a>: 		s.<b>span</b>.DroppedLinks++
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-558" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-558">#L558</a>: 	if l &gt; 0 &amp;&amp; len(s.<b>span</b>.Links) == l {
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-560" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-560">#L560</a>: 		copy(s.<b>span</b>.Links[:l-1], s.<b>span</b>.Links[1:])
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-561" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-561">#L561</a>: 		s.<b>span</b>.Links = s.<b>span</b>.Links[:l-1]
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-562" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-562">#L562</a>: 		s.<b>span</b>.DroppedLinks++
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-565" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-565">#L565</a>: 	s.<b>span</b>.Links = append(s.<b>span</b>.Links, convLink(link))
+		<a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-596" class="path-duplicate">auto.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/auto.go.html#line-596">#L596</a>: 	s.<b>span</b>.Name = name
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

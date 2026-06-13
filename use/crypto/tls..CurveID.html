@@ -5,43 +5,59 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto/tls.CurveID</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/crypto/tls.html">crypto/tls</a>.<a href="../../src/crypto/tls/common.go.html#line-137">CurveID</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/crypto/tls.html">crypto/tls</a>.<a href="../../src/crypto/tls/common.go.html#line-146">CurveID</a></b></span>
 
-<span class="title">26 uses</span>
+<span class="title">42 uses</span>
 
 	crypto/tls (current package)
-		<a href="../../src/crypto/tls/common.go.html#line-137">common.go#L137</a>: type <b>CurveID</b> uint16
-		<a href="../../src/crypto/tls/common.go.html#line-140" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-140">#L140</a>: 	CurveP256 <b>CurveID</b> = 23
-		<a href="../../src/crypto/tls/common.go.html#line-141" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-141">#L141</a>: 	CurveP384 <b>CurveID</b> = 24
-		<a href="../../src/crypto/tls/common.go.html#line-142" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-142">#L142</a>: 	CurveP521 <b>CurveID</b> = 25
-		<a href="../../src/crypto/tls/common.go.html#line-143" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-143">#L143</a>: 	X25519    <b>CurveID</b> = 29
-		<a href="../../src/crypto/tls/common.go.html#line-148" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-148">#L148</a>: 	group <b>CurveID</b>
-		<a href="../../src/crypto/tls/common.go.html#line-417" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-417">#L417</a>: 	SupportedCurves []<b>CurveID</b>
-		<a href="../../src/crypto/tls/common.go.html#line-755" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-755">#L755</a>: 	CurvePreferences []<b>CurveID</b>
-		<a href="../../src/crypto/tls/common.go.html#line-1074" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-1074">#L1074</a>: var defaultCurvePreferences = []<b>CurveID</b>{X25519, CurveP256, CurveP384, CurveP521}
-		<a href="../../src/crypto/tls/common.go.html#line-1076" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-1076">#L1076</a>: func (c *Config) curvePreferences() []<b>CurveID</b> {
-		<a href="../../src/crypto/tls/common.go.html#line-1086" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-1086">#L1086</a>: func (c *Config) supportsCurve(curve <b>CurveID</b>) bool {
-		<a href="../../src/crypto/tls/common.go.html#line-1254" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-1254">#L1254</a>: 			var curve <b>CurveID</b>
-		<a href="../../src/crypto/tls/common_string.go.html#line-85">common_string.go#L85</a>: func (i <b>CurveID</b>) String() string {
-		<a href="../../src/crypto/tls/handshake_messages.go.html#line-79">handshake_messages.go#L79</a>: 	supportedCurves                  []<b>CurveID</b>
-		<a href="../../src/crypto/tls/handshake_messages.go.html#line-473" class="path-duplicate">handshake_messages.go</a><a href="../../src/crypto/tls/handshake_messages.go.html#line-473">#L473</a>: 				m.supportedCurves = append(m.supportedCurves, <b>CurveID</b>(curve))
-		<a href="../../src/crypto/tls/handshake_messages.go.html#line-650" class="path-duplicate">handshake_messages.go</a><a href="../../src/crypto/tls/handshake_messages.go.html#line-650">#L650</a>: 	selectedGroup <b>CurveID</b>
-		<a href="../../src/crypto/tls/handshake_server.go.html#line-316">handshake_server.go#L316</a>: func supportsECDHE(c *Config, supportedCurves []<b>CurveID</b>, supportedPoints []uint8) bool {
-		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-182">handshake_server_tls13.go#L182</a>: 	var selectedGroup <b>CurveID</b>
-		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-470" class="path-duplicate">handshake_server_tls13.go</a><a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-470">#L470</a>: func (hs *serverHandshakeStateTLS13) doHelloRetryRequest(selectedGroup <b>CurveID</b>) error {
-		<a href="../../src/crypto/tls/key_agreement.go.html#line-170">key_agreement.go#L170</a>: 	var curveID <b>CurveID</b>
-		<a href="../../src/crypto/tls/key_agreement.go.html#line-282" class="path-duplicate">key_agreement.go</a><a href="../../src/crypto/tls/key_agreement.go.html#line-282">#L282</a>: 	curveID := <b>CurveID</b>(skx.key[1])&lt;&lt;8 | <b>CurveID</b>(skx.key[2])
-		<a href="../../src/crypto/tls/key_schedule.go.html#line-122">key_schedule.go#L122</a>: func generateECDHEKey(rand io.Reader, curveID <b>CurveID</b>) (*ecdh.PrivateKey, error) {
-		<a href="../../src/crypto/tls/key_schedule.go.html#line-131" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-131">#L131</a>: func curveForCurveID(id <b>CurveID</b>) (ecdh.Curve, bool) {
-		<a href="../../src/crypto/tls/key_schedule.go.html#line-146" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-146">#L146</a>: func curveIDForCurve(curve ecdh.Curve) (<b>CurveID</b>, bool) {
-		<a href="../../src/crypto/tls/notboring.go.html#line-17">notboring.go#L17</a>: func fipsCurvePreferences(c *Config) []<b>CurveID</b> { panic("fipsCurvePreferences") }
+		<a href="../../src/crypto/tls/common.go.html#line-146">common.go#L146</a>: type <b>CurveID</b> uint16
+		<a href="../../src/crypto/tls/common.go.html#line-149" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-149">#L149</a>: 	CurveP256          <b>CurveID</b> = 23
+		<a href="../../src/crypto/tls/common.go.html#line-150" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-150">#L150</a>: 	CurveP384          <b>CurveID</b> = 24
+		<a href="../../src/crypto/tls/common.go.html#line-151" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-151">#L151</a>: 	CurveP521          <b>CurveID</b> = 25
+		<a href="../../src/crypto/tls/common.go.html#line-152" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-152">#L152</a>: 	X25519             <b>CurveID</b> = 29
+		<a href="../../src/crypto/tls/common.go.html#line-153" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-153">#L153</a>: 	X25519MLKEM768     <b>CurveID</b> = 4588
+		<a href="../../src/crypto/tls/common.go.html#line-154" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-154">#L154</a>: 	SecP256r1MLKEM768  <b>CurveID</b> = 4587
+		<a href="../../src/crypto/tls/common.go.html#line-155" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-155">#L155</a>: 	SecP384r1MLKEM1024 <b>CurveID</b> = 4589
+		<a href="../../src/crypto/tls/common.go.html#line-158" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-158">#L158</a>: func isTLS13OnlyKeyExchange(curve <b>CurveID</b>) bool {
+		<a href="../../src/crypto/tls/common.go.html#line-167" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-167">#L167</a>: func isPQKeyExchange(curve <b>CurveID</b>) bool {
+		<a href="../../src/crypto/tls/common.go.html#line-178" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-178">#L178</a>: 	group <b>CurveID</b>
+		<a href="../../src/crypto/tls/common.go.html#line-266" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-266">#L266</a>: 	CurveID <b>CurveID</b>
+		<a href="../../src/crypto/tls/common.go.html#line-451" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-451">#L451</a>: 	SupportedCurves []<b>CurveID</b>
+		<a href="../../src/crypto/tls/common.go.html#line-813" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-813">#L813</a>: 	CurvePreferences []<b>CurveID</b>
+		<a href="../../src/crypto/tls/common.go.html#line-1270" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-1270">#L1270</a>: func (c *Config) curvePreferences(version uint16) []<b>CurveID</b> {
+		<a href="../../src/crypto/tls/common.go.html#line-1273" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-1273">#L1273</a>: 		curvePreferences = slices.DeleteFunc(curvePreferences, func(x <b>CurveID</b>) bool {
+		<a href="../../src/crypto/tls/common.go.html#line-1278" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-1278">#L1278</a>: 		curvePreferences = slices.DeleteFunc(curvePreferences, func(x <b>CurveID</b>) bool {
+		<a href="../../src/crypto/tls/common.go.html#line-1288" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-1288">#L1288</a>: func (c *Config) supportsCurve(version uint16, curve <b>CurveID</b>) bool {
+		<a href="../../src/crypto/tls/common.go.html#line-1462" class="path-duplicate">common.go</a><a href="../../src/crypto/tls/common.go.html#line-1462">#L1462</a>: 			var curve <b>CurveID</b>
+		<a href="../../src/crypto/tls/common_string.go.html#line-90">common_string.go#L90</a>: func (i <b>CurveID</b>) String() string {
+		<a href="../../src/crypto/tls/conn.go.html#line-53">conn.go#L53</a>: 	curveID          <b>CurveID</b>
+		<a href="../../src/crypto/tls/defaults.go.html#line-21">defaults.go#L21</a>: func defaultCurvePreferences() []<b>CurveID</b> {
+		<a href="../../src/crypto/tls/defaults.go.html#line-25" class="path-duplicate">defaults.go</a><a href="../../src/crypto/tls/defaults.go.html#line-25">#L25</a>: 		return []<b>CurveID</b>{X25519, CurveP256, CurveP384, CurveP521}
+		<a href="../../src/crypto/tls/defaults.go.html#line-28" class="path-duplicate">defaults.go</a><a href="../../src/crypto/tls/defaults.go.html#line-28">#L28</a>: 		return []<b>CurveID</b>{X25519MLKEM768, X25519, CurveP256, CurveP384, CurveP521}
+		<a href="../../src/crypto/tls/defaults.go.html#line-30" class="path-duplicate">defaults.go</a><a href="../../src/crypto/tls/defaults.go.html#line-30">#L30</a>: 		return []<b>CurveID</b>{
+		<a href="../../src/crypto/tls/defaults_fips140.go.html#line-33">defaults_fips140.go#L33</a>: 	allowedCurvePreferencesFIPS = []<b>CurveID</b>{
+		<a href="../../src/crypto/tls/handshake_messages.go.html#line-80">handshake_messages.go#L80</a>: 	supportedCurves                  []<b>CurveID</b>
+		<a href="../../src/crypto/tls/handshake_messages.go.html#line-523" class="path-duplicate">handshake_messages.go</a><a href="../../src/crypto/tls/handshake_messages.go.html#line-523">#L523</a>: 				m.supportedCurves = append(m.supportedCurves, <b>CurveID</b>(curve))
+		<a href="../../src/crypto/tls/handshake_messages.go.html#line-743" class="path-duplicate">handshake_messages.go</a><a href="../../src/crypto/tls/handshake_messages.go.html#line-743">#L743</a>: 	selectedGroup <b>CurveID</b>
+		<a href="../../src/crypto/tls/handshake_server.go.html#line-365">handshake_server.go#L365</a>: func supportsECDHE(c *Config, version uint16, supportedCurves []<b>CurveID</b>, supportedPoints []uint8) (bool, error) {
+		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-210">handshake_server_tls13.go#L210</a>: 	preferredGroups = slices.DeleteFunc(preferredGroups, func(group <b>CurveID</b>) bool {
+		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-217" class="path-duplicate">handshake_server_tls13.go</a><a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-217">#L217</a>: 	hasKeyShare := func(group <b>CurveID</b>) bool {
+		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-522" class="path-duplicate">handshake_server_tls13.go</a><a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-522">#L522</a>: func (hs *serverHandshakeStateTLS13) doHelloRetryRequest(selectedGroup <b>CurveID</b>) (*keyShare, error) {
+		<a href="../../src/crypto/tls/key_agreement.go.html#line-153">key_agreement.go#L153</a>: 	curveID            <b>CurveID</b>
+		<a href="../../src/crypto/tls/key_agreement.go.html#line-278" class="path-duplicate">key_agreement.go</a><a href="../../src/crypto/tls/key_agreement.go.html#line-278">#L278</a>: 	ka.curveID = <b>CurveID</b>(skx.key[1])&lt;&lt;8 | <b>CurveID</b>(skx.key[2])
+		<a href="../../src/crypto/tls/key_agreement.go.html#line-381" class="path-duplicate">key_agreement.go</a><a href="../../src/crypto/tls/key_agreement.go.html#line-381">#L381</a>: func generateECDHEKey(rand io.Reader, curveID <b>CurveID</b>) (*ecdh.PrivateKey, error) {
+		<a href="../../src/crypto/tls/key_agreement.go.html#line-390" class="path-duplicate">key_agreement.go</a><a href="../../src/crypto/tls/key_agreement.go.html#line-390">#L390</a>: func curveForCurveID(id <b>CurveID</b>) (ecdh.Curve, bool) {
+		<a href="../../src/crypto/tls/key_schedule.go.html#line-76">key_schedule.go#L76</a>: func keyExchangeForCurveID(id <b>CurveID</b>) (keyExchange, error) {
+		<a href="../../src/crypto/tls/key_schedule.go.html#line-116" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-116">#L116</a>: 	id    <b>CurveID</b>
+		<a href="../../src/crypto/tls/key_schedule.go.html#line-157" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-157">#L157</a>: 	id   <b>CurveID</b>
+		<a href="../../src/crypto/tls/ticket.go.html#line-102">ticket.go#L102</a>: 	curveID <b>CurveID</b>
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

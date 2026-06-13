@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/refraction-networking/utls.clientHelloMsg.supportedSignatureAlgorithms</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>.<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-71">clientHelloMsg</a>.<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-84">supportedSignatureAlgorithms</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+
+<span class="title">24 uses</span>
+
+	github.com/refraction-networking/utls (current package)
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-139">handshake_client.go#L139</a>: 		hello.<b>supportedSignatureAlgorithms</b> = supportedSignatureAlgorithms()
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-142" class="path-duplicate">handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_client.go.html#line-142">#L142</a>: 		hello.<b>supportedSignatureAlgorithms</b> = testingOnlyForceClientHelloSignatureAlgorithms
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-84">handshake_messages.go#L84</a>: 	<b>supportedSignatureAlgorithms</b>     []SignatureScheme
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-214" class="path-duplicate">handshake_messages.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-214">#L214</a>: 	if len(m.<b>supportedSignatureAlgorithms</b>) &gt; 0 {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-222" class="path-duplicate">handshake_messages.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-222">#L222</a>: 					for _, sigAlgo := range m.<b>supportedSignatureAlgorithms</b> {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-577" class="path-duplicate">handshake_messages.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-577">#L577</a>: 				m.<b>supportedSignatureAlgorithms</b> = append(
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-578" class="path-duplicate">handshake_messages.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-578">#L578</a>: 					m.<b>supportedSignatureAlgorithms</b>, SignatureScheme(sigAndAlg))
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-731" class="path-duplicate">handshake_messages.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_messages.go.html#line-731">#L731</a>: 		<b>supportedSignatureAlgorithms</b>:     slices.Clone(m.<b>supportedSignatureAlgorithms</b>),
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server.go.html#line-1001">handshake_server.go#L1001</a>: 		SignatureSchemes:  clientHello.<b>supportedSignatureAlgorithms</b>,
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-507">handshake_server_tls13.go#L507</a>: 	if len(hs.clientHello.<b>supportedSignatureAlgorithms</b>) == 0 {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-520" class="path-duplicate">handshake_server_tls13.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-520">#L520</a>: 	hs.sigAlg, err = selectSignatureScheme(c.vers, certificate, hs.clientHello.<b>supportedSignatureAlgorithms</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-677" class="path-duplicate">handshake_server_tls13.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-677">#L677</a>: 		len(ch.<b>supportedSignatureAlgorithms</b>) != len(ch1.<b>supportedSignatureAlgorithms</b>) ||
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-697" class="path-duplicate">handshake_server_tls13.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-697">#L697</a>: 	for i := range ch.<b>supportedSignatureAlgorithms</b> {
+		<a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-698" class="path-duplicate">handshake_server_tls13.go</a><a href="../../../src/github.com/refraction-networking/utls/handshake_server_tls13.go.html#line-698">#L698</a>: 		if ch.<b>supportedSignatureAlgorithms</b>[i] != ch1.<b>supportedSignatureAlgorithms</b>[i] {
+		<a href="../../../src/github.com/refraction-networking/utls/key_agreement.go.html#line-209">key_agreement.go#L209</a>: 		signatureAlgorithm, err = selectSignatureScheme(ka.version, cert, clientHello.<b>supportedSignatureAlgorithms</b>)
+		<a href="../../../src/github.com/refraction-networking/utls/key_agreement.go.html#line-330" class="path-duplicate">key_agreement.go</a><a href="../../../src/github.com/refraction-networking/utls/key_agreement.go.html#line-330">#L330</a>: 		if !isSupportedSignatureAlgorithm(signatureAlgorithm, clientHello.<b>supportedSignatureAlgorithms</b>) {
+		<a href="../../../src/github.com/refraction-networking/utls/u_conn.go.html#line-576">u_conn.go#L576</a>: 		inner.<b>supportedSignatureAlgorithms</b> = uconn.HandshakeState.Hello.SupportedSignatureAlgorithms
+		<a href="../../../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-261">u_handshake_client.go#L261</a>: 		hello.<b>supportedSignatureAlgorithms</b> = supportedSignatureAlgorithms()
+		<a href="../../../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-264" class="path-duplicate">u_handshake_client.go</a><a href="../../../src/github.com/refraction-networking/utls/u_handshake_client.go.html#line-264">#L264</a>: 		hello.<b>supportedSignatureAlgorithms</b> = testingOnlyForceClientHelloSignatureAlgorithms
+		<a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-408">u_public.go#L408</a>: 			<b>supportedSignatureAlgorithms</b>:     chm.SupportedSignatureAlgorithms,
+		<a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-461" class="path-duplicate">u_public.go</a><a href="../../../src/github.com/refraction-networking/utls/u_public.go.html#line-461">#L461</a>: 			SupportedSignatureAlgorithms: chm.<b>supportedSignatureAlgorithms</b>,
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

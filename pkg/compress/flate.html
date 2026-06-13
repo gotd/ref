@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Package: compress/flate</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="package-details"><code><span style="font-size:xx-large;">package <b>flate</b></span>
@@ -15,7 +15,7 @@
 	<a href="../../index.html#pkg-compress/flate">compress/flate</a><i> (on <a href="https://pkg.go.dev/compress/flate" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../dep/compress/flate.html">9 packages</a>, and imported by <a href="../../dep/compress/flate.html#imported-by">3 packages</a>
+	imports <a href="../../dep/compress/flate.html">9 packages</a>, and imported by <a href="../../dep/compress/flate.html#imported-by">5 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -26,8 +26,8 @@
 	<span class="nodocs">    <a href="../../src/compress/flate/huffman_code.go.html">huffman_code.go</a></span>
 	<input type='checkbox' checked class="fold" id="file-5-fold-content"><label for="file-5-fold-content">  <a href="../../src/compress/flate/inflate.go.html#doc">d</a> <a href="../../src/compress/flate/inflate.go.html">inflate.go</a></label><span id='file-5-fold-content-items' class="fold-items">
 <span class="md-text">		Package flate implements the DEFLATE compressed data format, described in
-		RFC 1951.  The gzip and zlib packages implement access to DEFLATE-based file
-		formats.</span>
+		RFC 1951.  The [compress/gzip] and [compress/zlib] packages implement access
+		to DEFLATE-based file formats.</span>
 </span>
 	<span class="nodocs">    <a href="../../src/compress/flate/token.go.html">token.go</a></span></div>
 <div id="examples"><span class="title">Code Examples</span>
@@ -197,7 +197,7 @@
 				}
 		
 				b := make([]byte, 256)
-				for _, m := range strings.Fields("A long time ago in a galaxy far, far away...") {
+				for m := range strings.FieldsSeq("A long time ago in a galaxy far, far away...") {
 					// We use a simple framing format where the first byte is the
 					// message length, followed the message itself.
 					b[0] = uint8(copy(b[1:], m))
@@ -272,24 +272,27 @@
 		<input type='checkbox' class="fold" id="InternalError-fold-impls"><label for="InternalError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='InternalError-fold-impls-items' class="fold-items"><span>
 			 InternalError : <a href="../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Reader" data-popularity="1450">	<input type='checkbox' class="fold" id="Reader-fold-content"><label for="Reader-fold-content"> <a href="../../use/compress/flate..Reader.html">type</a> <a href="../../src/compress/flate/inflate.go.html#line-261">Reader</a> <b><i>(interface)</i></b></label><span id='Reader-fold-content-docs' class="fold-docs">
-<span class="md-text">		The actual read interface needed by NewReader.
-		If the passed in io.Reader does not also have ReadByte,
-		the NewReader will introduce its own buffering.</span>
+</span></div><div class="anchor type-res" id="name-Reader" data-popularity="1900">	<input type='checkbox' class="fold" id="Reader-fold-content"><label for="Reader-fold-content"> <a href="../../use/compress/flate..Reader.html">type</a> <a href="../../src/compress/flate/inflate.go.html#line-261">Reader</a> <b><i>(interface)</i></b></label><span id='Reader-fold-content-docs' class="fold-docs">
+<span class="md-text">		The actual read interface needed by [NewReader].
+		If the passed in [io.Reader] does not also have ReadByte,
+		the [NewReader] will introduce its own buffering.</span>
 
 		<input type='checkbox' class="fold" id="Reader-fold-methods"><label for="Reader-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='Reader-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( Reader) <a href="../../src/io/io.go.html#line-87">Read</a>(p []<a href="../builtin.html#name-byte">byte</a>) (n <a href="../builtin.html#name-int">int</a>, err <a href="../builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( Reader) <a href="../../src/io/io.go.html#line-263">ReadByte</a>() (<a href="../builtin.html#name-byte">byte</a>, <a href="../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="Reader-fold-impledby"><label for="Reader-fold-impledby">Implemented By (<i>at least 8, in which 6 are exported</i>)</label><span id='Reader-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Reader-fold-impledby"><label for="Reader-fold-impledby">Implemented By (<i>at least 11, in which 7 are exported</i>)</label><span id='Reader-fold-impledby-items' class="fold-items"><span>
 			*bufio.<a href="../bufio.html#name-Reader">Reader</a></span><span>
 			 bufio.<a href="../bufio.html#name-ReadWriter">ReadWriter</a></span><span>
 			*bytes.<a href="../bytes.html#name-Buffer">Buffer</a></span><span>
 			*bytes.<a href="../bytes.html#name-Reader">Reader</a></span><span>
 			 github.com/klauspost/compress/flate.<a href="../github.com/klauspost/compress/flate.html#name-Reader">Reader</a> <i>(interface)</i></span><span>
+			*github.com/klauspost/compress/internal/snapref.<a href="../github.com/klauspost/compress/internal/snapref.html#name-Reader">Reader</a></span><span>
 			*strings.<a href="../strings.html#name-Reader">Reader</a></span>
-			<input type='checkbox' class="showhide" id="Reader-showhide-impedBys"><i><label for="Reader-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="Reader-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Reader-showhide-impedBys"><i><label for="Reader-showhide-impedBys" class="show-inline">/* 4+ unexporteds ... */</label><label for="Reader-showhide-impedBys" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
 			*encoding/json.<a href="../encoding/json.html#name-encodeState">encodeState</a></i></span><span class="hidden"><i>
-			 math/big.<a href="../math/big.html#name-byteReader">byteReader</a></i></span></span>
+			 math/big.<a href="../math/big.html#name-byteReader">byteReader</a></i></span><span class="hidden"><i>
+			 net/http.<a href="../net/http.html#name-eofReader">eofReader</a></i></span><span class="hidden"><i>
+			 net/http.<a href="../net/http.html#name-http2eofReader">http2eofReader</a></i></span></span>
 		<input type='checkbox' class="fold" id="Reader-fold-impls"><label for="Reader-fold-impls">Implements (<i>at least 3, all are exported</i>)</label><span id='Reader-fold-impls-items' class="fold-items"><span>
 			 Reader : github.com/klauspost/compress/flate.<a href="../github.com/klauspost/compress/flate.html#name-Reader">Reader</a></span><span>
 			 Reader : io.<a href="../io.html#name-ByteReader">ByteReader</a></span><span>
@@ -312,9 +315,9 @@
 		<input type='checkbox' class="fold" id="ReadError-fold-impls"><label for="ReadError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ReadError-fold-impls-items' class="fold-items"><span>
 			*ReadError : <a href="../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Resetter" data-popularity="550">	<input type='checkbox' class="fold" id="Resetter-fold-content"><label for="Resetter-fold-content"> <a href="../../use/compress/flate..Resetter.html">type</a> <a href="../../src/compress/flate/inflate.go.html#line-71">Resetter</a> <b><i>(interface)</i></b></label><span id='Resetter-fold-content-docs' class="fold-docs">
-<span class="md-text">		Resetter resets a ReadCloser returned by NewReader or NewReaderDict
-		to switch to a new underlying Reader. This permits reusing a ReadCloser
+</span></div><div class="anchor type-res" id="name-Resetter" data-popularity="900">	<input type='checkbox' class="fold" id="Resetter-fold-content"><label for="Resetter-fold-content"> <a href="../../use/compress/flate..Resetter.html">type</a> <a href="../../src/compress/flate/inflate.go.html#line-71">Resetter</a> <b><i>(interface)</i></b></label><span id='Resetter-fold-content-docs' class="fold-docs">
+<span class="md-text">		Resetter resets a ReadCloser returned by [NewReader] or [NewReaderDict]
+		to switch to a new underlying [Reader]. This permits reusing a ReadCloser
 		instead of allocating a new one.</span>
 
 		<input type='checkbox' class="fold" id="Resetter-fold-methods"><label for="Resetter-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Resetter-fold-methods-items' class="fold-items"><span>
@@ -322,12 +325,15 @@
 <span class="md-text">				Reset discards any buffered data and resets the Resetter as if it was
 				newly initialized with the given reader.</span>
 </span></span></span>
-		<input type='checkbox' class="fold" id="Resetter-fold-impledby"><label for="Resetter-fold-impledby">Implemented By (<i>at least 3, in which 1 is exported</i>)</label><span id='Resetter-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Resetter-fold-impledby"><label for="Resetter-fold-impledby">Implemented By (<i>at least 5, in which 2 are exported</i>)</label><span id='Resetter-fold-impledby-items' class="fold-items"><span>
+			 compress/zlib.<a href="zlib.html#name-Resetter">Resetter</a> <i>(interface)</i></span><span>
 			 github.com/klauspost/compress/flate.<a href="../github.com/klauspost/compress/flate.html#name-Resetter">Resetter</a> <i>(interface)</i></span>
-			<input type='checkbox' class="showhide" id="Resetter-showhide-impedBys"><i><label for="Resetter-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="Resetter-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Resetter-showhide-impedBys"><i><label for="Resetter-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="Resetter-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*<a href="#name-decompressor">decompressor</a></i></span><span class="hidden"><i>
+			*compress/zlib.<a href="zlib.html#name-reader">reader</a></i></span><span class="hidden"><i>
 			*github.com/klauspost/compress/flate.<a href="../github.com/klauspost/compress/flate.html#name-decompressor">decompressor</a></i></span></span>
-		<input type='checkbox' class="fold" id="Resetter-fold-impls"><label for="Resetter-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Resetter-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Resetter-fold-impls"><label for="Resetter-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='Resetter-fold-impls-items' class="fold-items"><span>
+			 Resetter : compress/zlib.<a href="zlib.html#name-Resetter">Resetter</a></span><span>
 			 Resetter : github.com/klauspost/compress/flate.<a href="../github.com/klauspost/compress/flate.html#name-Resetter">Resetter</a></span></span>
 
 </span></div><div class="anchor type-res" id="name-WriteError" data-popularity="100">	<input type='checkbox' class="fold" id="WriteError-fold-content"><label for="WriteError-fold-content"> <a href="../../use/compress/flate..WriteError.html">type</a> <a href="../../src/compress/flate/inflate.go.html#line-59">WriteError</a> <i>(struct)</i></label><span id='WriteError-fold-content-docs' class="fold-docs">
@@ -347,53 +353,54 @@
 		<input type='checkbox' class="fold" id="WriteError-fold-impls"><label for="WriteError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='WriteError-fold-impls-items' class="fold-items"><span>
 			*WriteError : <a href="../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Writer" data-popularity="710">	<input type='checkbox' class="fold" id="Writer-fold-content"><label for="Writer-fold-content"> <a href="../../use/compress/flate..Writer.html">type</a> <a href="../../src/compress/flate/deflate.go.html#line-702">Writer</a> <i>(struct)</i></label><span id='Writer-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Writer" data-popularity="760">	<input type='checkbox' class="fold" id="Writer-fold-content"><label for="Writer-fold-content"> <a href="../../use/compress/flate..Writer.html">type</a> <a href="../../src/compress/flate/deflate.go.html#line-701">Writer</a> <i>(struct)</i></label><span id='Writer-fold-content-docs' class="fold-docs">
 <span class="md-text">		A Writer takes data written to it and writes the compressed
-		form of that data to an underlying writer (see NewWriter).</span>
+		form of that data to an underlying writer (see [NewWriter]).</span>
 
 		<input type='checkbox' class="fold" id="Writer-fold-fields"><label for="Writer-fold-fields">Fields (<i>total 2, neither is exported</i>)</label><span id='Writer-fold-fields-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="Writer-showhide-fields"><i><label for="Writer-showhide-fields" class="show-inline">/* 2 unexporteds ... */</label><label for="Writer-showhide-fields" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
-			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-703">d</a> <i><a href="#name-compressor">compressor</a></i></span></i></span><span class="hidden"><i>
-			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-704">dict</a> <i>[]<a href="../builtin.html#name-byte">byte</a></i></span></i></span></span>
+			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-702">d</a> <i><a href="#name-compressor">compressor</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-703">dict</a> <i>[]<a href="../builtin.html#name-byte">byte</a></i></span></i></span></span>
 		<input type='checkbox' class="fold" id="Writer-fold-methods"><label for="Writer-fold-methods">Methods (<i>total 4, all are exported</i>)</label><span id='Writer-fold-methods-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="Writer-fold-method-Close"><label for="Writer-fold-method-Close">(*Writer) <a href="../../src/compress/flate/deflate.go.html#line-729">Close</a>() <a href="../builtin.html#name-error">error</a></label><span id='Writer-fold-method-Close-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Writer-fold-method-Close"><label for="Writer-fold-method-Close">(*Writer) <a href="../../src/compress/flate/deflate.go.html#line-728">Close</a>() <a href="../builtin.html#name-error">error</a></label><span id='Writer-fold-method-Close-docs' class="fold-docs">
 <span class="md-text">				Close flushes and closes the writer.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Writer-fold-method-Flush"><label for="Writer-fold-method-Flush">(*Writer) <a href="../../src/compress/flate/deflate.go.html#line-722">Flush</a>() <a href="../builtin.html#name-error">error</a></label><span id='Writer-fold-method-Flush-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Writer-fold-method-Flush"><label for="Writer-fold-method-Flush">(*Writer) <a href="../../src/compress/flate/deflate.go.html#line-721">Flush</a>() <a href="../builtin.html#name-error">error</a></label><span id='Writer-fold-method-Flush-docs' class="fold-docs">
 <span class="md-text">				Flush flushes any pending data to the underlying writer.
 				It is useful mainly in compressed network protocols, to ensure that
 				a remote reader has enough data to reconstruct a packet.
 				Flush does not return until the data has been written.
-				Calling Flush when there is no pending data still causes the Writer
+				Calling Flush when there is no pending data still causes the [Writer]
 				to emit a sync marker of at least 4 bytes.
 				If the underlying writer returns an error, Flush returns that error.
 				
 				In the terminology of the zlib library, Flush is equivalent to Z_SYNC_FLUSH.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Writer-fold-method-Reset"><label for="Writer-fold-method-Reset">(*Writer) <a href="../../src/compress/flate/deflate.go.html#line-736">Reset</a>(dst <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>)</label><span id='Writer-fold-method-Reset-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Writer-fold-method-Reset"><label for="Writer-fold-method-Reset">(*Writer) <a href="../../src/compress/flate/deflate.go.html#line-735">Reset</a>(dst <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>)</label><span id='Writer-fold-method-Reset-docs' class="fold-docs">
 <span class="md-text">				Reset discards the writer's state and makes it equivalent to
-				the result of NewWriter or NewWriterDict called with dst
+				the result of [NewWriter] or [NewWriterDict] called with dst
 				and w's level and dictionary.</span>
 </span></span><span>
-			<input type='checkbox' class="fold" id="Writer-fold-method-Write"><label for="Writer-fold-method-Write">(*Writer) <a href="../../src/compress/flate/deflate.go.html#line-709">Write</a>(data []<a href="../builtin.html#name-byte">byte</a>) (n <a href="../builtin.html#name-int">int</a>, err <a href="../builtin.html#name-error">error</a>)</label><span id='Writer-fold-method-Write-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="Writer-fold-method-Write"><label for="Writer-fold-method-Write">(*Writer) <a href="../../src/compress/flate/deflate.go.html#line-708">Write</a>(data []<a href="../builtin.html#name-byte">byte</a>) (n <a href="../builtin.html#name-int">int</a>, err <a href="../builtin.html#name-error">error</a>)</label><span id='Writer-fold-method-Write-docs' class="fold-docs">
 <span class="md-text">				Write writes data to w, which will eventually write the
 				compressed form of data to its underlying writer.</span>
 </span></span></span>
-		<input type='checkbox' class="fold" id="Writer-fold-impls"><label for="Writer-fold-impls">Implements (<i>at least 5, in which 4 are exported</i>)</label><span id='Writer-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Writer-fold-impls"><label for="Writer-fold-impls">Implements (<i>at least 6, in which 4 are exported</i>)</label><span id='Writer-fold-impls-items' class="fold-items"><span>
 			*Writer : internal/bisect.<a href="../internal/bisect.html#name-Writer">Writer</a></span><span>
 			*Writer : io.<a href="../io.html#name-Closer">Closer</a></span><span>
 			*Writer : io.<a href="../io.html#name-WriteCloser">WriteCloser</a></span><span>
 			*Writer : io.<a href="../io.html#name-Writer">Writer</a></span>
-			<input type='checkbox' class="showhide" id="Writer-showhide-impls"><i><label for="Writer-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="Writer-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
-			*Writer : crypto/tls.<a href="../crypto/tls.html#name-transcriptHash">transcriptHash</a></i></span></span>
+			<input type='checkbox' class="showhide" id="Writer-showhide-impls"><i><label for="Writer-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Writer-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			*Writer : crypto/tls.<a href="../crypto/tls.html#name-transcriptHash">transcriptHash</a></i></span><span class="hidden"><i>
+			*Writer : github.com/refraction-networking/utls.<a href="../github.com/refraction-networking/utls.html#name-transcriptHash">transcriptHash</a></i></span></span>
 		<input type='checkbox' class="fold" id="Writer-fold-results"><label for="Writer-fold-results">As Outputs Of (<i>at least 3, in which 2 are exported</i>)</label><span id='Writer-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewWriter">NewWriter</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, level <a href="../builtin.html#name-int">int</a>) (*<b>Writer</b>, <a href="../builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-NewWriterDict">NewWriterDict</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, level <a href="../builtin.html#name-int">int</a>, dict []<a href="../builtin.html#name-byte">byte</a>) (*<b>Writer</b>, <a href="../builtin.html#name-error">error</a>)</span>
 			<input type='checkbox' class="showhide" id="Writer-showhide-inputofs"><i><label for="Writer-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="Writer-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
-			func nhooyr.io/websocket.<a href="../nhooyr.io/websocket.html#name-getFlateWriter">getFlateWriter</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>) *<b>Writer</b></i></span></span>
+			func github.com/coder/websocket.<a href="../github.com/coder/websocket.html#name-getFlateWriter">getFlateWriter</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>) *<b>Writer</b></i></span></span>
 		<input type='checkbox' class="fold" id="Writer-fold-params"><label for="Writer-fold-params">As Inputs Of (<i>at least one unexported</i>)</label><span id='Writer-fold-params-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="Writer-showhide-outputofs"><i><label for="Writer-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="Writer-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
-			func nhooyr.io/websocket.<a href="../nhooyr.io/websocket.html#name-putFlateWriter">putFlateWriter</a>(w *<b>Writer</b>)</i></span></span>
+			func github.com/coder/websocket.<a href="../github.com/coder/websocket.html#name-putFlateWriter">putFlateWriter</a>(w *<b>Writer</b>)</i></span></span>
 
 </span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 16 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 16 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-byFreq" data-popularity="250">	<input type='checkbox' class="fold" id="byFreq-fold-content"><label for="byFreq-fold-content"> <a href="../../use/compress/flate..byFreq^24e83.html">type</a> <a href="../../src/compress/flate/huffman_code.go.html#line-325">byFreq</a> <i>([])</i></label><span id='byFreq-fold-content-docs' class="fold-docs">
 
@@ -432,22 +439,24 @@
 
 		<input type='checkbox' class="fold" id="compressor-fold-fields"><label for="compressor-fold-fields">Fields (<i>total 28, none are exported</i>)</label><span id='compressor-fold-fields-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="compressor-showhide-fields"><i><label for="compressor-showhide-fields" class="show-inline">/* 28 unexporteds ... */</label><label for="compressor-showhide-fields" class="hide-inline">/* 28 unexporteds: */</label></i><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="compressor-fold-field-bestSpeed"><label for="compressor-fold-field-bestSpeed"><a href="../../src/compress/flate/deflate.go.html#line-91">bestSpeed</a> <i>*<a href="#name-deflateFast">deflateFast</a></i></label><span id='compressor-fold-field-bestSpeed-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="compressor-fold-field-bestSpeed"><label for="compressor-fold-field-bestSpeed"><a href="../../src/compress/flate/deflate.go.html#line-90">bestSpeed</a> <i>*<a href="#name-deflateFast">deflateFast</a></i></label><span id='compressor-fold-field-bestSpeed-docs' class="fold-docs">
 <span class="md-text">				// Encoder for BestSpeed</span>
 </span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="compressor-fold-field-blockStart"><label for="compressor-fold-field-blockStart"><a href="../../src/compress/flate/deflate.go.html#line-107">blockStart</a> <i><a href="../builtin.html#name-int">int</a></i></label><span id='compressor-fold-field-blockStart-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="compressor-fold-field-blockStart"><label for="compressor-fold-field-blockStart"><a href="../../src/compress/flate/deflate.go.html#line-96">blockStart</a> <i><a href="../builtin.html#name-int">int</a></i></label><span id='compressor-fold-field-blockStart-docs' class="fold-docs">
 <span class="md-text">				// window index where current tokens start</span>
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-85">bulkHasher</a> <i>func([]<a href="../builtin.html#name-byte">byte</a>, []<a href="../builtin.html#name-uint32">uint32</a>)</i></span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="compressor-fold-field-byteAvailable"><label for="compressor-fold-field-byteAvailable"><a href="../../src/compress/flate/deflate.go.html#line-108">byteAvailable</a> <i><a href="../builtin.html#name-bool">bool</a></i></label><span id='compressor-fold-field-byteAvailable-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="compressor-fold-field-byteAvailable"><label for="compressor-fold-field-byteAvailable"><a href="../../src/compress/flate/deflate.go.html#line-97">byteAvailable</a> <i><a href="../builtin.html#name-bool">bool</a></i></label><span id='compressor-fold-field-byteAvailable-docs' class="fold-docs">
 <span class="md-text">				// if true, still need to process window[index-1].</span>
 </span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="compressor-fold-field-chainHead"><label for="compressor-fold-field-chainHead"><a href="../../src/compress/flate/deflate.go.html#line-98">chainHead</a> <i><a href="../builtin.html#name-int">int</a></i></label><span id='compressor-fold-field-chainHead-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="compressor-fold-field-chainHead"><label for="compressor-fold-field-chainHead"><a href="../../src/compress/flate/deflate.go.html#line-117">chainHead</a> <i><a href="../builtin.html#name-int">int</a></i></label><span id='compressor-fold-field-chainHead-docs' class="fold-docs">
 <span class="md-text">				Input hash chains
 				hashHead[hashValue] contains the largest inputIndex with the specified hash value
 				If hashHead[hashValue] is within the current window, then
 				hashPrev[hashHead[hashValue] &amp; windowMask] contains the previous index
-				with the same hash value.</span>
+				with the same hash value.
+				These are large and do not contain pointers, so put them
+				near the end of the struct so the GC has to scan less.</span>
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-82">compressionLevel</a> <i><a href="#name-compressionLevel">compressionLevel</a></i></span></i></span><span class="hidden"><i>
 			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-82" class="path-duplicate">compressionLevel</a>.<a href="../../src/compress/flate/deflate.go.html#line-62">chain</a> <i><a href="../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
@@ -456,73 +465,73 @@
 			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-82" class="path-duplicate">compressionLevel</a>.<a href="../../src/compress/flate/deflate.go.html#line-62">lazy</a> <i><a href="../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
 			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-82" class="path-duplicate">compressionLevel</a>.<a href="../../src/compress/flate/deflate.go.html#line-62">level</a> <i><a href="../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
 			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-82" class="path-duplicate">compressionLevel</a>.<a href="../../src/compress/flate/deflate.go.html#line-62">nice</a> <i><a href="../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
-			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-117">err</a> <i><a href="../builtin.html#name-error">error</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-108">err</a> <i><a href="../builtin.html#name-error">error</a></i></span></i></span><span class="hidden"><i>
 			<input type='checkbox' class="fold" id="compressor-fold-field-fill"><label for="compressor-fold-field-fill"><a href="../../src/compress/flate/deflate.go.html#line-88">fill</a> <i>func(*<b>compressor</b>, []<a href="../builtin.html#name-byte">byte</a>) <a href="../builtin.html#name-int">int</a></i></label><span id='compressor-fold-field-fill-docs' class="fold-docs">
 <span class="md-text">				compression algorithm</span>
 <span class="md-text">				// copy data to window</span>
 </span></i></span><span class="hidden"><i>
-			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-99">hashHead</a> <i>[131072]<a href="../builtin.html#name-uint32">uint32</a></i></span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="compressor-fold-field-hashMatch"><label for="compressor-fold-field-hashMatch"><a href="../../src/compress/flate/deflate.go.html#line-120">hashMatch</a> <i>[257]<a href="../builtin.html#name-uint32">uint32</a></i></label><span id='compressor-fold-field-hashMatch-docs' class="fold-docs">
+			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-118">hashHead</a> <i>[131072]<a href="../builtin.html#name-uint32">uint32</a></i></span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="compressor-fold-field-hashMatch"><label for="compressor-fold-field-hashMatch"><a href="../../src/compress/flate/deflate.go.html#line-123">hashMatch</a> <i>[257]<a href="../builtin.html#name-uint32">uint32</a></i></label><span id='compressor-fold-field-hashMatch-docs' class="fold-docs">
 <span class="md-text">				hashMatch must be able to contain hashes for the maximum match length.</span>
 </span></i></span><span class="hidden"><i>
-			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-101">hashOffset</a> <i><a href="../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
-			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-100">hashPrev</a> <i>[32768]<a href="../builtin.html#name-uint32">uint32</a></i></span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="compressor-fold-field-index"><label for="compressor-fold-field-index"><a href="../../src/compress/flate/deflate.go.html#line-104">index</a> <i><a href="../builtin.html#name-int">int</a></i></label><span id='compressor-fold-field-index-docs' class="fold-docs">
+			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-120">hashOffset</a> <i><a href="../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-119">hashPrev</a> <i>[32768]<a href="../builtin.html#name-uint32">uint32</a></i></span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="compressor-fold-field-index"><label for="compressor-fold-field-index"><a href="../../src/compress/flate/deflate.go.html#line-93">index</a> <i><a href="../builtin.html#name-int">int</a></i></label><span id='compressor-fold-field-index-docs' class="fold-docs">
 <span class="md-text">				input window: unprocessed data is window[index:windowEnd]</span>
 </span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="compressor-fold-field-length"><label for="compressor-fold-field-length"><a href="../../src/compress/flate/deflate.go.html#line-114">length</a> <i><a href="../builtin.html#name-int">int</a></i></label><span id='compressor-fold-field-length-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="compressor-fold-field-length"><label for="compressor-fold-field-length"><a href="../../src/compress/flate/deflate.go.html#line-105">length</a> <i><a href="../builtin.html#name-int">int</a></i></label><span id='compressor-fold-field-length-docs' class="fold-docs">
 <span class="md-text">				deflate state</span>
 </span></i></span><span class="hidden"><i>
-			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-116">maxInsertIndex</a> <i><a href="../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
-			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-115">offset</a> <i><a href="../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-107">maxInsertIndex</a> <i><a href="../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-106">offset</a> <i><a href="../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
 			<input type='checkbox' class="fold" id="compressor-fold-field-step"><label for="compressor-fold-field-step"><a href="../../src/compress/flate/deflate.go.html#line-89">step</a> <i>func(*<b>compressor</b>)</i></label><span id='compressor-fold-field-step-docs' class="fold-docs">
 <span class="md-text">				// process window</span>
 </span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="compressor-fold-field-sync"><label for="compressor-fold-field-sync"><a href="../../src/compress/flate/deflate.go.html#line-90">sync</a> <i><a href="../builtin.html#name-bool">bool</a></i></label><span id='compressor-fold-field-sync-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="compressor-fold-field-sync"><label for="compressor-fold-field-sync"><a href="../../src/compress/flate/deflate.go.html#line-99">sync</a> <i><a href="../builtin.html#name-bool">bool</a></i></label><span id='compressor-fold-field-sync-docs' class="fold-docs">
 <span class="md-text">				// requesting flush</span>
 </span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="compressor-fold-field-tokens"><label for="compressor-fold-field-tokens"><a href="../../src/compress/flate/deflate.go.html#line-111">tokens</a> <i>[]<a href="#name-token">token</a></i></label><span id='compressor-fold-field-tokens-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="compressor-fold-field-tokens"><label for="compressor-fold-field-tokens"><a href="../../src/compress/flate/deflate.go.html#line-102">tokens</a> <i>[]<a href="#name-token">token</a></i></label><span id='compressor-fold-field-tokens-docs' class="fold-docs">
 <span class="md-text">				queued output tokens</span>
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-84">w</a> <i>*<a href="#name-huffmanBitWriter">huffmanBitWriter</a></i></span></i></span><span class="hidden"><i>
-			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-105">window</a> <i>[]<a href="../builtin.html#name-byte">byte</a></i></span></i></span><span class="hidden"><i>
-			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-106">windowEnd</a> <i><a href="../builtin.html#name-int">int</a></i></span></i></span></span>
+			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-94">window</a> <i>[]<a href="../builtin.html#name-byte">byte</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-95">windowEnd</a> <i><a href="../builtin.html#name-int">int</a></i></span></i></span></span>
 		<input type='checkbox' class="fold" id="compressor-fold-methods"><label for="compressor-fold-methods">Methods (<i>total 16, none are exported</i>)</label><span id='compressor-fold-methods-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="compressor-showhide-methods"><i><label for="compressor-showhide-methods" class="show-inline">/* 16 unexporteds ... */</label><label for="compressor-showhide-methods" class="hide-inline">/* 16 unexporteds: */</label></i><span class="hidden"><i>
-			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-630">close</a>() <a href="../builtin.html#name-error">error</a></span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-380">deflate</a>()</span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="compressor-fold-method-encSpeed"><label for="compressor-fold-method-encSpeed">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-331">encSpeed</a>()</label><span id='compressor-fold-method-encSpeed-docs' class="fold-docs">
+			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-629">close</a>() <a href="../builtin.html#name-error">error</a></span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-383">deflate</a>()</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="compressor-fold-method-encSpeed"><label for="compressor-fold-method-encSpeed">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-334">encSpeed</a>()</label><span id='compressor-fold-method-encSpeed-docs' class="fold-docs">
 <span class="md-text">				encSpeed will compress and store the currently added data,
 				if enough has been accumulated or we at the end of the stream.
 				Any error that occurred will be in d.err</span>
 </span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-123">fillDeflate</a>(b []<a href="../builtin.html#name-byte">byte</a>) <a href="../builtin.html#name-int">int</a></span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-513">fillStore</a>(b []<a href="../builtin.html#name-byte">byte</a>) <a href="../builtin.html#name-int">int</a></span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="compressor-fold-method-fillWindow"><label for="compressor-fold-method-fillWindow">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-180">fillWindow</a>(b []<a href="../builtin.html#name-byte">byte</a>)</label><span id='compressor-fold-method-fillWindow-docs' class="fold-docs">
+			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-126">fillDeflate</a>(b []<a href="../builtin.html#name-byte">byte</a>) <a href="../builtin.html#name-int">int</a></span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-516">fillStore</a>(b []<a href="../builtin.html#name-byte">byte</a>) <a href="../builtin.html#name-int">int</a></span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="compressor-fold-method-fillWindow"><label for="compressor-fold-method-fillWindow">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-183">fillWindow</a>(b []<a href="../builtin.html#name-byte">byte</a>)</label><span id='compressor-fold-method-fillWindow-docs' class="fold-docs">
 <span class="md-text">				fillWindow will fill the current window with the supplied
 				dictionary and calculate all hashes.
 				This is much faster than doing a full encode.
 				Should only be used after a reset.</span>
 </span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="compressor-fold-method-findMatch"><label for="compressor-fold-method-findMatch">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-230">findMatch</a>(pos <a href="../builtin.html#name-int">int</a>, prevHead <a href="../builtin.html#name-int">int</a>, prevLength <a href="../builtin.html#name-int">int</a>, lookahead <a href="../builtin.html#name-int">int</a>) (length, offset <a href="../builtin.html#name-int">int</a>, ok <a href="../builtin.html#name-bool">bool</a>)</label><span id='compressor-fold-method-findMatch-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="compressor-fold-method-findMatch"><label for="compressor-fold-method-findMatch">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-233">findMatch</a>(pos <a href="../builtin.html#name-int">int</a>, prevHead <a href="../builtin.html#name-int">int</a>, prevLength <a href="../builtin.html#name-int">int</a>, lookahead <a href="../builtin.html#name-int">int</a>) (length, offset <a href="../builtin.html#name-int">int</a>, ok <a href="../builtin.html#name-bool">bool</a>)</label><span id='compressor-fold-method-findMatch-docs' class="fold-docs">
 <span class="md-text">				Try to find a match starting at index whose length is greater than prevSize.
 				We only look at chainCount possibilities before giving up.</span>
 </span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-568">init</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, level <a href="../builtin.html#name-int">int</a>) (err <a href="../builtin.html#name-error">error</a>)</span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-368">initDeflate</a>()</span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-601">reset</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>)</span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-519">store</a>()</span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="compressor-fold-method-storeHuff"><label for="compressor-fold-method-storeHuff">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-529">storeHuff</a>()</label><span id='compressor-fold-method-storeHuff-docs' class="fold-docs">
+			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-571">init</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, level <a href="../builtin.html#name-int">int</a>) (err <a href="../builtin.html#name-error">error</a>)</span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-371">initDeflate</a>()</span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-604">reset</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>)</span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-522">store</a>()</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="compressor-fold-method-storeHuff"><label for="compressor-fold-method-storeHuff">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-532">storeHuff</a>()</label><span id='compressor-fold-method-storeHuff-docs' class="fold-docs">
 <span class="md-text">				storeHuff compresses and stores the currently added data
 				when the d.window is full or we are at the end of the stream.
 				Any error that occurred will be in d.err</span>
 </span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-553">syncFlush</a>() <a href="../builtin.html#name-error">error</a></span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-538">write</a>(b []<a href="../builtin.html#name-byte">byte</a>) (n <a href="../builtin.html#name-int">int</a>, err <a href="../builtin.html#name-error">error</a>)</span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-163">writeBlock</a>(tokens []<a href="#name-token">token</a>, index <a href="../builtin.html#name-int">int</a>) <a href="../builtin.html#name-error">error</a></span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-282">writeStoredBlock</a>(buf []<a href="../builtin.html#name-byte">byte</a>) <a href="../builtin.html#name-error">error</a></span></i></span></span>
+			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-556">syncFlush</a>() <a href="../builtin.html#name-error">error</a></span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-541">write</a>(b []<a href="../builtin.html#name-byte">byte</a>) (n <a href="../builtin.html#name-int">int</a>, err <a href="../builtin.html#name-error">error</a>)</span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-166">writeBlock</a>(tokens []<a href="#name-token">token</a>, index <a href="../builtin.html#name-int">int</a>) <a href="../builtin.html#name-error">error</a></span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*compressor) <a href="../../src/compress/flate/deflate.go.html#line-285">writeStoredBlock</a>(buf []<a href="../builtin.html#name-byte">byte</a>) <a href="../builtin.html#name-error">error</a></span></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-decompressor" data-popularity="850">	<input type='checkbox' class="fold" id="decompressor-fold-content"><label for="decompressor-fold-content"> <a href="../../use/compress/flate..decompressor^7ba47.html">type</a> <a href="../../src/compress/flate/inflate.go.html#line-267">decompressor</a> <i>(struct)</i></label><span id='decompressor-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-decompressor" data-popularity="900">	<input type='checkbox' class="fold" id="decompressor-fold-content"><label for="decompressor-fold-content"> <a href="../../use/compress/flate..decompressor^7ba47.html">type</a> <a href="../../src/compress/flate/inflate.go.html#line-267">decompressor</a> <i>(struct)</i></label><span id='decompressor-fold-content-docs' class="fold-docs">
 <span class="md-text">		Decompress state.</span>
 
 		<input type='checkbox' class="fold" id="decompressor-fold-fields"><label for="decompressor-fold-fields">Fields (<i>total 20, none are exported</i>)</label><span id='decompressor-fold-fields-items' class="fold-items">
@@ -592,8 +601,9 @@
 			<span class="nodocs">(*decompressor) <a href="../../src/compress/flate/inflate.go.html#line-696">moreBits</a>() <a href="../builtin.html#name-error">error</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*decompressor) <a href="../../src/compress/flate/inflate.go.html#line-302">nextBlock</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*decompressor) <a href="../../src/compress/flate/inflate.go.html#line-367">readHuffman</a>() <a href="../builtin.html#name-error">error</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="decompressor-fold-impls"><label for="decompressor-fold-impls">Implements (<i>at least 5, all are exported</i>)</label><span id='decompressor-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="decompressor-fold-impls"><label for="decompressor-fold-impls">Implements (<i>at least 6, all are exported</i>)</label><span id='decompressor-fold-impls-items' class="fold-items"><span>
 			*decompressor : <a href="#name-Resetter">Resetter</a></span><span>
+			*decompressor : compress/zlib.<a href="zlib.html#name-Resetter">Resetter</a></span><span>
 			*decompressor : github.com/klauspost/compress/flate.<a href="../github.com/klauspost/compress/flate.html#name-Resetter">Resetter</a></span><span>
 			*decompressor : io.<a href="../io.html#name-Closer">Closer</a></span><span>
 			*decompressor : io.<a href="../io.html#name-ReadCloser">ReadCloser</a></span><span>
@@ -726,18 +736,19 @@
 				This invariant will be kept: len(s) &lt;= availWrite()</span>
 </span></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-dictWriter" data-popularity="200">	<input type='checkbox' class="fold" id="dictWriter-fold-content"><label for="dictWriter-fold-content"> <a href="../../use/compress/flate..dictWriter^02eb2.html">type</a> <a href="../../src/compress/flate/deflate.go.html#line-690">dictWriter</a> <i>(struct)</i></label><span id='dictWriter-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-dictWriter" data-popularity="250">	<input type='checkbox' class="fold" id="dictWriter-fold-content"><label for="dictWriter-fold-content"> <a href="../../use/compress/flate..dictWriter^02eb2.html">type</a> <a href="../../src/compress/flate/deflate.go.html#line-689">dictWriter</a> <i>(struct)</i></label><span id='dictWriter-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="dictWriter-fold-fields"><label for="dictWriter-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='dictWriter-fold-fields-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="dictWriter-showhide-fields"><i><label for="dictWriter-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="dictWriter-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
-			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-691">w</a> <i><a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a></i></span></i></span></span>
+			<span class="nodocs"><a href="../../src/compress/flate/deflate.go.html#line-690">w</a> <i><a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a></i></span></i></span></span>
 		<input type='checkbox' class="fold" id="dictWriter-fold-methods"><label for="dictWriter-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='dictWriter-fold-methods-items' class="fold-items"><span>
-			<span class="nodocs">(*dictWriter) <a href="../../src/compress/flate/deflate.go.html#line-694">Write</a>(b []<a href="../builtin.html#name-byte">byte</a>) (n <a href="../builtin.html#name-int">int</a>, err <a href="../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="dictWriter-fold-impls"><label for="dictWriter-fold-impls">Implements (<i>at least 3, in which 2 are exported</i>)</label><span id='dictWriter-fold-impls-items' class="fold-items"><span>
+			<span class="nodocs">(*dictWriter) <a href="../../src/compress/flate/deflate.go.html#line-693">Write</a>(b []<a href="../builtin.html#name-byte">byte</a>) (n <a href="../builtin.html#name-int">int</a>, err <a href="../builtin.html#name-error">error</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="dictWriter-fold-impls"><label for="dictWriter-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='dictWriter-fold-impls-items' class="fold-items"><span>
 			*dictWriter : internal/bisect.<a href="../internal/bisect.html#name-Writer">Writer</a></span><span>
 			*dictWriter : io.<a href="../io.html#name-Writer">Writer</a></span>
-			<input type='checkbox' checked class="showhide" id="dictWriter-showhide-impls"><i><label for="dictWriter-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="dictWriter-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
-			*dictWriter : crypto/tls.<a href="../crypto/tls.html#name-transcriptHash">transcriptHash</a></i></span></span>
+			<input type='checkbox' checked class="showhide" id="dictWriter-showhide-impls"><i><label for="dictWriter-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="dictWriter-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			*dictWriter : crypto/tls.<a href="../crypto/tls.html#name-transcriptHash">transcriptHash</a></i></span><span class="hidden"><i>
+			*dictWriter : github.com/refraction-networking/utls.<a href="../github.com/refraction-networking/utls.html#name-transcriptHash">transcriptHash</a></i></span></span>
 
 </span></div><div class="anchor type-res hidden" id="name-hcode" data-popularity="50">	<input type='checkbox' class="fold" id="hcode-fold-content"><label for="hcode-fold-content"> <a href="../../use/compress/flate..hcode^75f9f.html">type</a> <a href="../../src/compress/flate/huffman_code.go.html#line-14">hcode</a> <i>(struct)</i></label><span id='hcode-fold-content-docs' class="fold-docs">
 <span class="md-text">		hcode is a huffman code with a bit code and bit length.</span>
@@ -779,10 +790,10 @@
 </span></i></span></span>
 		<input type='checkbox' class="fold" id="huffmanBitWriter-fold-methods"><label for="huffmanBitWriter-fold-methods">Methods (<i>total 18, none are exported</i>)</label><span id='huffmanBitWriter-fold-methods-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="huffmanBitWriter-showhide-methods"><i><label for="huffmanBitWriter-showhide-methods" class="show-inline">/* 18 unexporteds ... */</label><label for="huffmanBitWriter-showhide-methods" class="hide-inline">/* 18 unexporteds: */</label></i><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-dynamicSize"><label for="huffmanBitWriter-fold-method-dynamicSize">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-288">dynamicSize</a>(litEnc, offEnc *<a href="#name-huffmanEncoder">huffmanEncoder</a>, extraBits <a href="../builtin.html#name-int">int</a>) (size, numCodegens <a href="../builtin.html#name-int">int</a>)</label><span id='huffmanBitWriter-fold-method-dynamicSize-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-dynamicSize"><label for="huffmanBitWriter-fold-method-dynamicSize">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-286">dynamicSize</a>(litEnc, offEnc *<a href="#name-huffmanEncoder">huffmanEncoder</a>, extraBits <a href="../builtin.html#name-int">int</a>) (size, numCodegens <a href="../builtin.html#name-int">int</a>)</label><span id='huffmanBitWriter-fold-method-dynamicSize-docs' class="fold-docs">
 <span class="md-text">				dynamicSize returns the size of dynamically encoded data in bits.</span>
 </span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-fixedSize"><label for="huffmanBitWriter-fold-method-fixedSize">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-307">fixedSize</a>(extraBits <a href="../builtin.html#name-int">int</a>) <a href="../builtin.html#name-int">int</a></label><span id='huffmanBitWriter-fold-method-fixedSize-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-fixedSize"><label for="huffmanBitWriter-fold-method-fixedSize">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-305">fixedSize</a>(extraBits <a href="../builtin.html#name-int">int</a>) <a href="../builtin.html#name-int">int</a></label><span id='huffmanBitWriter-fold-method-fixedSize-docs' class="fold-docs">
 <span class="md-text">				fixedSize returns the size of dynamically encoded data in bits.</span>
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-111">flush</a>()</span></i></span><span class="hidden"><i>
@@ -800,51 +811,51 @@
 					numOffsets       The number of offsets in offsetEncoding
 					litenc, offenc   The literal and offset encoder to use</span>
 </span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-indexTokens"><label for="huffmanBitWriter-fold-method-indexTokens">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-532">indexTokens</a>(tokens []<a href="#name-token">token</a>) (numLiterals, numOffsets <a href="../builtin.html#name-int">int</a>)</label><span id='huffmanBitWriter-fold-method-indexTokens-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-indexTokens"><label for="huffmanBitWriter-fold-method-indexTokens">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-530">indexTokens</a>(tokens []<a href="#name-token">token</a>) (numLiterals, numOffsets <a href="../builtin.html#name-int">int</a>)</label><span id='huffmanBitWriter-fold-method-indexTokens-docs' class="fold-docs">
 <span class="md-text">				indexTokens indexes a slice of tokens, and updates
 				literalFreq and offsetFreq, and generates literalEncoding
 				and offsetEncoding.
 				The number of literal and offset tokens is returned.</span>
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-106">reset</a>(writer <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>)</span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-storedSize"><label for="huffmanBitWriter-fold-method-storedSize">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-317">storedSize</a>(in []<a href="../builtin.html#name-byte">byte</a>) (<a href="../builtin.html#name-int">int</a>, <a href="../builtin.html#name-bool">bool</a>)</label><span id='huffmanBitWriter-fold-method-storedSize-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-storedSize"><label for="huffmanBitWriter-fold-method-storedSize">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-315">storedSize</a>(in []<a href="../builtin.html#name-byte">byte</a>) (<a href="../builtin.html#name-int">int</a>, <a href="../builtin.html#name-bool">bool</a>)</label><span id='huffmanBitWriter-fold-method-storedSize-docs' class="fold-docs">
 <span class="md-text">				storedSize calculates the stored size, including header.
 				The function returns the size in bits and whether the block
 				fits inside a single block.</span>
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-132">write</a>(b []<a href="../builtin.html#name-byte">byte</a>)</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-139">writeBits</a>(b <a href="../builtin.html#name-int32">int32</a>, nb <a href="../builtin.html#name-uint">uint</a>)</span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-writeBlock"><label for="huffmanBitWriter-fold-method-writeBlock">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-431">writeBlock</a>(tokens []<a href="#name-token">token</a>, eof <a href="../builtin.html#name-bool">bool</a>, input []<a href="../builtin.html#name-byte">byte</a>)</label><span id='huffmanBitWriter-fold-method-writeBlock-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-writeBlock"><label for="huffmanBitWriter-fold-method-writeBlock">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-429">writeBlock</a>(tokens []<a href="#name-token">token</a>, eof <a href="../builtin.html#name-bool">bool</a>, input []<a href="../builtin.html#name-byte">byte</a>)</label><span id='huffmanBitWriter-fold-method-writeBlock-docs' class="fold-docs">
 <span class="md-text">				writeBlock will write a block of tokens with the smallest encoding.
 				The original input can be supplied, and if the huffman encoded data
 				is larger than the original bytes, the data will be written as a
 				stored block.
 				If the input is nil, the tokens will always be Huffman encoded.</span>
 </span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-writeBlockDynamic"><label for="huffmanBitWriter-fold-method-writeBlockDynamic">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-500">writeBlockDynamic</a>(tokens []<a href="#name-token">token</a>, eof <a href="../builtin.html#name-bool">bool</a>, input []<a href="../builtin.html#name-byte">byte</a>)</label><span id='huffmanBitWriter-fold-method-writeBlockDynamic-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-writeBlockDynamic"><label for="huffmanBitWriter-fold-method-writeBlockDynamic">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-498">writeBlockDynamic</a>(tokens []<a href="#name-token">token</a>, eof <a href="../builtin.html#name-bool">bool</a>, input []<a href="../builtin.html#name-byte">byte</a>)</label><span id='huffmanBitWriter-fold-method-writeBlockDynamic-docs' class="fold-docs">
 <span class="md-text">				writeBlockDynamic encodes a block using a dynamic Huffman table.
 				This should be used if the symbols used have a disproportionate
 				histogram distribution.
 				If input is supplied and the compression savings are below 1/16th of the
 				input size the block is stored.</span>
 </span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-writeBlockHuff"><label for="huffmanBitWriter-fold-method-writeBlockHuff">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-618">writeBlockHuff</a>(eof <a href="../builtin.html#name-bool">bool</a>, input []<a href="../builtin.html#name-byte">byte</a>)</label><span id='huffmanBitWriter-fold-method-writeBlockHuff-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-writeBlockHuff"><label for="huffmanBitWriter-fold-method-writeBlockHuff">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-612">writeBlockHuff</a>(eof <a href="../builtin.html#name-bool">bool</a>, input []<a href="../builtin.html#name-byte">byte</a>)</label><span id='huffmanBitWriter-fold-method-writeBlockHuff-docs' class="fold-docs">
 <span class="md-text">				writeBlockHuff encodes a block of bytes as either
 				Huffman encoded literals or uncompressed bytes if the
 				results only gains very little from compression.</span>
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-166">writeBytes</a>(bytes []<a href="../builtin.html#name-byte">byte</a>)</span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-327">writeCode</a>(c <a href="#name-hcode">hcode</a>)</span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-writeDynamicHeader"><label for="huffmanBitWriter-fold-method-writeDynamicHeader">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-359">writeDynamicHeader</a>(numLiterals <a href="../builtin.html#name-int">int</a>, numOffsets <a href="../builtin.html#name-int">int</a>, numCodegens <a href="../builtin.html#name-int">int</a>, isEof <a href="../builtin.html#name-bool">bool</a>)</label><span id='huffmanBitWriter-fold-method-writeDynamicHeader-docs' class="fold-docs">
+			<span class="nodocs">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-325">writeCode</a>(c <a href="#name-hcode">hcode</a>)</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-writeDynamicHeader"><label for="huffmanBitWriter-fold-method-writeDynamicHeader">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-357">writeDynamicHeader</a>(numLiterals <a href="../builtin.html#name-int">int</a>, numOffsets <a href="../builtin.html#name-int">int</a>, numCodegens <a href="../builtin.html#name-int">int</a>, isEof <a href="../builtin.html#name-bool">bool</a>)</label><span id='huffmanBitWriter-fold-method-writeDynamicHeader-docs' class="fold-docs">
 <span class="md-text">				Write the header of a dynamic Huffman block to the output stream.
 				
 					numLiterals  The number of literals specified in codegen
 					numOffsets   The number of offsets specified in codegen
 					numCodegens  The number of codegens used in codegen</span>
 </span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-414">writeFixedHeader</a>(isEof <a href="../builtin.html#name-bool">bool</a>)</span></i></span><span class="hidden"><i>
-			<span class="nodocs">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-400">writeStoredHeader</a>(length <a href="../builtin.html#name-int">int</a>, isEof <a href="../builtin.html#name-bool">bool</a>)</span></i></span><span class="hidden"><i>
-			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-writeTokens"><label for="huffmanBitWriter-fold-method-writeTokens">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-574">writeTokens</a>(tokens []<a href="#name-token">token</a>, leCodes, oeCodes []<a href="#name-hcode">hcode</a>)</label><span id='huffmanBitWriter-fold-method-writeTokens-docs' class="fold-docs">
+			<span class="nodocs">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-412">writeFixedHeader</a>(isEof <a href="../builtin.html#name-bool">bool</a>)</span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-398">writeStoredHeader</a>(length <a href="../builtin.html#name-int">int</a>, isEof <a href="../builtin.html#name-bool">bool</a>)</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="huffmanBitWriter-fold-method-writeTokens"><label for="huffmanBitWriter-fold-method-writeTokens">(*huffmanBitWriter) <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-568">writeTokens</a>(tokens []<a href="#name-token">token</a>, leCodes, oeCodes []<a href="#name-hcode">hcode</a>)</label><span id='huffmanBitWriter-fold-method-writeTokens-docs' class="fold-docs">
 <span class="md-text">				writeTokens writes a slice of tokens to the output.
 				codes for literal and offset encoding must be supplied.</span>
 </span></i></span></span>
@@ -1002,65 +1013,65 @@
 <div class="anchor value-res" id="name-NewReader">	<input type='checkbox' class="fold" id="NewReader-fold-content"><label for="NewReader-fold-content"> <a href="../../use/compress/flate..NewReader.html">func</a> <a href="../../src/compress/flate/inflate.go.html#line-807">NewReader</a>(r <a href="../io.html">io</a>.<a href="../io.html#name-Reader">Reader</a>) <a href="../io.html">io</a>.<a href="../io.html#name-ReadCloser">ReadCloser</a></label><span id='NewReader-fold-content-docs' class="fold-docs">
 <span class="md-text">		NewReader returns a new ReadCloser that can be used
 		to read the uncompressed version of r.
-		If r does not also implement io.ByteReader,
+		If r does not also implement [io.ByteReader],
 		the decompressor may read more data than necessary from r.
-		The reader returns io.EOF after the final block in the DEFLATE stream has
+		The reader returns [io.EOF] after the final block in the DEFLATE stream has
 		been encountered. Any trailing data after the final block is ignored.
 		
-		The ReadCloser returned by NewReader also implements Resetter.</span>
+		The [io.ReadCloser] returned by NewReader also implements [Resetter].</span>
 
 </span></div><div class="anchor value-res" id="name-NewReaderDict">	<input type='checkbox' class="fold" id="NewReaderDict-fold-content"><label for="NewReaderDict-fold-content"> <a href="../../use/compress/flate..NewReaderDict.html">func</a> <a href="../../src/compress/flate/inflate.go.html#line-826">NewReaderDict</a>(r <a href="../io.html">io</a>.<a href="../io.html#name-Reader">Reader</a>, dict []<a href="../builtin.html#name-byte">byte</a>) <a href="../io.html">io</a>.<a href="../io.html#name-ReadCloser">ReadCloser</a></label><span id='NewReaderDict-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewReaderDict is like NewReader but initializes the reader
-		with a preset dictionary. The returned Reader behaves as if
+<span class="md-text">		NewReaderDict is like [NewReader] but initializes the reader
+		with a preset dictionary. The returned reader behaves as if
 		the uncompressed data stream started with the given dictionary,
 		which has already been read. NewReaderDict is typically used
-		to read data compressed by NewWriterDict.
+		to read data compressed by [NewWriterDict].
 		
-		The ReadCloser returned by NewReader also implements Resetter.</span>
+		The ReadCloser returned by NewReaderDict also implements [Resetter].</span>
 
-</span></div><div class="anchor value-res" id="name-NewWriter">	<input type='checkbox' class="fold" id="NewWriter-fold-content"><label for="NewWriter-fold-content"> <a href="../../use/compress/flate..NewWriter.html">func</a> <a href="../../src/compress/flate/deflate.go.html#line-665">NewWriter</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, level <a href="../builtin.html#name-int">int</a>) (*<a href="#name-Writer">Writer</a>, <a href="../builtin.html#name-error">error</a>)</label><span id='NewWriter-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewWriter returns a new Writer compressing data at the given level.
-		Following zlib, levels range from 1 (BestSpeed) to 9 (BestCompression);
+</span></div><div class="anchor value-res" id="name-NewWriter">	<input type='checkbox' class="fold" id="NewWriter-fold-content"><label for="NewWriter-fold-content"> <a href="../../use/compress/flate..NewWriter.html">func</a> <a href="../../src/compress/flate/deflate.go.html#line-664">NewWriter</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, level <a href="../builtin.html#name-int">int</a>) (*<a href="#name-Writer">Writer</a>, <a href="../builtin.html#name-error">error</a>)</label><span id='NewWriter-fold-content-docs' class="fold-docs">
+<span class="md-text">		NewWriter returns a new [Writer] compressing data at the given level.
+		Following zlib, levels range from 1 ([BestSpeed]) to 9 ([BestCompression]);
 		higher levels typically run slower but compress more. Level 0
-		(NoCompression) does not attempt any compression; it only adds the
+		([NoCompression]) does not attempt any compression; it only adds the
 		necessary DEFLATE framing.
-		Level -1 (DefaultCompression) uses the default compression level.
-		Level -2 (HuffmanOnly) will use Huffman compression only, giving
+		Level -1 ([DefaultCompression]) uses the default compression level.
+		Level -2 ([HuffmanOnly]) will use Huffman compression only, giving
 		a very fast compression for all types of input, but sacrificing considerable
 		compression efficiency.
 		
 		If level is in the range [-2, 9] then the error returned will be nil.
 		Otherwise the error returned will be non-nil.</span>
 
-</span></div><div class="anchor value-res" id="name-NewWriterDict">	<input type='checkbox' class="fold" id="NewWriterDict-fold-content"><label for="NewWriterDict-fold-content"> <a href="../../use/compress/flate..NewWriterDict.html">func</a> <a href="../../src/compress/flate/deflate.go.html#line-679">NewWriterDict</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, level <a href="../builtin.html#name-int">int</a>, dict []<a href="../builtin.html#name-byte">byte</a>) (*<a href="#name-Writer">Writer</a>, <a href="../builtin.html#name-error">error</a>)</label><span id='NewWriterDict-fold-content-docs' class="fold-docs">
-<span class="md-text">		NewWriterDict is like NewWriter but initializes the new
-		Writer with a preset dictionary. The returned Writer behaves
+</span></div><div class="anchor value-res" id="name-NewWriterDict">	<input type='checkbox' class="fold" id="NewWriterDict-fold-content"><label for="NewWriterDict-fold-content"> <a href="../../use/compress/flate..NewWriterDict.html">func</a> <a href="../../src/compress/flate/deflate.go.html#line-678">NewWriterDict</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, level <a href="../builtin.html#name-int">int</a>, dict []<a href="../builtin.html#name-byte">byte</a>) (*<a href="#name-Writer">Writer</a>, <a href="../builtin.html#name-error">error</a>)</label><span id='NewWriterDict-fold-content-docs' class="fold-docs">
+<span class="md-text">		NewWriterDict is like [NewWriter] but initializes the new
+		[Writer] with a preset dictionary. The returned [Writer] behaves
 		as if the dictionary had been written to it without producing
 		any compressed output. The compressed data written to w
-		can only be decompressed by a Reader initialized with the
-		same dictionary.</span>
+		can only be decompressed by a reader initialized with the
+		same dictionary (see [NewReaderDict]).</span>
 
-</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 22 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 22 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-bulkHash4"><i>	<input type='checkbox' class="fold" id="bulkHash4-fold-content"><label for="bulkHash4-fold-content"> <a href="../../use/compress/flate..bulkHash4^6b992.html">func</a> <a href="../../src/compress/flate/deflate.go.html#line-301">bulkHash4</a>(b []<a href="../builtin.html#name-byte">byte</a>, dst []<a href="../builtin.html#name-uint32">uint32</a>)</label><span id='bulkHash4-fold-content-docs' class="fold-docs">
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 22 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 22 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-bulkHash4"><i>	<input type='checkbox' class="fold" id="bulkHash4-fold-content"><label for="bulkHash4-fold-content"> <a href="../../use/compress/flate..bulkHash4^6b992.html">func</a> <a href="../../src/compress/flate/deflate.go.html#line-304">bulkHash4</a>(b []<a href="../builtin.html#name-byte">byte</a>, dst []<a href="../builtin.html#name-uint32">uint32</a>)</label><span id='bulkHash4-fold-content-docs' class="fold-docs">
 <span class="md-text">		bulkHash4 will compute hashes using the same
 		algorithm as hash4.</span>
 
 </span></i></div><div class="anchor value-res hidden" id="name-emitLiteral"><i>	<span class="nodocs"> <a href="../../use/compress/flate..emitLiteral^82c2b.html">func</a> <a href="../../src/compress/flate/deflatefast.go.html#line-201">emitLiteral</a>(dst []<a href="#name-token">token</a>, lit []<a href="../builtin.html#name-byte">byte</a>) []<a href="#name-token">token</a></span></i></div><div class="anchor value-res hidden" id="name-fixedHuffmanDecoderInit"><i>	<span class="nodocs"> <a href="../../use/compress/flate..fixedHuffmanDecoderInit^e145c.html">func</a> <a href="../../src/compress/flate/inflate.go.html#line-766">fixedHuffmanDecoderInit</a>()</span></i></div><div class="anchor value-res hidden" id="name-generateFixedLiteralEncoding"><i>	<input type='checkbox' class="fold" id="generateFixedLiteralEncoding-fold-content"><label for="generateFixedLiteralEncoding-fold-content"> <a href="../../use/compress/flate..generateFixedLiteralEncoding^47bce.html">func</a> <a href="../../src/compress/flate/huffman_code.go.html#line-64">generateFixedLiteralEncoding</a>() *<a href="#name-huffmanEncoder">huffmanEncoder</a></label><span id='generateFixedLiteralEncoding-fold-content-docs' class="fold-docs">
 <span class="md-text">		Generates a HuffmanCode corresponding to the fixed literal table.</span>
 
-</span></i></div><div class="anchor value-res hidden" id="name-generateFixedOffsetEncoding"><i>	<span class="nodocs"> <a href="../../use/compress/flate..generateFixedOffsetEncoding^81860.html">func</a> <a href="../../src/compress/flate/huffman_code.go.html#line-94">generateFixedOffsetEncoding</a>() *<a href="#name-huffmanEncoder">huffmanEncoder</a></span></i></div><div class="anchor value-res hidden" id="name-hash"><i>	<span class="nodocs"> <a href="../../use/compress/flate..hash^d04b9.html">func</a> <a href="../../src/compress/flate/deflatefast.go.html#line-37">hash</a>(u <a href="../builtin.html#name-uint32">uint32</a>) <a href="../builtin.html#name-uint32">uint32</a></span></i></div><div class="anchor value-res hidden" id="name-hash4"><i>	<input type='checkbox' class="fold" id="hash4-fold-content"><label for="hash4-fold-content"> <a href="../../use/compress/flate..hash4^1c270.html">func</a> <a href="../../src/compress/flate/deflate.go.html#line-295">hash4</a>(b []<a href="../builtin.html#name-byte">byte</a>) <a href="../builtin.html#name-uint32">uint32</a></label><span id='hash4-fold-content-docs' class="fold-docs">
+</span></i></div><div class="anchor value-res hidden" id="name-generateFixedOffsetEncoding"><i>	<span class="nodocs"> <a href="../../use/compress/flate..generateFixedOffsetEncoding^81860.html">func</a> <a href="../../src/compress/flate/huffman_code.go.html#line-94">generateFixedOffsetEncoding</a>() *<a href="#name-huffmanEncoder">huffmanEncoder</a></span></i></div><div class="anchor value-res hidden" id="name-hash"><i>	<span class="nodocs"> <a href="../../use/compress/flate..hash^d04b9.html">func</a> <a href="../../src/compress/flate/deflatefast.go.html#line-37">hash</a>(u <a href="../builtin.html#name-uint32">uint32</a>) <a href="../builtin.html#name-uint32">uint32</a></span></i></div><div class="anchor value-res hidden" id="name-hash4"><i>	<input type='checkbox' class="fold" id="hash4-fold-content"><label for="hash4-fold-content"> <a href="../../use/compress/flate..hash4^1c270.html">func</a> <a href="../../src/compress/flate/deflate.go.html#line-298">hash4</a>(b []<a href="../builtin.html#name-byte">byte</a>) <a href="../builtin.html#name-uint32">uint32</a></label><span id='hash4-fold-content-docs' class="fold-docs">
 <span class="md-text">		hash4 returns a hash representation of the first 4 bytes
 		of the supplied slice.
 		The caller must ensure that len(b) &gt;= 4.</span>
 
-</span></i></div><div class="anchor value-res hidden" id="name-histogram"><i>	<input type='checkbox' class="fold" id="histogram-fold-content"><label for="histogram-fold-content"> <a href="../../use/compress/flate..histogram^56f0e.html">func</a> <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-696">histogram</a>(b []<a href="../builtin.html#name-byte">byte</a>, h []<a href="../builtin.html#name-int32">int32</a>)</label><span id='histogram-fold-content-docs' class="fold-docs">
+</span></i></div><div class="anchor value-res hidden" id="name-histogram"><i>	<input type='checkbox' class="fold" id="histogram-fold-content"><label for="histogram-fold-content"> <a href="../../use/compress/flate..histogram^56f0e.html">func</a> <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-688">histogram</a>(b []<a href="../builtin.html#name-byte">byte</a>, h []<a href="../builtin.html#name-int32">int32</a>)</label><span id='histogram-fold-content-docs' class="fold-docs">
 <span class="md-text">		histogram accumulates a histogram of b in h.
 		
 		len(h) must be &gt;= 256, and h's elements must be all zeroes.</span>
 
-</span></i></div><div class="anchor value-res hidden" id="name-init"><i>	<span class="nodocs"> <a href="../../use/compress/flate..init^bb540.html">func</a> <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-608">init</a>()</span></i></div><div class="anchor value-res hidden" id="name-lengthCode"><i>	<span class="nodocs"> <a href="../../use/compress/flate..lengthCode^c80ad.html">func</a> <a href="../../src/compress/flate/token.go.html#line-86">lengthCode</a>(len <a href="../builtin.html#name-uint32">uint32</a>) <a href="../builtin.html#name-uint32">uint32</a></span></i></div><div class="anchor value-res hidden" id="name-literalToken"><i>	<input type='checkbox' class="fold" id="literalToken-fold-content"><label for="literalToken-fold-content"> <a href="../../use/compress/flate..literalToken^076ac.html">func</a> <a href="../../src/compress/flate/token.go.html#line-71">literalToken</a>(literal <a href="../builtin.html#name-uint32">uint32</a>) <a href="#name-token">token</a></label><span id='literalToken-fold-content-docs' class="fold-docs">
+</span></i></div><div class="anchor value-res hidden" id="name-init"><i>	<span class="nodocs"> <a href="../../use/compress/flate..init^bb540.html">func</a> <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-602">init</a>()</span></i></div><div class="anchor value-res hidden" id="name-lengthCode"><i>	<span class="nodocs"> <a href="../../use/compress/flate..lengthCode^c80ad.html">func</a> <a href="../../src/compress/flate/token.go.html#line-86">lengthCode</a>(len <a href="../builtin.html#name-uint32">uint32</a>) <a href="../builtin.html#name-uint32">uint32</a></span></i></div><div class="anchor value-res hidden" id="name-literalToken"><i>	<input type='checkbox' class="fold" id="literalToken-fold-content"><label for="literalToken-fold-content"> <a href="../../use/compress/flate..literalToken^076ac.html">func</a> <a href="../../src/compress/flate/token.go.html#line-71">literalToken</a>(literal <a href="../builtin.html#name-uint32">uint32</a>) <a href="#name-token">token</a></label><span id='literalToken-fold-content-docs' class="fold-docs">
 <span class="md-text">		Convert a literal into a literal token.</span>
 
-</span></i></div><div class="anchor value-res hidden" id="name-load32"><i>	<span class="nodocs"> <a href="../../use/compress/flate..load32^1ce70.html">func</a> <a href="../../src/compress/flate/deflatefast.go.html#line-26">load32</a>(b []<a href="../builtin.html#name-byte">byte</a>, i <a href="../builtin.html#name-int32">int32</a>) <a href="../builtin.html#name-uint32">uint32</a></span></i></div><div class="anchor value-res hidden" id="name-load64"><i>	<span class="nodocs"> <a href="../../use/compress/flate..load64^744e1.html">func</a> <a href="../../src/compress/flate/deflatefast.go.html#line-31">load64</a>(b []<a href="../builtin.html#name-byte">byte</a>, i <a href="../builtin.html#name-int32">int32</a>) <a href="../builtin.html#name-uint64">uint64</a></span></i></div><div class="anchor value-res hidden" id="name-matchLen"><i>	<input type='checkbox' class="fold" id="matchLen-fold-content"><label for="matchLen-fold-content"> <a href="../../use/compress/flate..matchLen^aad5b.html">func</a> <a href="../../src/compress/flate/deflate.go.html#line-317">matchLen</a>(a, b []<a href="../builtin.html#name-byte">byte</a>, max <a href="../builtin.html#name-int">int</a>) <a href="../builtin.html#name-int">int</a></label><span id='matchLen-fold-content-docs' class="fold-docs">
+</span></i></div><div class="anchor value-res hidden" id="name-load32"><i>	<span class="nodocs"> <a href="../../use/compress/flate..load32^1ce70.html">func</a> <a href="../../src/compress/flate/deflatefast.go.html#line-26">load32</a>(b []<a href="../builtin.html#name-byte">byte</a>, i <a href="../builtin.html#name-int32">int32</a>) <a href="../builtin.html#name-uint32">uint32</a></span></i></div><div class="anchor value-res hidden" id="name-load64"><i>	<span class="nodocs"> <a href="../../use/compress/flate..load64^744e1.html">func</a> <a href="../../src/compress/flate/deflatefast.go.html#line-31">load64</a>(b []<a href="../builtin.html#name-byte">byte</a>, i <a href="../builtin.html#name-int32">int32</a>) <a href="../builtin.html#name-uint64">uint64</a></span></i></div><div class="anchor value-res hidden" id="name-matchLen"><i>	<input type='checkbox' class="fold" id="matchLen-fold-content"><label for="matchLen-fold-content"> <a href="../../use/compress/flate..matchLen^aad5b.html">func</a> <a href="../../src/compress/flate/deflate.go.html#line-320">matchLen</a>(a, b []<a href="../builtin.html#name-byte">byte</a>, max <a href="../builtin.html#name-int">int</a>) <a href="../builtin.html#name-int">int</a></label><span id='matchLen-fold-content-docs' class="fold-docs">
 <span class="md-text">		matchLen returns the number of matching bytes in a and b
 		up to length 'max'. Both slices must be at least 'max'
 		bytes in size.</span>
@@ -1080,10 +1091,10 @@
 	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* 15 unexporteds ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* 15 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-codegenOrder"><i>	<input type='checkbox' class="fold" id="codegenOrder-fold-content"><label for="codegenOrder-fold-content">  <a href="../../use/compress/flate..codegenOrder^f395b.html">var</a> <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-69">codegenOrder</a> []<a href="../builtin.html#name-uint32">uint32</a></label><span id='codegenOrder-fold-content-docs' class="fold-docs">
 <span class="md-text">		The odd order in which the codegen code sizes are written.</span>
 
-</span></i></div><div class="anchor value-res hidden" id="name-codeOrder"><i>	<span class="nodocs">  <a href="../../use/compress/flate..codeOrder^1c165.html">var</a> <a href="../../src/compress/flate/inflate.go.html#line-365">codeOrder</a> [19]<a href="../builtin.html#name-int">int</a></span></i></div><div class="anchor value-res hidden" id="name-errWriterClosed"><i>	<span class="nodocs">  <a href="../../use/compress/flate..errWriterClosed^67fd9.html">var</a> <a href="../../src/compress/flate/deflate.go.html#line-698">errWriterClosed</a> <a href="../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-fixedHuffmanDecoder"><i>	<span class="nodocs">  <a href="../../use/compress/flate..fixedHuffmanDecoder^28222.html">var</a> <a href="../../src/compress/flate/inflate.go.html#line-30">fixedHuffmanDecoder</a> <a href="#name-huffmanDecoder">huffmanDecoder</a></span></i></div><div class="anchor value-res hidden" id="name-fixedLiteralEncoding"><i>	<span class="nodocs">  <a href="../../use/compress/flate..fixedLiteralEncoding^96701.html">var</a> <a href="../../src/compress/flate/huffman_code.go.html#line-103">fixedLiteralEncoding</a> *<a href="#name-huffmanEncoder">huffmanEncoder</a></span></i></div><div class="anchor value-res hidden" id="name-fixedOffsetEncoding"><i>	<span class="nodocs">  <a href="../../use/compress/flate..fixedOffsetEncoding^49405.html">var</a> <a href="../../src/compress/flate/huffman_code.go.html#line-104">fixedOffsetEncoding</a> *<a href="#name-huffmanEncoder">huffmanEncoder</a></span></i></div><div class="anchor value-res hidden" id="name-fixedOnce"><i>	<input type='checkbox' class="fold" id="fixedOnce-fold-content"><label for="fixedOnce-fold-content">  <a href="../../use/compress/flate..fixedOnce^58845.html">var</a> <a href="../../src/compress/flate/inflate.go.html#line-29">fixedOnce</a> <a href="../sync.html">sync</a>.<a href="../sync.html#name-Once">Once</a></label><span id='fixedOnce-fold-content-docs' class="fold-docs">
+</span></i></div><div class="anchor value-res hidden" id="name-codeOrder"><i>	<span class="nodocs">  <a href="../../use/compress/flate..codeOrder^1c165.html">var</a> <a href="../../src/compress/flate/inflate.go.html#line-365">codeOrder</a> [19]<a href="../builtin.html#name-int">int</a></span></i></div><div class="anchor value-res hidden" id="name-errWriterClosed"><i>	<span class="nodocs">  <a href="../../use/compress/flate..errWriterClosed^67fd9.html">var</a> <a href="../../src/compress/flate/deflate.go.html#line-697">errWriterClosed</a> <a href="../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-fixedHuffmanDecoder"><i>	<span class="nodocs">  <a href="../../use/compress/flate..fixedHuffmanDecoder^28222.html">var</a> <a href="../../src/compress/flate/inflate.go.html#line-30">fixedHuffmanDecoder</a> <a href="#name-huffmanDecoder">huffmanDecoder</a></span></i></div><div class="anchor value-res hidden" id="name-fixedLiteralEncoding"><i>	<span class="nodocs">  <a href="../../use/compress/flate..fixedLiteralEncoding^96701.html">var</a> <a href="../../src/compress/flate/huffman_code.go.html#line-103">fixedLiteralEncoding</a> *<a href="#name-huffmanEncoder">huffmanEncoder</a></span></i></div><div class="anchor value-res hidden" id="name-fixedOffsetEncoding"><i>	<span class="nodocs">  <a href="../../use/compress/flate..fixedOffsetEncoding^49405.html">var</a> <a href="../../src/compress/flate/huffman_code.go.html#line-104">fixedOffsetEncoding</a> *<a href="#name-huffmanEncoder">huffmanEncoder</a></span></i></div><div class="anchor value-res hidden" id="name-fixedOnce"><i>	<input type='checkbox' class="fold" id="fixedOnce-fold-content"><label for="fixedOnce-fold-content">  <a href="../../use/compress/flate..fixedOnce^58845.html">var</a> <a href="../../src/compress/flate/inflate.go.html#line-29">fixedOnce</a> <a href="../sync.html">sync</a>.<a href="../sync.html#name-Once">Once</a></label><span id='fixedOnce-fold-content-docs' class="fold-docs">
 <span class="md-text">		Initialize the fixedHuffmanDecoder only once upon first use.</span>
 
-</span></i></div><div class="anchor value-res hidden" id="name-huffOffset"><i>	<input type='checkbox' class="fold" id="huffOffset-fold-content"><label for="huffOffset-fold-content">  <a href="../../use/compress/flate..huffOffset^c7abb.html">var</a> <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-606">huffOffset</a> *<a href="#name-huffmanEncoder">huffmanEncoder</a></label><span id='huffOffset-fold-content-docs' class="fold-docs">
+</span></i></div><div class="anchor value-res hidden" id="name-huffOffset"><i>	<input type='checkbox' class="fold" id="huffOffset-fold-content"><label for="huffOffset-fold-content">  <a href="../../use/compress/flate..huffOffset^c7abb.html">var</a> <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-600">huffOffset</a> *<a href="#name-huffmanEncoder">huffmanEncoder</a></label><span id='huffOffset-fold-content-docs' class="fold-docs">
 <span class="md-text">		huffOffset is a static offset encoder used for huffman only encoding.
 		It can be reused since we will not be encoding offset values.</span>
 
@@ -1146,7 +1157,7 @@
 </span></i></div><div class="anchor value-res hidden" id="name-endBlockMarker"><i>	<input type='checkbox' class="fold" id="endBlockMarker-fold-content"><label for="endBlockMarker-fold-content"><a href="../../use/compress/flate..endBlockMarker^a7f9a.html">const</a> <a href="../../src/compress/flate/huffman_bit_writer.go.html#line-16">endBlockMarker</a> = 256</label><span id='endBlockMarker-fold-content-docs' class="fold-docs">
 <span class="md-text">		The special code used to mark the end of a block.</span>
 
-</span></i></div><div class="anchor value-res hidden" id="name-hashBits"><i>	<span class="nodocs"><a href="../../use/compress/flate..hashBits^88ed3.html">const</a> <a href="../../src/compress/flate/deflate.go.html#line-53">hashBits</a> = 17 // <span class="md-text">After 17 performance degrades</span></span></i></div><div class="anchor value-res hidden" id="name-hashMask"><i>	<span class="nodocs"><a href="../../use/compress/flate..hashMask^1fb85.html">const</a> <a href="../../src/compress/flate/deflate.go.html#line-55">hashMask</a> = 131071</span></i></div><div class="anchor value-res hidden" id="name-hashmul"><i>	<span class="nodocs"><a href="../../use/compress/flate..hashmul^63a1b.html">const</a> <a href="../../src/compress/flate/deflate.go.html#line-290">hashmul</a> = 506832829</span></i></div><div class="anchor value-res hidden" id="name-hashSize"><i>	<span class="nodocs"><a href="../../use/compress/flate..hashSize^14d34.html">const</a> <a href="../../src/compress/flate/deflate.go.html#line-54">hashSize</a> = 131072</span></i></div><div class="anchor value-res hidden" id="name-huffmanChunkBits"><i>	<span class="nodocs"><a href="../../use/compress/flate..huffmanChunkBits^82955.html">const</a> <a href="../../src/compress/flate/inflate.go.html#line-98">huffmanChunkBits</a> = 9</span></i></div><div class="anchor value-res hidden" id="name-huffmanCountMask"><i>	<span class="nodocs"><a href="../../use/compress/flate..huffmanCountMask^f1e04.html">const</a> <a href="../../src/compress/flate/inflate.go.html#line-100">huffmanCountMask</a> = 15</span></i></div><div class="anchor value-res hidden" id="name-huffmanNumChunks"><i>	<span class="nodocs"><a href="../../use/compress/flate..huffmanNumChunks^8211f.html">const</a> <a href="../../src/compress/flate/inflate.go.html#line-99">huffmanNumChunks</a> = 512</span></i></div><div class="anchor value-res hidden" id="name-huffmanValueShift"><i>	<span class="nodocs"><a href="../../use/compress/flate..huffmanValueShift^cfafe.html">const</a> <a href="../../src/compress/flate/inflate.go.html#line-101">huffmanValueShift</a> = 4</span></i></div><div class="anchor value-res hidden" id="name-inputMargin"><i>	<input type='checkbox' class="fold" id="inputMargin-fold-content"><label for="inputMargin-fold-content"><a href="../../use/compress/flate..inputMargin^d792a.html">const</a> <a href="../../src/compress/flate/deflatefast.go.html#line-46">inputMargin</a> = 15</label><span id='inputMargin-fold-content-docs' class="fold-docs">
+</span></i></div><div class="anchor value-res hidden" id="name-hashBits"><i>	<span class="nodocs"><a href="../../use/compress/flate..hashBits^88ed3.html">const</a> <a href="../../src/compress/flate/deflate.go.html#line-53">hashBits</a> = 17 // <span class="md-text">After 17 performance degrades</span></span></i></div><div class="anchor value-res hidden" id="name-hashMask"><i>	<span class="nodocs"><a href="../../use/compress/flate..hashMask^1fb85.html">const</a> <a href="../../src/compress/flate/deflate.go.html#line-55">hashMask</a> = 131071</span></i></div><div class="anchor value-res hidden" id="name-hashmul"><i>	<span class="nodocs"><a href="../../use/compress/flate..hashmul^63a1b.html">const</a> <a href="../../src/compress/flate/deflate.go.html#line-293">hashmul</a> = 506832829</span></i></div><div class="anchor value-res hidden" id="name-hashSize"><i>	<span class="nodocs"><a href="../../use/compress/flate..hashSize^14d34.html">const</a> <a href="../../src/compress/flate/deflate.go.html#line-54">hashSize</a> = 131072</span></i></div><div class="anchor value-res hidden" id="name-huffmanChunkBits"><i>	<span class="nodocs"><a href="../../use/compress/flate..huffmanChunkBits^82955.html">const</a> <a href="../../src/compress/flate/inflate.go.html#line-98">huffmanChunkBits</a> = 9</span></i></div><div class="anchor value-res hidden" id="name-huffmanCountMask"><i>	<span class="nodocs"><a href="../../use/compress/flate..huffmanCountMask^f1e04.html">const</a> <a href="../../src/compress/flate/inflate.go.html#line-100">huffmanCountMask</a> = 15</span></i></div><div class="anchor value-res hidden" id="name-huffmanNumChunks"><i>	<span class="nodocs"><a href="../../use/compress/flate..huffmanNumChunks^8211f.html">const</a> <a href="../../src/compress/flate/inflate.go.html#line-99">huffmanNumChunks</a> = 512</span></i></div><div class="anchor value-res hidden" id="name-huffmanValueShift"><i>	<span class="nodocs"><a href="../../use/compress/flate..huffmanValueShift^cfafe.html">const</a> <a href="../../src/compress/flate/inflate.go.html#line-101">huffmanValueShift</a> = 4</span></i></div><div class="anchor value-res hidden" id="name-inputMargin"><i>	<input type='checkbox' class="fold" id="inputMargin-fold-content"><label for="inputMargin-fold-content"><a href="../../use/compress/flate..inputMargin^d792a.html">const</a> <a href="../../src/compress/flate/deflatefast.go.html#line-46">inputMargin</a> = 15</label><span id='inputMargin-fold-content-docs' class="fold-docs">
 <span class="md-text">		These constants are defined by the Snappy implementation so that its
 		assembly implementation can fast-path some 16-bytes-at-a-time copies. They
 		aren't necessary in the pure Go implementation, as we don't use those same
@@ -1179,8 +1190,8 @@
 <span class="md-text">		The largest offset code.</span>
 
 </span></i></div><div class="anchor value-res hidden" id="name-offsetMask"><i>	<span class="nodocs"><a href="../../use/compress/flate..offsetMask^94338.html">const</a> <a href="../../src/compress/flate/token.go.html#line-12">offsetMask</a> = 4194303</span></i></div><div class="anchor value-res hidden" id="name-skipNever"><i>	<span class="nodocs"><a href="../../use/compress/flate..skipNever^2c014.html">const</a> <a href="../../src/compress/flate/deflate.go.html#line-58">skipNever</a> = 2147483647</span></i></div><div class="anchor value-res hidden" id="name-tableBits"><i>	<span class="nodocs"><a href="../../use/compress/flate..tableBits^00d89.html">const</a> <a href="../../src/compress/flate/deflatefast.go.html#line-13">tableBits</a> = 14 // <span class="md-text">Bits used in the table.</span></span></i></div><div class="anchor value-res hidden" id="name-tableMask"><i>	<span class="nodocs"><a href="../../use/compress/flate..tableMask^85611.html">const</a> <a href="../../src/compress/flate/deflatefast.go.html#line-15">tableMask</a> = 16383 // <span class="md-text">Mask for table indices. Redundant, but can eliminate bounds checks.</span></span></i></div><div class="anchor value-res hidden" id="name-tableShift"><i>	<span class="nodocs"><a href="../../use/compress/flate..tableShift^c959c.html">const</a> <a href="../../src/compress/flate/deflatefast.go.html#line-16">tableShift</a> = 18 // <span class="md-text">Right-shift to get the tableBits most significant bits of a uint32.</span></span></i></div><div class="anchor value-res hidden" id="name-tableSize"><i>	<span class="nodocs"><a href="../../use/compress/flate..tableSize^15908.html">const</a> <a href="../../src/compress/flate/deflatefast.go.html#line-14">tableSize</a> = 16384 // <span class="md-text">Size of the table.</span></span></i></div><div class="anchor value-res hidden" id="name-typeMask"><i>	<span class="nodocs"><a href="../../use/compress/flate..typeMask^fe641.html">const</a> <a href="../../src/compress/flate/token.go.html#line-13">typeMask</a> = 3221225472</span></i></div><div class="anchor value-res hidden" id="name-windowMask"><i>	<span class="nodocs"><a href="../../use/compress/flate..windowMask^bebcb.html">const</a> <a href="../../src/compress/flate/deflate.go.html#line-35">windowMask</a> = 32767</span></i></div><div class="anchor value-res hidden" id="name-windowSize"><i>	<span class="nodocs"><a href="../../use/compress/flate..windowSize^05c0e.html">const</a> <a href="../../src/compress/flate/deflate.go.html#line-34">windowSize</a> = 32768</span></i></div></div></code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

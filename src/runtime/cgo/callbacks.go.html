@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: callbacks.go in package runtime/cgo</title>
-<link href="../../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.6.7.js"></script>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -157,38 +157,55 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-121"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-x_cgo_notify_runtime_init_done" class="ident">x_cgo_notify_runtime_init_done</a> <a href="../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
 <span class="codeline" id="line-122"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-_cgo_notify_runtime_init_done" class="ident">_cgo_notify_runtime_init_done</a> = &amp;<a href="#line-121" class="ident">x_cgo_notify_runtime_init_done</a></code></span>
 <span class="codeline" id="line-123"><code></code></span>
-<span class="codeline" id="line-124"><code><span class="comment">// Sets the traceback context function. See runtime.SetCgoTraceback.</span></code></span>
-<span class="codeline" id="line-125"><code></code></span>
-<span class="codeline" id="line-126"><code><span class="comment">//go:cgo_import_static x_cgo_set_context_function</span></code></span>
-<span class="codeline" id="line-127"><code><span class="comment">//go:linkname x_cgo_set_context_function x_cgo_set_context_function</span></code></span>
-<span class="codeline" id="line-128"><code><span class="comment">//go:linkname _cgo_set_context_function _cgo_set_context_function</span></code></span>
-<span class="codeline" id="line-129"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-x_cgo_set_context_function" class="ident">x_cgo_set_context_function</a> <a href="../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
-<span class="codeline" id="line-130"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-_cgo_set_context_function" class="ident">_cgo_set_context_function</a> = &amp;<a href="#line-129" class="ident">x_cgo_set_context_function</a></code></span>
-<span class="codeline" id="line-131"><code></code></span>
-<span class="codeline" id="line-132"><code><span class="comment">// Calls a libc function to execute background work injected via libc</span></code></span>
-<span class="codeline" id="line-133"><code><span class="comment">// interceptors, such as processing pending signals under the thread</span></code></span>
-<span class="codeline" id="line-134"><code><span class="comment">// sanitizer.</span></code></span>
-<span class="codeline" id="line-135"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-136"><code><span class="comment">// Left as a nil pointer if no libc interceptors are expected.</span></code></span>
-<span class="codeline" id="line-137"><code></code></span>
-<span class="codeline" id="line-138"><code><span class="comment">//go:cgo_import_static _cgo_yield</span></code></span>
-<span class="codeline" id="line-139"><code><span class="comment">//go:linkname _cgo_yield _cgo_yield</span></code></span>
-<span class="codeline" id="line-140"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-_cgo_yield" class="ident">_cgo_yield</a> <a href="../../../pkg/unsafe.html" class="ident i0">unsafe</a>.<a href="../../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a></code></span>
-<span class="codeline" id="line-141"><code></code></span>
-<span class="codeline" id="line-142"><code><span class="comment">//go:cgo_export_static _cgo_topofstack</span></code></span>
-<span class="codeline" id="line-143"><code><span class="comment">//go:cgo_export_dynamic _cgo_topofstack</span></code></span>
-<span class="codeline" id="line-144"><code></code></span>
-<span class="codeline" id="line-145"><code><span class="comment">// x_cgo_getstackbound gets the thread's C stack size and</span></code></span>
-<span class="codeline" id="line-146"><code><span class="comment">// set the G's stack bound based on the stack size.</span></code></span>
-<span class="codeline" id="line-147"><code></code></span>
-<span class="codeline" id="line-148"><code><span class="comment">//go:cgo_import_static x_cgo_getstackbound</span></code></span>
-<span class="codeline" id="line-149"><code><span class="comment">//go:linkname x_cgo_getstackbound x_cgo_getstackbound</span></code></span>
-<span class="codeline" id="line-150"><code><span class="comment">//go:linkname _cgo_getstackbound _cgo_getstackbound</span></code></span>
-<span class="codeline" id="line-151"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-x_cgo_getstackbound" class="ident">x_cgo_getstackbound</a> <a href="../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
-<span class="codeline" id="line-152"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-_cgo_getstackbound" class="ident">_cgo_getstackbound</a> = &amp;<a href="#line-151" class="ident">x_cgo_getstackbound</a></code></span>
+<span class="codeline" id="line-124"><code><span class="comment">// Sets the traceback, context, and symbolizer functions. See</span></code></span>
+<span class="codeline" id="line-125"><code><span class="comment">// runtime.SetCgoTraceback.</span></code></span>
+<span class="codeline" id="line-126"><code></code></span>
+<span class="codeline" id="line-127"><code><span class="comment">//go:cgo_import_static x_cgo_set_traceback_functions</span></code></span>
+<span class="codeline" id="line-128"><code><span class="comment">//go:linkname x_cgo_set_traceback_functions x_cgo_set_traceback_functions</span></code></span>
+<span class="codeline" id="line-129"><code><span class="comment">//go:linkname _cgo_set_traceback_functions _cgo_set_traceback_functions</span></code></span>
+<span class="codeline" id="line-130"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-x_cgo_set_traceback_functions" class="ident">x_cgo_set_traceback_functions</a> <a href="../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-131"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-_cgo_set_traceback_functions" class="ident">_cgo_set_traceback_functions</a> = &amp;<a href="#line-130" class="ident">x_cgo_set_traceback_functions</a></code></span>
+<span class="codeline" id="line-132"><code></code></span>
+<span class="codeline" id="line-133"><code><span class="comment">// Call the traceback function registered with x_cgo_set_traceback_functions.</span></code></span>
+<span class="codeline" id="line-134"><code></code></span>
+<span class="codeline" id="line-135"><code><span class="comment">//go:cgo_import_static x_cgo_call_traceback_function</span></code></span>
+<span class="codeline" id="line-136"><code><span class="comment">//go:linkname x_cgo_call_traceback_function x_cgo_call_traceback_function</span></code></span>
+<span class="codeline" id="line-137"><code><span class="comment">//go:linkname _cgo_call_traceback_function _cgo_call_traceback_function</span></code></span>
+<span class="codeline" id="line-138"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-x_cgo_call_traceback_function" class="ident">x_cgo_call_traceback_function</a> <a href="../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-139"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-_cgo_call_traceback_function" class="ident">_cgo_call_traceback_function</a> = &amp;<a href="#line-138" class="ident">x_cgo_call_traceback_function</a></code></span>
+<span class="codeline" id="line-140"><code></code></span>
+<span class="codeline" id="line-141"><code><span class="comment">// Call the symbolizer function registered with x_cgo_set_symbolizer_functions.</span></code></span>
+<span class="codeline" id="line-142"><code></code></span>
+<span class="codeline" id="line-143"><code><span class="comment">//go:cgo_import_static x_cgo_call_symbolizer_function</span></code></span>
+<span class="codeline" id="line-144"><code><span class="comment">//go:linkname x_cgo_call_symbolizer_function x_cgo_call_symbolizer_function</span></code></span>
+<span class="codeline" id="line-145"><code><span class="comment">//go:linkname _cgo_call_symbolizer_function _cgo_call_symbolizer_function</span></code></span>
+<span class="codeline" id="line-146"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-x_cgo_call_symbolizer_function" class="ident">x_cgo_call_symbolizer_function</a> <a href="../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-147"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-_cgo_call_symbolizer_function" class="ident">_cgo_call_symbolizer_function</a> = &amp;<a href="#line-146" class="ident">x_cgo_call_symbolizer_function</a></code></span>
+<span class="codeline" id="line-148"><code></code></span>
+<span class="codeline" id="line-149"><code><span class="comment">// Calls a libc function to execute background work injected via libc</span></code></span>
+<span class="codeline" id="line-150"><code><span class="comment">// interceptors, such as processing pending signals under the thread</span></code></span>
+<span class="codeline" id="line-151"><code><span class="comment">// sanitizer.</span></code></span>
+<span class="codeline" id="line-152"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-153"><code><span class="comment">// Left as a nil pointer if no libc interceptors are expected.</span></code></span>
+<span class="codeline" id="line-154"><code></code></span>
+<span class="codeline" id="line-155"><code><span class="comment">//go:cgo_import_static _cgo_yield</span></code></span>
+<span class="codeline" id="line-156"><code><span class="comment">//go:linkname _cgo_yield _cgo_yield</span></code></span>
+<span class="codeline" id="line-157"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-_cgo_yield" class="ident">_cgo_yield</a> <a href="../../../pkg/unsafe.html" class="ident i0">unsafe</a>.<a href="../../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a></code></span>
+<span class="codeline" id="line-158"><code></code></span>
+<span class="codeline" id="line-159"><code><span class="comment">//go:cgo_export_static _cgo_topofstack</span></code></span>
+<span class="codeline" id="line-160"><code><span class="comment">//go:cgo_export_dynamic _cgo_topofstack</span></code></span>
+<span class="codeline" id="line-161"><code></code></span>
+<span class="codeline" id="line-162"><code><span class="comment">// x_cgo_getstackbound gets the thread's C stack size and</span></code></span>
+<span class="codeline" id="line-163"><code><span class="comment">// set the G's stack bound based on the stack size.</span></code></span>
+<span class="codeline" id="line-164"><code></code></span>
+<span class="codeline" id="line-165"><code><span class="comment">//go:cgo_import_static x_cgo_getstackbound</span></code></span>
+<span class="codeline" id="line-166"><code><span class="comment">//go:linkname x_cgo_getstackbound x_cgo_getstackbound</span></code></span>
+<span class="codeline" id="line-167"><code><span class="comment">//go:linkname _cgo_getstackbound _cgo_getstackbound</span></code></span>
+<span class="codeline" id="line-168"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-x_cgo_getstackbound" class="ident">x_cgo_getstackbound</a> <a href="../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-169"><code><span class="keyword">var</span> <a href="../../../pkg/runtime/cgo.html#name-_cgo_getstackbound" class="ident">_cgo_getstackbound</a> = &amp;<a href="#line-168" class="ident">x_cgo_getstackbound</a></code></span>
 </pre><pre id="footer">
-<table><tr><td><img src="../../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

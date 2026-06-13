@@ -5,42 +5,72 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto/cipher.AEAD</title>
-<link href="../../css/auto-v0.6.7.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.6.7.js"></script>
+<link href="../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.4.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/crypto/cipher.html">crypto/cipher</a>.<a href="../../src/crypto/cipher/gcm.go.html#line-17">AEAD</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/crypto/cipher.html">crypto/cipher</a>.<a href="../../src/crypto/cipher/cipher.go.html#line-66">AEAD</a></b></span>
 
-<span class="title">16 uses</span>
+<span class="title">38 uses</span>
 
 	crypto/cipher (current package)
-		<a href="../../src/crypto/cipher/gcm.go.html#line-17">gcm.go#L17</a>: type <b>AEAD</b> interface {
-		<a href="../../src/crypto/cipher/gcm.go.html#line-53" class="path-duplicate">gcm.go</a><a href="../../src/crypto/cipher/gcm.go.html#line-53">#L53</a>: 	NewGCM(nonceSize, tagSize int) (<b>AEAD</b>, error)
-		<a href="../../src/crypto/cipher/gcm.go.html#line-85" class="path-duplicate">gcm.go</a><a href="../../src/crypto/cipher/gcm.go.html#line-85">#L85</a>: func NewGCM(cipher Block) (<b>AEAD</b>, error) {
-		<a href="../../src/crypto/cipher/gcm.go.html#line-96" class="path-duplicate">gcm.go</a><a href="../../src/crypto/cipher/gcm.go.html#line-96">#L96</a>: func NewGCMWithNonceSize(cipher Block, size int) (<b>AEAD</b>, error) {
-		<a href="../../src/crypto/cipher/gcm.go.html#line-108" class="path-duplicate">gcm.go</a><a href="../../src/crypto/cipher/gcm.go.html#line-108">#L108</a>: func NewGCMWithTagSize(cipher Block, tagSize int) (<b>AEAD</b>, error) {
-		<a href="../../src/crypto/cipher/gcm.go.html#line-112" class="path-duplicate">gcm.go</a><a href="../../src/crypto/cipher/gcm.go.html#line-112">#L112</a>: func newGCMWithNonceAndTagSize(cipher Block, nonceSize, tagSize int) (<b>AEAD</b>, error) {
+		<a href="../../src/crypto/cipher/cipher.go.html#line-66">cipher.go#L66</a>: type <b>AEAD</b> interface {
+		<a href="../../src/crypto/cipher/gcm.go.html#line-30">gcm.go#L30</a>: func NewGCM(cipher Block) (<b>AEAD</b>, error) {
+		<a href="../../src/crypto/cipher/gcm.go.html#line-44" class="path-duplicate">gcm.go</a><a href="../../src/crypto/cipher/gcm.go.html#line-44">#L44</a>: func NewGCMWithNonceSize(cipher Block, size int) (<b>AEAD</b>, error) {
+		<a href="../../src/crypto/cipher/gcm.go.html#line-59" class="path-duplicate">gcm.go</a><a href="../../src/crypto/cipher/gcm.go.html#line-59">#L59</a>: func NewGCMWithTagSize(cipher Block, tagSize int) (<b>AEAD</b>, error) {
+		<a href="../../src/crypto/cipher/gcm.go.html#line-66" class="path-duplicate">gcm.go</a><a href="../../src/crypto/cipher/gcm.go.html#line-66">#L66</a>: func newGCM(cipher Block, nonceSize, tagSize int) (<b>AEAD</b>, error) {
+		<a href="../../src/crypto/cipher/gcm.go.html#line-93" class="path-duplicate">gcm.go</a><a href="../../src/crypto/cipher/gcm.go.html#line-93">#L93</a>: func NewGCMWithRandomNonce(cipher Block) (<b>AEAD</b>, error) {
+		<a href="../../src/crypto/cipher/gcm.go.html#line-204" class="path-duplicate">gcm.go</a><a href="../../src/crypto/cipher/gcm.go.html#line-204">#L204</a>: 	NewGCM(nonceSize, tagSize int) (<b>AEAD</b>, error)
+		<a href="../../src/crypto/cipher/gcm.go.html#line-207" class="path-duplicate">gcm.go</a><a href="../../src/crypto/cipher/gcm.go.html#line-207">#L207</a>: func newGCMFallback(cipher Block, nonceSize, tagSize int) (<b>AEAD</b>, error) {
 
-	<a href="../../pkg/crypto/aes.html">crypto/aes</a>
-		<a href="../../src/crypto/aes/aes_gcm.go.html#line-47">aes_gcm.go#L47</a>: func (c *aesCipherGCM) NewGCM(nonceSize, tagSize int) (cipher.<b>AEAD</b>, error) {
-		<a href="../../src/crypto/aes/modes.go.html#line-15">modes.go#L15</a>: 	NewGCM(nonceSize, tagSize int) (cipher.<b>AEAD</b>, error)
+	<a href="../../pkg/crypto/hpke.html">crypto/hpke</a>
+		<a href="../../src/crypto/hpke/aead.go.html#line-21">aead.go#L21</a>: 	aead(key []byte) (cipher.<b>AEAD</b>, error)
+		<a href="../../src/crypto/hpke/aead.go.html#line-61" class="path-duplicate">aead.go</a><a href="../../src/crypto/hpke/aead.go.html#line-61">#L61</a>: 	new func([]byte) (cipher.<b>AEAD</b>, error)
+		<a href="../../src/crypto/hpke/aead.go.html#line-90" class="path-duplicate">aead.go</a><a href="../../src/crypto/hpke/aead.go.html#line-90">#L90</a>: func (a *aead) aead(key []byte) (cipher.<b>AEAD</b>, error) {
+		<a href="../../src/crypto/hpke/aead.go.html#line-111" class="path-duplicate">aead.go</a><a href="../../src/crypto/hpke/aead.go.html#line-111">#L111</a>: func (exportOnlyAEAD) aead(key []byte) (cipher.<b>AEAD</b>, error) {
+		<a href="../../src/crypto/hpke/aead_fips140v1.26.go.html#line-15">aead_fips140v1.26.go#L15</a>: func newAESGCM(key []byte) (cipher.<b>AEAD</b>, error) {
+		<a href="../../src/crypto/hpke/hpke.go.html#line-22">hpke.go#L22</a>: 	aead      cipher.<b>AEAD</b>
 
 	<a href="../../pkg/crypto/internal/boring.html">crypto/internal/boring</a>
 		<a href="../../src/crypto/internal/boring/notboring.go.html#line-52">notboring.go#L52</a>: func NewGCMTLS(cipher.Block) (cipher.<b>AEAD</b>, error)   { panic("boringcrypto: not available") }
+		<a href="../../src/crypto/internal/boring/notboring.go.html#line-53" class="path-duplicate">notboring.go</a><a href="../../src/crypto/internal/boring/notboring.go.html#line-53">#L53</a>: func NewGCMTLS13(cipher.Block) (cipher.<b>AEAD</b>, error) { panic("boringcrypto: not available") }
 
 	<a href="../../pkg/crypto/tls.html">crypto/tls</a>
-		<a href="../../src/crypto/tls/cipher_suites.go.html#line-433">cipher_suites.go#L433</a>: 	cipher.<b>AEAD</b>
-		<a href="../../src/crypto/tls/cipher_suites.go.html#line-451" class="path-duplicate">cipher_suites.go</a><a href="../../src/crypto/tls/cipher_suites.go.html#line-451">#L451</a>: 	aead  cipher.<b>AEAD</b>
-		<a href="../../src/crypto/tls/cipher_suites.go.html#line-472" class="path-duplicate">cipher_suites.go</a><a href="../../src/crypto/tls/cipher_suites.go.html#line-472">#L472</a>: 	aead      cipher.<b>AEAD</b>
-		<a href="../../src/crypto/tls/cipher_suites.go.html#line-511" class="path-duplicate">cipher_suites.go</a><a href="../../src/crypto/tls/cipher_suites.go.html#line-511">#L511</a>: 	var aead cipher.<b>AEAD</b>
-		<a href="../../src/crypto/tls/conn.go.html#line-906">conn.go#L906</a>: 		case cipher.<b>AEAD</b>:
+		<a href="../../src/crypto/tls/cipher_suites.go.html#line-447">cipher_suites.go#L447</a>: 	cipher.<b>AEAD</b>
+		<a href="../../src/crypto/tls/cipher_suites.go.html#line-465" class="path-duplicate">cipher_suites.go</a><a href="../../src/crypto/tls/cipher_suites.go.html#line-465">#L465</a>: 	aead  cipher.<b>AEAD</b>
+		<a href="../../src/crypto/tls/cipher_suites.go.html#line-486" class="path-duplicate">cipher_suites.go</a><a href="../../src/crypto/tls/cipher_suites.go.html#line-486">#L486</a>: 	aead      cipher.<b>AEAD</b>
+		<a href="../../src/crypto/tls/cipher_suites.go.html#line-525" class="path-duplicate">cipher_suites.go</a><a href="../../src/crypto/tls/cipher_suites.go.html#line-525">#L525</a>: 	var aead cipher.<b>AEAD</b>
+		<a href="../../src/crypto/tls/cipher_suites.go.html#line-559" class="path-duplicate">cipher_suites.go</a><a href="../../src/crypto/tls/cipher_suites.go.html#line-559">#L559</a>: 	var aead cipher.<b>AEAD</b>
+		<a href="../../src/crypto/tls/conn.go.html#line-916">conn.go#L916</a>: 		case cipher.<b>AEAD</b>:
+
+	<a href="../../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
+		<a href="../../src/github.com/refraction-networking/utls/cipher_suites.go.html#line-442">cipher_suites.go#L442</a>: 	cipher.<b>AEAD</b>
+		<a href="../../src/github.com/refraction-networking/utls/cipher_suites.go.html#line-460" class="path-duplicate">cipher_suites.go</a><a href="../../src/github.com/refraction-networking/utls/cipher_suites.go.html#line-460">#L460</a>: 	aead  cipher.<b>AEAD</b>
+		<a href="../../src/github.com/refraction-networking/utls/cipher_suites.go.html#line-481" class="path-duplicate">cipher_suites.go</a><a href="../../src/github.com/refraction-networking/utls/cipher_suites.go.html#line-481">#L481</a>: 	aead      cipher.<b>AEAD</b>
+		<a href="../../src/github.com/refraction-networking/utls/cipher_suites.go.html#line-520" class="path-duplicate">cipher_suites.go</a><a href="../../src/github.com/refraction-networking/utls/cipher_suites.go.html#line-520">#L520</a>: 	var aead cipher.<b>AEAD</b>
+		<a href="../../src/github.com/refraction-networking/utls/cipher_suites.go.html#line-557" class="path-duplicate">cipher_suites.go</a><a href="../../src/github.com/refraction-networking/utls/cipher_suites.go.html#line-557">#L557</a>: 	var aead cipher.<b>AEAD</b>
+		<a href="../../src/github.com/refraction-networking/utls/conn.go.html#line-911">conn.go#L911</a>: 		case cipher.<b>AEAD</b>:
+		<a href="../../src/github.com/refraction-networking/utls/u_conn.go.html#line-681">u_conn.go#L681</a>: 	if outCipher, ok := uconn.out.cipher.(cipher.<b>AEAD</b>); ok {
+
+	<a href="../../pkg/github.com/refraction-networking/utls/internal/boring.html">github.com/refraction-networking/utls/internal/boring</a>
+		<a href="../../src/github.com/refraction-networking/utls/internal/boring/notboring.go.html#line-10">notboring.go#L10</a>: func NewGCMTLS(_ cipher.Block) (cipher.<b>AEAD</b>, error) {
+		<a href="../../src/github.com/refraction-networking/utls/internal/boring/notboring.go.html#line-14" class="path-duplicate">notboring.go</a><a href="../../src/github.com/refraction-networking/utls/internal/boring/notboring.go.html#line-14">#L14</a>: func NewGCMTLS13(_ cipher.Block) (cipher.<b>AEAD</b>, error) {
+
+	<a href="../../pkg/github.com/refraction-networking/utls/internal/hpke.html">github.com/refraction-networking/utls/internal/hpke</a>
+		<a href="../../src/github.com/refraction-networking/utls/internal/hpke/hpke.go.html#line-125">hpke.go#L125</a>: 	aead cipher.<b>AEAD</b>
+		<a href="../../src/github.com/refraction-networking/utls/internal/hpke/hpke.go.html#line-146" class="path-duplicate">hpke.go</a><a href="../../src/github.com/refraction-networking/utls/internal/hpke/hpke.go.html#line-146">#L146</a>: var aesGCMNew = func(key []byte) (cipher.<b>AEAD</b>, error) {
+		<a href="../../src/github.com/refraction-networking/utls/internal/hpke/hpke.go.html#line-165" class="path-duplicate">hpke.go</a><a href="../../src/github.com/refraction-networking/utls/internal/hpke/hpke.go.html#line-165">#L165</a>: 	aead      func([]byte) (cipher.<b>AEAD</b>, error)
+
+	<a href="../../pkg/golang.org/x/crypto/chacha20poly1305.html">golang.org/x/crypto/chacha20poly1305</a>
+		<a href="../../src/golang.org/x/crypto/chacha20poly1305/chacha20poly1305.go.html#line-40">chacha20poly1305.go#L40</a>: func New(key []byte) (cipher.<b>AEAD</b>, error) {
+		<a href="../../src/golang.org/x/crypto/chacha20poly1305/xchacha20poly1305.go.html#line-24">xchacha20poly1305.go#L24</a>: func NewX(key []byte) (cipher.<b>AEAD</b>, error) {
 
 	<a href="../../pkg/vendor/golang.org/x/crypto/chacha20poly1305.html">vendor/golang.org/x/crypto/chacha20poly1305</a>
 		<a href="../../src/vendor/golang.org/x/crypto/chacha20poly1305/chacha20poly1305.go.html#line-40">chacha20poly1305.go#L40</a>: func New(key []byte) (cipher.<b>AEAD</b>, error) {
 		<a href="../../src/vendor/golang.org/x/crypto/chacha20poly1305/xchacha20poly1305.go.html#line-24">xchacha20poly1305.go#L24</a>: func NewX(key []byte) (cipher.<b>AEAD</b>, error) {
 </code></pre><pre id="footer">
-<table><tr><td><img src="../../png/go101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.6.7</i>. (GOOS=linux GOARCH=amd64)
+<table><tr><td><img src="../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
-Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

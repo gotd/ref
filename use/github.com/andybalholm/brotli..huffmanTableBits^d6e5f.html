@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/andybalholm/brotli.huffmanTableBits</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">const <b><a href="../../../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>.<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-53">huffmanTableBits</a></b></span>
+
+<span class="title">17 uses</span>
+
+	github.com/andybalholm/brotli (current package)
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-53">decode.go#L53</a>: const <b>huffmanTableBits</b> = 8
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-333" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-333">#L333</a>: 	if table[0].bits &gt; <b>huffmanTableBits</b> {
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-334" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-334">#L334</a>: 		var nbits uint32 = uint32(table[0].bits) - <b>huffmanTableBits</b>
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-335" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-335">#L335</a>: 		dropBits(br, <b>huffmanTableBits</b>)
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-336" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-336">#L336</a>: 		table = table[uint32(table[0].value)+((bits&gt;&gt;<b>huffmanTableBits</b>)&amp;bitMask(nbits)):]
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-365" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-365">#L365</a>: 	if table[0].bits &lt;= <b>huffmanTableBits</b> {
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-375" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-375">#L375</a>: 	if available_bits &lt;= <b>huffmanTableBits</b> {
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-380" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-380">#L380</a>: 	val = (val &amp; bitMask(uint32(table[0].bits))) &gt;&gt; <b>huffmanTableBits</b>
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-382" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-382">#L382</a>: 	available_bits -= <b>huffmanTableBits</b>
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-388" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-388">#L388</a>: 	dropBits(br, <b>huffmanTableBits</b>+uint32(table[0].bits))
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-409" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-409">#L409</a>: 	table = table[getBits(br, <b>huffmanTableBits</b>):]
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-419" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-419">#L419</a>: 	if *bits &gt; <b>huffmanTableBits</b> {
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-422" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-422">#L422</a>: 		var mask uint32 = bitMask((*bits - <b>huffmanTableBits</b>))
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-423" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-423">#L423</a>: 		dropBits(br, <b>huffmanTableBits</b>)
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-424" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-424">#L424</a>: 		ext = ext[(val&gt;&gt;<b>huffmanTableBits</b>)&amp;mask:]
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-779" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-779">#L779</a>: 			table_size = buildSimpleHuffmanTable(table, <b>huffmanTableBits</b>, s.symbols_lists_array[:], s.symbol)
+		<a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-830" class="path-duplicate">decode.go</a><a href="../../../src/github.com/andybalholm/brotli/decode.go.html#line-830">#L830</a>: 			table_size = buildHuffmanTable(table, <b>huffmanTableBits</b>, s.symbol_lists, s.code_length_histo[:])
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

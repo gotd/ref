@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/gotd/log.Attr</title>
+<link href="../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">type <b><a href="../../../pkg/github.com/gotd/log.html">github.com/gotd/log</a>.<a href="../../../src/github.com/gotd/log/attr.go.html#line-28">Attr</a></b></span>
+
+<span class="title">46 uses</span>
+
+	github.com/gotd/log (current package)
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-28">attr.go#L28</a>: type <b>Attr</b> struct {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-76" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-76">#L76</a>: func (v Value) Group() []<b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-77" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-77">#L77</a>: 	g, _ := v.a.([]<b>Attr</b>)
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-138" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-138">#L138</a>: func String(key, value string) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-139" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-139">#L139</a>: 	return <b>Attr</b>{Key: key, Value: Value{kind: KindString, s: value}}
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-143" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-143">#L143</a>: func Int(key string, value int) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-148" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-148">#L148</a>: func Int64(key string, value int64) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-149" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-149">#L149</a>: 	return <b>Attr</b>{Key: key, Value: Value{kind: KindInt64, num: uint64(value)}}
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-153" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-153">#L153</a>: func Uint64(key string, value uint64) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-154" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-154">#L154</a>: 	return <b>Attr</b>{Key: key, Value: Value{kind: KindUint64, num: value}}
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-158" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-158">#L158</a>: func Float64(key string, value float64) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-159" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-159">#L159</a>: 	return <b>Attr</b>{Key: key, Value: Value{kind: KindFloat64, num: math.Float64bits(value)}}
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-163" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-163">#L163</a>: func Bool(key string, value bool) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-168" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-168">#L168</a>: 	return <b>Attr</b>{Key: key, Value: Value{kind: KindBool, num: n}}
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-172" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-172">#L172</a>: func Duration(key string, value time.Duration) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-173" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-173">#L173</a>: 	return <b>Attr</b>{Key: key, Value: Value{kind: KindDuration, num: uint64(value)}}
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-177" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-177">#L177</a>: func Time(key string, value time.Time) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-178" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-178">#L178</a>: 	return <b>Attr</b>{Key: key, Value: Value{kind: KindTime, a: value}}
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-183" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-183">#L183</a>: func Error(err error) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-184" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-184">#L184</a>: 	return <b>Attr</b>{Key: "error", Value: Value{kind: KindError, a: err}}
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-188" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-188">#L188</a>: func Int32(key string, value int32) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-194" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-194">#L194</a>: func NamedError(key string, err error) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-195" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-195">#L195</a>: 	return <b>Attr</b>{Key: key, Value: Value{kind: KindError, a: err}}
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-200" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-200">#L200</a>: func Stringer(key string, value fmt.Stringer) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-210" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-210">#L210</a>: func Group(key string, attrs ...<b>Attr</b>) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-211" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-211">#L211</a>: 	return <b>Attr</b>{Key: key, Value: Value{kind: KindGroup, a: attrs}}
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-216" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-216">#L216</a>: func Any(key string, value any) <b>Attr</b> {
+		<a href="../../../src/github.com/gotd/log/attr.go.html#line-217" class="path-duplicate">attr.go</a><a href="../../../src/github.com/gotd/log/attr.go.html#line-217">#L217</a>: 	return <b>Attr</b>{Key: key, Value: Value{kind: KindAny, a: value}}
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-31">helper.go#L31</a>: func (h Helper) With(attrs ...<b>Attr</b>) Helper {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-46" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-46">#L46</a>: func (h Helper) Debug(ctx context.Context, msg string, attrs ...<b>Attr</b>) {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-51" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-51">#L51</a>: func (h Helper) Info(ctx context.Context, msg string, attrs ...<b>Attr</b>) {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-56" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-56">#L56</a>: func (h Helper) Warn(ctx context.Context, msg string, attrs ...<b>Attr</b>) {
+		<a href="../../../src/github.com/gotd/log/helper.go.html#line-61" class="path-duplicate">helper.go</a><a href="../../../src/github.com/gotd/log/helper.go.html#line-61">#L61</a>: func (h Helper) Error(ctx context.Context, msg string, attrs ...<b>Attr</b>) {
+		<a href="../../../src/github.com/gotd/log/log.go.html#line-54">log.go#L54</a>: 	Log(ctx context.Context, level Level, msg string, attrs ...<b>Attr</b>)
+		<a href="../../../src/github.com/gotd/log/log.go.html#line-63" class="path-duplicate">log.go</a><a href="../../../src/github.com/gotd/log/log.go.html#line-63">#L63</a>: func (nop) Log(context.Context, Level, string, ...<b>Attr</b>) {}
+		<a href="../../../src/github.com/gotd/log/with.go.html#line-10">with.go#L10</a>: 	With(attrs ...<b>Attr</b>) Logger
+		<a href="../../../src/github.com/gotd/log/with.go.html#line-24" class="path-duplicate">with.go</a><a href="../../../src/github.com/gotd/log/with.go.html#line-24">#L24</a>: func With(l Logger, attrs ...<b>Attr</b>) Logger {
+		<a href="../../../src/github.com/gotd/log/with.go.html#line-32" class="path-duplicate">with.go</a><a href="../../../src/github.com/gotd/log/with.go.html#line-32">#L32</a>: 	return &amp;withLogger{l: l, attrs: append([]<b>Attr</b>(nil), attrs...)}
+		<a href="../../../src/github.com/gotd/log/with.go.html#line-52" class="path-duplicate">with.go</a><a href="../../../src/github.com/gotd/log/with.go.html#line-52">#L52</a>: 	attrs []<b>Attr</b>
+		<a href="../../../src/github.com/gotd/log/with.go.html#line-59" class="path-duplicate">with.go</a><a href="../../../src/github.com/gotd/log/with.go.html#line-59">#L59</a>: func (w *withLogger) Log(ctx context.Context, level Level, msg string, attrs ...<b>Attr</b>) {
+		<a href="../../../src/github.com/gotd/log/with.go.html#line-66" class="path-duplicate">with.go</a><a href="../../../src/github.com/gotd/log/with.go.html#line-66">#L66</a>: func (w *withLogger) With(attrs ...<b>Attr</b>) Logger {
+
+	<a href="../../../pkg/github.com/gotd/td/crypto.html">github.com/gotd/td/crypto</a>
+		<a href="../../../src/github.com/gotd/td/crypto/key.go.html#line-130">key.go#L130</a>: func (a AuthKey) LogAttr() log.<b>Attr</b> {
+
+	<a href="../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-128">connect.go#L128</a>: 	attrs := []log.<b>Attr</b>{
+		<a href="../../../src/github.com/gotd/td/mtproto/zap.go.html#line-17">zap.go#L17</a>: func (l logType) LogAttr() log.<b>Attr</b> {
+		<a href="../../../src/github.com/gotd/td/mtproto/zap.go.html#line-18" class="path-duplicate">zap.go</a><a href="../../../src/github.com/gotd/td/mtproto/zap.go.html#line-18">#L18</a>: 	attrs := []log.<b>Attr</b>{log.String("type_id", fmt.Sprintf("0x%x", l.ID))}
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

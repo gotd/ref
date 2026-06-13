@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: mask_amd64.s in package github.com/coder/websocket</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	mask_amd64.s
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
+</code></pre>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code>#include "textflag.h"</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code>// func maskAsm(b *byte, len int, key uint32)</code></span>
+<span class="codeline" id="line-4"><code>TEXT ·maskAsm(SB), NOSPLIT, $0-28</code></span>
+<span class="codeline" id="line-5"><code>	// AX = b</code></span>
+<span class="codeline" id="line-6"><code>	// CX = len (left length)</code></span>
+<span class="codeline" id="line-7"><code>	// SI = key (uint32)</code></span>
+<span class="codeline" id="line-8"><code>	// DI = uint64(SI) | uint64(SI)&lt;&lt;32</code></span>
+<span class="codeline" id="line-9"><code>	MOVQ b+0(FP), AX</code></span>
+<span class="codeline" id="line-10"><code>	MOVQ len+8(FP), CX</code></span>
+<span class="codeline" id="line-11"><code>	MOVL key+16(FP), SI</code></span>
+<span class="codeline" id="line-12"><code></code></span>
+<span class="codeline" id="line-13"><code>	// calculate the DI</code></span>
+<span class="codeline" id="line-14"><code>	// DI = SI&lt;&lt;32 | SI</code></span>
+<span class="codeline" id="line-15"><code>	MOVL SI, DI</code></span>
+<span class="codeline" id="line-16"><code>	MOVQ DI, DX</code></span>
+<span class="codeline" id="line-17"><code>	SHLQ $32, DI</code></span>
+<span class="codeline" id="line-18"><code>	ORQ  DX, DI</code></span>
+<span class="codeline" id="line-19"><code></code></span>
+<span class="codeline" id="line-20"><code>	CMPQ  CX, $15</code></span>
+<span class="codeline" id="line-21"><code>	JLE   less_than_16</code></span>
+<span class="codeline" id="line-22"><code>	CMPQ  CX, $63</code></span>
+<span class="codeline" id="line-23"><code>	JLE   less_than_64</code></span>
+<span class="codeline" id="line-24"><code>	CMPQ  CX, $128</code></span>
+<span class="codeline" id="line-25"><code>	JLE   sse</code></span>
+<span class="codeline" id="line-26"><code>	TESTQ $31, AX</code></span>
+<span class="codeline" id="line-27"><code>	JNZ   unaligned</code></span>
+<span class="codeline" id="line-28"><code></code></span>
+<span class="codeline" id="line-29"><code>unaligned_loop_1byte:</code></span>
+<span class="codeline" id="line-30"><code>	XORB  SI, (AX)</code></span>
+<span class="codeline" id="line-31"><code>	INCQ  AX</code></span>
+<span class="codeline" id="line-32"><code>	DECQ  CX</code></span>
+<span class="codeline" id="line-33"><code>	ROLL  $24, SI</code></span>
+<span class="codeline" id="line-34"><code>	TESTQ $7, AX</code></span>
+<span class="codeline" id="line-35"><code>	JNZ   unaligned_loop_1byte</code></span>
+<span class="codeline" id="line-36"><code></code></span>
+<span class="codeline" id="line-37"><code>	// calculate DI again since SI was modified</code></span>
+<span class="codeline" id="line-38"><code>	// DI = SI&lt;&lt;32 | SI</code></span>
+<span class="codeline" id="line-39"><code>	MOVL SI, DI</code></span>
+<span class="codeline" id="line-40"><code>	MOVQ DI, DX</code></span>
+<span class="codeline" id="line-41"><code>	SHLQ $32, DI</code></span>
+<span class="codeline" id="line-42"><code>	ORQ  DX, DI</code></span>
+<span class="codeline" id="line-43"><code></code></span>
+<span class="codeline" id="line-44"><code>	TESTQ $31, AX</code></span>
+<span class="codeline" id="line-45"><code>	JZ    sse</code></span>
+<span class="codeline" id="line-46"><code></code></span>
+<span class="codeline" id="line-47"><code>unaligned:</code></span>
+<span class="codeline" id="line-48"><code>	TESTQ $7, AX               // AND $7 &amp; len, if not zero jump to loop_1b.</code></span>
+<span class="codeline" id="line-49"><code>	JNZ   unaligned_loop_1byte</code></span>
+<span class="codeline" id="line-50"><code></code></span>
+<span class="codeline" id="line-51"><code>unaligned_loop:</code></span>
+<span class="codeline" id="line-52"><code>	// we don't need to check the CX since we know it's above 128</code></span>
+<span class="codeline" id="line-53"><code>	XORQ  DI, (AX)</code></span>
+<span class="codeline" id="line-54"><code>	ADDQ  $8, AX</code></span>
+<span class="codeline" id="line-55"><code>	SUBQ  $8, CX</code></span>
+<span class="codeline" id="line-56"><code>	TESTQ $31, AX</code></span>
+<span class="codeline" id="line-57"><code>	JNZ   unaligned_loop</code></span>
+<span class="codeline" id="line-58"><code>	JMP   sse</code></span>
+<span class="codeline" id="line-59"><code></code></span>
+<span class="codeline" id="line-60"><code>sse:</code></span>
+<span class="codeline" id="line-61"><code>	CMPQ       CX, $0x40</code></span>
+<span class="codeline" id="line-62"><code>	JL         less_than_64</code></span>
+<span class="codeline" id="line-63"><code>	MOVQ       DI, X0</code></span>
+<span class="codeline" id="line-64"><code>	PUNPCKLQDQ X0, X0</code></span>
+<span class="codeline" id="line-65"><code></code></span>
+<span class="codeline" id="line-66"><code>sse_loop:</code></span>
+<span class="codeline" id="line-67"><code>	MOVOU 0*16(AX), X1</code></span>
+<span class="codeline" id="line-68"><code>	MOVOU 1*16(AX), X2</code></span>
+<span class="codeline" id="line-69"><code>	MOVOU 2*16(AX), X3</code></span>
+<span class="codeline" id="line-70"><code>	MOVOU 3*16(AX), X4</code></span>
+<span class="codeline" id="line-71"><code>	PXOR  X0, X1</code></span>
+<span class="codeline" id="line-72"><code>	PXOR  X0, X2</code></span>
+<span class="codeline" id="line-73"><code>	PXOR  X0, X3</code></span>
+<span class="codeline" id="line-74"><code>	PXOR  X0, X4</code></span>
+<span class="codeline" id="line-75"><code>	MOVOU X1, 0*16(AX)</code></span>
+<span class="codeline" id="line-76"><code>	MOVOU X2, 1*16(AX)</code></span>
+<span class="codeline" id="line-77"><code>	MOVOU X3, 2*16(AX)</code></span>
+<span class="codeline" id="line-78"><code>	MOVOU X4, 3*16(AX)</code></span>
+<span class="codeline" id="line-79"><code>	ADDQ  $0x40, AX</code></span>
+<span class="codeline" id="line-80"><code>	SUBQ  $0x40, CX</code></span>
+<span class="codeline" id="line-81"><code>	CMPQ  CX, $0x40</code></span>
+<span class="codeline" id="line-82"><code>	JAE   sse_loop</code></span>
+<span class="codeline" id="line-83"><code></code></span>
+<span class="codeline" id="line-84"><code>less_than_64:</code></span>
+<span class="codeline" id="line-85"><code>	TESTQ $32, CX</code></span>
+<span class="codeline" id="line-86"><code>	JZ    less_than_32</code></span>
+<span class="codeline" id="line-87"><code>	XORQ  DI, (AX)</code></span>
+<span class="codeline" id="line-88"><code>	XORQ  DI, 8(AX)</code></span>
+<span class="codeline" id="line-89"><code>	XORQ  DI, 16(AX)</code></span>
+<span class="codeline" id="line-90"><code>	XORQ  DI, 24(AX)</code></span>
+<span class="codeline" id="line-91"><code>	ADDQ  $32, AX</code></span>
+<span class="codeline" id="line-92"><code></code></span>
+<span class="codeline" id="line-93"><code>less_than_32:</code></span>
+<span class="codeline" id="line-94"><code>	TESTQ $16, CX</code></span>
+<span class="codeline" id="line-95"><code>	JZ    less_than_16</code></span>
+<span class="codeline" id="line-96"><code>	XORQ  DI, (AX)</code></span>
+<span class="codeline" id="line-97"><code>	XORQ  DI, 8(AX)</code></span>
+<span class="codeline" id="line-98"><code>	ADDQ  $16, AX</code></span>
+<span class="codeline" id="line-99"><code></code></span>
+<span class="codeline" id="line-100"><code>less_than_16:</code></span>
+<span class="codeline" id="line-101"><code>	TESTQ $8, CX</code></span>
+<span class="codeline" id="line-102"><code>	JZ    less_than_8</code></span>
+<span class="codeline" id="line-103"><code>	XORQ  DI, (AX)</code></span>
+<span class="codeline" id="line-104"><code>	ADDQ  $8, AX</code></span>
+<span class="codeline" id="line-105"><code></code></span>
+<span class="codeline" id="line-106"><code>less_than_8:</code></span>
+<span class="codeline" id="line-107"><code>	TESTQ $4, CX</code></span>
+<span class="codeline" id="line-108"><code>	JZ    less_than_4</code></span>
+<span class="codeline" id="line-109"><code>	XORL  SI, (AX)</code></span>
+<span class="codeline" id="line-110"><code>	ADDQ  $4, AX</code></span>
+<span class="codeline" id="line-111"><code></code></span>
+<span class="codeline" id="line-112"><code>less_than_4:</code></span>
+<span class="codeline" id="line-113"><code>	TESTQ $2, CX</code></span>
+<span class="codeline" id="line-114"><code>	JZ    less_than_2</code></span>
+<span class="codeline" id="line-115"><code>	XORW  SI, (AX)</code></span>
+<span class="codeline" id="line-116"><code>	ROLL  $16, SI</code></span>
+<span class="codeline" id="line-117"><code>	ADDQ  $2, AX</code></span>
+<span class="codeline" id="line-118"><code></code></span>
+<span class="codeline" id="line-119"><code>less_than_2:</code></span>
+<span class="codeline" id="line-120"><code>	TESTQ $1, CX</code></span>
+<span class="codeline" id="line-121"><code>	JZ    done</code></span>
+<span class="codeline" id="line-122"><code>	XORB  SI, (AX)</code></span>
+<span class="codeline" id="line-123"><code>	ROLL  $24, SI</code></span>
+<span class="codeline" id="line-124"><code></code></span>
+<span class="codeline" id="line-125"><code>done:</code></span>
+<span class="codeline" id="line-126"><code>	MOVL SI, ret+24(FP)</code></span>
+<span class="codeline" id="line-127"><code>	RET</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
