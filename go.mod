@@ -3,7 +3,7 @@ module ref
 go 1.26rc1
 
 require (
-	github.com/gotd/td v0.156.0
+	github.com/gotd/td v0.156.3
 	go101.org/golds v0.8.4
 )
 
