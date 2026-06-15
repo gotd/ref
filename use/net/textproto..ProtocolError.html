@@ -14,13 +14,13 @@
 <span class="title">10 uses</span>
 
 	net/textproto (current package)
-		<a href="../../src/net/textproto/reader.go.html#line-218">reader.go#L218</a>: 		err = <b>ProtocolError</b>("short response: " + line)
-		<a href="../../src/net/textproto/reader.go.html#line-224" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-224">#L224</a>: 		err = <b>ProtocolError</b>("invalid response code: " + line)
-		<a href="../../src/net/textproto/reader.go.html#line-256" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-256">#L256</a>: 		err = <b>ProtocolError</b>("unexpected multi-line response: " + message)
-		<a href="../../src/net/textproto/reader.go.html#line-544" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-544">#L544</a>: 		return m, <b>ProtocolError</b>("malformed MIME header initial line: " + string(line))
-		<a href="../../src/net/textproto/reader.go.html#line-556" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-556">#L556</a>: 			return m, <b>ProtocolError</b>("malformed MIME header line: " + string(kv))
-		<a href="../../src/net/textproto/reader.go.html#line-560" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-560">#L560</a>: 			return m, <b>ProtocolError</b>("malformed MIME header line: " + string(kv))
-		<a href="../../src/net/textproto/reader.go.html#line-564" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-564">#L564</a>: 				return m, <b>ProtocolError</b>("malformed MIME header line: " + string(kv))
+		<a href="../../src/net/textproto/reader.go.html#line-218">reader.go#L218</a>: 		err = <b>ProtocolError</b>(fmt.Sprintf("short response: %q", line))
+		<a href="../../src/net/textproto/reader.go.html#line-224" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-224">#L224</a>: 		err = <b>ProtocolError</b>(fmt.Sprintf("invalid response code: %q", line))
+		<a href="../../src/net/textproto/reader.go.html#line-256" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-256">#L256</a>: 		err = <b>ProtocolError</b>(fmt.Sprintf("unexpected multi-line response: %q", message))
+		<a href="../../src/net/textproto/reader.go.html#line-544" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-544">#L544</a>: 		return m, <b>ProtocolError</b>(fmt.Sprintf("malformed MIME header initial line: %q", line))
+		<a href="../../src/net/textproto/reader.go.html#line-556" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-556">#L556</a>: 			return m, <b>ProtocolError</b>(fmt.Sprintf("malformed MIME header line: %q", kv))
+		<a href="../../src/net/textproto/reader.go.html#line-560" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-560">#L560</a>: 			return m, <b>ProtocolError</b>(fmt.Sprintf("malformed MIME header line: %q", kv))
+		<a href="../../src/net/textproto/reader.go.html#line-564" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-564">#L564</a>: 				return m, <b>ProtocolError</b>(fmt.Sprintf("malformed MIME header line: %q", kv))
 		<a href="../../src/net/textproto/reader.go.html#line-612" class="path-duplicate">reader.go</a><a href="../../src/net/textproto/reader.go.html#line-612">#L612</a>: 		return <b>ProtocolError</b>(fmt.Sprintf("malformed MIME header: missing colon: %q", line))
 		<a href="../../src/net/textproto/textproto.go.html#line-49">textproto.go#L49</a>: type <b>ProtocolError</b> string
 		<a href="../../src/net/textproto/textproto.go.html#line-51" class="path-duplicate">textproto.go</a><a href="../../src/net/textproto/textproto.go.html#line-51">#L51</a>: func (p <b>ProtocolError</b>) Error() string {
