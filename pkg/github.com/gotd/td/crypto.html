@@ -504,9 +504,20 @@
 </span></div><div class="anchor value-res" id="name-SHA256">	<input type='checkbox' class="fold" id="SHA256-fold-content"><label for="SHA256-fold-content"> <a href="../../../../use/github.com/gotd/td/crypto..SHA256.html">func</a> <a href="../../../../src/github.com/gotd/td/crypto/sha256.go.html#line-10">SHA256</a>(from ...[]<a href="../../../builtin.html#name-byte">byte</a>) []<a href="../../../builtin.html#name-byte">byte</a></label><span id='SHA256-fold-content-docs' class="fold-docs">
 <span class="md-text">		SHA256 returns SHA256 hash.</span>
 
-</span></div><div class="anchor value-res" id="name-TempAESKeys">	<input type='checkbox' class="fold" id="TempAESKeys-fold-content"><label for="TempAESKeys-fold-content"> <a href="../../../../use/github.com/gotd/td/crypto..TempAESKeys.html">func</a> <a href="../../../../src/github.com/gotd/td/crypto/temp_keys.go.html#line-20">TempAESKeys</a>(newNonce, serverNonce *<a href="../../../math/big.html">big</a>.<a href="../../../math/big.html#name-Int">Int</a>) (key, iv []<a href="../../../builtin.html#name-byte">byte</a>)</label><span id='TempAESKeys-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor value-res" id="name-TempAESKeys">	<input type='checkbox' class="fold" id="TempAESKeys-fold-content"><label for="TempAESKeys-fold-content"> <a href="../../../../use/github.com/gotd/td/crypto..TempAESKeys.html">func</a> <a href="../../../../src/github.com/gotd/td/crypto/temp_keys.go.html#line-31">TempAESKeys</a>(newNonce, serverNonce *<a href="../../../math/big.html">big</a>.<a href="../../../math/big.html#name-Int">Int</a>) (key, iv []<a href="../../../builtin.html#name-byte">byte</a>)</label><span id='TempAESKeys-fold-content-docs' class="fold-docs">
 <span class="md-text">		TempAESKeys returns tmp_aes_key and tmp_aes_iv based on new_nonce and
-		server_nonce as defined in "Creating an Authorization Key".</span>
+		server_nonce as defined in "Creating an Authorization Key".
+		
+		new_nonce (int256) and server_nonce (int128) are fixed-length byte strings
+		of 32 and 16 bytes. They must be hashed at their full length: see
+		https://core.telegram.org/mtproto/auth_key#presenting-proof-of-work-server-authentication
+		
+		They are passed here as *big.Int, so they are first serialized back to their
+		canonical fixed length with FillBytes. Using big.Int.Bytes() instead would
+		strip leading zero bytes, and whenever new_nonce or server_nonce starts with
+		0x00 (about 1/256 of the time each) the SHA1 input would be a byte short and
+		the derived tmp_aes_key/tmp_aes_iv would be wrong, making the server_DH_params
+		answer impossible to decrypt for a spec-compliant peer.</span>
 
 </span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 21 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 21 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-aesIV"><i>	<input type='checkbox' class="fold" id="aesIV-fold-content"><label for="aesIV-fold-content"> <a href="../../../../use/github.com/gotd/td/crypto..aesIV^45752.html">func</a> <a href="../../../../src/github.com/gotd/td/crypto/keys.go.html#line-91">aesIV</a>(sha256a, sha256b []<a href="../../../builtin.html#name-byte">byte</a>, v *<a href="bin.html">bin</a>.<a href="bin.html#name-Int256">Int256</a>)</label><span id='aesIV-fold-content-docs' class="fold-docs">
 <span class="md-text">		aesIV returns aes_iv value.
@@ -547,8 +558,8 @@
 		
 		sha1_b = SHA1 (substr (auth_key, 32+x, 16) + msg_key + substr (auth_key, 48+x, 16));</span>
 
-</span></i></div><div class="anchor value-res hidden" id="name-sha1BigInt"><i>	<input type='checkbox' class="fold" id="sha1BigInt-fold-content"><label for="sha1BigInt-fold-content"> <a href="../../../../use/github.com/gotd/td/crypto..sha1BigInt^66472.html">func</a> <a href="../../../../src/github.com/gotd/td/crypto/temp_keys.go.html#line-9">sha1BigInt</a>(a, b *<a href="../../../math/big.html">big</a>.<a href="../../../math/big.html#name-Int">Int</a>) []<a href="../../../builtin.html#name-byte">byte</a></label><span id='sha1BigInt-fold-content-docs' class="fold-docs">
-<span class="md-text">		sha1BigInt returns SHA1(a + b).</span>
+</span></i></div><div class="anchor value-res hidden" id="name-sha1Bytes"><i>	<input type='checkbox' class="fold" id="sha1Bytes-fold-content"><label for="sha1Bytes-fold-content"> <a href="../../../../use/github.com/gotd/td/crypto..sha1Bytes^11ff0.html">func</a> <a href="../../../../src/github.com/gotd/td/crypto/temp_keys.go.html#line-9">sha1Bytes</a>(a, b []<a href="../../../builtin.html#name-byte">byte</a>) []<a href="../../../builtin.html#name-byte">byte</a></label><span id='sha1Bytes-fold-content-docs' class="fold-docs">
+<span class="md-text">		sha1Bytes returns SHA1(a + b).</span>
 
 </span></i></div><div class="anchor value-res hidden" id="name-sha1c"><i>	<input type='checkbox' class="fold" id="sha1c-fold-content"><label for="sha1c-fold-content"> <a href="../../../../use/github.com/gotd/td/crypto..sha1c^a5c37.html">func</a> <a href="../../../../src/github.com/gotd/td/crypto/keys_old.go.html#line-37">sha1c</a>(r []<a href="../../../builtin.html#name-byte">byte</a>, authKey <a href="#name-Key">Key</a>, msgKey <a href="bin.html">bin</a>.<a href="bin.html#name-Int128">Int128</a>, x <a href="../../../builtin.html#name-int">int</a>) []<a href="../../../builtin.html#name-byte">byte</a></label><span id='sha1c-fold-content-docs' class="fold-docs">
 <span class="md-text">		sha1c returns sha1_c value.

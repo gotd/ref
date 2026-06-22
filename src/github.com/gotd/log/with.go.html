@@ -39,7 +39,12 @@ input[id=r19]:checked ~pre label[for=r19],
 input[id=r20]:checked ~pre label[for=r20],
 input[id=r21]:checked ~pre label[for=r21],
 input[id=r22]:checked ~pre label[for=r22],
-input[id=r23]:checked ~pre label[for=r23]
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0
 {background: brown; color: #eed;}
@@ -67,6 +72,11 @@ input[id=i0]:checked ~pre .i0
 <input id="r21" type="radio" name="g"/>
 <input id="r22" type="radio" name="g"/>
 <input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 
 <pre class="line-numbers">
@@ -90,54 +100,79 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-18"><code>	<a href="../../../../imp/github.com/gotd/log.Namer.html#name-Named" class="ident">Named</a>(name <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="log.go.html#line-48" class="ident">Logger</a></code></span>
 <span class="codeline" id="line-19"><code>}</code></span>
 <span class="codeline" id="line-20"><code></code></span>
-<span class="codeline" id="line-21"><code><span class="comment">// With returns a child Logger that attaches attrs to every record. It uses the</span></code></span>
-<span class="codeline" id="line-22"><code><span class="comment">// logger's native With when it implements Wither, otherwise it wraps l. With no</span></code></span>
-<span class="codeline" id="line-23"><code><span class="comment">// attrs it returns l unchanged.</span></code></span>
-<span class="codeline" id="line-24"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/github.com/gotd/log.html#name-With" class="ident">With</a></label>(<label for="r1" class="ident">l</label> <a href="log.go.html#line-48" class="ident">Logger</a>, <label for="r2" class="ident">attrs</label> ...<a href="attr.go.html#line-28" class="ident">Attr</a>) <a href="log.go.html#line-48" class="ident">Logger</a> {</code></span>
-<span class="codeline" id="line-25"><code>	<label for="r1" class="ident">l</label> = <a href="log.go.html#line-67" class="ident">OrNop</a>(<label for="r1" class="ident">l</label>)</code></span>
-<span class="codeline" id="line-26"><code>	<span class="keyword">if</span> <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r2" class="ident">attrs</label>) == <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-27"><code>		<span class="keyword">return</span> <label for="r1" class="ident">l</label></code></span>
-<span class="codeline" id="line-28"><code>	}</code></span>
-<span class="codeline" id="line-29"><code>	<span class="keyword">if</span> <label for="r3" class="ident">w</label>, <label for="r4" class="ident">ok</label> := <label for="r1" class="ident">l</label>.(<a href="#line-9" class="ident">Wither</a>); <label for="r4" class="ident">ok</label> {</code></span>
-<span class="codeline" id="line-30"><code>		<span class="keyword">return</span> <label for="r3" class="ident">w</label>.<a href="#line-10" class="ident">With</a>(<label for="r2" class="ident">attrs</label>...)</code></span>
-<span class="codeline" id="line-31"><code>	}</code></span>
-<span class="codeline" id="line-32"><code>	<span class="keyword">return</span> &amp;<a href="#line-50" class="ident">withLogger</a>{<a href="#line-51" class="ident">l</a>: <label for="r1" class="ident">l</label>, <a href="#line-52" class="ident">attrs</a>: <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>([]<a href="attr.go.html#line-28" class="ident">Attr</a>(<a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>), <label for="r2" class="ident">attrs</label>...)}</code></span>
-<span class="codeline" id="line-33"><code>}</code></span>
-<span class="codeline" id="line-34"><code></code></span>
-<span class="codeline" id="line-35"><code><span class="comment">// Named returns a child Logger tagged with name. It uses the logger's native</span></code></span>
-<span class="codeline" id="line-36"><code><span class="comment">// Named when it implements Namer, otherwise it returns l unchanged (the name is</span></code></span>
-<span class="codeline" id="line-37"><code><span class="comment">// advisory for backends without a naming concept). With an empty name it returns</span></code></span>
-<span class="codeline" id="line-38"><code><span class="comment">// l unchanged.</span></code></span>
-<span class="codeline" id="line-39"><code><span class="keyword">func</span> <label for="r5" class="ident"><a href="../../../../pkg/github.com/gotd/log.html#name-Named" class="ident">Named</a></label>(<label for="r6" class="ident">l</label> <a href="log.go.html#line-48" class="ident">Logger</a>, <label for="r7" class="ident">name</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="log.go.html#line-48" class="ident">Logger</a> {</code></span>
-<span class="codeline" id="line-40"><code>	<label for="r6" class="ident">l</label> = <a href="log.go.html#line-67" class="ident">OrNop</a>(<label for="r6" class="ident">l</label>)</code></span>
-<span class="codeline" id="line-41"><code>	<span class="keyword">if</span> <label for="r7" class="ident">name</label> == <span class="lit-string">""</span> {</code></span>
-<span class="codeline" id="line-42"><code>		<span class="keyword">return</span> <label for="r6" class="ident">l</label></code></span>
-<span class="codeline" id="line-43"><code>	}</code></span>
-<span class="codeline" id="line-44"><code>	<span class="keyword">if</span> <label for="r8" class="ident">n</label>, <label for="r9" class="ident">ok</label> := <label for="r6" class="ident">l</label>.(<a href="#line-17" class="ident">Namer</a>); <label for="r9" class="ident">ok</label> {</code></span>
-<span class="codeline" id="line-45"><code>		<span class="keyword">return</span> <label for="r8" class="ident">n</label>.<a href="#line-18" class="ident">Named</a>(<label for="r7" class="ident">name</label>)</code></span>
-<span class="codeline" id="line-46"><code>	}</code></span>
-<span class="codeline" id="line-47"><code>	<span class="keyword">return</span> <label for="r6" class="ident">l</label></code></span>
-<span class="codeline" id="line-48"><code>}</code></span>
-<span class="codeline" id="line-49"><code></code></span>
-<span class="codeline" id="line-50"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/gotd/log.html#name-withLogger" class="ident">withLogger</a> <span class="keyword">struct</span> {</code></span>
-<span class="codeline" id="line-51"><code>	<a href="../../../../use/github.com/gotd/log..withLogger^e340f.l^acac8.html" class="ident">l</a>     <a href="log.go.html#line-48" class="ident">Logger</a></code></span>
-<span class="codeline" id="line-52"><code>	<a href="../../../../use/github.com/gotd/log..withLogger^e340f.attrs^118ec.html" class="ident">attrs</a> []<a href="attr.go.html#line-28" class="ident">Attr</a></code></span>
-<span class="codeline" id="line-53"><code>}</code></span>
-<span class="codeline" id="line-54"><code></code></span>
-<span class="codeline" id="line-55"><code><span class="keyword">func</span> (<label for="r10" class="ident">w</label> *<a href="#line-50" class="ident">withLogger</a>) <label for="r11" class="ident"><a href="../../../../use/github.com/gotd/log..withLogger^e340f.Enabled.html" class="ident">Enabled</a></label>(<label for="r12" class="ident">ctx</label> <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r13" class="ident">level</label> <a href="log.go.html#line-21" class="ident">Level</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
-<span class="codeline" id="line-56"><code>	<span class="keyword">return</span> <label for="r10" class="ident">w</label>.<a href="#line-51" class="ident">l</a>.<a href="log.go.html#line-51" class="ident">Enabled</a>(<label for="r12" class="ident">ctx</label>, <label for="r13" class="ident">level</label>)</code></span>
-<span class="codeline" id="line-57"><code>}</code></span>
-<span class="codeline" id="line-58"><code></code></span>
-<span class="codeline" id="line-59"><code><span class="keyword">func</span> (<label for="r14" class="ident">w</label> *<a href="#line-50" class="ident">withLogger</a>) <label for="r15" class="ident"><a href="../../../../use/github.com/gotd/log..withLogger^e340f.Log.html" class="ident">Log</a></label>(<label for="r16" class="ident">ctx</label> <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r17" class="ident">level</label> <a href="log.go.html#line-21" class="ident">Level</a>, <label for="r18" class="ident">msg</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r19" class="ident">attrs</label> ...<a href="attr.go.html#line-28" class="ident">Attr</a>) {</code></span>
-<span class="codeline" id="line-60"><code>	<span class="comment">// Prepend the attached attrs; cap the stored slice so append never mutates it.</span></code></span>
-<span class="codeline" id="line-61"><code>	<label for="r20" class="ident">merged</label> := <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r14" class="ident">w</label>.<a href="#line-52" class="ident">attrs</a>[:<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r14" class="ident">w</label>.<a href="#line-52" class="ident">attrs</a>):<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r14" class="ident">w</label>.<a href="#line-52" class="ident">attrs</a>)], <label for="r19" class="ident">attrs</label>...)</code></span>
-<span class="codeline" id="line-62"><code>	<label for="r14" class="ident">w</label>.<a href="#line-51" class="ident">l</a>.<a href="log.go.html#line-54" class="ident">Log</a>(<label for="r16" class="ident">ctx</label>, <label for="r17" class="ident">level</label>, <label for="r18" class="ident">msg</label>, <label for="r20" class="ident">merged</label>...)</code></span>
-<span class="codeline" id="line-63"><code>}</code></span>
-<span class="codeline" id="line-64"><code></code></span>
-<span class="codeline" id="line-65"><code><span class="comment">// With implements Wither so chained With calls accumulate without re-wrapping.</span></code></span>
-<span class="codeline" id="line-66"><code><span class="keyword">func</span> (<label for="r21" class="ident">w</label> *<a href="#line-50" class="ident">withLogger</a>) <label for="r22" class="ident"><a href="../../../../use/github.com/gotd/log..withLogger^e340f.With.html" class="ident">With</a></label>(<label for="r23" class="ident">attrs</label> ...<a href="attr.go.html#line-28" class="ident">Attr</a>) <a href="log.go.html#line-48" class="ident">Logger</a> {</code></span>
-<span class="codeline" id="line-67"><code>	<span class="keyword">return</span> <a href="#line-24" class="ident">With</a>(<label for="r21" class="ident">w</label>.<a href="#line-51" class="ident">l</a>, <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r21" class="ident">w</label>.<a href="#line-52" class="ident">attrs</a>[:<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r21" class="ident">w</label>.<a href="#line-52" class="ident">attrs</a>):<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r21" class="ident">w</label>.<a href="#line-52" class="ident">attrs</a>)], <label for="r23" class="ident">attrs</label>...)...)</code></span>
-<span class="codeline" id="line-68"><code>}</code></span>
+<span class="codeline" id="line-21"><code><span class="comment">// CallerSkipper is an optional Logger capability: returning a child Logger that</span></code></span>
+<span class="codeline" id="line-22"><code><span class="comment">// attributes records to a caller skip frames further up the stack. Wrappers</span></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">// that sit between the call site and the adapter (such as Helper) use it so the</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">// adapter still reports the real caller. Adapters that compute the caller</span></code></span>
+<span class="codeline" id="line-25"><code><span class="comment">// implement it by mapping onto a native mechanism (e.g. zap.AddCallerSkip);</span></code></span>
+<span class="codeline" id="line-26"><code><span class="comment">// loggers that do not are returned unchanged by AddCallerSkip.</span></code></span>
+<span class="codeline" id="line-27"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/gotd/log.html#name-CallerSkipper" class="ident">CallerSkipper</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-28"><code>	<a href="../../../../imp/github.com/gotd/log.CallerSkipper.html#name-WithCallerSkip" class="ident">WithCallerSkip</a>(skip <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="log.go.html#line-48" class="ident">Logger</a></code></span>
+<span class="codeline" id="line-29"><code>}</code></span>
+<span class="codeline" id="line-30"><code></code></span>
+<span class="codeline" id="line-31"><code><span class="comment">// AddCallerSkip returns a Logger that attributes records skip frames further up</span></code></span>
+<span class="codeline" id="line-32"><code><span class="comment">// the stack, using the logger's native mechanism when it implements</span></code></span>
+<span class="codeline" id="line-33"><code><span class="comment">// CallerSkipper. It returns l unchanged when skip is 0 or l does not track</span></code></span>
+<span class="codeline" id="line-34"><code><span class="comment">// caller depth.</span></code></span>
+<span class="codeline" id="line-35"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/github.com/gotd/log.html#name-AddCallerSkip" class="ident">AddCallerSkip</a></label>(<label for="r1" class="ident">l</label> <a href="log.go.html#line-48" class="ident">Logger</a>, <label for="r2" class="ident">skip</label> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="log.go.html#line-48" class="ident">Logger</a> {</code></span>
+<span class="codeline" id="line-36"><code>	<label for="r1" class="ident">l</label> = <a href="log.go.html#line-67" class="ident">OrNop</a>(<label for="r1" class="ident">l</label>)</code></span>
+<span class="codeline" id="line-37"><code>	<span class="keyword">if</span> <label for="r2" class="ident">skip</label> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-38"><code>		<span class="keyword">return</span> <label for="r1" class="ident">l</label></code></span>
+<span class="codeline" id="line-39"><code>	}</code></span>
+<span class="codeline" id="line-40"><code>	<span class="keyword">if</span> <label for="r3" class="ident">s</label>, <label for="r4" class="ident">ok</label> := <label for="r1" class="ident">l</label>.(<a href="#line-27" class="ident">CallerSkipper</a>); <label for="r4" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-41"><code>		<span class="keyword">return</span> <label for="r3" class="ident">s</label>.<a href="#line-28" class="ident">WithCallerSkip</a>(<label for="r2" class="ident">skip</label>)</code></span>
+<span class="codeline" id="line-42"><code>	}</code></span>
+<span class="codeline" id="line-43"><code>	<span class="keyword">return</span> <label for="r1" class="ident">l</label></code></span>
+<span class="codeline" id="line-44"><code>}</code></span>
+<span class="codeline" id="line-45"><code></code></span>
+<span class="codeline" id="line-46"><code><span class="comment">// With returns a child Logger that attaches attrs to every record. It uses the</span></code></span>
+<span class="codeline" id="line-47"><code><span class="comment">// logger's native With when it implements Wither, otherwise it wraps l. With no</span></code></span>
+<span class="codeline" id="line-48"><code><span class="comment">// attrs it returns l unchanged.</span></code></span>
+<span class="codeline" id="line-49"><code><span class="keyword">func</span> <label for="r5" class="ident"><a href="../../../../pkg/github.com/gotd/log.html#name-With" class="ident">With</a></label>(<label for="r6" class="ident">l</label> <a href="log.go.html#line-48" class="ident">Logger</a>, <label for="r7" class="ident">attrs</label> ...<a href="attr.go.html#line-28" class="ident">Attr</a>) <a href="log.go.html#line-48" class="ident">Logger</a> {</code></span>
+<span class="codeline" id="line-50"><code>	<label for="r6" class="ident">l</label> = <a href="log.go.html#line-67" class="ident">OrNop</a>(<label for="r6" class="ident">l</label>)</code></span>
+<span class="codeline" id="line-51"><code>	<span class="keyword">if</span> <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r7" class="ident">attrs</label>) == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-52"><code>		<span class="keyword">return</span> <label for="r6" class="ident">l</label></code></span>
+<span class="codeline" id="line-53"><code>	}</code></span>
+<span class="codeline" id="line-54"><code>	<span class="keyword">if</span> <label for="r8" class="ident">w</label>, <label for="r9" class="ident">ok</label> := <label for="r6" class="ident">l</label>.(<a href="#line-9" class="ident">Wither</a>); <label for="r9" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-55"><code>		<span class="keyword">return</span> <label for="r8" class="ident">w</label>.<a href="#line-10" class="ident">With</a>(<label for="r7" class="ident">attrs</label>...)</code></span>
+<span class="codeline" id="line-56"><code>	}</code></span>
+<span class="codeline" id="line-57"><code>	<span class="keyword">return</span> &amp;<a href="#line-75" class="ident">withLogger</a>{<a href="#line-76" class="ident">l</a>: <label for="r6" class="ident">l</label>, <a href="#line-77" class="ident">attrs</a>: <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>([]<a href="attr.go.html#line-28" class="ident">Attr</a>(<a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>), <label for="r7" class="ident">attrs</label>...)}</code></span>
+<span class="codeline" id="line-58"><code>}</code></span>
+<span class="codeline" id="line-59"><code></code></span>
+<span class="codeline" id="line-60"><code><span class="comment">// Named returns a child Logger tagged with name. It uses the logger's native</span></code></span>
+<span class="codeline" id="line-61"><code><span class="comment">// Named when it implements Namer, otherwise it returns l unchanged (the name is</span></code></span>
+<span class="codeline" id="line-62"><code><span class="comment">// advisory for backends without a naming concept). With an empty name it returns</span></code></span>
+<span class="codeline" id="line-63"><code><span class="comment">// l unchanged.</span></code></span>
+<span class="codeline" id="line-64"><code><span class="keyword">func</span> <label for="r10" class="ident"><a href="../../../../pkg/github.com/gotd/log.html#name-Named" class="ident">Named</a></label>(<label for="r11" class="ident">l</label> <a href="log.go.html#line-48" class="ident">Logger</a>, <label for="r12" class="ident">name</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="log.go.html#line-48" class="ident">Logger</a> {</code></span>
+<span class="codeline" id="line-65"><code>	<label for="r11" class="ident">l</label> = <a href="log.go.html#line-67" class="ident">OrNop</a>(<label for="r11" class="ident">l</label>)</code></span>
+<span class="codeline" id="line-66"><code>	<span class="keyword">if</span> <label for="r12" class="ident">name</label> == <span class="lit-string">""</span> {</code></span>
+<span class="codeline" id="line-67"><code>		<span class="keyword">return</span> <label for="r11" class="ident">l</label></code></span>
+<span class="codeline" id="line-68"><code>	}</code></span>
+<span class="codeline" id="line-69"><code>	<span class="keyword">if</span> <label for="r13" class="ident">n</label>, <label for="r14" class="ident">ok</label> := <label for="r11" class="ident">l</label>.(<a href="#line-17" class="ident">Namer</a>); <label for="r14" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-70"><code>		<span class="keyword">return</span> <label for="r13" class="ident">n</label>.<a href="#line-18" class="ident">Named</a>(<label for="r12" class="ident">name</label>)</code></span>
+<span class="codeline" id="line-71"><code>	}</code></span>
+<span class="codeline" id="line-72"><code>	<span class="keyword">return</span> <label for="r11" class="ident">l</label></code></span>
+<span class="codeline" id="line-73"><code>}</code></span>
+<span class="codeline" id="line-74"><code></code></span>
+<span class="codeline" id="line-75"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/gotd/log.html#name-withLogger" class="ident">withLogger</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-76"><code>	<a href="../../../../use/github.com/gotd/log..withLogger^e340f.l^acac8.html" class="ident">l</a>     <a href="log.go.html#line-48" class="ident">Logger</a></code></span>
+<span class="codeline" id="line-77"><code>	<a href="../../../../use/github.com/gotd/log..withLogger^e340f.attrs^118ec.html" class="ident">attrs</a> []<a href="attr.go.html#line-28" class="ident">Attr</a></code></span>
+<span class="codeline" id="line-78"><code>}</code></span>
+<span class="codeline" id="line-79"><code></code></span>
+<span class="codeline" id="line-80"><code><span class="keyword">func</span> (<label for="r15" class="ident">w</label> *<a href="#line-75" class="ident">withLogger</a>) <label for="r16" class="ident"><a href="../../../../use/github.com/gotd/log..withLogger^e340f.Enabled.html" class="ident">Enabled</a></label>(<label for="r17" class="ident">ctx</label> <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r18" class="ident">level</label> <a href="log.go.html#line-21" class="ident">Level</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-81"><code>	<span class="keyword">return</span> <label for="r15" class="ident">w</label>.<a href="#line-76" class="ident">l</a>.<a href="log.go.html#line-51" class="ident">Enabled</a>(<label for="r17" class="ident">ctx</label>, <label for="r18" class="ident">level</label>)</code></span>
+<span class="codeline" id="line-82"><code>}</code></span>
+<span class="codeline" id="line-83"><code></code></span>
+<span class="codeline" id="line-84"><code><span class="keyword">func</span> (<label for="r19" class="ident">w</label> *<a href="#line-75" class="ident">withLogger</a>) <label for="r20" class="ident"><a href="../../../../use/github.com/gotd/log..withLogger^e340f.Log.html" class="ident">Log</a></label>(<label for="r21" class="ident">ctx</label> <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r22" class="ident">level</label> <a href="log.go.html#line-21" class="ident">Level</a>, <label for="r23" class="ident">msg</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r24" class="ident">attrs</label> ...<a href="attr.go.html#line-28" class="ident">Attr</a>) {</code></span>
+<span class="codeline" id="line-85"><code>	<span class="comment">// Prepend the attached attrs; cap the stored slice so append never mutates it.</span></code></span>
+<span class="codeline" id="line-86"><code>	<label for="r25" class="ident">merged</label> := <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r19" class="ident">w</label>.<a href="#line-77" class="ident">attrs</a>[:<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r19" class="ident">w</label>.<a href="#line-77" class="ident">attrs</a>):<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r19" class="ident">w</label>.<a href="#line-77" class="ident">attrs</a>)], <label for="r24" class="ident">attrs</label>...)</code></span>
+<span class="codeline" id="line-87"><code>	<label for="r19" class="ident">w</label>.<a href="#line-76" class="ident">l</a>.<a href="log.go.html#line-54" class="ident">Log</a>(<label for="r21" class="ident">ctx</label>, <label for="r22" class="ident">level</label>, <label for="r23" class="ident">msg</label>, <label for="r25" class="ident">merged</label>...)</code></span>
+<span class="codeline" id="line-88"><code>}</code></span>
+<span class="codeline" id="line-89"><code></code></span>
+<span class="codeline" id="line-90"><code><span class="comment">// With implements Wither so chained With calls accumulate without re-wrapping.</span></code></span>
+<span class="codeline" id="line-91"><code><span class="keyword">func</span> (<label for="r26" class="ident">w</label> *<a href="#line-75" class="ident">withLogger</a>) <label for="r27" class="ident"><a href="../../../../use/github.com/gotd/log..withLogger^e340f.With.html" class="ident">With</a></label>(<label for="r28" class="ident">attrs</label> ...<a href="attr.go.html#line-28" class="ident">Attr</a>) <a href="log.go.html#line-48" class="ident">Logger</a> {</code></span>
+<span class="codeline" id="line-92"><code>	<span class="keyword">return</span> <a href="#line-49" class="ident">With</a>(<label for="r26" class="ident">w</label>.<a href="#line-76" class="ident">l</a>, <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r26" class="ident">w</label>.<a href="#line-77" class="ident">attrs</a>[:<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r26" class="ident">w</label>.<a href="#line-77" class="ident">attrs</a>):<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r26" class="ident">w</label>.<a href="#line-77" class="ident">attrs</a>)], <label for="r28" class="ident">attrs</label>...)...)</code></span>
+<span class="codeline" id="line-93"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

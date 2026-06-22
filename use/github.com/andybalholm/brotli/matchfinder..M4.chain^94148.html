@@ -11,16 +11,17 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/andybalholm/brotli/matchfinder.html">github.com/andybalholm/brotli/matchfinder</a>.<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-15">M4</a>.<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-46">chain</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">10 uses</span>
+<span class="title">12 uses</span>
 
 	github.com/andybalholm/brotli/matchfinder (current package)
 		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-46">m4.go#L46</a>: 	<b>chain</b> []uint32
 		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-56" class="path-duplicate">m4.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-56">#L56</a>: 	q.<b>chain</b> = q.<b>chain</b>[:0]
-		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-88" class="path-duplicate">m4.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-88">#L88</a>: 			q.<b>chain</b> = q.<b>chain</b>[:q.MaxDistance]
-		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-104" class="path-duplicate">m4.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-104">#L104</a>: 		q.<b>chain</b> = append(q.<b>chain</b>, make([]uint32, len(src))...)
-		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-145" class="path-duplicate">m4.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-145">#L145</a>: 			q.<b>chain</b>[i] = uint32(delta)
-		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-166" class="path-duplicate">m4.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-166">#L166</a>: 			delta := q.<b>chain</b>[candidate]
-		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-239" class="path-duplicate">m4.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-239">#L239</a>: 						delta := int(q.<b>chain</b>[pos])
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-88" class="path-duplicate">m4.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-88">#L88</a>: 			copy(q.<b>chain</b>, q.<b>chain</b>[delta:])
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-89" class="path-duplicate">m4.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-89">#L89</a>: 			q.<b>chain</b> = q.<b>chain</b>[:q.MaxDistance]
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-105" class="path-duplicate">m4.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-105">#L105</a>: 		q.<b>chain</b> = append(q.<b>chain</b>, make([]uint32, len(src))...)
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-146" class="path-duplicate">m4.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-146">#L146</a>: 			q.<b>chain</b>[i] = uint32(delta)
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-167" class="path-duplicate">m4.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-167">#L167</a>: 			delta := q.<b>chain</b>[candidate]
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-240" class="path-duplicate">m4.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m4.go.html#line-240">#L240</a>: 						delta := int(q.<b>chain</b>[pos])
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

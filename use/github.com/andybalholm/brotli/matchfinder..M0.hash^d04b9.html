@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/andybalholm/brotli/matchfinder.html">github.com/andybalholm/brotli/matchfinder</a>.<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-12">M0</a>.<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-33">hash</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">7 uses</span>
+<span class="title">10 uses</span>
 
 	github.com/andybalholm/brotli/matchfinder (current package)
 		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-33">m0.go#L33</a>: func (m M0) <b>hash</b>(data uint64) uint64 {
@@ -19,8 +19,11 @@
 		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-99" class="path-duplicate">m0.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-99">#L99</a>: 			nextHash = m.<b>hash</b>(binary.LittleEndian.Uint64(src[nextS:]))
 		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-115" class="path-duplicate">m0.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-115">#L115</a>: 			h := m.<b>hash</b>(binary.LittleEndian.Uint64(src[newBase:]))
 		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-150" class="path-duplicate">m0.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-150">#L150</a>: 				table[m.<b>hash</b>(x)&amp;m0TableMask] = uint16(i)
-		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-157" class="path-duplicate">m0.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-157">#L157</a>: 		prevHash := m.<b>hash</b>(x &gt;&gt; 0)
-		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-159" class="path-duplicate">m0.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-159">#L159</a>: 		nextHash = m.<b>hash</b>(x &gt;&gt; 8)
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-155" class="path-duplicate">m0.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-155">#L155</a>: 			table[m.<b>hash</b>(x)&amp;m0TableMask] = uint16(base + 1)
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-161" class="path-duplicate">m0.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-161">#L161</a>: 		table[m.<b>hash</b>(x)&amp;m0TableMask] = uint16(s - 3)
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-162" class="path-duplicate">m0.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-162">#L162</a>: 		table[m.<b>hash</b>(x&gt;&gt;8)&amp;m0TableMask] = uint16(s - 2)
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-163" class="path-duplicate">m0.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-163">#L163</a>: 		prevHash := m.<b>hash</b>(x &gt;&gt; 16)
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-165" class="path-duplicate">m0.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-165">#L165</a>: 		nextHash = m.<b>hash</b>(x &gt;&gt; 24)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: encoder_fast.go in package github.com/andybalholm/brotli</title>
+<link href="../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	encoder_fast.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33],
+input[id=r34]:checked ~pre label[for=r34],
+input[id=r35]:checked ~pre label[for=r35],
+input[id=r36]:checked ~pre label[for=r36],
+input[id=r37]:checked ~pre label[for=r37],
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40],
+input[id=r41]:checked ~pre label[for=r41],
+input[id=r42]:checked ~pre label[for=r42],
+input[id=r43]:checked ~pre label[for=r43],
+input[id=r44]:checked ~pre label[for=r44],
+input[id=r45]:checked ~pre label[for=r45],
+input[id=r46]:checked ~pre label[for=r46],
+input[id=r47]:checked ~pre label[for=r47],
+input[id=r48]:checked ~pre label[for=r48],
+input[id=r49]:checked ~pre label[for=r49],
+input[id=r50]:checked ~pre label[for=r50],
+input[id=r51]:checked ~pre label[for=r51],
+input[id=r52]:checked ~pre label[for=r52]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="r34" type="radio" name="g"/>
+<input id="r35" type="radio" name="g"/>
+<input id="r36" type="radio" name="g"/>
+<input id="r37" type="radio" name="g"/>
+<input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="r41" type="radio" name="g"/>
+<input id="r42" type="radio" name="g"/>
+<input id="r43" type="radio" name="g"/>
+<input id="r44" type="radio" name="g"/>
+<input id="r45" type="radio" name="g"/>
+<input id="r46" type="radio" name="g"/>
+<input id="r47" type="radio" name="g"/>
+<input id="r48" type="radio" name="g"/>
+<input id="r49" type="radio" name="g"/>
+<input id="r50" type="radio" name="g"/>
+<input id="r51" type="radio" name="g"/>
+<input id="r52" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> brotli</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-4"><code>	<label for="i0"><span class="lit-string i0">"math"</span></label></code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code>	<label for="i1"><span class="lit-string i1">"github.com/andybalholm/brotli/matchfinder"</span></label></code></span>
+<span class="codeline" id="line-7"><code>)</code></span>
+<span class="codeline" id="line-8"><code></code></span>
+<span class="codeline" id="line-9"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/github.com/andybalholm/brotli.html#name-gaussianProbability" class="ident">gaussianProbability</a></label>(<label for="r1" class="ident">x</label>, <label for="r2" class="ident">mean</label>, <label for="r3" class="ident">stdDev</label> <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a>) <a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a> {</code></span>
+<span class="codeline" id="line-10"><code>	<span class="keyword">return</span> <a href="../../../../pkg/math.html" class="ident i0">math</a>.<a href="../../../math/exp.go.html#line-16" class="ident">Exp</a>(-(<label for="r1" class="ident">x</label>-<label for="r2" class="ident">mean</label>)*(<label for="r1" class="ident">x</label>-<label for="r2" class="ident">mean</label>)/(<span class="lit-number">2</span>*<label for="r3" class="ident">stdDev</label>*<label for="r3" class="ident">stdDev</label>)) / <a href="../../../../pkg/math.html" class="ident i0">math</a>.<a href="../../../math/sqrt.go.html#line-93" class="ident">Sqrt</a>(<span class="lit-number">2</span>*<a href="../../../../pkg/math.html" class="ident i0">math</a>.<a href="../../../math/const.go.html#line-13" class="ident">Pi</a>*<label for="r3" class="ident">stdDev</label>*<label for="r3" class="ident">stdDev</label>)</code></span>
+<span class="codeline" id="line-11"><code>}</code></span>
+<span class="codeline" id="line-12"><code></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">// A FastEncoder implements the matchfinder.Encoder interface, writing in Brotli</span></code></span>
+<span class="codeline" id="line-14"><code><span class="comment">// format. It uses a simplified encoding (like level 0 in the reference</span></code></span>
+<span class="codeline" id="line-15"><code><span class="comment">// implementation) to save time.</span></code></span>
+<span class="codeline" id="line-16"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/andybalholm/brotli.html#name-FastEncoder" class="ident">FastEncoder</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-17"><code>	<a href="../../../../use/github.com/andybalholm/brotli..FastEncoder.wroteHeader^58c63.html" class="ident">wroteHeader</a>   <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-18"><code>	<a href="../../../../use/github.com/andybalholm/brotli..FastEncoder.bw^ab02e.html" class="ident">bw</a>            <a href="bitwriter.go.html#line-11" class="ident">bitWriter</a></code></span>
+<span class="codeline" id="line-19"><code>	<a href="../../../../use/github.com/andybalholm/brotli..FastEncoder.commandHisto^1c360.html" class="ident">commandHisto</a>  [<span class="lit-number">704</span>]<a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-20"><code>	<a href="../../../../use/github.com/andybalholm/brotli..FastEncoder.distanceHisto^26e46.html" class="ident">distanceHisto</a> [<span class="lit-number">64</span>]<a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-21"><code>}</code></span>
+<span class="codeline" id="line-22"><code></code></span>
+<span class="codeline" id="line-23"><code><span class="keyword">func</span> (<label for="r4" class="ident">e</label> *<a href="#line-16" class="ident">FastEncoder</a>) <label for="r5" class="ident"><a href="../../../../use/github.com/andybalholm/brotli..FastEncoder.Reset.html" class="ident">Reset</a></label>() {</code></span>
+<span class="codeline" id="line-24"><code>	<label for="r4" class="ident">e</label>.<a href="#line-17" class="ident">wroteHeader</a> = <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-25"><code>	<label for="r4" class="ident">e</label>.<a href="#line-18" class="ident">bw</a> = <a href="bitwriter.go.html#line-11" class="ident">bitWriter</a>{}</code></span>
+<span class="codeline" id="line-26"><code>}</code></span>
+<span class="codeline" id="line-27"><code></code></span>
+<span class="codeline" id="line-28"><code><span class="keyword">func</span> (<label for="r6" class="ident">e</label> *<a href="#line-16" class="ident">FastEncoder</a>) <label for="r7" class="ident"><a href="../../../../use/github.com/andybalholm/brotli..FastEncoder.Encode.html" class="ident">Encode</a></label>(<label for="r8" class="ident">dst</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r9" class="ident">src</label> []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r10" class="ident">matches</label> []<a href="../../../../pkg/github.com/andybalholm/brotli/matchfinder.html" class="ident i1">matchfinder</a>.<a href="matchfinder/matchfinder.go.html#line-16" class="ident">Match</a>, <label for="r11" class="ident">lastBlock</label> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
+<span class="codeline" id="line-29"><code>	<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-12" class="ident">dst</a> = <label for="r8" class="ident">dst</label></code></span>
+<span class="codeline" id="line-30"><code>	<span class="keyword">if</span> !<label for="r6" class="ident">e</label>.<a href="#line-17" class="ident">wroteHeader</a> {</code></span>
+<span class="codeline" id="line-31"><code>		<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<span class="lit-number">4</span>, <span class="lit-number">15</span>)</code></span>
+<span class="codeline" id="line-32"><code>		<label for="r6" class="ident">e</label>.<a href="#line-17" class="ident">wroteHeader</a> = <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-33"><code></code></span>
+<span class="codeline" id="line-34"><code>		<span class="comment">// Fill the histograms with default statistics.</span></code></span>
+<span class="codeline" id="line-35"><code></code></span>
+<span class="codeline" id="line-36"><code>		<span class="comment">// For the command codes we're using for insert lengths (insert + 2-byte copy),</span></code></span>
+<span class="codeline" id="line-37"><code><span class="comment">		// fill the histogram with a Zipf-squared distribution.</span></code></span>
+<span class="codeline" id="line-38"><code>		<span class="keyword">for</span> <label for="r12" class="ident">i</label> := <span class="keyword">range</span> <span class="lit-number">24</span> {</code></span>
+<span class="codeline" id="line-39"><code>			<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[<a href="command.go.html#line-141" class="ident">combineLengthCodes</a>(<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<label for="r12" class="ident">i</label>), <span class="lit-number">0</span>, <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a>)] = <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<span class="lit-number">2000</span> / (<label for="r12" class="ident">i</label> + <span class="lit-number">1</span>) / (<label for="r12" class="ident">i</label> + <span class="lit-number">1</span>))</code></span>
+<span class="codeline" id="line-40"><code>		}</code></span>
+<span class="codeline" id="line-41"><code></code></span>
+<span class="codeline" id="line-42"><code>		<span class="comment">// For the command codes we're using for copy lengths (0 insert + copy</span></code></span>
+<span class="codeline" id="line-43"><code><span class="comment">		// (length - 2), with repeat distance),</span></code></span>
+<span class="codeline" id="line-44"><code><span class="comment">		// fill the histogram with Zipf distribution starting at code 1 (match length 5),</span></code></span>
+<span class="codeline" id="line-45"><code><span class="comment">		// but a smaller frequency for code 0.</span></code></span>
+<span class="codeline" id="line-46"><code>		<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[<a href="command.go.html#line-141" class="ident">combineLengthCodes</a>(<span class="lit-number">0</span>, <span class="lit-number">0</span>, <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a>)] = <span class="lit-number">50</span></code></span>
+<span class="codeline" id="line-47"><code>		<span class="keyword">for</span> <label for="r13" class="ident">i</label> := <span class="lit-number">1</span>; <label for="r13" class="ident">i</label> &lt; <span class="lit-number">24</span>; <label for="r13" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-48"><code>			<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[<a href="command.go.html#line-141" class="ident">combineLengthCodes</a>(<span class="lit-number">0</span>, <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<label for="r13" class="ident">i</label>), <label for="r13" class="ident">i</label> &lt; <span class="lit-number">16</span>)] = <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<span class="lit-number">800</span> / <label for="r13" class="ident">i</label>)</code></span>
+<span class="codeline" id="line-49"><code>		}</code></span>
+<span class="codeline" id="line-50"><code></code></span>
+<span class="codeline" id="line-51"><code>		<span class="comment">// Fill in the combined codes for short insert and copy lengths.</span></code></span>
+<span class="codeline" id="line-52"><code>		<span class="keyword">for</span> <label for="r14" class="ident">insertCode</label> := <span class="keyword">range</span> <span class="lit-number">6</span> {</code></span>
+<span class="codeline" id="line-53"><code>			<label for="r15" class="ident">copyCode</label> := <span class="lit-number">2</span></code></span>
+<span class="codeline" id="line-54"><code>			<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[<span class="lit-number">128</span>+<label for="r14" class="ident">insertCode</label>&lt;&lt;<span class="lit-number">3</span>+<label for="r15" class="ident">copyCode</label>] = <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<span class="lit-number">100</span> / (<label for="r14" class="ident">insertCode</label> + <span class="lit-number">1</span>) / (<label for="r14" class="ident">insertCode</label> + <span class="lit-number">1</span>) / <label for="r15" class="ident">copyCode</label>)</code></span>
+<span class="codeline" id="line-55"><code>			<span class="keyword">for</span> <label for="r16" class="ident">copyCode</label> := <span class="lit-number">3</span>; <label for="r16" class="ident">copyCode</label> &lt; <span class="lit-number">8</span>; <label for="r16" class="ident">copyCode</label>++ {</code></span>
+<span class="codeline" id="line-56"><code>				<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[<span class="lit-number">128</span>+<label for="r14" class="ident">insertCode</label>&lt;&lt;<span class="lit-number">3</span>+<label for="r16" class="ident">copyCode</label>] = <a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<span class="lit-number">343</span> / (<label for="r14" class="ident">insertCode</label> + <span class="lit-number">1</span>) / (<label for="r14" class="ident">insertCode</label> + <span class="lit-number">1</span>) / <label for="r16" class="ident">copyCode</label>)</code></span>
+<span class="codeline" id="line-57"><code>			}</code></span>
+<span class="codeline" id="line-58"><code>		}</code></span>
+<span class="codeline" id="line-59"><code></code></span>
+<span class="codeline" id="line-60"><code>		<span class="comment">// Fill e.distanceHisto with a normal distribution.</span></code></span>
+<span class="codeline" id="line-61"><code>		<label for="r6" class="ident">e</label>.<a href="#line-20" class="ident">distanceHisto</a>[<span class="lit-number">0</span>] = <span class="lit-number">100</span></code></span>
+<span class="codeline" id="line-62"><code>		<span class="keyword">for</span> <label for="r17" class="ident">i</label> := <span class="lit-number">16</span>; <label for="r17" class="ident">i</label> &lt; <span class="lit-number">64</span>; <label for="r17" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-63"><code>			<label for="r6" class="ident">e</label>.<a href="#line-20" class="ident">distanceHisto</a>[<label for="r17" class="ident">i</label>] = <a href="../../../../pkg/builtin.html#name-max" class="ident">max</a>(<a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<a href="#line-9" class="ident">gaussianProbability</a>(<a href="../../../../pkg/builtin.html#name-float64" class="ident">float64</a>(<label for="r17" class="ident">i</label>), <span class="lit-number">32</span>, <span class="lit-number">8</span>)*<span class="lit-number">10000</span>), <span class="lit-number">1</span>)</code></span>
+<span class="codeline" id="line-64"><code>		}</code></span>
+<span class="codeline" id="line-65"><code>	}</code></span>
+<span class="codeline" id="line-66"><code></code></span>
+<span class="codeline" id="line-67"><code>	<span class="keyword">if</span> <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r9" class="ident">src</label>) == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-68"><code>		<span class="keyword">if</span> <label for="r11" class="ident">lastBlock</label> {</code></span>
+<span class="codeline" id="line-69"><code>			<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<span class="lit-number">2</span>, <span class="lit-number">3</span>) <span class="comment">// islast + isempty</span></code></span>
+<span class="codeline" id="line-70"><code>			<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-43" class="ident">jumpToByteBoundary</a>()</code></span>
+<span class="codeline" id="line-71"><code>			<span class="keyword">return</span> <label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-12" class="ident">dst</a></code></span>
+<span class="codeline" id="line-72"><code>		}</code></span>
+<span class="codeline" id="line-73"><code>		<span class="keyword">return</span> <label for="r8" class="ident">dst</label></code></span>
+<span class="codeline" id="line-74"><code>	}</code></span>
+<span class="codeline" id="line-75"><code></code></span>
+<span class="codeline" id="line-76"><code>	<span class="keyword">var</span> <label for="r18" class="ident">literalHisto</label> [<span class="lit-number">256</span>]<a href="../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-77"><code>	<span class="keyword">for</span> <label for="r19" class="ident">_</label>, <label for="r20" class="ident">c</label> := <span class="keyword">range</span> <label for="r9" class="ident">src</label> {</code></span>
+<span class="codeline" id="line-78"><code>		<label for="r18" class="ident">literalHisto</label>[<label for="r20" class="ident">c</label>]++</code></span>
+<span class="codeline" id="line-79"><code>	}</code></span>
+<span class="codeline" id="line-80"><code></code></span>
+<span class="codeline" id="line-81"><code>	<a href="compress_fragment_two_pass.go.html#line-222" class="ident">storeMetaBlockHeaderBW</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r9" class="ident">src</label>)), <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a>, &amp;<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>)</code></span>
+<span class="codeline" id="line-82"><code>	<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<span class="lit-number">13</span>, <span class="lit-number">0</span>)</code></span>
+<span class="codeline" id="line-83"><code></code></span>
+<span class="codeline" id="line-84"><code>	<span class="keyword">var</span> <label for="r21" class="ident">literalDepths</label> [<span class="lit-number">256</span>]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-85"><code>	<span class="keyword">var</span> <label for="r22" class="ident">literalBits</label> [<span class="lit-number">256</span>]<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-86"><code>	<a href="brotli_bit_stream.go.html#line-637" class="ident">buildAndStoreHuffmanTreeFastBW</a>(<label for="r18" class="ident">literalHisto</label>[:], <a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r9" class="ident">src</label>)), <span class="lit-number">8</span>, <label for="r21" class="ident">literalDepths</label>[:], <label for="r22" class="ident">literalBits</label>[:], &amp;<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>)</code></span>
+<span class="codeline" id="line-87"><code></code></span>
+<span class="codeline" id="line-88"><code>	<span class="keyword">var</span> <label for="r23" class="ident">commandDepths</label> [<span class="lit-number">704</span>]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-89"><code>	<span class="keyword">var</span> <label for="r24" class="ident">commandBits</label> [<span class="lit-number">704</span>]<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-90"><code>	<label for="r25" class="ident">commandCount</label> := <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-91"><code>	<span class="keyword">for</span> <label for="r26" class="ident">_</label>, <label for="r27" class="ident">n</label> := <span class="keyword">range</span> <label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a> {</code></span>
+<span class="codeline" id="line-92"><code>		<label for="r25" class="ident">commandCount</label> += <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r27" class="ident">n</label>)</code></span>
+<span class="codeline" id="line-93"><code>	}</code></span>
+<span class="codeline" id="line-94"><code>	<a href="brotli_bit_stream.go.html#line-637" class="ident">buildAndStoreHuffmanTreeFastBW</a>(<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[:], <a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r25" class="ident">commandCount</label>), <span class="lit-number">10</span>, <label for="r23" class="ident">commandDepths</label>[:], <label for="r24" class="ident">commandBits</label>[:], &amp;<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>)</code></span>
+<span class="codeline" id="line-95"><code></code></span>
+<span class="codeline" id="line-96"><code>	<span class="keyword">var</span> <label for="r28" class="ident">distanceDepths</label> [<span class="lit-number">64</span>]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-97"><code>	<span class="keyword">var</span> <label for="r29" class="ident">distanceBits</label> [<span class="lit-number">64</span>]<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-98"><code>	<label for="r30" class="ident">distanceCount</label> := <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-99"><code>	<span class="keyword">for</span> <label for="r31" class="ident">_</label>, <label for="r32" class="ident">n</label> := <span class="keyword">range</span> <label for="r6" class="ident">e</label>.<a href="#line-20" class="ident">distanceHisto</a> {</code></span>
+<span class="codeline" id="line-100"><code>		<label for="r30" class="ident">distanceCount</label> += <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r32" class="ident">n</label>)</code></span>
+<span class="codeline" id="line-101"><code>	}</code></span>
+<span class="codeline" id="line-102"><code>	<a href="brotli_bit_stream.go.html#line-637" class="ident">buildAndStoreHuffmanTreeFastBW</a>(<label for="r6" class="ident">e</label>.<a href="#line-20" class="ident">distanceHisto</a>[:], <a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r30" class="ident">distanceCount</label>), <span class="lit-number">6</span>, <label for="r28" class="ident">distanceDepths</label>[:], <label for="r29" class="ident">distanceBits</label>[:], &amp;<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>)</code></span>
+<span class="codeline" id="line-103"><code></code></span>
+<span class="codeline" id="line-104"><code>	<span class="comment">// Reset the statistics, starting with a count of 1 for each symbol we might use.</span></code></span>
+<span class="codeline" id="line-105"><code>	<span class="keyword">for</span> <label for="r33" class="ident">i</label> := <span class="keyword">range</span> <span class="lit-number">24</span> {</code></span>
+<span class="codeline" id="line-106"><code>		<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[<a href="command.go.html#line-141" class="ident">combineLengthCodes</a>(<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<label for="r33" class="ident">i</label>), <span class="lit-number">0</span>, <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a>)] = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-107"><code>	}</code></span>
+<span class="codeline" id="line-108"><code>	<span class="keyword">for</span> <label for="r34" class="ident">i</label> := <span class="keyword">range</span> <span class="lit-number">24</span> {</code></span>
+<span class="codeline" id="line-109"><code>		<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[<a href="command.go.html#line-141" class="ident">combineLengthCodes</a>(<span class="lit-number">0</span>, <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<label for="r34" class="ident">i</label>), <label for="r34" class="ident">i</label> &lt; <span class="lit-number">16</span>)] = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-110"><code>	}</code></span>
+<span class="codeline" id="line-111"><code>	<span class="keyword">for</span> <label for="r35" class="ident">insertCode</label> := <span class="keyword">range</span> <span class="lit-number">6</span> {</code></span>
+<span class="codeline" id="line-112"><code>		<span class="keyword">for</span> <label for="r36" class="ident">copyCode</label> := <span class="lit-number">2</span>; <label for="r36" class="ident">copyCode</label> &lt; <span class="lit-number">8</span>; <label for="r36" class="ident">copyCode</label>++ {</code></span>
+<span class="codeline" id="line-113"><code>			<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[<span class="lit-number">128</span>+<label for="r35" class="ident">insertCode</label>&lt;&lt;<span class="lit-number">3</span>+<label for="r36" class="ident">copyCode</label>] = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-114"><code>		}</code></span>
+<span class="codeline" id="line-115"><code>	}</code></span>
+<span class="codeline" id="line-116"><code>	<label for="r6" class="ident">e</label>.<a href="#line-20" class="ident">distanceHisto</a>[<span class="lit-number">0</span>] = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-117"><code>	<span class="keyword">for</span> <label for="r37" class="ident">i</label> := <span class="lit-number">16</span>; <label for="r37" class="ident">i</label> &lt; <span class="lit-number">64</span>; <label for="r37" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-118"><code>		<label for="r6" class="ident">e</label>.<a href="#line-20" class="ident">distanceHisto</a>[<label for="r37" class="ident">i</label>] = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-119"><code>	}</code></span>
+<span class="codeline" id="line-120"><code></code></span>
+<span class="codeline" id="line-121"><code>	<label for="r38" class="ident">pos</label> := <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-122"><code>	<span class="keyword">for</span> <label for="r39" class="ident">i</label>, <label for="r40" class="ident">m</label> := <span class="keyword">range</span> <label for="r10" class="ident">matches</label> {</code></span>
+<span class="codeline" id="line-123"><code>		<label for="r41" class="ident">lengthFinished</label> := <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-124"><code>		<span class="comment">// Write a command with the appropriate insert length, and a copy length of 2.</span></code></span>
+<span class="codeline" id="line-125"><code>		<span class="keyword">if</span> <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-17" class="ident">Unmatched</a> &lt; <span class="lit-number">6</span> {</code></span>
+<span class="codeline" id="line-126"><code>			<span class="keyword">var</span> <label for="r42" class="ident">command</label> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-127"><code>			<span class="keyword">if</span> <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-18" class="ident">Length</a> &lt; <span class="lit-number">10</span> &amp;&amp; <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-18" class="ident">Length</a> != <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-128"><code>				<span class="comment">// We can use a combined insert/copy code with no extra bits.</span></code></span>
+<span class="codeline" id="line-129"><code>				<label for="r42" class="ident">command</label> = <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-17" class="ident">Unmatched</a>&lt;&lt;<span class="lit-number">3</span> + <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-18" class="ident">Length</a> - <span class="lit-number">2</span> + <span class="lit-number">128</span></code></span>
+<span class="codeline" id="line-130"><code>				<label for="r41" class="ident">lengthFinished</label> = <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-131"><code>			} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-132"><code>				<label for="r42" class="ident">command</label> = <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-17" class="ident">Unmatched</a>&lt;&lt;<span class="lit-number">3</span> + <span class="lit-number">128</span></code></span>
+<span class="codeline" id="line-133"><code>			}</code></span>
+<span class="codeline" id="line-134"><code>			<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r23" class="ident">commandDepths</label>[<label for="r42" class="ident">command</label>]), <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r24" class="ident">commandBits</label>[<label for="r42" class="ident">command</label>]))</code></span>
+<span class="codeline" id="line-135"><code>			<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[<label for="r42" class="ident">command</label>]++</code></span>
+<span class="codeline" id="line-136"><code>		} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-137"><code>			<label for="r43" class="ident">insertCode</label> := <a href="command.go.html#line-111" class="ident">getInsertLengthCode</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-17" class="ident">Unmatched</a>))</code></span>
+<span class="codeline" id="line-138"><code>			<label for="r44" class="ident">command</label> := <a href="command.go.html#line-141" class="ident">combineLengthCodes</a>(<label for="r43" class="ident">insertCode</label>, <span class="lit-number">0</span>, <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a>)</code></span>
+<span class="codeline" id="line-139"><code>			<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r23" class="ident">commandDepths</label>[<label for="r44" class="ident">command</label>]), <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r24" class="ident">commandBits</label>[<label for="r44" class="ident">command</label>]))</code></span>
+<span class="codeline" id="line-140"><code>			<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<a href="command.go.html#line-30" class="ident">kInsExtra</a>[<label for="r43" class="ident">insertCode</label>]), <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-17" class="ident">Unmatched</a>)-<a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<a href="command.go.html#line-3" class="ident">kInsBase</a>[<label for="r43" class="ident">insertCode</label>]))</code></span>
+<span class="codeline" id="line-141"><code>			<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[<label for="r44" class="ident">command</label>]++</code></span>
+<span class="codeline" id="line-142"><code>		}</code></span>
+<span class="codeline" id="line-143"><code></code></span>
+<span class="codeline" id="line-144"><code>		<span class="comment">// Write the literals, if any.</span></code></span>
+<span class="codeline" id="line-145"><code>		<span class="keyword">if</span> <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-17" class="ident">Unmatched</a> &gt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-146"><code>			<span class="keyword">for</span> <label for="r45" class="ident">_</label>, <label for="r46" class="ident">c</label> := <span class="keyword">range</span> <label for="r9" class="ident">src</label>[<label for="r38" class="ident">pos</label> : <label for="r38" class="ident">pos</label>+<label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-17" class="ident">Unmatched</a>] {</code></span>
+<span class="codeline" id="line-147"><code>				<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r21" class="ident">literalDepths</label>[<label for="r46" class="ident">c</label>]), <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r22" class="ident">literalBits</label>[<label for="r46" class="ident">c</label>]))</code></span>
+<span class="codeline" id="line-148"><code>			}</code></span>
+<span class="codeline" id="line-149"><code>		}</code></span>
+<span class="codeline" id="line-150"><code></code></span>
+<span class="codeline" id="line-151"><code>		<span class="keyword">if</span> <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-18" class="ident">Length</a> != <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-152"><code>			<span class="comment">// Write the distance code.</span></code></span>
+<span class="codeline" id="line-153"><code>			<span class="keyword">var</span> <label for="r47" class="ident">distCode</label> <a href="encoder.go.html#line-163" class="ident">distanceCode</a></code></span>
+<span class="codeline" id="line-154"><code>			<span class="keyword">if</span> <label for="r39" class="ident">i</label> == <span class="lit-number">0</span> || <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-19" class="ident">Distance</a> != <label for="r10" class="ident">matches</label>[<label for="r39" class="ident">i</label>-<span class="lit-number">1</span>].<a href="matchfinder/matchfinder.go.html#line-19" class="ident">Distance</a> {</code></span>
+<span class="codeline" id="line-155"><code>				<label for="r47" class="ident">distCode</label> = <a href="encoder.go.html#line-169" class="ident">getDistanceCode</a>(<label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-19" class="ident">Distance</a>)</code></span>
+<span class="codeline" id="line-156"><code>			}</code></span>
+<span class="codeline" id="line-157"><code>			<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r28" class="ident">distanceDepths</label>[<label for="r47" class="ident">distCode</label>.<a href="encoder.go.html#line-164" class="ident">code</a>]), <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r29" class="ident">distanceBits</label>[<label for="r47" class="ident">distCode</label>.<a href="encoder.go.html#line-164" class="ident">code</a>]))</code></span>
+<span class="codeline" id="line-158"><code>			<span class="keyword">if</span> <label for="r47" class="ident">distCode</label>.<a href="encoder.go.html#line-165" class="ident">nExtra</a> &gt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-159"><code>				<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<label for="r47" class="ident">distCode</label>.<a href="encoder.go.html#line-165" class="ident">nExtra</a>, <label for="r47" class="ident">distCode</label>.<a href="encoder.go.html#line-166" class="ident">extraBits</a>)</code></span>
+<span class="codeline" id="line-160"><code>			}</code></span>
+<span class="codeline" id="line-161"><code>			<label for="r6" class="ident">e</label>.<a href="#line-20" class="ident">distanceHisto</a>[<label for="r47" class="ident">distCode</label>.<a href="encoder.go.html#line-164" class="ident">code</a>]++</code></span>
+<span class="codeline" id="line-162"><code></code></span>
+<span class="codeline" id="line-163"><code>			<span class="comment">// Write a command for the remainder of the match (after the first two bytes</span></code></span>
+<span class="codeline" id="line-164"><code><span class="comment">			// from before), using the previous distance.</span></code></span>
+<span class="codeline" id="line-165"><code>			<span class="keyword">switch</span> {</code></span>
+<span class="codeline" id="line-166"><code>			<span class="keyword">case</span> <label for="r41" class="ident">lengthFinished</label>:</code></span>
+<span class="codeline" id="line-167"><code>				<span class="comment">// We don't need to finish the length.</span></code></span>
+<span class="codeline" id="line-168"><code>			<span class="keyword">case</span> <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-18" class="ident">Length</a> &lt; <span class="lit-number">12</span>:</code></span>
+<span class="codeline" id="line-169"><code>				<label for="r48" class="ident">command</label> := <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-18" class="ident">Length</a> - <span class="lit-number">4</span></code></span>
+<span class="codeline" id="line-170"><code>				<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r23" class="ident">commandDepths</label>[<label for="r48" class="ident">command</label>]), <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r24" class="ident">commandBits</label>[<label for="r48" class="ident">command</label>]))</code></span>
+<span class="codeline" id="line-171"><code>				<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[<label for="r48" class="ident">command</label>]++</code></span>
+<span class="codeline" id="line-172"><code>			<span class="keyword">case</span> <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-18" class="ident">Length</a> &lt; <span class="lit-number">72</span>:</code></span>
+<span class="codeline" id="line-173"><code>				<label for="r49" class="ident">copyCode</label> := <a href="command.go.html#line-128" class="ident">getCopyLengthCode</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-18" class="ident">Length</a> - <span class="lit-number">2</span>))</code></span>
+<span class="codeline" id="line-174"><code>				<label for="r50" class="ident">command</label> := <a href="command.go.html#line-141" class="ident">combineLengthCodes</a>(<span class="lit-number">0</span>, <label for="r49" class="ident">copyCode</label>, <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a>)</code></span>
+<span class="codeline" id="line-175"><code>				<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r23" class="ident">commandDepths</label>[<label for="r50" class="ident">command</label>]), <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r24" class="ident">commandBits</label>[<label for="r50" class="ident">command</label>]))</code></span>
+<span class="codeline" id="line-176"><code>				<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<a href="command.go.html#line-84" class="ident">kCopyExtra</a>[<label for="r49" class="ident">copyCode</label>]), <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-18" class="ident">Length</a>-<span class="lit-number">2</span>)-<a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<a href="command.go.html#line-57" class="ident">kCopyBase</a>[<label for="r49" class="ident">copyCode</label>]))</code></span>
+<span class="codeline" id="line-177"><code>				<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[<label for="r50" class="ident">command</label>]++</code></span>
+<span class="codeline" id="line-178"><code>			<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-179"><code>				<label for="r51" class="ident">copyCode</label> := <a href="command.go.html#line-128" class="ident">getCopyLengthCode</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-18" class="ident">Length</a> - <span class="lit-number">2</span>))</code></span>
+<span class="codeline" id="line-180"><code>				<label for="r52" class="ident">command</label> := <a href="command.go.html#line-141" class="ident">combineLengthCodes</a>(<span class="lit-number">0</span>, <label for="r51" class="ident">copyCode</label>, <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a>)</code></span>
+<span class="codeline" id="line-181"><code>				<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r23" class="ident">commandDepths</label>[<label for="r52" class="ident">command</label>]), <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r24" class="ident">commandBits</label>[<label for="r52" class="ident">command</label>]))</code></span>
+<span class="codeline" id="line-182"><code>				<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<a href="command.go.html#line-84" class="ident">kCopyExtra</a>[<label for="r51" class="ident">copyCode</label>]), <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-18" class="ident">Length</a>-<span class="lit-number">2</span>)-<a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<a href="command.go.html#line-57" class="ident">kCopyBase</a>[<label for="r51" class="ident">copyCode</label>]))</code></span>
+<span class="codeline" id="line-183"><code>				<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<a href="../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r28" class="ident">distanceDepths</label>[<span class="lit-number">0</span>]), <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r29" class="ident">distanceBits</label>[<span class="lit-number">0</span>]))</code></span>
+<span class="codeline" id="line-184"><code>				<label for="r6" class="ident">e</label>.<a href="#line-19" class="ident">commandHisto</a>[<label for="r52" class="ident">command</label>]++</code></span>
+<span class="codeline" id="line-185"><code>				<label for="r6" class="ident">e</label>.<a href="#line-20" class="ident">distanceHisto</a>[<span class="lit-number">0</span>]++</code></span>
+<span class="codeline" id="line-186"><code>			}</code></span>
+<span class="codeline" id="line-187"><code>		}</code></span>
+<span class="codeline" id="line-188"><code></code></span>
+<span class="codeline" id="line-189"><code>		<label for="r38" class="ident">pos</label> += <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-17" class="ident">Unmatched</a> + <label for="r40" class="ident">m</label>.<a href="matchfinder/matchfinder.go.html#line-18" class="ident">Length</a></code></span>
+<span class="codeline" id="line-190"><code>	}</code></span>
+<span class="codeline" id="line-191"><code></code></span>
+<span class="codeline" id="line-192"><code>	<span class="keyword">if</span> <label for="r11" class="ident">lastBlock</label> {</code></span>
+<span class="codeline" id="line-193"><code>		<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-19" class="ident">writeBits</a>(<span class="lit-number">2</span>, <span class="lit-number">3</span>) <span class="comment">// islast + isempty</span></code></span>
+<span class="codeline" id="line-194"><code>		<label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-43" class="ident">jumpToByteBoundary</a>()</code></span>
+<span class="codeline" id="line-195"><code>	}</code></span>
+<span class="codeline" id="line-196"><code>	<span class="keyword">return</span> <label for="r6" class="ident">e</label>.<a href="#line-18" class="ident">bw</a>.<a href="bitwriter.go.html#line-12" class="ident">dst</a></code></span>
+<span class="codeline" id="line-197"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
