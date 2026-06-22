@@ -3,16 +3,16 @@ module ref
 go 1.26rc1
 
 require (
-	github.com/gotd/td v0.158.0
+	github.com/gotd/td v0.159.0
 	go101.org/golds v0.8.4
 )
 
 require (
-	github.com/andybalholm/brotli v1.2.0 // indirect
+	github.com/andybalholm/brotli v1.2.1 // indirect
 	github.com/cenkalti/backoff/v4 v4.3.0 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/coder/websocket v1.8.15 // indirect
-	github.com/dlclark/regexp2 v1.11.5 // indirect
+	github.com/dlclark/regexp2 v1.12.0 // indirect
 	github.com/fatih/color v1.19.0 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/go-faster/errors v0.7.1 // indirect
@@ -25,11 +25,12 @@ require (
 	github.com/gotd/neo v0.1.5 // indirect
 	github.com/klauspost/compress v1.18.6 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect
-	github.com/mattn/go-isatty v0.0.20 // indirect
-	github.com/ogen-go/ogen v1.20.3 // indirect
+	github.com/mattn/go-isatty v0.0.22 // indirect
+	github.com/ogen-go/ogen v1.22.0 // indirect
 	github.com/refraction-networking/utls v1.8.2 // indirect
 	github.com/segmentio/asm v1.2.1 // indirect
 	github.com/shopspring/decimal v1.4.0 // indirect
+	github.com/yuin/goldmark v1.8.2 // indirect
 	go.opentelemetry.io/otel v1.44.0 // indirect
 	go.opentelemetry.io/otel/metric v1.44.0 // indirect
 	go.opentelemetry.io/otel/trace v1.44.0 // indirect
