@@ -510,13 +510,18 @@
 		It is the string-based default used by Password; prefer a secret-memory
 		implementation (e.g. telegram/auth/srpguard) when handling sensitive input.</span>
 
-</span></div><div class="anchor value-res" id="name-Test">	<input type='checkbox' class="fold" id="Test-fold-content"><label for="Test-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/auth..Test.html">func</a> <a href="../../../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-310">Test</a>(randReader <a href="../../../../io.html">io</a>.<a href="../../../../io.html#name-Reader">Reader</a>, dc <a href="../../../../builtin.html#name-int">int</a>) <a href="#name-UserAuthenticator">UserAuthenticator</a></label><span id='Test-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor value-res" id="name-Test">	<input type='checkbox' class="fold" id="Test-fold-content"><label for="Test-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/auth..Test.html">func</a> <a href="../../../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-315">Test</a>(randReader <a href="../../../../io.html">io</a>.<a href="../../../../io.html#name-Reader">Reader</a>, dc <a href="../../../../builtin.html#name-int">int</a>) <a href="#name-UserAuthenticator">UserAuthenticator</a></label><span id='Test-fold-content-docs' class="fold-docs">
 <span class="md-text">		Test returns UserAuthenticator that authenticates via testing credentials.
 		
 		Can be used only with testing server. Will perform sign up if test user is
-		not registered.</span>
+		not registered.
+		
+		NB: as of 2026, Telegram no longer auto-provisions accounts for randomly
+		generated 99966X test phone numbers — sign in fails with PHONE_CODE_INVALID.
+		You now need a real, pre-registered test account (use TestUser with its
+		phone); see https://core.telegram.org/api/auth#test-accounts.</span>
 
-</span></div><div class="anchor value-res" id="name-TestUser">	<input type='checkbox' class="fold" id="TestUser-fold-content"><label for="TestUser-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/auth..TestUser.html">func</a> <a href="../../../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-327">TestUser</a>(phone <a href="../../../../builtin.html#name-string">string</a>, dc <a href="../../../../builtin.html#name-int">int</a>) <a href="#name-UserAuthenticator">UserAuthenticator</a></label><span id='TestUser-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor value-res" id="name-TestUser">	<input type='checkbox' class="fold" id="TestUser-fold-content"><label for="TestUser-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/auth..TestUser.html">func</a> <a href="../../../../../src/github.com/gotd/td/telegram/auth/flow.go.html#line-332">TestUser</a>(phone <a href="../../../../builtin.html#name-string">string</a>, dc <a href="../../../../builtin.html#name-int">int</a>) <a href="#name-UserAuthenticator">UserAuthenticator</a></label><span id='TestUser-fold-content-docs' class="fold-docs">
 <span class="md-text">		TestUser returns UserAuthenticator that authenticates via testing credentials.
 		Uses given phone to sign in/sign up.
 		

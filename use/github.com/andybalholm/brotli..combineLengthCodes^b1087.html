@@ -11,15 +11,23 @@
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../../../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>.<a href="../../../src/github.com/andybalholm/brotli/command.go.html#line-141">combineLengthCodes</a></b></span>
 
-<span class="title">6 uses</span>
+<span class="title">14 uses</span>
 
 	github.com/andybalholm/brotli (current package)
 		<a href="../../../src/github.com/andybalholm/brotli/backward_references_hq.go.html#line-439">backward_references_hq.go#L439</a>: 					var cmdcode uint16 = <b>combineLengthCodes</b>(inscode, copycode, j == 0)
 		<a href="../../../src/github.com/andybalholm/brotli/backward_references_hq.go.html#line-500" class="path-duplicate">backward_references_hq.go</a><a href="../../../src/github.com/andybalholm/brotli/backward_references_hq.go.html#line-500">#L500</a>: 					var cmdcode uint16 = <b>combineLengthCodes</b>(inscode, copycode, false)
 		<a href="../../../src/github.com/andybalholm/brotli/command.go.html#line-141">command.go#L141</a>: func <b>combineLengthCodes</b>(inscode uint16, copycode uint16, use_last_distance bool) uint16 {
 		<a href="../../../src/github.com/andybalholm/brotli/command.go.html#line-169" class="path-duplicate">command.go</a><a href="../../../src/github.com/andybalholm/brotli/command.go.html#line-169">#L169</a>: 	*code = <b>combineLengthCodes</b>(inscode, copycode, use_last_distance)
-		<a href="../../../src/github.com/andybalholm/brotli/encoder.go.html#line-63">encoder.go#L63</a>: 		command := <b>combineLengthCodes</b>(insertCode, copyCode, false)
-		<a href="../../../src/github.com/andybalholm/brotli/encoder.go.html#line-130" class="path-duplicate">encoder.go</a><a href="../../../src/github.com/andybalholm/brotli/encoder.go.html#line-130">#L130</a>: 		command := <b>combineLengthCodes</b>(insertCode, copyCode, false)
+		<a href="../../../src/github.com/andybalholm/brotli/encoder.go.html#line-63">encoder.go#L63</a>: 		command := <b>combineLengthCodes</b>(insertCode, copyCode, i &gt; 0 &amp;&amp; m.Distance == matches[i-1].Distance)
+		<a href="../../../src/github.com/andybalholm/brotli/encoder.go.html#line-130" class="path-duplicate">encoder.go</a><a href="../../../src/github.com/andybalholm/brotli/encoder.go.html#line-130">#L130</a>: 		command := <b>combineLengthCodes</b>(insertCode, copyCode, i &gt; 0 &amp;&amp; m.Distance == matches[i-1].Distance)
+		<a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-39">encoder_fast.go#L39</a>: 			e.commandHisto[<b>combineLengthCodes</b>(uint16(i), 0, false)] = uint32(2000 / (i + 1) / (i + 1))
+		<a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-46" class="path-duplicate">encoder_fast.go</a><a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-46">#L46</a>: 		e.commandHisto[<b>combineLengthCodes</b>(0, 0, true)] = 50
+		<a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-48" class="path-duplicate">encoder_fast.go</a><a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-48">#L48</a>: 			e.commandHisto[<b>combineLengthCodes</b>(0, uint16(i), i &lt; 16)] = uint32(800 / i)
+		<a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-106" class="path-duplicate">encoder_fast.go</a><a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-106">#L106</a>: 		e.commandHisto[<b>combineLengthCodes</b>(uint16(i), 0, false)] = 1
+		<a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-109" class="path-duplicate">encoder_fast.go</a><a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-109">#L109</a>: 		e.commandHisto[<b>combineLengthCodes</b>(0, uint16(i), i &lt; 16)] = 1
+		<a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-138" class="path-duplicate">encoder_fast.go</a><a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-138">#L138</a>: 			command := <b>combineLengthCodes</b>(insertCode, 0, false)
+		<a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-174" class="path-duplicate">encoder_fast.go</a><a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-174">#L174</a>: 				command := <b>combineLengthCodes</b>(0, copyCode, true)
+		<a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-180" class="path-duplicate">encoder_fast.go</a><a href="../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-180">#L180</a>: 				command := <b>combineLengthCodes</b>(0, copyCode, false)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

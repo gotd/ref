@@ -25,7 +25,9 @@ input[id=r5]:checked ~pre label[for=r5],
 input[id=r6]:checked ~pre label[for=r6],
 input[id=r7]:checked ~pre label[for=r7],
 input[id=r8]:checked ~pre label[for=r8],
-input[id=r9]:checked ~pre label[for=r9]
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
 input[id=i1]:checked ~pre .i1
@@ -40,6 +42,8 @@ input[id=i1]:checked ~pre .i1
 <input id="r7" type="radio" name="g"/>
 <input id="r8" type="radio" name="g"/>
 <input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
 
@@ -51,11 +55,11 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-5"><code>	<label for="i1"><span class="lit-string i1">"math/big"</span></label></code></span>
 <span class="codeline" id="line-6"><code>)</code></span>
 <span class="codeline" id="line-7"><code></code></span>
-<span class="codeline" id="line-8"><code><span class="comment">// sha1BigInt returns SHA1(a + b).</span></code></span>
-<span class="codeline" id="line-9"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../pkg/github.com/gotd/td/crypto.html#name-sha1BigInt" class="ident">sha1BigInt</a></label>(<label for="r1" class="ident">a</label>, <label for="r2" class="ident">b</label> *<a href="../../../../../pkg/math/big.html" class="ident i1">big</a>.<a href="../../../../math/big/int.go.html#line-33" class="ident">Int</a>) []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
-<span class="codeline" id="line-10"><code>	<span class="keyword">var</span> <label for="r3" class="ident">buf</label> []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
-<span class="codeline" id="line-11"><code>	<label for="r3" class="ident">buf</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r3" class="ident">buf</label>, <label for="r1" class="ident">a</label>.<a href="../../../../math/big/int.go.html#line-527" class="ident">Bytes</a>()...)</code></span>
-<span class="codeline" id="line-12"><code>	<label for="r3" class="ident">buf</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r3" class="ident">buf</label>, <label for="r2" class="ident">b</label>.<a href="../../../../math/big/int.go.html#line-527" class="ident">Bytes</a>()...)</code></span>
+<span class="codeline" id="line-8"><code><span class="comment">// sha1Bytes returns SHA1(a + b).</span></code></span>
+<span class="codeline" id="line-9"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../pkg/github.com/gotd/td/crypto.html#name-sha1Bytes" class="ident">sha1Bytes</a></label>(<label for="r1" class="ident">a</label>, <label for="r2" class="ident">b</label> []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
+<span class="codeline" id="line-10"><code>	<label for="r3" class="ident">buf</label> := <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <span class="lit-number">0</span>, <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r1" class="ident">a</label>)+<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r2" class="ident">b</label>))</code></span>
+<span class="codeline" id="line-11"><code>	<label for="r3" class="ident">buf</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r3" class="ident">buf</label>, <label for="r1" class="ident">a</label>...)</code></span>
+<span class="codeline" id="line-12"><code>	<label for="r3" class="ident">buf</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r3" class="ident">buf</label>, <label for="r2" class="ident">b</label>...)</code></span>
 <span class="codeline" id="line-13"><code></code></span>
 <span class="codeline" id="line-14"><code>	<label for="r4" class="ident">h</label> := <a href="../../../../../pkg/crypto/sha1.html" class="ident i0">sha1</a>.<a href="../../../../crypto/sha1/sha1.go.html#line-273" class="ident">Sum</a>(<label for="r3" class="ident">buf</label>) <span class="comment">// #nosec</span></code></span>
 <span class="codeline" id="line-15"><code>	<span class="keyword">return</span> <label for="r4" class="ident">h</label>[:]</code></span>
@@ -63,23 +67,34 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-17"><code></code></span>
 <span class="codeline" id="line-18"><code><span class="comment">// TempAESKeys returns tmp_aes_key and tmp_aes_iv based on new_nonce and</span></code></span>
 <span class="codeline" id="line-19"><code><span class="comment">// server_nonce as defined in "Creating an Authorization Key".</span></code></span>
-<span class="codeline" id="line-20"><code><span class="keyword">func</span> <label for="r5" class="ident"><a href="../../../../../pkg/github.com/gotd/td/crypto.html#name-TempAESKeys" class="ident">TempAESKeys</a></label>(<label for="r6" class="ident">newNonce</label>, <label for="r7" class="ident">serverNonce</label> *<a href="../../../../../pkg/math/big.html" class="ident i1">big</a>.<a href="../../../../math/big/int.go.html#line-33" class="ident">Int</a>) (<label for="r8" class="ident">key</label>, <label for="r9" class="ident">iv</label> []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) {</code></span>
-<span class="codeline" id="line-21"><code>	<span class="comment">// See https://core.telegram.org/mtproto/auth_key#presenting-proof-of-work-server-authentication</span></code></span>
-<span class="codeline" id="line-22"><code><span class="comment">	// 5. Server responds in one of two ways: [...]</span></code></span>
-<span class="codeline" id="line-23"><code></code></span>
-<span class="codeline" id="line-24"><code>	<span class="comment">// tmp_aes_key := SHA1(new_nonce + server_nonce) + substr (SHA1(server_nonce + new_nonce), 0, 12);</span></code></span>
-<span class="codeline" id="line-25"><code><span class="comment">	// SHA1(new_nonce + server_nonce)</span></code></span>
-<span class="codeline" id="line-26"><code>	<label for="r8" class="ident">key</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r8" class="ident">key</label>, <a href="#line-9" class="ident">sha1BigInt</a>(<label for="r6" class="ident">newNonce</label>, <label for="r7" class="ident">serverNonce</label>)...)</code></span>
-<span class="codeline" id="line-27"><code>	<span class="comment">// substr (SHA1(server_nonce + new_nonce), 0, 12);</span></code></span>
-<span class="codeline" id="line-28"><code>	<label for="r8" class="ident">key</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r8" class="ident">key</label>, <a href="#line-9" class="ident">sha1BigInt</a>(<label for="r7" class="ident">serverNonce</label>, <label for="r6" class="ident">newNonce</label>)[:<span class="lit-number">12</span>]...)</code></span>
-<span class="codeline" id="line-29"><code></code></span>
-<span class="codeline" id="line-30"><code>	<span class="comment">// tmp_aes_iv := substr (SHA1(server_nonce + new_nonce), 12, 8) + SHA1(new_nonce + new_nonce) + substr (new_nonce, 0, 4);</span></code></span>
-<span class="codeline" id="line-31"><code>	<label for="r9" class="ident">iv</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r9" class="ident">iv</label>, <a href="#line-9" class="ident">sha1BigInt</a>(<label for="r7" class="ident">serverNonce</label>, <label for="r6" class="ident">newNonce</label>)[<span class="lit-number">12</span>:<span class="lit-number">12</span>+<span class="lit-number">8</span>]...)</code></span>
-<span class="codeline" id="line-32"><code>	<label for="r9" class="ident">iv</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r9" class="ident">iv</label>, <a href="#line-9" class="ident">sha1BigInt</a>(<label for="r6" class="ident">newNonce</label>, <label for="r6" class="ident">newNonce</label>)...)</code></span>
-<span class="codeline" id="line-33"><code>	<label for="r9" class="ident">iv</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r9" class="ident">iv</label>, <label for="r6" class="ident">newNonce</label>.<a href="../../../../math/big/int.go.html#line-527" class="ident">Bytes</a>()[:<span class="lit-number">4</span>]...)</code></span>
-<span class="codeline" id="line-34"><code></code></span>
-<span class="codeline" id="line-35"><code>	<span class="keyword">return</span> <label for="r8" class="ident">key</label>, <label for="r9" class="ident">iv</label></code></span>
-<span class="codeline" id="line-36"><code>}</code></span>
+<span class="codeline" id="line-20"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-21"><code><span class="comment">// new_nonce (int256) and server_nonce (int128) are fixed-length byte strings</span></code></span>
+<span class="codeline" id="line-22"><code><span class="comment">// of 32 and 16 bytes. They must be hashed at their full length: see</span></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">// https://core.telegram.org/mtproto/auth_key#presenting-proof-of-work-server-authentication</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-25"><code><span class="comment">// They are passed here as *big.Int, so they are first serialized back to their</span></code></span>
+<span class="codeline" id="line-26"><code><span class="comment">// canonical fixed length with FillBytes. Using big.Int.Bytes() instead would</span></code></span>
+<span class="codeline" id="line-27"><code><span class="comment">// strip leading zero bytes, and whenever new_nonce or server_nonce starts with</span></code></span>
+<span class="codeline" id="line-28"><code><span class="comment">// 0x00 (about 1/256 of the time each) the SHA1 input would be a byte short and</span></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">// the derived tmp_aes_key/tmp_aes_iv would be wrong, making the server_DH_params</span></code></span>
+<span class="codeline" id="line-30"><code><span class="comment">// answer impossible to decrypt for a spec-compliant peer.</span></code></span>
+<span class="codeline" id="line-31"><code><span class="keyword">func</span> <label for="r5" class="ident"><a href="../../../../../pkg/github.com/gotd/td/crypto.html#name-TempAESKeys" class="ident">TempAESKeys</a></label>(<label for="r6" class="ident">newNonce</label>, <label for="r7" class="ident">serverNonce</label> *<a href="../../../../../pkg/math/big.html" class="ident i1">big</a>.<a href="../../../../math/big/int.go.html#line-33" class="ident">Int</a>) (<label for="r8" class="ident">key</label>, <label for="r9" class="ident">iv</label> []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) {</code></span>
+<span class="codeline" id="line-32"><code>	<label for="r10" class="ident">nn</label> := <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <span class="lit-number">32</span>)</code></span>
+<span class="codeline" id="line-33"><code>	<label for="r6" class="ident">newNonce</label>.<a href="../../../../math/big/int.go.html#line-539" class="ident">FillBytes</a>(<label for="r10" class="ident">nn</label>)</code></span>
+<span class="codeline" id="line-34"><code>	<label for="r11" class="ident">sn</label> := <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <span class="lit-number">16</span>)</code></span>
+<span class="codeline" id="line-35"><code>	<label for="r7" class="ident">serverNonce</label>.<a href="../../../../math/big/int.go.html#line-539" class="ident">FillBytes</a>(<label for="r11" class="ident">sn</label>)</code></span>
+<span class="codeline" id="line-36"><code></code></span>
+<span class="codeline" id="line-37"><code>	<span class="comment">// tmp_aes_key := SHA1(new_nonce + server_nonce) + substr(SHA1(server_nonce + new_nonce), 0, 12)</span></code></span>
+<span class="codeline" id="line-38"><code>	<label for="r8" class="ident">key</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r8" class="ident">key</label>, <a href="#line-9" class="ident">sha1Bytes</a>(<label for="r10" class="ident">nn</label>, <label for="r11" class="ident">sn</label>)...)</code></span>
+<span class="codeline" id="line-39"><code>	<label for="r8" class="ident">key</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r8" class="ident">key</label>, <a href="#line-9" class="ident">sha1Bytes</a>(<label for="r11" class="ident">sn</label>, <label for="r10" class="ident">nn</label>)[:<span class="lit-number">12</span>]...)</code></span>
+<span class="codeline" id="line-40"><code></code></span>
+<span class="codeline" id="line-41"><code>	<span class="comment">// tmp_aes_iv := substr(SHA1(server_nonce + new_nonce), 12, 8) + SHA1(new_nonce + new_nonce) + substr(new_nonce, 0, 4)</span></code></span>
+<span class="codeline" id="line-42"><code>	<label for="r9" class="ident">iv</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r9" class="ident">iv</label>, <a href="#line-9" class="ident">sha1Bytes</a>(<label for="r11" class="ident">sn</label>, <label for="r10" class="ident">nn</label>)[<span class="lit-number">12</span>:<span class="lit-number">12</span>+<span class="lit-number">8</span>]...)</code></span>
+<span class="codeline" id="line-43"><code>	<label for="r9" class="ident">iv</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r9" class="ident">iv</label>, <a href="#line-9" class="ident">sha1Bytes</a>(<label for="r10" class="ident">nn</label>, <label for="r10" class="ident">nn</label>)...)</code></span>
+<span class="codeline" id="line-44"><code>	<label for="r9" class="ident">iv</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r9" class="ident">iv</label>, <label for="r10" class="ident">nn</label>[:<span class="lit-number">4</span>]...)</code></span>
+<span class="codeline" id="line-45"><code></code></span>
+<span class="codeline" id="line-46"><code>	<span class="keyword">return</span> <label for="r8" class="ident">key</label>, <label for="r9" class="ident">iv</label></code></span>
+<span class="codeline" id="line-47"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

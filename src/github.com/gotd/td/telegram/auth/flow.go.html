@@ -603,29 +603,34 @@ input[id=i8]:checked ~pre .i8
 <span class="codeline" id="line-307"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-308"><code><span class="comment">// Can be used only with testing server. Will perform sign up if test user is</span></code></span>
 <span class="codeline" id="line-309"><code><span class="comment">// not registered.</span></code></span>
-<span class="codeline" id="line-310"><code><span class="keyword">func</span> <label for="r119" class="ident"><a href="../../../../../../pkg/github.com/gotd/td/telegram/auth.html#name-Test" class="ident">Test</a></label>(<label for="r120" class="ident">randReader</label> <a href="../../../../../../pkg/io.html" class="ident i2">io</a>.<a href="../../../../../io/io.go.html#line-86" class="ident">Reader</a>, <label for="r121" class="ident">dc</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="#line-168" class="ident">UserAuthenticator</a> {</code></span>
-<span class="codeline" id="line-311"><code>	<span class="comment">// 99966XYYYY, X = dc_id, Y = random numbers, code = X repeat 6.</span></code></span>
-<span class="codeline" id="line-312"><code><span class="comment">	// The n value is from 0000 to 9999.</span></code></span>
-<span class="codeline" id="line-313"><code>	<label for="r122" class="ident">n</label>, <label for="r123" class="ident">err</label> := <a href="../../../../../../pkg/github.com/gotd/td/crypto.html" class="ident i7">crypto</a>.<a href="../../crypto/rand.go.html#line-10" class="ident">RandInt64n</a>(<label for="r120" class="ident">randReader</label>, <span class="lit-number">1000</span>)</code></span>
-<span class="codeline" id="line-314"><code>	<span class="keyword">if</span> <label for="r123" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-315"><code>		<a href="../../../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<label for="r123" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-316"><code>	}</code></span>
-<span class="codeline" id="line-317"><code>	<label for="r124" class="ident">phone</label> := <a href="../../../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"99966%d%04d"</span>, <label for="r121" class="ident">dc</label>, <label for="r122" class="ident">n</label>)</code></span>
-<span class="codeline" id="line-318"><code></code></span>
-<span class="codeline" id="line-319"><code>	<span class="keyword">return</span> <a href="#line-327" class="ident">TestUser</a>(<label for="r124" class="ident">phone</label>, <label for="r121" class="ident">dc</label>)</code></span>
-<span class="codeline" id="line-320"><code>}</code></span>
-<span class="codeline" id="line-321"><code></code></span>
-<span class="codeline" id="line-322"><code><span class="comment">// TestUser returns UserAuthenticator that authenticates via testing credentials.</span></code></span>
-<span class="codeline" id="line-323"><code><span class="comment">// Uses given phone to sign in/sign up.</span></code></span>
-<span class="codeline" id="line-324"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-325"><code><span class="comment">// Can be used only with testing server. Will perform sign up if test user is</span></code></span>
-<span class="codeline" id="line-326"><code><span class="comment">// not registered.</span></code></span>
-<span class="codeline" id="line-327"><code><span class="keyword">func</span> <label for="r125" class="ident"><a href="../../../../../../pkg/github.com/gotd/td/telegram/auth.html#name-TestUser" class="ident">TestUser</a></label>(<label for="r126" class="ident">phone</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r127" class="ident">dc</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="#line-168" class="ident">UserAuthenticator</a> {</code></span>
-<span class="codeline" id="line-328"><code>	<span class="keyword">return</span> <a href="#line-271" class="ident">testAuth</a>{</code></span>
-<span class="codeline" id="line-329"><code>		<a href="#line-272" class="ident">dc</a>:    <label for="r127" class="ident">dc</label>,</code></span>
-<span class="codeline" id="line-330"><code>		<a href="#line-273" class="ident">phone</a>: <label for="r126" class="ident">phone</label>,</code></span>
-<span class="codeline" id="line-331"><code>	}</code></span>
-<span class="codeline" id="line-332"><code>}</code></span>
+<span class="codeline" id="line-310"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-311"><code><span class="comment">// NB: as of 2026, Telegram no longer auto-provisions accounts for randomly</span></code></span>
+<span class="codeline" id="line-312"><code><span class="comment">// generated 99966X test phone numbers — sign in fails with PHONE_CODE_INVALID.</span></code></span>
+<span class="codeline" id="line-313"><code><span class="comment">// You now need a real, pre-registered test account (use TestUser with its</span></code></span>
+<span class="codeline" id="line-314"><code><span class="comment">// phone); see https://core.telegram.org/api/auth#test-accounts.</span></code></span>
+<span class="codeline" id="line-315"><code><span class="keyword">func</span> <label for="r119" class="ident"><a href="../../../../../../pkg/github.com/gotd/td/telegram/auth.html#name-Test" class="ident">Test</a></label>(<label for="r120" class="ident">randReader</label> <a href="../../../../../../pkg/io.html" class="ident i2">io</a>.<a href="../../../../../io/io.go.html#line-86" class="ident">Reader</a>, <label for="r121" class="ident">dc</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="#line-168" class="ident">UserAuthenticator</a> {</code></span>
+<span class="codeline" id="line-316"><code>	<span class="comment">// 99966XYYYY, X = dc_id, Y = random numbers, code = X repeat 6.</span></code></span>
+<span class="codeline" id="line-317"><code><span class="comment">	// The n value is from 0000 to 9999.</span></code></span>
+<span class="codeline" id="line-318"><code>	<label for="r122" class="ident">n</label>, <label for="r123" class="ident">err</label> := <a href="../../../../../../pkg/github.com/gotd/td/crypto.html" class="ident i7">crypto</a>.<a href="../../crypto/rand.go.html#line-10" class="ident">RandInt64n</a>(<label for="r120" class="ident">randReader</label>, <span class="lit-number">1000</span>)</code></span>
+<span class="codeline" id="line-319"><code>	<span class="keyword">if</span> <label for="r123" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-320"><code>		<a href="../../../../../../pkg/builtin.html#name-panic" class="ident">panic</a>(<label for="r123" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-321"><code>	}</code></span>
+<span class="codeline" id="line-322"><code>	<label for="r124" class="ident">phone</label> := <a href="../../../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"99966%d%04d"</span>, <label for="r121" class="ident">dc</label>, <label for="r122" class="ident">n</label>)</code></span>
+<span class="codeline" id="line-323"><code></code></span>
+<span class="codeline" id="line-324"><code>	<span class="keyword">return</span> <a href="#line-332" class="ident">TestUser</a>(<label for="r124" class="ident">phone</label>, <label for="r121" class="ident">dc</label>)</code></span>
+<span class="codeline" id="line-325"><code>}</code></span>
+<span class="codeline" id="line-326"><code></code></span>
+<span class="codeline" id="line-327"><code><span class="comment">// TestUser returns UserAuthenticator that authenticates via testing credentials.</span></code></span>
+<span class="codeline" id="line-328"><code><span class="comment">// Uses given phone to sign in/sign up.</span></code></span>
+<span class="codeline" id="line-329"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-330"><code><span class="comment">// Can be used only with testing server. Will perform sign up if test user is</span></code></span>
+<span class="codeline" id="line-331"><code><span class="comment">// not registered.</span></code></span>
+<span class="codeline" id="line-332"><code><span class="keyword">func</span> <label for="r125" class="ident"><a href="../../../../../../pkg/github.com/gotd/td/telegram/auth.html#name-TestUser" class="ident">TestUser</a></label>(<label for="r126" class="ident">phone</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r127" class="ident">dc</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="#line-168" class="ident">UserAuthenticator</a> {</code></span>
+<span class="codeline" id="line-333"><code>	<span class="keyword">return</span> <a href="#line-271" class="ident">testAuth</a>{</code></span>
+<span class="codeline" id="line-334"><code>		<a href="#line-272" class="ident">dc</a>:    <label for="r127" class="ident">dc</label>,</code></span>
+<span class="codeline" id="line-335"><code>		<a href="#line-273" class="ident">phone</a>: <label for="r126" class="ident">phone</label>,</code></span>
+<span class="codeline" id="line-336"><code>	}</code></span>
+<span class="codeline" id="line-337"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

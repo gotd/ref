@@ -11,9 +11,12 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/andybalholm/brotli/matchfinder.html">github.com/andybalholm/brotli/matchfinder</a>.<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/matchfinder.go.html#line-16">Match</a>.<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/matchfinder.go.html#line-18">Length</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">16 uses</span>
+<span class="title">42 uses</span>
 
 	github.com/andybalholm/brotli/matchfinder (current package)
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/bargain1.go.html#line-191">bargain1.go#L191</a>: 				<b>Length</b>:   int(a.length),
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/bargain2.go.html#line-223">bargain2.go#L223</a>: 				<b>Length</b>:   int(a.length),
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/bargain3.go.html#line-249">bargain3.go#L249</a>: 				<b>Length</b>:   int(a.length),
 		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/emitter.go.html#line-30">emitter.go#L30</a>: 		<b>Length</b>:    m.End - m.Start,
 		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/m0.go.html#line-137">m0.go#L137</a>: 			<b>Length</b>:    s - base,
 		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/matchfinder.go.html#line-18">matchfinder.go#L18</a>: 	<b>Length</b>    int // the number of bytes in the matched string; it may be 0 at the end of the input
@@ -21,6 +24,12 @@
 		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/textencoder.go.html#line-18">textencoder.go#L18</a>: 		if m.<b>Length</b> &gt; 0 {
 		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/textencoder.go.html#line-19" class="path-duplicate">textencoder.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/textencoder.go.html#line-19">#L19</a>: 			dst = append(dst, []byte(fmt.Sprintf("&lt;%d,%d&gt;", m.<b>Length</b>, m.Distance))...)
 		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/textencoder.go.html#line-20" class="path-duplicate">textencoder.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/textencoder.go.html#line-20">#L20</a>: 			pos += m.<b>Length</b>
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/zdfast.go.html#line-121">zdfast.go#L121</a>: 					<b>Length</b>:    end - int(start),
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/zdfast.go.html#line-189" class="path-duplicate">zdfast.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/zdfast.go.html#line-189">#L189</a>: 			<b>Length</b>:    end - int(s),
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/zdfast.go.html#line-230" class="path-duplicate">zdfast.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/zdfast.go.html#line-230">#L230</a>: 				<b>Length</b>:   end - int(s),
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/zfast.go.html#line-115">zfast.go#L115</a>: 					<b>Length</b>:    end - int(start),
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/zfast.go.html#line-164" class="path-duplicate">zfast.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/zfast.go.html#line-164">#L164</a>: 			<b>Length</b>:    end - int(s),
+		<a href="../../../../src/github.com/andybalholm/brotli/matchfinder/zfast.go.html#line-182" class="path-duplicate">zfast.go</a><a href="../../../../src/github.com/andybalholm/brotli/matchfinder/zfast.go.html#line-182">#L182</a>: 				<b>Length</b>:   end - int(s),
 
 	<a href="../../../../pkg/github.com/andybalholm/brotli.html">github.com/andybalholm/brotli</a>
 		<a href="../../../../src/github.com/andybalholm/brotli/encoder.go.html#line-58">encoder.go#L58</a>: 		copyCode := getCopyLengthCode(uint(m.<b>Length</b>))
@@ -32,6 +41,24 @@
 		<a href="../../../../src/github.com/andybalholm/brotli/encoder.go.html#line-136" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/andybalholm/brotli/encoder.go.html#line-136">#L136</a>: 			e.bw.writeBits(uint(kCopyExtra[copyCode]), uint64(m.<b>Length</b>)-uint64(kCopyBase[copyCode]))
 		<a href="../../../../src/github.com/andybalholm/brotli/encoder.go.html#line-145" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/andybalholm/brotli/encoder.go.html#line-145">#L145</a>: 		if command &gt;= 128 &amp;&amp; m.<b>Length</b> != 0 {
 		<a href="../../../../src/github.com/andybalholm/brotli/encoder.go.html#line-153" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/andybalholm/brotli/encoder.go.html#line-153">#L153</a>: 		pos += m.Unmatched + m.<b>Length</b>
+		<a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-127">encoder_fast.go#L127</a>: 			if m.<b>Length</b> &lt; 10 &amp;&amp; m.<b>Length</b> != 0 {
+		<a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-129" class="path-duplicate">encoder_fast.go</a><a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-129">#L129</a>: 				command = m.Unmatched&lt;&lt;3 + m.<b>Length</b> - 2 + 128
+		<a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-151" class="path-duplicate">encoder_fast.go</a><a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-151">#L151</a>: 		if m.<b>Length</b> != 0 {
+		<a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-168" class="path-duplicate">encoder_fast.go</a><a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-168">#L168</a>: 			case m.<b>Length</b> &lt; 12:
+		<a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-169" class="path-duplicate">encoder_fast.go</a><a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-169">#L169</a>: 				command := m.<b>Length</b> - 4
+		<a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-172" class="path-duplicate">encoder_fast.go</a><a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-172">#L172</a>: 			case m.<b>Length</b> &lt; 72:
+		<a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-173" class="path-duplicate">encoder_fast.go</a><a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-173">#L173</a>: 				copyCode := getCopyLengthCode(uint(m.<b>Length</b> - 2))
+		<a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-176" class="path-duplicate">encoder_fast.go</a><a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-176">#L176</a>: 				e.bw.writeBits(uint(kCopyExtra[copyCode]), uint64(m.<b>Length</b>-2)-uint64(kCopyBase[copyCode]))
+		<a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-179" class="path-duplicate">encoder_fast.go</a><a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-179">#L179</a>: 				copyCode := getCopyLengthCode(uint(m.<b>Length</b> - 2))
+		<a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-182" class="path-duplicate">encoder_fast.go</a><a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-182">#L182</a>: 				e.bw.writeBits(uint(kCopyExtra[copyCode]), uint64(m.<b>Length</b>-2)-uint64(kCopyBase[copyCode]))
+		<a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-189" class="path-duplicate">encoder_fast.go</a><a href="../../../../src/github.com/andybalholm/brotli/encoder_fast.go.html#line-189">#L189</a>: 		pos += m.Unmatched + m.<b>Length</b>
+
+	<a href="../../../../pkg/github.com/andybalholm/brotli/flate.html">github.com/andybalholm/brotli/flate</a>
+		<a href="../../../../src/github.com/andybalholm/brotli/flate/huffman_bit_writer.go.html#line-440">huffman_bit_writer.go#L440</a>: 		if m.<b>Length</b> == 0 {
+		<a href="../../../../src/github.com/andybalholm/brotli/flate/huffman_bit_writer.go.html#line-443" class="path-duplicate">huffman_bit_writer.go</a><a href="../../../../src/github.com/andybalholm/brotli/flate/huffman_bit_writer.go.html#line-443">#L443</a>: 		w.literalFreq[lengthCodesStart+lengthCode(m.<b>Length</b>)]++
+		<a href="../../../../src/github.com/andybalholm/brotli/flate/huffman_bit_writer.go.html#line-445" class="path-duplicate">huffman_bit_writer.go</a><a href="../../../../src/github.com/andybalholm/brotli/flate/huffman_bit_writer.go.html#line-445">#L445</a>: 		pos += m.<b>Length</b>
+		<a href="../../../../src/github.com/andybalholm/brotli/flate/huffman_bit_writer.go.html#line-481" class="path-duplicate">huffman_bit_writer.go</a><a href="../../../../src/github.com/andybalholm/brotli/flate/huffman_bit_writer.go.html#line-481">#L481</a>: 		length := m.<b>Length</b>
+		<a href="../../../../src/github.com/andybalholm/brotli/flate/huffman_bit_writer.go.html#line-502" class="path-duplicate">huffman_bit_writer.go</a><a href="../../../../src/github.com/andybalholm/brotli/flate/huffman_bit_writer.go.html#line-502">#L502</a>: 		pos += m.<b>Length</b>
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
