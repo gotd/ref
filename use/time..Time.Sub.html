@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../pkg/time.html">time</a>.<a href="../src/time/time.go.html#line-140">Time</a>.<a href="../src/time/time.go.html#line-1198">Sub</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">40 uses</span>
+<span class="title">50 uses</span>
 
 	time (current package)
 		<a href="../src/time/time.go.html#line-1198">time.go#L1198</a>: func (t Time) <b>Sub</b>(u Time) Duration {
@@ -37,14 +37,21 @@
 		<a href="../src/github.com/gotd/td/exchange/client_flow.go.html#line-76">client_flow.go#L76</a>: 	c.log.Debug(ctx, "PQ decomposing complete", log.Duration("took", c.clock.Now().<b>Sub</b>(start)))
 
 	<a href="../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../src/github.com/gotd/td/mtproto/ack.go.html#line-29">ack.go#L29</a>: 			log.Duration("elapsed", c.clock.Now().<b>Sub</b>(start)),
 		<a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-60">connect.go#L60</a>: 			log.Duration("duration", c.clock.Now().<b>Sub</b>(start)),
 		<a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-87" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-87">#L87</a>: 			log.Duration("duration", c.clock.Now().<b>Sub</b>(start)),
 		<a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-100" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-100">#L100</a>: 		log.Duration("duration", c.clock.Now().<b>Sub</b>(start)),
 		<a href="../src/github.com/gotd/td/mtproto/handle_session_created.go.html#line-30">handle_session_created.go#L30</a>: 	if (created.Before(now) &amp;&amp; now.<b>Sub</b>(created) &gt; maxPast) || created.<b>Sub</b>(now) &gt; maxFuture {
 		<a href="../src/github.com/gotd/td/mtproto/handle_session_created.go.html#line-34" class="path-duplicate">handle_session_created.go</a><a href="../src/github.com/gotd/td/mtproto/handle_session_created.go.html#line-34">#L34</a>: 			log.Duration("time_difference", now.<b>Sub</b>(created)),
 		<a href="../src/github.com/gotd/td/mtproto/pfs.go.html#line-38">pfs.go#L38</a>: 		wait := time.Unix(renewAt, 0).<b>Sub</b>(c.clock.Now())
+		<a href="../src/github.com/gotd/td/mtproto/ping.go.html#line-124">ping.go#L124</a>: 					log.Duration("elapsed", c.clock.Now().<b>Sub</b>(start)),
+		<a href="../src/github.com/gotd/td/mtproto/ping.go.html#line-128" class="path-duplicate">ping.go</a><a href="../src/github.com/gotd/td/mtproto/ping.go.html#line-128">#L128</a>: 			logger.Debug(ctx, "Ping acknowledged", log.Duration("elapsed", c.clock.Now().<b>Sub</b>(start)))
 		<a href="../src/github.com/gotd/td/mtproto/read.go.html#line-42">read.go#L42</a>: 	if created.Before(now) &amp;&amp; now.<b>Sub</b>(created) &gt; maxPast {
 		<a href="../src/github.com/gotd/td/mtproto/read.go.html#line-45" class="path-duplicate">read.go</a><a href="../src/github.com/gotd/td/mtproto/read.go.html#line-45">#L45</a>: 	if created.<b>Sub</b>(now) &gt; maxFuture {
+		<a href="../src/github.com/gotd/td/mtproto/read.go.html#line-101" class="path-duplicate">read.go</a><a href="../src/github.com/gotd/td/mtproto/read.go.html#line-101">#L101</a>: 			if waited := c.clock.Now().<b>Sub</b>(start); waited &gt; slowWriteThreshold {
+		<a href="../src/github.com/gotd/td/mtproto/write.go.html#line-44">write.go#L44</a>: 	if waited := locked.<b>Sub</b>(start); waited &gt; slowWriteThreshold {
+		<a href="../src/github.com/gotd/td/mtproto/write.go.html#line-67" class="path-duplicate">write.go</a><a href="../src/github.com/gotd/td/mtproto/write.go.html#line-67">#L67</a>: 		logger.Debug(ctx, "Send failed", log.Error(err), log.Duration("elapsed", c.clock.Now().<b>Sub</b>(locked)))
+		<a href="../src/github.com/gotd/td/mtproto/write.go.html#line-71" class="path-duplicate">write.go</a><a href="../src/github.com/gotd/td/mtproto/write.go.html#line-71">#L71</a>: 	if elapsed := c.clock.Now().<b>Sub</b>(locked); elapsed &gt; slowWriteThreshold {
 
 	<a href="../pkg/github.com/gotd/td/tdsync.html">github.com/gotd/td/tdsync</a>
 		<a href="../src/github.com/gotd/td/tdsync/log_group.go.html#line-46">log_group.go#L46</a>: 			elapsed := g.clock.Now().<b>Sub</b>(start)
@@ -55,6 +62,9 @@
 
 	<a href="../pkg/github.com/gotd/td/telegram/internal/manager.html">github.com/gotd/td/telegram/internal/manager</a>
 		<a href="../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-154">conn.go#L154</a>: 			log.Duration("duration", end.<b>Sub</b>(start)),
+		<a href="../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-198" class="path-duplicate">conn.go</a><a href="../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-198">#L198</a>: 		c.log.Debug(ctx, "Connection became ready", log.Duration("waited", c.clock.Now().<b>Sub</b>(start)))
+		<a href="../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-201" class="path-duplicate">conn.go</a><a href="../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-201">#L201</a>: 		c.log.Debug(ctx, "Connection died while waiting for readiness", log.Duration("waited", c.clock.Now().<b>Sub</b>(start)))
+		<a href="../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-205" class="path-duplicate">conn.go</a><a href="../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-205">#L205</a>: 			log.Duration("waited", c.clock.Now().<b>Sub</b>(start)),
 
 	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
 		<a href="../src/github.com/refraction-networking/utls/common.go.html#line-1096">common.go#L1096</a>: 	if len(c.autoSessionTicketKeys) &gt; 0 &amp;&amp; c.time().<b>Sub</b>(c.autoSessionTicketKeys[0].created) &lt; ticketKeyRotation {

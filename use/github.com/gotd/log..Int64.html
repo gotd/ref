@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../../../pkg/github.com/gotd/log.html">github.com/gotd/log</a>.<a href="../../../src/github.com/gotd/log/attr.go.html#line-148">Int64</a></b></span>
 
-<span class="title">41 uses</span>
+<span class="title">44 uses</span>
 
 	github.com/gotd/log (current package)
 		<a href="../../../src/github.com/gotd/log/attr.go.html#line-144">attr.go#L144</a>: 	return <b>Int64</b>(key, int64(value))
@@ -33,9 +33,12 @@
 		<a href="../../../src/github.com/gotd/td/mtproto/new_encrypted_msg.go.html#line-64">new_encrypted_msg.go#L64</a>: 	logger.Debug(context.Background(), "Request", log.<b>Int64</b>("msg_id", id))
 		<a href="../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-51">pfs.go#L51</a>: 			log.<b>Int64</b>("expires_at", expiresAt),
 		<a href="../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-52" class="path-duplicate">pfs.go</a><a href="../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-52">#L52</a>: 			log.<b>Int64</b>("renew_at", renewAt),
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-103">read.go#L103</a>: 					log.<b>Int64</b>("msg_id", msg.MessageID),
 		<a href="../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-27">rpc.go#L27</a>: 		log.<b>Int64</b>("msg_id", req.MsgID),
 		<a href="../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-41" class="path-duplicate">rpc.go</a><a href="../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-41">#L41</a>: 			c.log.Info(ctx, "Retrying request after basMsgErr", log.<b>Int64</b>("msg_id", req.MsgID))
 		<a href="../../../src/github.com/gotd/td/mtproto/salt.go.html#line-21">salt.go#L21</a>: 		c.log.Info(context.Background(), "Salt updated", log.<b>Int64</b>("old", oldSalt), log.<b>Int64</b>("new", salt))
+		<a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-46">write.go#L46</a>: 			log.<b>Int64</b>("msg_id", msgID),
+		<a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-60" class="path-duplicate">write.go</a><a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-60">#L60</a>: 		log.<b>Int64</b>("msg_id", msgID),
 
 	<a href="../../../pkg/github.com/gotd/td/pool.html">github.com/gotd/td/pool</a>
 		<a href="../../../src/github.com/gotd/td/pool/pool.go.html#line-121">pool.go#L121</a>: 		log.<b>Int64</b>("remaining", remaining),
@@ -53,10 +56,10 @@
 		<a href="../../../src/github.com/gotd/td/rpc/ack.go.html#line-17">ack.go#L17</a>: 			e.log.Debug(context.Background(), "Acknowledge callback not set", log.<b>Int64</b>("msg_id", id))
 		<a href="../../../src/github.com/gotd/td/rpc/ack.go.html#line-31" class="path-duplicate">ack.go</a><a href="../../../src/github.com/gotd/td/rpc/ack.go.html#line-31">#L31</a>: 	logger := e.log.With(log.<b>Int64</b>("ack_id", id))
 		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-94">engine.go#L94</a>: 	logger := e.log.With(log.<b>Int64</b>("msg_id", req.MsgID))
-		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-203" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-203">#L203</a>: 		logger  = e.log.Named("retry").With(log.<b>Int64</b>("msg_id", req.MsgID))
-		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-251" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-251">#L251</a>: 					logger.Error(ctx, "Retry limit reached", log.<b>Int64</b>("msg_id", req.MsgID))
-		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-269" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-269">#L269</a>: 		e.log.Warn(context.Background(), "rpc callback not set", log.<b>Int64</b>("msg_id", msgID))
-		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-282" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-282">#L282</a>: 		e.log.Warn(context.Background(), "rpc callback not set", log.<b>Int64</b>("msg_id", msgID))
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-208" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-208">#L208</a>: 		logger  = e.log.Named("retry").With(log.<b>Int64</b>("msg_id", req.MsgID))
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-256" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-256">#L256</a>: 					logger.Error(ctx, "Retry limit reached", log.<b>Int64</b>("msg_id", req.MsgID))
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-278" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-278">#L278</a>: 			log.<b>Int64</b>("msg_id", msgID),
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-293" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-293">#L293</a>: 		e.log.Warn(context.Background(), "rpc callback not set", log.<b>Int64</b>("msg_id", msgID))
 
 	<a href="../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
 		<a href="../../../src/github.com/gotd/td/telegram/conn_builder.go.html#line-102">conn_builder.go#L102</a>: 		log.<b>Int64</b>("conn_id", id),

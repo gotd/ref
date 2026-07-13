@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/gotd/log.html">github.com/gotd/log</a>.<a href="../../../src/github.com/gotd/log/helper.go.html#line-9">Helper</a>.<a href="../../../src/github.com/gotd/log/helper.go.html#line-60">Debug</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">76 uses</span>
+<span class="title">91 uses</span>
 
 	github.com/gotd/log (current package)
 		<a href="../../../src/github.com/gotd/log/helper.go.html#line-60">helper.go#L60</a>: func (h Helper) <b>Debug</b>(ctx context.Context, msg string, attrs ...Attr) {
@@ -33,7 +33,7 @@
 		<a href="../../../src/github.com/gotd/td/exchange/server_flow.go.html#line-295" class="path-duplicate">server_flow.go</a><a href="../../../src/github.com/gotd/td/exchange/server_flow.go.html#line-295">#L295</a>: 	s.log.<b>Debug</b>(ctx, "Sending DhGenOk")
 
 	<a href="../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
-		<a href="../../../src/github.com/gotd/td/mtproto/ack.go.html#line-24">ack.go#L24</a>: 		logger.<b>Debug</b>(ctx, "Ack", log.Any("msg_ids", buf))
+		<a href="../../../src/github.com/gotd/td/mtproto/ack.go.html#line-27">ack.go#L27</a>: 		logger.<b>Debug</b>(ctx, "Ack",
 		<a href="../../../src/github.com/gotd/td/mtproto/bind.go.html#line-104">bind.go#L104</a>: 	c.log.<b>Debug</b>(ctx, "Binding temporary auth key",
 		<a href="../../../src/github.com/gotd/td/mtproto/conn.go.html#line-193">conn.go#L193</a>: 	c.log.<b>Debug</b>(ctx, "Closing")
 		<a href="../../../src/github.com/gotd/td/mtproto/conn.go.html#line-199" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/mtproto/conn.go.html#line-199">#L199</a>: 		c.log.<b>Debug</b>(ctx, "Failed to cleanup connection", log.Error(err))
@@ -49,13 +49,17 @@
 		<a href="../../../src/github.com/gotd/td/mtproto/handle_result.go.html#line-56" class="path-duplicate">handle_result.go</a><a href="../../../src/github.com/gotd/td/mtproto/handle_result.go.html#line-56">#L56</a>: 		c.log.<b>Debug</b>(ctx, "Got error", msgID,
 		<a href="../../../src/github.com/gotd/td/mtproto/handle_session_created.go.html#line-24">handle_session_created.go#L24</a>: 	c.log.<b>Debug</b>(ctx, "Session created",
 		<a href="../../../src/github.com/gotd/td/mtproto/new_encrypted_msg.go.html#line-64">new_encrypted_msg.go#L64</a>: 	logger.<b>Debug</b>(context.Background(), "Request", log.Int64("msg_id", id))
-		<a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-43">ping.go#L43</a>: 	c.log.<b>Debug</b>(context.Background(), "Pong")
-		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-108">read.go#L108</a>: 		c.log.<b>Debug</b>(context.Background(), "No updates")
-		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-140" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-140">#L140</a>: 	logger.<b>Debug</b>(ctx, "Read loop started")
-		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-146" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-146">#L146</a>: 		l.<b>Debug</b>(ctx, "Read loop done")
+		<a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-44">ping.go#L44</a>: 	c.log.<b>Debug</b>(context.Background(), "Pong")
+		<a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-112" class="path-duplicate">ping.go</a><a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-112">#L112</a>: 			logger.<b>Debug</b>(ctx, "Sending ping", log.Duration("timeout", c.pingTimeout))
+		<a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-128" class="path-duplicate">ping.go</a><a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-128">#L128</a>: 			logger.<b>Debug</b>(ctx, "Ping acknowledged", log.Duration("elapsed", c.clock.Now().Sub(start)))
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-118">read.go#L118</a>: 		c.log.<b>Debug</b>(context.Background(), "No updates")
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-150" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-150">#L150</a>: 	logger.<b>Debug</b>(ctx, "Read loop started")
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-156" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-156">#L156</a>: 		l.<b>Debug</b>(ctx, "Read loop done")
 		<a href="../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-29">rpc.go#L29</a>: 	logger.<b>Debug</b>(ctx, "Invoke start")
 		<a href="../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-30" class="path-duplicate">rpc.go</a><a href="../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-30">#L30</a>: 	defer logger.<b>Debug</b>(ctx, "Invoke end")
 		<a href="../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-36" class="path-duplicate">rpc.go</a><a href="../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-36">#L36</a>: 			c.log.<b>Debug</b>(ctx, "Setting server salt")
+		<a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-64">write.go#L64</a>: 	logger.<b>Debug</b>(ctx, "Sending message")
+		<a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-67" class="path-duplicate">write.go</a><a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-67">#L67</a>: 		logger.<b>Debug</b>(ctx, "Send failed", log.Error(err), log.Duration("elapsed", c.clock.Now().Sub(locked)))
 
 	<a href="../../../pkg/github.com/gotd/td/pool.html">github.com/gotd/td/pool</a>
 		<a href="../../../src/github.com/gotd/td/pool/pool.go.html#line-120">pool.go#L120</a>: 	c.log.<b>Debug</b>(ctx, "Connection died",
@@ -78,10 +82,14 @@
 		<a href="../../../src/github.com/gotd/td/rpc/ack.go.html#line-37" class="path-duplicate">ack.go</a><a href="../../../src/github.com/gotd/td/rpc/ack.go.html#line-37">#L37</a>: 	logger.<b>Debug</b>(ctx, "Waiting for acknowledge")
 		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-95">engine.go#L95</a>: 	logger.<b>Debug</b>(ctx, "Do called")
 		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-107" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-107">#L107</a>: 		logger.<b>Debug</b>(ctx, "Handler called")
-		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-173" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-173">#L173</a>: 		logger.<b>Debug</b>(ctx, "Request dropped")
-		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-225" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-225">#L225</a>: 					logger.<b>Debug</b>(ctx, "Acknowledged")
-		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-234" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-234">#L234</a>: 				logger.<b>Debug</b>(ctx, "Acknowledged")
-		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-239" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-239">#L239</a>: 				logger.<b>Debug</b>(ctx, "Acknowledge timed out, performing retry")
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-152" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-152">#L152</a>: 	logger.<b>Debug</b>(ctx, "Acknowledged, waiting for result", log.Bool("sent", sent))
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-156" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-156">#L156</a>: 		logger.<b>Debug</b>(ctx, "Context done before result", log.Bool("sent", sent), log.Error(ctx.Err()))
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-176" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-176">#L176</a>: 		logger.<b>Debug</b>(ctx, "Request dropped")
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-189" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-189">#L189</a>: 		logger.<b>Debug</b>(ctx, "Engine closed while waiting for result")
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-192" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-192">#L192</a>: 		logger.<b>Debug</b>(ctx, "Result received", log.Error(resultErr))
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-230" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-230">#L230</a>: 					logger.<b>Debug</b>(ctx, "Acknowledged")
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-239" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-239">#L239</a>: 				logger.<b>Debug</b>(ctx, "Acknowledged")
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-244" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-244">#L244</a>: 				logger.<b>Debug</b>(ctx, "Acknowledge timed out, performing retry")
 
 	<a href="../../../pkg/github.com/gotd/td/tdsync.html">github.com/gotd/td/tdsync</a>
 		<a href="../../../src/github.com/gotd/td/tdsync/log_group.go.html#line-43">log_group.go#L43</a>: 		l.<b>Debug</b>(ctx, "Task started")
@@ -90,10 +98,12 @@
 
 	<a href="../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
 		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-83">connect.go#L83</a>: 			c.log.<b>Debug</b>(ctx, "Restart triggered")
-		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-136" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-136">#L136</a>: 	c.log.<b>Debug</b>(context.Background(), "Ready")
-		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-226" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-226">#L226</a>: 			c.log.<b>Debug</b>(ctx, "Callback returned, stopping")
+		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-133" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-133">#L133</a>: 		c.log.<b>Debug</b>(context.Background(), "Primary connection replaced after restart")
+		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-138" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-138">#L138</a>: 	c.log.<b>Debug</b>(context.Background(), "Ready")
+		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-228" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-228">#L228</a>: 			c.log.<b>Debug</b>(ctx, "Callback returned, stopping")
 		<a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-71">invoke.go#L71</a>: 				logger.<b>Debug</b>(ctx, "Invoking on target DC")
-		<a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-108" class="path-duplicate">invoke.go</a><a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-108">#L108</a>: 		c.log.<b>Debug</b>(ctx, "Primary connection is dead, waiting for new connection to retry",
+		<a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-110" class="path-duplicate">invoke.go</a><a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-110">#L110</a>: 		c.log.<b>Debug</b>(ctx, "Primary connection is dead, waiting for new connection to retry",
+		<a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-121" class="path-duplicate">invoke.go</a><a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-121">#L121</a>: 			c.log.<b>Debug</b>(ctx, "Primary connection replaced, retrying request", log.Int("attempt", attempt))
 		<a href="../../../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-12">migrate_to_dc.go#L12</a>: 	c.log.<b>Debug</b>(ctx, "Triggering restart")
 		<a href="../../../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-19" class="path-duplicate">migrate_to_dc.go</a><a href="../../../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-19">#L19</a>: 		c.log.<b>Debug</b>(ctx, "Restart initialized")
 		<a href="../../../src/github.com/gotd/td/telegram/pool.go.html#line-75">pool.go#L75</a>: 	c.log.<b>Debug</b>(ctx, "Creating pool",
@@ -102,8 +112,13 @@
 	<a href="../../../pkg/github.com/gotd/td/telegram/internal/manager.html">github.com/gotd/td/telegram/internal/manager</a>
 		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-153">conn.go#L153</a>: 		c.log.<b>Debug</b>(context.Background(), "Invoke",
 		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-165" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-165">#L165</a>: 			c.log.<b>Debug</b>(ctx, "Connection dead", log.Error(err))
-		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-321" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-321">#L321</a>: 	c.log.<b>Debug</b>(ctx, "Initializing")
-		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-368" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-368">#L368</a>: 		c.log.<b>Debug</b>(ctx, "Retrying connection initialization",
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-194" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-194">#L194</a>: 	c.log.<b>Debug</b>(ctx, "Invoke waiting for connection to become ready")
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-198" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-198">#L198</a>: 		c.log.<b>Debug</b>(ctx, "Connection became ready", log.Duration("waited", c.clock.Now().Sub(start)))
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-201" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-201">#L201</a>: 		c.log.<b>Debug</b>(ctx, "Connection died while waiting for readiness", log.Duration("waited", c.clock.Now().Sub(start)))
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-204" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-204">#L204</a>: 		c.log.<b>Debug</b>(ctx, "Context done while waiting for connection readiness",
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-340" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-340">#L340</a>: 	c.log.<b>Debug</b>(ctx, "Initializing")
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-387" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-387">#L387</a>: 		c.log.<b>Debug</b>(ctx, "Retrying connection initialization",
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-405" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-405">#L405</a>: 	c.log.<b>Debug</b>(ctx, "Connection initialized, ready to invoke", log.Int("this_dc", cfg.ThisDC))
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

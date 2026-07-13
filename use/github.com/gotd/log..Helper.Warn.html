@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/gotd/log.html">github.com/gotd/log</a>.<a href="../../../src/github.com/gotd/log/helper.go.html#line-9">Helper</a>.<a href="../../../src/github.com/gotd/log/helper.go.html#line-70">Warn</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">24 uses</span>
+<span class="title">29 uses</span>
 
 	github.com/gotd/log (current package)
 		<a href="../../../src/github.com/gotd/log/helper.go.html#line-70">helper.go#L70</a>: func (h Helper) <b>Warn</b>(ctx context.Context, msg string, attrs ...Attr) {
@@ -24,16 +24,20 @@
 		<a href="../../../src/github.com/gotd/td/mtproto/bind.go.html#line-176" class="path-duplicate">bind.go</a><a href="../../../src/github.com/gotd/td/mtproto/bind.go.html#line-176">#L176</a>: 		c.log.<b>Warn</b>(context.Background(), "auth.bindTempAuthKey returned CONNECTION_NOT_INITED, retrying bind",
 		<a href="../../../src/github.com/gotd/td/mtproto/bind.go.html#line-182" class="path-duplicate">bind.go</a><a href="../../../src/github.com/gotd/td/mtproto/bind.go.html#line-182">#L182</a>: 	c.log.<b>Warn</b>(context.Background(), "auth.bindTempAuthKey returned CONNECTION_NOT_INITED after retries, reconnecting without dropping keys",
 		<a href="../../../src/github.com/gotd/td/mtproto/handle_session_created.go.html#line-31">handle_session_created.go#L31</a>: 		c.log.<b>Warn</b>(ctx, "Local clock needs synchronization",
+		<a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-122">ping.go#L122</a>: 				logger.<b>Warn</b>(ctx, "Ping failed, connection considered dead",
 		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-76">read.go#L76</a>: 		c.log.<b>Warn</b>(ctx, "Ignoring rejected message", log.Error(err))
 		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-86" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-86">#L86</a>: 		c.log.<b>Warn</b>(ctx, "Error while handling message", log.Error(err))
-		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-121" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-121">#L121</a>: 		c.log.<b>Warn</b>(ctx, "BUG: zero session id found")
-		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-128" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-128">#L128</a>: 	c.log.<b>Warn</b>(ctx, "Re-generating keys (server not found key that we provided)")
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-102" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-102">#L102</a>: 				c.log.<b>Warn</b>(ctx, "Slow ack enqueue (ack loop may be stalled)",
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-131" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-131">#L131</a>: 		c.log.<b>Warn</b>(ctx, "BUG: zero session id found")
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-138" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-138">#L138</a>: 	c.log.<b>Warn</b>(ctx, "Re-generating keys (server not found key that we provided)")
+		<a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-45">write.go#L45</a>: 		c.logWithTypeID(peekID(message)).<b>Warn</b>(ctx, "Slow write: waited for exchange lock",
+		<a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-72" class="path-duplicate">write.go</a><a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-72">#L72</a>: 		logger.<b>Warn</b>(ctx, "Slow write: transport send took too long", log.Duration("elapsed", elapsed))
 
 	<a href="../../../pkg/github.com/gotd/td/rpc.html">github.com/gotd/td/rpc</a>
 		<a href="../../../src/github.com/gotd/td/rpc/ack.go.html#line-33">ack.go#L33</a>: 		logger.<b>Warn</b>(ctx, "Ack already registered")
 		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-110">engine.go#L110</a>: 			logger.<b>Warn</b>(ctx, "Handler already called")
-		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-269" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-269">#L269</a>: 		e.log.<b>Warn</b>(context.Background(), "rpc callback not set", log.Int64("msg_id", msgID))
-		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-282" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-282">#L282</a>: 		e.log.<b>Warn</b>(context.Background(), "rpc callback not set", log.Int64("msg_id", msgID))
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-277" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-277">#L277</a>: 		e.log.<b>Warn</b>(context.Background(), "rpc callback not set (result for unknown/expired request)",
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-293" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-293">#L293</a>: 		e.log.<b>Warn</b>(context.Background(), "rpc callback not set", log.Int64("msg_id", msgID))
 
 	<a href="../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
 		<a href="../../../src/github.com/gotd/td/telegram/builder.go.html#line-116">builder.go#L116</a>: 			log.For(logger).<b>Warn</b>(ctx, "TestClient run failed", log.Error(err))
@@ -41,6 +45,7 @@
 		<a href="../../../src/github.com/gotd/td/telegram/cdn_conn_dead.go.html#line-48" class="path-duplicate">cdn_conn_dead.go</a><a href="../../../src/github.com/gotd/td/telegram/cdn_conn_dead.go.html#line-48">#L48</a>: 	c.log.<b>Warn</b>(context.Background(), "Dropping stored CDN session key after PFS key reset request",
 		<a href="../../../src/github.com/gotd/td/telegram/cfg.go.html#line-38">cfg.go#L38</a>: 		c.log.<b>Warn</b>(ctx, "Got error on config update", log.Error(err))
 		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-58">connect.go#L58</a>: 					c.log.<b>Warn</b>(ctx, "Got error on self", log.Error(err))
+		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-117" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-117">#L117</a>: 				c.log.<b>Warn</b>(ctx, "Permanent connection error, will not reconnect", log.Error(err))
 		<a href="../../../src/github.com/gotd/td/telegram/handle_updates.go.html#line-44">handle_updates.go#L44</a>: 		c.log.<b>Warn</b>(c.ctx, "Ignoring update", log.String("update_type", fmt.Sprintf("%T", u)))
 		<a href="../../../src/github.com/gotd/td/telegram/pfs.go.html#line-21">pfs.go#L21</a>: 	c.log.<b>Warn</b>(context.Background(), "Dropping stored primary session key after PFS key reset request",
 		<a href="../../../src/github.com/gotd/td/telegram/pfs.go.html#line-42" class="path-duplicate">pfs.go</a><a href="../../../src/github.com/gotd/td/telegram/pfs.go.html#line-42">#L42</a>: 	c.log.<b>Warn</b>(context.Background(), "Dropping stored DC session key after PFS key reset request",

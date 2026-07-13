@@ -118,7 +118,15 @@ input[id=r98]:checked ~pre label[for=r98],
 input[id=r99]:checked ~pre label[for=r99],
 input[id=r100]:checked ~pre label[for=r100],
 input[id=r101]:checked ~pre label[for=r101],
-input[id=r102]:checked ~pre label[for=r102]
+input[id=r102]:checked ~pre label[for=r102],
+input[id=r103]:checked ~pre label[for=r103],
+input[id=r104]:checked ~pre label[for=r104],
+input[id=r105]:checked ~pre label[for=r105],
+input[id=r106]:checked ~pre label[for=r106],
+input[id=r107]:checked ~pre label[for=r107],
+input[id=r108]:checked ~pre label[for=r108],
+input[id=r109]:checked ~pre label[for=r109],
+input[id=r110]:checked ~pre label[for=r110]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
 input[id=i1]:checked ~pre .i1,
@@ -227,6 +235,14 @@ input[id=i2]:checked ~pre .i2
 <input id="r100" type="radio" name="g"/>
 <input id="r101" type="radio" name="g"/>
 <input id="r102" type="radio" name="g"/>
+<input id="r103" type="radio" name="g"/>
+<input id="r104" type="radio" name="g"/>
+<input id="r105" type="radio" name="g"/>
+<input id="r106" type="radio" name="g"/>
+<input id="r107" type="radio" name="g"/>
+<input id="r108" type="radio" name="g"/>
+<input id="r109" type="radio" name="g"/>
+<input id="r110" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
 <input id="i2" type="radio" name="i"/>
@@ -709,7 +725,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-475"><code></code></span>
 <span class="codeline" id="line-476"><code><span class="comment">// Reset will reset and set a dictionary if not nil</span></code></span>
 <span class="codeline" id="line-477"><code><span class="keyword">func</span> (<label for="r84" class="ident">e</label> *<a href="#line-69" class="ident">bestFastEncoder</a>) <label for="r85" class="ident"><a href="../../../../../use/github.com/klauspost/compress/zstd..bestFastEncoder^df5c3.Reset.html" class="ident">Reset</a></label>(<label for="r86" class="ident">d</label> *<a href="dict.go.html#line-15" class="ident">dict</a>, <label for="r87" class="ident">singleBlock</label> <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
-<span class="codeline" id="line-478"><code>	<label for="r84" class="ident">e</label>.<a href="enc_base.go.html#line-132" class="ident">resetBase</a>(<label for="r86" class="ident">d</label>, <label for="r87" class="ident">singleBlock</label>)</code></span>
+<span class="codeline" id="line-478"><code>	<label for="r84" class="ident">e</label>.<a href="enc_base.go.html#line-160" class="ident">resetBase</a>(<label for="r86" class="ident">d</label>, <label for="r87" class="ident">singleBlock</label>)</code></span>
 <span class="codeline" id="line-479"><code>	<span class="keyword">if</span> <label for="r86" class="ident">d</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-480"><code>		<span class="keyword">return</span></code></span>
 <span class="codeline" id="line-481"><code>	}</code></span>
@@ -785,6 +801,21 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-551"><code>	<span class="comment">// Reset table to initial state</span></code></span>
 <span class="codeline" id="line-552"><code>	<a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r84" class="ident">e</label>.<a href="#line-71" class="ident">table</a>[:], <label for="r84" class="ident">e</label>.<a href="#line-73" class="ident">dictTable</a>)</code></span>
 <span class="codeline" id="line-553"><code>}</code></span>
+<span class="codeline" id="line-554"><code></code></span>
+<span class="codeline" id="line-555"><code><span class="keyword">func</span> (<label for="r103" class="ident">e</label> *<a href="#line-69" class="ident">bestFastEncoder</a>) <label for="r104" class="ident"><a href="../../../../../use/github.com/klauspost/compress/zstd..bestFastEncoder^df5c3.ResetPrefix.html" class="ident">ResetPrefix</a></label>(<label for="r105" class="ident">prefix</label> []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) {</code></span>
+<span class="codeline" id="line-556"><code>	<label for="r103" class="ident">e</label>.<a href="enc_base.go.html#line-134" class="ident">resetBasePrefix</a>(<label for="r105" class="ident">prefix</label>)</code></span>
+<span class="codeline" id="line-557"><code>	<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r105" class="ident">prefix</label>) &lt; <span class="lit-number">8</span> {</code></span>
+<span class="codeline" id="line-558"><code>		<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-559"><code>	}</code></span>
+<span class="codeline" id="line-560"><code>	<label for="r106" class="ident">end</label> := <label for="r103" class="ident">e</label>.<a href="enc_base.go.html#line-16" class="ident">cur</a> + <a href="../../../../../pkg/builtin.html#name-int32" class="ident">int32</a>(<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r105" class="ident">prefix</label>)) - <span class="lit-number">8</span></code></span>
+<span class="codeline" id="line-561"><code>	<span class="keyword">for</span> <label for="r107" class="ident">i</label> := <label for="r103" class="ident">e</label>.<a href="enc_base.go.html#line-16" class="ident">cur</a>; <label for="r107" class="ident">i</label> &lt; <label for="r106" class="ident">end</label>; <label for="r107" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-562"><code>		<label for="r108" class="ident">cv</label> := <a href="zstd.go.html#line-117" class="ident">load6432</a>(<label for="r105" class="ident">prefix</label>, <label for="r107" class="ident">i</label>-<label for="r103" class="ident">e</label>.<a href="enc_base.go.html#line-16" class="ident">cur</a>)</code></span>
+<span class="codeline" id="line-563"><code>		<label for="r109" class="ident">h</label> := <a href="hash.go.html#line-20" class="ident">hashLen</a>(<label for="r108" class="ident">cv</label>, <a href="#line-15" class="ident">bestLongTableBits</a>, <a href="#line-17" class="ident">bestLongLen</a>)</code></span>
+<span class="codeline" id="line-564"><code>		<label for="r103" class="ident">e</label>.<a href="#line-72" class="ident">longTable</a>[<label for="r109" class="ident">h</label>] = <a href="enc_better.go.html#line-29" class="ident">prevEntry</a>{<a href="enc_better.go.html#line-30" class="ident">offset</a>: <label for="r107" class="ident">i</label>, <a href="enc_better.go.html#line-31" class="ident">prev</a>: <label for="r103" class="ident">e</label>.<a href="#line-72" class="ident">longTable</a>[<label for="r109" class="ident">h</label>].<a href="enc_better.go.html#line-30" class="ident">offset</a>}</code></span>
+<span class="codeline" id="line-565"><code>		<label for="r110" class="ident">h0</label> := <a href="hash.go.html#line-20" class="ident">hashLen</a>(<label for="r108" class="ident">cv</label>, <a href="#line-23" class="ident">bestShortTableBits</a>, <a href="#line-25" class="ident">bestShortLen</a>)</code></span>
+<span class="codeline" id="line-566"><code>		<label for="r103" class="ident">e</label>.<a href="#line-71" class="ident">table</a>[<label for="r110" class="ident">h0</label>] = <a href="enc_better.go.html#line-29" class="ident">prevEntry</a>{<a href="enc_better.go.html#line-30" class="ident">offset</a>: <label for="r107" class="ident">i</label>, <a href="enc_better.go.html#line-31" class="ident">prev</a>: <label for="r103" class="ident">e</label>.<a href="#line-71" class="ident">table</a>[<label for="r110" class="ident">h0</label>].<a href="enc_better.go.html#line-30" class="ident">offset</a>}</code></span>
+<span class="codeline" id="line-567"><code>	}</code></span>
+<span class="codeline" id="line-568"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

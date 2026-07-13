@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-17">blockEnc</a></b></span>
 
-<span class="title">41 uses</span>
+<span class="title">42 uses</span>
 
 	github.com/klauspost/compress/zstd (current package)
 		<a href="../../../../src/github.com/klauspost/compress/zstd/blockenc.go.html#line-17">blockenc.go#L17</a>: type <b>blockEnc</b> struct {
@@ -32,7 +32,8 @@
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-23">enc_base.go#L23</a>: 	blk         *<b>blockEnc</b>
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-53" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-53">#L53</a>: func (e *fastBase) Block() *<b>blockEnc</b> {
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-105" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-105">#L105</a>: func (e *fastBase) UseBlock(enc *<b>blockEnc</b>) {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-134" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-134">#L134</a>: 		e.blk = &amp;<b>blockEnc</b>{lowMem: e.lowMem}
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-136" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-136">#L136</a>: 		e.blk = &amp;<b>blockEnc</b>{lowMem: e.lowMem}
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-162" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-162">#L162</a>: 		e.blk = &amp;<b>blockEnc</b>{lowMem: e.lowMem}
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-78">enc_best.go#L78</a>: func (e *bestFastEncoder) Encode(blk *<b>blockEnc</b>, src []byte) {
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-471" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-471">#L471</a>: func (e *bestFastEncoder) EncodeNoHist(blk *<b>blockEnc</b>, src []byte) {
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-56">enc_better.go#L56</a>: func (e *betterFastEncoder) Encode(blk *<b>blockEnc</b>, src []byte) {
@@ -48,8 +49,8 @@
 		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-34" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-34">#L34</a>: 	EncodeNoHist(blk *<b>blockEnc</b>, src []byte)
 		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-35" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-35">#L35</a>: 	Block() *<b>blockEnc</b>
 		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-39" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-39">#L39</a>: 	UseBlock(*<b>blockEnc</b>)
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-49" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-49">#L49</a>: 	writing          *<b>blockEnc</b>
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-113" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-113">#L113</a>: 			s.writing = &amp;<b>blockEnc</b>{lowMem: e.o.lowMem}
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-50" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-50">#L50</a>: 	writing          *<b>blockEnc</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-139" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-139">#L139</a>: 			s.writing = &amp;<b>blockEnc</b>{lowMem: e.o.lowMem}
 		<a href="../../../../src/github.com/klauspost/compress/zstd/snappy.go.html#line-76">snappy.go#L76</a>: 	block *<b>blockEnc</b>
 		<a href="../../../../src/github.com/klauspost/compress/zstd/snappy.go.html#line-87" class="path-duplicate">snappy.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/snappy.go.html#line-87">#L87</a>: 		r.block = &amp;<b>blockEnc</b>{}
 		<a href="../../../../src/github.com/klauspost/compress/zstd/snappy.go.html#line-286" class="path-duplicate">snappy.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/snappy.go.html#line-286">#L286</a>: func decodeSnappy(blk *<b>blockEnc</b>, src []byte) error {

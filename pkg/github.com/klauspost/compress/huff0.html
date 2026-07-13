@@ -21,13 +21,14 @@
 
 	<span class="nodocs">    <a href="../../../../src/github.com/klauspost/compress/huff0/bitreader.go.html">bitreader.go</a></span>
 	<span class="nodocs">    <a href="../../../../src/github.com/klauspost/compress/huff0/bitwriter.go.html">bitwriter.go</a></span>
+	<span class="nodocs">    <a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html">build_table.go</a></span>
 	<span class="nodocs">    <a href="../../../../src/github.com/klauspost/compress/huff0/compress.go.html">compress.go</a></span>
 	<span class="nodocs">    <a href="../../../../src/github.com/klauspost/compress/huff0/decompress.go.html">decompress.go</a></span>
-	<input type='checkbox' checked class="fold" id="file-4-fold-content"><label for="file-4-fold-content">  <a href="../../../../src/github.com/klauspost/compress/huff0/decompress_amd64.go.html#doc">d</a> <a href="../../../../src/github.com/klauspost/compress/huff0/decompress_amd64.go.html">decompress_amd64.go</a></label><span id='file-4-fold-content-items' class="fold-items">
+	<input type='checkbox' checked class="fold" id="file-5-fold-content"><label for="file-5-fold-content">  <a href="../../../../src/github.com/klauspost/compress/huff0/decompress_amd64.go.html#doc">d</a> <a href="../../../../src/github.com/klauspost/compress/huff0/decompress_amd64.go.html">decompress_amd64.go</a></label><span id='file-5-fold-content-items' class="fold-items">
 <span class="md-text">		This file contains the specialisation of Decoder.Decompress4X
 		and Decoder.Decompress1X that use an asm implementation of thir main loops.</span>
 </span>
-	<input type='checkbox' checked class="fold" id="file-5-fold-content"><label for="file-5-fold-content">  <a href="../../../../src/github.com/klauspost/compress/huff0/huff0.go.html#doc">d</a> <a href="../../../../src/github.com/klauspost/compress/huff0/huff0.go.html">huff0.go</a></label><span id='file-5-fold-content-items' class="fold-items">
+	<input type='checkbox' checked class="fold" id="file-6-fold-content"><label for="file-6-fold-content">  <a href="../../../../src/github.com/klauspost/compress/huff0/huff0.go.html#doc">d</a> <a href="../../../../src/github.com/klauspost/compress/huff0/huff0.go.html">huff0.go</a></label><span id='file-6-fold-content-items' class="fold-items">
 <span class="md-text">		Package huff0 provides fast huffman encoding as used in zstd.
 		
 		See README.md at https://github.com/klauspost/compress/tree/master/huff0 for details.</span>
@@ -90,7 +91,7 @@
 			const <a href="#name-ReusePolicyNone">ReusePolicyNone</a></span><span>
 			const <a href="#name-ReusePolicyPrefer">ReusePolicyPrefer</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Scratch" data-popularity="1310">	<input type='checkbox' class="fold" id="Scratch-fold-content"><label for="Scratch-fold-content"> <a href="../../../../use/github.com/klauspost/compress/huff0..Scratch.html">type</a> <a href="../../../../src/github.com/klauspost/compress/huff0/huff0.go.html#line-64">Scratch</a> <i>(struct)</i></label><span id='Scratch-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Scratch" data-popularity="1510">	<input type='checkbox' class="fold" id="Scratch-fold-content"><label for="Scratch-fold-content"> <a href="../../../../use/github.com/klauspost/compress/huff0..Scratch.html">type</a> <a href="../../../../src/github.com/klauspost/compress/huff0/huff0.go.html#line-64">Scratch</a> <i>(struct)</i></label><span id='Scratch-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="Scratch-fold-fields"><label for="Scratch-fold-fields">Fields (<i>total 23, in which 8 are exported</i>)</label><span id='Scratch-fold-fields-items' class="fold-items"><span>
 			<input type='checkbox' class="fold" id="Scratch-fold-field-MaxDecodedSize"><label for="Scratch-fold-field-MaxDecodedSize"><a href="../../../../src/github.com/klauspost/compress/huff0/huff0.go.html#line-89">MaxDecodedSize</a> <i><a href="../../../builtin.html#name-int">int</a></i></label><span id='Scratch-fold-field-MaxDecodedSize-docs' class="fold-docs">
@@ -163,7 +164,31 @@
 <span class="md-text">				// Length of active part of the symbol table.</span>
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs"><a href="../../../../src/github.com/klauspost/compress/huff0/huff0.go.html#line-118">tmpOut</a> <i>[4][]<a href="../../../builtin.html#name-byte">byte</a></i></span></i></span></span>
-		<input type='checkbox' class="fold" id="Scratch-fold-methods"><label for="Scratch-fold-methods">Methods (<i>total 19, in which 4 are exported</i>)</label><span id='Scratch-fold-methods-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Scratch-fold-methods"><label for="Scratch-fold-methods">Methods (<i>total 23, in which 8 are exported</i>)</label><span id='Scratch-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Scratch-fold-method-AppendTable"><label for="Scratch-fold-method-AppendTable">(*Scratch) <a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-141">AppendTable</a>(dst []<a href="../../../builtin.html#name-byte">byte</a>) ([]<a href="../../../builtin.html#name-byte">byte</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='Scratch-fold-method-AppendTable-docs' class="fold-docs">
+<span class="md-text">				AppendTable serializes the table currently stored in prevTable (e.g. as
+				installed by BuildCTable or carried over from a previous Compress call)
+				into a self-delimiting zstd-style header and appends it to dst. The
+				returned slice can be parsed back by ReadTable.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Scratch-fold-method-BuildCTable"><label for="Scratch-fold-method-BuildCTable">(*Scratch) <a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-17">BuildCTable</a>(count *[256]<a href="../../../builtin.html#name-uint32">uint32</a>) <a href="../../../builtin.html#name-error">error</a></label><span id='Scratch-fold-method-BuildCTable-docs' class="fold-docs">
+<span class="md-text">				BuildCTable builds a Huffman compression table from a precomputed symbol
+				histogram and installs it as the previous (reuse) table on s.
+				
+				After this call:
+				  - EstimateSize/CanUseTable can probe the table against other histograms.
+				  - Compress1X/Compress4X with Reuse = ReusePolicyMust will encode without
+				    emitting a new table header.
+				  - TransferCTable can hand the table to a sibling Scratch.
+				
+				count[i] is the number of occurrences of symbol i. The histogram must have
+				at least 2 distinct non-zero symbols; ErrUseRLE is returned for a single
+				symbol and an error is returned for an empty histogram.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Scratch-fold-method-CanUseTable"><label for="Scratch-fold-method-CanUseTable">(*Scratch) <a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-121">CanUseTable</a>(hist *[256]<a href="../../../builtin.html#name-uint32">uint32</a>) <a href="../../../builtin.html#name-bool">bool</a></label><span id='Scratch-fold-method-CanUseTable-docs' class="fold-docs">
+<span class="md-text">				CanUseTable reports whether the table in prevTable can encode every
+				non-zero symbol present in hist.</span>
+</span></span><span>
 			<input type='checkbox' class="fold" id="Scratch-fold-method-Decoder"><label for="Scratch-fold-method-Decoder">(*Scratch) <a href="../../../../src/github.com/klauspost/compress/huff0/decompress.go.html#line-208">Decoder</a>() *<a href="#name-Decoder">Decoder</a></label><span id='Scratch-fold-method-Decoder-docs' class="fold-docs">
 <span class="md-text">				Decoder will return a stateless decoder that can be used by multiple
 				decompressors concurrently.
@@ -185,6 +210,12 @@
 				The length of the supplied input must match the end of a block exactly.
 				The destination size of the uncompressed data must be known and provided.
 				deprecated: Use the stateless Decoder() to get a concurrent version.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="Scratch-fold-method-EstimateSize"><label for="Scratch-fold-method-EstimateSize">(*Scratch) <a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-101">EstimateSize</a>(hist *[256]<a href="../../../builtin.html#name-uint32">uint32</a>) <a href="../../../builtin.html#name-int">int</a></label><span id='Scratch-fold-method-EstimateSize-docs' class="fold-docs">
+<span class="md-text">				EstimateSize returns an estimated compressed payload size in bytes for the
+				supplied histogram using the table currently stored in prevTable. It returns
+				-1 when the table cannot encode every non-zero symbol of hist (i.e. when
+				CanUseTable would return false). The estimate excludes the table header.</span>
 </span></span><span>
 			<input type='checkbox' class="fold" id="Scratch-fold-method-TransferCTable"><label for="Scratch-fold-method-TransferCTable">(*Scratch) <a href="../../../../src/github.com/klauspost/compress/huff0/huff0.go.html#line-125">TransferCTable</a>(src *<b>Scratch</b>)</label><span id='Scratch-fold-method-TransferCTable-docs' class="fold-docs">
 <span class="md-text">				TransferCTable will transfer the previously used compression table.</span>

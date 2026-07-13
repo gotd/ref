@@ -53,7 +53,12 @@ input[id=r33]:checked ~pre label[for=r33],
 input[id=r34]:checked ~pre label[for=r34],
 input[id=r35]:checked ~pre label[for=r35],
 input[id=r36]:checked ~pre label[for=r36],
-input[id=r37]:checked ~pre label[for=r37]
+input[id=r37]:checked ~pre label[for=r37],
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40],
+input[id=r41]:checked ~pre label[for=r41],
+input[id=r42]:checked ~pre label[for=r42]
 {background: #226; color: #ff8;}
 {background: brown; color: #eed;}
 </style><input id="r0" type="radio" name="g"/>
@@ -94,6 +99,11 @@ input[id=r37]:checked ~pre label[for=r37]
 <input id="r35" type="radio" name="g"/>
 <input id="r36" type="radio" name="g"/>
 <input id="r37" type="radio" name="g"/>
+<input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="r41" type="radio" name="g"/>
+<input id="r42" type="radio" name="g"/>
 
 <pre class="line-numbers">
 <span class="codeline" id="line-1"><code><span class="comment">// Copyright 2016 The Go Authors. All rights reserved.</span></code></span>
@@ -126,157 +136,175 @@ input[id=r37]:checked ~pre label[for=r37]
 <span class="codeline" id="line-28"><code>	<a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.hist^776d2.html" class="ident">hist</a> []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a> <span class="comment">// Sliding window history</span></code></span>
 <span class="codeline" id="line-29"><code></code></span>
 <span class="codeline" id="line-30"><code>	<span class="comment">// Invariant: 0 &lt;= rdPos &lt;= wrPos &lt;= len(hist)</span></code></span>
-<span class="codeline" id="line-31"><code>	<a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.wrPos^06acb.html" class="ident">wrPos</a> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>  <span class="comment">// Current output position in buffer</span></code></span>
-<span class="codeline" id="line-32"><code>	<a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.rdPos^b191a.html" class="ident">rdPos</a> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>  <span class="comment">// Have emitted hist[:rdPos] already</span></code></span>
-<span class="codeline" id="line-33"><code>	<a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.full^a18b8.html" class="ident">full</a>  <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> <span class="comment">// Has a full window length been written yet?</span></code></span>
-<span class="codeline" id="line-34"><code>}</code></span>
-<span class="codeline" id="line-35"><code></code></span>
-<span class="codeline" id="line-36"><code><span class="comment">// init initializes dictDecoder to have a sliding window dictionary of the given</span></code></span>
-<span class="codeline" id="line-37"><code><span class="comment">// size. If a preset dict is provided, it will initialize the dictionary with</span></code></span>
-<span class="codeline" id="line-38"><code><span class="comment">// the contents of dict.</span></code></span>
-<span class="codeline" id="line-39"><code><span class="keyword">func</span> (<label for="r0" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r1" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.init^bb540.html" class="ident">init</a></label>(<label for="r2" class="ident">size</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r3" class="ident">dict</label> []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) {</code></span>
-<span class="codeline" id="line-40"><code>	*<label for="r0" class="ident">dd</label> = <a href="#line-27" class="ident">dictDecoder</a>{<a href="#line-28" class="ident">hist</a>: <label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>}</code></span>
-<span class="codeline" id="line-41"><code></code></span>
-<span class="codeline" id="line-42"><code>	<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-cap" class="ident">cap</a>(<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) &lt; <label for="r2" class="ident">size</label> {</code></span>
-<span class="codeline" id="line-43"><code>		<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r2" class="ident">size</label>)</code></span>
-<span class="codeline" id="line-44"><code>	}</code></span>
-<span class="codeline" id="line-45"><code>	<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a> = <label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[:<label for="r2" class="ident">size</label>]</code></span>
-<span class="codeline" id="line-46"><code></code></span>
-<span class="codeline" id="line-47"><code>	<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r3" class="ident">dict</label>) &gt; <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) {</code></span>
-<span class="codeline" id="line-48"><code>		<label for="r3" class="ident">dict</label> = <label for="r3" class="ident">dict</label>[<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r3" class="ident">dict</label>)-<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>):]</code></span>
-<span class="codeline" id="line-49"><code>	}</code></span>
-<span class="codeline" id="line-50"><code>	<label for="r0" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> = <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>, <label for="r3" class="ident">dict</label>)</code></span>
-<span class="codeline" id="line-51"><code>	<span class="keyword">if</span> <label for="r0" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> == <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) {</code></span>
-<span class="codeline" id="line-52"><code>		<label for="r0" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> = <span class="lit-number">0</span></code></span>
-<span class="codeline" id="line-53"><code>		<label for="r0" class="ident">dd</label>.<a href="#line-33" class="ident">full</a> = <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-54"><code>	}</code></span>
-<span class="codeline" id="line-55"><code>	<label for="r0" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a> = <label for="r0" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
-<span class="codeline" id="line-56"><code>}</code></span>
-<span class="codeline" id="line-57"><code></code></span>
-<span class="codeline" id="line-58"><code><span class="comment">// histSize reports the total amount of historical data in the dictionary.</span></code></span>
-<span class="codeline" id="line-59"><code><span class="keyword">func</span> (<label for="r4" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r5" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.histSize^dffc7.html" class="ident">histSize</a></label>() <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
-<span class="codeline" id="line-60"><code>	<span class="keyword">if</span> <label for="r4" class="ident">dd</label>.<a href="#line-33" class="ident">full</a> {</code></span>
-<span class="codeline" id="line-61"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r4" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>)</code></span>
-<span class="codeline" id="line-62"><code>	}</code></span>
-<span class="codeline" id="line-63"><code>	<span class="keyword">return</span> <label for="r4" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
-<span class="codeline" id="line-64"><code>}</code></span>
-<span class="codeline" id="line-65"><code></code></span>
-<span class="codeline" id="line-66"><code><span class="comment">// availRead reports the number of bytes that can be flushed by readFlush.</span></code></span>
-<span class="codeline" id="line-67"><code><span class="keyword">func</span> (<label for="r6" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r7" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.availRead^ee35b.html" class="ident">availRead</a></label>() <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
-<span class="codeline" id="line-68"><code>	<span class="keyword">return</span> <label for="r6" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> - <label for="r6" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a></code></span>
-<span class="codeline" id="line-69"><code>}</code></span>
-<span class="codeline" id="line-70"><code></code></span>
-<span class="codeline" id="line-71"><code><span class="comment">// availWrite reports the available amount of output buffer space.</span></code></span>
-<span class="codeline" id="line-72"><code><span class="keyword">func</span> (<label for="r8" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r9" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.availWrite^4c0a9.html" class="ident">availWrite</a></label>() <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
-<span class="codeline" id="line-73"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r8" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) - <label for="r8" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
-<span class="codeline" id="line-74"><code>}</code></span>
-<span class="codeline" id="line-75"><code></code></span>
-<span class="codeline" id="line-76"><code><span class="comment">// writeSlice returns a slice of the available buffer to write data to.</span></code></span>
-<span class="codeline" id="line-77"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-78"><code><span class="comment">// This invariant will be kept: len(s) &lt;= availWrite()</span></code></span>
-<span class="codeline" id="line-79"><code><span class="keyword">func</span> (<label for="r10" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r11" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.writeSlice^d112c.html" class="ident">writeSlice</a></label>() []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
-<span class="codeline" id="line-80"><code>	<span class="keyword">return</span> <label for="r10" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r10" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>:]</code></span>
-<span class="codeline" id="line-81"><code>}</code></span>
-<span class="codeline" id="line-82"><code></code></span>
-<span class="codeline" id="line-83"><code><span class="comment">// writeMark advances the writer pointer by cnt.</span></code></span>
-<span class="codeline" id="line-84"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-85"><code><span class="comment">// This invariant must be kept: 0 &lt;= cnt &lt;= availWrite()</span></code></span>
-<span class="codeline" id="line-86"><code><span class="keyword">func</span> (<label for="r12" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r13" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.writeMark^78417.html" class="ident">writeMark</a></label>(<label for="r14" class="ident">cnt</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) {</code></span>
-<span class="codeline" id="line-87"><code>	<label for="r12" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> += <label for="r14" class="ident">cnt</label></code></span>
-<span class="codeline" id="line-88"><code>}</code></span>
-<span class="codeline" id="line-89"><code></code></span>
-<span class="codeline" id="line-90"><code><span class="comment">// writeByte writes a single byte to the dictionary.</span></code></span>
-<span class="codeline" id="line-91"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-92"><code><span class="comment">// This invariant must be kept: 0 &lt; availWrite()</span></code></span>
-<span class="codeline" id="line-93"><code><span class="keyword">func</span> (<label for="r15" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r16" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.writeByte^fb7af.html" class="ident">writeByte</a></label>(<label for="r17" class="ident">c</label> <a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) {</code></span>
-<span class="codeline" id="line-94"><code>	<label for="r15" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r15" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>] = <label for="r17" class="ident">c</label></code></span>
-<span class="codeline" id="line-95"><code>	<label for="r15" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>++</code></span>
-<span class="codeline" id="line-96"><code>}</code></span>
-<span class="codeline" id="line-97"><code></code></span>
-<span class="codeline" id="line-98"><code><span class="comment">// writeCopy copies a string at a given (dist, length) to the output.</span></code></span>
-<span class="codeline" id="line-99"><code><span class="comment">// This returns the number of bytes copied and may be less than the requested</span></code></span>
-<span class="codeline" id="line-100"><code><span class="comment">// length if the available space in the output buffer is too small.</span></code></span>
-<span class="codeline" id="line-101"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-102"><code><span class="comment">// This invariant must be kept: 0 &lt; dist &lt;= histSize()</span></code></span>
-<span class="codeline" id="line-103"><code><span class="keyword">func</span> (<label for="r18" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r19" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.writeCopy^7e988.html" class="ident">writeCopy</a></label>(<label for="r20" class="ident">dist</label>, <label for="r21" class="ident">length</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
-<span class="codeline" id="line-104"><code>	<label for="r22" class="ident">dstBase</label> := <label for="r18" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
-<span class="codeline" id="line-105"><code>	<label for="r23" class="ident">dstPos</label> := <label for="r22" class="ident">dstBase</label></code></span>
-<span class="codeline" id="line-106"><code>	<label for="r24" class="ident">srcPos</label> := <label for="r23" class="ident">dstPos</label> - <label for="r20" class="ident">dist</label></code></span>
-<span class="codeline" id="line-107"><code>	<label for="r25" class="ident">endPos</label> := <a href="../../../../../pkg/builtin.html#name-min" class="ident">min</a>(<label for="r23" class="ident">dstPos</label>+<label for="r21" class="ident">length</label>, <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>))</code></span>
-<span class="codeline" id="line-108"><code></code></span>
-<span class="codeline" id="line-109"><code>	<span class="comment">// Copy non-overlapping section after destination position.</span></code></span>
-<span class="codeline" id="line-110"><code><span class="comment">	//</span></code></span>
-<span class="codeline" id="line-111"><code><span class="comment">	// This section is non-overlapping in that the copy length for this section</span></code></span>
-<span class="codeline" id="line-112"><code><span class="comment">	// is always less than or equal to the backwards distance. This can occur</span></code></span>
-<span class="codeline" id="line-113"><code><span class="comment">	// if a distance refers to data that wraps-around in the buffer.</span></code></span>
-<span class="codeline" id="line-114"><code><span class="comment">	// Thus, a backwards copy is performed here; that is, the exact bytes in</span></code></span>
-<span class="codeline" id="line-115"><code><span class="comment">	// the source prior to the copy is placed in the destination.</span></code></span>
-<span class="codeline" id="line-116"><code>	<span class="keyword">if</span> <label for="r24" class="ident">srcPos</label> &lt; <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-117"><code>		<label for="r24" class="ident">srcPos</label> += <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>)</code></span>
-<span class="codeline" id="line-118"><code>		<label for="r23" class="ident">dstPos</label> += <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r23" class="ident">dstPos</label>:<label for="r25" class="ident">endPos</label>], <label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r24" class="ident">srcPos</label>:])</code></span>
-<span class="codeline" id="line-119"><code>		<label for="r24" class="ident">srcPos</label> = <span class="lit-number">0</span></code></span>
-<span class="codeline" id="line-120"><code>	}</code></span>
-<span class="codeline" id="line-121"><code></code></span>
-<span class="codeline" id="line-122"><code>	<span class="comment">// Copy possibly overlapping section before destination position.</span></code></span>
-<span class="codeline" id="line-123"><code><span class="comment">	//</span></code></span>
-<span class="codeline" id="line-124"><code><span class="comment">	// This section can overlap if the copy length for this section is larger</span></code></span>
-<span class="codeline" id="line-125"><code><span class="comment">	// than the backwards distance. This is allowed by LZ77 so that repeated</span></code></span>
-<span class="codeline" id="line-126"><code><span class="comment">	// strings can be succinctly represented using (dist, length) pairs.</span></code></span>
-<span class="codeline" id="line-127"><code><span class="comment">	// Thus, a forwards copy is performed here; that is, the bytes copied is</span></code></span>
-<span class="codeline" id="line-128"><code><span class="comment">	// possibly dependent on the resulting bytes in the destination as the copy</span></code></span>
-<span class="codeline" id="line-129"><code><span class="comment">	// progresses along. This is functionally equivalent to the following:</span></code></span>
-<span class="codeline" id="line-130"><code><span class="comment">	//</span></code></span>
-<span class="codeline" id="line-131"><code><span class="comment">	//	for i := 0; i &lt; endPos-dstPos; i++ {</span></code></span>
-<span class="codeline" id="line-132"><code><span class="comment">	//		dd.hist[dstPos+i] = dd.hist[srcPos+i]</span></code></span>
-<span class="codeline" id="line-133"><code><span class="comment">	//	}</span></code></span>
-<span class="codeline" id="line-134"><code><span class="comment">	//	dstPos = endPos</span></code></span>
-<span class="codeline" id="line-135"><code><span class="comment">	//</span></code></span>
-<span class="codeline" id="line-136"><code>	<span class="keyword">for</span> <label for="r23" class="ident">dstPos</label> &lt; <label for="r25" class="ident">endPos</label> {</code></span>
-<span class="codeline" id="line-137"><code>		<label for="r23" class="ident">dstPos</label> += <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r23" class="ident">dstPos</label>:<label for="r25" class="ident">endPos</label>], <label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r24" class="ident">srcPos</label>:<label for="r23" class="ident">dstPos</label>])</code></span>
-<span class="codeline" id="line-138"><code>	}</code></span>
-<span class="codeline" id="line-139"><code></code></span>
-<span class="codeline" id="line-140"><code>	<label for="r18" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> = <label for="r23" class="ident">dstPos</label></code></span>
-<span class="codeline" id="line-141"><code>	<span class="keyword">return</span> <label for="r23" class="ident">dstPos</label> - <label for="r22" class="ident">dstBase</label></code></span>
-<span class="codeline" id="line-142"><code>}</code></span>
-<span class="codeline" id="line-143"><code></code></span>
-<span class="codeline" id="line-144"><code><span class="comment">// tryWriteCopy tries to copy a string at a given (distance, length) to the</span></code></span>
-<span class="codeline" id="line-145"><code><span class="comment">// output. This specialized version is optimized for short distances.</span></code></span>
-<span class="codeline" id="line-146"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-147"><code><span class="comment">// This method is designed to be inlined for performance reasons.</span></code></span>
-<span class="codeline" id="line-148"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-149"><code><span class="comment">// This invariant must be kept: 0 &lt; dist &lt;= histSize()</span></code></span>
-<span class="codeline" id="line-150"><code><span class="keyword">func</span> (<label for="r26" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r27" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.tryWriteCopy^bb3c6.html" class="ident">tryWriteCopy</a></label>(<label for="r28" class="ident">dist</label>, <label for="r29" class="ident">length</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
-<span class="codeline" id="line-151"><code>	<label for="r30" class="ident">dstPos</label> := <label for="r26" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
-<span class="codeline" id="line-152"><code>	<label for="r31" class="ident">endPos</label> := <label for="r30" class="ident">dstPos</label> + <label for="r29" class="ident">length</label></code></span>
-<span class="codeline" id="line-153"><code>	<span class="keyword">if</span> <label for="r30" class="ident">dstPos</label> &lt; <label for="r28" class="ident">dist</label> || <label for="r31" class="ident">endPos</label> &gt; <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r26" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) {</code></span>
-<span class="codeline" id="line-154"><code>		<span class="keyword">return</span> <span class="lit-number">0</span></code></span>
-<span class="codeline" id="line-155"><code>	}</code></span>
-<span class="codeline" id="line-156"><code>	<label for="r32" class="ident">dstBase</label> := <label for="r30" class="ident">dstPos</label></code></span>
-<span class="codeline" id="line-157"><code>	<label for="r33" class="ident">srcPos</label> := <label for="r30" class="ident">dstPos</label> - <label for="r28" class="ident">dist</label></code></span>
-<span class="codeline" id="line-158"><code></code></span>
-<span class="codeline" id="line-159"><code>	<span class="comment">// Copy possibly overlapping section before destination position.</span></code></span>
-<span class="codeline" id="line-160"><code><label for="r34" class="ident">loop</label>:</code></span>
-<span class="codeline" id="line-161"><code>	<label for="r30" class="ident">dstPos</label> += <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r26" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r30" class="ident">dstPos</label>:<label for="r31" class="ident">endPos</label>], <label for="r26" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r33" class="ident">srcPos</label>:<label for="r30" class="ident">dstPos</label>])</code></span>
-<span class="codeline" id="line-162"><code>	<span class="keyword">if</span> <label for="r30" class="ident">dstPos</label> &lt; <label for="r31" class="ident">endPos</label> {</code></span>
-<span class="codeline" id="line-163"><code>		<span class="keyword">goto</span> <label for="r34" class="ident">loop</label> <span class="comment">// Avoid for-loop so that this function can be inlined</span></code></span>
-<span class="codeline" id="line-164"><code>	}</code></span>
-<span class="codeline" id="line-165"><code></code></span>
-<span class="codeline" id="line-166"><code>	<label for="r26" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> = <label for="r30" class="ident">dstPos</label></code></span>
-<span class="codeline" id="line-167"><code>	<span class="keyword">return</span> <label for="r30" class="ident">dstPos</label> - <label for="r32" class="ident">dstBase</label></code></span>
-<span class="codeline" id="line-168"><code>}</code></span>
-<span class="codeline" id="line-169"><code></code></span>
-<span class="codeline" id="line-170"><code><span class="comment">// readFlush returns a slice of the historical buffer that is ready to be</span></code></span>
-<span class="codeline" id="line-171"><code><span class="comment">// emitted to the user. The data returned by readFlush must be fully consumed</span></code></span>
-<span class="codeline" id="line-172"><code><span class="comment">// before calling any other dictDecoder methods.</span></code></span>
-<span class="codeline" id="line-173"><code><span class="keyword">func</span> (<label for="r35" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r36" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.readFlush^77fce.html" class="ident">readFlush</a></label>() []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
-<span class="codeline" id="line-174"><code>	<label for="r37" class="ident">toRead</label> := <label for="r35" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r35" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a>:<label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>]</code></span>
-<span class="codeline" id="line-175"><code>	<label for="r35" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a> = <label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
-<span class="codeline" id="line-176"><code>	<span class="keyword">if</span> <label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> == <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r35" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) {</code></span>
-<span class="codeline" id="line-177"><code>		<label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>, <label for="r35" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a> = <span class="lit-number">0</span>, <span class="lit-number">0</span></code></span>
-<span class="codeline" id="line-178"><code>		<label for="r35" class="ident">dd</label>.<a href="#line-33" class="ident">full</a> = <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-179"><code>	}</code></span>
-<span class="codeline" id="line-180"><code>	<span class="keyword">return</span> <label for="r37" class="ident">toRead</label></code></span>
-<span class="codeline" id="line-181"><code>}</code></span>
+<span class="codeline" id="line-31"><code>	<a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.wrPos^06acb.html" class="ident">wrPos</a>   <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>   <span class="comment">// Current output position in buffer</span></code></span>
+<span class="codeline" id="line-32"><code>	<a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.rdPos^b191a.html" class="ident">rdPos</a>   <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>   <span class="comment">// Have emitted hist[:rdPos] already</span></code></span>
+<span class="codeline" id="line-33"><code>	<a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.flushed^a9be9.html" class="ident">flushed</a> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a> <span class="comment">// Total bytes returned by readFlush since init</span></code></span>
+<span class="codeline" id="line-34"><code>	<a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.full^a18b8.html" class="ident">full</a>    <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>  <span class="comment">// Has a full window length been written yet?</span></code></span>
+<span class="codeline" id="line-35"><code>}</code></span>
+<span class="codeline" id="line-36"><code></code></span>
+<span class="codeline" id="line-37"><code><span class="comment">// init initializes dictDecoder to have a sliding window dictionary of the given</span></code></span>
+<span class="codeline" id="line-38"><code><span class="comment">// size. If a preset dict is provided, it will initialize the dictionary with</span></code></span>
+<span class="codeline" id="line-39"><code><span class="comment">// the contents of dict.</span></code></span>
+<span class="codeline" id="line-40"><code><span class="keyword">func</span> (<label for="r0" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r1" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.init^bb540.html" class="ident">init</a></label>(<label for="r2" class="ident">size</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r3" class="ident">dict</label> []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) {</code></span>
+<span class="codeline" id="line-41"><code>	*<label for="r0" class="ident">dd</label> = <a href="#line-27" class="ident">dictDecoder</a>{<a href="#line-28" class="ident">hist</a>: <label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>}</code></span>
+<span class="codeline" id="line-42"><code></code></span>
+<span class="codeline" id="line-43"><code>	<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-cap" class="ident">cap</a>(<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) &lt; <label for="r2" class="ident">size</label> {</code></span>
+<span class="codeline" id="line-44"><code>		<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r2" class="ident">size</label>)</code></span>
+<span class="codeline" id="line-45"><code>	}</code></span>
+<span class="codeline" id="line-46"><code>	<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a> = <label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[:<label for="r2" class="ident">size</label>]</code></span>
+<span class="codeline" id="line-47"><code></code></span>
+<span class="codeline" id="line-48"><code>	<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r3" class="ident">dict</label>) &gt; <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) {</code></span>
+<span class="codeline" id="line-49"><code>		<label for="r3" class="ident">dict</label> = <label for="r3" class="ident">dict</label>[<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r3" class="ident">dict</label>)-<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>):]</code></span>
+<span class="codeline" id="line-50"><code>	}</code></span>
+<span class="codeline" id="line-51"><code>	<label for="r0" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> = <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>, <label for="r3" class="ident">dict</label>)</code></span>
+<span class="codeline" id="line-52"><code>	<span class="keyword">if</span> <label for="r0" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> == <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r0" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) {</code></span>
+<span class="codeline" id="line-53"><code>		<label for="r0" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-54"><code>		<label for="r0" class="ident">dd</label>.<a href="#line-34" class="ident">full</a> = <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-55"><code>	}</code></span>
+<span class="codeline" id="line-56"><code>	<label for="r0" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a> = <label for="r0" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
+<span class="codeline" id="line-57"><code>}</code></span>
+<span class="codeline" id="line-58"><code></code></span>
+<span class="codeline" id="line-59"><code><span class="comment">// histSize reports the total amount of historical data in the dictionary.</span></code></span>
+<span class="codeline" id="line-60"><code><span class="keyword">func</span> (<label for="r4" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r5" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.histSize^dffc7.html" class="ident">histSize</a></label>() <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-61"><code>	<span class="keyword">if</span> <label for="r4" class="ident">dd</label>.<a href="#line-34" class="ident">full</a> {</code></span>
+<span class="codeline" id="line-62"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r4" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>)</code></span>
+<span class="codeline" id="line-63"><code>	}</code></span>
+<span class="codeline" id="line-64"><code>	<span class="keyword">return</span> <label for="r4" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
+<span class="codeline" id="line-65"><code>}</code></span>
+<span class="codeline" id="line-66"><code></code></span>
+<span class="codeline" id="line-67"><code><span class="comment">// availRead reports the number of bytes that can be flushed by readFlush.</span></code></span>
+<span class="codeline" id="line-68"><code><span class="keyword">func</span> (<label for="r6" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r7" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.availRead^ee35b.html" class="ident">availRead</a></label>() <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-69"><code>	<span class="keyword">return</span> <label for="r6" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> - <label for="r6" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a></code></span>
+<span class="codeline" id="line-70"><code>}</code></span>
+<span class="codeline" id="line-71"><code></code></span>
+<span class="codeline" id="line-72"><code><span class="comment">// availWrite reports the available amount of output buffer space.</span></code></span>
+<span class="codeline" id="line-73"><code><span class="keyword">func</span> (<label for="r8" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r9" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.availWrite^4c0a9.html" class="ident">availWrite</a></label>() <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-74"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r8" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) - <label for="r8" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
+<span class="codeline" id="line-75"><code>}</code></span>
+<span class="codeline" id="line-76"><code></code></span>
+<span class="codeline" id="line-77"><code><span class="comment">// writeSlice returns a slice of the available buffer to write data to.</span></code></span>
+<span class="codeline" id="line-78"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-79"><code><span class="comment">// This invariant will be kept: len(s) &lt;= availWrite()</span></code></span>
+<span class="codeline" id="line-80"><code><span class="keyword">func</span> (<label for="r10" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r11" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.writeSlice^d112c.html" class="ident">writeSlice</a></label>() []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
+<span class="codeline" id="line-81"><code>	<span class="keyword">return</span> <label for="r10" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r10" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>:]</code></span>
+<span class="codeline" id="line-82"><code>}</code></span>
+<span class="codeline" id="line-83"><code></code></span>
+<span class="codeline" id="line-84"><code><span class="comment">// writeMark advances the writer pointer by cnt.</span></code></span>
+<span class="codeline" id="line-85"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-86"><code><span class="comment">// This invariant must be kept: 0 &lt;= cnt &lt;= availWrite()</span></code></span>
+<span class="codeline" id="line-87"><code><span class="keyword">func</span> (<label for="r12" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r13" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.writeMark^78417.html" class="ident">writeMark</a></label>(<label for="r14" class="ident">cnt</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) {</code></span>
+<span class="codeline" id="line-88"><code>	<label for="r12" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> += <label for="r14" class="ident">cnt</label></code></span>
+<span class="codeline" id="line-89"><code>}</code></span>
+<span class="codeline" id="line-90"><code></code></span>
+<span class="codeline" id="line-91"><code><span class="comment">// writeByte writes a single byte to the dictionary.</span></code></span>
+<span class="codeline" id="line-92"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-93"><code><span class="comment">// This invariant must be kept: 0 &lt; availWrite()</span></code></span>
+<span class="codeline" id="line-94"><code><span class="keyword">func</span> (<label for="r15" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r16" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.writeByte^fb7af.html" class="ident">writeByte</a></label>(<label for="r17" class="ident">c</label> <a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) {</code></span>
+<span class="codeline" id="line-95"><code>	<label for="r15" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r15" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>] = <label for="r17" class="ident">c</label></code></span>
+<span class="codeline" id="line-96"><code>	<label for="r15" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>++</code></span>
+<span class="codeline" id="line-97"><code>}</code></span>
+<span class="codeline" id="line-98"><code></code></span>
+<span class="codeline" id="line-99"><code><span class="comment">// writeCopy copies a string at a given (dist, length) to the output.</span></code></span>
+<span class="codeline" id="line-100"><code><span class="comment">// This returns the number of bytes copied and may be less than the requested</span></code></span>
+<span class="codeline" id="line-101"><code><span class="comment">// length if the available space in the output buffer is too small.</span></code></span>
+<span class="codeline" id="line-102"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-103"><code><span class="comment">// This invariant must be kept: 0 &lt; dist &lt;= histSize()</span></code></span>
+<span class="codeline" id="line-104"><code><span class="keyword">func</span> (<label for="r18" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r19" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.writeCopy^7e988.html" class="ident">writeCopy</a></label>(<label for="r20" class="ident">dist</label>, <label for="r21" class="ident">length</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-105"><code>	<label for="r22" class="ident">dstBase</label> := <label for="r18" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
+<span class="codeline" id="line-106"><code>	<label for="r23" class="ident">dstPos</label> := <label for="r22" class="ident">dstBase</label></code></span>
+<span class="codeline" id="line-107"><code>	<label for="r24" class="ident">srcPos</label> := <label for="r23" class="ident">dstPos</label> - <label for="r20" class="ident">dist</label></code></span>
+<span class="codeline" id="line-108"><code>	<label for="r25" class="ident">endPos</label> := <a href="../../../../../pkg/builtin.html#name-min" class="ident">min</a>(<label for="r23" class="ident">dstPos</label>+<label for="r21" class="ident">length</label>, <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>))</code></span>
+<span class="codeline" id="line-109"><code></code></span>
+<span class="codeline" id="line-110"><code>	<span class="comment">// Copy non-overlapping section after destination position.</span></code></span>
+<span class="codeline" id="line-111"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-112"><code><span class="comment">	// This section is non-overlapping in that the copy length for this section</span></code></span>
+<span class="codeline" id="line-113"><code><span class="comment">	// is always less than or equal to the backwards distance. This can occur</span></code></span>
+<span class="codeline" id="line-114"><code><span class="comment">	// if a distance refers to data that wraps-around in the buffer.</span></code></span>
+<span class="codeline" id="line-115"><code><span class="comment">	// Thus, a backwards copy is performed here; that is, the exact bytes in</span></code></span>
+<span class="codeline" id="line-116"><code><span class="comment">	// the source prior to the copy is placed in the destination.</span></code></span>
+<span class="codeline" id="line-117"><code>	<span class="keyword">if</span> <label for="r24" class="ident">srcPos</label> &lt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-118"><code>		<label for="r24" class="ident">srcPos</label> += <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>)</code></span>
+<span class="codeline" id="line-119"><code>		<label for="r23" class="ident">dstPos</label> += <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r23" class="ident">dstPos</label>:<label for="r25" class="ident">endPos</label>], <label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r24" class="ident">srcPos</label>:])</code></span>
+<span class="codeline" id="line-120"><code>		<label for="r24" class="ident">srcPos</label> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-121"><code>	}</code></span>
+<span class="codeline" id="line-122"><code></code></span>
+<span class="codeline" id="line-123"><code>	<span class="comment">// Copy possibly overlapping section before destination position.</span></code></span>
+<span class="codeline" id="line-124"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-125"><code><span class="comment">	// This section can overlap if the copy length for this section is larger</span></code></span>
+<span class="codeline" id="line-126"><code><span class="comment">	// than the backwards distance. This is allowed by LZ77 so that repeated</span></code></span>
+<span class="codeline" id="line-127"><code><span class="comment">	// strings can be succinctly represented using (dist, length) pairs.</span></code></span>
+<span class="codeline" id="line-128"><code><span class="comment">	// Thus, a forwards copy is performed here; that is, the bytes copied is</span></code></span>
+<span class="codeline" id="line-129"><code><span class="comment">	// possibly dependent on the resulting bytes in the destination as the copy</span></code></span>
+<span class="codeline" id="line-130"><code><span class="comment">	// progresses along. This is functionally equivalent to the following:</span></code></span>
+<span class="codeline" id="line-131"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-132"><code><span class="comment">	//	for i := 0; i &lt; endPos-dstPos; i++ {</span></code></span>
+<span class="codeline" id="line-133"><code><span class="comment">	//		dd.hist[dstPos+i] = dd.hist[srcPos+i]</span></code></span>
+<span class="codeline" id="line-134"><code><span class="comment">	//	}</span></code></span>
+<span class="codeline" id="line-135"><code><span class="comment">	//	dstPos = endPos</span></code></span>
+<span class="codeline" id="line-136"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-137"><code>	<span class="keyword">for</span> <label for="r23" class="ident">dstPos</label> &lt; <label for="r25" class="ident">endPos</label> {</code></span>
+<span class="codeline" id="line-138"><code>		<label for="r23" class="ident">dstPos</label> += <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r23" class="ident">dstPos</label>:<label for="r25" class="ident">endPos</label>], <label for="r18" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r24" class="ident">srcPos</label>:<label for="r23" class="ident">dstPos</label>])</code></span>
+<span class="codeline" id="line-139"><code>	}</code></span>
+<span class="codeline" id="line-140"><code></code></span>
+<span class="codeline" id="line-141"><code>	<label for="r18" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> = <label for="r23" class="ident">dstPos</label></code></span>
+<span class="codeline" id="line-142"><code>	<span class="keyword">return</span> <label for="r23" class="ident">dstPos</label> - <label for="r22" class="ident">dstBase</label></code></span>
+<span class="codeline" id="line-143"><code>}</code></span>
+<span class="codeline" id="line-144"><code></code></span>
+<span class="codeline" id="line-145"><code><span class="comment">// tryWriteCopy tries to copy a string at a given (distance, length) to the</span></code></span>
+<span class="codeline" id="line-146"><code><span class="comment">// output. This specialized version is optimized for short distances.</span></code></span>
+<span class="codeline" id="line-147"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-148"><code><span class="comment">// This method is designed to be inlined for performance reasons.</span></code></span>
+<span class="codeline" id="line-149"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-150"><code><span class="comment">// This invariant must be kept: 0 &lt; dist &lt;= histSize()</span></code></span>
+<span class="codeline" id="line-151"><code><span class="keyword">func</span> (<label for="r26" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r27" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.tryWriteCopy^bb3c6.html" class="ident">tryWriteCopy</a></label>(<label for="r28" class="ident">dist</label>, <label for="r29" class="ident">length</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-152"><code>	<label for="r30" class="ident">dstPos</label> := <label for="r26" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
+<span class="codeline" id="line-153"><code>	<label for="r31" class="ident">endPos</label> := <label for="r30" class="ident">dstPos</label> + <label for="r29" class="ident">length</label></code></span>
+<span class="codeline" id="line-154"><code>	<span class="keyword">if</span> <label for="r30" class="ident">dstPos</label> &lt; <label for="r28" class="ident">dist</label> || <label for="r31" class="ident">endPos</label> &gt; <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r26" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) {</code></span>
+<span class="codeline" id="line-155"><code>		<span class="keyword">return</span> <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-156"><code>	}</code></span>
+<span class="codeline" id="line-157"><code>	<label for="r32" class="ident">dstBase</label> := <label for="r30" class="ident">dstPos</label></code></span>
+<span class="codeline" id="line-158"><code>	<label for="r33" class="ident">srcPos</label> := <label for="r30" class="ident">dstPos</label> - <label for="r28" class="ident">dist</label></code></span>
+<span class="codeline" id="line-159"><code></code></span>
+<span class="codeline" id="line-160"><code>	<span class="comment">// Copy possibly overlapping section before destination position.</span></code></span>
+<span class="codeline" id="line-161"><code><label for="r34" class="ident">loop</label>:</code></span>
+<span class="codeline" id="line-162"><code>	<label for="r30" class="ident">dstPos</label> += <a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r26" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r30" class="ident">dstPos</label>:<label for="r31" class="ident">endPos</label>], <label for="r26" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r33" class="ident">srcPos</label>:<label for="r30" class="ident">dstPos</label>])</code></span>
+<span class="codeline" id="line-163"><code>	<span class="keyword">if</span> <label for="r30" class="ident">dstPos</label> &lt; <label for="r31" class="ident">endPos</label> {</code></span>
+<span class="codeline" id="line-164"><code>		<span class="keyword">goto</span> <label for="r34" class="ident">loop</label> <span class="comment">// Avoid for-loop so that this function can be inlined</span></code></span>
+<span class="codeline" id="line-165"><code>	}</code></span>
+<span class="codeline" id="line-166"><code></code></span>
+<span class="codeline" id="line-167"><code>	<label for="r26" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> = <label for="r30" class="ident">dstPos</label></code></span>
+<span class="codeline" id="line-168"><code>	<span class="keyword">return</span> <label for="r30" class="ident">dstPos</label> - <label for="r32" class="ident">dstBase</label></code></span>
+<span class="codeline" id="line-169"><code>}</code></span>
+<span class="codeline" id="line-170"><code></code></span>
+<span class="codeline" id="line-171"><code><span class="comment">// appendWindow appends the current sliding window (up to len(hist) most recent</span></code></span>
+<span class="codeline" id="line-172"><code><span class="comment">// bytes, oldest first) to dst.</span></code></span>
+<span class="codeline" id="line-173"><code><span class="keyword">func</span> (<label for="r35" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r36" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.appendWindow^dcbee.html" class="ident">appendWindow</a></label>(<label for="r37" class="ident">dst</label> []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
+<span class="codeline" id="line-174"><code>	<span class="keyword">if</span> <label for="r35" class="ident">dd</label>.<a href="#line-34" class="ident">full</a> {</code></span>
+<span class="codeline" id="line-175"><code>		<label for="r37" class="ident">dst</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r37" class="ident">dst</label>, <label for="r35" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>:]...)</code></span>
+<span class="codeline" id="line-176"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r37" class="ident">dst</label>, <label for="r35" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[:<label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>]...)</code></span>
+<span class="codeline" id="line-177"><code>	}</code></span>
+<span class="codeline" id="line-178"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r37" class="ident">dst</label>, <label for="r35" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[:<label for="r35" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>]...)</code></span>
+<span class="codeline" id="line-179"><code>}</code></span>
+<span class="codeline" id="line-180"><code></code></span>
+<span class="codeline" id="line-181"><code><span class="comment">// readFlush returns a slice of the historical buffer that is ready to be</span></code></span>
+<span class="codeline" id="line-182"><code><span class="comment">// emitted to the user. The data returned by readFlush must be fully consumed</span></code></span>
+<span class="codeline" id="line-183"><code><span class="comment">// before calling any other dictDecoder methods.</span></code></span>
+<span class="codeline" id="line-184"><code><span class="keyword">func</span> (<label for="r38" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r39" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.readFlush^77fce.html" class="ident">readFlush</a></label>() []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
+<span class="codeline" id="line-185"><code>	<label for="r40" class="ident">toRead</label> := <label for="r38" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>[<label for="r38" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a>:<label for="r38" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>]</code></span>
+<span class="codeline" id="line-186"><code>	<label for="r38" class="ident">dd</label>.<a href="#line-33" class="ident">flushed</a> += <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r40" class="ident">toRead</label>))</code></span>
+<span class="codeline" id="line-187"><code>	<label for="r38" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a> = <label for="r38" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a></code></span>
+<span class="codeline" id="line-188"><code>	<span class="keyword">if</span> <label for="r38" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a> == <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r38" class="ident">dd</label>.<a href="#line-28" class="ident">hist</a>) {</code></span>
+<span class="codeline" id="line-189"><code>		<label for="r38" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>, <label for="r38" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a> = <span class="lit-number">0</span>, <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-190"><code>		<label for="r38" class="ident">dd</label>.<a href="#line-34" class="ident">full</a> = <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-191"><code>	}</code></span>
+<span class="codeline" id="line-192"><code>	<span class="keyword">return</span> <label for="r40" class="ident">toRead</label></code></span>
+<span class="codeline" id="line-193"><code>}</code></span>
+<span class="codeline" id="line-194"><code></code></span>
+<span class="codeline" id="line-195"><code><span class="comment">// decoded reports the total number of bytes written into the dictionary since</span></code></span>
+<span class="codeline" id="line-196"><code><span class="comment">// init (i.e. excluding any preset dict bytes).</span></code></span>
+<span class="codeline" id="line-197"><code><span class="keyword">func</span> (<label for="r41" class="ident">dd</label> *<a href="#line-27" class="ident">dictDecoder</a>) <label for="r42" class="ident"><a href="../../../../../use/github.com/klauspost/compress/flate..dictDecoder^0b2d0.decoded^17498.html" class="ident">decoded</a></label>() <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a> {</code></span>
+<span class="codeline" id="line-198"><code>	<span class="keyword">return</span> <label for="r41" class="ident">dd</label>.<a href="#line-33" class="ident">flushed</a> + <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<label for="r41" class="ident">dd</label>.<a href="#line-31" class="ident">wrPos</a>-<label for="r41" class="ident">dd</label>.<a href="#line-32" class="ident">rdPos</a>)</code></span>
+<span class="codeline" id="line-199"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

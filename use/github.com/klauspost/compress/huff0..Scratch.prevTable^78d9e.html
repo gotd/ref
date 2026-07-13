@@ -11,9 +11,20 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/huff0.html">github.com/klauspost/compress/huff0</a>.<a href="../../../../src/github.com/klauspost/compress/huff0/huff0.go.html#line-64">Scratch</a>.<a href="../../../../src/github.com/klauspost/compress/huff0/huff0.go.html#line-114">prevTable</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">26 uses</span>
+<span class="title">38 uses</span>
 
 	github.com/klauspost/compress/huff0 (current package)
+		<a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-85">build_table.go#L85</a>: 	if cap(s.<b>prevTable</b>) &lt; len(s.cTable) {
+		<a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-86" class="path-duplicate">build_table.go</a><a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-86">#L86</a>: 		s.<b>prevTable</b> = make(cTable, 0, maxSymbolValue+1)
+		<a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-88" class="path-duplicate">build_table.go</a><a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-88">#L88</a>: 	s.<b>prevTable</b> = s.<b>prevTable</b>[:len(s.cTable)]
+		<a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-89" class="path-duplicate">build_table.go</a><a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-89">#L89</a>: 	copy(s.<b>prevTable</b>, s.cTable)
+		<a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-102" class="path-duplicate">build_table.go</a><a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-102">#L102</a>: 	if s == nil || hist == nil || len(s.<b>prevTable</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-105" class="path-duplicate">build_table.go</a><a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-105">#L105</a>: 	pt := s.<b>prevTable</b>
+		<a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-122" class="path-duplicate">build_table.go</a><a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-122">#L122</a>: 	if s == nil || hist == nil || len(s.<b>prevTable</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-125" class="path-duplicate">build_table.go</a><a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-125">#L125</a>: 	pt := s.<b>prevTable</b>
+		<a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-142" class="path-duplicate">build_table.go</a><a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-142">#L142</a>: 	if s == nil || len(s.<b>prevTable</b>) == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-160" class="path-duplicate">build_table.go</a><a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-160">#L160</a>: 	s.symbolLen = uint16(len(s.<b>prevTable</b>))
+		<a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-161" class="path-duplicate">build_table.go</a><a href="../../../../src/github.com/klauspost/compress/huff0/build_table.go.html#line-161">#L161</a>: 	if err := s.<b>prevTable</b>.write(s); err != nil {
 		<a href="../../../../src/github.com/klauspost/compress/huff0/compress.go.html#line-46">compress.go#L46</a>: 		s.<b>prevTable</b> = s.<b>prevTable</b>[:0]
 		<a href="../../../../src/github.com/klauspost/compress/huff0/compress.go.html#line-55" class="path-duplicate">compress.go</a><a href="../../../../src/github.com/klauspost/compress/huff0/compress.go.html#line-55">#L55</a>: 		canReuse = s.canUseTable(s.<b>prevTable</b>)
 		<a href="../../../../src/github.com/klauspost/compress/huff0/compress.go.html#line-88" class="path-duplicate">compress.go</a><a href="../../../../src/github.com/klauspost/compress/huff0/compress.go.html#line-88">#L88</a>: 		s.cTable = s.<b>prevTable</b>

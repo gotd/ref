@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-29">prevEntry</a></b></span>
 
-<span class="title">44 uses</span>
+<span class="title">47 uses</span>
 
 	github.com/klauspost/compress/zstd (current package)
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-71">enc_best.go#L71</a>: 	table         [bestShortTableSize]<b>prevEntry</b>
@@ -36,6 +36,8 @@
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-521" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-521">#L521</a>: 			e.dictLongTable = make([]<b>prevEntry</b>, len(e.longTable))
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-528" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-528">#L528</a>: 			e.dictLongTable[h] = <b>prevEntry</b>{
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-538" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-538">#L538</a>: 				e.dictLongTable[h] = <b>prevEntry</b>{
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-564" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-564">#L564</a>: 		e.longTable[h] = <b>prevEntry</b>{offset: i, prev: e.longTable[h].offset}
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-566" class="path-duplicate">enc_best.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_best.go.html#line-566">#L566</a>: 		e.table[h0] = <b>prevEntry</b>{offset: i, prev: e.table[h0].offset}
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-29">enc_better.go#L29</a>: type <b>prevEntry</b> struct {
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-43" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-43">#L43</a>: 	longTable [betterLongTableSize]<b>prevEntry</b>
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-49" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-49">#L49</a>: 	dictLongTable        []<b>prevEntry</b>
@@ -55,9 +57,10 @@
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-889" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-889">#L889</a>: 				e.longTable[nextHashL] = <b>prevEntry</b>{offset: s + checkAt + e.cur, prev: candidateL.offset}
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1024" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1024">#L1024</a>: 			e.longTable[h0] = <b>prevEntry</b>{offset: off, prev: e.longTable[h0].offset}
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1054" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1054">#L1054</a>: 			e.longTable[nextHashL] = <b>prevEntry</b>{offset: s + e.cur, prev: e.longTable[nextHashL].offset}
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1145" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1145">#L1145</a>: 			e.dictLongTable = make([]<b>prevEntry</b>, len(e.longTable))
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1152" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1152">#L1152</a>: 			e.dictLongTable[h] = <b>prevEntry</b>{
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1162" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1162">#L1162</a>: 				e.dictLongTable[h] = <b>prevEntry</b>{
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1108" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1108">#L1108</a>: 		e.longTable[h] = <b>prevEntry</b>{offset: i, prev: e.longTable[h].offset}
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1159" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1159">#L1159</a>: 			e.dictLongTable = make([]<b>prevEntry</b>, len(e.longTable))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1166" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1166">#L1166</a>: 			e.dictLongTable[h] = <b>prevEntry</b>{
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1176" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1176">#L1176</a>: 				e.dictLongTable[h] = <b>prevEntry</b>{
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

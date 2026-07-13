@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-40">betterFastEncoder</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-42">table</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">27 uses</span>
+<span class="title">28 uses</span>
 
 	github.com/klauspost/compress/zstd (current package)
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-42">enc_better.go#L42</a>: 	<b>table</b>     [betterShortTableSize]tableEntry
@@ -36,11 +36,12 @@
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-808" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-808">#L808</a>: 						e.<b>table</b>[h1] = tableEntry{offset: off + 1, val: uint32(cv1)}
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1027" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1027">#L1027</a>: 			e.<b>table</b>[h1] = tableEntry{offset: off + 1, val: uint32(cv1)}
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1056" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1056">#L1056</a>: 			e.<b>table</b>[nextHashS] = tableEntry{offset: s + e.cur, val: uint32(cv)}
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1107" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1107">#L1107</a>: 	if len(e.dictTable) != len(e.<b>table</b>) || dictChanged {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1108" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1108">#L1108</a>: 		if len(e.dictTable) != len(e.<b>table</b>) {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1109" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1109">#L1109</a>: 			e.dictTable = make([]tableEntry, len(e.<b>table</b>))
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1186" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1186">#L1186</a>: 			copy(e.<b>table</b>[:], e.dictTable)
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1196" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1196">#L1196</a>: 				copy(e.<b>table</b>[i*shardSize:(i+1)*shardSize], e.dictTable[i*shardSize:(i+1)*shardSize])
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1109" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1109">#L1109</a>: 		e.<b>table</b>[hashLen(cv&gt;&gt;8, betterShortTableBits, betterShortLen)] = tableEntry{val: uint32(cv &gt;&gt; 8), offset: i + 1}
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1121" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1121">#L1121</a>: 	if len(e.dictTable) != len(e.<b>table</b>) || dictChanged {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1122" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1122">#L1122</a>: 		if len(e.dictTable) != len(e.<b>table</b>) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1123" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1123">#L1123</a>: 			e.dictTable = make([]tableEntry, len(e.<b>table</b>))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1200" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1200">#L1200</a>: 			copy(e.<b>table</b>[:], e.dictTable)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1210" class="path-duplicate">enc_better.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_better.go.html#line-1210">#L1210</a>: 				copy(e.<b>table</b>[i*shardSize:(i+1)*shardSize], e.dictTable[i*shardSize:(i+1)*shardSize])
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
