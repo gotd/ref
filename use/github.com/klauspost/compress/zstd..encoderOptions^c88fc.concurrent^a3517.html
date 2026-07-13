@@ -11,18 +11,20 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-16">encoderOptions</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-18">concurrent</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">9 uses</span>
+<span class="title">11 uses</span>
 
 	github.com/klauspost/compress/zstd (current package)
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-84">encoder.go#L84</a>: 	if e.o.<b>concurrent</b> == 0 {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-87" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-87">#L87</a>: 	e.encoders = make(chan encoder, e.o.<b>concurrent</b>)
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-88" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-88">#L88</a>: 	for i := 0; i &lt; e.o.<b>concurrent</b>; i++ {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-103" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-103">#L103</a>: 	if e.o.<b>concurrent</b> &gt; 1 {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-289" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-289">#L289</a>: 	if e.o.<b>concurrent</b> == 1 {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-18">encoder_options.go#L18</a>: 	<b>concurrent</b>      int
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-37" class="path-duplicate">encoder_options.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-37">#L37</a>: 		<b>concurrent</b>:    runtime.GOMAXPROCS(0),
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-96" class="path-duplicate">encoder_options.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-96">#L96</a>: 		if o.resetOpt &amp;&amp; n != o.<b>concurrent</b> {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-99" class="path-duplicate">encoder_options.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-99">#L99</a>: 		o.<b>concurrent</b> = n
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_jobs.go.html#line-50">enc_jobs.go#L50</a>: 	n := e.o.<b>concurrent</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-81">encoder.go#L81</a>: 	if e.o.concurrentBlocks &amp;&amp; (e.o.dict != nil || e.o.<b>concurrent</b> &lt;= 1) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-91" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-91">#L91</a>: 	if e.o.<b>concurrent</b> == 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-94" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-94">#L94</a>: 	e.encoders = make(chan encoder, e.o.<b>concurrent</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-95" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-95">#L95</a>: 	for i := 0; i &lt; e.o.<b>concurrent</b>; i++ {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-129" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-129">#L129</a>: 	if e.o.<b>concurrent</b> &gt; 1 &amp;&amp; !e.o.concurrentBlocks {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-361" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-361">#L361</a>: 	if e.o.<b>concurrent</b> == 1 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-18">encoder_options.go#L18</a>: 	<b>concurrent</b>       int
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-38" class="path-duplicate">encoder_options.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-38">#L38</a>: 		<b>concurrent</b>:    runtime.GOMAXPROCS(0),
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-97" class="path-duplicate">encoder_options.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-97">#L97</a>: 		if o.resetOpt &amp;&amp; n != o.<b>concurrent</b> {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-100" class="path-duplicate">encoder_options.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-100">#L100</a>: 		o.<b>concurrent</b> = n
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

@@ -11,21 +11,22 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/github.com/gotd/log.html">github.com/gotd/log</a>.<a href="../../../src/github.com/gotd/log/helper.go.html#line-9">Helper</a>.<a href="../../../src/github.com/gotd/log/helper.go.html#line-45">With</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">14 uses</span>
+<span class="title">15 uses</span>
 
 	github.com/gotd/log (current package)
 		<a href="../../../src/github.com/gotd/log/helper.go.html#line-45">helper.go#L45</a>: func (h Helper) <b>With</b>(attrs ...Attr) Helper {
 
 	<a href="../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
-		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-144">read.go#L144</a>: 			l = logger.<b>With</b>(log.NamedError("reason", err))
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-154">read.go#L154</a>: 			l = logger.<b>With</b>(log.NamedError("reason", err))
 		<a href="../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-26">rpc.go#L26</a>: 	logger := c.log.<b>With</b>(
+		<a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-59">write.go#L59</a>: 	logger := c.logWithTypeID(peekID(message)).<b>With</b>(
 		<a href="../../../src/github.com/gotd/td/mtproto/zap.go.html#line-26">zap.go#L26</a>: 	return c.logWithType(b).<b>With</b>(log.Int("size_bytes", b.Len()))
 		<a href="../../../src/github.com/gotd/td/mtproto/zap.go.html#line-40" class="path-duplicate">zap.go</a><a href="../../../src/github.com/gotd/td/mtproto/zap.go.html#line-40">#L40</a>: 	return c.log.<b>With</b>(logType{
 
 	<a href="../../../pkg/github.com/gotd/td/rpc.html">github.com/gotd/td/rpc</a>
 		<a href="../../../src/github.com/gotd/td/rpc/ack.go.html#line-31">ack.go#L31</a>: 	logger := e.log.<b>With</b>(log.Int64("ack_id", id))
 		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-94">engine.go#L94</a>: 	logger := e.log.<b>With</b>(log.Int64("msg_id", req.MsgID))
-		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-203" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-203">#L203</a>: 		logger  = e.log.Named("retry").<b>With</b>(log.Int64("msg_id", req.MsgID))
+		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-208" class="path-duplicate">engine.go</a><a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-208">#L208</a>: 		logger  = e.log.Named("retry").<b>With</b>(log.Int64("msg_id", req.MsgID))
 
 	<a href="../../../pkg/github.com/gotd/td/tdsync.html">github.com/gotd/td/tdsync</a>
 		<a href="../../../src/github.com/gotd/td/tdsync/log_group.go.html#line-42">log_group.go#L42</a>: 		l := log.For(g.log).<b>With</b>(log.String("task", taskName))

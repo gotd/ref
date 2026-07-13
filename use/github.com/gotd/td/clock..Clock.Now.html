@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/gotd/td/clock.html">github.com/gotd/td/clock</a>.<a href="../../../../src/github.com/gotd/td/clock/clock.go.html#line-11">Clock</a>.<a href="../../../../src/github.com/gotd/td/clock/clock.go.html#line-12">Now</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">32 uses</span>
+<span class="title">47 uses</span>
 
 	github.com/gotd/td/clock (current package)
 		<a href="../../../../src/github.com/gotd/td/clock/clock.go.html#line-12">clock.go#L12</a>: 	<b>Now</b>() time.Time
@@ -24,6 +24,8 @@
 		<a href="../../../../src/github.com/gotd/td/exchange/server_flow.go.html#line-242">server_flow.go#L242</a>: 		ServerTime:  int(s.clock.<b>Now</b>().Unix()),
 
 	<a href="../../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../../../../src/github.com/gotd/td/mtproto/ack.go.html#line-19">ack.go#L19</a>: 		start := c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/mtproto/ack.go.html#line-29" class="path-duplicate">ack.go</a><a href="../../../../src/github.com/gotd/td/mtproto/ack.go.html#line-29">#L29</a>: 			log.Duration("elapsed", c.clock.<b>Now</b>().Sub(start)),
 		<a href="../../../../src/github.com/gotd/td/mtproto/bind.go.html#line-61">bind.go#L61</a>: 		expiresAt = c.clock.<b>Now</b>().Unix() + int64(c.tempKeyTTL)
 		<a href="../../../../src/github.com/gotd/td/mtproto/bind.go.html#line-202" class="path-duplicate">bind.go</a><a href="../../../../src/github.com/gotd/td/mtproto/bind.go.html#line-202">#L202</a>: 	return c.clock.<b>Now</b>().Unix()-createdAt &gt; 60
 		<a href="../../../../src/github.com/gotd/td/mtproto/connect.go.html#line-54">connect.go#L54</a>: 		start := c.clock.<b>Now</b>()
@@ -38,8 +40,17 @@
 		<a href="../../../../src/github.com/gotd/td/mtproto/options.go.html#line-168">options.go#L168</a>: 		opt.MessageID = proto.NewMessageIDGen(opt.Clock.<b>Now</b>)
 		<a href="../../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-33">pfs.go#L33</a>: 			expiresAt = c.clock.<b>Now</b>().Unix() + int64(c.tempKeyTTL)
 		<a href="../../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-38" class="path-duplicate">pfs.go</a><a href="../../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-38">#L38</a>: 		wait := time.Unix(renewAt, 0).Sub(c.clock.<b>Now</b>())
+		<a href="../../../../src/github.com/gotd/td/mtproto/ping.go.html#line-111">ping.go#L111</a>: 			start := c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/mtproto/ping.go.html#line-124" class="path-duplicate">ping.go</a><a href="../../../../src/github.com/gotd/td/mtproto/ping.go.html#line-124">#L124</a>: 					log.Duration("elapsed", c.clock.<b>Now</b>().Sub(start)),
+		<a href="../../../../src/github.com/gotd/td/mtproto/ping.go.html#line-128" class="path-duplicate">ping.go</a><a href="../../../../src/github.com/gotd/td/mtproto/ping.go.html#line-128">#L128</a>: 			logger.Debug(ctx, "Ping acknowledged", log.Duration("elapsed", c.clock.<b>Now</b>().Sub(start)))
 		<a href="../../../../src/github.com/gotd/td/mtproto/read.go.html#line-63">read.go#L63</a>: 	if err := checkMessageID(c.clock.<b>Now</b>(), msg.MessageID); err != nil {
+		<a href="../../../../src/github.com/gotd/td/mtproto/read.go.html#line-96" class="path-duplicate">read.go</a><a href="../../../../src/github.com/gotd/td/mtproto/read.go.html#line-96">#L96</a>: 		start := c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/mtproto/read.go.html#line-101" class="path-duplicate">read.go</a><a href="../../../../src/github.com/gotd/td/mtproto/read.go.html#line-101">#L101</a>: 			if waited := c.clock.<b>Now</b>().Sub(start); waited &gt; slowWriteThreshold {
 		<a href="../../../../src/github.com/gotd/td/mtproto/salt.go.html#line-26">salt.go#L26</a>: 	salt, ok := c.salts.Get(c.clock.<b>Now</b>().Add(time.Minute * 5))
+		<a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-31">write.go#L31</a>: 	start := c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-43" class="path-duplicate">write.go</a><a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-43">#L43</a>: 	locked := c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-67" class="path-duplicate">write.go</a><a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-67">#L67</a>: 		logger.Debug(ctx, "Send failed", log.Error(err), log.Duration("elapsed", c.clock.<b>Now</b>().Sub(locked)))
+		<a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-71" class="path-duplicate">write.go</a><a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-71">#L71</a>: 	if elapsed := c.clock.<b>Now</b>().Sub(locked); elapsed &gt; slowWriteThreshold {
 
 	<a href="../../../../pkg/github.com/gotd/td/mtproxy/faketls.html">github.com/gotd/td/mtproxy/faketls</a>
 		<a href="../../../../src/github.com/gotd/td/mtproxy/faketls/client_hello.go.html#line-99">client_hello.go#L99</a>: 	old ^= uint32(now.<b>Now</b>().Unix())
@@ -58,8 +69,12 @@
 	<a href="../../../../pkg/github.com/gotd/td/telegram/internal/manager.html">github.com/gotd/td/telegram/internal/manager</a>
 		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-137">conn.go#L137</a>: 	start := c.clock.<b>Now</b>()
 		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-150" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-150">#L150</a>: 		end := c.clock.<b>Now</b>()
-		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-328" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-328">#L328</a>: 		c.latest = c.clock.<b>Now</b>()
-		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-382" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-382">#L382</a>: 	c.latest = c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-193" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-193">#L193</a>: 	start := c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-198" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-198">#L198</a>: 		c.log.Debug(ctx, "Connection became ready", log.Duration("waited", c.clock.<b>Now</b>().Sub(start)))
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-201" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-201">#L201</a>: 		c.log.Debug(ctx, "Connection died while waiting for readiness", log.Duration("waited", c.clock.<b>Now</b>().Sub(start)))
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-205" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-205">#L205</a>: 			log.Duration("waited", c.clock.<b>Now</b>().Sub(start)),
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-347" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-347">#L347</a>: 		c.latest = c.clock.<b>Now</b>()
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-401" class="path-duplicate">conn.go</a><a href="../../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-401">#L401</a>: 	c.latest = c.clock.<b>Now</b>()
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

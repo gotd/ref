@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;">const <b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-40">maxCompressedBlockSize</a></b></span>
 
-<span class="title">32 uses</span>
+<span class="title">33 uses</span>
 
 	github.com/klauspost/compress/zstd (current package)
 		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-40">blockdec.go#L40</a>: 	<b>maxCompressedBlockSize</b> = 128 &lt;&lt; 10
@@ -37,14 +37,15 @@
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-88" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-88">#L88</a>: 		l += <b>maxCompressedBlockSize</b>
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-124" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-124">#L124</a>: 		if len(src)-int(s) &gt; <b>maxCompressedBlockSize</b> {
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-125" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-125">#L125</a>: 			panic(fmt.Sprintf("len(src)-s (%d) &gt; maxCompressedBlockSize (%d)", len(src)-int(s), <b>maxCompressedBlockSize</b>))
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-151" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-151">#L151</a>: 		e.ensureHist(d.ContentSize() + <b>maxCompressedBlockSize</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-148" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-148">#L148</a>: 	e.ensureHist(len(prefix) + <b>maxCompressedBlockSize</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-179" class="path-duplicate">enc_base.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_base.go.html#line-179">#L179</a>: 		e.ensureHist(d.ContentSize() + <b>maxCompressedBlockSize</b>)
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-300">enc_fast.go#L300</a>: 		if len(src) &gt; <b>maxCompressedBlockSize</b> {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-40">encoder_options.go#L40</a>: 		blockSize:     <b>maxCompressedBlockSize</b>,
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-41">encoder_options.go#L41</a>: 		blockSize:     <b>maxCompressedBlockSize</b>,
 		<a href="../../../../src/github.com/klauspost/compress/zstd/history.go.html#line-103">history.go#L103</a>: 	if avail &gt;= h.windowSize || avail &gt; <b>maxCompressedBlockSize</b> {
 		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-234">seqdec.go#L234</a>: 	maxBlockSize := min(s.windowSize, <b>maxCompressedBlockSize</b>)
-		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-59">seqdec_amd64.go#L59</a>: 	if s.maxSyncLen == 0 &amp;&amp; cap(s.out)-len(s.out) &lt; <b>maxCompressedBlockSize</b> {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-81" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-81">#L81</a>: 	maxBlockSize := min(s.windowSize, <b>maxCompressedBlockSize</b>)
-		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-236" class="path-duplicate">seqdec_amd64.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_amd64.go.html#line-236">#L236</a>: 	maxBlockSize := min(s.windowSize, <b>maxCompressedBlockSize</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-85">seqdec_asm.go#L85</a>: 	if s.maxSyncLen == 0 &amp;&amp; cap(s.out)-len(s.out) &lt; <b>maxCompressedBlockSize</b> {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-95" class="path-duplicate">seqdec_asm.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-95">#L95</a>: 	maxBlockSize := min(s.windowSize, <b>maxCompressedBlockSize</b>)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-179" class="path-duplicate">seqdec_asm.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-179">#L179</a>: 	maxBlockSize := min(s.windowSize, <b>maxCompressedBlockSize</b>)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

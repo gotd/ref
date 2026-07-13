@@ -11,10 +11,12 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>.<a href="../../../../src/github.com/gotd/td/mtproto/conn.go.html#line-51">Conn</a>.<a href="../../../../src/github.com/gotd/td/mtproto/conn.go.html#line-63">clock</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">22 uses</span>
+<span class="title">33 uses</span>
 
 	github.com/gotd/td/mtproto (current package)
-		<a href="../../../../src/github.com/gotd/td/mtproto/ack.go.html#line-27">ack.go#L27</a>: 	ticker := c.<b>clock</b>.Ticker(c.ackInterval)
+		<a href="../../../../src/github.com/gotd/td/mtproto/ack.go.html#line-19">ack.go#L19</a>: 		start := c.<b>clock</b>.Now()
+		<a href="../../../../src/github.com/gotd/td/mtproto/ack.go.html#line-29" class="path-duplicate">ack.go</a><a href="../../../../src/github.com/gotd/td/mtproto/ack.go.html#line-29">#L29</a>: 			log.Duration("elapsed", c.<b>clock</b>.Now().Sub(start)),
+		<a href="../../../../src/github.com/gotd/td/mtproto/ack.go.html#line-33" class="path-duplicate">ack.go</a><a href="../../../../src/github.com/gotd/td/mtproto/ack.go.html#line-33">#L33</a>: 	ticker := c.<b>clock</b>.Ticker(c.ackInterval)
 		<a href="../../../../src/github.com/gotd/td/mtproto/bind.go.html#line-61">bind.go#L61</a>: 		expiresAt = c.<b>clock</b>.Now().Unix() + int64(c.tempKeyTTL)
 		<a href="../../../../src/github.com/gotd/td/mtproto/bind.go.html#line-202" class="path-duplicate">bind.go</a><a href="../../../../src/github.com/gotd/td/mtproto/bind.go.html#line-202">#L202</a>: 	return c.<b>clock</b>.Now().Unix()-createdAt &gt; 60
 		<a href="../../../../src/github.com/gotd/td/mtproto/conn.go.html#line-63">conn.go#L63</a>: 	<b>clock</b>        clock.Clock
@@ -32,10 +34,19 @@
 		<a href="../../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-33">pfs.go#L33</a>: 			expiresAt = c.<b>clock</b>.Now().Unix() + int64(c.tempKeyTTL)
 		<a href="../../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-38" class="path-duplicate">pfs.go</a><a href="../../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-38">#L38</a>: 		wait := time.Unix(renewAt, 0).Sub(c.<b>clock</b>.Now())
 		<a href="../../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-43" class="path-duplicate">pfs.go</a><a href="../../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-43">#L43</a>: 		timer := c.<b>clock</b>.Timer(wait)
-		<a href="../../../../src/github.com/gotd/td/mtproto/ping.go.html#line-101">ping.go#L101</a>: 	ticker := c.<b>clock</b>.Ticker(c.pingInterval)
+		<a href="../../../../src/github.com/gotd/td/mtproto/ping.go.html#line-103">ping.go#L103</a>: 	ticker := c.<b>clock</b>.Ticker(c.pingInterval)
+		<a href="../../../../src/github.com/gotd/td/mtproto/ping.go.html#line-111" class="path-duplicate">ping.go</a><a href="../../../../src/github.com/gotd/td/mtproto/ping.go.html#line-111">#L111</a>: 			start := c.<b>clock</b>.Now()
+		<a href="../../../../src/github.com/gotd/td/mtproto/ping.go.html#line-124" class="path-duplicate">ping.go</a><a href="../../../../src/github.com/gotd/td/mtproto/ping.go.html#line-124">#L124</a>: 					log.Duration("elapsed", c.<b>clock</b>.Now().Sub(start)),
+		<a href="../../../../src/github.com/gotd/td/mtproto/ping.go.html#line-128" class="path-duplicate">ping.go</a><a href="../../../../src/github.com/gotd/td/mtproto/ping.go.html#line-128">#L128</a>: 			logger.Debug(ctx, "Ping acknowledged", log.Duration("elapsed", c.<b>clock</b>.Now().Sub(start)))
 		<a href="../../../../src/github.com/gotd/td/mtproto/read.go.html#line-63">read.go#L63</a>: 	if err := checkMessageID(c.<b>clock</b>.Now(), msg.MessageID); err != nil {
+		<a href="../../../../src/github.com/gotd/td/mtproto/read.go.html#line-96" class="path-duplicate">read.go</a><a href="../../../../src/github.com/gotd/td/mtproto/read.go.html#line-96">#L96</a>: 		start := c.<b>clock</b>.Now()
+		<a href="../../../../src/github.com/gotd/td/mtproto/read.go.html#line-101" class="path-duplicate">read.go</a><a href="../../../../src/github.com/gotd/td/mtproto/read.go.html#line-101">#L101</a>: 			if waited := c.<b>clock</b>.Now().Sub(start); waited &gt; slowWriteThreshold {
 		<a href="../../../../src/github.com/gotd/td/mtproto/salt.go.html#line-26">salt.go#L26</a>: 	salt, ok := c.salts.Get(c.<b>clock</b>.Now().Add(time.Minute * 5))
 		<a href="../../../../src/github.com/gotd/td/mtproto/salt.go.html#line-62" class="path-duplicate">salt.go</a><a href="../../../../src/github.com/gotd/td/mtproto/salt.go.html#line-62">#L62</a>: 	ticker := c.<b>clock</b>.Ticker(c.saltFetchInterval)
+		<a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-31">write.go#L31</a>: 	start := c.<b>clock</b>.Now()
+		<a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-43" class="path-duplicate">write.go</a><a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-43">#L43</a>: 	locked := c.<b>clock</b>.Now()
+		<a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-67" class="path-duplicate">write.go</a><a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-67">#L67</a>: 		logger.Debug(ctx, "Send failed", log.Error(err), log.Duration("elapsed", c.<b>clock</b>.Now().Sub(locked)))
+		<a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-71" class="path-duplicate">write.go</a><a href="../../../../src/github.com/gotd/td/mtproto/write.go.html#line-71">#L71</a>: 	if elapsed := c.<b>clock</b>.Now().Sub(locked); elapsed &gt; slowWriteThreshold {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

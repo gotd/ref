@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-26">fastEncoder</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-28">table</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">58 uses</span>
+<span class="title">59 uses</span>
 
 	github.com/klauspost/compress/zstd (current package)
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_dfast.go.html#line-49">enc_dfast.go#L49</a>: 			e.<b>table</b> = [dFastShortTableSize]tableEntry{}
@@ -67,11 +67,12 @@
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-627" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-627">#L627</a>: 			e.<b>table</b>[nextHash] = tableEntry{offset: s + e.cur, val: uint32(cv)}
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-629" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-629">#L629</a>: 			e.<b>table</b>[nextHash2] = tableEntry{offset: s + e.cur + 1, val: uint32(cv &gt;&gt; 8)}
 		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-758" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-758">#L758</a>: 			e.<b>table</b>[nextHash] = tableEntry{offset: s + e.cur, val: uint32(cv)}
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-808" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-808">#L808</a>: 	if len(e.dictTable) != len(e.<b>table</b>) || d != e.lastDict {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-809" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-809">#L809</a>: 		if len(e.dictTable) != len(e.<b>table</b>) {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-810" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-810">#L810</a>: 			e.dictTable = make([]tableEntry, len(e.<b>table</b>))
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-850" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-850">#L850</a>: 		e.<b>table</b> = *(*[tableSize]tableEntry)(e.dictTable)
-		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-863" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-863">#L863</a>: 		*(*[shardSize]tableEntry)(e.<b>table</b>[i*shardSize:]) = *(*[shardSize]tableEntry)(e.dictTable[i*shardSize:])
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-809" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-809">#L809</a>: 		e.<b>table</b>[hashLen(cv, tableBits, tableFastHashLen)] = tableEntry{val: uint32(cv), offset: i}
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-821" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-821">#L821</a>: 	if len(e.dictTable) != len(e.<b>table</b>) || d != e.lastDict {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-822" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-822">#L822</a>: 		if len(e.dictTable) != len(e.<b>table</b>) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-823" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-823">#L823</a>: 			e.dictTable = make([]tableEntry, len(e.<b>table</b>))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-863" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-863">#L863</a>: 		e.<b>table</b> = *(*[tableSize]tableEntry)(e.dictTable)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-876" class="path-duplicate">enc_fast.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/enc_fast.go.html#line-876">#L876</a>: 		*(*[shardSize]tableEntry)(e.<b>table</b>[i*shardSize:]) = *(*[shardSize]tableEntry)(e.dictTable[i*shardSize:])
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

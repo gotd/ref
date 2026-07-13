@@ -54,7 +54,10 @@ input[id=r34]:checked ~pre label[for=r34],
 input[id=r35]:checked ~pre label[for=r35],
 input[id=r36]:checked ~pre label[for=r36],
 input[id=r37]:checked ~pre label[for=r37],
-input[id=r38]:checked ~pre label[for=r38]
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40],
+input[id=r41]:checked ~pre label[for=r41]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
 input[id=i1]:checked ~pre .i1,
@@ -99,6 +102,9 @@ input[id=i2]:checked ~pre .i2
 <input id="r36" type="radio" name="g"/>
 <input id="r37" type="radio" name="g"/>
 <input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="r41" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
 <input id="i2" type="radio" name="i"/>
@@ -234,47 +240,75 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-128"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-int32" class="ident">int32</a>(<a href="matchlen_amd64.go.html#line-15" class="ident">matchLen</a>(<label for="r28" class="ident">src</label>[<label for="r26" class="ident">s</label>:], <label for="r28" class="ident">src</label>[<label for="r27" class="ident">t</label>:]))</code></span>
 <span class="codeline" id="line-129"><code>}</code></span>
 <span class="codeline" id="line-130"><code></code></span>
-<span class="codeline" id="line-131"><code><span class="comment">// Reset the encoding table.</span></code></span>
-<span class="codeline" id="line-132"><code><span class="keyword">func</span> (<label for="r32" class="ident">e</label> *<a href="#line-14" class="ident">fastBase</a>) <label for="r33" class="ident"><a href="../../../../../use/github.com/klauspost/compress/zstd..fastBase^b9d4b.resetBase^4a702.html" class="ident">resetBase</a></label>(<label for="r34" class="ident">d</label> *<a href="dict.go.html#line-15" class="ident">dict</a>, <label for="r35" class="ident">singleBlock</label> <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
-<span class="codeline" id="line-133"><code>	<span class="keyword">if</span> <label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-134"><code>		<label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a> = &amp;<a href="blockenc.go.html#line-17" class="ident">blockEnc</a>{<a href="blockenc.go.html#line-32" class="ident">lowMem</a>: <label for="r32" class="ident">e</label>.<a href="#line-25" class="ident">lowMem</a>}</code></span>
-<span class="codeline" id="line-135"><code>		<label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-37" class="ident">init</a>()</code></span>
-<span class="codeline" id="line-136"><code>	} <span class="keyword">else</span> {</code></span>
-<span class="codeline" id="line-137"><code>		<label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-87" class="ident">reset</a>(<a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>)</code></span>
-<span class="codeline" id="line-138"><code>	}</code></span>
-<span class="codeline" id="line-139"><code>	<label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-77" class="ident">initNewEncode</a>()</code></span>
-<span class="codeline" id="line-140"><code>	<span class="keyword">if</span> <label for="r32" class="ident">e</label>.<a href="#line-21" class="ident">crc</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-141"><code>		<label for="r32" class="ident">e</label>.<a href="#line-21" class="ident">crc</a> = <a href="../../../../../pkg/github.com/klauspost/compress/zstd/internal/xxhash.html" class="ident i2">xxhash</a>.<a href="internal/xxhash/xxhash.go.html#line-39" class="ident">New</a>()</code></span>
-<span class="codeline" id="line-142"><code>	} <span class="keyword">else</span> {</code></span>
-<span class="codeline" id="line-143"><code>		<label for="r32" class="ident">e</label>.<a href="#line-21" class="ident">crc</a>.<a href="internal/xxhash/xxhash.go.html#line-46" class="ident">Reset</a>()</code></span>
-<span class="codeline" id="line-144"><code>	}</code></span>
-<span class="codeline" id="line-145"><code>	<label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-23" class="ident">dictLitEnc</a> = <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-146"><code>	<span class="keyword">if</span> <label for="r34" class="ident">d</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-147"><code>		<label for="r36" class="ident">low</label> := <label for="r32" class="ident">e</label>.<a href="#line-25" class="ident">lowMem</a></code></span>
-<span class="codeline" id="line-148"><code>		<span class="keyword">if</span> <label for="r35" class="ident">singleBlock</label> {</code></span>
-<span class="codeline" id="line-149"><code>			<label for="r32" class="ident">e</label>.<a href="#line-25" class="ident">lowMem</a> = <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-150"><code>		}</code></span>
-<span class="codeline" id="line-151"><code>		<label for="r32" class="ident">e</label>.<a href="#line-82" class="ident">ensureHist</a>(<label for="r34" class="ident">d</label>.<a href="dict.go.html#line-38" class="ident">ContentSize</a>() + <a href="blockdec.go.html#line-40" class="ident">maxCompressedBlockSize</a>)</code></span>
-<span class="codeline" id="line-152"><code>		<label for="r32" class="ident">e</label>.<a href="#line-25" class="ident">lowMem</a> = <label for="r36" class="ident">low</label></code></span>
-<span class="codeline" id="line-153"><code>	}</code></span>
-<span class="codeline" id="line-154"><code></code></span>
-<span class="codeline" id="line-155"><code>	<span class="comment">// We offset current position so everything will be out of reach.</span></code></span>
-<span class="codeline" id="line-156"><code><span class="comment">	// If above reset line, history will be purged.</span></code></span>
-<span class="codeline" id="line-157"><code>	<span class="keyword">if</span> <label for="r32" class="ident">e</label>.<a href="#line-16" class="ident">cur</a> &lt; <label for="r32" class="ident">e</label>.<a href="#line-19" class="ident">bufferReset</a> {</code></span>
-<span class="codeline" id="line-158"><code>		<label for="r32" class="ident">e</label>.<a href="#line-16" class="ident">cur</a> += <label for="r32" class="ident">e</label>.<a href="#line-18" class="ident">maxMatchOff</a> + <a href="../../../../../pkg/builtin.html#name-int32" class="ident">int32</a>(<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r32" class="ident">e</label>.<a href="#line-20" class="ident">hist</a>))</code></span>
-<span class="codeline" id="line-159"><code>	}</code></span>
-<span class="codeline" id="line-160"><code>	<label for="r32" class="ident">e</label>.<a href="#line-20" class="ident">hist</a> = <label for="r32" class="ident">e</label>.<a href="#line-20" class="ident">hist</a>[:<span class="lit-number">0</span>]</code></span>
-<span class="codeline" id="line-161"><code>	<span class="keyword">if</span> <label for="r34" class="ident">d</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-162"><code>		<span class="comment">// Set offsets (currently not used)</span></code></span>
-<span class="codeline" id="line-163"><code>		<span class="keyword">for</span> <label for="r37" class="ident">i</label>, <label for="r38" class="ident">off</label> := <span class="keyword">range</span> <label for="r34" class="ident">d</label>.<a href="dict.go.html#line-20" class="ident">offsets</a> {</code></span>
-<span class="codeline" id="line-164"><code>			<label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-28" class="ident">recentOffsets</a>[<label for="r37" class="ident">i</label>] = <a href="../../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r38" class="ident">off</label>)</code></span>
-<span class="codeline" id="line-165"><code>			<label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-29" class="ident">prevRecentOffsets</a>[<label for="r37" class="ident">i</label>] = <label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-28" class="ident">recentOffsets</a>[<label for="r37" class="ident">i</label>]</code></span>
-<span class="codeline" id="line-166"><code>		}</code></span>
-<span class="codeline" id="line-167"><code>		<span class="comment">// Transfer litenc.</span></code></span>
-<span class="codeline" id="line-168"><code>		<label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-23" class="ident">dictLitEnc</a> = <label for="r34" class="ident">d</label>.<a href="dict.go.html#line-18" class="ident">litEnc</a></code></span>
-<span class="codeline" id="line-169"><code>		<label for="r32" class="ident">e</label>.<a href="#line-20" class="ident">hist</a> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r32" class="ident">e</label>.<a href="#line-20" class="ident">hist</a>, <label for="r34" class="ident">d</label>.<a href="dict.go.html#line-21" class="ident">content</a>...)</code></span>
-<span class="codeline" id="line-170"><code>	}</code></span>
-<span class="codeline" id="line-171"><code>}</code></span>
+<span class="codeline" id="line-131"><code><span class="comment">// resetBasePrefix resets the encoder state and loads prefix as initial history.</span></code></span>
+<span class="codeline" id="line-132"><code><span class="comment">// This is used for parallel job encoding where non-first jobs need overlap context.</span></code></span>
+<span class="codeline" id="line-133"><code><span class="comment">// Rep offsets are set to defaults [1,4,8] (invalidated, matching C behavior).</span></code></span>
+<span class="codeline" id="line-134"><code><span class="keyword">func</span> (<label for="r32" class="ident">e</label> *<a href="#line-14" class="ident">fastBase</a>) <label for="r33" class="ident"><a href="../../../../../use/github.com/klauspost/compress/zstd..fastBase^b9d4b.resetBasePrefix^1372e.html" class="ident">resetBasePrefix</a></label>(<label for="r34" class="ident">prefix</label> []<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) {</code></span>
+<span class="codeline" id="line-135"><code>	<span class="keyword">if</span> <label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-136"><code>		<label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a> = &amp;<a href="blockenc.go.html#line-17" class="ident">blockEnc</a>{<a href="blockenc.go.html#line-32" class="ident">lowMem</a>: <label for="r32" class="ident">e</label>.<a href="#line-25" class="ident">lowMem</a>}</code></span>
+<span class="codeline" id="line-137"><code>		<label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-37" class="ident">init</a>()</code></span>
+<span class="codeline" id="line-138"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-139"><code>		<label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-87" class="ident">reset</a>(<a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>)</code></span>
+<span class="codeline" id="line-140"><code>	}</code></span>
+<span class="codeline" id="line-141"><code>	<label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-77" class="ident">initNewEncode</a>()</code></span>
+<span class="codeline" id="line-142"><code>	<span class="keyword">if</span> <label for="r32" class="ident">e</label>.<a href="#line-21" class="ident">crc</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-143"><code>		<label for="r32" class="ident">e</label>.<a href="#line-21" class="ident">crc</a> = <a href="../../../../../pkg/github.com/klauspost/compress/zstd/internal/xxhash.html" class="ident i2">xxhash</a>.<a href="internal/xxhash/xxhash.go.html#line-39" class="ident">New</a>()</code></span>
+<span class="codeline" id="line-144"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-145"><code>		<label for="r32" class="ident">e</label>.<a href="#line-21" class="ident">crc</a>.<a href="internal/xxhash/xxhash.go.html#line-46" class="ident">Reset</a>()</code></span>
+<span class="codeline" id="line-146"><code>	}</code></span>
+<span class="codeline" id="line-147"><code>	<label for="r32" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-23" class="ident">dictLitEnc</a> = <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-148"><code>	<label for="r32" class="ident">e</label>.<a href="#line-82" class="ident">ensureHist</a>(<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r34" class="ident">prefix</label>) + <a href="blockdec.go.html#line-40" class="ident">maxCompressedBlockSize</a>)</code></span>
+<span class="codeline" id="line-149"><code>	<span class="comment">// Bump cur so old table entries fall outside the window.</span></code></span>
+<span class="codeline" id="line-150"><code><span class="comment">	// When cur &gt;= bufferReset, leave it; the first Encode call</span></code></span>
+<span class="codeline" id="line-151"><code><span class="comment">	// will shift/clear tables, preserving valid prefix entries.</span></code></span>
+<span class="codeline" id="line-152"><code>	<span class="keyword">if</span> <label for="r32" class="ident">e</label>.<a href="#line-16" class="ident">cur</a> &lt; <label for="r32" class="ident">e</label>.<a href="#line-19" class="ident">bufferReset</a> {</code></span>
+<span class="codeline" id="line-153"><code>		<label for="r32" class="ident">e</label>.<a href="#line-16" class="ident">cur</a> += <label for="r32" class="ident">e</label>.<a href="#line-18" class="ident">maxMatchOff</a> + <a href="../../../../../pkg/builtin.html#name-int32" class="ident">int32</a>(<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r32" class="ident">e</label>.<a href="#line-20" class="ident">hist</a>))</code></span>
+<span class="codeline" id="line-154"><code>	}</code></span>
+<span class="codeline" id="line-155"><code>	<label for="r32" class="ident">e</label>.<a href="#line-20" class="ident">hist</a> = <label for="r32" class="ident">e</label>.<a href="#line-20" class="ident">hist</a>[:<span class="lit-number">0</span>]</code></span>
+<span class="codeline" id="line-156"><code>	<label for="r32" class="ident">e</label>.<a href="#line-20" class="ident">hist</a> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r32" class="ident">e</label>.<a href="#line-20" class="ident">hist</a>, <label for="r34" class="ident">prefix</label>...)</code></span>
+<span class="codeline" id="line-157"><code>}</code></span>
+<span class="codeline" id="line-158"><code></code></span>
+<span class="codeline" id="line-159"><code><span class="comment">// Reset the encoding table.</span></code></span>
+<span class="codeline" id="line-160"><code><span class="keyword">func</span> (<label for="r35" class="ident">e</label> *<a href="#line-14" class="ident">fastBase</a>) <label for="r36" class="ident"><a href="../../../../../use/github.com/klauspost/compress/zstd..fastBase^b9d4b.resetBase^4a702.html" class="ident">resetBase</a></label>(<label for="r37" class="ident">d</label> *<a href="dict.go.html#line-15" class="ident">dict</a>, <label for="r38" class="ident">singleBlock</label> <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
+<span class="codeline" id="line-161"><code>	<span class="keyword">if</span> <label for="r35" class="ident">e</label>.<a href="#line-23" class="ident">blk</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-162"><code>		<label for="r35" class="ident">e</label>.<a href="#line-23" class="ident">blk</a> = &amp;<a href="blockenc.go.html#line-17" class="ident">blockEnc</a>{<a href="blockenc.go.html#line-32" class="ident">lowMem</a>: <label for="r35" class="ident">e</label>.<a href="#line-25" class="ident">lowMem</a>}</code></span>
+<span class="codeline" id="line-163"><code>		<label for="r35" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-37" class="ident">init</a>()</code></span>
+<span class="codeline" id="line-164"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-165"><code>		<label for="r35" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-87" class="ident">reset</a>(<a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>)</code></span>
+<span class="codeline" id="line-166"><code>	}</code></span>
+<span class="codeline" id="line-167"><code>	<label for="r35" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-77" class="ident">initNewEncode</a>()</code></span>
+<span class="codeline" id="line-168"><code>	<span class="keyword">if</span> <label for="r35" class="ident">e</label>.<a href="#line-21" class="ident">crc</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-169"><code>		<label for="r35" class="ident">e</label>.<a href="#line-21" class="ident">crc</a> = <a href="../../../../../pkg/github.com/klauspost/compress/zstd/internal/xxhash.html" class="ident i2">xxhash</a>.<a href="internal/xxhash/xxhash.go.html#line-39" class="ident">New</a>()</code></span>
+<span class="codeline" id="line-170"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-171"><code>		<label for="r35" class="ident">e</label>.<a href="#line-21" class="ident">crc</a>.<a href="internal/xxhash/xxhash.go.html#line-46" class="ident">Reset</a>()</code></span>
+<span class="codeline" id="line-172"><code>	}</code></span>
+<span class="codeline" id="line-173"><code>	<label for="r35" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-23" class="ident">dictLitEnc</a> = <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-174"><code>	<span class="keyword">if</span> <label for="r37" class="ident">d</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-175"><code>		<label for="r39" class="ident">low</label> := <label for="r35" class="ident">e</label>.<a href="#line-25" class="ident">lowMem</a></code></span>
+<span class="codeline" id="line-176"><code>		<span class="keyword">if</span> <label for="r38" class="ident">singleBlock</label> {</code></span>
+<span class="codeline" id="line-177"><code>			<label for="r35" class="ident">e</label>.<a href="#line-25" class="ident">lowMem</a> = <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-178"><code>		}</code></span>
+<span class="codeline" id="line-179"><code>		<label for="r35" class="ident">e</label>.<a href="#line-82" class="ident">ensureHist</a>(<label for="r37" class="ident">d</label>.<a href="dict.go.html#line-38" class="ident">ContentSize</a>() + <a href="blockdec.go.html#line-40" class="ident">maxCompressedBlockSize</a>)</code></span>
+<span class="codeline" id="line-180"><code>		<label for="r35" class="ident">e</label>.<a href="#line-25" class="ident">lowMem</a> = <label for="r39" class="ident">low</label></code></span>
+<span class="codeline" id="line-181"><code>	}</code></span>
+<span class="codeline" id="line-182"><code></code></span>
+<span class="codeline" id="line-183"><code>	<span class="comment">// We offset current position so everything will be out of reach.</span></code></span>
+<span class="codeline" id="line-184"><code><span class="comment">	// If above reset line, history will be purged.</span></code></span>
+<span class="codeline" id="line-185"><code>	<span class="keyword">if</span> <label for="r35" class="ident">e</label>.<a href="#line-16" class="ident">cur</a> &lt; <label for="r35" class="ident">e</label>.<a href="#line-19" class="ident">bufferReset</a> {</code></span>
+<span class="codeline" id="line-186"><code>		<label for="r35" class="ident">e</label>.<a href="#line-16" class="ident">cur</a> += <label for="r35" class="ident">e</label>.<a href="#line-18" class="ident">maxMatchOff</a> + <a href="../../../../../pkg/builtin.html#name-int32" class="ident">int32</a>(<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r35" class="ident">e</label>.<a href="#line-20" class="ident">hist</a>))</code></span>
+<span class="codeline" id="line-187"><code>	}</code></span>
+<span class="codeline" id="line-188"><code>	<label for="r35" class="ident">e</label>.<a href="#line-20" class="ident">hist</a> = <label for="r35" class="ident">e</label>.<a href="#line-20" class="ident">hist</a>[:<span class="lit-number">0</span>]</code></span>
+<span class="codeline" id="line-189"><code>	<span class="keyword">if</span> <label for="r37" class="ident">d</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-190"><code>		<span class="comment">// Set offsets (currently not used)</span></code></span>
+<span class="codeline" id="line-191"><code>		<span class="keyword">for</span> <label for="r40" class="ident">i</label>, <label for="r41" class="ident">off</label> := <span class="keyword">range</span> <label for="r37" class="ident">d</label>.<a href="dict.go.html#line-20" class="ident">offsets</a> {</code></span>
+<span class="codeline" id="line-192"><code>			<label for="r35" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-28" class="ident">recentOffsets</a>[<label for="r40" class="ident">i</label>] = <a href="../../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r41" class="ident">off</label>)</code></span>
+<span class="codeline" id="line-193"><code>			<label for="r35" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-29" class="ident">prevRecentOffsets</a>[<label for="r40" class="ident">i</label>] = <label for="r35" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-28" class="ident">recentOffsets</a>[<label for="r40" class="ident">i</label>]</code></span>
+<span class="codeline" id="line-194"><code>		}</code></span>
+<span class="codeline" id="line-195"><code>		<span class="comment">// Transfer litenc.</span></code></span>
+<span class="codeline" id="line-196"><code>		<label for="r35" class="ident">e</label>.<a href="#line-23" class="ident">blk</a>.<a href="blockenc.go.html#line-23" class="ident">dictLitEnc</a> = <label for="r37" class="ident">d</label>.<a href="dict.go.html#line-18" class="ident">litEnc</a></code></span>
+<span class="codeline" id="line-197"><code>		<label for="r35" class="ident">e</label>.<a href="#line-20" class="ident">hist</a> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r35" class="ident">e</label>.<a href="#line-20" class="ident">hist</a>, <label for="r37" class="ident">d</label>.<a href="dict.go.html#line-21" class="ident">content</a>...)</code></span>
+<span class="codeline" id="line-198"><code>	}</code></span>
+<span class="codeline" id="line-199"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

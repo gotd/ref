@@ -11,16 +11,18 @@
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-32">encoder</a></b></span>
 
-<span class="title">7 uses</span>
+<span class="title">9 uses</span>
 
 	github.com/klauspost/compress/zstd (current package)
-		<a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-233">dict.go#L233</a>: 	enc := <b>encoder</b>(&amp;bestFastEncoder{fastBase: fastBase{maxMatchOff: int32(maxMatchLen), bufferReset: math.MaxInt32 - int32(maxMatchLen*2), lowMem: false}})
+		<a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-233">dict.go#L233</a>: 	var enc <b>encoder</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-245" class="path-duplicate">dict.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/dict.go.html#line-245">#L245</a>: 		enc = <b>encoder</b>(&amp;bestFastEncoder{fastBase: fastBase{maxMatchOff: int32(maxMatchLen), bufferReset: math.MaxInt32 - int32(maxMatchLen*2), lowMem: false}})
+		<a href="../../../../src/github.com/klauspost/compress/zstd/enc_jobs.go.html#line-80">enc_jobs.go#L80</a>: func (e *Encoder) compressJob(enc <b>encoder</b>, job *encJob) {
 		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-27">encoder.go#L27</a>: 	encoders chan <b>encoder</b>
 		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-32" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-32">#L32</a>: type <b>encoder</b> interface {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-48" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-48">#L48</a>: 	encoder          <b>encoder</b>
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-87" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-87">#L87</a>: 	e.encoders = make(chan <b>encoder</b>, e.o.concurrent)
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-529" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-529">#L529</a>: func (e *Encoder) encodeAll(enc <b>encoder</b>, src, dst []byte) []byte {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-50">encoder_options.go#L50</a>: func (o encoderOptions) encoder() <b>encoder</b> {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-49" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-49">#L49</a>: 	encoder          <b>encoder</b>
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-94" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-94">#L94</a>: 	e.encoders = make(chan <b>encoder</b>, e.o.concurrent)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-731" class="path-duplicate">encoder.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/encoder.go.html#line-731">#L731</a>: func (e *Encoder) encodeAll(enc <b>encoder</b>, src, dst []byte) []byte {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/encoder_options.go.html#line-51">encoder_options.go#L51</a>: func (o encoderOptions) encoder() <b>encoder</b> {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
