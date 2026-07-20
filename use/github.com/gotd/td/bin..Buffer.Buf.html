@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/gotd/td/bin.html">github.com/gotd/td/bin</a>.<a href="../../../../src/github.com/gotd/td/bin/buffer.go.html#line-8">Buffer</a>.<a href="../../../../src/github.com/gotd/td/bin/buffer.go.html#line-9">Buf</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">169 uses</span>
+<span class="title">174 uses</span>
 
 	github.com/gotd/td/bin (current package)
 		<a href="../../../../src/github.com/gotd/td/bin/buffer.go.html#line-9">buffer.go#L9</a>: 	<b>Buf</b> []byte
@@ -70,7 +70,7 @@
 		<a href="../../../../src/github.com/gotd/td/crypto/bind.go.html#line-162" class="path-duplicate">bind.go</a><a href="../../../../src/github.com/gotd/td/crypto/bind.go.html#line-162">#L162</a>: 		EncryptedData: make([]byte, len(plaintext.<b>Buf</b>)),
 		<a href="../../../../src/github.com/gotd/td/crypto/bind.go.html#line-164" class="path-duplicate">bind.go</a><a href="../../../../src/github.com/gotd/td/crypto/bind.go.html#line-164">#L164</a>: 	ige.EncryptBlocks(block, iv[:], msg.EncryptedData, plaintext.<b>Buf</b>)
 		<a href="../../../../src/github.com/gotd/td/crypto/bind.go.html#line-170" class="path-duplicate">bind.go</a><a href="../../../../src/github.com/gotd/td/crypto/bind.go.html#line-170">#L170</a>: 	return append([]byte(nil), encrypted.<b>Buf</b>...), nil
-		<a href="../../../../src/github.com/gotd/td/crypto/cipher_decrypt.go.html#line-42">cipher_decrypt.go#L42</a>: 	if err := msg.DecodeWithoutCopy(&amp;bin.Buffer{<b>Buf</b>: plaintext}); err != nil {
+		<a href="../../../../src/github.com/gotd/td/crypto/cipher_decrypt.go.html#line-40">cipher_decrypt.go#L40</a>: 	if err := msg.DecodeWithoutCopy(&amp;bin.Buffer{<b>Buf</b>: plaintext}); err != nil {
 		<a href="../../../../src/github.com/gotd/td/crypto/cipher_encrypt.go.html#line-34">cipher_encrypt.go#L34</a>: 	offset := len(plaintext.<b>Buf</b>)
 		<a href="../../../../src/github.com/gotd/td/crypto/cipher_encrypt.go.html#line-40" class="path-duplicate">cipher_encrypt.go</a><a href="../../../../src/github.com/gotd/td/crypto/cipher_encrypt.go.html#line-40">#L40</a>: 	plaintext.<b>Buf</b> = append(plaintext.<b>Buf</b>, make([]byte, countPadding(offset, randByte[0]))...)
 		<a href="../../../../src/github.com/gotd/td/crypto/cipher_encrypt.go.html#line-41" class="path-duplicate">cipher_encrypt.go</a><a href="../../../../src/github.com/gotd/td/crypto/cipher_encrypt.go.html#line-41">#L41</a>: 	if _, err := io.ReadFull(c.rand, plaintext.<b>Buf</b>[offset:]); err != nil {
@@ -139,6 +139,10 @@
 
 	<a href="../../../../pkg/github.com/gotd/td/telegram/dcs.html">github.com/gotd/td/telegram/dcs</a>
 		<a href="../../../../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-78">dns.go#L78</a>: 	if err := cfg.Decode(&amp;bin.Buffer{<b>Buf</b>: decrypted[4:]}); err != nil {
+		<a href="../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-111">http.go#L111</a>: 	frame := make([]byte, len(b.<b>Buf</b>))
+		<a href="../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-112" class="path-duplicate">http.go</a><a href="../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-112">#L112</a>: 	copy(frame, b.<b>Buf</b>)
+		<a href="../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-128" class="path-duplicate">http.go</a><a href="../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-128">#L128</a>: 		b.<b>Buf</b> = append(b.<b>Buf</b>[:0], r.data...)
+		<a href="../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-254" class="path-duplicate">http.go</a><a href="../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-254">#L254</a>: 		delivered, err := c.roundtrip(b.<b>Buf</b>)
 
 	<a href="../../../../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>
 		<a href="../../../../src/github.com/gotd/td/telegram/downloader/cdn_verify.go.html#line-328">cdn_verify.go#L328</a>: 	copy(iv.<b>Buf</b>, redirect.EncryptionIv)

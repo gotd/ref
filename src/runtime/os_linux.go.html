@@ -257,7 +257,8 @@ input[id=r237]:checked ~pre label[for=r237],
 input[id=r238]:checked ~pre label[for=r238],
 input[id=r239]:checked ~pre label[for=r239],
 input[id=r240]:checked ~pre label[for=r240],
-input[id=r241]:checked ~pre label[for=r241]
+input[id=r241]:checked ~pre label[for=r241],
+input[id=r242]:checked ~pre label[for=r242]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
 input[id=i1]:checked ~pre .i1,
@@ -508,6 +509,7 @@ input[id=i5]:checked ~pre .i5
 <input id="r239" type="radio" name="g"/>
 <input id="r240" type="radio" name="g"/>
 <input id="r241" type="radio" name="g"/>
+<input id="r242" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
 <input id="i2" type="radio" name="i"/>
@@ -1461,60 +1463,73 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-943"><code>}</code></span>
 <span class="codeline" id="line-944"><code></code></span>
 <span class="codeline" id="line-945"><code><span class="comment">// getKernelVersion returns major and minor kernel version numbers</span></code></span>
-<span class="codeline" id="line-946"><code><span class="comment">// parsed from the uname release field.</span></code></span>
-<span class="codeline" id="line-947"><code><span class="keyword">func</span> <label for="r217" class="ident"><a href="../../pkg/runtime.html#name-getKernelVersion" class="ident">getKernelVersion</a></label>() <a href="#line-940" class="ident">kernelVersion</a> {</code></span>
-<span class="codeline" id="line-948"><code>	<span class="keyword">var</span> <label for="r218" class="ident">buf</label> <a href="../../pkg/internal/runtime/syscall/linux.html" class="ident i3">linux</a>.<a href="../internal/runtime/syscall/linux/syscall_linux.go.html#line-90" class="ident">Utsname</a></code></span>
-<span class="codeline" id="line-949"><code>	<span class="keyword">if</span> <label for="r219" class="ident">e</label> := <a href="../../pkg/internal/runtime/syscall/linux.html" class="ident i3">linux</a>.<a href="../internal/runtime/syscall/linux/syscall_linux.go.html#line-99" class="ident">Uname</a>(&amp;<label for="r218" class="ident">buf</label>); <label for="r219" class="ident">e</label> != <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-950"><code>		<a href="panic.go.html#line-1220" class="ident">throw</a>(<span class="lit-string">"uname failed"</span>)</code></span>
-<span class="codeline" id="line-951"><code>	}</code></span>
-<span class="codeline" id="line-952"><code></code></span>
-<span class="codeline" id="line-953"><code>	<label for="r220" class="ident">rel</label> := <a href="string.go.html#line-543" class="ident">gostringnocopy</a>(&amp;<label for="r218" class="ident">buf</label>.<a href="../internal/runtime/syscall/linux/syscall_linux.go.html#line-93" class="ident">Release</a>[<span class="lit-number">0</span>])</code></span>
-<span class="codeline" id="line-954"><code>	<label for="r221" class="ident">major</label>, <label for="r222" class="ident">minor</label>, <label for="r223" class="ident">_</label>, <label for="r224" class="ident">ok</label> := <a href="#line-964" class="ident">parseRelease</a>(<label for="r220" class="ident">rel</label>)</code></span>
-<span class="codeline" id="line-955"><code>	<span class="keyword">if</span> !<label for="r224" class="ident">ok</label> {</code></span>
-<span class="codeline" id="line-956"><code>		<a href="panic.go.html#line-1220" class="ident">throw</a>(<span class="lit-string">"failed to parse kernel version from uname"</span>)</code></span>
-<span class="codeline" id="line-957"><code>	}</code></span>
-<span class="codeline" id="line-958"><code>	<span class="keyword">return</span> <a href="#line-940" class="ident">kernelVersion</a>{<a href="#line-941" class="ident">major</a>: <label for="r221" class="ident">major</label>, <a href="#line-942" class="ident">minor</a>: <label for="r222" class="ident">minor</label>}</code></span>
-<span class="codeline" id="line-959"><code>}</code></span>
-<span class="codeline" id="line-960"><code></code></span>
-<span class="codeline" id="line-961"><code><span class="comment">// parseRelease parses a dot-separated version number. It follows the</span></code></span>
-<span class="codeline" id="line-962"><code><span class="comment">// semver syntax, but allows the minor and patch versions to be</span></code></span>
-<span class="codeline" id="line-963"><code><span class="comment">// elided.</span></code></span>
-<span class="codeline" id="line-964"><code><span class="keyword">func</span> <label for="r225" class="ident"><a href="../../pkg/runtime.html#name-parseRelease" class="ident">parseRelease</a></label>(<label for="r226" class="ident">rel</label> <a href="../../pkg/builtin.html#name-string" class="ident">string</a>) (<label for="r227" class="ident">major</label>, <label for="r228" class="ident">minor</label>, <label for="r229" class="ident">patch</label> <a href="../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r230" class="ident">ok</label> <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
-<span class="codeline" id="line-965"><code>	<span class="comment">// Strip anything after a dash or plus.</span></code></span>
-<span class="codeline" id="line-966"><code>	<span class="keyword">for</span> <label for="r231" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r231" class="ident">i</label> &lt; <a href="../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r226" class="ident">rel</label>); <label for="r231" class="ident">i</label>++ {</code></span>
-<span class="codeline" id="line-967"><code>		<span class="keyword">if</span> <label for="r226" class="ident">rel</label>[<label for="r231" class="ident">i</label>] == <span class="lit-number">'-'</span> || <label for="r226" class="ident">rel</label>[<label for="r231" class="ident">i</label>] == <span class="lit-number">'+'</span> {</code></span>
-<span class="codeline" id="line-968"><code>			<label for="r226" class="ident">rel</label> = <label for="r226" class="ident">rel</label>[:<label for="r231" class="ident">i</label>]</code></span>
-<span class="codeline" id="line-969"><code>			<span class="keyword">break</span></code></span>
-<span class="codeline" id="line-970"><code>		}</code></span>
-<span class="codeline" id="line-971"><code>	}</code></span>
-<span class="codeline" id="line-972"><code></code></span>
-<span class="codeline" id="line-973"><code>	<label for="r232" class="ident">next</label> := <span class="keyword">func</span>() (<a href="../../pkg/builtin.html#name-int" class="ident">int</a>, <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
-<span class="codeline" id="line-974"><code>		<span class="keyword">for</span> <label for="r233" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r233" class="ident">i</label> &lt; <a href="../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r226" class="ident">rel</label>); <label for="r233" class="ident">i</label>++ {</code></span>
-<span class="codeline" id="line-975"><code>			<span class="keyword">if</span> <label for="r226" class="ident">rel</label>[<label for="r233" class="ident">i</label>] == <span class="lit-number">'.'</span> {</code></span>
-<span class="codeline" id="line-976"><code>				<label for="r234" class="ident">ver</label>, <label for="r235" class="ident">err</label> := <a href="../../pkg/internal/strconv.html" class="ident i4">strconv</a>.<a href="../internal/strconv/atoi.go.html#line-214" class="ident">Atoi</a>(<label for="r226" class="ident">rel</label>[:<label for="r233" class="ident">i</label>])</code></span>
-<span class="codeline" id="line-977"><code>				<label for="r226" class="ident">rel</label> = <label for="r226" class="ident">rel</label>[<label for="r233" class="ident">i</label>+<span class="lit-number">1</span>:]</code></span>
-<span class="codeline" id="line-978"><code>				<span class="keyword">return</span> <label for="r234" class="ident">ver</label>, <label for="r235" class="ident">err</label> == <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-979"><code>			}</code></span>
-<span class="codeline" id="line-980"><code>		}</code></span>
-<span class="codeline" id="line-981"><code>		<label for="r236" class="ident">ver</label>, <label for="r237" class="ident">err</label> := <a href="../../pkg/internal/strconv.html" class="ident i4">strconv</a>.<a href="../internal/strconv/atoi.go.html#line-214" class="ident">Atoi</a>(<label for="r226" class="ident">rel</label>)</code></span>
-<span class="codeline" id="line-982"><code>		<label for="r226" class="ident">rel</label> = <span class="lit-string">""</span></code></span>
-<span class="codeline" id="line-983"><code>		<span class="keyword">return</span> <label for="r236" class="ident">ver</label>, <label for="r237" class="ident">err</label> == <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-984"><code>	}</code></span>
-<span class="codeline" id="line-985"><code>	<span class="keyword">if</span> <label for="r227" class="ident">major</label>, <label for="r230" class="ident">ok</label> = <label for="r232" class="ident">next</label>(); !<label for="r230" class="ident">ok</label> || <label for="r226" class="ident">rel</label> == <span class="lit-string">""</span> {</code></span>
-<span class="codeline" id="line-986"><code>		<span class="keyword">return</span></code></span>
-<span class="codeline" id="line-987"><code>	}</code></span>
-<span class="codeline" id="line-988"><code>	<span class="keyword">if</span> <label for="r228" class="ident">minor</label>, <label for="r230" class="ident">ok</label> = <label for="r232" class="ident">next</label>(); !<label for="r230" class="ident">ok</label> || <label for="r226" class="ident">rel</label> == <span class="lit-string">""</span> {</code></span>
-<span class="codeline" id="line-989"><code>		<span class="keyword">return</span></code></span>
-<span class="codeline" id="line-990"><code>	}</code></span>
-<span class="codeline" id="line-991"><code>	<label for="r229" class="ident">patch</label>, <label for="r230" class="ident">ok</label> = <label for="r232" class="ident">next</label>()</code></span>
-<span class="codeline" id="line-992"><code>	<span class="keyword">return</span></code></span>
-<span class="codeline" id="line-993"><code>}</code></span>
-<span class="codeline" id="line-994"><code></code></span>
-<span class="codeline" id="line-995"><code><span class="comment">// GE checks if the running kernel version</span></code></span>
-<span class="codeline" id="line-996"><code><span class="comment">// is greater than or equal to the provided version.</span></code></span>
-<span class="codeline" id="line-997"><code><span class="keyword">func</span> (<label for="r238" class="ident">kv</label> <a href="#line-940" class="ident">kernelVersion</a>) <label for="r239" class="ident"><a href="../../use/runtime..kernelVersion^dc5a2.GE.html" class="ident">GE</a></label>(<label for="r240" class="ident">x</label>, <label for="r241" class="ident">y</label> <a href="../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
-<span class="codeline" id="line-998"><code>	<span class="keyword">return</span> <label for="r238" class="ident">kv</label>.<a href="#line-941" class="ident">major</a> &gt; <label for="r240" class="ident">x</label> || (<label for="r238" class="ident">kv</label>.<a href="#line-941" class="ident">major</a> == <label for="r240" class="ident">x</label> &amp;&amp; <label for="r238" class="ident">kv</label>.<a href="#line-942" class="ident">minor</a> &gt;= <label for="r241" class="ident">y</label>)</code></span>
-<span class="codeline" id="line-999"><code>}</code></span>
+<span class="codeline" id="line-946"><code><span class="comment">// parsed from the uname release field. ok reports whether parsing</span></code></span>
+<span class="codeline" id="line-947"><code><span class="comment">// succeeded; on failure callers must pick a default rather than</span></code></span>
+<span class="codeline" id="line-948"><code><span class="comment">// failing, because this is called during osinit before the runtime</span></code></span>
+<span class="codeline" id="line-949"><code><span class="comment">// is fully initialized and a throw here is unrecoverable.</span></code></span>
+<span class="codeline" id="line-950"><code><span class="keyword">func</span> <label for="r217" class="ident"><a href="../../pkg/runtime.html#name-getKernelVersion" class="ident">getKernelVersion</a></label>() (<label for="r218" class="ident">kv</label> <a href="#line-940" class="ident">kernelVersion</a>, <label for="r219" class="ident">ok</label> <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
+<span class="codeline" id="line-951"><code>	<span class="keyword">var</span> <label for="r220" class="ident">buf</label> <a href="../../pkg/internal/runtime/syscall/linux.html" class="ident i3">linux</a>.<a href="../internal/runtime/syscall/linux/syscall_linux.go.html#line-90" class="ident">Utsname</a></code></span>
+<span class="codeline" id="line-952"><code>	<span class="keyword">if</span> <label for="r221" class="ident">e</label> := <a href="../../pkg/internal/runtime/syscall/linux.html" class="ident i3">linux</a>.<a href="../internal/runtime/syscall/linux/syscall_linux.go.html#line-99" class="ident">Uname</a>(&amp;<label for="r220" class="ident">buf</label>); <label for="r221" class="ident">e</label> != <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-953"><code>		<span class="keyword">return</span> <a href="#line-940" class="ident">kernelVersion</a>{}, <a href="../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-954"><code>	}</code></span>
+<span class="codeline" id="line-955"><code>	<label for="r222" class="ident">rel</label> := <a href="string.go.html#line-543" class="ident">gostringnocopy</a>(&amp;<label for="r220" class="ident">buf</label>.<a href="../internal/runtime/syscall/linux/syscall_linux.go.html#line-93" class="ident">Release</a>[<span class="lit-number">0</span>])</code></span>
+<span class="codeline" id="line-956"><code>	<label for="r223" class="ident">major</label>, <label for="r224" class="ident">minor</label>, <label for="r225" class="ident">_</label>, <label for="r219" class="ident">ok</label> := <a href="#line-968" class="ident">parseRelease</a>(<label for="r222" class="ident">rel</label>)</code></span>
+<span class="codeline" id="line-957"><code>	<span class="keyword">if</span> !<label for="r219" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-958"><code>		<span class="keyword">return</span> <a href="#line-940" class="ident">kernelVersion</a>{}, <a href="../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-959"><code>	}</code></span>
+<span class="codeline" id="line-960"><code>	<span class="keyword">return</span> <a href="#line-940" class="ident">kernelVersion</a>{<a href="#line-941" class="ident">major</a>: <label for="r223" class="ident">major</label>, <a href="#line-942" class="ident">minor</a>: <label for="r224" class="ident">minor</label>}, <a href="../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-961"><code>}</code></span>
+<span class="codeline" id="line-962"><code></code></span>
+<span class="codeline" id="line-963"><code><span class="comment">// parseRelease parses a dot-separated version number from the prefix</span></code></span>
+<span class="codeline" id="line-964"><code><span class="comment">// of rel. It returns ok=true only if at least the major and minor</span></code></span>
+<span class="codeline" id="line-965"><code><span class="comment">// components were successfully parsed; the patch component is</span></code></span>
+<span class="codeline" id="line-966"><code><span class="comment">// best-effort. Trailing vendor or build suffixes such as</span></code></span>
+<span class="codeline" id="line-967"><code><span class="comment">// "-generic", "+", "_hi3535", or "-rc1" are ignored.</span></code></span>
+<span class="codeline" id="line-968"><code><span class="keyword">func</span> <label for="r226" class="ident"><a href="../../pkg/runtime.html#name-parseRelease" class="ident">parseRelease</a></label>(<label for="r227" class="ident">rel</label> <a href="../../pkg/builtin.html#name-string" class="ident">string</a>) (<label for="r228" class="ident">major</label>, <label for="r229" class="ident">minor</label>, <label for="r230" class="ident">patch</label> <a href="../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r231" class="ident">ok</label> <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
+<span class="codeline" id="line-969"><code>	<span class="comment">// next consumes a run of decimal digits from the front of rel,</span></code></span>
+<span class="codeline" id="line-970"><code><span class="comment">	// returning the parsed value. If the digits are followed by a</span></code></span>
+<span class="codeline" id="line-971"><code><span class="comment">	// '.', it is consumed and more is set so the caller knows to</span></code></span>
+<span class="codeline" id="line-972"><code><span class="comment">	// parse another component; otherwise scanning terminates and</span></code></span>
+<span class="codeline" id="line-973"><code><span class="comment">	// the rest of rel is discarded.</span></code></span>
+<span class="codeline" id="line-974"><code>	<label for="r232" class="ident">next</label> := <span class="keyword">func</span>() (<label for="r233" class="ident">n</label> <a href="../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r234" class="ident">more</label>, <label for="r235" class="ident">ok</label> <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
+<span class="codeline" id="line-975"><code>		<label for="r236" class="ident">i</label> := <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-976"><code>		<span class="keyword">for</span> <label for="r236" class="ident">i</label> &lt; <a href="../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r227" class="ident">rel</label>) &amp;&amp; <label for="r227" class="ident">rel</label>[<label for="r236" class="ident">i</label>] &gt;= <span class="lit-number">'0'</span> &amp;&amp; <label for="r227" class="ident">rel</label>[<label for="r236" class="ident">i</label>] &lt;= <span class="lit-number">'9'</span> {</code></span>
+<span class="codeline" id="line-977"><code>			<label for="r236" class="ident">i</label>++</code></span>
+<span class="codeline" id="line-978"><code>		}</code></span>
+<span class="codeline" id="line-979"><code>		<span class="keyword">if</span> <label for="r236" class="ident">i</label> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-980"><code>			<span class="keyword">return</span> <span class="lit-number">0</span>, <a href="../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-981"><code>		}</code></span>
+<span class="codeline" id="line-982"><code>		<label for="r233" class="ident">n</label>, <label for="r237" class="ident">err</label> := <a href="../../pkg/internal/strconv.html" class="ident i4">strconv</a>.<a href="../internal/strconv/atoi.go.html#line-214" class="ident">Atoi</a>(<label for="r227" class="ident">rel</label>[:<label for="r236" class="ident">i</label>])</code></span>
+<span class="codeline" id="line-983"><code>		<span class="keyword">if</span> <label for="r237" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-984"><code>			<span class="keyword">return</span> <span class="lit-number">0</span>, <a href="../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-985"><code>		}</code></span>
+<span class="codeline" id="line-986"><code>		<span class="keyword">if</span> <label for="r236" class="ident">i</label> &lt; <a href="../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r227" class="ident">rel</label>) &amp;&amp; <label for="r227" class="ident">rel</label>[<label for="r236" class="ident">i</label>] == <span class="lit-number">'.'</span> {</code></span>
+<span class="codeline" id="line-987"><code>			<label for="r227" class="ident">rel</label> = <label for="r227" class="ident">rel</label>[<label for="r236" class="ident">i</label>+<span class="lit-number">1</span>:]</code></span>
+<span class="codeline" id="line-988"><code>			<span class="keyword">return</span> <label for="r233" class="ident">n</label>, <a href="../../pkg/builtin.html#name-true" class="ident">true</a>, <a href="../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-989"><code>		}</code></span>
+<span class="codeline" id="line-990"><code>		<label for="r227" class="ident">rel</label> = <span class="lit-string">""</span></code></span>
+<span class="codeline" id="line-991"><code>		<span class="keyword">return</span> <label for="r233" class="ident">n</label>, <a href="../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-992"><code>	}</code></span>
+<span class="codeline" id="line-993"><code></code></span>
+<span class="codeline" id="line-994"><code>	<span class="keyword">var</span> <label for="r238" class="ident">more</label> <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-995"><code>	<span class="keyword">if</span> <label for="r228" class="ident">major</label>, <label for="r238" class="ident">more</label>, <label for="r231" class="ident">ok</label> = <label for="r232" class="ident">next</label>(); !<label for="r231" class="ident">ok</label> || !<label for="r238" class="ident">more</label> {</code></span>
+<span class="codeline" id="line-996"><code>		<span class="keyword">return</span> <span class="lit-number">0</span>, <span class="lit-number">0</span>, <span class="lit-number">0</span>, <a href="../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-997"><code>	}</code></span>
+<span class="codeline" id="line-998"><code>	<span class="keyword">if</span> <label for="r229" class="ident">minor</label>, <label for="r238" class="ident">more</label>, <label for="r231" class="ident">ok</label> = <label for="r232" class="ident">next</label>(); !<label for="r231" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-999"><code>		<span class="keyword">return</span> <span class="lit-number">0</span>, <span class="lit-number">0</span>, <span class="lit-number">0</span>, <a href="../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-1000"><code>	}</code></span>
+<span class="codeline" id="line-1001"><code>	<span class="keyword">if</span> !<label for="r238" class="ident">more</label> {</code></span>
+<span class="codeline" id="line-1002"><code>		<span class="keyword">return</span> <label for="r228" class="ident">major</label>, <label for="r229" class="ident">minor</label>, <span class="lit-number">0</span>, <a href="../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-1003"><code>	}</code></span>
+<span class="codeline" id="line-1004"><code>	<label for="r230" class="ident">patch</label>, _, _ = <label for="r232" class="ident">next</label>()</code></span>
+<span class="codeline" id="line-1005"><code>	<span class="keyword">return</span> <label for="r228" class="ident">major</label>, <label for="r229" class="ident">minor</label>, <label for="r230" class="ident">patch</label>, <a href="../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-1006"><code>}</code></span>
+<span class="codeline" id="line-1007"><code></code></span>
+<span class="codeline" id="line-1008"><code><span class="comment">// GE checks if the running kernel version</span></code></span>
+<span class="codeline" id="line-1009"><code><span class="comment">// is greater than or equal to the provided version.</span></code></span>
+<span class="codeline" id="line-1010"><code><span class="keyword">func</span> (<label for="r239" class="ident">kv</label> <a href="#line-940" class="ident">kernelVersion</a>) <label for="r240" class="ident"><a href="../../use/runtime..kernelVersion^dc5a2.GE.html" class="ident">GE</a></label>(<label for="r241" class="ident">x</label>, <label for="r242" class="ident">y</label> <a href="../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-1011"><code>	<span class="keyword">return</span> <label for="r239" class="ident">kv</label>.<a href="#line-941" class="ident">major</a> &gt; <label for="r241" class="ident">x</label> || (<label for="r239" class="ident">kv</label>.<a href="#line-941" class="ident">major</a> == <label for="r241" class="ident">x</label> &amp;&amp; <label for="r239" class="ident">kv</label>.<a href="#line-942" class="ident">minor</a> &gt;= <label for="r242" class="ident">y</label>)</code></span>
+<span class="codeline" id="line-1012"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

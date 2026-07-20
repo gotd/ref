@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../../../pkg/github.com/go-faster/errors.html">github.com/go-faster/errors</a>.<a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-81">Wrap</a></b></span>
 
-<span class="title">465 uses</span>
+<span class="title">471 uses</span>
 
 	github.com/go-faster/errors (current package)
 		<a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-81">wrap.go#L81</a>: func <b>Wrap</b>(err error, message string) error {
@@ -177,7 +177,7 @@
 		<a href="../../../src/github.com/gotd/td/mtproto/bind.go.html#line-156" class="path-duplicate">bind.go</a><a href="../../../src/github.com/gotd/td/mtproto/bind.go.html#line-156">#L156</a>: 			return errors.<b>Wrap</b>(ErrPFSDropKeysRequired, "pfs keys dropped after repeated ENCRYPTED_MESSAGE_INVALID with unknown key age")
 		<a href="../../../src/github.com/gotd/td/mtproto/conn.go.html#line-222">conn.go#L222</a>: 		return errors.<b>Wrap</b>(err, "start")
 		<a href="../../../src/github.com/gotd/td/mtproto/conn.go.html#line-238" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/mtproto/conn.go.html#line-238">#L238</a>: 				return errors.<b>Wrap</b>(err, "initial temp key bind")
-		<a href="../../../src/github.com/gotd/td/mtproto/conn.go.html#line-251" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/mtproto/conn.go.html#line-251">#L251</a>: 			return errors.<b>Wrap</b>(err, "group")
+		<a href="../../../src/github.com/gotd/td/mtproto/conn.go.html#line-253" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/mtproto/conn.go.html#line-253">#L253</a>: 			return errors.<b>Wrap</b>(err, "group")
 		<a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-39">connect.go#L39</a>: 		return errors.<b>Wrap</b>(err, "dial failed")
 		<a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-56" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-56">#L56</a>: 			return errors.<b>Wrap</b>(err, "create auth key")
 		<a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-84" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-84">#L84</a>: 			return errors.<b>Wrap</b>(err, "create permanent auth key")
@@ -194,6 +194,7 @@
 		<a href="../../../src/github.com/gotd/td/mtproto/handle_result.go.html#line-53" class="path-duplicate">handle_result.go</a><a href="../../../src/github.com/gotd/td/mtproto/handle_result.go.html#line-53">#L53</a>: 			return errors.<b>Wrap</b>(err, "error decode")
 		<a href="../../../src/github.com/gotd/td/mtproto/handle_session_created.go.html#line-18">handle_session_created.go#L18</a>: 		return errors.<b>Wrap</b>(err, "decode")
 		<a href="../../../src/github.com/gotd/td/mtproto/handle_session_created.go.html#line-40" class="path-duplicate">handle_session_created.go</a><a href="../../../src/github.com/gotd/td/mtproto/handle_session_created.go.html#line-40">#L40</a>: 		return errors.<b>Wrap</b>(err, "handler.OnSession")
+		<a href="../../../src/github.com/gotd/td/mtproto/http_wait.go.html#line-69">http_wait.go#L69</a>: 		return nil, errors.<b>Wrap</b>(err, "encode http_wait")
 		<a href="../../../src/github.com/gotd/td/mtproto/new_encrypted_msg.go.html#line-40">new_encrypted_msg.go#L40</a>: 			return errors.<b>Wrap</b>(err, "encode payload")
 		<a href="../../../src/github.com/gotd/td/mtproto/new_encrypted_msg.go.html#line-66" class="path-duplicate">new_encrypted_msg.go</a><a href="../../../src/github.com/gotd/td/mtproto/new_encrypted_msg.go.html#line-66">#L66</a>: 		return errors.<b>Wrap</b>(err, "encrypt")
 		<a href="../../../src/github.com/gotd/td/mtproto/pfs.go.html#line-54">pfs.go#L54</a>: 		return errors.<b>Wrap</b>(ErrPFSReconnectRequired, "temporary auth key renewal required")
@@ -462,6 +463,11 @@
 	<a href="../../../pkg/github.com/gotd/td/telegram/dcs.html">github.com/gotd/td/telegram/dcs</a>
 		<a href="../../../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-168">dns.go#L168</a>: 		return DNSConfig{}, errors.<b>Wrap</b>(err, "decode")
 		<a href="../../../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-173" class="path-duplicate">dns.go</a><a href="../../../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-173">#L173</a>: 		return DNSConfig{}, errors.<b>Wrap</b>(err, "decrypt config")
+		<a href="../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-105">http.go#L105</a>: 		return errors.<b>Wrap</b>(net.ErrClosed, "send")
+		<a href="../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-133" class="path-duplicate">http.go</a><a href="../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-133">#L133</a>: 		return errors.<b>Wrap</b>(net.ErrClosed, "recv")
+		<a href="../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-151" class="path-duplicate">http.go</a><a href="../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-151">#L151</a>: 		return false, errors.<b>Wrap</b>(err, "build request")
+		<a href="../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-158" class="path-duplicate">http.go</a><a href="../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-158">#L158</a>: 		return false, errors.<b>Wrap</b>(err, "do request")
+		<a href="../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-168" class="path-duplicate">http.go</a><a href="../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-168">#L168</a>: 		return false, errors.<b>Wrap</b>(err, "read body")
 		<a href="../../../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html#line-53">mtproxy.go#L53</a>: 		err = errors.<b>Wrap</b>(err, "handshake")
 		<a href="../../../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html#line-74" class="path-duplicate">mtproxy.go</a><a href="../../../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html#line-74">#L74</a>: 		return nil, errors.<b>Wrap</b>(err, "MTProxy handshake")
 		<a href="../../../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html#line-79" class="path-duplicate">mtproxy.go</a><a href="../../../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html#line-79">#L79</a>: 		return nil, errors.<b>Wrap</b>(err, "transport handshake")

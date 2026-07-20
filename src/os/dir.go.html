@@ -232,7 +232,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-116"><code>	<span class="keyword">if</span> <label for="r22" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-117"><code>		<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r22" class="ident">err</label></code></span>
 <span class="codeline" id="line-118"><code>	}</code></span>
-<span class="codeline" id="line-119"><code>	<span class="keyword">defer</span> <label for="r21" class="ident">f</label>.<a href="file_posix.go.html#line-19" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-119"><code>	<span class="keyword">defer</span> <label for="r21" class="ident">f</label>.<a href="file_posix.go.html#line-20" class="ident">Close</a>()</code></span>
 <span class="codeline" id="line-120"><code></code></span>
 <span class="codeline" id="line-121"><code>	<label for="r23" class="ident">dirs</label>, <label for="r22" class="ident">err</label> := <label for="r21" class="ident">f</label>.<a href="#line-97" class="ident">ReadDir</a>(-<span class="lit-number">1</span>)</code></span>
 <span class="codeline" id="line-122"><code>	<a href="../../pkg/slices.html" class="ident i4">slices</a>.<a href="../slices/sort.go.html#line-30" class="ident">SortFunc</a>(<label for="r23" class="ident">dirs</label>, <span class="keyword">func</span>(<label for="r24" class="ident">a</label>, <label for="r25" class="ident">b</label> <a href="#line-85" class="ident">DirEntry</a>) <a href="../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
@@ -295,10 +295,10 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-179"><code>			}</code></span>
 <span class="codeline" id="line-180"><code></code></span>
 <span class="codeline" id="line-181"><code>			<span class="keyword">if</span> <label for="r40" class="ident">_</label>, <label for="r41" class="ident">err</label> := <a href="../../pkg/io.html" class="ident i2">io</a>.<a href="../io/io.go.html#line-387" class="ident">Copy</a>(<label for="r39" class="ident">w</label>, <label for="r36" class="ident">r</label>); <label for="r41" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-182"><code>				<label for="r39" class="ident">w</label>.<a href="file_posix.go.html#line-19" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-182"><code>				<label for="r39" class="ident">w</label>.<a href="file_posix.go.html#line-20" class="ident">Close</a>()</code></span>
 <span class="codeline" id="line-183"><code>				<span class="keyword">return</span> &amp;<a href="error.go.html#line-46" class="ident">PathError</a>{<a href="../io/fs/fs.go.html#line-262" class="ident">Op</a>: <span class="lit-string">"Copy"</span>, <a href="../io/fs/fs.go.html#line-263" class="ident">Path</a>: <label for="r33" class="ident">newPath</label>, <a href="../io/fs/fs.go.html#line-264" class="ident">Err</a>: <label for="r41" class="ident">err</label>}</code></span>
 <span class="codeline" id="line-184"><code>			}</code></span>
-<span class="codeline" id="line-185"><code>			<span class="keyword">return</span> <label for="r39" class="ident">w</label>.<a href="file_posix.go.html#line-19" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-185"><code>			<span class="keyword">return</span> <label for="r39" class="ident">w</label>.<a href="file_posix.go.html#line-20" class="ident">Close</a>()</code></span>
 <span class="codeline" id="line-186"><code>		<span class="keyword">default</span>:</code></span>
 <span class="codeline" id="line-187"><code>			<span class="keyword">return</span> &amp;<a href="error.go.html#line-46" class="ident">PathError</a>{<a href="../io/fs/fs.go.html#line-262" class="ident">Op</a>: <span class="lit-string">"CopyFS"</span>, <a href="../io/fs/fs.go.html#line-263" class="ident">Path</a>: <label for="r29" class="ident">path</label>, <a href="../io/fs/fs.go.html#line-264" class="ident">Err</a>: <a href="error.go.html#line-19" class="ident">ErrInvalid</a>}</code></span>
 <span class="codeline" id="line-188"><code>		}</code></span>

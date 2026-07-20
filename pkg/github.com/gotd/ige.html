@@ -15,10 +15,12 @@
 	<a href="../../../index.html#pkg-github.com/gotd/ige">github.com/gotd/ige</a><i> (on <a href="https://pkg.go.dev/github.com/gotd/ige" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../../dep/github.com/gotd/ige.html">3 packages</a>, and imported by <a href="../../../dep/github.com/gotd/ige.html#imported-by">2 packages</a>
+	imports <a href="../../../dep/github.com/gotd/ige.html">4 packages</a>, and imported by <a href="../../../dep/github.com/gotd/ige.html#imported-by">2 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
+	<span class="nodocs">    <a href="../../../src/github.com/gotd/ige/aes256_decrypt.go.html">aes256_decrypt.go</a></span>
+	<span class="nodocs">    <a href="../../../src/github.com/gotd/ige/aes256_decrypt_stub.go.html">aes256_decrypt_stub.go</a></span>
 	<span class="nodocs">    <a href="../../../src/github.com/gotd/ige/decrypt.go.html">decrypt.go</a></span>
 	<span class="nodocs">    <a href="../../../src/github.com/gotd/ige/encrypt.go.html">encrypt.go</a></span>
 	<span class="nodocs">    <a href="../../../src/github.com/gotd/ige/ige.go.html">ige.go</a></span></div>
@@ -98,9 +100,18 @@
 			*igeEncrypter : crypto/cipher.<a href="../../crypto/cipher.html#name-BlockMode">BlockMode</a></span></span>
 
 </span></div></div>
-<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 6, in which 4 are exported)</i></span></span>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 8, in which 5 are exported)</i></span></span>
 
-<div class="anchor value-res" id="name-DecryptBlocks">	<input type='checkbox' class="fold" id="DecryptBlocks-fold-content"><label for="DecryptBlocks-fold-content"> <a href="../../../use/github.com/gotd/ige..DecryptBlocks.html">func</a> <a href="../../../src/github.com/gotd/ige/decrypt.go.html#line-35">DecryptBlocks</a>(block <a href="../../crypto/cipher.html">cipher</a>.<a href="../../crypto/cipher.html#name-Block">Block</a>, iv, dst, src []<a href="../../builtin.html#name-byte">byte</a>)</label><span id='DecryptBlocks-fold-content-docs' class="fold-docs">
+<div class="anchor value-res" id="name-DecryptAES256Blocks">	<input type='checkbox' class="fold" id="DecryptAES256Blocks-fold-content"><label for="DecryptAES256Blocks-fold-content"> <a href="../../../use/github.com/gotd/ige..DecryptAES256Blocks.html">func</a> <a href="../../../src/github.com/gotd/ige/aes256_decrypt.go.html#line-12">DecryptAES256Blocks</a>(key, iv, dst, src []<a href="../../builtin.html#name-byte">byte</a>)</label><span id='DecryptAES256Blocks-fold-content-docs' class="fold-docs">
+<span class="md-text">		DecryptAES256Blocks decrypts src using AES-256 in IGE mode and writes the
+		result to dst. It uses an architecture-specific implementation when one is
+		available and otherwise falls back to crypto/aes and DecryptBlocks.
+		
+		The key must be exactly 32 bytes. The IV must contain two AES blocks. Src
+		must contain whole AES blocks and dst must be at least as long as src. Dst
+		and src must not overlap.</span>
+
+</span></div><div class="anchor value-res" id="name-DecryptBlocks">	<input type='checkbox' class="fold" id="DecryptBlocks-fold-content"><label for="DecryptBlocks-fold-content"> <a href="../../../use/github.com/gotd/ige..DecryptBlocks.html">func</a> <a href="../../../src/github.com/gotd/ige/decrypt.go.html#line-35">DecryptBlocks</a>(block <a href="../../crypto/cipher.html">cipher</a>.<a href="../../crypto/cipher.html#name-Block">Block</a>, iv, dst, src []<a href="../../builtin.html#name-byte">byte</a>)</label><span id='DecryptBlocks-fold-content-docs' class="fold-docs">
 <span class="md-text">		DecryptBlocks is a simple shorthand for IGE decrypting.
 		Note: unlike NewIGEDecrypter, DecryptBlocks does NOT COPY iv.
 		So you must not modify passed iv.</span>
@@ -124,7 +135,7 @@
 		Note: iv must contain two iv values for IGE (concatenated), otherwise this
 		function will panic. See ErrInvalidIV for more information.</span>
 
-</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-checkIV"><i>	<span class="nodocs"> <a href="../../../use/github.com/gotd/ige..checkIV^71539.html">func</a> <a href="../../../src/github.com/gotd/ige/ige.go.html#line-38">checkIV</a>(b <a href="../../crypto/cipher.html">cipher</a>.<a href="../../crypto/cipher.html#name-Block">Block</a>, iv []<a href="../../builtin.html#name-byte">byte</a>) <a href="../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-newIGE"><i>	<span class="nodocs"> <a href="../../../use/github.com/gotd/ige..newIGE^4fa1a.html">func</a> <a href="../../../src/github.com/gotd/ige/ige.go.html#line-32">newIGE</a>(b <a href="../../crypto/cipher.html">cipher</a>.<a href="../../crypto/cipher.html#name-Block">Block</a>, iv []<a href="../../builtin.html#name-byte">byte</a>) *<a href="#name-ige">ige</a></span></i></div></div>
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 3 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 3 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-checkIV"><i>	<span class="nodocs"> <a href="../../../use/github.com/gotd/ige..checkIV^71539.html">func</a> <a href="../../../src/github.com/gotd/ige/ige.go.html#line-38">checkIV</a>(b <a href="../../crypto/cipher.html">cipher</a>.<a href="../../crypto/cipher.html#name-Block">Block</a>, iv []<a href="../../builtin.html#name-byte">byte</a>) <a href="../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-decryptAES256BlocksHardware"><i>	<span class="nodocs"> <a href="../../../use/github.com/gotd/ige..decryptAES256BlocksHardware^cd6c7.html">func</a> <a href="../../../src/github.com/gotd/ige/aes256_decrypt_stub.go.html#line-6">decryptAES256BlocksHardware</a>(key, iv, dst, src []<a href="../../builtin.html#name-byte">byte</a>) <a href="../../builtin.html#name-bool">bool</a></span></i></div><div class="anchor value-res hidden" id="name-newIGE"><i>	<span class="nodocs"> <a href="../../../use/github.com/gotd/ige..newIGE^4fa1a.html">func</a> <a href="../../../src/github.com/gotd/ige/ige.go.html#line-32">newIGE</a>(b <a href="../../crypto/cipher.html">cipher</a>.<a href="../../crypto/cipher.html#name-Block">Block</a>, iv []<a href="../../builtin.html#name-byte">byte</a>) *<a href="#name-ige">ige</a></span></i></div></div>
 <div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (only one, which is exported)</i></span></span>
 
 <div class="anchor value-res" id="name-ErrInvalidIV">	<input type='checkbox' class="fold" id="ErrInvalidIV-fold-content"><label for="ErrInvalidIV-fold-content">  <a href="../../../use/github.com/gotd/ige..ErrInvalidIV.html">var</a> <a href="../../../src/github.com/gotd/ige/ige.go.html#line-15">ErrInvalidIV</a> <a href="../../builtin.html#name-error">error</a></label><span id='ErrInvalidIV-fold-content-docs' class="fold-docs">

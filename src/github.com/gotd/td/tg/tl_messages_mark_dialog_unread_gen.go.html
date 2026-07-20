@@ -232,7 +232,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-52"><code><span class="comment">	// Use SetParentPeer and GetParentPeer helpers.</span></code></span>
 <span class="codeline" id="line-53"><code>	<a href="../../../../../use/github.com/gotd/td/tg..MessagesMarkDialogUnreadRequest.ParentPeer.html" class="ident">ParentPeer</a> <a href="tl_input_peer_gen.go.html#line-1129" class="ident">InputPeerClass</a></code></span>
 <span class="codeline" id="line-54"><code>	<span class="comment">// Dialog</span></code></span>
-<span class="codeline" id="line-55"><code>	<a href="../../../../../use/github.com/gotd/td/tg..MessagesMarkDialogUnreadRequest.Peer.html" class="ident">Peer</a> <a href="tl_input_dialog_peer_gen.go.html#line-337" class="ident">InputDialogPeerClass</a></code></span>
+<span class="codeline" id="line-55"><code>	<a href="../../../../../use/github.com/gotd/td/tg..MessagesMarkDialogUnreadRequest.Peer.html" class="ident">Peer</a> <a href="tl_input_dialog_peer_gen.go.html#line-478" class="ident">InputDialogPeerClass</a></code></span>
 <span class="codeline" id="line-56"><code>}</code></span>
 <span class="codeline" id="line-57"><code></code></span>
 <span class="codeline" id="line-58"><code><span class="comment">// MessagesMarkDialogUnreadRequestTypeID is TL type id of MessagesMarkDialogUnreadRequest.</span></code></span>
@@ -279,7 +279,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-99"><code><span class="keyword">func</span> (<label for="r5" class="ident">m</label> *<a href="#line-38" class="ident">MessagesMarkDialogUnreadRequest</a>) <label for="r6" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..MessagesMarkDialogUnreadRequest.FillFrom.html" class="ident">FillFrom</a></label>(<label for="r7" class="ident">from</label> <span class="keyword">interface</span> {</code></span>
 <span class="codeline" id="line-100"><code>	<label for="r8" class="ident">GetUnread</label>() (<label for="r9" class="ident">value</label> <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>)</code></span>
 <span class="codeline" id="line-101"><code>	<label for="r10" class="ident">GetParentPeer</label>() (<label for="r11" class="ident">value</label> <a href="tl_input_peer_gen.go.html#line-1129" class="ident">InputPeerClass</a>, <label for="r12" class="ident">ok</label> <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>)</code></span>
-<span class="codeline" id="line-102"><code>	<label for="r13" class="ident">GetPeer</label>() (<label for="r14" class="ident">value</label> <a href="tl_input_dialog_peer_gen.go.html#line-337" class="ident">InputDialogPeerClass</a>)</code></span>
+<span class="codeline" id="line-102"><code>	<label for="r13" class="ident">GetPeer</label>() (<label for="r14" class="ident">value</label> <a href="tl_input_dialog_peer_gen.go.html#line-478" class="ident">InputDialogPeerClass</a>)</code></span>
 <span class="codeline" id="line-103"><code>}) {</code></span>
 <span class="codeline" id="line-104"><code>	<label for="r5" class="ident">m</label>.<a href="#line-45" class="ident">Unread</a> = <label for="r7" class="ident">from</label>.<label for="r8" class="ident">GetUnread</label>()</code></span>
 <span class="codeline" id="line-105"><code>	<span class="keyword">if</span> <label for="r15" class="ident">val</label>, <label for="r16" class="ident">ok</label> := <label for="r7" class="ident">from</label>.<label for="r10" class="ident">GetParentPeer</label>(); <label for="r16" class="ident">ok</label> {</code></span>
@@ -405,7 +405,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-225"><code>		<label for="r37" class="ident">m</label>.<a href="#line-53" class="ident">ParentPeer</a> = <label for="r41" class="ident">value</label></code></span>
 <span class="codeline" id="line-226"><code>	}</code></span>
 <span class="codeline" id="line-227"><code>	{</code></span>
-<span class="codeline" id="line-228"><code>		<label for="r43" class="ident">value</label>, <label for="r44" class="ident">err</label> := <a href="tl_input_dialog_peer_gen.go.html#line-357" class="ident">DecodeInputDialogPeer</a>(<label for="r39" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-228"><code>		<label for="r43" class="ident">value</label>, <label for="r44" class="ident">err</label> := <a href="tl_input_dialog_peer_gen.go.html#line-498" class="ident">DecodeInputDialogPeer</a>(<label for="r39" class="ident">b</label>)</code></span>
 <span class="codeline" id="line-229"><code>		<span class="keyword">if</span> <label for="r44" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-230"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode messages.markDialogUnread#8c5006f8: field peer: %w"</span>, <label for="r44" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-231"><code>		}</code></span>
@@ -452,7 +452,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-272"><code>}</code></span>
 <span class="codeline" id="line-273"><code></code></span>
 <span class="codeline" id="line-274"><code><span class="comment">// GetPeer returns value of Peer field.</span></code></span>
-<span class="codeline" id="line-275"><code><span class="keyword">func</span> (<label for="r58" class="ident">m</label> *<a href="#line-38" class="ident">MessagesMarkDialogUnreadRequest</a>) <label for="r59" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..MessagesMarkDialogUnreadRequest.GetPeer.html" class="ident">GetPeer</a></label>() (<label for="r60" class="ident">value</label> <a href="tl_input_dialog_peer_gen.go.html#line-337" class="ident">InputDialogPeerClass</a>) {</code></span>
+<span class="codeline" id="line-275"><code><span class="keyword">func</span> (<label for="r58" class="ident">m</label> *<a href="#line-38" class="ident">MessagesMarkDialogUnreadRequest</a>) <label for="r59" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..MessagesMarkDialogUnreadRequest.GetPeer.html" class="ident">GetPeer</a></label>() (<label for="r60" class="ident">value</label> <a href="tl_input_dialog_peer_gen.go.html#line-478" class="ident">InputDialogPeerClass</a>) {</code></span>
 <span class="codeline" id="line-276"><code>	<span class="keyword">if</span> <label for="r58" class="ident">m</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-277"><code>		<span class="keyword">return</span></code></span>
 <span class="codeline" id="line-278"><code>	}</code></span>

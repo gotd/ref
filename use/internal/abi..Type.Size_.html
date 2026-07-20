@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../pkg/internal/abi.html">internal/abi</a>.<a href="../../src/internal/abi/type.go.html#line-20">Type</a>.<a href="../../src/internal/abi/type.go.html#line-21">Size_</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">299 uses</span>
+<span class="title">300 uses</span>
 
 	internal/abi (current package)
 		<a href="../../src/internal/abi/type.go.html#line-21">type.go#L21</a>: 	<b>Size_</b>       uintptr
@@ -271,11 +271,12 @@
 		<a href="../../src/runtime/slice.go.html#line-380" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-380">#L380</a>: 		newlenmem := uintptr(new.len) * et.<b>Size_</b>
 		<a href="../../src/runtime/slice.go.html#line-449" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-449">#L449</a>: 	capmem := uintptr(cap) * et.<b>Size_</b>
 		<a href="../../src/runtime/slice.go.html#line-481" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-481">#L481</a>: 	lenmem := uintptr(len) * et.<b>Size_</b>
-		<a href="../../src/runtime/slice.go.html#line-486" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-486">#L486</a>: 	return new, len, int(capmem / et.<b>Size_</b>)
-		<a href="../../src/runtime/slice.go.html#line-518" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-518">#L518</a>: 		memmove(bufPtr, oldPtr, uintptr(oldLen)*et.<b>Size_</b>)
-		<a href="../../src/runtime/slice.go.html#line-530" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-530">#L530</a>: 	newCap := int(roundupsize(uintptr(newLen)*et.<b>Size_</b>, !et.Pointers()) / et.<b>Size_</b>)
-		<a href="../../src/runtime/slice.go.html#line-538" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-538">#L538</a>: 		memclrNoHeapPointers(add(bufPtr, uintptr(newLen)*et.<b>Size_</b>), uintptr(newCap-newLen)*et.<b>Size_</b>)
-		<a href="../../src/runtime/slice.go.html#line-558" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-558">#L558</a>: 		freegc(oldPtr, uintptr(oldCap)*et.<b>Size_</b>, noscan)
+		<a href="../../src/runtime/slice.go.html#line-483" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-483">#L483</a>: 	cap := capmem / et.<b>Size_</b>
+		<a href="../../src/runtime/slice.go.html#line-484" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-484">#L484</a>: 	new := mallocgc(cap*et.<b>Size_</b>, et, true)
+		<a href="../../src/runtime/slice.go.html#line-519" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-519">#L519</a>: 		memmove(bufPtr, oldPtr, uintptr(oldLen)*et.<b>Size_</b>)
+		<a href="../../src/runtime/slice.go.html#line-531" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-531">#L531</a>: 	newCap := int(roundupsize(uintptr(newLen)*et.<b>Size_</b>, !et.Pointers()) / et.<b>Size_</b>)
+		<a href="../../src/runtime/slice.go.html#line-539" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-539">#L539</a>: 		memclrNoHeapPointers(add(bufPtr, uintptr(newLen)*et.<b>Size_</b>), uintptr(newCap-newLen)*et.<b>Size_</b>)
+		<a href="../../src/runtime/slice.go.html#line-559" class="path-duplicate">slice.go</a><a href="../../src/runtime/slice.go.html#line-559">#L559</a>: 		freegc(oldPtr, uintptr(oldCap)*et.<b>Size_</b>, noscan)
 		<a href="../../src/runtime/stkframe.go.html#line-281">stkframe.go#L281</a>: 		off:       -int32(alignUp(abiRegArgsType.<b>Size_</b>, 8)), // It's always the highest address local.
 		<a href="../../src/runtime/stkframe.go.html#line-282" class="path-duplicate">stkframe.go</a><a href="../../src/runtime/stkframe.go.html#line-282">#L282</a>: 		size:      int32(abiRegArgsType.<b>Size_</b>),
 		<a href="../../src/runtime/type.go.html#line-230">type.go#L230</a>: 			dst = dst.offset(e.<b>Size_</b> / goarch.PtrSize)

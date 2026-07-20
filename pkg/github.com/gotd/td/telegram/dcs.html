@@ -15,7 +15,7 @@
 	<a href="../../../../../index.html#pkg-github.com/gotd/td/telegram/dcs">github.com/gotd/td/telegram/dcs</a><i> (on <a href="https://pkg.go.dev/github.com/gotd/td/telegram/dcs" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../../../../dep/github.com/gotd/td/telegram/dcs.html">24 packages</a>, and imported by <a href="../../../../../dep/github.com/gotd/td/telegram/dcs.html#imported-by">2 packages</a>
+	imports <a href="../../../../../dep/github.com/gotd/td/telegram/dcs.html">28 packages</a>, and imported by <a href="../../../../../dep/github.com/gotd/td/telegram/dcs.html#imported-by">2 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -24,6 +24,7 @@
 <span class="md-text">		Package dcs contains Telegram DCs list and some helpers.</span>
 </span>
 	<span class="nodocs">    <a href="../../../../../src/github.com/gotd/td/telegram/dcs/find.go.html">find.go</a></span>
+	<span class="nodocs">    <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html">http.go</a></span>
 	<span class="nodocs">    <a href="../../../../../src/github.com/gotd/td/telegram/dcs/list.go.html">list.go</a></span>
 	<span class="nodocs">    <a href="../../../../../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html">mtproxy.go</a></span>
 	<span class="nodocs">    <a href="../../../../../src/github.com/gotd/td/telegram/dcs/plain.go.html">plain.go</a></span>
@@ -104,7 +105,7 @@
 		}
 </span>
 </div>
-<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 13, in which 8 are exported)</i></span></span>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 17, in which 9 are exported)</i></span></span>
 
 <div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-DialFunc" data-popularity="0">	<input type='checkbox' class="fold" id="DialFunc-fold-content"><label for="DialFunc-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..DialFunc.html">type</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/resolver.go.html#line-20">DialFunc</a> <i>(func)</i></label><span id='DialFunc-fold-content-docs' class="fold-docs">
 <span class="md-text">		DialFunc connects to the address on the named network.</span>
@@ -128,6 +129,50 @@
 </span></span></span>
 		<input type='checkbox' class="fold" id="DNSConfig-fold-results"><label for="DNSConfig-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='DNSConfig-fold-results-items' class="fold-items"><span>
 			func <a href="#name-ParseDNSConfig">ParseDNSConfig</a>(txt []<a href="../../../../builtin.html#name-string">string</a>) (<b>DNSConfig</b>, <a href="../../../../builtin.html#name-error">error</a>)</span></span>
+
+</span></div><div class="anchor type-res" id="name-HTTPOptions" data-popularity="85">	<input type='checkbox' class="fold" id="HTTPOptions-fold-content"><label for="HTTPOptions-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..HTTPOptions.html">type</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-336">HTTPOptions</a> <i>(struct)</i></label><span id='HTTPOptions-fold-content-docs' class="fold-docs">
+<span class="md-text">		HTTPOptions is HTTP resolver creation options.</span>
+
+		<input type='checkbox' class="fold" id="HTTPOptions-fold-fields"><label for="HTTPOptions-fold-fields">Fields (<i>total 7, all are exported</i>)</label><span id='HTTPOptions-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="HTTPOptions-fold-field-Client"><label for="HTTPOptions-fold-field-Client"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-342">Client</a> <i>*<a href="../../../../net/http.html">http</a>.<a href="../../../../net/http.html#name-Client">Client</a></i></label><span id='HTTPOptions-fold-field-Client-docs' class="fold-docs">
+<span class="md-text">				Client is the HTTP client used for POST requests. If nil, a client with a
+				bounded transport and a timeout derived from MaxWait is used. A custom
+				client's timeout must exceed MaxWait, otherwise long-poll responses are cut
+				off. For Scheme "https" a custom client with an appropriate tls.Config
+				(SNI/certificates for the DC) is required.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="HTTPOptions-fold-field-MaxDelay"><label for="HTTPOptions-fold-field-MaxDelay"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-363">MaxDelay</a> <i><a href="../../../../builtin.html#name-int">int</a></i></label><span id='HTTPOptions-fold-field-MaxDelay-docs' class="fold-docs">
+<span class="md-text">				MaxDelay, WaitAfter and MaxWait are the http_wait fields in milliseconds.
+				Defaults: 0, 0, 25000.
+				
+				See https://core.telegram.org/mtproto/service_messages.</span>
+</span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-365">MaxWait</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="HTTPOptions-fold-field-Port"><label for="HTTPOptions-fold-field-Port"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-355">Port</a> <i><a href="../../../../builtin.html#name-int">int</a></i></label><span id='HTTPOptions-fold-field-Port-docs' class="fold-docs">
+<span class="md-text">				Port overrides the transport port. Defaults to 80 for http and 443 for
+				https.
+				
+				The HTTP transport uses this fixed port for every DC and intentionally
+				ignores tg.DCOption.Port (which is the TCP MTProto port), per the MTProto
+				HTTP transport specification.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="HTTPOptions-fold-field-PreferIPv6"><label for="HTTPOptions-fold-field-PreferIPv6"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-358">PreferIPv6</a> <i><a href="../../../../builtin.html#name-bool">bool</a></i></label><span id='HTTPOptions-fold-field-PreferIPv6-docs' class="fold-docs">
+<span class="md-text">				PreferIPv6 gives IPv6 DCs higher precedence.
+				Default is to prefer IPv4 DCs over IPv6.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="HTTPOptions-fold-field-Scheme"><label for="HTTPOptions-fold-field-Scheme"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-348">Scheme</a> <i><a href="../../../../builtin.html#name-string">string</a></i></label><span id='HTTPOptions-fold-field-Scheme-docs' class="fold-docs">
+<span class="md-text">				Scheme is "http" (default) or "https".
+				
+				Note: https support is experimental. Connecting over https to a bare DC IP
+				needs a custom Client whose tls.Config matches the DC certificate; the
+				default client will fail TLS verification.</span>
+</span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-364">WaitAfter</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></span></span>
+		<input type='checkbox' class="fold" id="HTTPOptions-fold-methods"><label for="HTTPOptions-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='HTTPOptions-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="HTTPOptions-showhide-methods"><i><label for="HTTPOptions-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="HTTPOptions-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*HTTPOptions) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-368">setDefaults</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="HTTPOptions-fold-params"><label for="HTTPOptions-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='HTTPOptions-fold-params-items' class="fold-items"><span>
+			func <a href="#name-HTTP">HTTP</a>(opts <b>HTTPOptions</b>) <a href="#name-Resolver">Resolver</a></span></span>
 
 </span></div><div class="anchor type-res" id="name-List" data-popularity="455">	<input type='checkbox' class="fold" id="List-fold-content"><label for="List-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..List.html">type</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/list.go.html#line-6">List</a> <i>(struct)</i></label><span id='List-fold-content-docs' class="fold-docs">
 <span class="md-text">		List is a list of Telegram DC addresses and domains.</span>
@@ -223,20 +268,22 @@
 			<input type='checkbox' class="showhide" id="Protocol-showhide-impls"><i><label for="Protocol-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="Protocol-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			 Protocol : <a href="#name-protocol">protocol</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Resolver" data-popularity="975">	<input type='checkbox' class="fold" id="Resolver-fold-content"><label for="Resolver-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..Resolver.html">type</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/resolver.go.html#line-13">Resolver</a> <b><i>(interface)</i></b></label><span id='Resolver-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Resolver" data-popularity="1200">	<input type='checkbox' class="fold" id="Resolver-fold-content"><label for="Resolver-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..Resolver.html">type</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/resolver.go.html#line-13">Resolver</a> <b><i>(interface)</i></b></label><span id='Resolver-fold-content-docs' class="fold-docs">
 <span class="md-text">		Resolver resolves DC and creates transport MTProto connection.</span>
 
 		<input type='checkbox' class="fold" id="Resolver-fold-methods"><label for="Resolver-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='Resolver-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( Resolver) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/resolver.go.html#line-16">CDN</a>(ctx <a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-Context">Context</a>, dc <a href="../../../../builtin.html#name-int">int</a>, list <a href="#name-List">List</a>) (<a href="../transport.html">transport</a>.<a href="../transport.html#name-Conn">Conn</a>, <a href="../../../../builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( Resolver) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/resolver.go.html#line-15">MediaOnly</a>(ctx <a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-Context">Context</a>, dc <a href="../../../../builtin.html#name-int">int</a>, list <a href="#name-List">List</a>) (<a href="../transport.html">transport</a>.<a href="../transport.html#name-Conn">Conn</a>, <a href="../../../../builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( Resolver) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/resolver.go.html#line-14">Primary</a>(ctx <a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-Context">Context</a>, dc <a href="../../../../builtin.html#name-int">int</a>, list <a href="#name-List">List</a>) (<a href="../transport.html">transport</a>.<a href="../transport.html#name-Conn">Conn</a>, <a href="../../../../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="Resolver-fold-impledby"><label for="Resolver-fold-impledby">Implemented By (<i>at least 3, none are exported</i>)</label><span id='Resolver-fold-impledby-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="Resolver-showhide-impedBys"><i><label for="Resolver-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="Resolver-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="Resolver-fold-impledby"><label for="Resolver-fold-impledby">Implemented By (<i>at least 4, none are exported</i>)</label><span id='Resolver-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Resolver-showhide-impedBys"><i><label for="Resolver-showhide-impedBys" class="show-inline">/* 4+ unexporteds ... */</label><label for="Resolver-showhide-impedBys" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+			 <a href="#name-httpResolver">httpResolver</a></i></span><span class="hidden"><i>
 			 <a href="#name-mtProxy">mtProxy</a></i></span><span class="hidden"><i>
 			 <a href="#name-plain">plain</a></i></span><span class="hidden"><i>
 			 <a href="#name-ws">ws</a></i></span></span>
-		<input type='checkbox' class="fold" id="Resolver-fold-results"><label for="Resolver-fold-results">As Outputs Of (<i>at least 5, all are exported</i>)</label><span id='Resolver-fold-results-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Resolver-fold-results"><label for="Resolver-fold-results">As Outputs Of (<i>at least 6, all are exported</i>)</label><span id='Resolver-fold-results-items' class="fold-items"><span>
 			func <a href="#name-DefaultResolver">DefaultResolver</a>() <b>Resolver</b></span><span>
+			func <a href="#name-HTTP">HTTP</a>(opts <a href="#name-HTTPOptions">HTTPOptions</a>) <b>Resolver</b></span><span>
 			func <a href="#name-MTProxy">MTProxy</a>(addr <a href="../../../../builtin.html#name-string">string</a>, secret []<a href="../../../../builtin.html#name-byte">byte</a>, opts <a href="#name-MTProxyOptions">MTProxyOptions</a>) (<b>Resolver</b>, <a href="../../../../builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-Plain">Plain</a>(opts <a href="#name-PlainOptions">PlainOptions</a>) <b>Resolver</b></span><span>
 			func <a href="#name-Websocket">Websocket</a>(opts <a href="#name-WebsocketOptions">WebsocketOptions</a>) <b>Resolver</b></span><span>
@@ -259,7 +306,126 @@
 		<input type='checkbox' class="fold" id="WebsocketOptions-fold-params"><label for="WebsocketOptions-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='WebsocketOptions-fold-params-items' class="fold-items"><span>
 			func <a href="#name-Websocket">Websocket</a>(opts <b>WebsocketOptions</b>) <a href="#name-Resolver">Resolver</a></span></span>
 
-</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 5 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 5 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-mtProxy" data-popularity="300">	<input type='checkbox' class="fold" id="mtProxy-fold-content"><label for="mtProxy-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..mtProxy^e77c2.html">type</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html#line-20">mtProxy</a> <i>(struct)</i></label><span id='mtProxy-fold-content-docs' class="fold-docs">
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 8 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 8 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-httpConn" data-popularity="775">	<input type='checkbox' class="fold" id="httpConn-fold-content"><label for="httpConn-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.html">type</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-58">httpConn</a> <i>(struct)</i></label><span id='httpConn-fold-content-docs' class="fold-docs">
+<span class="md-text">		httpConn implements transport.Conn over the MTProto HTTP transport.
+		
+		See https://core.telegram.org/mtproto/transports#http-transport.
+		
+		MTProto over HTTP is request/response: the server can only deliver messages
+		as the body of a response to a client POST. Send posts one raw MTProto frame
+		(framing is done by HTTP Content-Length, there is no codec tag) and the
+		response body — the messages the server had queued for the session — is
+		delivered to Recv through inbox. Send is non-blocking: the POST and its
+		(possibly long-polling) response are handled on a separate goroutine so a 25s
+		http_wait long-poll never stalls the mtproto write path.</span>
+
+		<input type='checkbox' class="fold" id="httpConn-fold-fields"><label for="httpConn-fold-fields">Fields (<i>total 11, none are exported</i>)</label><span id='httpConn-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="httpConn-showhide-fields"><i><label for="httpConn-showhide-fields" class="show-inline">/* 11 unexporteds ... */</label><label for="httpConn-showhide-fields" class="hide-inline">/* 11 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-76">cancel</a> <i><a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-CancelFunc">CancelFunc</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-59">client</a> <i>*<a href="../../../../net/http.html">http</a>.<a href="../../../../net/http.html#name-Client">Client</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-78">closeOnce</a> <i><a href="../../../../sync.html">sync</a>.<a href="../../../../sync.html#name-Once">Once</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-75">ctx</a> <i><a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-Context">Context</a></i></span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="httpConn-fold-field-inbox"><label for="httpConn-fold-field-inbox"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-67">inbox</a> <i>chan <a href="#name-recvResult">recvResult</a></i></label><span id='httpConn-fold-field-inbox-docs' class="fold-docs">
+<span class="md-text">				inbox buffers responses (frames or protocol errors) until Recv consumes
+				them.</span>
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="httpConn-fold-field-maxDelay"><label for="httpConn-fold-field-maxDelay"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-71">maxDelay</a> <i><a href="../../../../builtin.html#name-int">int</a></i></label><span id='httpConn-fold-field-maxDelay-docs' class="fold-docs">
+<span class="md-text">				http_wait parameters in milliseconds, reported via HTTPWaitParams and used
+				by the mtproto layer to build http_wait messages.</span>
+</span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-73">maxWait</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-77">startOnce</a> <i><a href="../../../../sync.html">sync</a>.<a href="../../../../sync.html#name-Once">Once</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-63">urlIdx</a> <i><a href="../../../../sync/atomic.html">atomic</a>.<a href="../../../../sync/atomic.html#name-Uint32">Uint32</a></i></span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="httpConn-fold-field-urls"><label for="httpConn-fold-field-urls"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-62">urls</a> <i>[]<a href="../../../../builtin.html#name-string">string</a></i></label><span id='httpConn-fold-field-urls-docs' class="fold-docs">
+<span class="md-text">				urls holds one /api endpoint per candidate DC address. Requests use the
+				current index; a failed POST rotates to the next candidate.</span>
+</span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-72">waitAfter</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="httpConn-fold-methods"><label for="httpConn-fold-methods">Methods (<i>total 11, in which 5 are exported</i>)</label><span id='httpConn-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="httpConn-fold-method-Close"><label for="httpConn-fold-method-Close">(*httpConn) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-138">Close</a>() <a href="../../../../builtin.html#name-error">error</a></label><span id='httpConn-fold-method-Close-docs' class="fold-docs">
+<span class="md-text">				Close releases the connection and cancels in-flight requests.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="httpConn-fold-method-HTTPWaitParams"><label for="httpConn-fold-method-HTTPWaitParams">(*httpConn) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-213">HTTPWaitParams</a>() (maxDelay, waitAfter, maxWait <a href="../../../../builtin.html#name-int">int</a>)</label><span id='httpConn-fold-method-HTTPWaitParams-docs' class="fold-docs">
+<span class="md-text">				HTTPWaitParams reports the http_wait fields (milliseconds) the transport wants
+				the mtproto layer to use. It is part of the mtproto HTTP long-poll capability.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="httpConn-fold-method-Recv"><label for="httpConn-fold-method-Recv">(*httpConn) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-122">Recv</a>(ctx <a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-Context">Context</a>, b *<a href="../bin.html">bin</a>.<a href="../bin.html#name-Buffer">Buffer</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='httpConn-fold-method-Recv-docs' class="fold-docs">
+<span class="md-text">				Recv blocks until an incoming frame or a transport-level protocol error is
+				available.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="httpConn-fold-method-Send"><label for="httpConn-fold-method-Send">(*httpConn) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-102">Send</a>(ctx <a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-Context">Context</a>, b *<a href="../bin.html">bin</a>.<a href="../bin.html#name-Buffer">Buffer</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='httpConn-fold-method-Send-docs' class="fold-docs">
+<span class="md-text">				Send posts a single MTProto frame. It is non-blocking: the POST and response
+				are handled on a separate goroutine, so a long-poll response never stalls the
+				caller. Delivery reliability is provided by the mtproto rpc engine
+				(acks/retransmits) and liveness by the ping loop; a failed POST is therefore
+				dropped here and recovered upstream.</span>
+</span></span><span>
+			<input type='checkbox' class="fold" id="httpConn-fold-method-StartHTTPWait"><label for="httpConn-fold-method-StartHTTPWait">(*httpConn) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-226">StartHTTPWait</a>(frame func(ctx <a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-Context">Context</a>) (*<a href="../bin.html">bin</a>.<a href="../bin.html#name-Buffer">Buffer</a>, <a href="../../../../builtin.html#name-error">error</a>))</label><span id='httpConn-fold-method-StartHTTPWait-docs' class="fold-docs">
+<span class="md-text">				StartHTTPWait starts the long-poll loop. frame yields a freshly-encrypted
+				http_wait service message — only the mtproto layer can encrypt it. The loop
+				keeps exactly one long-poll POST outstanding, re-issuing it as soon as the
+				previous response arrives, to minimize update latency. It is safe to call at
+				most once; further calls are no-ops.
+				
+				The loop runs in a goroutine whose lifetime is bound solely to Close: it is
+				not part of the mtproto Run errgroup, so the connection must be closed to stop
+				it (Conn.handleClose does this on teardown).</span>
+</span></span>
+			<input type='checkbox' checked class="showhide" id="httpConn-showhide-methods"><i><label for="httpConn-showhide-methods" class="show-inline">/* 6 unexporteds ... */</label><label for="httpConn-showhide-methods" class="hide-inline">/* 6 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*httpConn) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-195">deliver</a>(r <a href="#name-recvResult">recvResult</a>)</span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*httpConn) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-232">pollLoop</a>(frame func(ctx <a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-Context">Context</a>) (*<a href="../bin.html">bin</a>.<a href="../bin.html#name-Buffer">Buffer</a>, <a href="../../../../builtin.html#name-error">error</a>))</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="httpConn-fold-method-rotateURL"><label for="httpConn-fold-method-rotateURL">(*httpConn) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-205">rotateURL</a>()</label><span id='httpConn-fold-method-rotateURL-docs' class="fold-docs">
+<span class="md-text">				rotateURL advances to the next candidate address after a failed POST. Failover
+				is best-effort: a burst of concurrent failures may advance the index by more
+				than one, but the poll loop's round-robin still reaches every candidate.</span>
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="httpConn-fold-method-roundtrip"><label for="httpConn-fold-method-roundtrip">(*httpConn) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-147">roundtrip</a>(frame []<a href="../../../../builtin.html#name-byte">byte</a>) (delivered <a href="../../../../builtin.html#name-bool">bool</a>, _ <a href="../../../../builtin.html#name-error">error</a>)</label><span id='httpConn-fold-method-roundtrip-docs' class="fold-docs">
+<span class="md-text">				roundtrip posts one frame and delivers the response to inbox. It reports
+				whether anything was delivered (a frame or a protocol error) and returns an
+				error only for transport-level failures (POST error, non-200), which callers
+				use to back off.</span>
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="httpConn-fold-method-sleep"><label for="httpConn-fold-method-sleep">(*httpConn) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-272">sleep</a>(d <a href="../../../../time.html">time</a>.<a href="../../../../time.html#name-Duration">Duration</a>) <a href="../../../../builtin.html#name-bool">bool</a></label><span id='httpConn-fold-method-sleep-docs' class="fold-docs">
+<span class="md-text">				sleep waits for d, returning false if the connection was closed while waiting.</span>
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="httpConn-fold-method-urlIndex"><label for="httpConn-fold-method-urlIndex">(*httpConn) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-191">urlIndex</a>() <a href="../../../../builtin.html#name-int">int</a></label><span id='httpConn-fold-method-urlIndex-docs' class="fold-docs">
+<span class="md-text">				urlIndex returns the current candidate index. The modulo is taken on the
+				unsigned counter so the index stays in range even if the counter wraps.</span>
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="httpConn-fold-impls"><label for="httpConn-fold-impls">Implements (<i>at least 3, in which 2 are exported</i>)</label><span id='httpConn-fold-impls-items' class="fold-items"><span>
+			*httpConn : github.com/gotd/td/transport.<a href="../transport.html#name-Conn">Conn</a></span><span>
+			*httpConn : io.<a href="../../../../io.html#name-Closer">Closer</a></span>
+			<input type='checkbox' checked class="showhide" id="httpConn-showhide-impls"><i><label for="httpConn-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="httpConn-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*httpConn : github.com/gotd/td/mtproto.<a href="../mtproto.html#name-httpWaiter">httpWaiter</a></i></span></span>
+		<input type='checkbox' class="fold" id="httpConn-fold-results"><label for="httpConn-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='httpConn-fold-results-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="httpConn-showhide-inputofs"><i><label for="httpConn-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="httpConn-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func <a href="#name-newHTTPConn">newHTTPConn</a>(client *<a href="../../../../net/http.html">http</a>.<a href="../../../../net/http.html#name-Client">Client</a>, urls []<a href="../../../../builtin.html#name-string">string</a>, maxDelay, waitAfter, maxWait <a href="../../../../builtin.html#name-int">int</a>) *<b>httpConn</b></i></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-httpResolver" data-popularity="250">	<input type='checkbox' class="fold" id="httpResolver-fold-content"><label for="httpResolver-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..httpResolver^3983b.html">type</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-283">httpResolver</a> <i>(struct)</i></label><span id='httpResolver-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="httpResolver-fold-fields"><label for="httpResolver-fold-fields">Fields (<i>total 8, none are exported</i>)</label><span id='httpResolver-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="httpResolver-showhide-fields"><i><label for="httpResolver-showhide-fields" class="show-inline">/* 8 unexporteds ... */</label><label for="httpResolver-showhide-fields" class="hide-inline">/* 8 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-284">client</a> <i>*<a href="../../../../net/http.html">http</a>.<a href="../../../../net/http.html#name-Client">Client</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-288">maxDelay</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-290">maxWait</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-286">port</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-287">preferIPv6</a> <i><a href="../../../../builtin.html#name-bool">bool</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-285">scheme</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="httpResolver-fold-field-startIdx"><label for="httpResolver-fold-field-startIdx"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-293">startIdx</a> <i>*<a href="../../../../sync/atomic.html">atomic</a>.<a href="../../../../sync/atomic.html#name-Uint32">Uint32</a></i></label><span id='httpResolver-fold-field-startIdx-docs' class="fold-docs">
+<span class="md-text">				startIdx rotates the preferred candidate across successive Primary calls
+				(i.e. across reconnects), so a dead first address does not trap the client.</span>
+</span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-289">waitAfter</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="httpResolver-fold-methods"><label for="httpResolver-fold-methods">Methods (<i>total 4, in which 3 are exported</i>)</label><span id='httpResolver-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( httpResolver) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-331">CDN</a>(ctx <a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-Context">Context</a>, dc <a href="../../../../builtin.html#name-int">int</a>, list <a href="#name-List">List</a>) (<a href="../transport.html">transport</a>.<a href="../transport.html#name-Conn">Conn</a>, <a href="../../../../builtin.html#name-error">error</a>)</span></span><span>
+			<span class="nodocs">( httpResolver) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-327">MediaOnly</a>(ctx <a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-Context">Context</a>, dc <a href="../../../../builtin.html#name-int">int</a>, list <a href="#name-List">List</a>) (<a href="../transport.html">transport</a>.<a href="../transport.html#name-Conn">Conn</a>, <a href="../../../../builtin.html#name-error">error</a>)</span></span><span>
+			<span class="nodocs">( httpResolver) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-310">Primary</a>(ctx <a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-Context">Context</a>, dc <a href="../../../../builtin.html#name-int">int</a>, list <a href="#name-List">List</a>) (<a href="../transport.html">transport</a>.<a href="../transport.html#name-Conn">Conn</a>, <a href="../../../../builtin.html#name-error">error</a>)</span></span>
+			<input type='checkbox' checked class="showhide" id="httpResolver-showhide-methods"><i><label for="httpResolver-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="httpResolver-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">( httpResolver) <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-296">urls</a>(candidates []<a href="../tg.html">tg</a>.<a href="../tg.html#name-DCOption">DCOption</a>) []<a href="../../../../builtin.html#name-string">string</a></span></i></span></span>
+		<input type='checkbox' class="fold" id="httpResolver-fold-impls"><label for="httpResolver-fold-impls">Implements (<i>at least one exported</i>)</label><span id='httpResolver-fold-impls-items' class="fold-items"><span>
+			 httpResolver : <a href="#name-Resolver">Resolver</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-mtProxy" data-popularity="300">	<input type='checkbox' class="fold" id="mtProxy-fold-content"><label for="mtProxy-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..mtProxy^e77c2.html">type</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html#line-20">mtProxy</a> <i>(struct)</i></label><span id='mtProxy-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="mtProxy-fold-fields"><label for="mtProxy-fold-fields">Fields (<i>total 7, none are exported</i>)</label><span id='mtProxy-fold-fields-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="mtProxy-showhide-fields"><i><label for="mtProxy-showhide-fields" class="show-inline">/* 7 unexporteds ... */</label><label for="mtProxy-showhide-fields" class="hide-inline">/* 7 unexporteds: */</label></i><span class="hidden"><i>
@@ -311,6 +477,15 @@
 			 <a href="#name-Protocol">Protocol</a> <i>(interface)</i></span><span>
 			 github.com/gotd/td/transport.<a href="../transport.html#name-Protocol">Protocol</a></span></span>
 
+</span></div><div class="anchor type-res hidden" id="name-recvResult" data-popularity="0">	<input type='checkbox' class="fold" id="recvResult-fold-content"><label for="recvResult-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..recvResult^20902.html">type</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-42">recvResult</a> <i>(struct)</i></label><span id='recvResult-fold-content-docs' class="fold-docs">
+<span class="md-text">		recvResult is a decoded response delivered to Recv: either a frame or a
+		transport-level protocol error (e.g. auth_key_not_found).</span>
+
+		<input type='checkbox' class="fold" id="recvResult-fold-fields"><label for="recvResult-fold-fields">Fields (<i>total 2, neither is exported</i>)</label><span id='recvResult-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="recvResult-showhide-fields"><i><label for="recvResult-showhide-fields" class="show-inline">/* 2 unexporteds ... */</label><label for="recvResult-showhide-fields" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-43">data</a> <i>[]<a href="../../../../builtin.html#name-byte">byte</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-44">err</a> <i><a href="../../../../builtin.html#name-error">error</a></i></span></i></span></span>
+
 </span></div><div class="anchor type-res hidden" id="name-sortByLen" data-popularity="200">	<input type='checkbox' class="fold" id="sortByLen-fold-content"><label for="sortByLen-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..sortByLen^80f7b.html">type</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-84">sortByLen</a> <i>([])</i></label><span id='sortByLen-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="sortByLen-fold-methods"><label for="sortByLen-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='sortByLen-fold-methods-items' class="fold-items"><span>
@@ -338,7 +513,7 @@
 			 ws : <a href="#name-Resolver">Resolver</a></span></span>
 
 </span></div></div>
-<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 12, in which 10 are exported)</i></span></span>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 14, in which 11 are exported)</i></span></span>
 
 <div class="anchor value-res" id="name-DefaultResolver">	<input type='checkbox' class="fold" id="DefaultResolver-fold-content"><label for="DefaultResolver-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..DefaultResolver.html">func</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/resolver_notjs.go.html#line-7">DefaultResolver</a>() <a href="#name-Resolver">Resolver</a></label><span id='DefaultResolver-fold-content-docs' class="fold-docs">
 <span class="md-text">		DefaultResolver returns default DC resolver for current platform.</span>
@@ -350,6 +525,16 @@
 <span class="md-text">		FindPrimaryDCs searches new primary DC from given config.
 		Unlike FindDC, it filters CDNs and MediaOnly servers, returns error
 		if not found.</span>
+
+</span></div><div class="anchor value-res" id="name-HTTP">	<input type='checkbox' class="fold" id="HTTP-fold-content"><label for="HTTP-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..HTTP.html">func</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-402">HTTP</a>(opts <a href="#name-HTTPOptions">HTTPOptions</a>) <a href="#name-Resolver">Resolver</a></label><span id='HTTP-fold-content-docs' class="fold-docs">
+<span class="md-text">		HTTP creates an MTProto-over-HTTP DC resolver with http_wait long-polling.
+		
+		It suits environments where a raw persistent MTProto TCP socket cannot be
+		held but HTTP POST to the DC is possible. Updates are delivered via http_wait
+		long-polling, so their latency is bounded by the round-trip rather than being
+		instantaneous. MediaOnly and CDN DCs are not supported.
+		
+		See https://core.telegram.org/mtproto/transports#http-transport.</span>
 
 </span></div><div class="anchor value-res" id="name-MTProxy">	<input type='checkbox' class="fold" id="MTProxy-fold-content"><label for="MTProxy-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..MTProxy.html">func</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/mtproxy.go.html#line-112">MTProxy</a>(addr <a href="../../../../builtin.html#name-string">string</a>, secret []<a href="../../../../builtin.html#name-byte">byte</a>, opts <a href="#name-MTProxyOptions">MTProxyOptions</a>) (<a href="#name-Resolver">Resolver</a>, <a href="../../../../builtin.html#name-error">error</a>)</label><span id='MTProxy-fold-content-docs' class="fold-docs">
 <span class="md-text">		MTProxy creates MTProxy obfuscated DC resolver.
@@ -383,7 +568,7 @@
 		
 		See https://core.telegram.org/mtproto/transports#websocket.</span>
 
-</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-init"><i>	<span class="nodocs"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..init^bb540.html">func</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-29">init</a>()</span></i></div><div class="anchor value-res hidden" id="name-parseDNSList"><i>	<input type='checkbox' class="fold" id="parseDNSList-fold-content"><label for="parseDNSList-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..parseDNSList^07827.html">func</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-51">parseDNSList</a>(input [256]<a href="../../../../builtin.html#name-byte">byte</a>) (<a href="../tg.html">tg</a>.<a href="../tg.html#name-HelpConfigSimple">HelpConfigSimple</a>, <a href="../../../../builtin.html#name-error">error</a>)</label><span id='parseDNSList-fold-content-docs' class="fold-docs">
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 3 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 3 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-init"><i>	<span class="nodocs"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..init^bb540.html">func</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-29">init</a>()</span></i></div><div class="anchor value-res hidden" id="name-newHTTPConn"><i>	<span class="nodocs"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..newHTTPConn^8a74b.html">func</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-81">newHTTPConn</a>(client *<a href="../../../../net/http.html">http</a>.<a href="../../../../net/http.html#name-Client">Client</a>, urls []<a href="../../../../builtin.html#name-string">string</a>, maxDelay, waitAfter, maxWait <a href="../../../../builtin.html#name-int">int</a>) *<a href="#name-httpConn">httpConn</a></span></i></div><div class="anchor value-res hidden" id="name-parseDNSList"><i>	<input type='checkbox' class="fold" id="parseDNSList-fold-content"><label for="parseDNSList-fold-content"> <a href="../../../../../use/github.com/gotd/td/telegram/dcs..parseDNSList^07827.html">func</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-51">parseDNSList</a>(input [256]<a href="../../../../builtin.html#name-byte">byte</a>) (<a href="../tg.html">tg</a>.<a href="../tg.html#name-HelpConfigSimple">HelpConfigSimple</a>, <a href="../../../../builtin.html#name-error">error</a>)</label><span id='parseDNSList-fold-content-docs' class="fold-docs">
 <span class="md-text">		parseDNSList decodes raw encrypted simple config.
 		
 		Notice that parseDNSList does not decode base64, user should do it manually.</span>
@@ -391,7 +576,29 @@
 </span></i></div></div>
 <div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (only one, which is unexported)</i></span></span>
 
-	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* one unexported ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* one unexported: */</label></i><div class="anchor value-res hidden" id="name-dnsKey"><i>	<span class="nodocs">  <a href="../../../../../use/github.com/gotd/td/telegram/dcs..dnsKey^d8f27.html">var</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-22">dnsKey</a> struct{<a href="../../../../crypto/rsa.html">rsa</a>.<a href="../../../../crypto/rsa.html#name-PublicKey">PublicKey</a>; once <a href="../../../../sync.html">sync</a>.<a href="../../../../sync.html#name-Once">Once</a>; eBig *<a href="../../../../math/big.html">big</a>.<a href="../../../../math/big.html#name-Int">Int</a>}</span></i></div></div></code></pre><pre id="footer">
+	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* one unexported ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* one unexported: */</label></i><div class="anchor value-res hidden" id="name-dnsKey"><i>	<span class="nodocs">  <a href="../../../../../use/github.com/gotd/td/telegram/dcs..dnsKey^d8f27.html">var</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/dns.go.html#line-22">dnsKey</a> struct{<a href="../../../../crypto/rsa.html">rsa</a>.<a href="../../../../crypto/rsa.html#name-PublicKey">PublicKey</a>; once <a href="../../../../sync.html">sync</a>.<a href="../../../../sync.html#name-Once">Once</a>; eBig *<a href="../../../../math/big.html">big</a>.<a href="../../../../math/big.html#name-Int">Int</a>}</span></i></div></div>
+<div id="exported-constants"><span class="title">Package-Level Constants<span class="title-stat"><i> (total 5, none are exported)</i></span></span>
+
+	<input type='checkbox' class="showhide" id="unexported-constants-showhide"><i><label for="unexported-constants-showhide" class="show-inline">/* 5 unexporteds ... */</label><label for="unexported-constants-showhide" class="hide-inline">/* 5 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-defaultHTTPMaxWait"><i>	<input type='checkbox' class="fold" id="defaultHTTPMaxWait-fold-content"><label for="defaultHTTPMaxWait-fold-content"><a href="../../../../../use/github.com/gotd/td/telegram/dcs..defaultHTTPMaxWait^6851b.html">const</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-26">defaultHTTPMaxWait</a> = 25000</label><span id='defaultHTTPMaxWait-fold-content-docs' class="fold-docs">
+<span class="md-text">		defaultHTTPMaxWait is the default http_wait max_wait (ms): the server holds
+		the long-poll response open up to this long. Matches the MTProto default.</span>
+
+</span></i></div><div class="anchor value-res hidden" id="name-httpClientTimeoutMargin"><i>	<input type='checkbox' class="fold" id="httpClientTimeoutMargin-fold-content"><label for="httpClientTimeoutMargin-fold-content"><a href="../../../../../use/github.com/gotd/td/telegram/dcs..httpClientTimeoutMargin^d444a.html">const</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-29">httpClientTimeoutMargin</a> <a href="../../../../time.html">time</a>.<a href="../../../../time.html#name-Duration">Duration</a> = 5000000000</label><span id='httpClientTimeoutMargin-fold-content-docs' class="fold-docs">
+<span class="md-text">		httpClientTimeoutMargin is added on top of max_wait for the HTTP client
+		timeout so a full-length long-poll response is not cut off.</span>
+
+</span></i></div><div class="anchor value-res hidden" id="name-httpInboxSize"><i>	<input type='checkbox' class="fold" id="httpInboxSize-fold-content"><label for="httpInboxSize-fold-content"><a href="../../../../../use/github.com/gotd/td/telegram/dcs..httpInboxSize^c6fea.html">const</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-34">httpInboxSize</a> = 32</label><span id='httpInboxSize-fold-content-docs' class="fold-docs">
+<span class="md-text">		httpInboxSize buffers response frames until Recv consumes them.</span>
+
+</span></i></div><div class="anchor value-res hidden" id="name-httpMaxConnsPerHost"><i>	<input type='checkbox' class="fold" id="httpMaxConnsPerHost-fold-content"><label for="httpMaxConnsPerHost-fold-content"><a href="../../../../../use/github.com/gotd/td/telegram/dcs..httpMaxConnsPerHost^221ab.html">const</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-37">httpMaxConnsPerHost</a> = 16</label><span id='httpMaxConnsPerHost-fold-content-docs' class="fold-docs">
+<span class="md-text">		httpMaxConnsPerHost bounds concurrent connections of the default client to
+		a single DC, so a burst of sends cannot exhaust file descriptors.</span>
+
+</span></i></div><div class="anchor value-res hidden" id="name-httpWaitRetryInterval"><i>	<input type='checkbox' class="fold" id="httpWaitRetryInterval-fold-content"><label for="httpWaitRetryInterval-fold-content"><a href="../../../../../use/github.com/gotd/td/telegram/dcs..httpWaitRetryInterval^777f9.html">const</a> <a href="../../../../../src/github.com/gotd/td/telegram/dcs/http.go.html#line-32">httpWaitRetryInterval</a> <a href="../../../../time.html">time</a>.<a href="../../../../time.html#name-Duration">Duration</a> = 500000000</label><span id='httpWaitRetryInterval-fold-content-docs' class="fold-docs">
+<span class="md-text">		httpWaitRetryInterval throttles the poll loop when a wait frame cannot be
+		built (e.g. during key exchange) or a POST fails, avoiding a busy loop.</span>
+
+</span></i></div></div></code></pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.

@@ -210,7 +210,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-44"><code>	<span class="comment">// The affiliations</span></code></span>
 <span class="codeline" id="line-45"><code>	<a href="../../../../../use/github.com/gotd/td/tg..PaymentsConnectedStarRefBots.ConnectedBots.html" class="ident">ConnectedBots</a> []<a href="tl_connected_bot_star_ref_gen.go.html#line-41" class="ident">ConnectedBotStarRef</a></code></span>
 <span class="codeline" id="line-46"><code>	<span class="comment">// Peers mentioned in connected_bots</span></code></span>
-<span class="codeline" id="line-47"><code>	<a href="../../../../../use/github.com/gotd/td/tg..PaymentsConnectedStarRefBots.Users.html" class="ident">Users</a> []<a href="tl_user_gen.go.html#line-2563" class="ident">UserClass</a></code></span>
+<span class="codeline" id="line-47"><code>	<a href="../../../../../use/github.com/gotd/td/tg..PaymentsConnectedStarRefBots.Users.html" class="ident">Users</a> []<a href="tl_user_gen.go.html#line-2611" class="ident">UserClass</a></code></span>
 <span class="codeline" id="line-48"><code>}</code></span>
 <span class="codeline" id="line-49"><code></code></span>
 <span class="codeline" id="line-50"><code><span class="comment">// PaymentsConnectedStarRefBotsTypeID is TL type id of PaymentsConnectedStarRefBots.</span></code></span>
@@ -254,7 +254,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-88"><code><span class="keyword">func</span> (<label for="r5" class="ident">c</label> *<a href="#line-41" class="ident">PaymentsConnectedStarRefBots</a>) <label for="r6" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..PaymentsConnectedStarRefBots.FillFrom.html" class="ident">FillFrom</a></label>(<label for="r7" class="ident">from</label> <span class="keyword">interface</span> {</code></span>
 <span class="codeline" id="line-89"><code>	<label for="r8" class="ident">GetCount</label>() (<label for="r9" class="ident">value</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>)</code></span>
 <span class="codeline" id="line-90"><code>	<label for="r10" class="ident">GetConnectedBots</label>() (<label for="r11" class="ident">value</label> []<a href="tl_connected_bot_star_ref_gen.go.html#line-41" class="ident">ConnectedBotStarRef</a>)</code></span>
-<span class="codeline" id="line-91"><code>	<label for="r12" class="ident">GetUsers</label>() (<label for="r13" class="ident">value</label> []<a href="tl_user_gen.go.html#line-2563" class="ident">UserClass</a>)</code></span>
+<span class="codeline" id="line-91"><code>	<label for="r12" class="ident">GetUsers</label>() (<label for="r13" class="ident">value</label> []<a href="tl_user_gen.go.html#line-2611" class="ident">UserClass</a>)</code></span>
 <span class="codeline" id="line-92"><code>}) {</code></span>
 <span class="codeline" id="line-93"><code>	<label for="r5" class="ident">c</label>.<a href="#line-43" class="ident">Count</a> = <label for="r7" class="ident">from</label>.<label for="r8" class="ident">GetCount</label>()</code></span>
 <span class="codeline" id="line-94"><code>	<label for="r5" class="ident">c</label>.<a href="#line-45" class="ident">ConnectedBots</a> = <label for="r7" class="ident">from</label>.<label for="r10" class="ident">GetConnectedBots</label>()</code></span>
@@ -380,10 +380,10 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-214"><code>		}</code></span>
 <span class="codeline" id="line-215"><code></code></span>
 <span class="codeline" id="line-216"><code>		<span class="keyword">if</span> <label for="r45" class="ident">headerLen</label> &gt; <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-217"><code>			<label for="r35" class="ident">c</label>.<a href="#line-47" class="ident">Users</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="tl_user_gen.go.html#line-2563" class="ident">UserClass</a>, <span class="lit-number">0</span>, <label for="r45" class="ident">headerLen</label>%<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/const.go.html#line-4" class="ident">PreallocateLimit</a>)</code></span>
+<span class="codeline" id="line-217"><code>			<label for="r35" class="ident">c</label>.<a href="#line-47" class="ident">Users</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="tl_user_gen.go.html#line-2611" class="ident">UserClass</a>, <span class="lit-number">0</span>, <label for="r45" class="ident">headerLen</label>%<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/const.go.html#line-4" class="ident">PreallocateLimit</a>)</code></span>
 <span class="codeline" id="line-218"><code>		}</code></span>
 <span class="codeline" id="line-219"><code>		<span class="keyword">for</span> <label for="r47" class="ident">idx</label> := <span class="lit-number">0</span>; <label for="r47" class="ident">idx</label> &lt; <label for="r45" class="ident">headerLen</label>; <label for="r47" class="ident">idx</label>++ {</code></span>
-<span class="codeline" id="line-220"><code>			<label for="r48" class="ident">value</label>, <label for="r49" class="ident">err</label> := <a href="tl_user_gen.go.html#line-2631" class="ident">DecodeUser</a>(<label for="r37" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-220"><code>			<label for="r48" class="ident">value</label>, <label for="r49" class="ident">err</label> := <a href="tl_user_gen.go.html#line-2679" class="ident">DecodeUser</a>(<label for="r37" class="ident">b</label>)</code></span>
 <span class="codeline" id="line-221"><code>			<span class="keyword">if</span> <label for="r49" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-222"><code>				<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode payments.connectedStarRefBots#98d5ea1d: field users: %w"</span>, <label for="r49" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-223"><code>			}</code></span>
@@ -410,7 +410,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-244"><code>}</code></span>
 <span class="codeline" id="line-245"><code></code></span>
 <span class="codeline" id="line-246"><code><span class="comment">// GetUsers returns value of Users field.</span></code></span>
-<span class="codeline" id="line-247"><code><span class="keyword">func</span> (<label for="r56" class="ident">c</label> *<a href="#line-41" class="ident">PaymentsConnectedStarRefBots</a>) <label for="r57" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..PaymentsConnectedStarRefBots.GetUsers.html" class="ident">GetUsers</a></label>() (<label for="r58" class="ident">value</label> []<a href="tl_user_gen.go.html#line-2563" class="ident">UserClass</a>) {</code></span>
+<span class="codeline" id="line-247"><code><span class="keyword">func</span> (<label for="r56" class="ident">c</label> *<a href="#line-41" class="ident">PaymentsConnectedStarRefBots</a>) <label for="r57" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..PaymentsConnectedStarRefBots.GetUsers.html" class="ident">GetUsers</a></label>() (<label for="r58" class="ident">value</label> []<a href="tl_user_gen.go.html#line-2611" class="ident">UserClass</a>) {</code></span>
 <span class="codeline" id="line-248"><code>	<span class="keyword">if</span> <label for="r56" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-249"><code>		<span class="keyword">return</span></code></span>
 <span class="codeline" id="line-250"><code>	}</code></span>

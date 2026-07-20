@@ -121,7 +121,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-53"><code></code></span>
 <span class="codeline" id="line-54"><code>	<span class="comment">// If the operating system provides a Getwd call, use it.</span></code></span>
 <span class="codeline" id="line-55"><code>	<span class="keyword">if</span> <a href="../../pkg/syscall.html" class="ident i2">syscall</a>.<a href="../syscall/syscall_linux.go.html#line-367" class="ident">ImplementsGetwd</a> {</code></span>
-<span class="codeline" id="line-56"><code>		<label for="r1" class="ident">dir</label>, <label for="r2" class="ident">err</label> = <a href="file_posix.go.html#line-264" class="ident">ignoringEINTR2</a>(<a href="../../pkg/syscall.html" class="ident i2">syscall</a>.<a href="../syscall/syscall_linux.go.html#line-371" class="ident">Getwd</a>)</code></span>
+<span class="codeline" id="line-56"><code>		<label for="r1" class="ident">dir</label>, <label for="r2" class="ident">err</label> = <a href="file_posix.go.html#line-271" class="ident">ignoringEINTR2</a>(<a href="../../pkg/syscall.html" class="ident i2">syscall</a>.<a href="../syscall/syscall_linux.go.html#line-371" class="ident">Getwd</a>)</code></span>
 <span class="codeline" id="line-57"><code>		<span class="comment">// Linux returns ENAMETOOLONG if the result is too long.</span></code></span>
 <span class="codeline" id="line-58"><code><span class="comment">		// Some BSD systems appear to return EINVAL.</span></code></span>
 <span class="codeline" id="line-59"><code><span class="comment">		// FreeBSD systems appear to use ENOMEM</span></code></span>
@@ -176,7 +176,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-108"><code>		<span class="keyword">for</span> {</code></span>
 <span class="codeline" id="line-109"><code>			<label for="r12" class="ident">names</label>, <label for="r13" class="ident">err</label> := <label for="r10" class="ident">fd</label>.<a href="dir.go.html#line-69" class="ident">Readdirnames</a>(<span class="lit-number">100</span>)</code></span>
 <span class="codeline" id="line-110"><code>			<span class="keyword">if</span> <label for="r13" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-111"><code>				<label for="r10" class="ident">fd</label>.<a href="file_posix.go.html#line-19" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-111"><code>				<label for="r10" class="ident">fd</label>.<a href="file_posix.go.html#line-20" class="ident">Close</a>()</code></span>
 <span class="codeline" id="line-112"><code>				<span class="comment">// Readdirnames can return io.EOF or other error.</span></code></span>
 <span class="codeline" id="line-113"><code><span class="comment">				// In any case, we're here because syscall.Getwd</span></code></span>
 <span class="codeline" id="line-114"><code><span class="comment">				// is not implemented or failed with ENAMETOOLONG,</span></code></span>
@@ -197,7 +197,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-129"><code></code></span>
 <span class="codeline" id="line-130"><code>	<label for="r18" class="ident">Found</label>:</code></span>
 <span class="codeline" id="line-131"><code>		<label for="r19" class="ident">pd</label>, <label for="r11" class="ident">err</label> := <label for="r10" class="ident">fd</label>.<a href="stat_unix.go.html#line-15" class="ident">Stat</a>()</code></span>
-<span class="codeline" id="line-132"><code>		<label for="r10" class="ident">fd</label>.<a href="file_posix.go.html#line-19" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-132"><code>		<label for="r10" class="ident">fd</label>.<a href="file_posix.go.html#line-20" class="ident">Close</a>()</code></span>
 <span class="codeline" id="line-133"><code>		<span class="keyword">if</span> <label for="r11" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-134"><code>			<span class="keyword">return</span> <span class="lit-string">""</span>, <label for="r11" class="ident">err</label></code></span>
 <span class="codeline" id="line-135"><code>		}</code></span>
