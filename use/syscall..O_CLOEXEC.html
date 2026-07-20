@@ -31,8 +31,8 @@
 		<a href="../src/os/pipe2_unix.go.html#line-16">pipe2_unix.go#L16</a>: 	e := syscall.Pipe2(p[0:], syscall.<b>O_CLOEXEC</b>)
 		<a href="../src/os/root_unix.go.html#line-27">root_unix.go#L27</a>: 		fd, _, err = open(name, syscall.<b>O_CLOEXEC</b>, 0)
 		<a href="../src/os/root_unix.go.html#line-67" class="path-duplicate">root_unix.go</a><a href="../src/os/root_unix.go.html#line-67">#L67</a>: 			fd, err = unix.Openat(parent, name, syscall.O_NOFOLLOW|syscall.<b>O_CLOEXEC</b>, 0)
-		<a href="../src/os/root_unix.go.html#line-85" class="path-duplicate">root_unix.go</a><a href="../src/os/root_unix.go.html#line-85">#L85</a>: 			fd, err = unix.Openat(parent, name, syscall.O_NOFOLLOW|syscall.<b>O_CLOEXEC</b>|flag, uint32(perm))
-		<a href="../src/os/root_unix.go.html#line-117" class="path-duplicate">root_unix.go</a><a href="../src/os/root_unix.go.html#line-117">#L117</a>: 		fd, err = unix.Openat(parent, name, syscall.O_NOFOLLOW|syscall.<b>O_CLOEXEC</b>|syscall.O_DIRECTORY, 0)
+		<a href="../src/os/root_unix.go.html#line-85" class="path-duplicate">root_unix.go</a><a href="../src/os/root_unix.go.html#line-85">#L85</a>: 			openFlag := syscall.O_NOFOLLOW | syscall.<b>O_CLOEXEC</b> | flag
+		<a href="../src/os/root_unix.go.html#line-118" class="path-duplicate">root_unix.go</a><a href="../src/os/root_unix.go.html#line-118">#L118</a>: 		fd, err = unix.Openat(parent, name, syscall.O_NOFOLLOW|syscall.<b>O_CLOEXEC</b>|syscall.O_DIRECTORY, 0)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

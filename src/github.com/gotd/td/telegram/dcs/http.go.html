@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: http.go in package github.com/gotd/td/telegram/dcs</title>
+<link href="../../../../../../css/auto-v0.8.4.css" rel="stylesheet">
+<script src="../../../../../../jvs/golds-v0.8.4.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	http.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../../pkg/github.com/gotd/td/telegram/dcs.html">github.com/gotd/td/telegram/dcs</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33],
+input[id=r34]:checked ~pre label[for=r34],
+input[id=r35]:checked ~pre label[for=r35],
+input[id=r36]:checked ~pre label[for=r36],
+input[id=r37]:checked ~pre label[for=r37],
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40],
+input[id=r41]:checked ~pre label[for=r41],
+input[id=r42]:checked ~pre label[for=r42],
+input[id=r43]:checked ~pre label[for=r43],
+input[id=r44]:checked ~pre label[for=r44],
+input[id=r45]:checked ~pre label[for=r45],
+input[id=r46]:checked ~pre label[for=r46],
+input[id=r47]:checked ~pre label[for=r47],
+input[id=r48]:checked ~pre label[for=r48],
+input[id=r49]:checked ~pre label[for=r49],
+input[id=r50]:checked ~pre label[for=r50],
+input[id=r51]:checked ~pre label[for=r51],
+input[id=r52]:checked ~pre label[for=r52],
+input[id=r53]:checked ~pre label[for=r53],
+input[id=r54]:checked ~pre label[for=r54],
+input[id=r55]:checked ~pre label[for=r55],
+input[id=r56]:checked ~pre label[for=r56],
+input[id=r57]:checked ~pre label[for=r57],
+input[id=r58]:checked ~pre label[for=r58],
+input[id=r59]:checked ~pre label[for=r59],
+input[id=r60]:checked ~pre label[for=r60],
+input[id=r61]:checked ~pre label[for=r61],
+input[id=r62]:checked ~pre label[for=r62],
+input[id=r63]:checked ~pre label[for=r63],
+input[id=r64]:checked ~pre label[for=r64],
+input[id=r65]:checked ~pre label[for=r65],
+input[id=r66]:checked ~pre label[for=r66],
+input[id=r67]:checked ~pre label[for=r67],
+input[id=r68]:checked ~pre label[for=r68],
+input[id=r69]:checked ~pre label[for=r69],
+input[id=r70]:checked ~pre label[for=r70],
+input[id=r71]:checked ~pre label[for=r71],
+input[id=r72]:checked ~pre label[for=r72],
+input[id=r73]:checked ~pre label[for=r73],
+input[id=r74]:checked ~pre label[for=r74],
+input[id=r75]:checked ~pre label[for=r75],
+input[id=r76]:checked ~pre label[for=r76],
+input[id=r77]:checked ~pre label[for=r77],
+input[id=r78]:checked ~pre label[for=r78],
+input[id=r79]:checked ~pre label[for=r79],
+input[id=r80]:checked ~pre label[for=r80],
+input[id=r81]:checked ~pre label[for=r81],
+input[id=r82]:checked ~pre label[for=r82],
+input[id=r83]:checked ~pre label[for=r83],
+input[id=r84]:checked ~pre label[for=r84],
+input[id=r85]:checked ~pre label[for=r85],
+input[id=r86]:checked ~pre label[for=r86],
+input[id=r87]:checked ~pre label[for=r87],
+input[id=r88]:checked ~pre label[for=r88],
+input[id=r89]:checked ~pre label[for=r89]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2,
+input[id=i3]:checked ~pre .i3,
+input[id=i4]:checked ~pre .i4,
+input[id=i5]:checked ~pre .i5,
+input[id=i6]:checked ~pre .i6,
+input[id=i7]:checked ~pre .i7,
+input[id=i8]:checked ~pre .i8,
+input[id=i9]:checked ~pre .i9,
+input[id=i10]:checked ~pre .i10,
+input[id=i11]:checked ~pre .i11,
+input[id=i12]:checked ~pre .i12,
+input[id=i13]:checked ~pre .i13,
+input[id=i14]:checked ~pre .i14
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="r34" type="radio" name="g"/>
+<input id="r35" type="radio" name="g"/>
+<input id="r36" type="radio" name="g"/>
+<input id="r37" type="radio" name="g"/>
+<input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="r41" type="radio" name="g"/>
+<input id="r42" type="radio" name="g"/>
+<input id="r43" type="radio" name="g"/>
+<input id="r44" type="radio" name="g"/>
+<input id="r45" type="radio" name="g"/>
+<input id="r46" type="radio" name="g"/>
+<input id="r47" type="radio" name="g"/>
+<input id="r48" type="radio" name="g"/>
+<input id="r49" type="radio" name="g"/>
+<input id="r50" type="radio" name="g"/>
+<input id="r51" type="radio" name="g"/>
+<input id="r52" type="radio" name="g"/>
+<input id="r53" type="radio" name="g"/>
+<input id="r54" type="radio" name="g"/>
+<input id="r55" type="radio" name="g"/>
+<input id="r56" type="radio" name="g"/>
+<input id="r57" type="radio" name="g"/>
+<input id="r58" type="radio" name="g"/>
+<input id="r59" type="radio" name="g"/>
+<input id="r60" type="radio" name="g"/>
+<input id="r61" type="radio" name="g"/>
+<input id="r62" type="radio" name="g"/>
+<input id="r63" type="radio" name="g"/>
+<input id="r64" type="radio" name="g"/>
+<input id="r65" type="radio" name="g"/>
+<input id="r66" type="radio" name="g"/>
+<input id="r67" type="radio" name="g"/>
+<input id="r68" type="radio" name="g"/>
+<input id="r69" type="radio" name="g"/>
+<input id="r70" type="radio" name="g"/>
+<input id="r71" type="radio" name="g"/>
+<input id="r72" type="radio" name="g"/>
+<input id="r73" type="radio" name="g"/>
+<input id="r74" type="radio" name="g"/>
+<input id="r75" type="radio" name="g"/>
+<input id="r76" type="radio" name="g"/>
+<input id="r77" type="radio" name="g"/>
+<input id="r78" type="radio" name="g"/>
+<input id="r79" type="radio" name="g"/>
+<input id="r80" type="radio" name="g"/>
+<input id="r81" type="radio" name="g"/>
+<input id="r82" type="radio" name="g"/>
+<input id="r83" type="radio" name="g"/>
+<input id="r84" type="radio" name="g"/>
+<input id="r85" type="radio" name="g"/>
+<input id="r86" type="radio" name="g"/>
+<input id="r87" type="radio" name="g"/>
+<input id="r88" type="radio" name="g"/>
+<input id="r89" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+<input id="i3" type="radio" name="i"/>
+<input id="i4" type="radio" name="i"/>
+<input id="i5" type="radio" name="i"/>
+<input id="i6" type="radio" name="i"/>
+<input id="i7" type="radio" name="i"/>
+<input id="i8" type="radio" name="i"/>
+<input id="i9" type="radio" name="i"/>
+<input id="i10" type="radio" name="i"/>
+<input id="i11" type="radio" name="i"/>
+<input id="i12" type="radio" name="i"/>
+<input id="i13" type="radio" name="i"/>
+<input id="i14" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> dcs</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-4"><code>	<label for="i0"><span class="lit-string i0">"bytes"</span></label></code></span>
+<span class="codeline" id="line-5"><code>	<label for="i1"><span class="lit-string i1">"context"</span></label></code></span>
+<span class="codeline" id="line-6"><code>	<label for="i2"><span class="lit-string i2">"encoding/binary"</span></label></code></span>
+<span class="codeline" id="line-7"><code>	<label for="i3"><span class="lit-string i3">"io"</span></label></code></span>
+<span class="codeline" id="line-8"><code>	<label for="i4"><span class="lit-string i4">"net"</span></label></code></span>
+<span class="codeline" id="line-9"><code>	<label for="i5"><span class="lit-string i5">"net/http"</span></label></code></span>
+<span class="codeline" id="line-10"><code>	<label for="i6"><span class="lit-string i6">"strconv"</span></label></code></span>
+<span class="codeline" id="line-11"><code>	<label for="i7"><span class="lit-string i7">"sync"</span></label></code></span>
+<span class="codeline" id="line-12"><code>	<label for="i8"><span class="lit-string i8">"sync/atomic"</span></label></code></span>
+<span class="codeline" id="line-13"><code>	<label for="i9"><span class="lit-string i9">"time"</span></label></code></span>
+<span class="codeline" id="line-14"><code></code></span>
+<span class="codeline" id="line-15"><code>	<label for="i10"><span class="lit-string i10">"github.com/go-faster/errors"</span></label></code></span>
+<span class="codeline" id="line-16"><code></code></span>
+<span class="codeline" id="line-17"><code>	<label for="i11"><span class="lit-string i11">"github.com/gotd/td/bin"</span></label></code></span>
+<span class="codeline" id="line-18"><code>	<label for="i12"><span class="lit-string i12">"github.com/gotd/td/proto/codec"</span></label></code></span>
+<span class="codeline" id="line-19"><code>	<label for="i13"><span class="lit-string i13">"github.com/gotd/td/tg"</span></label></code></span>
+<span class="codeline" id="line-20"><code>	<label for="i14"><span class="lit-string i14">"github.com/gotd/td/transport"</span></label></code></span>
+<span class="codeline" id="line-21"><code>)</code></span>
+<span class="codeline" id="line-22"><code></code></span>
+<span class="codeline" id="line-23"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-24"><code>	<span class="comment">// defaultHTTPMaxWait is the default http_wait max_wait (ms): the server holds</span></code></span>
+<span class="codeline" id="line-25"><code><span class="comment">	// the long-poll response open up to this long. Matches the MTProto default.</span></code></span>
+<span class="codeline" id="line-26"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/dcs.html#name-defaultHTTPMaxWait" class="ident">defaultHTTPMaxWait</a> = <span class="lit-number">25000</span></code></span>
+<span class="codeline" id="line-27"><code>	<span class="comment">// httpClientTimeoutMargin is added on top of max_wait for the HTTP client</span></code></span>
+<span class="codeline" id="line-28"><code><span class="comment">	// timeout so a full-length long-poll response is not cut off.</span></code></span>
+<span class="codeline" id="line-29"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/dcs.html#name-httpClientTimeoutMargin" class="ident">httpClientTimeoutMargin</a> = <span class="lit-number">5</span> * <a href="../../../../../../pkg/time.html" class="ident i9">time</a>.<a href="../../../../../time/time.go.html#line-938" class="ident">Second</a></code></span>
+<span class="codeline" id="line-30"><code>	<span class="comment">// httpWaitRetryInterval throttles the poll loop when a wait frame cannot be</span></code></span>
+<span class="codeline" id="line-31"><code><span class="comment">	// built (e.g. during key exchange) or a POST fails, avoiding a busy loop.</span></code></span>
+<span class="codeline" id="line-32"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/dcs.html#name-httpWaitRetryInterval" class="ident">httpWaitRetryInterval</a> = <span class="lit-number">500</span> * <a href="../../../../../../pkg/time.html" class="ident i9">time</a>.<a href="../../../../../time/time.go.html#line-937" class="ident">Millisecond</a></code></span>
+<span class="codeline" id="line-33"><code>	<span class="comment">// httpInboxSize buffers response frames until Recv consumes them.</span></code></span>
+<span class="codeline" id="line-34"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/dcs.html#name-httpInboxSize" class="ident">httpInboxSize</a> = <span class="lit-number">32</span></code></span>
+<span class="codeline" id="line-35"><code>	<span class="comment">// httpMaxConnsPerHost bounds concurrent connections of the default client to</span></code></span>
+<span class="codeline" id="line-36"><code><span class="comment">	// a single DC, so a burst of sends cannot exhaust file descriptors.</span></code></span>
+<span class="codeline" id="line-37"><code>	<a href="../../../../../../pkg/github.com/gotd/td/telegram/dcs.html#name-httpMaxConnsPerHost" class="ident">httpMaxConnsPerHost</a> = <span class="lit-number">16</span></code></span>
+<span class="codeline" id="line-38"><code>)</code></span>
+<span class="codeline" id="line-39"><code></code></span>
+<span class="codeline" id="line-40"><code><span class="comment">// recvResult is a decoded response delivered to Recv: either a frame or a</span></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">// transport-level protocol error (e.g. auth_key_not_found).</span></code></span>
+<span class="codeline" id="line-42"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/dcs.html#name-recvResult" class="ident">recvResult</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-43"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..recvResult^20902.data^3a6eb.html" class="ident">data</a> []<a href="../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-44"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..recvResult^20902.err^d9eb2.html" class="ident">err</a>  <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
+<span class="codeline" id="line-45"><code>}</code></span>
+<span class="codeline" id="line-46"><code></code></span>
+<span class="codeline" id="line-47"><code><span class="comment">// httpConn implements transport.Conn over the MTProto HTTP transport.</span></code></span>
+<span class="codeline" id="line-48"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-49"><code><span class="comment">// See https://core.telegram.org/mtproto/transports#http-transport.</span></code></span>
+<span class="codeline" id="line-50"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-51"><code><span class="comment">// MTProto over HTTP is request/response: the server can only deliver messages</span></code></span>
+<span class="codeline" id="line-52"><code><span class="comment">// as the body of a response to a client POST. Send posts one raw MTProto frame</span></code></span>
+<span class="codeline" id="line-53"><code><span class="comment">// (framing is done by HTTP Content-Length, there is no codec tag) and the</span></code></span>
+<span class="codeline" id="line-54"><code><span class="comment">// response body — the messages the server had queued for the session — is</span></code></span>
+<span class="codeline" id="line-55"><code><span class="comment">// delivered to Recv through inbox. Send is non-blocking: the POST and its</span></code></span>
+<span class="codeline" id="line-56"><code><span class="comment">// (possibly long-polling) response are handled on a separate goroutine so a 25s</span></code></span>
+<span class="codeline" id="line-57"><code><span class="comment">// http_wait long-poll never stalls the mtproto write path.</span></code></span>
+<span class="codeline" id="line-58"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/dcs.html#name-httpConn" class="ident">httpConn</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-59"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.client^948fe.html" class="ident">client</a> *<a href="../../../../../../pkg/net/http.html" class="ident i5">http</a>.<a href="../../../../../net/http/client.go.html#line-57" class="ident">Client</a></code></span>
+<span class="codeline" id="line-60"><code>	<span class="comment">// urls holds one /api endpoint per candidate DC address. Requests use the</span></code></span>
+<span class="codeline" id="line-61"><code><span class="comment">	// current index; a failed POST rotates to the next candidate.</span></code></span>
+<span class="codeline" id="line-62"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.urls^2c195.html" class="ident">urls</a>   []<a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-63"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.urlIdx^4276d.html" class="ident">urlIdx</a> <a href="../../../../../../pkg/sync/atomic.html" class="ident i8">atomic</a>.<a href="../../../../../sync/atomic/type.go.html#line-141" class="ident">Uint32</a></code></span>
+<span class="codeline" id="line-64"><code></code></span>
+<span class="codeline" id="line-65"><code>	<span class="comment">// inbox buffers responses (frames or protocol errors) until Recv consumes</span></code></span>
+<span class="codeline" id="line-66"><code><span class="comment">	// them.</span></code></span>
+<span class="codeline" id="line-67"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.inbox^caadb.html" class="ident">inbox</a> <span class="keyword">chan</span> <a href="#line-42" class="ident">recvResult</a></code></span>
+<span class="codeline" id="line-68"><code></code></span>
+<span class="codeline" id="line-69"><code>	<span class="comment">// http_wait parameters in milliseconds, reported via HTTPWaitParams and used</span></code></span>
+<span class="codeline" id="line-70"><code><span class="comment">	// by the mtproto layer to build http_wait messages.</span></code></span>
+<span class="codeline" id="line-71"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.maxDelay^7cef7.html" class="ident">maxDelay</a>  <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-72"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.waitAfter^5eaf4.html" class="ident">waitAfter</a> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-73"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.maxWait^a875f.html" class="ident">maxWait</a>   <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-74"><code></code></span>
+<span class="codeline" id="line-75"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.ctx^0230c.html" class="ident">ctx</a>       <a href="../../../../../../pkg/context.html" class="ident i1">context</a>.<a href="../../../../../context/context.go.html#line-71" class="ident">Context</a></code></span>
+<span class="codeline" id="line-76"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.cancel^2374d.html" class="ident">cancel</a>    <a href="../../../../../../pkg/context.html" class="ident i1">context</a>.<a href="../../../../../context/context.go.html#line-231" class="ident">CancelFunc</a></code></span>
+<span class="codeline" id="line-77"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.startOnce^c6f99.html" class="ident">startOnce</a> <a href="../../../../../../pkg/sync.html" class="ident i7">sync</a>.<a href="../../../../../sync/once.go.html#line-20" class="ident">Once</a></code></span>
+<span class="codeline" id="line-78"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.closeOnce^242cc.html" class="ident">closeOnce</a> <a href="../../../../../../pkg/sync.html" class="ident i7">sync</a>.<a href="../../../../../sync/once.go.html#line-20" class="ident">Once</a></code></span>
+<span class="codeline" id="line-79"><code>}</code></span>
+<span class="codeline" id="line-80"><code></code></span>
+<span class="codeline" id="line-81"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../../pkg/github.com/gotd/td/telegram/dcs.html#name-newHTTPConn" class="ident">newHTTPConn</a></label>(<label for="r1" class="ident">client</label> *<a href="../../../../../../pkg/net/http.html" class="ident i5">http</a>.<a href="../../../../../net/http/client.go.html#line-57" class="ident">Client</a>, <label for="r2" class="ident">urls</label> []<a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r3" class="ident">maxDelay</label>, <label for="r4" class="ident">waitAfter</label>, <label for="r5" class="ident">maxWait</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) *<a href="#line-58" class="ident">httpConn</a> {</code></span>
+<span class="codeline" id="line-82"><code>	<label for="r6" class="ident">ctx</label>, <label for="r7" class="ident">cancel</label> := <a href="../../../../../../pkg/context.html" class="ident i1">context</a>.<a href="../../../../../context/context.go.html#line-240" class="ident">WithCancel</a>(<a href="../../../../../../pkg/context.html" class="ident i1">context</a>.<a href="../../../../../context/context.go.html#line-215" class="ident">Background</a>())</code></span>
+<span class="codeline" id="line-83"><code>	<span class="keyword">return</span> &amp;<a href="#line-58" class="ident">httpConn</a>{</code></span>
+<span class="codeline" id="line-84"><code>		<a href="#line-59" class="ident">client</a>:    <label for="r1" class="ident">client</label>,</code></span>
+<span class="codeline" id="line-85"><code>		<a href="#line-62" class="ident">urls</a>:      <label for="r2" class="ident">urls</label>,</code></span>
+<span class="codeline" id="line-86"><code>		<a href="#line-67" class="ident">inbox</a>:     <a href="../../../../../runtime/chan.go.html#line-75">make</a>(<span class="keyword">chan</span> <a href="#line-42" class="ident">recvResult</a>, <a href="#line-34" class="ident">httpInboxSize</a>),</code></span>
+<span class="codeline" id="line-87"><code>		<a href="#line-71" class="ident">maxDelay</a>:  <label for="r3" class="ident">maxDelay</label>,</code></span>
+<span class="codeline" id="line-88"><code>		<a href="#line-72" class="ident">waitAfter</a>: <label for="r4" class="ident">waitAfter</label>,</code></span>
+<span class="codeline" id="line-89"><code>		<a href="#line-73" class="ident">maxWait</a>:   <label for="r5" class="ident">maxWait</label>,</code></span>
+<span class="codeline" id="line-90"><code>		<a href="#line-75" class="ident">ctx</a>:       <label for="r6" class="ident">ctx</label>,</code></span>
+<span class="codeline" id="line-91"><code>		<a href="#line-76" class="ident">cancel</a>:    <label for="r7" class="ident">cancel</label>,</code></span>
+<span class="codeline" id="line-92"><code>	}</code></span>
+<span class="codeline" id="line-93"><code>}</code></span>
+<span class="codeline" id="line-94"><code></code></span>
+<span class="codeline" id="line-95"><code><span class="keyword">var</span> _ <a href="../../../../../../pkg/github.com/gotd/td/transport.html" class="ident i14">transport</a>.<a href="../../transport/connection.go.html#line-15" class="ident">Conn</a> = (*<a href="#line-58" class="ident">httpConn</a>)(<a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>)</code></span>
+<span class="codeline" id="line-96"><code></code></span>
+<span class="codeline" id="line-97"><code><span class="comment">// Send posts a single MTProto frame. It is non-blocking: the POST and response</span></code></span>
+<span class="codeline" id="line-98"><code><span class="comment">// are handled on a separate goroutine, so a long-poll response never stalls the</span></code></span>
+<span class="codeline" id="line-99"><code><span class="comment">// caller. Delivery reliability is provided by the mtproto rpc engine</span></code></span>
+<span class="codeline" id="line-100"><code><span class="comment">// (acks/retransmits) and liveness by the ping loop; a failed POST is therefore</span></code></span>
+<span class="codeline" id="line-101"><code><span class="comment">// dropped here and recovered upstream.</span></code></span>
+<span class="codeline" id="line-102"><code><span class="keyword">func</span> (<label for="r8" class="ident">c</label> *<a href="#line-58" class="ident">httpConn</a>) <label for="r9" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.Send.html" class="ident">Send</a></label>(<label for="r10" class="ident">ctx</label> <a href="../../../../../../pkg/context.html" class="ident i1">context</a>.<a href="../../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r11" class="ident">b</label> *<a href="../../../../../../pkg/github.com/gotd/td/bin.html" class="ident i11">bin</a>.<a href="../../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-103"><code>	<a href="../../../../../runtime/chan.go.html#line-804"><span class="keyword">select</span></a> {</code></span>
+<span class="codeline" id="line-104"><code>	<span class="keyword">case</span> <a href="../../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r8" class="ident">c</label>.<a href="#line-75" class="ident">ctx</a>.<a href="../../../../../context/context.go.html#line-108" class="ident">Done</a>():</code></span>
+<span class="codeline" id="line-105"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<a href="../../../../../../pkg/net.html" class="ident i4">net</a>.<a href="../../../../../net/net.go.html#line-748" class="ident">ErrClosed</a>, <span class="lit-string">"send"</span>)</code></span>
+<span class="codeline" id="line-106"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-107"><code>	}</code></span>
+<span class="codeline" id="line-108"><code></code></span>
+<span class="codeline" id="line-109"><code>	<span class="comment">// b.Buf is reused by the caller once Send returns; copy before handing it to</span></code></span>
+<span class="codeline" id="line-110"><code><span class="comment">	// the POST goroutine.</span></code></span>
+<span class="codeline" id="line-111"><code>	<label for="r12" class="ident">frame</label> := <a href="../../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r11" class="ident">b</label>.<a href="../../bin/buffer.go.html#line-9" class="ident">Buf</a>))</code></span>
+<span class="codeline" id="line-112"><code>	<a href="../../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r12" class="ident">frame</label>, <label for="r11" class="ident">b</label>.<a href="../../bin/buffer.go.html#line-9" class="ident">Buf</a>)</code></span>
+<span class="codeline" id="line-113"><code>	<span class="comment">// One goroutine per send: bounded in practice by the mtproto rpc engine's</span></code></span>
+<span class="codeline" id="line-114"><code><span class="comment">	// in-flight window and by the client's MaxConnsPerHost (which the goroutines</span></code></span>
+<span class="codeline" id="line-115"><code><span class="comment">	// block on). All are cancelled on Close via c.ctx.</span></code></span>
+<span class="codeline" id="line-116"><code>	<span class="keyword">go</span> <span class="keyword">func</span>() { _, _ = <label for="r8" class="ident">c</label>.<a href="#line-147" class="ident">roundtrip</a>(<label for="r12" class="ident">frame</label>) }()</code></span>
+<span class="codeline" id="line-117"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-118"><code>}</code></span>
+<span class="codeline" id="line-119"><code></code></span>
+<span class="codeline" id="line-120"><code><span class="comment">// Recv blocks until an incoming frame or a transport-level protocol error is</span></code></span>
+<span class="codeline" id="line-121"><code><span class="comment">// available.</span></code></span>
+<span class="codeline" id="line-122"><code><span class="keyword">func</span> (<label for="r13" class="ident">c</label> *<a href="#line-58" class="ident">httpConn</a>) <label for="r14" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.Recv.html" class="ident">Recv</a></label>(<label for="r15" class="ident">ctx</label> <a href="../../../../../../pkg/context.html" class="ident i1">context</a>.<a href="../../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r16" class="ident">b</label> *<a href="../../../../../../pkg/github.com/gotd/td/bin.html" class="ident i11">bin</a>.<a href="../../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-123"><code>	<a href="../../../../../runtime/select.go.html#line-122"><span class="keyword">select</span></a> {</code></span>
+<span class="codeline" id="line-124"><code>	<span class="keyword">case</span> <label for="r17" class="ident">r</label> := <a href="../../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r13" class="ident">c</label>.<a href="#line-67" class="ident">inbox</a>:</code></span>
+<span class="codeline" id="line-125"><code>		<span class="keyword">if</span> <label for="r17" class="ident">r</label>.<a href="#line-44" class="ident">err</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-126"><code>			<span class="keyword">return</span> <label for="r17" class="ident">r</label>.<a href="#line-44" class="ident">err</a></code></span>
+<span class="codeline" id="line-127"><code>		}</code></span>
+<span class="codeline" id="line-128"><code>		<label for="r16" class="ident">b</label>.<a href="../../bin/buffer.go.html#line-9" class="ident">Buf</a> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r16" class="ident">b</label>.<a href="../../bin/buffer.go.html#line-9" class="ident">Buf</a>[:<span class="lit-number">0</span>], <label for="r17" class="ident">r</label>.<a href="#line-43" class="ident">data</a>...)</code></span>
+<span class="codeline" id="line-129"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-130"><code>	<span class="keyword">case</span> <a href="../../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r15" class="ident">ctx</label>.<a href="../../../../../context/context.go.html#line-108" class="ident">Done</a>():</code></span>
+<span class="codeline" id="line-131"><code>		<span class="keyword">return</span> <label for="r15" class="ident">ctx</label>.<a href="../../../../../context/context.go.html#line-115" class="ident">Err</a>()</code></span>
+<span class="codeline" id="line-132"><code>	<span class="keyword">case</span> <a href="../../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r13" class="ident">c</label>.<a href="#line-75" class="ident">ctx</a>.<a href="../../../../../context/context.go.html#line-108" class="ident">Done</a>():</code></span>
+<span class="codeline" id="line-133"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<a href="../../../../../../pkg/net.html" class="ident i4">net</a>.<a href="../../../../../net/net.go.html#line-748" class="ident">ErrClosed</a>, <span class="lit-string">"recv"</span>)</code></span>
+<span class="codeline" id="line-134"><code>	}</code></span>
+<span class="codeline" id="line-135"><code>}</code></span>
+<span class="codeline" id="line-136"><code></code></span>
+<span class="codeline" id="line-137"><code><span class="comment">// Close releases the connection and cancels in-flight requests.</span></code></span>
+<span class="codeline" id="line-138"><code><span class="keyword">func</span> (<label for="r18" class="ident">c</label> *<a href="#line-58" class="ident">httpConn</a>) <label for="r19" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.Close.html" class="ident">Close</a></label>() <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-139"><code>	<label for="r18" class="ident">c</label>.<a href="#line-78" class="ident">closeOnce</a>.<a href="../../../../../sync/once.go.html#line-52" class="ident">Do</a>(<label for="r18" class="ident">c</label>.<a href="#line-76" class="ident">cancel</a>)</code></span>
+<span class="codeline" id="line-140"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-141"><code>}</code></span>
+<span class="codeline" id="line-142"><code></code></span>
+<span class="codeline" id="line-143"><code><span class="comment">// roundtrip posts one frame and delivers the response to inbox. It reports</span></code></span>
+<span class="codeline" id="line-144"><code><span class="comment">// whether anything was delivered (a frame or a protocol error) and returns an</span></code></span>
+<span class="codeline" id="line-145"><code><span class="comment">// error only for transport-level failures (POST error, non-200), which callers</span></code></span>
+<span class="codeline" id="line-146"><code><span class="comment">// use to back off.</span></code></span>
+<span class="codeline" id="line-147"><code><span class="keyword">func</span> (<label for="r20" class="ident">c</label> *<a href="#line-58" class="ident">httpConn</a>) <label for="r21" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.roundtrip^af398.html" class="ident">roundtrip</a></label>(<label for="r22" class="ident">frame</label> []<a href="../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) (<label for="r23" class="ident">delivered</label> <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <label for="r24" class="ident">_</label> <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-148"><code>	<label for="r25" class="ident">url</label> := <label for="r20" class="ident">c</label>.<a href="#line-62" class="ident">urls</a>[<label for="r20" class="ident">c</label>.<a href="#line-191" class="ident">urlIndex</a>()]</code></span>
+<span class="codeline" id="line-149"><code>	<label for="r26" class="ident">req</label>, <label for="r27" class="ident">err</label> := <a href="../../../../../../pkg/net/http.html" class="ident i5">http</a>.<a href="../../../../../net/http/request.go.html#line-889" class="ident">NewRequestWithContext</a>(<label for="r20" class="ident">c</label>.<a href="#line-75" class="ident">ctx</a>, <a href="../../../../../../pkg/net/http.html" class="ident i5">http</a>.<a href="../../../../../net/http/method.go.html#line-13" class="ident">MethodPost</a>, <label for="r25" class="ident">url</label>, <a href="../../../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../../../bytes/reader.go.html#line-159" class="ident">NewReader</a>(<label for="r22" class="ident">frame</label>))</code></span>
+<span class="codeline" id="line-150"><code>	<span class="keyword">if</span> <label for="r27" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-151"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r27" class="ident">err</label>, <span class="lit-string">"build request"</span>)</code></span>
+<span class="codeline" id="line-152"><code>	}</code></span>
+<span class="codeline" id="line-153"><code>	<label for="r26" class="ident">req</label>.<a href="../../../../../net/http/request.go.html#line-172" class="ident">Header</a>.<a href="../../../../../net/http/header.go.html#line-39" class="ident">Set</a>(<span class="lit-string">"Content-Type"</span>, <span class="lit-string">"application/octet-stream"</span>)</code></span>
+<span class="codeline" id="line-154"><code></code></span>
+<span class="codeline" id="line-155"><code>	<label for="r28" class="ident">resp</label>, <label for="r27" class="ident">err</label> := <label for="r20" class="ident">c</label>.<a href="#line-59" class="ident">client</a>.<a href="../../../../../net/http/client.go.html#line-591" class="ident">Do</a>(<label for="r26" class="ident">req</label>)</code></span>
+<span class="codeline" id="line-156"><code>	<span class="keyword">if</span> <label for="r27" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-157"><code>		<label for="r20" class="ident">c</label>.<a href="#line-205" class="ident">rotateURL</a>() <span class="comment">// fail over to the next candidate address</span></code></span>
+<span class="codeline" id="line-158"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r27" class="ident">err</label>, <span class="lit-string">"do request"</span>)</code></span>
+<span class="codeline" id="line-159"><code>	}</code></span>
+<span class="codeline" id="line-160"><code>	<span class="keyword">defer</span> <span class="keyword">func</span>() { _ = <label for="r28" class="ident">resp</label>.<a href="../../../../../net/http/response.go.html#line-72" class="ident">Body</a>.<a href="../../../../../io/io.go.html#line-108" class="ident">Close</a>() }()</code></span>
+<span class="codeline" id="line-161"><code></code></span>
+<span class="codeline" id="line-162"><code>	<span class="keyword">if</span> <label for="r28" class="ident">resp</label>.<a href="../../../../../net/http/response.go.html#line-37" class="ident">StatusCode</a> != <a href="../../../../../../pkg/net/http.html" class="ident i5">http</a>.<a href="../../../../../net/http/status.go.html#line-15" class="ident">StatusOK</a> {</code></span>
+<span class="codeline" id="line-163"><code>		_, _ = <a href="../../../../../../pkg/io.html" class="ident i3">io</a>.<a href="../../../../../io/io.go.html#line-387" class="ident">Copy</a>(<a href="../../../../../../pkg/io.html" class="ident i3">io</a>.<a href="../../../../../io/io.go.html#line-639" class="ident">Discard</a>, <label for="r28" class="ident">resp</label>.<a href="../../../../../net/http/response.go.html#line-72" class="ident">Body</a>)</code></span>
+<span class="codeline" id="line-164"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"unexpected status %d"</span>, <label for="r28" class="ident">resp</label>.<a href="../../../../../net/http/response.go.html#line-37" class="ident">StatusCode</a>)</code></span>
+<span class="codeline" id="line-165"><code>	}</code></span>
+<span class="codeline" id="line-166"><code>	<label for="r29" class="ident">body</label>, <label for="r27" class="ident">err</label> := <a href="../../../../../../pkg/io.html" class="ident i3">io</a>.<a href="../../../../../io/io.go.html#line-709" class="ident">ReadAll</a>(<label for="r28" class="ident">resp</label>.<a href="../../../../../net/http/response.go.html#line-72" class="ident">Body</a>)</code></span>
+<span class="codeline" id="line-167"><code>	<span class="keyword">if</span> <label for="r27" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-168"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r27" class="ident">err</label>, <span class="lit-string">"read body"</span>)</code></span>
+<span class="codeline" id="line-169"><code>	}</code></span>
+<span class="codeline" id="line-170"><code>	<span class="keyword">switch</span> {</code></span>
+<span class="codeline" id="line-171"><code>	<span class="keyword">case</span> <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r29" class="ident">body</label>) == <span class="lit-number">0</span>:</code></span>
+<span class="codeline" id="line-172"><code>		<span class="comment">// Empty body is a valid "dummy" long-poll response (max_wait elapsed with</span></code></span>
+<span class="codeline" id="line-173"><code><span class="comment">		// no messages); nothing to deliver.</span></code></span>
+<span class="codeline" id="line-174"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-175"><code>	<span class="keyword">case</span> <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r29" class="ident">body</label>) == <a href="../../../../../../pkg/github.com/gotd/td/bin.html" class="ident i11">bin</a>.<a href="../../bin/bin.go.html#line-26" class="ident">Word</a>:</code></span>
+<span class="codeline" id="line-176"><code>		<span class="comment">// A 4-byte body is a transport-level protocol error (e.g. -404 auth key</span></code></span>
+<span class="codeline" id="line-177"><code><span class="comment">		// not found), not an encrypted message. The TCP codecs surface it via</span></code></span>
+<span class="codeline" id="line-178"><code><span class="comment">		// checkProtocolError; do the same so the read loop can react (e.g.</span></code></span>
+<span class="codeline" id="line-179"><code><span class="comment">		// regenerate the auth key) instead of feeding garbage to the decrypter.</span></code></span>
+<span class="codeline" id="line-180"><code>		<label for="r30" class="ident">code</label> := <a href="../../../../../../pkg/builtin.html#name-int32" class="ident">int32</a>(<a href="../../../../../../pkg/encoding/binary.html" class="ident i2">binary</a>.<a href="../../../../../encoding/binary/binary.go.html#line-61" class="ident">LittleEndian</a>.<a href="../../../../../encoding/binary/binary.go.html#line-90" class="ident">Uint32</a>(<label for="r29" class="ident">body</label>))</code></span>
+<span class="codeline" id="line-181"><code>		<label for="r20" class="ident">c</label>.<a href="#line-195" class="ident">deliver</a>(<a href="#line-42" class="ident">recvResult</a>{<a href="#line-44" class="ident">err</a>: &amp;<a href="../../../../../../pkg/github.com/gotd/td/proto/codec.html" class="ident i12">codec</a>.<a href="../../proto/codec/errors.go.html#line-27" class="ident">ProtocolErr</a>{<a href="../../proto/codec/errors.go.html#line-28" class="ident">Code</a>: -<label for="r30" class="ident">code</label>}})</code></span>
+<span class="codeline" id="line-182"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>, <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-183"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-184"><code>		<label for="r20" class="ident">c</label>.<a href="#line-195" class="ident">deliver</a>(<a href="#line-42" class="ident">recvResult</a>{<a href="#line-43" class="ident">data</a>: <label for="r29" class="ident">body</label>})</code></span>
+<span class="codeline" id="line-185"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>, <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-186"><code>	}</code></span>
+<span class="codeline" id="line-187"><code>}</code></span>
+<span class="codeline" id="line-188"><code></code></span>
+<span class="codeline" id="line-189"><code><span class="comment">// urlIndex returns the current candidate index. The modulo is taken on the</span></code></span>
+<span class="codeline" id="line-190"><code><span class="comment">// unsigned counter so the index stays in range even if the counter wraps.</span></code></span>
+<span class="codeline" id="line-191"><code><span class="keyword">func</span> (<label for="r31" class="ident">c</label> *<a href="#line-58" class="ident">httpConn</a>) <label for="r32" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.urlIndex^95fa5.html" class="ident">urlIndex</a></label>() <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-192"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r31" class="ident">c</label>.<a href="#line-63" class="ident">urlIdx</a>.<a href="../../../../../sync/atomic/type.go.html#line-147" class="ident">Load</a>() % <a href="../../../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r31" class="ident">c</label>.<a href="#line-62" class="ident">urls</a>)))</code></span>
+<span class="codeline" id="line-193"><code>}</code></span>
+<span class="codeline" id="line-194"><code></code></span>
+<span class="codeline" id="line-195"><code><span class="keyword">func</span> (<label for="r33" class="ident">c</label> *<a href="#line-58" class="ident">httpConn</a>) <label for="r34" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.deliver^fa2dc.html" class="ident">deliver</a></label>(<label for="r35" class="ident">r</label> <a href="#line-42" class="ident">recvResult</a>) {</code></span>
+<span class="codeline" id="line-196"><code>	<a href="../../../../../runtime/select.go.html#line-122"><span class="keyword">select</span></a> {</code></span>
+<span class="codeline" id="line-197"><code>	<span class="keyword">case</span> <label for="r33" class="ident">c</label>.<a href="#line-67" class="ident">inbox</a> <a href="../../../../../runtime/chan.go.html#line-176">&lt;-</a> <label for="r35" class="ident">r</label>:</code></span>
+<span class="codeline" id="line-198"><code>	<span class="keyword">case</span> <a href="../../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r33" class="ident">c</label>.<a href="#line-75" class="ident">ctx</a>.<a href="../../../../../context/context.go.html#line-108" class="ident">Done</a>():</code></span>
+<span class="codeline" id="line-199"><code>	}</code></span>
+<span class="codeline" id="line-200"><code>}</code></span>
+<span class="codeline" id="line-201"><code></code></span>
+<span class="codeline" id="line-202"><code><span class="comment">// rotateURL advances to the next candidate address after a failed POST. Failover</span></code></span>
+<span class="codeline" id="line-203"><code><span class="comment">// is best-effort: a burst of concurrent failures may advance the index by more</span></code></span>
+<span class="codeline" id="line-204"><code><span class="comment">// than one, but the poll loop's round-robin still reaches every candidate.</span></code></span>
+<span class="codeline" id="line-205"><code><span class="keyword">func</span> (<label for="r36" class="ident">c</label> *<a href="#line-58" class="ident">httpConn</a>) <label for="r37" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.rotateURL^c13ea.html" class="ident">rotateURL</a></label>() {</code></span>
+<span class="codeline" id="line-206"><code>	<span class="keyword">if</span> <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r36" class="ident">c</label>.<a href="#line-62" class="ident">urls</a>) &gt; <span class="lit-number">1</span> {</code></span>
+<span class="codeline" id="line-207"><code>		<label for="r36" class="ident">c</label>.<a href="#line-63" class="ident">urlIdx</a>.<a href="../../../../../sync/atomic/type.go.html#line-161" class="ident">Add</a>(<span class="lit-number">1</span>)</code></span>
+<span class="codeline" id="line-208"><code>	}</code></span>
+<span class="codeline" id="line-209"><code>}</code></span>
+<span class="codeline" id="line-210"><code></code></span>
+<span class="codeline" id="line-211"><code><span class="comment">// HTTPWaitParams reports the http_wait fields (milliseconds) the transport wants</span></code></span>
+<span class="codeline" id="line-212"><code><span class="comment">// the mtproto layer to use. It is part of the mtproto HTTP long-poll capability.</span></code></span>
+<span class="codeline" id="line-213"><code><span class="keyword">func</span> (<label for="r38" class="ident">c</label> *<a href="#line-58" class="ident">httpConn</a>) <label for="r39" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.HTTPWaitParams.html" class="ident">HTTPWaitParams</a></label>() (<label for="r40" class="ident">maxDelay</label>, <label for="r41" class="ident">waitAfter</label>, <label for="r42" class="ident">maxWait</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) {</code></span>
+<span class="codeline" id="line-214"><code>	<span class="keyword">return</span> <label for="r38" class="ident">c</label>.<a href="#line-71" class="ident">maxDelay</a>, <label for="r38" class="ident">c</label>.<a href="#line-72" class="ident">waitAfter</a>, <label for="r38" class="ident">c</label>.<a href="#line-73" class="ident">maxWait</a></code></span>
+<span class="codeline" id="line-215"><code>}</code></span>
+<span class="codeline" id="line-216"><code></code></span>
+<span class="codeline" id="line-217"><code><span class="comment">// StartHTTPWait starts the long-poll loop. frame yields a freshly-encrypted</span></code></span>
+<span class="codeline" id="line-218"><code><span class="comment">// http_wait service message — only the mtproto layer can encrypt it. The loop</span></code></span>
+<span class="codeline" id="line-219"><code><span class="comment">// keeps exactly one long-poll POST outstanding, re-issuing it as soon as the</span></code></span>
+<span class="codeline" id="line-220"><code><span class="comment">// previous response arrives, to minimize update latency. It is safe to call at</span></code></span>
+<span class="codeline" id="line-221"><code><span class="comment">// most once; further calls are no-ops.</span></code></span>
+<span class="codeline" id="line-222"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-223"><code><span class="comment">// The loop runs in a goroutine whose lifetime is bound solely to Close: it is</span></code></span>
+<span class="codeline" id="line-224"><code><span class="comment">// not part of the mtproto Run errgroup, so the connection must be closed to stop</span></code></span>
+<span class="codeline" id="line-225"><code><span class="comment">// it (Conn.handleClose does this on teardown).</span></code></span>
+<span class="codeline" id="line-226"><code><span class="keyword">func</span> (<label for="r43" class="ident">c</label> *<a href="#line-58" class="ident">httpConn</a>) <label for="r44" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.StartHTTPWait.html" class="ident">StartHTTPWait</a></label>(<label for="r45" class="ident">frame</label> <span class="keyword">func</span>(<label for="r46" class="ident">ctx</label> <a href="../../../../../../pkg/context.html" class="ident i1">context</a>.<a href="../../../../../context/context.go.html#line-71" class="ident">Context</a>) (*<a href="../../../../../../pkg/github.com/gotd/td/bin.html" class="ident i11">bin</a>.<a href="../../bin/buffer.go.html#line-8" class="ident">Buffer</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>)) {</code></span>
+<span class="codeline" id="line-227"><code>	<label for="r43" class="ident">c</label>.<a href="#line-77" class="ident">startOnce</a>.<a href="../../../../../sync/once.go.html#line-52" class="ident">Do</a>(<span class="keyword">func</span>() {</code></span>
+<span class="codeline" id="line-228"><code>		<span class="keyword">go</span> <label for="r43" class="ident">c</label>.<a href="#line-232" class="ident">pollLoop</a>(<label for="r45" class="ident">frame</label>)</code></span>
+<span class="codeline" id="line-229"><code>	})</code></span>
+<span class="codeline" id="line-230"><code>}</code></span>
+<span class="codeline" id="line-231"><code></code></span>
+<span class="codeline" id="line-232"><code><span class="keyword">func</span> (<label for="r47" class="ident">c</label> *<a href="#line-58" class="ident">httpConn</a>) <label for="r48" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.pollLoop^8fcca.html" class="ident">pollLoop</a></label>(<label for="r49" class="ident">frame</label> <span class="keyword">func</span>(<label for="r50" class="ident">ctx</label> <a href="../../../../../../pkg/context.html" class="ident i1">context</a>.<a href="../../../../../context/context.go.html#line-71" class="ident">Context</a>) (*<a href="../../../../../../pkg/github.com/gotd/td/bin.html" class="ident i11">bin</a>.<a href="../../bin/buffer.go.html#line-8" class="ident">Buffer</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>)) {</code></span>
+<span class="codeline" id="line-233"><code>	<span class="comment">// A conforming server holds an empty response until max_wait; a response that</span></code></span>
+<span class="codeline" id="line-234"><code><span class="comment">	// comes back much sooner than this signals a middlebox not honoring the</span></code></span>
+<span class="codeline" id="line-235"><code><span class="comment">	// long-poll, and must be throttled to avoid a request storm.</span></code></span>
+<span class="codeline" id="line-236"><code>	<label for="r51" class="ident">fastEmpty</label> := <a href="../../../../../../pkg/time.html" class="ident i9">time</a>.<a href="../../../../../time/time.go.html#line-915" class="ident">Duration</a>(<label for="r47" class="ident">c</label>.<a href="#line-73" class="ident">maxWait</a>) * <a href="../../../../../../pkg/time.html" class="ident i9">time</a>.<a href="../../../../../time/time.go.html#line-937" class="ident">Millisecond</a> / <span class="lit-number">2</span></code></span>
+<span class="codeline" id="line-237"><code></code></span>
+<span class="codeline" id="line-238"><code>	<span class="keyword">for</span> {</code></span>
+<span class="codeline" id="line-239"><code>		<span class="keyword">if</span> <label for="r47" class="ident">c</label>.<a href="#line-75" class="ident">ctx</a>.<a href="../../../../../context/context.go.html#line-115" class="ident">Err</a>() != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-240"><code>			<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-241"><code>		}</code></span>
+<span class="codeline" id="line-242"><code>		<label for="r52" class="ident">b</label>, <label for="r53" class="ident">err</label> := <label for="r49" class="ident">frame</label>(<label for="r47" class="ident">c</label>.<a href="#line-75" class="ident">ctx</a>)</code></span>
+<span class="codeline" id="line-243"><code>		<span class="keyword">if</span> <label for="r53" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-244"><code>			<span class="comment">// Wait frame cannot be built (e.g. key exchange in progress) or the</span></code></span>
+<span class="codeline" id="line-245"><code><span class="comment">			// connection is closing. Back off to avoid a hot loop.</span></code></span>
+<span class="codeline" id="line-246"><code>			<span class="keyword">if</span> !<label for="r47" class="ident">c</label>.<a href="#line-272" class="ident">sleep</a>(<a href="#line-32" class="ident">httpWaitRetryInterval</a>) {</code></span>
+<span class="codeline" id="line-247"><code>				<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-248"><code>			}</code></span>
+<span class="codeline" id="line-249"><code>			<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-250"><code>		}</code></span>
+<span class="codeline" id="line-251"><code>		<span class="comment">// Synchronous: blocks up to max_wait, then immediately loops to re-issue</span></code></span>
+<span class="codeline" id="line-252"><code><span class="comment">		// the next http_wait (low update latency, one poll outstanding).</span></code></span>
+<span class="codeline" id="line-253"><code>		<label for="r54" class="ident">start</label> := <a href="../../../../../../pkg/time.html" class="ident i9">time</a>.<a href="../../../../../time/time.go.html#line-1347" class="ident">Now</a>()</code></span>
+<span class="codeline" id="line-254"><code>		<label for="r55" class="ident">delivered</label>, <label for="r53" class="ident">err</label> := <label for="r47" class="ident">c</label>.<a href="#line-147" class="ident">roundtrip</a>(<label for="r52" class="ident">b</label>.<a href="../../bin/buffer.go.html#line-9" class="ident">Buf</a>)</code></span>
+<span class="codeline" id="line-255"><code>		<span class="keyword">switch</span> {</code></span>
+<span class="codeline" id="line-256"><code>		<span class="keyword">case</span> <label for="r53" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>:</code></span>
+<span class="codeline" id="line-257"><code>			<span class="comment">// POST failed; back off instead of hammering a dead connection. The</span></code></span>
+<span class="codeline" id="line-258"><code><span class="comment">			// ping loop ultimately detects and tears down a dead connection.</span></code></span>
+<span class="codeline" id="line-259"><code>			<span class="keyword">if</span> !<label for="r47" class="ident">c</label>.<a href="#line-272" class="ident">sleep</a>(<a href="#line-32" class="ident">httpWaitRetryInterval</a>) {</code></span>
+<span class="codeline" id="line-260"><code>				<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-261"><code>			}</code></span>
+<span class="codeline" id="line-262"><code>		<span class="keyword">case</span> !<label for="r55" class="ident">delivered</label> &amp;&amp; <a href="../../../../../../pkg/time.html" class="ident i9">time</a>.<a href="../../../../../time/time.go.html#line-1227" class="ident">Since</a>(<label for="r54" class="ident">start</label>) &lt; <label for="r51" class="ident">fastEmpty</label>:</code></span>
+<span class="codeline" id="line-263"><code>			<span class="comment">// Instant empty 200 from a non-conforming middlebox: throttle.</span></code></span>
+<span class="codeline" id="line-264"><code>			<span class="keyword">if</span> !<label for="r47" class="ident">c</label>.<a href="#line-272" class="ident">sleep</a>(<a href="#line-32" class="ident">httpWaitRetryInterval</a>) {</code></span>
+<span class="codeline" id="line-265"><code>				<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-266"><code>			}</code></span>
+<span class="codeline" id="line-267"><code>		}</code></span>
+<span class="codeline" id="line-268"><code>	}</code></span>
+<span class="codeline" id="line-269"><code>}</code></span>
+<span class="codeline" id="line-270"><code></code></span>
+<span class="codeline" id="line-271"><code><span class="comment">// sleep waits for d, returning false if the connection was closed while waiting.</span></code></span>
+<span class="codeline" id="line-272"><code><span class="keyword">func</span> (<label for="r56" class="ident">c</label> *<a href="#line-58" class="ident">httpConn</a>) <label for="r57" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpConn^31acb.sleep^0afa5.html" class="ident">sleep</a></label>(<label for="r58" class="ident">d</label> <a href="../../../../../../pkg/time.html" class="ident i9">time</a>.<a href="../../../../../time/time.go.html#line-915" class="ident">Duration</a>) <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-273"><code>	<a href="../../../../../runtime/select.go.html#line-122"><span class="keyword">select</span></a> {</code></span>
+<span class="codeline" id="line-274"><code>	<span class="keyword">case</span> <a href="../../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r56" class="ident">c</label>.<a href="#line-75" class="ident">ctx</a>.<a href="../../../../../context/context.go.html#line-108" class="ident">Done</a>():</code></span>
+<span class="codeline" id="line-275"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-276"><code>	<span class="keyword">case</span> <a href="../../../../../runtime/chan.go.html#line-508">&lt;-</a><a href="../../../../../../pkg/time.html" class="ident i9">time</a>.<a href="../../../../../time/sleep.go.html#line-202" class="ident">After</a>(<label for="r58" class="ident">d</label>):</code></span>
+<span class="codeline" id="line-277"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-278"><code>	}</code></span>
+<span class="codeline" id="line-279"><code>}</code></span>
+<span class="codeline" id="line-280"><code></code></span>
+<span class="codeline" id="line-281"><code><span class="keyword">var</span> _ <a href="resolver.go.html#line-13" class="ident">Resolver</a> = <a href="#line-283" class="ident">httpResolver</a>{}</code></span>
+<span class="codeline" id="line-282"><code></code></span>
+<span class="codeline" id="line-283"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/dcs.html#name-httpResolver" class="ident">httpResolver</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-284"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpResolver^3983b.client^948fe.html" class="ident">client</a>     *<a href="../../../../../../pkg/net/http.html" class="ident i5">http</a>.<a href="../../../../../net/http/client.go.html#line-57" class="ident">Client</a></code></span>
+<span class="codeline" id="line-285"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpResolver^3983b.scheme^cd892.html" class="ident">scheme</a>     <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-286"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpResolver^3983b.port^f8d39.html" class="ident">port</a>       <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-287"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpResolver^3983b.preferIPv6^b9e01.html" class="ident">preferIPv6</a> <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-288"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpResolver^3983b.maxDelay^7cef7.html" class="ident">maxDelay</a>   <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-289"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpResolver^3983b.waitAfter^5eaf4.html" class="ident">waitAfter</a>  <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-290"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpResolver^3983b.maxWait^a875f.html" class="ident">maxWait</a>    <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-291"><code>	<span class="comment">// startIdx rotates the preferred candidate across successive Primary calls</span></code></span>
+<span class="codeline" id="line-292"><code><span class="comment">	// (i.e. across reconnects), so a dead first address does not trap the client.</span></code></span>
+<span class="codeline" id="line-293"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpResolver^3983b.startIdx^01324.html" class="ident">startIdx</a> *<a href="../../../../../../pkg/sync/atomic.html" class="ident i8">atomic</a>.<a href="../../../../../sync/atomic/type.go.html#line-141" class="ident">Uint32</a></code></span>
+<span class="codeline" id="line-294"><code>}</code></span>
+<span class="codeline" id="line-295"><code></code></span>
+<span class="codeline" id="line-296"><code><span class="keyword">func</span> (<label for="r59" class="ident">r</label> <a href="#line-283" class="ident">httpResolver</a>) <label for="r60" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpResolver^3983b.urls^2c195.html" class="ident">urls</a></label>(<label for="r61" class="ident">candidates</label> []<a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i13">tg</a>.<a href="../../tg/tl_dc_option_gen.go.html#line-38" class="ident">DCOption</a>) []<a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-297"><code>	<span class="comment">// Rotate the starting candidate per call for cross-reconnect failover. Add(1)-1</span></code></span>
+<span class="codeline" id="line-298"><code><span class="comment">	// makes the first call start at index 0 (the highest-priority DC); the modulo</span></code></span>
+<span class="codeline" id="line-299"><code><span class="comment">	// is taken on the unsigned counter to stay in range on wrap.</span></code></span>
+<span class="codeline" id="line-300"><code>	<label for="r62" class="ident">off</label> := <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>((<label for="r59" class="ident">r</label>.<a href="#line-293" class="ident">startIdx</a>.<a href="../../../../../sync/atomic/type.go.html#line-161" class="ident">Add</a>(<span class="lit-number">1</span>) - <span class="lit-number">1</span>) % <a href="../../../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r61" class="ident">candidates</label>)))</code></span>
+<span class="codeline" id="line-301"><code>	<label for="r63" class="ident">urls</label> := <a href="../../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r61" class="ident">candidates</label>))</code></span>
+<span class="codeline" id="line-302"><code>	<span class="keyword">for</span> <label for="r64" class="ident">i</label> := <span class="keyword">range</span> <label for="r61" class="ident">candidates</label> {</code></span>
+<span class="codeline" id="line-303"><code>		<label for="r65" class="ident">dc</label> := <label for="r61" class="ident">candidates</label>[(<label for="r62" class="ident">off</label>+<label for="r64" class="ident">i</label>)%<a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r61" class="ident">candidates</label>)]</code></span>
+<span class="codeline" id="line-304"><code>		<label for="r66" class="ident">addr</label> := <a href="../../../../../../pkg/net.html" class="ident i4">net</a>.<a href="../../../../../net/ipsock.go.html#line-236" class="ident">JoinHostPort</a>(<label for="r65" class="ident">dc</label>.<a href="../../tg/tl_dc_option_gen.go.html#line-69" class="ident">IPAddress</a>, <a href="../../../../../../pkg/strconv.html" class="ident i6">strconv</a>.<a href="../../../../../strconv/number.go.html#line-214" class="ident">Itoa</a>(<label for="r59" class="ident">r</label>.<a href="#line-286" class="ident">port</a>))</code></span>
+<span class="codeline" id="line-305"><code>		<label for="r63" class="ident">urls</label>[<label for="r64" class="ident">i</label>] = <label for="r59" class="ident">r</label>.<a href="#line-285" class="ident">scheme</a> + <span class="lit-string">"://"</span> + <label for="r66" class="ident">addr</label> + <span class="lit-string">"/api"</span></code></span>
+<span class="codeline" id="line-306"><code>	}</code></span>
+<span class="codeline" id="line-307"><code>	<span class="keyword">return</span> <label for="r63" class="ident">urls</label></code></span>
+<span class="codeline" id="line-308"><code>}</code></span>
+<span class="codeline" id="line-309"><code></code></span>
+<span class="codeline" id="line-310"><code><span class="keyword">func</span> (<label for="r67" class="ident">r</label> <a href="#line-283" class="ident">httpResolver</a>) <label for="r68" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpResolver^3983b.Primary.html" class="ident">Primary</a></label>(<label for="r69" class="ident">ctx</label> <a href="../../../../../../pkg/context.html" class="ident i1">context</a>.<a href="../../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r70" class="ident">dc</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r71" class="ident">list</label> <a href="list.go.html#line-6" class="ident">List</a>) (<a href="../../../../../../pkg/github.com/gotd/td/transport.html" class="ident i14">transport</a>.<a href="../../transport/connection.go.html#line-15" class="ident">Conn</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-311"><code>	<label for="r72" class="ident">candidates</label> := <a href="find.go.html#line-49" class="ident">FindPrimaryDCs</a>(<label for="r71" class="ident">list</label>.<a href="list.go.html#line-7" class="ident">Options</a>, <label for="r70" class="ident">dc</label>, <label for="r67" class="ident">r</label>.<a href="#line-287" class="ident">preferIPv6</a>)</code></span>
+<span class="codeline" id="line-312"><code>	<span class="comment">// The HTTP transport cannot speak to TCP-obfuscated-only DCs.</span></code></span>
+<span class="codeline" id="line-313"><code>	<label for="r73" class="ident">n</label> := <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-314"><code>	<span class="keyword">for</span> <label for="r74" class="ident">_</label>, <label for="r75" class="ident">x</label> := <span class="keyword">range</span> <label for="r72" class="ident">candidates</label> {</code></span>
+<span class="codeline" id="line-315"><code>		<span class="keyword">if</span> !<label for="r75" class="ident">x</label>.<a href="../../tg/tl_dc_option_gen.go.html#line-55" class="ident">TCPObfuscatedOnly</a> {</code></span>
+<span class="codeline" id="line-316"><code>			<label for="r72" class="ident">candidates</label>[<label for="r73" class="ident">n</label>] = <label for="r75" class="ident">x</label></code></span>
+<span class="codeline" id="line-317"><code>			<label for="r73" class="ident">n</label>++</code></span>
+<span class="codeline" id="line-318"><code>		}</code></span>
+<span class="codeline" id="line-319"><code>	}</code></span>
+<span class="codeline" id="line-320"><code>	<label for="r72" class="ident">candidates</label> = <label for="r72" class="ident">candidates</label>[:<label for="r73" class="ident">n</label>]</code></span>
+<span class="codeline" id="line-321"><code>	<span class="keyword">if</span> <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r72" class="ident">candidates</label>) == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-322"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"no addresses for DC %d"</span>, <label for="r70" class="ident">dc</label>)</code></span>
+<span class="codeline" id="line-323"><code>	}</code></span>
+<span class="codeline" id="line-324"><code>	<span class="keyword">return</span> <a href="#line-81" class="ident">newHTTPConn</a>(<label for="r67" class="ident">r</label>.<a href="#line-284" class="ident">client</a>, <label for="r67" class="ident">r</label>.<a href="#line-296" class="ident">urls</a>(<label for="r72" class="ident">candidates</label>), <label for="r67" class="ident">r</label>.<a href="#line-288" class="ident">maxDelay</a>, <label for="r67" class="ident">r</label>.<a href="#line-289" class="ident">waitAfter</a>, <label for="r67" class="ident">r</label>.<a href="#line-290" class="ident">maxWait</a>), <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-325"><code>}</code></span>
+<span class="codeline" id="line-326"><code></code></span>
+<span class="codeline" id="line-327"><code><span class="keyword">func</span> (<label for="r76" class="ident">r</label> <a href="#line-283" class="ident">httpResolver</a>) <label for="r77" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpResolver^3983b.MediaOnly.html" class="ident">MediaOnly</a></label>(<label for="r78" class="ident">ctx</label> <a href="../../../../../../pkg/context.html" class="ident i1">context</a>.<a href="../../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r79" class="ident">dc</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r80" class="ident">list</label> <a href="list.go.html#line-6" class="ident">List</a>) (<a href="../../../../../../pkg/github.com/gotd/td/transport.html" class="ident i14">transport</a>.<a href="../../transport/connection.go.html#line-15" class="ident">Conn</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-328"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"can't resolve %d: MediaOnly is unsupported"</span>, <label for="r79" class="ident">dc</label>)</code></span>
+<span class="codeline" id="line-329"><code>}</code></span>
+<span class="codeline" id="line-330"><code></code></span>
+<span class="codeline" id="line-331"><code><span class="keyword">func</span> (<label for="r81" class="ident">r</label> <a href="#line-283" class="ident">httpResolver</a>) <label for="r82" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..httpResolver^3983b.CDN.html" class="ident">CDN</a></label>(<label for="r83" class="ident">ctx</label> <a href="../../../../../../pkg/context.html" class="ident i1">context</a>.<a href="../../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r84" class="ident">dc</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r85" class="ident">list</label> <a href="list.go.html#line-6" class="ident">List</a>) (<a href="../../../../../../pkg/github.com/gotd/td/transport.html" class="ident i14">transport</a>.<a href="../../transport/connection.go.html#line-15" class="ident">Conn</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-332"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"can't resolve %d: CDN is unsupported"</span>, <label for="r84" class="ident">dc</label>)</code></span>
+<span class="codeline" id="line-333"><code>}</code></span>
+<span class="codeline" id="line-334"><code></code></span>
+<span class="codeline" id="line-335"><code><span class="comment">// HTTPOptions is HTTP resolver creation options.</span></code></span>
+<span class="codeline" id="line-336"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/dcs.html#name-HTTPOptions" class="ident">HTTPOptions</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-337"><code>	<span class="comment">// Client is the HTTP client used for POST requests. If nil, a client with a</span></code></span>
+<span class="codeline" id="line-338"><code><span class="comment">	// bounded transport and a timeout derived from MaxWait is used. A custom</span></code></span>
+<span class="codeline" id="line-339"><code><span class="comment">	// client's timeout must exceed MaxWait, otherwise long-poll responses are cut</span></code></span>
+<span class="codeline" id="line-340"><code><span class="comment">	// off. For Scheme "https" a custom client with an appropriate tls.Config</span></code></span>
+<span class="codeline" id="line-341"><code><span class="comment">	// (SNI/certificates for the DC) is required.</span></code></span>
+<span class="codeline" id="line-342"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..HTTPOptions.Client.html" class="ident">Client</a> *<a href="../../../../../../pkg/net/http.html" class="ident i5">http</a>.<a href="../../../../../net/http/client.go.html#line-57" class="ident">Client</a></code></span>
+<span class="codeline" id="line-343"><code>	<span class="comment">// Scheme is "http" (default) or "https".</span></code></span>
+<span class="codeline" id="line-344"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-345"><code><span class="comment">	// Note: https support is experimental. Connecting over https to a bare DC IP</span></code></span>
+<span class="codeline" id="line-346"><code><span class="comment">	// needs a custom Client whose tls.Config matches the DC certificate; the</span></code></span>
+<span class="codeline" id="line-347"><code><span class="comment">	// default client will fail TLS verification.</span></code></span>
+<span class="codeline" id="line-348"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..HTTPOptions.Scheme.html" class="ident">Scheme</a> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-349"><code>	<span class="comment">// Port overrides the transport port. Defaults to 80 for http and 443 for</span></code></span>
+<span class="codeline" id="line-350"><code><span class="comment">	// https.</span></code></span>
+<span class="codeline" id="line-351"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-352"><code><span class="comment">	// The HTTP transport uses this fixed port for every DC and intentionally</span></code></span>
+<span class="codeline" id="line-353"><code><span class="comment">	// ignores tg.DCOption.Port (which is the TCP MTProto port), per the MTProto</span></code></span>
+<span class="codeline" id="line-354"><code><span class="comment">	// HTTP transport specification.</span></code></span>
+<span class="codeline" id="line-355"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..HTTPOptions.Port.html" class="ident">Port</a> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-356"><code>	<span class="comment">// PreferIPv6 gives IPv6 DCs higher precedence.</span></code></span>
+<span class="codeline" id="line-357"><code><span class="comment">	// Default is to prefer IPv4 DCs over IPv6.</span></code></span>
+<span class="codeline" id="line-358"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..HTTPOptions.PreferIPv6.html" class="ident">PreferIPv6</a> <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-359"><code>	<span class="comment">// MaxDelay, WaitAfter and MaxWait are the http_wait fields in milliseconds.</span></code></span>
+<span class="codeline" id="line-360"><code><span class="comment">	// Defaults: 0, 0, 25000.</span></code></span>
+<span class="codeline" id="line-361"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-362"><code><span class="comment">	// See https://core.telegram.org/mtproto/service_messages.</span></code></span>
+<span class="codeline" id="line-363"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..HTTPOptions.MaxDelay.html" class="ident">MaxDelay</a>  <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-364"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..HTTPOptions.WaitAfter.html" class="ident">WaitAfter</a> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-365"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/dcs..HTTPOptions.MaxWait.html" class="ident">MaxWait</a>   <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-366"><code>}</code></span>
+<span class="codeline" id="line-367"><code></code></span>
+<span class="codeline" id="line-368"><code><span class="keyword">func</span> (<label for="r86" class="ident">o</label> *<a href="#line-336" class="ident">HTTPOptions</a>) <label for="r87" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/dcs..HTTPOptions.setDefaults^984b0.html" class="ident">setDefaults</a></label>() {</code></span>
+<span class="codeline" id="line-369"><code>	<span class="keyword">if</span> <label for="r86" class="ident">o</label>.<a href="#line-348" class="ident">Scheme</a> == <span class="lit-string">""</span> {</code></span>
+<span class="codeline" id="line-370"><code>		<label for="r86" class="ident">o</label>.<a href="#line-348" class="ident">Scheme</a> = <span class="lit-string">"http"</span></code></span>
+<span class="codeline" id="line-371"><code>	}</code></span>
+<span class="codeline" id="line-372"><code>	<span class="keyword">if</span> <label for="r86" class="ident">o</label>.<a href="#line-355" class="ident">Port</a> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-373"><code>		<span class="keyword">if</span> <label for="r86" class="ident">o</label>.<a href="#line-348" class="ident">Scheme</a> == <span class="lit-string">"https"</span> {</code></span>
+<span class="codeline" id="line-374"><code>			<label for="r86" class="ident">o</label>.<a href="#line-355" class="ident">Port</a> = <span class="lit-number">443</span></code></span>
+<span class="codeline" id="line-375"><code>		} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-376"><code>			<label for="r86" class="ident">o</label>.<a href="#line-355" class="ident">Port</a> = <span class="lit-number">80</span></code></span>
+<span class="codeline" id="line-377"><code>		}</code></span>
+<span class="codeline" id="line-378"><code>	}</code></span>
+<span class="codeline" id="line-379"><code>	<span class="keyword">if</span> <label for="r86" class="ident">o</label>.<a href="#line-365" class="ident">MaxWait</a> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-380"><code>		<label for="r86" class="ident">o</label>.<a href="#line-365" class="ident">MaxWait</a> = <a href="#line-26" class="ident">defaultHTTPMaxWait</a></code></span>
+<span class="codeline" id="line-381"><code>	}</code></span>
+<span class="codeline" id="line-382"><code>	<span class="keyword">if</span> <label for="r86" class="ident">o</label>.<a href="#line-342" class="ident">Client</a> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-383"><code>		<label for="r86" class="ident">o</label>.<a href="#line-342" class="ident">Client</a> = &amp;<a href="../../../../../../pkg/net/http.html" class="ident i5">http</a>.<a href="../../../../../net/http/client.go.html#line-57" class="ident">Client</a>{</code></span>
+<span class="codeline" id="line-384"><code>			<a href="../../../../../net/http/client.go.html#line-105" class="ident">Timeout</a>: <a href="../../../../../../pkg/time.html" class="ident i9">time</a>.<a href="../../../../../time/time.go.html#line-915" class="ident">Duration</a>(<label for="r86" class="ident">o</label>.<a href="#line-365" class="ident">MaxWait</a>)*<a href="../../../../../../pkg/time.html" class="ident i9">time</a>.<a href="../../../../../time/time.go.html#line-937" class="ident">Millisecond</a> + <a href="#line-29" class="ident">httpClientTimeoutMargin</a>,</code></span>
+<span class="codeline" id="line-385"><code>			<a href="../../../../../net/http/client.go.html#line-61" class="ident">Transport</a>: &amp;<a href="../../../../../../pkg/net/http.html" class="ident i5">http</a>.<a href="../../../../../net/http/transport.go.html#line-97" class="ident">Transport</a>{</code></span>
+<span class="codeline" id="line-386"><code>				<a href="../../../../../net/http/transport.go.html#line-129" class="ident">Proxy</a>:               <a href="../../../../../../pkg/net/http.html" class="ident i5">http</a>.<a href="../../../../../net/http/transport.go.html#line-507" class="ident">ProxyFromEnvironment</a>,</code></span>
+<span class="codeline" id="line-387"><code>				<a href="../../../../../net/http/transport.go.html#line-219" class="ident">MaxConnsPerHost</a>:     <a href="#line-37" class="ident">httpMaxConnsPerHost</a>,</code></span>
+<span class="codeline" id="line-388"><code>				<a href="../../../../../net/http/transport.go.html#line-212" class="ident">MaxIdleConnsPerHost</a>: <a href="#line-37" class="ident">httpMaxConnsPerHost</a>,</code></span>
+<span class="codeline" id="line-389"><code>			},</code></span>
+<span class="codeline" id="line-390"><code>		}</code></span>
+<span class="codeline" id="line-391"><code>	}</code></span>
+<span class="codeline" id="line-392"><code>}</code></span>
+<span class="codeline" id="line-393"><code></code></span>
+<span class="codeline" id="line-394"><code><span class="comment">// HTTP creates an MTProto-over-HTTP DC resolver with http_wait long-polling.</span></code></span>
+<span class="codeline" id="line-395"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-396"><code><span class="comment">// It suits environments where a raw persistent MTProto TCP socket cannot be</span></code></span>
+<span class="codeline" id="line-397"><code><span class="comment">// held but HTTP POST to the DC is possible. Updates are delivered via http_wait</span></code></span>
+<span class="codeline" id="line-398"><code><span class="comment">// long-polling, so their latency is bounded by the round-trip rather than being</span></code></span>
+<span class="codeline" id="line-399"><code><span class="comment">// instantaneous. MediaOnly and CDN DCs are not supported.</span></code></span>
+<span class="codeline" id="line-400"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-401"><code><span class="comment">// See https://core.telegram.org/mtproto/transports#http-transport.</span></code></span>
+<span class="codeline" id="line-402"><code><span class="keyword">func</span> <label for="r88" class="ident"><a href="../../../../../../pkg/github.com/gotd/td/telegram/dcs.html#name-HTTP" class="ident">HTTP</a></label>(<label for="r89" class="ident">opts</label> <a href="#line-336" class="ident">HTTPOptions</a>) <a href="resolver.go.html#line-13" class="ident">Resolver</a> {</code></span>
+<span class="codeline" id="line-403"><code>	<label for="r89" class="ident">opts</label>.<a href="#line-368" class="ident">setDefaults</a>()</code></span>
+<span class="codeline" id="line-404"><code>	<span class="keyword">return</span> <a href="#line-283" class="ident">httpResolver</a>{</code></span>
+<span class="codeline" id="line-405"><code>		<a href="#line-284" class="ident">client</a>:     <label for="r89" class="ident">opts</label>.<a href="#line-342" class="ident">Client</a>,</code></span>
+<span class="codeline" id="line-406"><code>		<a href="#line-285" class="ident">scheme</a>:     <label for="r89" class="ident">opts</label>.<a href="#line-348" class="ident">Scheme</a>,</code></span>
+<span class="codeline" id="line-407"><code>		<a href="#line-286" class="ident">port</a>:       <label for="r89" class="ident">opts</label>.<a href="#line-355" class="ident">Port</a>,</code></span>
+<span class="codeline" id="line-408"><code>		<a href="#line-287" class="ident">preferIPv6</a>: <label for="r89" class="ident">opts</label>.<a href="#line-358" class="ident">PreferIPv6</a>,</code></span>
+<span class="codeline" id="line-409"><code>		<a href="#line-288" class="ident">maxDelay</a>:   <label for="r89" class="ident">opts</label>.<a href="#line-363" class="ident">MaxDelay</a>,</code></span>
+<span class="codeline" id="line-410"><code>		<a href="#line-289" class="ident">waitAfter</a>:  <label for="r89" class="ident">opts</label>.<a href="#line-364" class="ident">WaitAfter</a>,</code></span>
+<span class="codeline" id="line-411"><code>		<a href="#line-290" class="ident">maxWait</a>:    <label for="r89" class="ident">opts</label>.<a href="#line-365" class="ident">MaxWait</a>,</code></span>
+<span class="codeline" id="line-412"><code>		<a href="#line-293" class="ident">startIdx</a>:   <a href="../../../../../../pkg/builtin.html#name-new" class="ident">new</a>(<a href="../../../../../../pkg/sync/atomic.html" class="ident i8">atomic</a>.<a href="../../../../../sync/atomic/type.go.html#line-141" class="ident">Uint32</a>),</code></span>
+<span class="codeline" id="line-413"><code>	}</code></span>
+<span class="codeline" id="line-414"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

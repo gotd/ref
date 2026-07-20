@@ -337,18 +337,20 @@ input[id=i16]:checked ~pre .i16
 <span class="codeline" id="line-241"><code>		<label for="r15" class="ident">g</label>.<a href="../tdsync/log_group.go.html#line-39" class="ident">Go</a>(<span class="lit-string">"pingLoop"</span>, <label for="r8" class="ident">c</label>.<a href="ping.go.html#line-97" class="ident">pingLoop</a>)</code></span>
 <span class="codeline" id="line-242"><code>		<label for="r15" class="ident">g</label>.<a href="../tdsync/log_group.go.html#line-39" class="ident">Go</a>(<span class="lit-string">"ackLoop"</span>, <label for="r8" class="ident">c</label>.<a href="ack.go.html#line-12" class="ident">ackLoop</a>)</code></span>
 <span class="codeline" id="line-243"><code>		<label for="r15" class="ident">g</label>.<a href="../tdsync/log_group.go.html#line-39" class="ident">Go</a>(<span class="lit-string">"saltsLoop"</span>, <label for="r8" class="ident">c</label>.<a href="salt.go.html#line-50" class="ident">saltLoop</a>)</code></span>
-<span class="codeline" id="line-244"><code>		<span class="keyword">if</span> <label for="r8" class="ident">c</label>.<a href="#line-119" class="ident">pfs</a> {</code></span>
-<span class="codeline" id="line-245"><code>			<span class="comment">// Renewal loop requests reconnect before temp key expiry.</span></code></span>
-<span class="codeline" id="line-246"><code>			<label for="r15" class="ident">g</label>.<a href="../tdsync/log_group.go.html#line-39" class="ident">Go</a>(<span class="lit-string">"tempKeyRenewal"</span>, <label for="r8" class="ident">c</label>.<a href="pfs.go.html#line-20" class="ident">tempKeyRenewalLoop</a>)</code></span>
-<span class="codeline" id="line-247"><code>		}</code></span>
-<span class="codeline" id="line-248"><code>		<label for="r15" class="ident">g</label>.<a href="../tdsync/log_group.go.html#line-39" class="ident">Go</a>(<span class="lit-string">"userCallback"</span>, <label for="r11" class="ident">f</label>)</code></span>
-<span class="codeline" id="line-249"><code></code></span>
-<span class="codeline" id="line-250"><code>		<span class="keyword">if</span> <label for="r19" class="ident">err</label> := <label for="r15" class="ident">g</label>.<a href="../tdsync/log_group.go.html#line-66" class="ident">Wait</a>(); <label for="r19" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-251"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i4">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r19" class="ident">err</label>, <span class="lit-string">"group"</span>)</code></span>
-<span class="codeline" id="line-252"><code>		}</code></span>
-<span class="codeline" id="line-253"><code>	}</code></span>
-<span class="codeline" id="line-254"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-255"><code>}</code></span>
+<span class="codeline" id="line-244"><code>		<span class="comment">// Enable HTTP long-polling if the transport is HTTP; no-op otherwise.</span></code></span>
+<span class="codeline" id="line-245"><code>		<label for="r8" class="ident">c</label>.<a href="http_wait.go.html#line-35" class="ident">startHTTPWait</a>()</code></span>
+<span class="codeline" id="line-246"><code>		<span class="keyword">if</span> <label for="r8" class="ident">c</label>.<a href="#line-119" class="ident">pfs</a> {</code></span>
+<span class="codeline" id="line-247"><code>			<span class="comment">// Renewal loop requests reconnect before temp key expiry.</span></code></span>
+<span class="codeline" id="line-248"><code>			<label for="r15" class="ident">g</label>.<a href="../tdsync/log_group.go.html#line-39" class="ident">Go</a>(<span class="lit-string">"tempKeyRenewal"</span>, <label for="r8" class="ident">c</label>.<a href="pfs.go.html#line-20" class="ident">tempKeyRenewalLoop</a>)</code></span>
+<span class="codeline" id="line-249"><code>		}</code></span>
+<span class="codeline" id="line-250"><code>		<label for="r15" class="ident">g</label>.<a href="../tdsync/log_group.go.html#line-39" class="ident">Go</a>(<span class="lit-string">"userCallback"</span>, <label for="r11" class="ident">f</label>)</code></span>
+<span class="codeline" id="line-251"><code></code></span>
+<span class="codeline" id="line-252"><code>		<span class="keyword">if</span> <label for="r19" class="ident">err</label> := <label for="r15" class="ident">g</label>.<a href="../tdsync/log_group.go.html#line-66" class="ident">Wait</a>(); <label for="r19" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-253"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i4">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r19" class="ident">err</label>, <span class="lit-string">"group"</span>)</code></span>
+<span class="codeline" id="line-254"><code>		}</code></span>
+<span class="codeline" id="line-255"><code>	}</code></span>
+<span class="codeline" id="line-256"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-257"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.4</i>. (GOOS=linux GOARCH=amd64)

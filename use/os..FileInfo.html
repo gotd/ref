@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../pkg/os.html">os</a>.<a href="../src/os/types.go.html#line-23">FileInfo</a></b></span>
 
-<span class="title">23 uses</span>
+<span class="title">27 uses</span>
 
 	os (current package)
 		<a href="../src/os/dir.go.html#line-40">dir.go#L40</a>: func (f *File) Readdir(n int) ([]<b>FileInfo</b>, error) {
@@ -22,10 +22,14 @@
 		<a href="../src/os/getwd.go.html#line-38">getwd.go#L38</a>: 	var dot <b>FileInfo</b>
 		<a href="../src/os/root.go.html#line-200">root.go#L200</a>: func (r *Root) Stat(name string) (<b>FileInfo</b>, error) {
 		<a href="../src/os/root.go.html#line-209" class="path-duplicate">root.go</a><a href="../src/os/root.go.html#line-209">#L209</a>: func (r *Root) Lstat(name string) (<b>FileInfo</b>, error) {
-		<a href="../src/os/root.go.html#line-420" class="path-duplicate">root.go</a><a href="../src/os/root.go.html#line-420">#L420</a>: func (rfs *rootFS) Stat(name string) (<b>FileInfo</b>, error) {
-		<a href="../src/os/root.go.html#line-428" class="path-duplicate">root.go</a><a href="../src/os/root.go.html#line-428">#L428</a>: func (rfs *rootFS) Lstat(name string) (<b>FileInfo</b>, error) {
-		<a href="../src/os/root_unix.go.html#line-131">root_unix.go#L131</a>: func rootStat(r *Root, name string, lstat bool) (<b>FileInfo</b>, error) {
-		<a href="../src/os/root_unix.go.html#line-132" class="path-duplicate">root_unix.go</a><a href="../src/os/root_unix.go.html#line-132">#L132</a>: 	fi, err := doInRoot(r, name, nil, func(parent sysfdType, n string) (<b>FileInfo</b>, error) {
+		<a href="../src/os/root.go.html#line-422" class="path-duplicate">root.go</a><a href="../src/os/root.go.html#line-422">#L422</a>: func (rfs *rootFS) Stat(name string) (<b>FileInfo</b>, error) {
+		<a href="../src/os/root.go.html#line-430" class="path-duplicate">root.go</a><a href="../src/os/root.go.html#line-430">#L430</a>: func (rfs *rootFS) Lstat(name string) (<b>FileInfo</b>, error) {
+		<a href="../src/os/root_openat.go.html#line-401">root_openat.go#L401</a>: 				var fi <b>FileInfo</b>
+		<a href="../src/os/root_unix.go.html#line-132">root_unix.go#L132</a>: func rootStat(r *Root, name string, lstat bool) (<b>FileInfo</b>, error) {
+		<a href="../src/os/root_unix.go.html#line-133" class="path-duplicate">root_unix.go</a><a href="../src/os/root_unix.go.html#line-133">#L133</a>: 	fi, err := doInRoot(r, name, 0, nil, func(parent sysfdType, n string, endsInSlash bool) (<b>FileInfo</b>, error) {
+		<a href="../src/os/root_unix.go.html#line-260" class="path-duplicate">root_unix.go</a><a href="../src/os/root_unix.go.html#line-260">#L260</a>: func lstatat(parent int, name string) (<b>FileInfo</b>, error) {
+		<a href="../src/os/root_unix.go.html#line-264" class="path-duplicate">root_unix.go</a><a href="../src/os/root_unix.go.html#line-264">#L264</a>: func lstatatWithName(parent int, origName, name string) (<b>FileInfo</b>, error) {
+		<a href="../src/os/root_unix.go.html#line-312" class="path-duplicate">root_unix.go</a><a href="../src/os/root_unix.go.html#line-312">#L312</a>: func isDirectoryLink(fi <b>FileInfo</b>) bool {
 		<a href="../src/os/stat.go.html#line-11">stat.go#L11</a>: func Stat(name string) (<b>FileInfo</b>, error) {
 		<a href="../src/os/stat.go.html#line-24" class="path-duplicate">stat.go</a><a href="../src/os/stat.go.html#line-24">#L24</a>: func Lstat(name string) (<b>FileInfo</b>, error) {
 		<a href="../src/os/stat.go.html#line-30" class="path-duplicate">stat.go</a><a href="../src/os/stat.go.html#line-30">#L30</a>: var stathook func(f *File, name string) (<b>FileInfo</b>, error)

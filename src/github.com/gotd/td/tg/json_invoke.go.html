@@ -505,14 +505,14 @@ input[id=i7]:checked ~pre .i7
 <span class="codeline" id="line-61"><code>	}</code></span>
 <span class="codeline" id="line-62"><code></code></span>
 <span class="codeline" id="line-63"><code>	<span class="comment">// Get type ID from method name</span></code></span>
-<span class="codeline" id="line-64"><code>	<label for="r12" class="ident">namesMap</label> := <a href="tl_registry_gen.go.html#line-2466" class="ident">NamesMap</a>()</code></span>
+<span class="codeline" id="line-64"><code>	<label for="r12" class="ident">namesMap</label> := <a href="tl_registry_gen.go.html#line-2505" class="ident">NamesMap</a>()</code></span>
 <span class="codeline" id="line-65"><code>	<label for="r13" class="ident">typeID</label>, <label for="r14" class="ident">ok</label> := <label for="r12" class="ident">namesMap</label>[<label for="r6" class="ident">typeField</label>]</code></span>
 <span class="codeline" id="line-66"><code>	<span class="keyword">if</span> !<label for="r14" class="ident">ok</label> {</code></span>
 <span class="codeline" id="line-67"><code>		<span class="keyword">return</span> <span class="lit-string">""</span>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i3">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"unknown method or type: %q"</span>, <label for="r6" class="ident">typeField</label>)</code></span>
 <span class="codeline" id="line-68"><code>	}</code></span>
 <span class="codeline" id="line-69"><code></code></span>
 <span class="codeline" id="line-70"><code>	<span class="comment">// Create request object using constructor (no reflection)</span></code></span>
-<span class="codeline" id="line-71"><code>	<label for="r15" class="ident">constructors</label> := <a href="tl_registry_gen.go.html#line-4894" class="ident">TypesConstructorMap</a>()</code></span>
+<span class="codeline" id="line-71"><code>	<label for="r15" class="ident">constructors</label> := <a href="tl_registry_gen.go.html#line-4972" class="ident">TypesConstructorMap</a>()</code></span>
 <span class="codeline" id="line-72"><code>	<label for="r16" class="ident">constructor</label>, <label for="r14" class="ident">ok</label> := <label for="r15" class="ident">constructors</label>[<label for="r13" class="ident">typeID</label>]</code></span>
 <span class="codeline" id="line-73"><code>	<span class="keyword">if</span> !<label for="r14" class="ident">ok</label> {</code></span>
 <span class="codeline" id="line-74"><code>		<span class="keyword">return</span> <span class="lit-string">""</span>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i3">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"no constructor for type ID: 0x%x (%s)"</span>, <label for="r13" class="ident">typeID</label>, <label for="r6" class="ident">typeField</label>)</code></span>
@@ -873,13 +873,13 @@ input[id=i7]:checked ~pre .i7
 <span class="codeline" id="line-429"><code>	<label for="r117" class="ident">typeName</label> := <label for="r115" class="ident">typeVal</label>.<a href="#line-164" class="ident">str</a></code></span>
 <span class="codeline" id="line-430"><code></code></span>
 <span class="codeline" id="line-431"><code>	<span class="comment">// Get type ID and constructor</span></code></span>
-<span class="codeline" id="line-432"><code>	<label for="r118" class="ident">namesMap</label> := <a href="tl_registry_gen.go.html#line-2466" class="ident">NamesMap</a>()</code></span>
+<span class="codeline" id="line-432"><code>	<label for="r118" class="ident">namesMap</label> := <a href="tl_registry_gen.go.html#line-2505" class="ident">NamesMap</a>()</code></span>
 <span class="codeline" id="line-433"><code>	<label for="r119" class="ident">typeID</label>, <label for="r116" class="ident">ok</label> := <label for="r118" class="ident">namesMap</label>[<label for="r117" class="ident">typeName</label>]</code></span>
 <span class="codeline" id="line-434"><code>	<span class="keyword">if</span> !<label for="r116" class="ident">ok</label> {</code></span>
 <span class="codeline" id="line-435"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i3">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"unknown type: %q"</span>, <label for="r117" class="ident">typeName</label>)</code></span>
 <span class="codeline" id="line-436"><code>	}</code></span>
 <span class="codeline" id="line-437"><code></code></span>
-<span class="codeline" id="line-438"><code>	<label for="r120" class="ident">constructors</label> := <a href="tl_registry_gen.go.html#line-4894" class="ident">TypesConstructorMap</a>()</code></span>
+<span class="codeline" id="line-438"><code>	<label for="r120" class="ident">constructors</label> := <a href="tl_registry_gen.go.html#line-4972" class="ident">TypesConstructorMap</a>()</code></span>
 <span class="codeline" id="line-439"><code>	<label for="r121" class="ident">constructor</label>, <label for="r116" class="ident">ok</label> := <label for="r120" class="ident">constructors</label>[<label for="r119" class="ident">typeID</label>]</code></span>
 <span class="codeline" id="line-440"><code>	<span class="keyword">if</span> !<label for="r116" class="ident">ok</label> {</code></span>
 <span class="codeline" id="line-441"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i3">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"no constructor for type: %q"</span>, <label for="r117" class="ident">typeName</label>)</code></span>
@@ -1012,7 +1012,7 @@ input[id=i7]:checked ~pre .i7
 <span class="codeline" id="line-568"><code><span class="comment">// useSnakeCase controls whether to convert field names to snake_case (true) or keep PascalCase (false).</span></code></span>
 <span class="codeline" id="line-569"><code><span class="keyword">func</span> <label for="r162" class="ident"><a href="../../../../../pkg/github.com/gotd/td/tg.html#name-binaryToMTProtoJSON" class="ident">binaryToMTProtoJSON</a></label>(<label for="r163" class="ident">buf</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i5">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>, <label for="r164" class="ident">typeID</label> <a href="../../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>, <label for="r165" class="ident">useSnakeCase</label> <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) (<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
 <span class="codeline" id="line-570"><code>	<span class="comment">// Get type name from registry</span></code></span>
-<span class="codeline" id="line-571"><code>	<label for="r166" class="ident">namesMap</label> := <a href="tl_registry_gen.go.html#line-2466" class="ident">NamesMap</a>()</code></span>
+<span class="codeline" id="line-571"><code>	<label for="r166" class="ident">namesMap</label> := <a href="tl_registry_gen.go.html#line-2505" class="ident">NamesMap</a>()</code></span>
 <span class="codeline" id="line-572"><code>	<label for="r167" class="ident">typeName</label> := <span class="lit-string">""</span></code></span>
 <span class="codeline" id="line-573"><code>	<span class="keyword">for</span> <label for="r168" class="ident">name</label>, <label for="r169" class="ident">id</label> := <span class="keyword">range</span> <label for="r166" class="ident">namesMap</label> {</code></span>
 <span class="codeline" id="line-574"><code>		<span class="keyword">if</span> <label for="r169" class="ident">id</label> == <label for="r164" class="ident">typeID</label> {</code></span>
@@ -1025,7 +1025,7 @@ input[id=i7]:checked ~pre .i7
 <span class="codeline" id="line-581"><code>	}</code></span>
 <span class="codeline" id="line-582"><code></code></span>
 <span class="codeline" id="line-583"><code>	<span class="comment">// Decode binary to Go struct</span></code></span>
-<span class="codeline" id="line-584"><code>	<label for="r170" class="ident">constructors</label> := <a href="tl_registry_gen.go.html#line-4894" class="ident">TypesConstructorMap</a>()</code></span>
+<span class="codeline" id="line-584"><code>	<label for="r170" class="ident">constructors</label> := <a href="tl_registry_gen.go.html#line-4972" class="ident">TypesConstructorMap</a>()</code></span>
 <span class="codeline" id="line-585"><code>	<label for="r171" class="ident">constructor</label>, <label for="r172" class="ident">ok</label> := <label for="r170" class="ident">constructors</label>[<label for="r164" class="ident">typeID</label>]</code></span>
 <span class="codeline" id="line-586"><code>	<span class="keyword">if</span> !<label for="r172" class="ident">ok</label> {</code></span>
 <span class="codeline" id="line-587"><code>		<span class="keyword">return</span> <span class="lit-string">""</span>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i3">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"no constructor for type ID: 0x%x"</span>, <label for="r164" class="ident">typeID</label>)</code></span>

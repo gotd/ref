@@ -173,7 +173,7 @@ input[id=i8]:checked ~pre .i8
 <span class="codeline" id="line-23"><code><span class="comment">// (e.g., "sendMessage") to Telegram API names (e.g., "messages.sendMessage").</span></code></span>
 <span class="codeline" id="line-24"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-buildTDLibToTelegramMap" class="ident">buildTDLibToTelegramMap</a></label>() <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
 <span class="codeline" id="line-25"><code>	<a href="#line-19" class="ident">tdlibToTelegramMapOnce</a>.<a href="../../../../sync/once.go.html#line-52" class="ident">Do</a>(<span class="keyword">func</span>() {</code></span>
-<span class="codeline" id="line-26"><code>		<label for="r1" class="ident">namesMap</label> := <a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i7">tg</a>.<a href="../tg/tl_registry_gen.go.html#line-2466" class="ident">NamesMap</a>()</code></span>
+<span class="codeline" id="line-26"><code>		<label for="r1" class="ident">namesMap</label> := <a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i7">tg</a>.<a href="../tg/tl_registry_gen.go.html#line-2505" class="ident">NamesMap</a>()</code></span>
 <span class="codeline" id="line-27"><code>		<a href="#line-18" class="ident">tdlibToTelegramMap</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>(<span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>)</code></span>
 <span class="codeline" id="line-28"><code></code></span>
 <span class="codeline" id="line-29"><code>		<span class="comment">// Build reverse mapping: for each entry in NamesMap that looks like a method request,</span></code></span>
@@ -233,7 +233,7 @@ input[id=i8]:checked ~pre .i8
 <span class="codeline" id="line-83"><code>	<label for="r15" class="ident">telegramName</label>, <label for="r16" class="ident">ok</label> := <label for="r14" class="ident">tdlibMap</label>[<label for="r13" class="ident">typeID</label>]</code></span>
 <span class="codeline" id="line-84"><code>	<span class="keyword">if</span> !<label for="r16" class="ident">ok</label> {</code></span>
 <span class="codeline" id="line-85"><code>		<span class="comment">// Try direct lookup in case it's already in full format</span></code></span>
-<span class="codeline" id="line-86"><code>		<label for="r17" class="ident">namesMap</label> := <a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i7">tg</a>.<a href="../tg/tl_registry_gen.go.html#line-2466" class="ident">NamesMap</a>()</code></span>
+<span class="codeline" id="line-86"><code>		<label for="r17" class="ident">namesMap</label> := <a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i7">tg</a>.<a href="../tg/tl_registry_gen.go.html#line-2505" class="ident">NamesMap</a>()</code></span>
 <span class="codeline" id="line-87"><code>		<span class="keyword">if</span> <label for="r18" class="ident">_</label>, <label for="r19" class="ident">exists</label> := <label for="r17" class="ident">namesMap</label>[<label for="r13" class="ident">typeID</label>]; <label for="r19" class="ident">exists</label> {</code></span>
 <span class="codeline" id="line-88"><code>			<label for="r15" class="ident">telegramName</label> = <label for="r13" class="ident">typeID</label></code></span>
 <span class="codeline" id="line-89"><code>		} <span class="keyword">else</span> {</code></span>
@@ -242,14 +242,14 @@ input[id=i8]:checked ~pre .i8
 <span class="codeline" id="line-92"><code>	}</code></span>
 <span class="codeline" id="line-93"><code></code></span>
 <span class="codeline" id="line-94"><code>	<span class="comment">// Lookup type ID</span></code></span>
-<span class="codeline" id="line-95"><code>	<label for="r20" class="ident">namesMap</label> := <a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i7">tg</a>.<a href="../tg/tl_registry_gen.go.html#line-2466" class="ident">NamesMap</a>()</code></span>
+<span class="codeline" id="line-95"><code>	<label for="r20" class="ident">namesMap</label> := <a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i7">tg</a>.<a href="../tg/tl_registry_gen.go.html#line-2505" class="ident">NamesMap</a>()</code></span>
 <span class="codeline" id="line-96"><code>	<label for="r21" class="ident">typeIDValue</label>, <label for="r16" class="ident">ok</label> := <label for="r20" class="ident">namesMap</label>[<label for="r15" class="ident">telegramName</label>]</code></span>
 <span class="codeline" id="line-97"><code>	<span class="keyword">if</span> !<label for="r16" class="ident">ok</label> {</code></span>
 <span class="codeline" id="line-98"><code>		<span class="keyword">return</span> <span class="lit-string">""</span>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i3">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"type not found: %q"</span>, <label for="r15" class="ident">telegramName</label>)</code></span>
 <span class="codeline" id="line-99"><code>	}</code></span>
 <span class="codeline" id="line-100"><code></code></span>
 <span class="codeline" id="line-101"><code>	<span class="comment">// Create instance</span></code></span>
-<span class="codeline" id="line-102"><code>	<label for="r22" class="ident">constructorsMap</label> := <a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i7">tg</a>.<a href="../tg/tl_registry_gen.go.html#line-4894" class="ident">TypesConstructorMap</a>()</code></span>
+<span class="codeline" id="line-102"><code>	<label for="r22" class="ident">constructorsMap</label> := <a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i7">tg</a>.<a href="../tg/tl_registry_gen.go.html#line-4972" class="ident">TypesConstructorMap</a>()</code></span>
 <span class="codeline" id="line-103"><code>	<label for="r23" class="ident">constructor</label>, <label for="r16" class="ident">ok</label> := <label for="r22" class="ident">constructorsMap</label>[<label for="r21" class="ident">typeIDValue</label>]</code></span>
 <span class="codeline" id="line-104"><code>	<span class="keyword">if</span> !<label for="r16" class="ident">ok</label> {</code></span>
 <span class="codeline" id="line-105"><code>		<span class="keyword">return</span> <span class="lit-string">""</span>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i3">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"constructor not found for type: %q (id: 0x%x)"</span>, <label for="r15" class="ident">telegramName</label>, <label for="r21" class="ident">typeIDValue</label>)</code></span>
@@ -323,7 +323,7 @@ input[id=i8]:checked ~pre .i8
 <span class="codeline" id="line-173"><code>	}</code></span>
 <span class="codeline" id="line-174"><code></code></span>
 <span class="codeline" id="line-175"><code>	<span class="comment">// Use TypesConstructorMap to create appropriate instance</span></code></span>
-<span class="codeline" id="line-176"><code>	<label for="r44" class="ident">constructorsMap</label> := <a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i7">tg</a>.<a href="../tg/tl_registry_gen.go.html#line-4894" class="ident">TypesConstructorMap</a>()</code></span>
+<span class="codeline" id="line-176"><code>	<label for="r44" class="ident">constructorsMap</label> := <a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i7">tg</a>.<a href="../tg/tl_registry_gen.go.html#line-4972" class="ident">TypesConstructorMap</a>()</code></span>
 <span class="codeline" id="line-177"><code>	<label for="r45" class="ident">constructor</label>, <label for="r46" class="ident">ok</label> := <label for="r44" class="ident">constructorsMap</label>[<label for="r42" class="ident">id</label>]</code></span>
 <span class="codeline" id="line-178"><code>	<span class="keyword">if</span> !<label for="r46" class="ident">ok</label> {</code></span>
 <span class="codeline" id="line-179"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i3">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"unknown response type: 0x%x"</span>, <label for="r42" class="ident">id</label>)</code></span>

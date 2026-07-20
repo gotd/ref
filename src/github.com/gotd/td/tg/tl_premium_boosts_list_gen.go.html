@@ -261,7 +261,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-59"><code><span class="comment">	// Use SetNextOffset and GetNextOffset helpers.</span></code></span>
 <span class="codeline" id="line-60"><code>	<a href="../../../../../use/github.com/gotd/td/tg..PremiumBoostsList.NextOffset.html" class="ident">NextOffset</a> <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
 <span class="codeline" id="line-61"><code>	<span class="comment">// Mentioned users</span></code></span>
-<span class="codeline" id="line-62"><code>	<a href="../../../../../use/github.com/gotd/td/tg..PremiumBoostsList.Users.html" class="ident">Users</a> []<a href="tl_user_gen.go.html#line-2563" class="ident">UserClass</a></code></span>
+<span class="codeline" id="line-62"><code>	<a href="../../../../../use/github.com/gotd/td/tg..PremiumBoostsList.Users.html" class="ident">Users</a> []<a href="tl_user_gen.go.html#line-2611" class="ident">UserClass</a></code></span>
 <span class="codeline" id="line-63"><code>}</code></span>
 <span class="codeline" id="line-64"><code></code></span>
 <span class="codeline" id="line-65"><code><span class="comment">// PremiumBoostsListTypeID is TL type id of PremiumBoostsList.</span></code></span>
@@ -312,7 +312,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-110"><code>	<label for="r8" class="ident">GetCount</label>() (<label for="r9" class="ident">value</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>)</code></span>
 <span class="codeline" id="line-111"><code>	<label for="r10" class="ident">GetBoosts</label>() (<label for="r11" class="ident">value</label> []<a href="tl_boost_gen.go.html#line-41" class="ident">Boost</a>)</code></span>
 <span class="codeline" id="line-112"><code>	<label for="r12" class="ident">GetNextOffset</label>() (<label for="r13" class="ident">value</label> <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r14" class="ident">ok</label> <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>)</code></span>
-<span class="codeline" id="line-113"><code>	<label for="r15" class="ident">GetUsers</label>() (<label for="r16" class="ident">value</label> []<a href="tl_user_gen.go.html#line-2563" class="ident">UserClass</a>)</code></span>
+<span class="codeline" id="line-113"><code>	<label for="r15" class="ident">GetUsers</label>() (<label for="r16" class="ident">value</label> []<a href="tl_user_gen.go.html#line-2611" class="ident">UserClass</a>)</code></span>
 <span class="codeline" id="line-114"><code>}) {</code></span>
 <span class="codeline" id="line-115"><code>	<label for="r5" class="ident">b</label>.<a href="#line-48" class="ident">Count</a> = <label for="r7" class="ident">from</label>.<label for="r8" class="ident">GetCount</label>()</code></span>
 <span class="codeline" id="line-116"><code>	<label for="r5" class="ident">b</label>.<a href="#line-53" class="ident">Boosts</a> = <label for="r7" class="ident">from</label>.<label for="r10" class="ident">GetBoosts</label>()</code></span>
@@ -473,10 +473,10 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-271"><code>		}</code></span>
 <span class="codeline" id="line-272"><code></code></span>
 <span class="codeline" id="line-273"><code>		<span class="keyword">if</span> <label for="r56" class="ident">headerLen</label> &gt; <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-274"><code>			<label for="r43" class="ident">b</label>.<a href="#line-62" class="ident">Users</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="tl_user_gen.go.html#line-2563" class="ident">UserClass</a>, <span class="lit-number">0</span>, <label for="r56" class="ident">headerLen</label>%<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/const.go.html#line-4" class="ident">PreallocateLimit</a>)</code></span>
+<span class="codeline" id="line-274"><code>			<label for="r43" class="ident">b</label>.<a href="#line-62" class="ident">Users</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="tl_user_gen.go.html#line-2611" class="ident">UserClass</a>, <span class="lit-number">0</span>, <label for="r56" class="ident">headerLen</label>%<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/const.go.html#line-4" class="ident">PreallocateLimit</a>)</code></span>
 <span class="codeline" id="line-275"><code>		}</code></span>
 <span class="codeline" id="line-276"><code>		<span class="keyword">for</span> <label for="r58" class="ident">idx</label> := <span class="lit-number">0</span>; <label for="r58" class="ident">idx</label> &lt; <label for="r56" class="ident">headerLen</label>; <label for="r58" class="ident">idx</label>++ {</code></span>
-<span class="codeline" id="line-277"><code>			<label for="r59" class="ident">value</label>, <label for="r60" class="ident">err</label> := <a href="tl_user_gen.go.html#line-2631" class="ident">DecodeUser</a>(<label for="r45" class="ident">buf</label>)</code></span>
+<span class="codeline" id="line-277"><code>			<label for="r59" class="ident">value</label>, <label for="r60" class="ident">err</label> := <a href="tl_user_gen.go.html#line-2679" class="ident">DecodeUser</a>(<label for="r45" class="ident">buf</label>)</code></span>
 <span class="codeline" id="line-278"><code>			<span class="keyword">if</span> <label for="r60" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-279"><code>				<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode premium.boostsList#86f8613c: field users: %w"</span>, <label for="r60" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-280"><code>			}</code></span>
@@ -521,7 +521,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-319"><code>}</code></span>
 <span class="codeline" id="line-320"><code></code></span>
 <span class="codeline" id="line-321"><code><span class="comment">// GetUsers returns value of Users field.</span></code></span>
-<span class="codeline" id="line-322"><code><span class="keyword">func</span> (<label for="r74" class="ident">b</label> *<a href="#line-41" class="ident">PremiumBoostsList</a>) <label for="r75" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..PremiumBoostsList.GetUsers.html" class="ident">GetUsers</a></label>() (<label for="r76" class="ident">value</label> []<a href="tl_user_gen.go.html#line-2563" class="ident">UserClass</a>) {</code></span>
+<span class="codeline" id="line-322"><code><span class="keyword">func</span> (<label for="r74" class="ident">b</label> *<a href="#line-41" class="ident">PremiumBoostsList</a>) <label for="r75" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..PremiumBoostsList.GetUsers.html" class="ident">GetUsers</a></label>() (<label for="r76" class="ident">value</label> []<a href="tl_user_gen.go.html#line-2611" class="ident">UserClass</a>) {</code></span>
 <span class="codeline" id="line-323"><code>	<span class="keyword">if</span> <label for="r74" class="ident">b</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-324"><code>		<span class="keyword">return</span></code></span>
 <span class="codeline" id="line-325"><code>	}</code></span>
