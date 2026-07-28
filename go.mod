@@ -4,7 +4,7 @@ go 1.26rc1
 
 require (
 	github.com/gotd/td v0.161.0
-	go101.org/golds v0.8.4
+	go101.org/golds v0.8.5
 )
 
 require (
