@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/stubs.go.html#line-374">alignUp</a></b></span>
 
-<span class="title">102 uses</span>
+<span class="title">103 uses</span>
 
 	runtime (current package)
 		<a href="../src/runtime/cgocall.go.html#line-495">cgocall.go#L495</a>: 		sched.sp = *(*uintptr)(unsafe.Pointer(sched.sp + <b>alignUp</b>(sys.MinFrameSize, sys.StackAlign)))
@@ -96,6 +96,7 @@
 		<a href="../src/runtime/mem_linux.go.html#line-106">mem_linux.go#L106</a>: 		beg := <b>alignUp</b>(uintptr(v), physHugePageSize)
 		<a href="../src/runtime/mfinal.go.html#line-529">mfinal.go#L529</a>: 		nret = <b>alignUp</b>(nret, uintptr(t.Align_)) + t.Size_
 		<a href="../src/runtime/mfinal.go.html#line-531" class="path-duplicate">mfinal.go</a><a href="../src/runtime/mfinal.go.html#line-531">#L531</a>: 	nret = <b>alignUp</b>(nret, goarch.PtrSize)
+		<a href="../src/runtime/mgcmark.go.html#line-1099">mgcmark.go#L1099</a>: 					size += <b>alignUp</b>(sys.MinFrameSize, sys.StackAlign)
 		<a href="../src/runtime/mgcscavenge.go.html#line-910">mgcscavenge.go#L910</a>: 		max = <b>alignUp</b>(max, minimum)
 		<a href="../src/runtime/mgcscavenge.go.html#line-970" class="path-duplicate">mgcscavenge.go</a><a href="../src/runtime/mgcscavenge.go.html#line-970">#L970</a>: 		hugePageAbove := uint(<b>alignUp</b>(uintptr(start), pagesPerHugePage))
 		<a href="../src/runtime/mheap.go.html#line-1290">mheap.go#L1290</a>: 		base = <b>alignUp</b>(base, physPageSize)
@@ -114,7 +115,7 @@
 		<a href="../src/runtime/stkframe.go.html#line-281">stkframe.go#L281</a>: 		off:       -int32(<b>alignUp</b>(abiRegArgsType.Size_, 8)), // It's always the highest address local.
 		<a href="../src/runtime/stubs.go.html#line-374">stubs.go#L374</a>: func <b>alignUp</b>(n, a uintptr) uintptr {
 		<a href="../src/runtime/symtab.go.html#line-663">symtab.go#L663</a>: 		maxpc = <b>alignUp</b>(maxpc, 1&lt;&lt;16) // round up for end PC
-		<a href="../src/runtime/traceback.go.html#line-504">traceback.go#L504</a>: 		frame.sp += <b>alignUp</b>(sys.MinFrameSize, sys.StackAlign)
+		<a href="../src/runtime/traceback.go.html#line-509">traceback.go#L509</a>: 		frame.sp += <b>alignUp</b>(sys.MinFrameSize, sys.StackAlign)
 		<a href="../src/runtime/traceregion.go.html#line-44">traceregion.go#L44</a>: 	n = <b>alignUp</b>(n, 8)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/zigo101-twitter.png"></td>

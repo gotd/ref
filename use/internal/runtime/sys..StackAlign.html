@@ -11,16 +11,17 @@
 
 <pre><code><span style="font-size:x-large;">const <b><a href="../../../pkg/internal/runtime/sys.html">internal/runtime/sys</a>.<a href="../../../src/internal/runtime/sys/consts.go.html#line-36">StackAlign</a></b></span>
 
-<span class="title">5 uses</span>
+<span class="title">6 uses</span>
 
 	internal/runtime/sys (current package)
 		<a href="../../../src/internal/runtime/sys/consts.go.html#line-36">consts.go#L36</a>: const <b>StackAlign</b> = goarch.StackAlign
 
 	<a href="../../../pkg/runtime.html">runtime</a>
 		<a href="../../../src/runtime/cgocall.go.html#line-495">cgocall.go#L495</a>: 		sched.sp = *(*uintptr)(unsafe.Pointer(sched.sp + alignUp(sys.MinFrameSize, sys.<b>StackAlign</b>)))
+		<a href="../../../src/runtime/mgcmark.go.html#line-1099">mgcmark.go#L1099</a>: 					size += alignUp(sys.MinFrameSize, sys.<b>StackAlign</b>)
 		<a href="../../../src/runtime/proc.go.html#line-5335">proc.go#L5335</a>: 	totalSize = alignUp(totalSize, sys.<b>StackAlign</b>)
 		<a href="../../../src/runtime/stkframe.go.html#line-186">stkframe.go#L186</a>: 		minsize = sys.<b>StackAlign</b>
-		<a href="../../../src/runtime/traceback.go.html#line-504">traceback.go#L504</a>: 		frame.sp += alignUp(sys.MinFrameSize, sys.<b>StackAlign</b>)
+		<a href="../../../src/runtime/traceback.go.html#line-509">traceback.go#L509</a>: 		frame.sp += alignUp(sys.MinFrameSize, sys.<b>StackAlign</b>)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
