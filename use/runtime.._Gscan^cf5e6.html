@@ -54,13 +54,13 @@
 		<a href="../src/runtime/runtime2.go.html#line-118" class="path-duplicate">runtime2.go</a><a href="../src/runtime/runtime2.go.html#line-118">#L118</a>: 	_Gscanleaked    = <b>_Gscan</b> + _Gleaked    // 0x100a
 		<a href="../src/runtime/runtime2.go.html#line-119" class="path-duplicate">runtime2.go</a><a href="../src/runtime/runtime2.go.html#line-119">#L119</a>: 	_Gscandeadextra = <b>_Gscan</b> + _Gdeadextra // 0x100b
 		<a href="../src/runtime/signal_unix.go.html#line-774">signal_unix.go#L774</a>: 		if crashing.Load() &gt; 0 &amp;&amp; gp != mp.curg &amp;&amp; mp.curg != nil &amp;&amp; readgstatus(mp.curg)&amp;^<b>_Gscan</b> == _Grunning {
-		<a href="../src/runtime/stack.go.html#line-1247">stack.go#L1247</a>: 	if readgstatus(gp)&amp;^<b>_Gscan</b> == _Gwaiting &amp;&amp; gp.waitreason.isWaitingForSuspendG() {
-		<a href="../src/runtime/stack.go.html#line-1261" class="path-duplicate">stack.go</a><a href="../src/runtime/stack.go.html#line-1261">#L1261</a>: 	if s := readgstatus(gp); s&amp;<b>_Gscan</b> == 0 {
+		<a href="../src/runtime/stack.go.html#line-1276">stack.go#L1276</a>: 	if readgstatus(gp)&amp;^<b>_Gscan</b> == _Gwaiting &amp;&amp; gp.waitreason.isWaitingForSuspendG() {
+		<a href="../src/runtime/stack.go.html#line-1290" class="path-duplicate">stack.go</a><a href="../src/runtime/stack.go.html#line-1290">#L1290</a>: 	if s := readgstatus(gp); s&amp;<b>_Gscan</b> == 0 {
 		<a href="../src/runtime/trace.go.html#line-529">trace.go#L529</a>: 				ug.status = readgstatus(s.g) &amp;^ <b>_Gscan</b>
-		<a href="../src/runtime/traceback.go.html#line-841">traceback.go#L841</a>: 	if readgstatus(gp)&amp;^<b>_Gscan</b> == _Gsyscall {
-		<a href="../src/runtime/traceback.go.html#line-1220" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1220">#L1220</a>: 	isScan := gpstatus&amp;<b>_Gscan</b> != 0
-		<a href="../src/runtime/traceback.go.html#line-1221" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1221">#L1221</a>: 	gpstatus &amp;^= <b>_Gscan</b> // drop the scan bit
-		<a href="../src/runtime/traceback.go.html#line-1340" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1340">#L1340</a>: 		if gp.m != getg().m &amp;&amp; readgstatus(gp)&amp;^<b>_Gscan</b> == _Grunning &amp;&amp; gp.syscallsp == 0 {
+		<a href="../src/runtime/traceback.go.html#line-846">traceback.go#L846</a>: 	if readgstatus(gp)&amp;^<b>_Gscan</b> == _Gsyscall {
+		<a href="../src/runtime/traceback.go.html#line-1225" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1225">#L1225</a>: 	isScan := gpstatus&amp;<b>_Gscan</b> != 0
+		<a href="../src/runtime/traceback.go.html#line-1226" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1226">#L1226</a>: 	gpstatus &amp;^= <b>_Gscan</b> // drop the scan bit
+		<a href="../src/runtime/traceback.go.html#line-1345" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1345">#L1345</a>: 		if gp.m != getg().m &amp;&amp; readgstatus(gp)&amp;^<b>_Gscan</b> == _Grunning &amp;&amp; gp.syscallsp == 0 {
 		<a href="../src/runtime/tracestack.go.html#line-46">tracestack.go#L46</a>: 		if status&amp;<b>_Gscan</b> == 0 {
 		<a href="../src/runtime/tracestatus.go.html#line-70">tracestatus.go#L70</a>: 		if w.mp.p.ptr() == pp &amp;&amp; w.mp.curg != nil &amp;&amp; readgstatus(w.mp.curg)&amp;^<b>_Gscan</b> == _Gsyscall {
 		<a href="../src/runtime/tracestatus.go.html#line-117" class="path-duplicate">tracestatus.go</a><a href="../src/runtime/tracestatus.go.html#line-117">#L117</a>: 	switch status &amp;^ <b>_Gscan</b> {

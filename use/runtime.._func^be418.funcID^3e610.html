@@ -16,18 +16,20 @@
 	runtime (current package)
 		<a href="../src/runtime/mgcmark.go.html#line-1074">mgcmark.go#L1074</a>: 	isAsyncPreempt := frame.fn.valid() &amp;&amp; frame.fn.<b>funcID</b> == abi.FuncID_asyncPreempt
 		<a href="../src/runtime/mgcmark.go.html#line-1075" class="path-duplicate">mgcmark.go</a><a href="../src/runtime/mgcmark.go.html#line-1075">#L1075</a>: 	isDebugCall := frame.fn.valid() &amp;&amp; frame.fn.<b>funcID</b> == abi.FuncID_debugCallV2
+		<a href="../src/runtime/mgcmark.go.html#line-1092" class="path-duplicate">mgcmark.go</a><a href="../src/runtime/mgcmark.go.html#line-1092">#L1092</a>: 				isSigPanic := frame.fn.valid() &amp;&amp; frame.fn.<b>funcID</b> == abi.FuncID_sigpanic
 		<a href="../src/runtime/panic.go.html#line-1703">panic.go#L1703</a>: 	return f.<b>funcID</b> == abi.FuncID_abort
 		<a href="../src/runtime/runtime2.go.html#line-1087">runtime2.go#L1087</a>: 	<b>funcID</b>    abi.FuncID // set for certain special runtime functions
+		<a href="../src/runtime/stack.go.html#line-723">stack.go#L723</a>: 	if goarch.ArchFamily == goarch.ARM64 &amp;&amp; isInjectedCall(frame.fn.<b>funcID</b>) {
 		<a href="../src/runtime/symtab.go.html#line-970">symtab.go#L970</a>: 	return srcFunc{f.datap, f.nameOff, f.startLine, f.<b>funcID</b>}
 		<a href="../src/runtime/traceback.go.html#line-267">traceback.go#L267</a>: 	if f.<b>funcID</b> == abi.FuncID_cgocallback {
 		<a href="../src/runtime/traceback.go.html#line-290" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-290">#L290</a>: 			switch f.<b>funcID</b> {
-		<a href="../src/runtime/traceback.go.html#line-459" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-459">#L459</a>: 		if doPrint &amp;&amp; gp.m.incgo &amp;&amp; f.<b>funcID</b> == abi.FuncID_sigpanic {
-		<a href="../src/runtime/traceback.go.html#line-485" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-485">#L485</a>: 	injectedCall := f.<b>funcID</b> == abi.FuncID_sigpanic || f.<b>funcID</b> == abi.FuncID_asyncPreempt || f.<b>funcID</b> == abi.FuncID_debugCallV2
-		<a href="../src/runtime/traceback.go.html#line-493" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-493">#L493</a>: 	u.calleeFuncID = f.<b>funcID</b>
-		<a href="../src/runtime/traceback.go.html#line-595" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-595">#L595</a>: 	if !cgoTracebackAvailable() || u.frame.fn.<b>funcID</b> != abi.FuncID_cgocallback || u.cgoCtxt &lt; 0 {
-		<a href="../src/runtime/traceback.go.html#line-1414" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1414">#L1414</a>: 	if f.<b>funcID</b> == abi.FuncID_runtime_main || f.<b>funcID</b> == abi.FuncID_corostart || f.<b>funcID</b> == abi.FuncID_handleAsyncEvent {
-		<a href="../src/runtime/traceback.go.html#line-1417" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1417">#L1417</a>: 	if f.<b>funcID</b> == abi.FuncID_runFinalizers {
-		<a href="../src/runtime/traceback.go.html#line-1427" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1427">#L1427</a>: 	if f.<b>funcID</b> == abi.FuncID_runCleanups {
+		<a href="../src/runtime/traceback.go.html#line-463" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-463">#L463</a>: 		if doPrint &amp;&amp; gp.m.incgo &amp;&amp; f.<b>funcID</b> == abi.FuncID_sigpanic {
+		<a href="../src/runtime/traceback.go.html#line-489" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-489">#L489</a>: 	injectedCall := isInjectedCall(f.<b>funcID</b>)
+		<a href="../src/runtime/traceback.go.html#line-497" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-497">#L497</a>: 	u.calleeFuncID = f.<b>funcID</b>
+		<a href="../src/runtime/traceback.go.html#line-600" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-600">#L600</a>: 	if !cgoTracebackAvailable() || u.frame.fn.<b>funcID</b> != abi.FuncID_cgocallback || u.cgoCtxt &lt; 0 {
+		<a href="../src/runtime/traceback.go.html#line-1419" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1419">#L1419</a>: 	if f.<b>funcID</b> == abi.FuncID_runtime_main || f.<b>funcID</b> == abi.FuncID_corostart || f.<b>funcID</b> == abi.FuncID_handleAsyncEvent {
+		<a href="../src/runtime/traceback.go.html#line-1422" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1422">#L1422</a>: 	if f.<b>funcID</b> == abi.FuncID_runFinalizers {
+		<a href="../src/runtime/traceback.go.html#line-1432" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1432">#L1432</a>: 	if f.<b>funcID</b> == abi.FuncID_runCleanups {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)

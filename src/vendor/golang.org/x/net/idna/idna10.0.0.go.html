@@ -162,7 +162,12 @@ input[id=r142]:checked ~pre label[for=r142],
 input[id=r143]:checked ~pre label[for=r143],
 input[id=r144]:checked ~pre label[for=r144],
 input[id=r145]:checked ~pre label[for=r145],
-input[id=r146]:checked ~pre label[for=r146]
+input[id=r146]:checked ~pre label[for=r146],
+input[id=r147]:checked ~pre label[for=r147],
+input[id=r148]:checked ~pre label[for=r148],
+input[id=r149]:checked ~pre label[for=r149],
+input[id=r150]:checked ~pre label[for=r150],
+input[id=r151]:checked ~pre label[for=r151]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
 input[id=i1]:checked ~pre .i1,
@@ -318,6 +323,11 @@ input[id=i5]:checked ~pre .i5
 <input id="r144" type="radio" name="g"/>
 <input id="r145" type="radio" name="g"/>
 <input id="r146" type="radio" name="g"/>
+<input id="r147" type="radio" name="g"/>
+<input id="r148" type="radio" name="g"/>
+<input id="r149" type="radio" name="g"/>
+<input id="r150" type="radio" name="g"/>
+<input id="r151" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
 <input id="i2" type="radio" name="i"/>
@@ -415,13 +425,13 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-88"><code>		<span class="comment">// Don't override existing mappings, but set one that at least checks</span></code></span>
 <span class="codeline" id="line-89"><code><span class="comment">		// normalization if it is not set.</span></code></span>
 <span class="codeline" id="line-90"><code>		<span class="keyword">if</span> <label for="r15" class="ident">o</label>.<a href="#line-192" class="ident">mapping</a> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; <label for="r14" class="ident">enable</label> {</code></span>
-<span class="codeline" id="line-91"><code>			<label for="r15" class="ident">o</label>.<a href="#line-192" class="ident">mapping</a> = <a href="#line-427" class="ident">normalize</a></code></span>
+<span class="codeline" id="line-91"><code>			<label for="r15" class="ident">o</label>.<a href="#line-192" class="ident">mapping</a> = <a href="#line-440" class="ident">normalize</a></code></span>
 <span class="codeline" id="line-92"><code>		}</code></span>
 <span class="codeline" id="line-93"><code>		<label for="r15" class="ident">o</label>.<a href="#line-185" class="ident">trie</a> = <a href="trie.go.html#line-27" class="ident">trie</a></code></span>
 <span class="codeline" id="line-94"><code>		<label for="r15" class="ident">o</label>.<a href="#line-181" class="ident">checkJoiners</a> = <label for="r14" class="ident">enable</label></code></span>
 <span class="codeline" id="line-95"><code>		<label for="r15" class="ident">o</label>.<a href="#line-180" class="ident">checkHyphens</a> = <label for="r14" class="ident">enable</label></code></span>
 <span class="codeline" id="line-96"><code>		<span class="keyword">if</span> <label for="r14" class="ident">enable</label> {</code></span>
-<span class="codeline" id="line-97"><code>			<label for="r15" class="ident">o</label>.<a href="#line-188" class="ident">fromPuny</a> = <a href="#line-626" class="ident">validateFromPunycode</a></code></span>
+<span class="codeline" id="line-97"><code>			<label for="r15" class="ident">o</label>.<a href="#line-188" class="ident">fromPuny</a> = <a href="#line-639" class="ident">validateFromPunycode</a></code></span>
 <span class="codeline" id="line-98"><code>		} <span class="keyword">else</span> {</code></span>
 <span class="codeline" id="line-99"><code>			<label for="r15" class="ident">o</label>.<a href="#line-188" class="ident">fromPuny</a> = <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
 <span class="codeline" id="line-100"><code>		}</code></span>
@@ -477,7 +487,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-150"><code><span class="comment">// properly formatted for registration as defined by Section 4 of RFC 5891.</span></code></span>
 <span class="codeline" id="line-151"><code><span class="keyword">func</span> <label for="r27" class="ident"><a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-ValidateForRegistration" class="ident">ValidateForRegistration</a></label>() <a href="#line-56" class="ident">Option</a> {</code></span>
 <span class="codeline" id="line-152"><code>	<span class="keyword">return</span> <span class="keyword">func</span>(<label for="r28" class="ident">o</label> *<a href="#line-177" class="ident">options</a>) {</code></span>
-<span class="codeline" id="line-153"><code>		<label for="r28" class="ident">o</label>.<a href="#line-192" class="ident">mapping</a> = <a href="#line-436" class="ident">validateRegistration</a></code></span>
+<span class="codeline" id="line-153"><code>		<label for="r28" class="ident">o</label>.<a href="#line-192" class="ident">mapping</a> = <a href="#line-449" class="ident">validateRegistration</a></code></span>
 <span class="codeline" id="line-154"><code>		<a href="#line-134" class="ident">StrictDomainName</a>(<a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>)(<label for="r28" class="ident">o</label>)</code></span>
 <span class="codeline" id="line-155"><code>		<a href="#line-86" class="ident">ValidateLabels</a>(<a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>)(<label for="r28" class="ident">o</label>)</code></span>
 <span class="codeline" id="line-156"><code>		<a href="#line-71" class="ident">VerifyDNSLength</a>(<a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>)(<label for="r28" class="ident">o</label>)</code></span>
@@ -495,7 +505,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-168"><code><span class="comment">// compatibility mappings.</span></code></span>
 <span class="codeline" id="line-169"><code><span class="keyword">func</span> <label for="r29" class="ident"><a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-MapForLookup" class="ident">MapForLookup</a></label>() <a href="#line-56" class="ident">Option</a> {</code></span>
 <span class="codeline" id="line-170"><code>	<span class="keyword">return</span> <span class="keyword">func</span>(<label for="r30" class="ident">o</label> *<a href="#line-177" class="ident">options</a>) {</code></span>
-<span class="codeline" id="line-171"><code>		<label for="r30" class="ident">o</label>.<a href="#line-192" class="ident">mapping</a> = <a href="#line-475" class="ident">validateAndMap</a></code></span>
+<span class="codeline" id="line-171"><code>		<label for="r30" class="ident">o</label>.<a href="#line-192" class="ident">mapping</a> = <a href="#line-488" class="ident">validateAndMap</a></code></span>
 <span class="codeline" id="line-172"><code>		<a href="#line-134" class="ident">StrictDomainName</a>(<a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>)(<label for="r30" class="ident">o</label>)</code></span>
 <span class="codeline" id="line-173"><code>		<a href="#line-86" class="ident">ValidateLabels</a>(<a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>)(<label for="r30" class="ident">o</label>)</code></span>
 <span class="codeline" id="line-174"><code>	}</code></span>
@@ -615,8 +625,8 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-288"><code>		<a href="#line-180" class="ident">checkHyphens</a>: <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>,</code></span>
 <span class="codeline" id="line-289"><code>		<a href="#line-181" class="ident">checkJoiners</a>: <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>,</code></span>
 <span class="codeline" id="line-290"><code>		<a href="#line-185" class="ident">trie</a>:         <a href="trie.go.html#line-27" class="ident">trie</a>,</code></span>
-<span class="codeline" id="line-291"><code>		<a href="#line-188" class="ident">fromPuny</a>:     <a href="#line-626" class="ident">validateFromPunycode</a>,</code></span>
-<span class="codeline" id="line-292"><code>		<a href="#line-192" class="ident">mapping</a>:      <a href="#line-475" class="ident">validateAndMap</a>,</code></span>
+<span class="codeline" id="line-291"><code>		<a href="#line-188" class="ident">fromPuny</a>:     <a href="#line-639" class="ident">validateFromPunycode</a>,</code></span>
+<span class="codeline" id="line-292"><code>		<a href="#line-192" class="ident">mapping</a>:      <a href="#line-488" class="ident">validateAndMap</a>,</code></span>
 <span class="codeline" id="line-293"><code>		<a href="#line-196" class="ident">bidirule</a>:     <a href="../../../../../../pkg/vendor/golang.org/x/text/secure/bidirule.html" class="ident i0">bidirule</a>.<a href="../../text/secure/bidirule/bidirule.go.html#line-179" class="ident">ValidString</a>,</code></span>
 <span class="codeline" id="line-294"><code>	}}</code></span>
 <span class="codeline" id="line-295"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-display" class="ident">display</a> = &amp;<a href="#line-200" class="ident">Profile</a>{<a href="#line-177" class="ident">options</a>{</code></span>
@@ -624,8 +634,8 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-297"><code>		<a href="#line-180" class="ident">checkHyphens</a>: <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>,</code></span>
 <span class="codeline" id="line-298"><code>		<a href="#line-181" class="ident">checkJoiners</a>: <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>,</code></span>
 <span class="codeline" id="line-299"><code>		<a href="#line-185" class="ident">trie</a>:         <a href="trie.go.html#line-27" class="ident">trie</a>,</code></span>
-<span class="codeline" id="line-300"><code>		<a href="#line-188" class="ident">fromPuny</a>:     <a href="#line-626" class="ident">validateFromPunycode</a>,</code></span>
-<span class="codeline" id="line-301"><code>		<a href="#line-192" class="ident">mapping</a>:      <a href="#line-475" class="ident">validateAndMap</a>,</code></span>
+<span class="codeline" id="line-300"><code>		<a href="#line-188" class="ident">fromPuny</a>:     <a href="#line-639" class="ident">validateFromPunycode</a>,</code></span>
+<span class="codeline" id="line-301"><code>		<a href="#line-192" class="ident">mapping</a>:      <a href="#line-488" class="ident">validateAndMap</a>,</code></span>
 <span class="codeline" id="line-302"><code>		<a href="#line-196" class="ident">bidirule</a>:     <a href="../../../../../../pkg/vendor/golang.org/x/text/secure/bidirule.html" class="ident i0">bidirule</a>.<a href="../../text/secure/bidirule/bidirule.go.html#line-179" class="ident">ValidString</a>,</code></span>
 <span class="codeline" id="line-303"><code>	}}</code></span>
 <span class="codeline" id="line-304"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-registration" class="ident">registration</a> = &amp;<a href="#line-200" class="ident">Profile</a>{<a href="#line-177" class="ident">options</a>{</code></span>
@@ -634,8 +644,8 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-307"><code>		<a href="#line-180" class="ident">checkHyphens</a>:    <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>,</code></span>
 <span class="codeline" id="line-308"><code>		<a href="#line-181" class="ident">checkJoiners</a>:    <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>,</code></span>
 <span class="codeline" id="line-309"><code>		<a href="#line-185" class="ident">trie</a>:            <a href="trie.go.html#line-27" class="ident">trie</a>,</code></span>
-<span class="codeline" id="line-310"><code>		<a href="#line-188" class="ident">fromPuny</a>:        <a href="#line-626" class="ident">validateFromPunycode</a>,</code></span>
-<span class="codeline" id="line-311"><code>		<a href="#line-192" class="ident">mapping</a>:         <a href="#line-436" class="ident">validateRegistration</a>,</code></span>
+<span class="codeline" id="line-310"><code>		<a href="#line-188" class="ident">fromPuny</a>:        <a href="#line-639" class="ident">validateFromPunycode</a>,</code></span>
+<span class="codeline" id="line-311"><code>		<a href="#line-192" class="ident">mapping</a>:         <a href="#line-449" class="ident">validateRegistration</a>,</code></span>
 <span class="codeline" id="line-312"><code>		<a href="#line-196" class="ident">bidirule</a>:        <a href="../../../../../../pkg/vendor/golang.org/x/text/secure/bidirule.html" class="ident i0">bidirule</a>.<a href="../../text/secure/bidirule/bidirule.go.html#line-179" class="ident">ValidString</a>,</code></span>
 <span class="codeline" id="line-313"><code>	}}</code></span>
 <span class="codeline" id="line-314"><code></code></span>
@@ -677,9 +687,9 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-350"><code>	<span class="keyword">if</span> <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; <label for="r57" class="ident">p</label>.<a href="#line-182" class="ident">verifyDNSLength</a> &amp;&amp; <label for="r59" class="ident">s</label> == <span class="lit-string">""</span> {</code></span>
 <span class="codeline" id="line-351"><code>		<label for="r61" class="ident">err</label> = &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r59" class="ident">s</label>, <span class="lit-string">"A4"</span>}</code></span>
 <span class="codeline" id="line-352"><code>	}</code></span>
-<span class="codeline" id="line-353"><code>	<label for="r63" class="ident">labels</label> := <a href="#line-539" class="ident">labelIter</a>{<a href="#line-540" class="ident">orig</a>: <label for="r59" class="ident">s</label>}</code></span>
-<span class="codeline" id="line-354"><code>	<span class="keyword">for</span> ; !<label for="r63" class="ident">labels</label>.<a href="#line-553" class="ident">done</a>(); <label for="r63" class="ident">labels</label>.<a href="#line-577" class="ident">next</a>() {</code></span>
-<span class="codeline" id="line-355"><code>		<label for="r64" class="ident">label</label> := <label for="r63" class="ident">labels</label>.<a href="#line-564" class="ident">label</a>()</code></span>
+<span class="codeline" id="line-353"><code>	<label for="r63" class="ident">labels</label> := <a href="#line-552" class="ident">labelIter</a>{<a href="#line-553" class="ident">orig</a>: <label for="r59" class="ident">s</label>}</code></span>
+<span class="codeline" id="line-354"><code>	<span class="keyword">for</span> ; !<label for="r63" class="ident">labels</label>.<a href="#line-566" class="ident">done</a>(); <label for="r63" class="ident">labels</label>.<a href="#line-590" class="ident">next</a>() {</code></span>
+<span class="codeline" id="line-355"><code>		<label for="r64" class="ident">label</label> := <label for="r63" class="ident">labels</label>.<a href="#line-577" class="ident">label</a>()</code></span>
 <span class="codeline" id="line-356"><code>		<span class="keyword">if</span> <label for="r64" class="ident">label</label> == <span class="lit-string">""</span> {</code></span>
 <span class="codeline" id="line-357"><code>			<span class="comment">// Empty labels are not okay. The label iterator skips the last</span></code></span>
 <span class="codeline" id="line-358"><code><span class="comment">			// label if it is empty.</span></code></span>
@@ -688,412 +698,425 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-361"><code>			}</code></span>
 <span class="codeline" id="line-362"><code>			<span class="keyword">continue</span></code></span>
 <span class="codeline" id="line-363"><code>		}</code></span>
-<span class="codeline" id="line-364"><code>		<span class="keyword">if</span> <a href="../../../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../../../strings/strings.go.html#line-520" class="ident">HasPrefix</a>(<label for="r64" class="ident">label</label>, <a href="#line-599" class="ident">acePrefix</a>) {</code></span>
-<span class="codeline" id="line-365"><code>			<label for="r65" class="ident">u</label>, <label for="r66" class="ident">err2</label> := <a href="punycode.go.html#line-34" class="ident">decode</a>(<label for="r64" class="ident">label</label>[<a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<a href="#line-599" class="ident">acePrefix</a>):])</code></span>
-<span class="codeline" id="line-366"><code>			<span class="keyword">if</span> <label for="r66" class="ident">err2</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-367"><code>				<span class="keyword">if</span> <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-368"><code>					<label for="r61" class="ident">err</label> = <label for="r66" class="ident">err2</label></code></span>
-<span class="codeline" id="line-369"><code>				}</code></span>
-<span class="codeline" id="line-370"><code>				<span class="comment">// Spec says keep the old label.</span></code></span>
-<span class="codeline" id="line-371"><code>				<span class="keyword">continue</span></code></span>
-<span class="codeline" id="line-372"><code>			}</code></span>
-<span class="codeline" id="line-373"><code>			<label for="r62" class="ident">isBidi</label> = <label for="r62" class="ident">isBidi</label> || <a href="../../../../../../pkg/vendor/golang.org/x/text/secure/bidirule.html" class="ident i0">bidirule</a>.<a href="../../text/secure/bidirule/bidirule.go.html#line-153" class="ident">DirectionString</a>(<label for="r65" class="ident">u</label>) != <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/bidi.html" class="ident i0">bidi</a>.<a href="../../text/unicode/bidi/bidi.go.html#line-35" class="ident">LeftToRight</a></code></span>
-<span class="codeline" id="line-374"><code>			<label for="r63" class="ident">labels</label>.<a href="#line-591" class="ident">set</a>(<label for="r65" class="ident">u</label>)</code></span>
-<span class="codeline" id="line-375"><code>			<span class="keyword">if</span> <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; <label for="r57" class="ident">p</label>.<a href="#line-188" class="ident">fromPuny</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-376"><code>				<label for="r61" class="ident">err</label> = <label for="r57" class="ident">p</label>.<a href="#line-188" class="ident">fromPuny</a>(<label for="r57" class="ident">p</label>, <label for="r65" class="ident">u</label>)</code></span>
-<span class="codeline" id="line-377"><code>			}</code></span>
-<span class="codeline" id="line-378"><code>			<span class="keyword">if</span> <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-379"><code>				<span class="comment">// This should be called on NonTransitional, according to the</span></code></span>
-<span class="codeline" id="line-380"><code><span class="comment">				// spec, but that currently does not have any effect. Use the</span></code></span>
-<span class="codeline" id="line-381"><code><span class="comment">				// original profile to preserve options.</span></code></span>
-<span class="codeline" id="line-382"><code>				<label for="r61" class="ident">err</label> = <label for="r57" class="ident">p</label>.<a href="#line-709" class="ident">validateLabel</a>(<label for="r65" class="ident">u</label>)</code></span>
-<span class="codeline" id="line-383"><code>			}</code></span>
-<span class="codeline" id="line-384"><code>		} <span class="keyword">else</span> <span class="keyword">if</span> <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-385"><code>			<label for="r61" class="ident">err</label> = <label for="r57" class="ident">p</label>.<a href="#line-709" class="ident">validateLabel</a>(<label for="r64" class="ident">label</label>)</code></span>
-<span class="codeline" id="line-386"><code>		}</code></span>
-<span class="codeline" id="line-387"><code>	}</code></span>
-<span class="codeline" id="line-388"><code>	<span class="keyword">if</span> <label for="r62" class="ident">isBidi</label> &amp;&amp; <label for="r57" class="ident">p</label>.<a href="#line-196" class="ident">bidirule</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-389"><code>		<span class="keyword">for</span> <label for="r63" class="ident">labels</label>.<a href="#line-547" class="ident">reset</a>(); !<label for="r63" class="ident">labels</label>.<a href="#line-553" class="ident">done</a>(); <label for="r63" class="ident">labels</label>.<a href="#line-577" class="ident">next</a>() {</code></span>
-<span class="codeline" id="line-390"><code>			<span class="keyword">if</span> !<label for="r57" class="ident">p</label>.<a href="#line-196" class="ident">bidirule</a>(<label for="r63" class="ident">labels</label>.<a href="#line-564" class="ident">label</a>()) {</code></span>
-<span class="codeline" id="line-391"><code>				<label for="r61" class="ident">err</label> = &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r59" class="ident">s</label>, <span class="lit-string">"B"</span>}</code></span>
-<span class="codeline" id="line-392"><code>				<span class="keyword">break</span></code></span>
-<span class="codeline" id="line-393"><code>			}</code></span>
-<span class="codeline" id="line-394"><code>		}</code></span>
-<span class="codeline" id="line-395"><code>	}</code></span>
-<span class="codeline" id="line-396"><code>	<span class="keyword">if</span> <label for="r60" class="ident">toASCII</label> {</code></span>
-<span class="codeline" id="line-397"><code>		<span class="keyword">for</span> <label for="r63" class="ident">labels</label>.<a href="#line-547" class="ident">reset</a>(); !<label for="r63" class="ident">labels</label>.<a href="#line-553" class="ident">done</a>(); <label for="r63" class="ident">labels</label>.<a href="#line-577" class="ident">next</a>() {</code></span>
-<span class="codeline" id="line-398"><code>			<label for="r67" class="ident">label</label> := <label for="r63" class="ident">labels</label>.<a href="#line-564" class="ident">label</a>()</code></span>
-<span class="codeline" id="line-399"><code>			<span class="keyword">if</span> !<a href="#line-762" class="ident">ascii</a>(<label for="r67" class="ident">label</label>) {</code></span>
-<span class="codeline" id="line-400"><code>				<label for="r68" class="ident">a</label>, <label for="r69" class="ident">err2</label> := <a href="punycode.go.html#line-105" class="ident">encode</a>(<a href="#line-599" class="ident">acePrefix</a>, <label for="r67" class="ident">label</label>)</code></span>
-<span class="codeline" id="line-401"><code>				<span class="keyword">if</span> <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-402"><code>					<label for="r61" class="ident">err</label> = <label for="r69" class="ident">err2</label></code></span>
-<span class="codeline" id="line-403"><code>				}</code></span>
-<span class="codeline" id="line-404"><code>				<label for="r67" class="ident">label</label> = <label for="r68" class="ident">a</label></code></span>
-<span class="codeline" id="line-405"><code>				<label for="r63" class="ident">labels</label>.<a href="#line-591" class="ident">set</a>(<label for="r68" class="ident">a</label>)</code></span>
-<span class="codeline" id="line-406"><code>			}</code></span>
-<span class="codeline" id="line-407"><code>			<label for="r70" class="ident">n</label> := <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r67" class="ident">label</label>)</code></span>
-<span class="codeline" id="line-408"><code>			<span class="keyword">if</span> <label for="r57" class="ident">p</label>.<a href="#line-182" class="ident">verifyDNSLength</a> &amp;&amp; <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; (<label for="r70" class="ident">n</label> == <span class="lit-number">0</span> || <label for="r70" class="ident">n</label> &gt; <span class="lit-number">63</span>) {</code></span>
-<span class="codeline" id="line-409"><code>				<label for="r61" class="ident">err</label> = &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r67" class="ident">label</label>, <span class="lit-string">"A4"</span>}</code></span>
+<span class="codeline" id="line-364"><code>		<span class="keyword">if</span> <a href="../../../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../../../strings/strings.go.html#line-520" class="ident">HasPrefix</a>(<label for="r64" class="ident">label</label>, <a href="#line-612" class="ident">acePrefix</a>) {</code></span>
+<span class="codeline" id="line-365"><code>			<label for="r65" class="ident">enc</label> := <label for="r64" class="ident">label</label>[<a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<a href="#line-612" class="ident">acePrefix</a>):]</code></span>
+<span class="codeline" id="line-366"><code>			<label for="r66" class="ident">u</label>, <label for="r67" class="ident">err2</label> := <a href="punycode.go.html#line-34" class="ident">decode</a>(<label for="r65" class="ident">enc</label>)</code></span>
+<span class="codeline" id="line-367"><code>			<span class="keyword">if</span> <label for="r67" class="ident">err2</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-368"><code>				<span class="keyword">if</span> <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-369"><code>					<label for="r61" class="ident">err</label> = <label for="r67" class="ident">err2</label></code></span>
+<span class="codeline" id="line-370"><code>				}</code></span>
+<span class="codeline" id="line-371"><code>				<span class="comment">// Spec says keep the old label.</span></code></span>
+<span class="codeline" id="line-372"><code>				<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-373"><code>			}</code></span>
+<span class="codeline" id="line-374"><code>			<span class="keyword">if</span> <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r66" class="ident">u</label>) &gt; <span class="lit-number">0</span> &amp;&amp; <a href="#line-431" class="ident">isASCII</a>(<label for="r66" class="ident">u</label>) {</code></span>
+<span class="codeline" id="line-375"><code>				<label for="r61" class="ident">err</label> = <a href="punycode.go.html#line-31" class="ident">punyError</a>(<label for="r65" class="ident">enc</label>)</code></span>
+<span class="codeline" id="line-376"><code>			}</code></span>
+<span class="codeline" id="line-377"><code>			<label for="r62" class="ident">isBidi</label> = <label for="r62" class="ident">isBidi</label> || <a href="../../../../../../pkg/vendor/golang.org/x/text/secure/bidirule.html" class="ident i0">bidirule</a>.<a href="../../text/secure/bidirule/bidirule.go.html#line-153" class="ident">DirectionString</a>(<label for="r66" class="ident">u</label>) != <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/bidi.html" class="ident i0">bidi</a>.<a href="../../text/unicode/bidi/bidi.go.html#line-35" class="ident">LeftToRight</a></code></span>
+<span class="codeline" id="line-378"><code>			<label for="r63" class="ident">labels</label>.<a href="#line-604" class="ident">set</a>(<label for="r66" class="ident">u</label>)</code></span>
+<span class="codeline" id="line-379"><code>			<span class="keyword">if</span> <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; <label for="r57" class="ident">p</label>.<a href="#line-188" class="ident">fromPuny</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-380"><code>				<label for="r61" class="ident">err</label> = <label for="r57" class="ident">p</label>.<a href="#line-188" class="ident">fromPuny</a>(<label for="r57" class="ident">p</label>, <label for="r66" class="ident">u</label>)</code></span>
+<span class="codeline" id="line-381"><code>			}</code></span>
+<span class="codeline" id="line-382"><code>			<span class="keyword">if</span> <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-383"><code>				<span class="comment">// This should be called on NonTransitional, according to the</span></code></span>
+<span class="codeline" id="line-384"><code><span class="comment">				// spec, but that currently does not have any effect. Use the</span></code></span>
+<span class="codeline" id="line-385"><code><span class="comment">				// original profile to preserve options.</span></code></span>
+<span class="codeline" id="line-386"><code>				<label for="r61" class="ident">err</label> = <label for="r57" class="ident">p</label>.<a href="#line-722" class="ident">validateLabel</a>(<label for="r66" class="ident">u</label>)</code></span>
+<span class="codeline" id="line-387"><code>			}</code></span>
+<span class="codeline" id="line-388"><code>		} <span class="keyword">else</span> <span class="keyword">if</span> <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-389"><code>			<label for="r61" class="ident">err</label> = <label for="r57" class="ident">p</label>.<a href="#line-722" class="ident">validateLabel</a>(<label for="r64" class="ident">label</label>)</code></span>
+<span class="codeline" id="line-390"><code>		}</code></span>
+<span class="codeline" id="line-391"><code>	}</code></span>
+<span class="codeline" id="line-392"><code>	<span class="keyword">if</span> <label for="r62" class="ident">isBidi</label> &amp;&amp; <label for="r57" class="ident">p</label>.<a href="#line-196" class="ident">bidirule</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-393"><code>		<span class="keyword">for</span> <label for="r63" class="ident">labels</label>.<a href="#line-560" class="ident">reset</a>(); !<label for="r63" class="ident">labels</label>.<a href="#line-566" class="ident">done</a>(); <label for="r63" class="ident">labels</label>.<a href="#line-590" class="ident">next</a>() {</code></span>
+<span class="codeline" id="line-394"><code>			<span class="keyword">if</span> !<label for="r57" class="ident">p</label>.<a href="#line-196" class="ident">bidirule</a>(<label for="r63" class="ident">labels</label>.<a href="#line-577" class="ident">label</a>()) {</code></span>
+<span class="codeline" id="line-395"><code>				<label for="r61" class="ident">err</label> = &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r59" class="ident">s</label>, <span class="lit-string">"B"</span>}</code></span>
+<span class="codeline" id="line-396"><code>				<span class="keyword">break</span></code></span>
+<span class="codeline" id="line-397"><code>			}</code></span>
+<span class="codeline" id="line-398"><code>		}</code></span>
+<span class="codeline" id="line-399"><code>	}</code></span>
+<span class="codeline" id="line-400"><code>	<span class="keyword">if</span> <label for="r60" class="ident">toASCII</label> {</code></span>
+<span class="codeline" id="line-401"><code>		<span class="keyword">for</span> <label for="r63" class="ident">labels</label>.<a href="#line-560" class="ident">reset</a>(); !<label for="r63" class="ident">labels</label>.<a href="#line-566" class="ident">done</a>(); <label for="r63" class="ident">labels</label>.<a href="#line-590" class="ident">next</a>() {</code></span>
+<span class="codeline" id="line-402"><code>			<label for="r68" class="ident">label</label> := <label for="r63" class="ident">labels</label>.<a href="#line-577" class="ident">label</a>()</code></span>
+<span class="codeline" id="line-403"><code>			<span class="keyword">if</span> !<a href="#line-775" class="ident">ascii</a>(<label for="r68" class="ident">label</label>) {</code></span>
+<span class="codeline" id="line-404"><code>				<label for="r69" class="ident">a</label>, <label for="r70" class="ident">err2</label> := <a href="punycode.go.html#line-105" class="ident">encode</a>(<a href="#line-612" class="ident">acePrefix</a>, <label for="r68" class="ident">label</label>)</code></span>
+<span class="codeline" id="line-405"><code>				<span class="keyword">if</span> <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-406"><code>					<label for="r61" class="ident">err</label> = <label for="r70" class="ident">err2</label></code></span>
+<span class="codeline" id="line-407"><code>				}</code></span>
+<span class="codeline" id="line-408"><code>				<label for="r68" class="ident">label</label> = <label for="r69" class="ident">a</label></code></span>
+<span class="codeline" id="line-409"><code>				<label for="r63" class="ident">labels</label>.<a href="#line-604" class="ident">set</a>(<label for="r69" class="ident">a</label>)</code></span>
 <span class="codeline" id="line-410"><code>			}</code></span>
-<span class="codeline" id="line-411"><code>		}</code></span>
-<span class="codeline" id="line-412"><code>	}</code></span>
-<span class="codeline" id="line-413"><code>	<label for="r59" class="ident">s</label> = <label for="r63" class="ident">labels</label>.<a href="#line-557" class="ident">result</a>()</code></span>
-<span class="codeline" id="line-414"><code>	<span class="keyword">if</span> <label for="r60" class="ident">toASCII</label> &amp;&amp; <label for="r57" class="ident">p</label>.<a href="#line-182" class="ident">verifyDNSLength</a> &amp;&amp; <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-415"><code>		<span class="comment">// Compute the length of the domain name minus the root label and its dot.</span></code></span>
-<span class="codeline" id="line-416"><code>		<label for="r71" class="ident">n</label> := <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r59" class="ident">s</label>)</code></span>
-<span class="codeline" id="line-417"><code>		<span class="keyword">if</span> <label for="r71" class="ident">n</label> &gt; <span class="lit-number">0</span> &amp;&amp; <label for="r59" class="ident">s</label>[<label for="r71" class="ident">n</label>-<span class="lit-number">1</span>] == <span class="lit-number">'.'</span> {</code></span>
-<span class="codeline" id="line-418"><code>			<label for="r71" class="ident">n</label>--</code></span>
-<span class="codeline" id="line-419"><code>		}</code></span>
-<span class="codeline" id="line-420"><code>		<span class="keyword">if</span> <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r59" class="ident">s</label>) &lt; <span class="lit-number">1</span> || <label for="r71" class="ident">n</label> &gt; <span class="lit-number">253</span> {</code></span>
-<span class="codeline" id="line-421"><code>			<label for="r61" class="ident">err</label> = &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r59" class="ident">s</label>, <span class="lit-string">"A4"</span>}</code></span>
-<span class="codeline" id="line-422"><code>		}</code></span>
-<span class="codeline" id="line-423"><code>	}</code></span>
-<span class="codeline" id="line-424"><code>	<span class="keyword">return</span> <label for="r59" class="ident">s</label>, <label for="r61" class="ident">err</label></code></span>
-<span class="codeline" id="line-425"><code>}</code></span>
-<span class="codeline" id="line-426"><code></code></span>
-<span class="codeline" id="line-427"><code><span class="keyword">func</span> <label for="r72" class="ident"><a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-normalize" class="ident">normalize</a></label>(<label for="r73" class="ident">p</label> *<a href="#line-200" class="ident">Profile</a>, <label for="r74" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<label for="r75" class="ident">mapped</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r76" class="ident">isBidi</label> <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <label for="r77" class="ident">err</label> <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-428"><code>	<span class="comment">// TODO: consider first doing a quick check to see if any of these checks</span></code></span>
-<span class="codeline" id="line-429"><code><span class="comment">	// need to be done. This will make it slower in the general case, but</span></code></span>
-<span class="codeline" id="line-430"><code><span class="comment">	// faster in the common case.</span></code></span>
-<span class="codeline" id="line-431"><code>	<label for="r75" class="ident">mapped</label> = <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/norm.html" class="ident i0">norm</a>.<a href="../../text/unicode/norm/normalize.go.html#line-38" class="ident">NFC</a>.<a href="../../text/unicode/norm/normalize.go.html#line-59" class="ident">String</a>(<label for="r74" class="ident">s</label>)</code></span>
-<span class="codeline" id="line-432"><code>	<label for="r76" class="ident">isBidi</label> = <a href="../../../../../../pkg/vendor/golang.org/x/text/secure/bidirule.html" class="ident i0">bidirule</a>.<a href="../../text/secure/bidirule/bidirule.go.html#line-153" class="ident">DirectionString</a>(<label for="r75" class="ident">mapped</label>) == <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/bidi.html" class="ident i0">bidi</a>.<a href="../../text/unicode/bidi/bidi.go.html#line-40" class="ident">RightToLeft</a></code></span>
-<span class="codeline" id="line-433"><code>	<span class="keyword">return</span> <label for="r75" class="ident">mapped</label>, <label for="r76" class="ident">isBidi</label>, <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-434"><code>}</code></span>
-<span class="codeline" id="line-435"><code></code></span>
-<span class="codeline" id="line-436"><code><span class="keyword">func</span> <label for="r78" class="ident"><a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-validateRegistration" class="ident">validateRegistration</a></label>(<label for="r79" class="ident">p</label> *<a href="#line-200" class="ident">Profile</a>, <label for="r80" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<label for="r81" class="ident">idem</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r82" class="ident">bidi</label> <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <label for="r83" class="ident">err</label> <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-437"><code>	<span class="comment">// TODO: filter need for normalization in loop below.</span></code></span>
-<span class="codeline" id="line-438"><code>	<span class="keyword">if</span> !<a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/norm.html" class="ident i0">norm</a>.<a href="../../text/unicode/norm/normalize.go.html#line-38" class="ident">NFC</a>.<a href="../../text/unicode/norm/normalize.go.html#line-112" class="ident">IsNormalString</a>(<label for="r80" class="ident">s</label>) {</code></span>
-<span class="codeline" id="line-439"><code>		<span class="keyword">return</span> <label for="r80" class="ident">s</label>, <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a>, &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r80" class="ident">s</label>, <span class="lit-string">"V1"</span>}</code></span>
-<span class="codeline" id="line-440"><code>	}</code></span>
-<span class="codeline" id="line-441"><code>	<span class="keyword">for</span> <label for="r84" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r84" class="ident">i</label> &lt; <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r80" class="ident">s</label>); {</code></span>
-<span class="codeline" id="line-442"><code>		<label for="r85" class="ident">v</label>, <label for="r86" class="ident">sz</label> := <a href="trie.go.html#line-27" class="ident">trie</a>.<a href="tables15.0.0.go.html#line-625" class="ident">lookupString</a>(<label for="r80" class="ident">s</label>[<label for="r84" class="ident">i</label>:])</code></span>
-<span class="codeline" id="line-443"><code>		<span class="keyword">if</span> <label for="r86" class="ident">sz</label> == <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-444"><code>			<span class="keyword">return</span> <label for="r80" class="ident">s</label>, <label for="r82" class="ident">bidi</label>, <a href="#line-327" class="ident">runeError</a>(<a href="../../../../../../pkg/unicode/utf8.html" class="ident i2">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-16" class="ident">RuneError</a>)</code></span>
-<span class="codeline" id="line-445"><code>		}</code></span>
-<span class="codeline" id="line-446"><code>		<label for="r82" class="ident">bidi</label> = <label for="r82" class="ident">bidi</label> || <a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r85" class="ident">v</label>).<a href="#line-461" class="ident">isBidi</a>(<label for="r80" class="ident">s</label>[<label for="r84" class="ident">i</label>:])</code></span>
-<span class="codeline" id="line-447"><code>		<span class="comment">// Copy bytes not copied so far.</span></code></span>
-<span class="codeline" id="line-448"><code>		<span class="keyword">switch</span> <label for="r79" class="ident">p</label>.<a href="#line-601" class="ident">simplify</a>(<a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r85" class="ident">v</label>).<a href="trieval.go.html#line-98" class="ident">category</a>()) {</code></span>
-<span class="codeline" id="line-449"><code>		<span class="comment">// TODO: handle the NV8 defined in the Unicode idna data set to allow</span></code></span>
-<span class="codeline" id="line-450"><code><span class="comment">		// for strict conformance to IDNA2008.</span></code></span>
-<span class="codeline" id="line-451"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-72" class="ident">valid</a>, <a href="trieval.go.html#line-68" class="ident">deviation</a>:</code></span>
-<span class="codeline" id="line-452"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-75" class="ident">disallowed</a>, <a href="trieval.go.html#line-66" class="ident">mapped</a>, <a href="trieval.go.html#line-65" class="ident">unknown</a>, <a href="trieval.go.html#line-77" class="ident">ignored</a>:</code></span>
-<span class="codeline" id="line-453"><code>			<label for="r87" class="ident">r</label>, <label for="r88" class="ident">_</label> := <a href="../../../../../../pkg/unicode/utf8.html" class="ident i2">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-219" class="ident">DecodeRuneInString</a>(<label for="r80" class="ident">s</label>[<label for="r84" class="ident">i</label>:])</code></span>
-<span class="codeline" id="line-454"><code>			<span class="keyword">return</span> <label for="r80" class="ident">s</label>, <label for="r82" class="ident">bidi</label>, <a href="#line-327" class="ident">runeError</a>(<label for="r87" class="ident">r</label>)</code></span>
-<span class="codeline" id="line-455"><code>		}</code></span>
-<span class="codeline" id="line-456"><code>		<label for="r84" class="ident">i</label> += <label for="r86" class="ident">sz</label></code></span>
-<span class="codeline" id="line-457"><code>	}</code></span>
-<span class="codeline" id="line-458"><code>	<span class="keyword">return</span> <label for="r80" class="ident">s</label>, <label for="r82" class="ident">bidi</label>, <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-459"><code>}</code></span>
-<span class="codeline" id="line-460"><code></code></span>
-<span class="codeline" id="line-461"><code><span class="keyword">func</span> (<label for="r89" class="ident">c</label> <a href="trieval.go.html#line-40" class="ident">info</a>) <label for="r90" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..info^06271.isBidi^eb17f.html" class="ident">isBidi</a></label>(<label for="r91" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
-<span class="codeline" id="line-462"><code>	<span class="keyword">if</span> !<label for="r89" class="ident">c</label>.<a href="trieval.go.html#line-94" class="ident">isMapped</a>() {</code></span>
-<span class="codeline" id="line-463"><code>		<span class="keyword">return</span> <label for="r89" class="ident">c</label>&amp;<a href="trieval.go.html#line-53" class="ident">attributesMask</a> == <a href="trieval.go.html#line-56" class="ident">rtl</a></code></span>
-<span class="codeline" id="line-464"><code>	}</code></span>
-<span class="codeline" id="line-465"><code>	<span class="comment">// TODO: also store bidi info for mapped data. This is possible, but a bit</span></code></span>
-<span class="codeline" id="line-466"><code><span class="comment">	// cumbersome and not for the common case.</span></code></span>
-<span class="codeline" id="line-467"><code>	<label for="r92" class="ident">p</label>, <label for="r93" class="ident">_</label> := <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/bidi.html" class="ident i0">bidi</a>.<a href="../../text/unicode/bidi/prop.go.html#line-148" class="ident">LookupString</a>(<label for="r91" class="ident">s</label>)</code></span>
-<span class="codeline" id="line-468"><code>	<span class="keyword">switch</span> <label for="r92" class="ident">p</label>.<a href="../../text/unicode/bidi/prop.go.html#line-28" class="ident">Class</a>() {</code></span>
-<span class="codeline" id="line-469"><code>	<span class="keyword">case</span> <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/bidi.html" class="ident i0">bidi</a>.<a href="../../text/unicode/bidi/trieval.go.html#line-10" class="ident">R</a>, <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/bidi.html" class="ident i0">bidi</a>.<a href="../../text/unicode/bidi/trieval.go.html#line-22" class="ident">AL</a>, <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/bidi.html" class="ident i0">bidi</a>.<a href="../../text/unicode/bidi/trieval.go.html#line-14" class="ident">AN</a>:</code></span>
-<span class="codeline" id="line-470"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-471"><code>	}</code></span>
-<span class="codeline" id="line-472"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
-<span class="codeline" id="line-473"><code>}</code></span>
-<span class="codeline" id="line-474"><code></code></span>
-<span class="codeline" id="line-475"><code><span class="keyword">func</span> <label for="r94" class="ident"><a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-validateAndMap" class="ident">validateAndMap</a></label>(<label for="r95" class="ident">p</label> *<a href="#line-200" class="ident">Profile</a>, <label for="r96" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<label for="r97" class="ident">vm</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r98" class="ident">bidi</label> <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <label for="r99" class="ident">err</label> <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-476"><code>	<span class="keyword">var</span> (</code></span>
-<span class="codeline" id="line-477"><code>		<label for="r100" class="ident">b</label> []<a href="../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
-<span class="codeline" id="line-478"><code>		<label for="r101" class="ident">k</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
-<span class="codeline" id="line-479"><code>	)</code></span>
-<span class="codeline" id="line-480"><code>	<span class="comment">// combinedInfoBits contains the or-ed bits of all runes. We use this</span></code></span>
-<span class="codeline" id="line-481"><code><span class="comment">	// to derive the mayNeedNorm bit later. This may trigger normalization</span></code></span>
-<span class="codeline" id="line-482"><code><span class="comment">	// overeagerly, but it will not do so in the common case. The end result</span></code></span>
-<span class="codeline" id="line-483"><code><span class="comment">	// is another 10% saving on BenchmarkProfile for the common case.</span></code></span>
-<span class="codeline" id="line-484"><code>	<span class="keyword">var</span> <label for="r102" class="ident">combinedInfoBits</label> <a href="trieval.go.html#line-40" class="ident">info</a></code></span>
-<span class="codeline" id="line-485"><code>	<span class="keyword">for</span> <label for="r103" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r103" class="ident">i</label> &lt; <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r96" class="ident">s</label>); {</code></span>
-<span class="codeline" id="line-486"><code>		<label for="r104" class="ident">v</label>, <label for="r105" class="ident">sz</label> := <a href="trie.go.html#line-27" class="ident">trie</a>.<a href="tables15.0.0.go.html#line-625" class="ident">lookupString</a>(<label for="r96" class="ident">s</label>[<label for="r103" class="ident">i</label>:])</code></span>
-<span class="codeline" id="line-487"><code>		<span class="keyword">if</span> <label for="r105" class="ident">sz</label> == <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-488"><code>			<label for="r100" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r100" class="ident">b</label>, <label for="r96" class="ident">s</label>[<label for="r101" class="ident">k</label>:<label for="r103" class="ident">i</label>]...)</code></span>
-<span class="codeline" id="line-489"><code>			<label for="r100" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r100" class="ident">b</label>, <span class="lit-string">"\ufffd"</span>...)</code></span>
-<span class="codeline" id="line-490"><code>			<label for="r101" class="ident">k</label> = <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r96" class="ident">s</label>)</code></span>
-<span class="codeline" id="line-491"><code>			<span class="keyword">if</span> <label for="r99" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-492"><code>				<label for="r99" class="ident">err</label> = <a href="#line-327" class="ident">runeError</a>(<a href="../../../../../../pkg/unicode/utf8.html" class="ident i2">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-16" class="ident">RuneError</a>)</code></span>
-<span class="codeline" id="line-493"><code>			}</code></span>
-<span class="codeline" id="line-494"><code>			<span class="keyword">break</span></code></span>
-<span class="codeline" id="line-495"><code>		}</code></span>
-<span class="codeline" id="line-496"><code>		<label for="r102" class="ident">combinedInfoBits</label> |= <a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r104" class="ident">v</label>)</code></span>
-<span class="codeline" id="line-497"><code>		<label for="r98" class="ident">bidi</label> = <label for="r98" class="ident">bidi</label> || <a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r104" class="ident">v</label>).<a href="#line-461" class="ident">isBidi</a>(<label for="r96" class="ident">s</label>[<label for="r103" class="ident">i</label>:])</code></span>
-<span class="codeline" id="line-498"><code>		<label for="r106" class="ident">start</label> := <label for="r103" class="ident">i</label></code></span>
-<span class="codeline" id="line-499"><code>		<label for="r103" class="ident">i</label> += <label for="r105" class="ident">sz</label></code></span>
-<span class="codeline" id="line-500"><code>		<span class="comment">// Copy bytes not copied so far.</span></code></span>
-<span class="codeline" id="line-501"><code>		<span class="keyword">switch</span> <label for="r95" class="ident">p</label>.<a href="#line-601" class="ident">simplify</a>(<a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r104" class="ident">v</label>).<a href="trieval.go.html#line-98" class="ident">category</a>()) {</code></span>
-<span class="codeline" id="line-502"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-72" class="ident">valid</a>:</code></span>
-<span class="codeline" id="line-503"><code>			<span class="keyword">continue</span></code></span>
-<span class="codeline" id="line-504"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-75" class="ident">disallowed</a>:</code></span>
-<span class="codeline" id="line-505"><code>			<span class="keyword">if</span> <label for="r99" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-506"><code>				<label for="r107" class="ident">r</label>, <label for="r108" class="ident">_</label> := <a href="../../../../../../pkg/unicode/utf8.html" class="ident i2">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-219" class="ident">DecodeRuneInString</a>(<label for="r96" class="ident">s</label>[<label for="r106" class="ident">start</label>:])</code></span>
-<span class="codeline" id="line-507"><code>				<label for="r99" class="ident">err</label> = <a href="#line-327" class="ident">runeError</a>(<label for="r107" class="ident">r</label>)</code></span>
-<span class="codeline" id="line-508"><code>			}</code></span>
-<span class="codeline" id="line-509"><code>			<span class="keyword">continue</span></code></span>
-<span class="codeline" id="line-510"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-66" class="ident">mapped</a>, <a href="trieval.go.html#line-68" class="ident">deviation</a>:</code></span>
-<span class="codeline" id="line-511"><code>			<label for="r100" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r100" class="ident">b</label>, <label for="r96" class="ident">s</label>[<label for="r101" class="ident">k</label>:<label for="r106" class="ident">start</label>]...)</code></span>
-<span class="codeline" id="line-512"><code>			<label for="r100" class="ident">b</label> = <a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r104" class="ident">v</label>).<a href="trie13.0.0.go.html#line-13" class="ident">appendMapping</a>(<label for="r100" class="ident">b</label>, <label for="r96" class="ident">s</label>[<label for="r106" class="ident">start</label>:<label for="r103" class="ident">i</label>])</code></span>
-<span class="codeline" id="line-513"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-77" class="ident">ignored</a>:</code></span>
-<span class="codeline" id="line-514"><code>			<label for="r100" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r100" class="ident">b</label>, <label for="r96" class="ident">s</label>[<label for="r101" class="ident">k</label>:<label for="r106" class="ident">start</label>]...)</code></span>
-<span class="codeline" id="line-515"><code>			<span class="comment">// drop the rune</span></code></span>
-<span class="codeline" id="line-516"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-65" class="ident">unknown</a>:</code></span>
-<span class="codeline" id="line-517"><code>			<label for="r100" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r100" class="ident">b</label>, <label for="r96" class="ident">s</label>[<label for="r101" class="ident">k</label>:<label for="r106" class="ident">start</label>]...)</code></span>
-<span class="codeline" id="line-518"><code>			<label for="r100" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r100" class="ident">b</label>, <span class="lit-string">"\ufffd"</span>...)</code></span>
-<span class="codeline" id="line-519"><code>		}</code></span>
-<span class="codeline" id="line-520"><code>		<label for="r101" class="ident">k</label> = <label for="r103" class="ident">i</label></code></span>
-<span class="codeline" id="line-521"><code>	}</code></span>
-<span class="codeline" id="line-522"><code>	<span class="keyword">if</span> <label for="r101" class="ident">k</label> == <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-523"><code>		<span class="comment">// No changes so far.</span></code></span>
-<span class="codeline" id="line-524"><code>		<span class="keyword">if</span> <label for="r102" class="ident">combinedInfoBits</label>&amp;<a href="trieval.go.html#line-58" class="ident">mayNeedNorm</a> != <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-525"><code>			<label for="r96" class="ident">s</label> = <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/norm.html" class="ident i0">norm</a>.<a href="../../text/unicode/norm/normalize.go.html#line-38" class="ident">NFC</a>.<a href="../../text/unicode/norm/normalize.go.html#line-59" class="ident">String</a>(<label for="r96" class="ident">s</label>)</code></span>
-<span class="codeline" id="line-526"><code>		}</code></span>
-<span class="codeline" id="line-527"><code>	} <span class="keyword">else</span> {</code></span>
-<span class="codeline" id="line-528"><code>		<label for="r100" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r100" class="ident">b</label>, <label for="r96" class="ident">s</label>[<label for="r101" class="ident">k</label>:]...)</code></span>
-<span class="codeline" id="line-529"><code>		<span class="keyword">if</span> <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/norm.html" class="ident i0">norm</a>.<a href="../../text/unicode/norm/normalize.go.html#line-38" class="ident">NFC</a>.<a href="../../text/unicode/norm/normalize.go.html#line-267" class="ident">QuickSpan</a>(<label for="r100" class="ident">b</label>) != <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r100" class="ident">b</label>) {</code></span>
-<span class="codeline" id="line-530"><code>			<label for="r100" class="ident">b</label> = <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/norm.html" class="ident i0">norm</a>.<a href="../../text/unicode/norm/normalize.go.html#line-38" class="ident">NFC</a>.<a href="../../text/unicode/norm/normalize.go.html#line-45" class="ident">Bytes</a>(<label for="r100" class="ident">b</label>)</code></span>
-<span class="codeline" id="line-531"><code>		}</code></span>
-<span class="codeline" id="line-532"><code>		<span class="comment">// TODO: the punycode converters require strings as input.</span></code></span>
-<span class="codeline" id="line-533"><code>		<label for="r96" class="ident">s</label> = <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>(<label for="r100" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-411"><code>			<label for="r71" class="ident">n</label> := <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r68" class="ident">label</label>)</code></span>
+<span class="codeline" id="line-412"><code>			<span class="keyword">if</span> <label for="r57" class="ident">p</label>.<a href="#line-182" class="ident">verifyDNSLength</a> &amp;&amp; <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; (<label for="r71" class="ident">n</label> == <span class="lit-number">0</span> || <label for="r71" class="ident">n</label> &gt; <span class="lit-number">63</span>) {</code></span>
+<span class="codeline" id="line-413"><code>				<label for="r61" class="ident">err</label> = &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r68" class="ident">label</label>, <span class="lit-string">"A4"</span>}</code></span>
+<span class="codeline" id="line-414"><code>			}</code></span>
+<span class="codeline" id="line-415"><code>		}</code></span>
+<span class="codeline" id="line-416"><code>	}</code></span>
+<span class="codeline" id="line-417"><code>	<label for="r59" class="ident">s</label> = <label for="r63" class="ident">labels</label>.<a href="#line-570" class="ident">result</a>()</code></span>
+<span class="codeline" id="line-418"><code>	<span class="keyword">if</span> <label for="r60" class="ident">toASCII</label> &amp;&amp; <label for="r57" class="ident">p</label>.<a href="#line-182" class="ident">verifyDNSLength</a> &amp;&amp; <label for="r61" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-419"><code>		<span class="comment">// Compute the length of the domain name minus the root label and its dot.</span></code></span>
+<span class="codeline" id="line-420"><code>		<label for="r72" class="ident">n</label> := <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r59" class="ident">s</label>)</code></span>
+<span class="codeline" id="line-421"><code>		<span class="keyword">if</span> <label for="r72" class="ident">n</label> &gt; <span class="lit-number">0</span> &amp;&amp; <label for="r59" class="ident">s</label>[<label for="r72" class="ident">n</label>-<span class="lit-number">1</span>] == <span class="lit-number">'.'</span> {</code></span>
+<span class="codeline" id="line-422"><code>			<label for="r72" class="ident">n</label>--</code></span>
+<span class="codeline" id="line-423"><code>		}</code></span>
+<span class="codeline" id="line-424"><code>		<span class="keyword">if</span> <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r59" class="ident">s</label>) &lt; <span class="lit-number">1</span> || <label for="r72" class="ident">n</label> &gt; <span class="lit-number">253</span> {</code></span>
+<span class="codeline" id="line-425"><code>			<label for="r61" class="ident">err</label> = &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r59" class="ident">s</label>, <span class="lit-string">"A4"</span>}</code></span>
+<span class="codeline" id="line-426"><code>		}</code></span>
+<span class="codeline" id="line-427"><code>	}</code></span>
+<span class="codeline" id="line-428"><code>	<span class="keyword">return</span> <label for="r59" class="ident">s</label>, <label for="r61" class="ident">err</label></code></span>
+<span class="codeline" id="line-429"><code>}</code></span>
+<span class="codeline" id="line-430"><code></code></span>
+<span class="codeline" id="line-431"><code><span class="keyword">func</span> <label for="r73" class="ident"><a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-isASCII" class="ident">isASCII</a></label>(<label for="r74" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-432"><code>	<span class="keyword">for</span> <label for="r75" class="ident">_</label>, <label for="r76" class="ident">c</label> := <span class="keyword">range</span> []<a href="../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>(<label for="r74" class="ident">s</label>) {</code></span>
+<span class="codeline" id="line-433"><code>		<span class="keyword">if</span> <label for="r76" class="ident">c</label> &gt;= <span class="lit-number">0x80</span> {</code></span>
+<span class="codeline" id="line-434"><code>			<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-435"><code>		}</code></span>
+<span class="codeline" id="line-436"><code>	}</code></span>
+<span class="codeline" id="line-437"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-438"><code>}</code></span>
+<span class="codeline" id="line-439"><code></code></span>
+<span class="codeline" id="line-440"><code><span class="keyword">func</span> <label for="r77" class="ident"><a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-normalize" class="ident">normalize</a></label>(<label for="r78" class="ident">p</label> *<a href="#line-200" class="ident">Profile</a>, <label for="r79" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<label for="r80" class="ident">mapped</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r81" class="ident">isBidi</label> <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <label for="r82" class="ident">err</label> <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-441"><code>	<span class="comment">// TODO: consider first doing a quick check to see if any of these checks</span></code></span>
+<span class="codeline" id="line-442"><code><span class="comment">	// need to be done. This will make it slower in the general case, but</span></code></span>
+<span class="codeline" id="line-443"><code><span class="comment">	// faster in the common case.</span></code></span>
+<span class="codeline" id="line-444"><code>	<label for="r80" class="ident">mapped</label> = <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/norm.html" class="ident i0">norm</a>.<a href="../../text/unicode/norm/normalize.go.html#line-38" class="ident">NFC</a>.<a href="../../text/unicode/norm/normalize.go.html#line-59" class="ident">String</a>(<label for="r79" class="ident">s</label>)</code></span>
+<span class="codeline" id="line-445"><code>	<label for="r81" class="ident">isBidi</label> = <a href="../../../../../../pkg/vendor/golang.org/x/text/secure/bidirule.html" class="ident i0">bidirule</a>.<a href="../../text/secure/bidirule/bidirule.go.html#line-153" class="ident">DirectionString</a>(<label for="r80" class="ident">mapped</label>) == <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/bidi.html" class="ident i0">bidi</a>.<a href="../../text/unicode/bidi/bidi.go.html#line-40" class="ident">RightToLeft</a></code></span>
+<span class="codeline" id="line-446"><code>	<span class="keyword">return</span> <label for="r80" class="ident">mapped</label>, <label for="r81" class="ident">isBidi</label>, <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-447"><code>}</code></span>
+<span class="codeline" id="line-448"><code></code></span>
+<span class="codeline" id="line-449"><code><span class="keyword">func</span> <label for="r83" class="ident"><a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-validateRegistration" class="ident">validateRegistration</a></label>(<label for="r84" class="ident">p</label> *<a href="#line-200" class="ident">Profile</a>, <label for="r85" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<label for="r86" class="ident">idem</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r87" class="ident">bidi</label> <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <label for="r88" class="ident">err</label> <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-450"><code>	<span class="comment">// TODO: filter need for normalization in loop below.</span></code></span>
+<span class="codeline" id="line-451"><code>	<span class="keyword">if</span> !<a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/norm.html" class="ident i0">norm</a>.<a href="../../text/unicode/norm/normalize.go.html#line-38" class="ident">NFC</a>.<a href="../../text/unicode/norm/normalize.go.html#line-112" class="ident">IsNormalString</a>(<label for="r85" class="ident">s</label>) {</code></span>
+<span class="codeline" id="line-452"><code>		<span class="keyword">return</span> <label for="r85" class="ident">s</label>, <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a>, &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r85" class="ident">s</label>, <span class="lit-string">"V1"</span>}</code></span>
+<span class="codeline" id="line-453"><code>	}</code></span>
+<span class="codeline" id="line-454"><code>	<span class="keyword">for</span> <label for="r89" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r89" class="ident">i</label> &lt; <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r85" class="ident">s</label>); {</code></span>
+<span class="codeline" id="line-455"><code>		<label for="r90" class="ident">v</label>, <label for="r91" class="ident">sz</label> := <a href="trie.go.html#line-27" class="ident">trie</a>.<a href="tables15.0.0.go.html#line-625" class="ident">lookupString</a>(<label for="r85" class="ident">s</label>[<label for="r89" class="ident">i</label>:])</code></span>
+<span class="codeline" id="line-456"><code>		<span class="keyword">if</span> <label for="r91" class="ident">sz</label> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-457"><code>			<span class="keyword">return</span> <label for="r85" class="ident">s</label>, <label for="r87" class="ident">bidi</label>, <a href="#line-327" class="ident">runeError</a>(<a href="../../../../../../pkg/unicode/utf8.html" class="ident i2">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-16" class="ident">RuneError</a>)</code></span>
+<span class="codeline" id="line-458"><code>		}</code></span>
+<span class="codeline" id="line-459"><code>		<label for="r87" class="ident">bidi</label> = <label for="r87" class="ident">bidi</label> || <a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r90" class="ident">v</label>).<a href="#line-474" class="ident">isBidi</a>(<label for="r85" class="ident">s</label>[<label for="r89" class="ident">i</label>:])</code></span>
+<span class="codeline" id="line-460"><code>		<span class="comment">// Copy bytes not copied so far.</span></code></span>
+<span class="codeline" id="line-461"><code>		<span class="keyword">switch</span> <label for="r84" class="ident">p</label>.<a href="#line-614" class="ident">simplify</a>(<a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r90" class="ident">v</label>).<a href="trieval.go.html#line-98" class="ident">category</a>()) {</code></span>
+<span class="codeline" id="line-462"><code>		<span class="comment">// TODO: handle the NV8 defined in the Unicode idna data set to allow</span></code></span>
+<span class="codeline" id="line-463"><code><span class="comment">		// for strict conformance to IDNA2008.</span></code></span>
+<span class="codeline" id="line-464"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-72" class="ident">valid</a>, <a href="trieval.go.html#line-68" class="ident">deviation</a>:</code></span>
+<span class="codeline" id="line-465"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-75" class="ident">disallowed</a>, <a href="trieval.go.html#line-66" class="ident">mapped</a>, <a href="trieval.go.html#line-65" class="ident">unknown</a>, <a href="trieval.go.html#line-77" class="ident">ignored</a>:</code></span>
+<span class="codeline" id="line-466"><code>			<label for="r92" class="ident">r</label>, <label for="r93" class="ident">_</label> := <a href="../../../../../../pkg/unicode/utf8.html" class="ident i2">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-219" class="ident">DecodeRuneInString</a>(<label for="r85" class="ident">s</label>[<label for="r89" class="ident">i</label>:])</code></span>
+<span class="codeline" id="line-467"><code>			<span class="keyword">return</span> <label for="r85" class="ident">s</label>, <label for="r87" class="ident">bidi</label>, <a href="#line-327" class="ident">runeError</a>(<label for="r92" class="ident">r</label>)</code></span>
+<span class="codeline" id="line-468"><code>		}</code></span>
+<span class="codeline" id="line-469"><code>		<label for="r89" class="ident">i</label> += <label for="r91" class="ident">sz</label></code></span>
+<span class="codeline" id="line-470"><code>	}</code></span>
+<span class="codeline" id="line-471"><code>	<span class="keyword">return</span> <label for="r85" class="ident">s</label>, <label for="r87" class="ident">bidi</label>, <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-472"><code>}</code></span>
+<span class="codeline" id="line-473"><code></code></span>
+<span class="codeline" id="line-474"><code><span class="keyword">func</span> (<label for="r94" class="ident">c</label> <a href="trieval.go.html#line-40" class="ident">info</a>) <label for="r95" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..info^06271.isBidi^eb17f.html" class="ident">isBidi</a></label>(<label for="r96" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-475"><code>	<span class="keyword">if</span> !<label for="r94" class="ident">c</label>.<a href="trieval.go.html#line-94" class="ident">isMapped</a>() {</code></span>
+<span class="codeline" id="line-476"><code>		<span class="keyword">return</span> <label for="r94" class="ident">c</label>&amp;<a href="trieval.go.html#line-53" class="ident">attributesMask</a> == <a href="trieval.go.html#line-56" class="ident">rtl</a></code></span>
+<span class="codeline" id="line-477"><code>	}</code></span>
+<span class="codeline" id="line-478"><code>	<span class="comment">// TODO: also store bidi info for mapped data. This is possible, but a bit</span></code></span>
+<span class="codeline" id="line-479"><code><span class="comment">	// cumbersome and not for the common case.</span></code></span>
+<span class="codeline" id="line-480"><code>	<label for="r97" class="ident">p</label>, <label for="r98" class="ident">_</label> := <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/bidi.html" class="ident i0">bidi</a>.<a href="../../text/unicode/bidi/prop.go.html#line-148" class="ident">LookupString</a>(<label for="r96" class="ident">s</label>)</code></span>
+<span class="codeline" id="line-481"><code>	<span class="keyword">switch</span> <label for="r97" class="ident">p</label>.<a href="../../text/unicode/bidi/prop.go.html#line-28" class="ident">Class</a>() {</code></span>
+<span class="codeline" id="line-482"><code>	<span class="keyword">case</span> <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/bidi.html" class="ident i0">bidi</a>.<a href="../../text/unicode/bidi/trieval.go.html#line-10" class="ident">R</a>, <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/bidi.html" class="ident i0">bidi</a>.<a href="../../text/unicode/bidi/trieval.go.html#line-22" class="ident">AL</a>, <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/bidi.html" class="ident i0">bidi</a>.<a href="../../text/unicode/bidi/trieval.go.html#line-14" class="ident">AN</a>:</code></span>
+<span class="codeline" id="line-483"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-484"><code>	}</code></span>
+<span class="codeline" id="line-485"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-486"><code>}</code></span>
+<span class="codeline" id="line-487"><code></code></span>
+<span class="codeline" id="line-488"><code><span class="keyword">func</span> <label for="r99" class="ident"><a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-validateAndMap" class="ident">validateAndMap</a></label>(<label for="r100" class="ident">p</label> *<a href="#line-200" class="ident">Profile</a>, <label for="r101" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<label for="r102" class="ident">vm</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r103" class="ident">bidi</label> <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <label for="r104" class="ident">err</label> <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-489"><code>	<span class="keyword">var</span> (</code></span>
+<span class="codeline" id="line-490"><code>		<label for="r105" class="ident">b</label> []<a href="../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-491"><code>		<label for="r106" class="ident">k</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-492"><code>	)</code></span>
+<span class="codeline" id="line-493"><code>	<span class="comment">// combinedInfoBits contains the or-ed bits of all runes. We use this</span></code></span>
+<span class="codeline" id="line-494"><code><span class="comment">	// to derive the mayNeedNorm bit later. This may trigger normalization</span></code></span>
+<span class="codeline" id="line-495"><code><span class="comment">	// overeagerly, but it will not do so in the common case. The end result</span></code></span>
+<span class="codeline" id="line-496"><code><span class="comment">	// is another 10% saving on BenchmarkProfile for the common case.</span></code></span>
+<span class="codeline" id="line-497"><code>	<span class="keyword">var</span> <label for="r107" class="ident">combinedInfoBits</label> <a href="trieval.go.html#line-40" class="ident">info</a></code></span>
+<span class="codeline" id="line-498"><code>	<span class="keyword">for</span> <label for="r108" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r108" class="ident">i</label> &lt; <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r101" class="ident">s</label>); {</code></span>
+<span class="codeline" id="line-499"><code>		<label for="r109" class="ident">v</label>, <label for="r110" class="ident">sz</label> := <a href="trie.go.html#line-27" class="ident">trie</a>.<a href="tables15.0.0.go.html#line-625" class="ident">lookupString</a>(<label for="r101" class="ident">s</label>[<label for="r108" class="ident">i</label>:])</code></span>
+<span class="codeline" id="line-500"><code>		<span class="keyword">if</span> <label for="r110" class="ident">sz</label> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-501"><code>			<label for="r105" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r105" class="ident">b</label>, <label for="r101" class="ident">s</label>[<label for="r106" class="ident">k</label>:<label for="r108" class="ident">i</label>]...)</code></span>
+<span class="codeline" id="line-502"><code>			<label for="r105" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r105" class="ident">b</label>, <span class="lit-string">"\ufffd"</span>...)</code></span>
+<span class="codeline" id="line-503"><code>			<label for="r106" class="ident">k</label> = <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r101" class="ident">s</label>)</code></span>
+<span class="codeline" id="line-504"><code>			<span class="keyword">if</span> <label for="r104" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-505"><code>				<label for="r104" class="ident">err</label> = <a href="#line-327" class="ident">runeError</a>(<a href="../../../../../../pkg/unicode/utf8.html" class="ident i2">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-16" class="ident">RuneError</a>)</code></span>
+<span class="codeline" id="line-506"><code>			}</code></span>
+<span class="codeline" id="line-507"><code>			<span class="keyword">break</span></code></span>
+<span class="codeline" id="line-508"><code>		}</code></span>
+<span class="codeline" id="line-509"><code>		<label for="r107" class="ident">combinedInfoBits</label> |= <a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r109" class="ident">v</label>)</code></span>
+<span class="codeline" id="line-510"><code>		<label for="r103" class="ident">bidi</label> = <label for="r103" class="ident">bidi</label> || <a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r109" class="ident">v</label>).<a href="#line-474" class="ident">isBidi</a>(<label for="r101" class="ident">s</label>[<label for="r108" class="ident">i</label>:])</code></span>
+<span class="codeline" id="line-511"><code>		<label for="r111" class="ident">start</label> := <label for="r108" class="ident">i</label></code></span>
+<span class="codeline" id="line-512"><code>		<label for="r108" class="ident">i</label> += <label for="r110" class="ident">sz</label></code></span>
+<span class="codeline" id="line-513"><code>		<span class="comment">// Copy bytes not copied so far.</span></code></span>
+<span class="codeline" id="line-514"><code>		<span class="keyword">switch</span> <label for="r100" class="ident">p</label>.<a href="#line-614" class="ident">simplify</a>(<a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r109" class="ident">v</label>).<a href="trieval.go.html#line-98" class="ident">category</a>()) {</code></span>
+<span class="codeline" id="line-515"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-72" class="ident">valid</a>:</code></span>
+<span class="codeline" id="line-516"><code>			<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-517"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-75" class="ident">disallowed</a>:</code></span>
+<span class="codeline" id="line-518"><code>			<span class="keyword">if</span> <label for="r104" class="ident">err</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-519"><code>				<label for="r112" class="ident">r</label>, <label for="r113" class="ident">_</label> := <a href="../../../../../../pkg/unicode/utf8.html" class="ident i2">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-219" class="ident">DecodeRuneInString</a>(<label for="r101" class="ident">s</label>[<label for="r111" class="ident">start</label>:])</code></span>
+<span class="codeline" id="line-520"><code>				<label for="r104" class="ident">err</label> = <a href="#line-327" class="ident">runeError</a>(<label for="r112" class="ident">r</label>)</code></span>
+<span class="codeline" id="line-521"><code>			}</code></span>
+<span class="codeline" id="line-522"><code>			<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-523"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-66" class="ident">mapped</a>, <a href="trieval.go.html#line-68" class="ident">deviation</a>:</code></span>
+<span class="codeline" id="line-524"><code>			<label for="r105" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r105" class="ident">b</label>, <label for="r101" class="ident">s</label>[<label for="r106" class="ident">k</label>:<label for="r111" class="ident">start</label>]...)</code></span>
+<span class="codeline" id="line-525"><code>			<label for="r105" class="ident">b</label> = <a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r109" class="ident">v</label>).<a href="trie13.0.0.go.html#line-13" class="ident">appendMapping</a>(<label for="r105" class="ident">b</label>, <label for="r101" class="ident">s</label>[<label for="r111" class="ident">start</label>:<label for="r108" class="ident">i</label>])</code></span>
+<span class="codeline" id="line-526"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-77" class="ident">ignored</a>:</code></span>
+<span class="codeline" id="line-527"><code>			<label for="r105" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r105" class="ident">b</label>, <label for="r101" class="ident">s</label>[<label for="r106" class="ident">k</label>:<label for="r111" class="ident">start</label>]...)</code></span>
+<span class="codeline" id="line-528"><code>			<span class="comment">// drop the rune</span></code></span>
+<span class="codeline" id="line-529"><code>		<span class="keyword">case</span> <a href="trieval.go.html#line-65" class="ident">unknown</a>:</code></span>
+<span class="codeline" id="line-530"><code>			<label for="r105" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r105" class="ident">b</label>, <label for="r101" class="ident">s</label>[<label for="r106" class="ident">k</label>:<label for="r111" class="ident">start</label>]...)</code></span>
+<span class="codeline" id="line-531"><code>			<label for="r105" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r105" class="ident">b</label>, <span class="lit-string">"\ufffd"</span>...)</code></span>
+<span class="codeline" id="line-532"><code>		}</code></span>
+<span class="codeline" id="line-533"><code>		<label for="r106" class="ident">k</label> = <label for="r108" class="ident">i</label></code></span>
 <span class="codeline" id="line-534"><code>	}</code></span>
-<span class="codeline" id="line-535"><code>	<span class="keyword">return</span> <label for="r96" class="ident">s</label>, <label for="r98" class="ident">bidi</label>, <label for="r99" class="ident">err</label></code></span>
-<span class="codeline" id="line-536"><code>}</code></span>
-<span class="codeline" id="line-537"><code></code></span>
-<span class="codeline" id="line-538"><code><span class="comment">// A labelIter allows iterating over domain name labels.</span></code></span>
-<span class="codeline" id="line-539"><code><span class="keyword">type</span> <a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-labelIter" class="ident">labelIter</a> <span class="keyword">struct</span> {</code></span>
-<span class="codeline" id="line-540"><code>	<a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.orig^14e0f.html" class="ident">orig</a>     <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
-<span class="codeline" id="line-541"><code>	<a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.slice^03fdb.html" class="ident">slice</a>    []<a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
-<span class="codeline" id="line-542"><code>	<a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.curStart^c325f.html" class="ident">curStart</a> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
-<span class="codeline" id="line-543"><code>	<a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.curEnd^159e8.html" class="ident">curEnd</a>   <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
-<span class="codeline" id="line-544"><code>	<a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.i^de7d1.html" class="ident">i</a>        <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
-<span class="codeline" id="line-545"><code>}</code></span>
-<span class="codeline" id="line-546"><code></code></span>
-<span class="codeline" id="line-547"><code><span class="keyword">func</span> (<label for="r109" class="ident">l</label> *<a href="#line-539" class="ident">labelIter</a>) <label for="r110" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.reset^01be3.html" class="ident">reset</a></label>() {</code></span>
-<span class="codeline" id="line-548"><code>	<label for="r109" class="ident">l</label>.<a href="#line-542" class="ident">curStart</a> = <span class="lit-number">0</span></code></span>
-<span class="codeline" id="line-549"><code>	<label for="r109" class="ident">l</label>.<a href="#line-543" class="ident">curEnd</a> = <span class="lit-number">0</span></code></span>
-<span class="codeline" id="line-550"><code>	<label for="r109" class="ident">l</label>.<a href="#line-544" class="ident">i</a> = <span class="lit-number">0</span></code></span>
-<span class="codeline" id="line-551"><code>}</code></span>
-<span class="codeline" id="line-552"><code></code></span>
-<span class="codeline" id="line-553"><code><span class="keyword">func</span> (<label for="r111" class="ident">l</label> *<a href="#line-539" class="ident">labelIter</a>) <label for="r112" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.done^a4c3e.html" class="ident">done</a></label>() <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
-<span class="codeline" id="line-554"><code>	<span class="keyword">return</span> <label for="r111" class="ident">l</label>.<a href="#line-542" class="ident">curStart</a> &gt;= <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r111" class="ident">l</label>.<a href="#line-540" class="ident">orig</a>)</code></span>
-<span class="codeline" id="line-555"><code>}</code></span>
-<span class="codeline" id="line-556"><code></code></span>
-<span class="codeline" id="line-557"><code><span class="keyword">func</span> (<label for="r113" class="ident">l</label> *<a href="#line-539" class="ident">labelIter</a>) <label for="r114" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.result^f6a21.html" class="ident">result</a></label>() <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
-<span class="codeline" id="line-558"><code>	<span class="keyword">if</span> <label for="r113" class="ident">l</label>.<a href="#line-541" class="ident">slice</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-559"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../../../strings/strings.go.html#line-487" class="ident">Join</a>(<label for="r113" class="ident">l</label>.<a href="#line-541" class="ident">slice</a>, <span class="lit-string">"."</span>)</code></span>
-<span class="codeline" id="line-560"><code>	}</code></span>
-<span class="codeline" id="line-561"><code>	<span class="keyword">return</span> <label for="r113" class="ident">l</label>.<a href="#line-540" class="ident">orig</a></code></span>
-<span class="codeline" id="line-562"><code>}</code></span>
-<span class="codeline" id="line-563"><code></code></span>
-<span class="codeline" id="line-564"><code><span class="keyword">func</span> (<label for="r115" class="ident">l</label> *<a href="#line-539" class="ident">labelIter</a>) <label for="r116" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.label^1aca8.html" class="ident">label</a></label>() <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
-<span class="codeline" id="line-565"><code>	<span class="keyword">if</span> <label for="r115" class="ident">l</label>.<a href="#line-541" class="ident">slice</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-566"><code>		<span class="keyword">return</span> <label for="r115" class="ident">l</label>.<a href="#line-541" class="ident">slice</a>[<label for="r115" class="ident">l</label>.<a href="#line-544" class="ident">i</a>]</code></span>
-<span class="codeline" id="line-567"><code>	}</code></span>
-<span class="codeline" id="line-568"><code>	<label for="r117" class="ident">p</label> := <a href="../../../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../../../strings/strings.go.html#line-119" class="ident">IndexByte</a>(<label for="r115" class="ident">l</label>.<a href="#line-540" class="ident">orig</a>[<label for="r115" class="ident">l</label>.<a href="#line-542" class="ident">curStart</a>:], <span class="lit-number">'.'</span>)</code></span>
-<span class="codeline" id="line-569"><code>	<label for="r115" class="ident">l</label>.<a href="#line-543" class="ident">curEnd</a> = <label for="r115" class="ident">l</label>.<a href="#line-542" class="ident">curStart</a> + <label for="r117" class="ident">p</label></code></span>
-<span class="codeline" id="line-570"><code>	<span class="keyword">if</span> <label for="r117" class="ident">p</label> == -<span class="lit-number">1</span> {</code></span>
-<span class="codeline" id="line-571"><code>		<label for="r115" class="ident">l</label>.<a href="#line-543" class="ident">curEnd</a> = <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r115" class="ident">l</label>.<a href="#line-540" class="ident">orig</a>)</code></span>
-<span class="codeline" id="line-572"><code>	}</code></span>
-<span class="codeline" id="line-573"><code>	<span class="keyword">return</span> <label for="r115" class="ident">l</label>.<a href="#line-540" class="ident">orig</a>[<label for="r115" class="ident">l</label>.<a href="#line-542" class="ident">curStart</a>:<label for="r115" class="ident">l</label>.<a href="#line-543" class="ident">curEnd</a>]</code></span>
-<span class="codeline" id="line-574"><code>}</code></span>
-<span class="codeline" id="line-575"><code></code></span>
-<span class="codeline" id="line-576"><code><span class="comment">// next sets the value to the next label. It skips the last label if it is empty.</span></code></span>
-<span class="codeline" id="line-577"><code><span class="keyword">func</span> (<label for="r118" class="ident">l</label> *<a href="#line-539" class="ident">labelIter</a>) <label for="r119" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.next^c6c1c.html" class="ident">next</a></label>() {</code></span>
-<span class="codeline" id="line-578"><code>	<label for="r118" class="ident">l</label>.<a href="#line-544" class="ident">i</a>++</code></span>
-<span class="codeline" id="line-579"><code>	<span class="keyword">if</span> <label for="r118" class="ident">l</label>.<a href="#line-541" class="ident">slice</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-580"><code>		<span class="keyword">if</span> <label for="r118" class="ident">l</label>.<a href="#line-544" class="ident">i</a> &gt;= <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r118" class="ident">l</label>.<a href="#line-541" class="ident">slice</a>) || <label for="r118" class="ident">l</label>.<a href="#line-544" class="ident">i</a> == <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r118" class="ident">l</label>.<a href="#line-541" class="ident">slice</a>)-<span class="lit-number">1</span> &amp;&amp; <label for="r118" class="ident">l</label>.<a href="#line-541" class="ident">slice</a>[<label for="r118" class="ident">l</label>.<a href="#line-544" class="ident">i</a>] == <span class="lit-string">""</span> {</code></span>
-<span class="codeline" id="line-581"><code>			<label for="r118" class="ident">l</label>.<a href="#line-542" class="ident">curStart</a> = <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r118" class="ident">l</label>.<a href="#line-540" class="ident">orig</a>)</code></span>
-<span class="codeline" id="line-582"><code>		}</code></span>
-<span class="codeline" id="line-583"><code>	} <span class="keyword">else</span> {</code></span>
-<span class="codeline" id="line-584"><code>		<label for="r118" class="ident">l</label>.<a href="#line-542" class="ident">curStart</a> = <label for="r118" class="ident">l</label>.<a href="#line-543" class="ident">curEnd</a> + <span class="lit-number">1</span></code></span>
-<span class="codeline" id="line-585"><code>		<span class="keyword">if</span> <label for="r118" class="ident">l</label>.<a href="#line-542" class="ident">curStart</a> == <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r118" class="ident">l</label>.<a href="#line-540" class="ident">orig</a>)-<span class="lit-number">1</span> &amp;&amp; <label for="r118" class="ident">l</label>.<a href="#line-540" class="ident">orig</a>[<label for="r118" class="ident">l</label>.<a href="#line-542" class="ident">curStart</a>] == <span class="lit-number">'.'</span> {</code></span>
-<span class="codeline" id="line-586"><code>			<label for="r118" class="ident">l</label>.<a href="#line-542" class="ident">curStart</a> = <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r118" class="ident">l</label>.<a href="#line-540" class="ident">orig</a>)</code></span>
-<span class="codeline" id="line-587"><code>		}</code></span>
-<span class="codeline" id="line-588"><code>	}</code></span>
-<span class="codeline" id="line-589"><code>}</code></span>
-<span class="codeline" id="line-590"><code></code></span>
-<span class="codeline" id="line-591"><code><span class="keyword">func</span> (<label for="r120" class="ident">l</label> *<a href="#line-539" class="ident">labelIter</a>) <label for="r121" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.set^6ee0e.html" class="ident">set</a></label>(<label for="r122" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) {</code></span>
-<span class="codeline" id="line-592"><code>	<span class="keyword">if</span> <label for="r120" class="ident">l</label>.<a href="#line-541" class="ident">slice</a> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-593"><code>		<label for="r120" class="ident">l</label>.<a href="#line-541" class="ident">slice</a> = <a href="../../../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../../../strings/strings.go.html#line-361" class="ident">Split</a>(<label for="r120" class="ident">l</label>.<a href="#line-540" class="ident">orig</a>, <span class="lit-string">"."</span>)</code></span>
-<span class="codeline" id="line-594"><code>	}</code></span>
-<span class="codeline" id="line-595"><code>	<label for="r120" class="ident">l</label>.<a href="#line-541" class="ident">slice</a>[<label for="r120" class="ident">l</label>.<a href="#line-544" class="ident">i</a>] = <label for="r122" class="ident">s</label></code></span>
-<span class="codeline" id="line-596"><code>}</code></span>
-<span class="codeline" id="line-597"><code></code></span>
-<span class="codeline" id="line-598"><code><span class="comment">// acePrefix is the ASCII Compatible Encoding prefix.</span></code></span>
-<span class="codeline" id="line-599"><code><span class="keyword">const</span> <a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-acePrefix" class="ident">acePrefix</a> = <span class="lit-string">"xn--"</span></code></span>
-<span class="codeline" id="line-600"><code></code></span>
-<span class="codeline" id="line-601"><code><span class="keyword">func</span> (<label for="r123" class="ident">p</label> *<a href="#line-200" class="ident">Profile</a>) <label for="r124" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..Profile.simplify^e55de.html" class="ident">simplify</a></label>(<label for="r125" class="ident">cat</label> <a href="trieval.go.html#line-62" class="ident">category</a>) <a href="trieval.go.html#line-62" class="ident">category</a> {</code></span>
-<span class="codeline" id="line-602"><code>	<span class="keyword">switch</span> <label for="r125" class="ident">cat</label> {</code></span>
-<span class="codeline" id="line-603"><code>	<span class="keyword">case</span> <a href="trieval.go.html#line-67" class="ident">disallowedSTD3Mapped</a>:</code></span>
-<span class="codeline" id="line-604"><code>		<span class="keyword">if</span> <label for="r123" class="ident">p</label>.<a href="#line-179" class="ident">useSTD3Rules</a> {</code></span>
-<span class="codeline" id="line-605"><code>			<label for="r125" class="ident">cat</label> = <a href="trieval.go.html#line-75" class="ident">disallowed</a></code></span>
-<span class="codeline" id="line-606"><code>		} <span class="keyword">else</span> {</code></span>
-<span class="codeline" id="line-607"><code>			<label for="r125" class="ident">cat</label> = <a href="trieval.go.html#line-66" class="ident">mapped</a></code></span>
-<span class="codeline" id="line-608"><code>		}</code></span>
-<span class="codeline" id="line-609"><code>	<span class="keyword">case</span> <a href="trieval.go.html#line-76" class="ident">disallowedSTD3Valid</a>:</code></span>
-<span class="codeline" id="line-610"><code>		<span class="keyword">if</span> <label for="r123" class="ident">p</label>.<a href="#line-179" class="ident">useSTD3Rules</a> {</code></span>
-<span class="codeline" id="line-611"><code>			<label for="r125" class="ident">cat</label> = <a href="trieval.go.html#line-75" class="ident">disallowed</a></code></span>
-<span class="codeline" id="line-612"><code>		} <span class="keyword">else</span> {</code></span>
-<span class="codeline" id="line-613"><code>			<label for="r125" class="ident">cat</label> = <a href="trieval.go.html#line-72" class="ident">valid</a></code></span>
-<span class="codeline" id="line-614"><code>		}</code></span>
-<span class="codeline" id="line-615"><code>	<span class="keyword">case</span> <a href="trieval.go.html#line-68" class="ident">deviation</a>:</code></span>
-<span class="codeline" id="line-616"><code>		<span class="keyword">if</span> !<label for="r123" class="ident">p</label>.<a href="#line-178" class="ident">transitional</a> {</code></span>
-<span class="codeline" id="line-617"><code>			<label for="r125" class="ident">cat</label> = <a href="trieval.go.html#line-72" class="ident">valid</a></code></span>
-<span class="codeline" id="line-618"><code>		}</code></span>
-<span class="codeline" id="line-619"><code>	<span class="keyword">case</span> <a href="trieval.go.html#line-73" class="ident">validNV8</a>, <a href="trieval.go.html#line-74" class="ident">validXV8</a>:</code></span>
-<span class="codeline" id="line-620"><code>		<span class="comment">// TODO: handle V2008</span></code></span>
-<span class="codeline" id="line-621"><code>		<label for="r125" class="ident">cat</label> = <a href="trieval.go.html#line-72" class="ident">valid</a></code></span>
-<span class="codeline" id="line-622"><code>	}</code></span>
-<span class="codeline" id="line-623"><code>	<span class="keyword">return</span> <label for="r125" class="ident">cat</label></code></span>
-<span class="codeline" id="line-624"><code>}</code></span>
-<span class="codeline" id="line-625"><code></code></span>
-<span class="codeline" id="line-626"><code><span class="keyword">func</span> <label for="r126" class="ident"><a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-validateFromPunycode" class="ident">validateFromPunycode</a></label>(<label for="r127" class="ident">p</label> *<a href="#line-200" class="ident">Profile</a>, <label for="r128" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-627"><code>	<span class="keyword">if</span> !<a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/norm.html" class="ident i0">norm</a>.<a href="../../text/unicode/norm/normalize.go.html#line-38" class="ident">NFC</a>.<a href="../../text/unicode/norm/normalize.go.html#line-112" class="ident">IsNormalString</a>(<label for="r128" class="ident">s</label>) {</code></span>
-<span class="codeline" id="line-628"><code>		<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r128" class="ident">s</label>, <span class="lit-string">"V1"</span>}</code></span>
-<span class="codeline" id="line-629"><code>	}</code></span>
-<span class="codeline" id="line-630"><code>	<span class="comment">// TODO: detect whether string may have to be normalized in the following</span></code></span>
-<span class="codeline" id="line-631"><code><span class="comment">	// loop.</span></code></span>
-<span class="codeline" id="line-632"><code>	<span class="keyword">for</span> <label for="r129" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r129" class="ident">i</label> &lt; <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r128" class="ident">s</label>); {</code></span>
-<span class="codeline" id="line-633"><code>		<label for="r130" class="ident">v</label>, <label for="r131" class="ident">sz</label> := <a href="trie.go.html#line-27" class="ident">trie</a>.<a href="tables15.0.0.go.html#line-625" class="ident">lookupString</a>(<label for="r128" class="ident">s</label>[<label for="r129" class="ident">i</label>:])</code></span>
-<span class="codeline" id="line-634"><code>		<span class="keyword">if</span> <label for="r131" class="ident">sz</label> == <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-635"><code>			<span class="keyword">return</span> <a href="#line-327" class="ident">runeError</a>(<a href="../../../../../../pkg/unicode/utf8.html" class="ident i2">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-16" class="ident">RuneError</a>)</code></span>
-<span class="codeline" id="line-636"><code>		}</code></span>
-<span class="codeline" id="line-637"><code>		<span class="keyword">if</span> <label for="r132" class="ident">c</label> := <label for="r127" class="ident">p</label>.<a href="#line-601" class="ident">simplify</a>(<a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r130" class="ident">v</label>).<a href="trieval.go.html#line-98" class="ident">category</a>()); <label for="r132" class="ident">c</label> != <a href="trieval.go.html#line-72" class="ident">valid</a> &amp;&amp; <label for="r132" class="ident">c</label> != <a href="trieval.go.html#line-68" class="ident">deviation</a> {</code></span>
-<span class="codeline" id="line-638"><code>			<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r128" class="ident">s</label>, <span class="lit-string">"V6"</span>}</code></span>
-<span class="codeline" id="line-639"><code>		}</code></span>
-<span class="codeline" id="line-640"><code>		<label for="r129" class="ident">i</label> += <label for="r131" class="ident">sz</label></code></span>
-<span class="codeline" id="line-641"><code>	}</code></span>
-<span class="codeline" id="line-642"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-643"><code>}</code></span>
-<span class="codeline" id="line-644"><code></code></span>
-<span class="codeline" id="line-645"><code><span class="keyword">const</span> (</code></span>
-<span class="codeline" id="line-646"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-zwnj" class="ident">zwnj</a> = <span class="lit-string">"\u200c"</span></code></span>
-<span class="codeline" id="line-647"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-zwj" class="ident">zwj</a>  = <span class="lit-string">"\u200d"</span></code></span>
-<span class="codeline" id="line-648"><code>)</code></span>
-<span class="codeline" id="line-649"><code></code></span>
-<span class="codeline" id="line-650"><code><span class="keyword">type</span> <a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-joinState" class="ident">joinState</a> <a href="../../../../../../pkg/builtin.html#name-int8" class="ident">int8</a></code></span>
-<span class="codeline" id="line-651"><code></code></span>
-<span class="codeline" id="line-652"><code><span class="keyword">const</span> (</code></span>
-<span class="codeline" id="line-653"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-stateStart" class="ident">stateStart</a> <a href="#line-650" class="ident">joinState</a> = <a href="../../../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
-<span class="codeline" id="line-654"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-stateVirama" class="ident">stateVirama</a></code></span>
-<span class="codeline" id="line-655"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-stateBefore" class="ident">stateBefore</a></code></span>
-<span class="codeline" id="line-656"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-stateBeforeVirama" class="ident">stateBeforeVirama</a></code></span>
-<span class="codeline" id="line-657"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-stateAfter" class="ident">stateAfter</a></code></span>
-<span class="codeline" id="line-658"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-stateFAIL" class="ident">stateFAIL</a></code></span>
-<span class="codeline" id="line-659"><code>)</code></span>
-<span class="codeline" id="line-660"><code></code></span>
-<span class="codeline" id="line-661"><code><span class="keyword">var</span> <a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-joinStates" class="ident">joinStates</a> = [][<a href="trieval.go.html#line-91" class="ident">numJoinTypes</a>]<a href="#line-650" class="ident">joinState</a>{</code></span>
-<span class="codeline" id="line-662"><code>	<a href="#line-653" class="ident">stateStart</a>: {</code></span>
-<span class="codeline" id="line-663"><code>		<a href="trieval.go.html#line-82" class="ident">joiningL</a>:   <a href="#line-655" class="ident">stateBefore</a>,</code></span>
-<span class="codeline" id="line-664"><code>		<a href="trieval.go.html#line-83" class="ident">joiningD</a>:   <a href="#line-655" class="ident">stateBefore</a>,</code></span>
-<span class="codeline" id="line-665"><code>		<a href="trieval.go.html#line-89" class="ident">joinZWNJ</a>:   <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-666"><code>		<a href="trieval.go.html#line-88" class="ident">joinZWJ</a>:    <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-667"><code>		<a href="trieval.go.html#line-90" class="ident">joinVirama</a>: <a href="#line-654" class="ident">stateVirama</a>,</code></span>
-<span class="codeline" id="line-668"><code>	},</code></span>
-<span class="codeline" id="line-669"><code>	<a href="#line-654" class="ident">stateVirama</a>: {</code></span>
-<span class="codeline" id="line-670"><code>		<a href="trieval.go.html#line-82" class="ident">joiningL</a>: <a href="#line-655" class="ident">stateBefore</a>,</code></span>
-<span class="codeline" id="line-671"><code>		<a href="trieval.go.html#line-83" class="ident">joiningD</a>: <a href="#line-655" class="ident">stateBefore</a>,</code></span>
-<span class="codeline" id="line-672"><code>	},</code></span>
-<span class="codeline" id="line-673"><code>	<a href="#line-655" class="ident">stateBefore</a>: {</code></span>
-<span class="codeline" id="line-674"><code>		<a href="trieval.go.html#line-82" class="ident">joiningL</a>:   <a href="#line-655" class="ident">stateBefore</a>,</code></span>
-<span class="codeline" id="line-675"><code>		<a href="trieval.go.html#line-83" class="ident">joiningD</a>:   <a href="#line-655" class="ident">stateBefore</a>,</code></span>
-<span class="codeline" id="line-676"><code>		<a href="trieval.go.html#line-84" class="ident">joiningT</a>:   <a href="#line-655" class="ident">stateBefore</a>,</code></span>
-<span class="codeline" id="line-677"><code>		<a href="trieval.go.html#line-89" class="ident">joinZWNJ</a>:   <a href="#line-657" class="ident">stateAfter</a>,</code></span>
-<span class="codeline" id="line-678"><code>		<a href="trieval.go.html#line-88" class="ident">joinZWJ</a>:    <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-679"><code>		<a href="trieval.go.html#line-90" class="ident">joinVirama</a>: <a href="#line-656" class="ident">stateBeforeVirama</a>,</code></span>
-<span class="codeline" id="line-680"><code>	},</code></span>
-<span class="codeline" id="line-681"><code>	<a href="#line-656" class="ident">stateBeforeVirama</a>: {</code></span>
-<span class="codeline" id="line-682"><code>		<a href="trieval.go.html#line-82" class="ident">joiningL</a>: <a href="#line-655" class="ident">stateBefore</a>,</code></span>
-<span class="codeline" id="line-683"><code>		<a href="trieval.go.html#line-83" class="ident">joiningD</a>: <a href="#line-655" class="ident">stateBefore</a>,</code></span>
-<span class="codeline" id="line-684"><code>		<a href="trieval.go.html#line-84" class="ident">joiningT</a>: <a href="#line-655" class="ident">stateBefore</a>,</code></span>
+<span class="codeline" id="line-535"><code>	<span class="keyword">if</span> <label for="r106" class="ident">k</label> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-536"><code>		<span class="comment">// No changes so far.</span></code></span>
+<span class="codeline" id="line-537"><code>		<span class="keyword">if</span> <label for="r107" class="ident">combinedInfoBits</label>&amp;<a href="trieval.go.html#line-58" class="ident">mayNeedNorm</a> != <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-538"><code>			<label for="r101" class="ident">s</label> = <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/norm.html" class="ident i0">norm</a>.<a href="../../text/unicode/norm/normalize.go.html#line-38" class="ident">NFC</a>.<a href="../../text/unicode/norm/normalize.go.html#line-59" class="ident">String</a>(<label for="r101" class="ident">s</label>)</code></span>
+<span class="codeline" id="line-539"><code>		}</code></span>
+<span class="codeline" id="line-540"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-541"><code>		<label for="r105" class="ident">b</label> = <a href="../../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r105" class="ident">b</label>, <label for="r101" class="ident">s</label>[<label for="r106" class="ident">k</label>:]...)</code></span>
+<span class="codeline" id="line-542"><code>		<span class="keyword">if</span> <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/norm.html" class="ident i0">norm</a>.<a href="../../text/unicode/norm/normalize.go.html#line-38" class="ident">NFC</a>.<a href="../../text/unicode/norm/normalize.go.html#line-267" class="ident">QuickSpan</a>(<label for="r105" class="ident">b</label>) != <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r105" class="ident">b</label>) {</code></span>
+<span class="codeline" id="line-543"><code>			<label for="r105" class="ident">b</label> = <a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/norm.html" class="ident i0">norm</a>.<a href="../../text/unicode/norm/normalize.go.html#line-38" class="ident">NFC</a>.<a href="../../text/unicode/norm/normalize.go.html#line-45" class="ident">Bytes</a>(<label for="r105" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-544"><code>		}</code></span>
+<span class="codeline" id="line-545"><code>		<span class="comment">// TODO: the punycode converters require strings as input.</span></code></span>
+<span class="codeline" id="line-546"><code>		<label for="r101" class="ident">s</label> = <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>(<label for="r105" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-547"><code>	}</code></span>
+<span class="codeline" id="line-548"><code>	<span class="keyword">return</span> <label for="r101" class="ident">s</label>, <label for="r103" class="ident">bidi</label>, <label for="r104" class="ident">err</label></code></span>
+<span class="codeline" id="line-549"><code>}</code></span>
+<span class="codeline" id="line-550"><code></code></span>
+<span class="codeline" id="line-551"><code><span class="comment">// A labelIter allows iterating over domain name labels.</span></code></span>
+<span class="codeline" id="line-552"><code><span class="keyword">type</span> <a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-labelIter" class="ident">labelIter</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-553"><code>	<a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.orig^14e0f.html" class="ident">orig</a>     <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-554"><code>	<a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.slice^03fdb.html" class="ident">slice</a>    []<a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-555"><code>	<a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.curStart^c325f.html" class="ident">curStart</a> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-556"><code>	<a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.curEnd^159e8.html" class="ident">curEnd</a>   <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-557"><code>	<a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.i^de7d1.html" class="ident">i</a>        <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-558"><code>}</code></span>
+<span class="codeline" id="line-559"><code></code></span>
+<span class="codeline" id="line-560"><code><span class="keyword">func</span> (<label for="r114" class="ident">l</label> *<a href="#line-552" class="ident">labelIter</a>) <label for="r115" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.reset^01be3.html" class="ident">reset</a></label>() {</code></span>
+<span class="codeline" id="line-561"><code>	<label for="r114" class="ident">l</label>.<a href="#line-555" class="ident">curStart</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-562"><code>	<label for="r114" class="ident">l</label>.<a href="#line-556" class="ident">curEnd</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-563"><code>	<label for="r114" class="ident">l</label>.<a href="#line-557" class="ident">i</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-564"><code>}</code></span>
+<span class="codeline" id="line-565"><code></code></span>
+<span class="codeline" id="line-566"><code><span class="keyword">func</span> (<label for="r116" class="ident">l</label> *<a href="#line-552" class="ident">labelIter</a>) <label for="r117" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.done^a4c3e.html" class="ident">done</a></label>() <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-567"><code>	<span class="keyword">return</span> <label for="r116" class="ident">l</label>.<a href="#line-555" class="ident">curStart</a> &gt;= <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r116" class="ident">l</label>.<a href="#line-553" class="ident">orig</a>)</code></span>
+<span class="codeline" id="line-568"><code>}</code></span>
+<span class="codeline" id="line-569"><code></code></span>
+<span class="codeline" id="line-570"><code><span class="keyword">func</span> (<label for="r118" class="ident">l</label> *<a href="#line-552" class="ident">labelIter</a>) <label for="r119" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.result^f6a21.html" class="ident">result</a></label>() <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-571"><code>	<span class="keyword">if</span> <label for="r118" class="ident">l</label>.<a href="#line-554" class="ident">slice</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-572"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../../../strings/strings.go.html#line-487" class="ident">Join</a>(<label for="r118" class="ident">l</label>.<a href="#line-554" class="ident">slice</a>, <span class="lit-string">"."</span>)</code></span>
+<span class="codeline" id="line-573"><code>	}</code></span>
+<span class="codeline" id="line-574"><code>	<span class="keyword">return</span> <label for="r118" class="ident">l</label>.<a href="#line-553" class="ident">orig</a></code></span>
+<span class="codeline" id="line-575"><code>}</code></span>
+<span class="codeline" id="line-576"><code></code></span>
+<span class="codeline" id="line-577"><code><span class="keyword">func</span> (<label for="r120" class="ident">l</label> *<a href="#line-552" class="ident">labelIter</a>) <label for="r121" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.label^1aca8.html" class="ident">label</a></label>() <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-578"><code>	<span class="keyword">if</span> <label for="r120" class="ident">l</label>.<a href="#line-554" class="ident">slice</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-579"><code>		<span class="keyword">return</span> <label for="r120" class="ident">l</label>.<a href="#line-554" class="ident">slice</a>[<label for="r120" class="ident">l</label>.<a href="#line-557" class="ident">i</a>]</code></span>
+<span class="codeline" id="line-580"><code>	}</code></span>
+<span class="codeline" id="line-581"><code>	<label for="r122" class="ident">p</label> := <a href="../../../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../../../strings/strings.go.html#line-119" class="ident">IndexByte</a>(<label for="r120" class="ident">l</label>.<a href="#line-553" class="ident">orig</a>[<label for="r120" class="ident">l</label>.<a href="#line-555" class="ident">curStart</a>:], <span class="lit-number">'.'</span>)</code></span>
+<span class="codeline" id="line-582"><code>	<label for="r120" class="ident">l</label>.<a href="#line-556" class="ident">curEnd</a> = <label for="r120" class="ident">l</label>.<a href="#line-555" class="ident">curStart</a> + <label for="r122" class="ident">p</label></code></span>
+<span class="codeline" id="line-583"><code>	<span class="keyword">if</span> <label for="r122" class="ident">p</label> == -<span class="lit-number">1</span> {</code></span>
+<span class="codeline" id="line-584"><code>		<label for="r120" class="ident">l</label>.<a href="#line-556" class="ident">curEnd</a> = <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r120" class="ident">l</label>.<a href="#line-553" class="ident">orig</a>)</code></span>
+<span class="codeline" id="line-585"><code>	}</code></span>
+<span class="codeline" id="line-586"><code>	<span class="keyword">return</span> <label for="r120" class="ident">l</label>.<a href="#line-553" class="ident">orig</a>[<label for="r120" class="ident">l</label>.<a href="#line-555" class="ident">curStart</a>:<label for="r120" class="ident">l</label>.<a href="#line-556" class="ident">curEnd</a>]</code></span>
+<span class="codeline" id="line-587"><code>}</code></span>
+<span class="codeline" id="line-588"><code></code></span>
+<span class="codeline" id="line-589"><code><span class="comment">// next sets the value to the next label. It skips the last label if it is empty.</span></code></span>
+<span class="codeline" id="line-590"><code><span class="keyword">func</span> (<label for="r123" class="ident">l</label> *<a href="#line-552" class="ident">labelIter</a>) <label for="r124" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.next^c6c1c.html" class="ident">next</a></label>() {</code></span>
+<span class="codeline" id="line-591"><code>	<label for="r123" class="ident">l</label>.<a href="#line-557" class="ident">i</a>++</code></span>
+<span class="codeline" id="line-592"><code>	<span class="keyword">if</span> <label for="r123" class="ident">l</label>.<a href="#line-554" class="ident">slice</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-593"><code>		<span class="keyword">if</span> <label for="r123" class="ident">l</label>.<a href="#line-557" class="ident">i</a> &gt;= <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r123" class="ident">l</label>.<a href="#line-554" class="ident">slice</a>) || <label for="r123" class="ident">l</label>.<a href="#line-557" class="ident">i</a> == <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r123" class="ident">l</label>.<a href="#line-554" class="ident">slice</a>)-<span class="lit-number">1</span> &amp;&amp; <label for="r123" class="ident">l</label>.<a href="#line-554" class="ident">slice</a>[<label for="r123" class="ident">l</label>.<a href="#line-557" class="ident">i</a>] == <span class="lit-string">""</span> {</code></span>
+<span class="codeline" id="line-594"><code>			<label for="r123" class="ident">l</label>.<a href="#line-555" class="ident">curStart</a> = <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r123" class="ident">l</label>.<a href="#line-553" class="ident">orig</a>)</code></span>
+<span class="codeline" id="line-595"><code>		}</code></span>
+<span class="codeline" id="line-596"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-597"><code>		<label for="r123" class="ident">l</label>.<a href="#line-555" class="ident">curStart</a> = <label for="r123" class="ident">l</label>.<a href="#line-556" class="ident">curEnd</a> + <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-598"><code>		<span class="keyword">if</span> <label for="r123" class="ident">l</label>.<a href="#line-555" class="ident">curStart</a> == <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r123" class="ident">l</label>.<a href="#line-553" class="ident">orig</a>)-<span class="lit-number">1</span> &amp;&amp; <label for="r123" class="ident">l</label>.<a href="#line-553" class="ident">orig</a>[<label for="r123" class="ident">l</label>.<a href="#line-555" class="ident">curStart</a>] == <span class="lit-number">'.'</span> {</code></span>
+<span class="codeline" id="line-599"><code>			<label for="r123" class="ident">l</label>.<a href="#line-555" class="ident">curStart</a> = <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r123" class="ident">l</label>.<a href="#line-553" class="ident">orig</a>)</code></span>
+<span class="codeline" id="line-600"><code>		}</code></span>
+<span class="codeline" id="line-601"><code>	}</code></span>
+<span class="codeline" id="line-602"><code>}</code></span>
+<span class="codeline" id="line-603"><code></code></span>
+<span class="codeline" id="line-604"><code><span class="keyword">func</span> (<label for="r125" class="ident">l</label> *<a href="#line-552" class="ident">labelIter</a>) <label for="r126" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..labelIter^521b5.set^6ee0e.html" class="ident">set</a></label>(<label for="r127" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) {</code></span>
+<span class="codeline" id="line-605"><code>	<span class="keyword">if</span> <label for="r125" class="ident">l</label>.<a href="#line-554" class="ident">slice</a> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-606"><code>		<label for="r125" class="ident">l</label>.<a href="#line-554" class="ident">slice</a> = <a href="../../../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../../../strings/strings.go.html#line-361" class="ident">Split</a>(<label for="r125" class="ident">l</label>.<a href="#line-553" class="ident">orig</a>, <span class="lit-string">"."</span>)</code></span>
+<span class="codeline" id="line-607"><code>	}</code></span>
+<span class="codeline" id="line-608"><code>	<label for="r125" class="ident">l</label>.<a href="#line-554" class="ident">slice</a>[<label for="r125" class="ident">l</label>.<a href="#line-557" class="ident">i</a>] = <label for="r127" class="ident">s</label></code></span>
+<span class="codeline" id="line-609"><code>}</code></span>
+<span class="codeline" id="line-610"><code></code></span>
+<span class="codeline" id="line-611"><code><span class="comment">// acePrefix is the ASCII Compatible Encoding prefix.</span></code></span>
+<span class="codeline" id="line-612"><code><span class="keyword">const</span> <a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-acePrefix" class="ident">acePrefix</a> = <span class="lit-string">"xn--"</span></code></span>
+<span class="codeline" id="line-613"><code></code></span>
+<span class="codeline" id="line-614"><code><span class="keyword">func</span> (<label for="r128" class="ident">p</label> *<a href="#line-200" class="ident">Profile</a>) <label for="r129" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..Profile.simplify^e55de.html" class="ident">simplify</a></label>(<label for="r130" class="ident">cat</label> <a href="trieval.go.html#line-62" class="ident">category</a>) <a href="trieval.go.html#line-62" class="ident">category</a> {</code></span>
+<span class="codeline" id="line-615"><code>	<span class="keyword">switch</span> <label for="r130" class="ident">cat</label> {</code></span>
+<span class="codeline" id="line-616"><code>	<span class="keyword">case</span> <a href="trieval.go.html#line-67" class="ident">disallowedSTD3Mapped</a>:</code></span>
+<span class="codeline" id="line-617"><code>		<span class="keyword">if</span> <label for="r128" class="ident">p</label>.<a href="#line-179" class="ident">useSTD3Rules</a> {</code></span>
+<span class="codeline" id="line-618"><code>			<label for="r130" class="ident">cat</label> = <a href="trieval.go.html#line-75" class="ident">disallowed</a></code></span>
+<span class="codeline" id="line-619"><code>		} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-620"><code>			<label for="r130" class="ident">cat</label> = <a href="trieval.go.html#line-66" class="ident">mapped</a></code></span>
+<span class="codeline" id="line-621"><code>		}</code></span>
+<span class="codeline" id="line-622"><code>	<span class="keyword">case</span> <a href="trieval.go.html#line-76" class="ident">disallowedSTD3Valid</a>:</code></span>
+<span class="codeline" id="line-623"><code>		<span class="keyword">if</span> <label for="r128" class="ident">p</label>.<a href="#line-179" class="ident">useSTD3Rules</a> {</code></span>
+<span class="codeline" id="line-624"><code>			<label for="r130" class="ident">cat</label> = <a href="trieval.go.html#line-75" class="ident">disallowed</a></code></span>
+<span class="codeline" id="line-625"><code>		} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-626"><code>			<label for="r130" class="ident">cat</label> = <a href="trieval.go.html#line-72" class="ident">valid</a></code></span>
+<span class="codeline" id="line-627"><code>		}</code></span>
+<span class="codeline" id="line-628"><code>	<span class="keyword">case</span> <a href="trieval.go.html#line-68" class="ident">deviation</a>:</code></span>
+<span class="codeline" id="line-629"><code>		<span class="keyword">if</span> !<label for="r128" class="ident">p</label>.<a href="#line-178" class="ident">transitional</a> {</code></span>
+<span class="codeline" id="line-630"><code>			<label for="r130" class="ident">cat</label> = <a href="trieval.go.html#line-72" class="ident">valid</a></code></span>
+<span class="codeline" id="line-631"><code>		}</code></span>
+<span class="codeline" id="line-632"><code>	<span class="keyword">case</span> <a href="trieval.go.html#line-73" class="ident">validNV8</a>, <a href="trieval.go.html#line-74" class="ident">validXV8</a>:</code></span>
+<span class="codeline" id="line-633"><code>		<span class="comment">// TODO: handle V2008</span></code></span>
+<span class="codeline" id="line-634"><code>		<label for="r130" class="ident">cat</label> = <a href="trieval.go.html#line-72" class="ident">valid</a></code></span>
+<span class="codeline" id="line-635"><code>	}</code></span>
+<span class="codeline" id="line-636"><code>	<span class="keyword">return</span> <label for="r130" class="ident">cat</label></code></span>
+<span class="codeline" id="line-637"><code>}</code></span>
+<span class="codeline" id="line-638"><code></code></span>
+<span class="codeline" id="line-639"><code><span class="keyword">func</span> <label for="r131" class="ident"><a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-validateFromPunycode" class="ident">validateFromPunycode</a></label>(<label for="r132" class="ident">p</label> *<a href="#line-200" class="ident">Profile</a>, <label for="r133" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-640"><code>	<span class="keyword">if</span> !<a href="../../../../../../pkg/vendor/golang.org/x/text/unicode/norm.html" class="ident i0">norm</a>.<a href="../../text/unicode/norm/normalize.go.html#line-38" class="ident">NFC</a>.<a href="../../text/unicode/norm/normalize.go.html#line-112" class="ident">IsNormalString</a>(<label for="r133" class="ident">s</label>) {</code></span>
+<span class="codeline" id="line-641"><code>		<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r133" class="ident">s</label>, <span class="lit-string">"V1"</span>}</code></span>
+<span class="codeline" id="line-642"><code>	}</code></span>
+<span class="codeline" id="line-643"><code>	<span class="comment">// TODO: detect whether string may have to be normalized in the following</span></code></span>
+<span class="codeline" id="line-644"><code><span class="comment">	// loop.</span></code></span>
+<span class="codeline" id="line-645"><code>	<span class="keyword">for</span> <label for="r134" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r134" class="ident">i</label> &lt; <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r133" class="ident">s</label>); {</code></span>
+<span class="codeline" id="line-646"><code>		<label for="r135" class="ident">v</label>, <label for="r136" class="ident">sz</label> := <a href="trie.go.html#line-27" class="ident">trie</a>.<a href="tables15.0.0.go.html#line-625" class="ident">lookupString</a>(<label for="r133" class="ident">s</label>[<label for="r134" class="ident">i</label>:])</code></span>
+<span class="codeline" id="line-647"><code>		<span class="keyword">if</span> <label for="r136" class="ident">sz</label> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-648"><code>			<span class="keyword">return</span> <a href="#line-327" class="ident">runeError</a>(<a href="../../../../../../pkg/unicode/utf8.html" class="ident i2">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-16" class="ident">RuneError</a>)</code></span>
+<span class="codeline" id="line-649"><code>		}</code></span>
+<span class="codeline" id="line-650"><code>		<span class="keyword">if</span> <label for="r137" class="ident">c</label> := <label for="r132" class="ident">p</label>.<a href="#line-614" class="ident">simplify</a>(<a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r135" class="ident">v</label>).<a href="trieval.go.html#line-98" class="ident">category</a>()); <label for="r137" class="ident">c</label> != <a href="trieval.go.html#line-72" class="ident">valid</a> &amp;&amp; <label for="r137" class="ident">c</label> != <a href="trieval.go.html#line-68" class="ident">deviation</a> {</code></span>
+<span class="codeline" id="line-651"><code>			<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r133" class="ident">s</label>, <span class="lit-string">"V6"</span>}</code></span>
+<span class="codeline" id="line-652"><code>		}</code></span>
+<span class="codeline" id="line-653"><code>		<label for="r134" class="ident">i</label> += <label for="r136" class="ident">sz</label></code></span>
+<span class="codeline" id="line-654"><code>	}</code></span>
+<span class="codeline" id="line-655"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-656"><code>}</code></span>
+<span class="codeline" id="line-657"><code></code></span>
+<span class="codeline" id="line-658"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-659"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-zwnj" class="ident">zwnj</a> = <span class="lit-string">"\u200c"</span></code></span>
+<span class="codeline" id="line-660"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-zwj" class="ident">zwj</a>  = <span class="lit-string">"\u200d"</span></code></span>
+<span class="codeline" id="line-661"><code>)</code></span>
+<span class="codeline" id="line-662"><code></code></span>
+<span class="codeline" id="line-663"><code><span class="keyword">type</span> <a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-joinState" class="ident">joinState</a> <a href="../../../../../../pkg/builtin.html#name-int8" class="ident">int8</a></code></span>
+<span class="codeline" id="line-664"><code></code></span>
+<span class="codeline" id="line-665"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-666"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-stateStart" class="ident">stateStart</a> <a href="#line-663" class="ident">joinState</a> = <a href="../../../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-667"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-stateVirama" class="ident">stateVirama</a></code></span>
+<span class="codeline" id="line-668"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-stateBefore" class="ident">stateBefore</a></code></span>
+<span class="codeline" id="line-669"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-stateBeforeVirama" class="ident">stateBeforeVirama</a></code></span>
+<span class="codeline" id="line-670"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-stateAfter" class="ident">stateAfter</a></code></span>
+<span class="codeline" id="line-671"><code>	<a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-stateFAIL" class="ident">stateFAIL</a></code></span>
+<span class="codeline" id="line-672"><code>)</code></span>
+<span class="codeline" id="line-673"><code></code></span>
+<span class="codeline" id="line-674"><code><span class="keyword">var</span> <a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-joinStates" class="ident">joinStates</a> = [][<a href="trieval.go.html#line-91" class="ident">numJoinTypes</a>]<a href="#line-663" class="ident">joinState</a>{</code></span>
+<span class="codeline" id="line-675"><code>	<a href="#line-666" class="ident">stateStart</a>: {</code></span>
+<span class="codeline" id="line-676"><code>		<a href="trieval.go.html#line-82" class="ident">joiningL</a>:   <a href="#line-668" class="ident">stateBefore</a>,</code></span>
+<span class="codeline" id="line-677"><code>		<a href="trieval.go.html#line-83" class="ident">joiningD</a>:   <a href="#line-668" class="ident">stateBefore</a>,</code></span>
+<span class="codeline" id="line-678"><code>		<a href="trieval.go.html#line-89" class="ident">joinZWNJ</a>:   <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-679"><code>		<a href="trieval.go.html#line-88" class="ident">joinZWJ</a>:    <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-680"><code>		<a href="trieval.go.html#line-90" class="ident">joinVirama</a>: <a href="#line-667" class="ident">stateVirama</a>,</code></span>
+<span class="codeline" id="line-681"><code>	},</code></span>
+<span class="codeline" id="line-682"><code>	<a href="#line-667" class="ident">stateVirama</a>: {</code></span>
+<span class="codeline" id="line-683"><code>		<a href="trieval.go.html#line-82" class="ident">joiningL</a>: <a href="#line-668" class="ident">stateBefore</a>,</code></span>
+<span class="codeline" id="line-684"><code>		<a href="trieval.go.html#line-83" class="ident">joiningD</a>: <a href="#line-668" class="ident">stateBefore</a>,</code></span>
 <span class="codeline" id="line-685"><code>	},</code></span>
-<span class="codeline" id="line-686"><code>	<a href="#line-657" class="ident">stateAfter</a>: {</code></span>
-<span class="codeline" id="line-687"><code>		<a href="trieval.go.html#line-82" class="ident">joiningL</a>:   <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-688"><code>		<a href="trieval.go.html#line-83" class="ident">joiningD</a>:   <a href="#line-655" class="ident">stateBefore</a>,</code></span>
-<span class="codeline" id="line-689"><code>		<a href="trieval.go.html#line-84" class="ident">joiningT</a>:   <a href="#line-657" class="ident">stateAfter</a>,</code></span>
-<span class="codeline" id="line-690"><code>		<a href="trieval.go.html#line-85" class="ident">joiningR</a>:   <a href="#line-653" class="ident">stateStart</a>,</code></span>
-<span class="codeline" id="line-691"><code>		<a href="trieval.go.html#line-89" class="ident">joinZWNJ</a>:   <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-692"><code>		<a href="trieval.go.html#line-88" class="ident">joinZWJ</a>:    <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-693"><code>		<a href="trieval.go.html#line-90" class="ident">joinVirama</a>: <a href="#line-657" class="ident">stateAfter</a>, <span class="comment">// no-op as we can't accept joiners here</span></code></span>
-<span class="codeline" id="line-694"><code>	},</code></span>
-<span class="codeline" id="line-695"><code>	<a href="#line-658" class="ident">stateFAIL</a>: {</code></span>
-<span class="codeline" id="line-696"><code>		<span class="lit-number">0</span>:          <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-697"><code>		<a href="trieval.go.html#line-82" class="ident">joiningL</a>:   <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-698"><code>		<a href="trieval.go.html#line-83" class="ident">joiningD</a>:   <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-699"><code>		<a href="trieval.go.html#line-84" class="ident">joiningT</a>:   <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-700"><code>		<a href="trieval.go.html#line-85" class="ident">joiningR</a>:   <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-701"><code>		<a href="trieval.go.html#line-89" class="ident">joinZWNJ</a>:   <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-702"><code>		<a href="trieval.go.html#line-88" class="ident">joinZWJ</a>:    <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-703"><code>		<a href="trieval.go.html#line-90" class="ident">joinVirama</a>: <a href="#line-658" class="ident">stateFAIL</a>,</code></span>
-<span class="codeline" id="line-704"><code>	},</code></span>
-<span class="codeline" id="line-705"><code>}</code></span>
-<span class="codeline" id="line-706"><code></code></span>
-<span class="codeline" id="line-707"><code><span class="comment">// validateLabel validates the criteria from Section 4.1. Item 1, 4, and 6 are</span></code></span>
-<span class="codeline" id="line-708"><code><span class="comment">// already implicitly satisfied by the overall implementation.</span></code></span>
-<span class="codeline" id="line-709"><code><span class="keyword">func</span> (<label for="r133" class="ident">p</label> *<a href="#line-200" class="ident">Profile</a>) <label for="r134" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..Profile.validateLabel^09f11.html" class="ident">validateLabel</a></label>(<label for="r135" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<label for="r136" class="ident">err</label> <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-710"><code>	<span class="keyword">if</span> <label for="r135" class="ident">s</label> == <span class="lit-string">""</span> {</code></span>
-<span class="codeline" id="line-711"><code>		<span class="keyword">if</span> <label for="r133" class="ident">p</label>.<a href="#line-182" class="ident">verifyDNSLength</a> {</code></span>
-<span class="codeline" id="line-712"><code>			<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r135" class="ident">s</label>, <span class="lit-string">"A4"</span>}</code></span>
-<span class="codeline" id="line-713"><code>		}</code></span>
-<span class="codeline" id="line-714"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-715"><code>	}</code></span>
-<span class="codeline" id="line-716"><code>	<span class="keyword">if</span> <label for="r133" class="ident">p</label>.<a href="#line-180" class="ident">checkHyphens</a> {</code></span>
-<span class="codeline" id="line-717"><code>		<span class="keyword">if</span> <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r135" class="ident">s</label>) &gt; <span class="lit-number">4</span> &amp;&amp; <label for="r135" class="ident">s</label>[<span class="lit-number">2</span>] == <span class="lit-number">'-'</span> &amp;&amp; <label for="r135" class="ident">s</label>[<span class="lit-number">3</span>] == <span class="lit-number">'-'</span> {</code></span>
-<span class="codeline" id="line-718"><code>			<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r135" class="ident">s</label>, <span class="lit-string">"V2"</span>}</code></span>
-<span class="codeline" id="line-719"><code>		}</code></span>
-<span class="codeline" id="line-720"><code>		<span class="keyword">if</span> <label for="r135" class="ident">s</label>[<span class="lit-number">0</span>] == <span class="lit-number">'-'</span> || <label for="r135" class="ident">s</label>[<a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r135" class="ident">s</label>)-<span class="lit-number">1</span>] == <span class="lit-number">'-'</span> {</code></span>
-<span class="codeline" id="line-721"><code>			<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r135" class="ident">s</label>, <span class="lit-string">"V3"</span>}</code></span>
-<span class="codeline" id="line-722"><code>		}</code></span>
-<span class="codeline" id="line-723"><code>	}</code></span>
-<span class="codeline" id="line-724"><code>	<span class="keyword">if</span> !<label for="r133" class="ident">p</label>.<a href="#line-181" class="ident">checkJoiners</a> {</code></span>
-<span class="codeline" id="line-725"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-726"><code>	}</code></span>
-<span class="codeline" id="line-727"><code>	<label for="r137" class="ident">trie</label> := <label for="r133" class="ident">p</label>.<a href="#line-185" class="ident">trie</a> <span class="comment">// p.checkJoiners is only set if trie is set.</span></code></span>
-<span class="codeline" id="line-728"><code>	<span class="comment">// TODO: merge the use of this in the trie.</span></code></span>
-<span class="codeline" id="line-729"><code>	<label for="r138" class="ident">v</label>, <label for="r139" class="ident">sz</label> := <label for="r137" class="ident">trie</label>.<a href="tables15.0.0.go.html#line-625" class="ident">lookupString</a>(<label for="r135" class="ident">s</label>)</code></span>
-<span class="codeline" id="line-730"><code>	<label for="r140" class="ident">x</label> := <a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r138" class="ident">v</label>)</code></span>
-<span class="codeline" id="line-731"><code>	<span class="keyword">if</span> <label for="r140" class="ident">x</label>.<a href="trieval.go.html#line-113" class="ident">isModifier</a>() {</code></span>
-<span class="codeline" id="line-732"><code>		<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r135" class="ident">s</label>, <span class="lit-string">"V5"</span>}</code></span>
-<span class="codeline" id="line-733"><code>	}</code></span>
-<span class="codeline" id="line-734"><code>	<span class="comment">// Quickly return in the absence of zero-width (non) joiners.</span></code></span>
-<span class="codeline" id="line-735"><code>	<span class="keyword">if</span> <a href="../../../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../../../strings/strings.go.html#line-1265" class="ident">Index</a>(<label for="r135" class="ident">s</label>, <a href="#line-647" class="ident">zwj</a>) == -<span class="lit-number">1</span> &amp;&amp; <a href="../../../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../../../strings/strings.go.html#line-1265" class="ident">Index</a>(<label for="r135" class="ident">s</label>, <a href="#line-646" class="ident">zwnj</a>) == -<span class="lit-number">1</span> {</code></span>
-<span class="codeline" id="line-736"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-737"><code>	}</code></span>
-<span class="codeline" id="line-738"><code>	<label for="r141" class="ident">st</label> := <a href="#line-653" class="ident">stateStart</a></code></span>
-<span class="codeline" id="line-739"><code>	<span class="keyword">for</span> <label for="r142" class="ident">i</label> := <span class="lit-number">0</span>; ; {</code></span>
-<span class="codeline" id="line-740"><code>		<label for="r143" class="ident">jt</label> := <label for="r140" class="ident">x</label>.<a href="trieval.go.html#line-106" class="ident">joinType</a>()</code></span>
-<span class="codeline" id="line-741"><code>		<span class="keyword">if</span> <label for="r135" class="ident">s</label>[<label for="r142" class="ident">i</label>:<label for="r142" class="ident">i</label>+<label for="r139" class="ident">sz</label>] == <a href="#line-647" class="ident">zwj</a> {</code></span>
-<span class="codeline" id="line-742"><code>			<label for="r143" class="ident">jt</label> = <a href="trieval.go.html#line-88" class="ident">joinZWJ</a></code></span>
-<span class="codeline" id="line-743"><code>		} <span class="keyword">else</span> <span class="keyword">if</span> <label for="r135" class="ident">s</label>[<label for="r142" class="ident">i</label>:<label for="r142" class="ident">i</label>+<label for="r139" class="ident">sz</label>] == <a href="#line-646" class="ident">zwnj</a> {</code></span>
-<span class="codeline" id="line-744"><code>			<label for="r143" class="ident">jt</label> = <a href="trieval.go.html#line-89" class="ident">joinZWNJ</a></code></span>
-<span class="codeline" id="line-745"><code>		}</code></span>
-<span class="codeline" id="line-746"><code>		<label for="r141" class="ident">st</label> = <a href="#line-661" class="ident">joinStates</a>[<label for="r141" class="ident">st</label>][<label for="r143" class="ident">jt</label>]</code></span>
-<span class="codeline" id="line-747"><code>		<span class="keyword">if</span> <label for="r140" class="ident">x</label>.<a href="trieval.go.html#line-117" class="ident">isViramaModifier</a>() {</code></span>
-<span class="codeline" id="line-748"><code>			<label for="r141" class="ident">st</label> = <a href="#line-661" class="ident">joinStates</a>[<label for="r141" class="ident">st</label>][<a href="trieval.go.html#line-90" class="ident">joinVirama</a>]</code></span>
-<span class="codeline" id="line-749"><code>		}</code></span>
-<span class="codeline" id="line-750"><code>		<span class="keyword">if</span> <label for="r142" class="ident">i</label> += <label for="r139" class="ident">sz</label>; <label for="r142" class="ident">i</label> == <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r135" class="ident">s</label>) {</code></span>
-<span class="codeline" id="line-751"><code>			<span class="keyword">break</span></code></span>
-<span class="codeline" id="line-752"><code>		}</code></span>
-<span class="codeline" id="line-753"><code>		<label for="r138" class="ident">v</label>, <label for="r139" class="ident">sz</label> = <label for="r137" class="ident">trie</label>.<a href="tables15.0.0.go.html#line-625" class="ident">lookupString</a>(<label for="r135" class="ident">s</label>[<label for="r142" class="ident">i</label>:])</code></span>
-<span class="codeline" id="line-754"><code>		<label for="r140" class="ident">x</label> = <a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r138" class="ident">v</label>)</code></span>
-<span class="codeline" id="line-755"><code>	}</code></span>
-<span class="codeline" id="line-756"><code>	<span class="keyword">if</span> <label for="r141" class="ident">st</label> == <a href="#line-658" class="ident">stateFAIL</a> || <label for="r141" class="ident">st</label> == <a href="#line-657" class="ident">stateAfter</a> {</code></span>
-<span class="codeline" id="line-757"><code>		<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r135" class="ident">s</label>, <span class="lit-string">"C"</span>}</code></span>
-<span class="codeline" id="line-758"><code>	}</code></span>
-<span class="codeline" id="line-759"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-760"><code>}</code></span>
-<span class="codeline" id="line-761"><code></code></span>
-<span class="codeline" id="line-762"><code><span class="keyword">func</span> <label for="r144" class="ident"><a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-ascii" class="ident">ascii</a></label>(<label for="r145" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
-<span class="codeline" id="line-763"><code>	<span class="keyword">for</span> <label for="r146" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r146" class="ident">i</label> &lt; <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r145" class="ident">s</label>); <label for="r146" class="ident">i</label>++ {</code></span>
-<span class="codeline" id="line-764"><code>		<span class="keyword">if</span> <label for="r145" class="ident">s</label>[<label for="r146" class="ident">i</label>] &gt;= <a href="../../../../../../pkg/unicode/utf8.html" class="ident i2">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-17" class="ident">RuneSelf</a> {</code></span>
-<span class="codeline" id="line-765"><code>			<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
-<span class="codeline" id="line-766"><code>		}</code></span>
-<span class="codeline" id="line-767"><code>	}</code></span>
-<span class="codeline" id="line-768"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-769"><code>}</code></span>
+<span class="codeline" id="line-686"><code>	<a href="#line-668" class="ident">stateBefore</a>: {</code></span>
+<span class="codeline" id="line-687"><code>		<a href="trieval.go.html#line-82" class="ident">joiningL</a>:   <a href="#line-668" class="ident">stateBefore</a>,</code></span>
+<span class="codeline" id="line-688"><code>		<a href="trieval.go.html#line-83" class="ident">joiningD</a>:   <a href="#line-668" class="ident">stateBefore</a>,</code></span>
+<span class="codeline" id="line-689"><code>		<a href="trieval.go.html#line-84" class="ident">joiningT</a>:   <a href="#line-668" class="ident">stateBefore</a>,</code></span>
+<span class="codeline" id="line-690"><code>		<a href="trieval.go.html#line-89" class="ident">joinZWNJ</a>:   <a href="#line-670" class="ident">stateAfter</a>,</code></span>
+<span class="codeline" id="line-691"><code>		<a href="trieval.go.html#line-88" class="ident">joinZWJ</a>:    <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-692"><code>		<a href="trieval.go.html#line-90" class="ident">joinVirama</a>: <a href="#line-669" class="ident">stateBeforeVirama</a>,</code></span>
+<span class="codeline" id="line-693"><code>	},</code></span>
+<span class="codeline" id="line-694"><code>	<a href="#line-669" class="ident">stateBeforeVirama</a>: {</code></span>
+<span class="codeline" id="line-695"><code>		<a href="trieval.go.html#line-82" class="ident">joiningL</a>: <a href="#line-668" class="ident">stateBefore</a>,</code></span>
+<span class="codeline" id="line-696"><code>		<a href="trieval.go.html#line-83" class="ident">joiningD</a>: <a href="#line-668" class="ident">stateBefore</a>,</code></span>
+<span class="codeline" id="line-697"><code>		<a href="trieval.go.html#line-84" class="ident">joiningT</a>: <a href="#line-668" class="ident">stateBefore</a>,</code></span>
+<span class="codeline" id="line-698"><code>	},</code></span>
+<span class="codeline" id="line-699"><code>	<a href="#line-670" class="ident">stateAfter</a>: {</code></span>
+<span class="codeline" id="line-700"><code>		<a href="trieval.go.html#line-82" class="ident">joiningL</a>:   <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-701"><code>		<a href="trieval.go.html#line-83" class="ident">joiningD</a>:   <a href="#line-668" class="ident">stateBefore</a>,</code></span>
+<span class="codeline" id="line-702"><code>		<a href="trieval.go.html#line-84" class="ident">joiningT</a>:   <a href="#line-670" class="ident">stateAfter</a>,</code></span>
+<span class="codeline" id="line-703"><code>		<a href="trieval.go.html#line-85" class="ident">joiningR</a>:   <a href="#line-666" class="ident">stateStart</a>,</code></span>
+<span class="codeline" id="line-704"><code>		<a href="trieval.go.html#line-89" class="ident">joinZWNJ</a>:   <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-705"><code>		<a href="trieval.go.html#line-88" class="ident">joinZWJ</a>:    <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-706"><code>		<a href="trieval.go.html#line-90" class="ident">joinVirama</a>: <a href="#line-670" class="ident">stateAfter</a>, <span class="comment">// no-op as we can't accept joiners here</span></code></span>
+<span class="codeline" id="line-707"><code>	},</code></span>
+<span class="codeline" id="line-708"><code>	<a href="#line-671" class="ident">stateFAIL</a>: {</code></span>
+<span class="codeline" id="line-709"><code>		<span class="lit-number">0</span>:          <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-710"><code>		<a href="trieval.go.html#line-82" class="ident">joiningL</a>:   <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-711"><code>		<a href="trieval.go.html#line-83" class="ident">joiningD</a>:   <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-712"><code>		<a href="trieval.go.html#line-84" class="ident">joiningT</a>:   <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-713"><code>		<a href="trieval.go.html#line-85" class="ident">joiningR</a>:   <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-714"><code>		<a href="trieval.go.html#line-89" class="ident">joinZWNJ</a>:   <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-715"><code>		<a href="trieval.go.html#line-88" class="ident">joinZWJ</a>:    <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-716"><code>		<a href="trieval.go.html#line-90" class="ident">joinVirama</a>: <a href="#line-671" class="ident">stateFAIL</a>,</code></span>
+<span class="codeline" id="line-717"><code>	},</code></span>
+<span class="codeline" id="line-718"><code>}</code></span>
+<span class="codeline" id="line-719"><code></code></span>
+<span class="codeline" id="line-720"><code><span class="comment">// validateLabel validates the criteria from Section 4.1. Item 1, 4, and 6 are</span></code></span>
+<span class="codeline" id="line-721"><code><span class="comment">// already implicitly satisfied by the overall implementation.</span></code></span>
+<span class="codeline" id="line-722"><code><span class="keyword">func</span> (<label for="r138" class="ident">p</label> *<a href="#line-200" class="ident">Profile</a>) <label for="r139" class="ident"><a href="../../../../../../use/vendor/golang.org/x/net/idna..Profile.validateLabel^09f11.html" class="ident">validateLabel</a></label>(<label for="r140" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<label for="r141" class="ident">err</label> <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-723"><code>	<span class="keyword">if</span> <label for="r140" class="ident">s</label> == <span class="lit-string">""</span> {</code></span>
+<span class="codeline" id="line-724"><code>		<span class="keyword">if</span> <label for="r138" class="ident">p</label>.<a href="#line-182" class="ident">verifyDNSLength</a> {</code></span>
+<span class="codeline" id="line-725"><code>			<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r140" class="ident">s</label>, <span class="lit-string">"A4"</span>}</code></span>
+<span class="codeline" id="line-726"><code>		}</code></span>
+<span class="codeline" id="line-727"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-728"><code>	}</code></span>
+<span class="codeline" id="line-729"><code>	<span class="keyword">if</span> <label for="r138" class="ident">p</label>.<a href="#line-180" class="ident">checkHyphens</a> {</code></span>
+<span class="codeline" id="line-730"><code>		<span class="keyword">if</span> <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r140" class="ident">s</label>) &gt; <span class="lit-number">4</span> &amp;&amp; <label for="r140" class="ident">s</label>[<span class="lit-number">2</span>] == <span class="lit-number">'-'</span> &amp;&amp; <label for="r140" class="ident">s</label>[<span class="lit-number">3</span>] == <span class="lit-number">'-'</span> {</code></span>
+<span class="codeline" id="line-731"><code>			<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r140" class="ident">s</label>, <span class="lit-string">"V2"</span>}</code></span>
+<span class="codeline" id="line-732"><code>		}</code></span>
+<span class="codeline" id="line-733"><code>		<span class="keyword">if</span> <label for="r140" class="ident">s</label>[<span class="lit-number">0</span>] == <span class="lit-number">'-'</span> || <label for="r140" class="ident">s</label>[<a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r140" class="ident">s</label>)-<span class="lit-number">1</span>] == <span class="lit-number">'-'</span> {</code></span>
+<span class="codeline" id="line-734"><code>			<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r140" class="ident">s</label>, <span class="lit-string">"V3"</span>}</code></span>
+<span class="codeline" id="line-735"><code>		}</code></span>
+<span class="codeline" id="line-736"><code>	}</code></span>
+<span class="codeline" id="line-737"><code>	<span class="keyword">if</span> !<label for="r138" class="ident">p</label>.<a href="#line-181" class="ident">checkJoiners</a> {</code></span>
+<span class="codeline" id="line-738"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-739"><code>	}</code></span>
+<span class="codeline" id="line-740"><code>	<label for="r142" class="ident">trie</label> := <label for="r138" class="ident">p</label>.<a href="#line-185" class="ident">trie</a> <span class="comment">// p.checkJoiners is only set if trie is set.</span></code></span>
+<span class="codeline" id="line-741"><code>	<span class="comment">// TODO: merge the use of this in the trie.</span></code></span>
+<span class="codeline" id="line-742"><code>	<label for="r143" class="ident">v</label>, <label for="r144" class="ident">sz</label> := <label for="r142" class="ident">trie</label>.<a href="tables15.0.0.go.html#line-625" class="ident">lookupString</a>(<label for="r140" class="ident">s</label>)</code></span>
+<span class="codeline" id="line-743"><code>	<label for="r145" class="ident">x</label> := <a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r143" class="ident">v</label>)</code></span>
+<span class="codeline" id="line-744"><code>	<span class="keyword">if</span> <label for="r145" class="ident">x</label>.<a href="trieval.go.html#line-113" class="ident">isModifier</a>() {</code></span>
+<span class="codeline" id="line-745"><code>		<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r140" class="ident">s</label>, <span class="lit-string">"V5"</span>}</code></span>
+<span class="codeline" id="line-746"><code>	}</code></span>
+<span class="codeline" id="line-747"><code>	<span class="comment">// Quickly return in the absence of zero-width (non) joiners.</span></code></span>
+<span class="codeline" id="line-748"><code>	<span class="keyword">if</span> <a href="../../../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../../../strings/strings.go.html#line-1265" class="ident">Index</a>(<label for="r140" class="ident">s</label>, <a href="#line-660" class="ident">zwj</a>) == -<span class="lit-number">1</span> &amp;&amp; <a href="../../../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../../../strings/strings.go.html#line-1265" class="ident">Index</a>(<label for="r140" class="ident">s</label>, <a href="#line-659" class="ident">zwnj</a>) == -<span class="lit-number">1</span> {</code></span>
+<span class="codeline" id="line-749"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-750"><code>	}</code></span>
+<span class="codeline" id="line-751"><code>	<label for="r146" class="ident">st</label> := <a href="#line-666" class="ident">stateStart</a></code></span>
+<span class="codeline" id="line-752"><code>	<span class="keyword">for</span> <label for="r147" class="ident">i</label> := <span class="lit-number">0</span>; ; {</code></span>
+<span class="codeline" id="line-753"><code>		<label for="r148" class="ident">jt</label> := <label for="r145" class="ident">x</label>.<a href="trieval.go.html#line-106" class="ident">joinType</a>()</code></span>
+<span class="codeline" id="line-754"><code>		<span class="keyword">if</span> <label for="r140" class="ident">s</label>[<label for="r147" class="ident">i</label>:<label for="r147" class="ident">i</label>+<label for="r144" class="ident">sz</label>] == <a href="#line-660" class="ident">zwj</a> {</code></span>
+<span class="codeline" id="line-755"><code>			<label for="r148" class="ident">jt</label> = <a href="trieval.go.html#line-88" class="ident">joinZWJ</a></code></span>
+<span class="codeline" id="line-756"><code>		} <span class="keyword">else</span> <span class="keyword">if</span> <label for="r140" class="ident">s</label>[<label for="r147" class="ident">i</label>:<label for="r147" class="ident">i</label>+<label for="r144" class="ident">sz</label>] == <a href="#line-659" class="ident">zwnj</a> {</code></span>
+<span class="codeline" id="line-757"><code>			<label for="r148" class="ident">jt</label> = <a href="trieval.go.html#line-89" class="ident">joinZWNJ</a></code></span>
+<span class="codeline" id="line-758"><code>		}</code></span>
+<span class="codeline" id="line-759"><code>		<label for="r146" class="ident">st</label> = <a href="#line-674" class="ident">joinStates</a>[<label for="r146" class="ident">st</label>][<label for="r148" class="ident">jt</label>]</code></span>
+<span class="codeline" id="line-760"><code>		<span class="keyword">if</span> <label for="r145" class="ident">x</label>.<a href="trieval.go.html#line-117" class="ident">isViramaModifier</a>() {</code></span>
+<span class="codeline" id="line-761"><code>			<label for="r146" class="ident">st</label> = <a href="#line-674" class="ident">joinStates</a>[<label for="r146" class="ident">st</label>][<a href="trieval.go.html#line-90" class="ident">joinVirama</a>]</code></span>
+<span class="codeline" id="line-762"><code>		}</code></span>
+<span class="codeline" id="line-763"><code>		<span class="keyword">if</span> <label for="r147" class="ident">i</label> += <label for="r144" class="ident">sz</label>; <label for="r147" class="ident">i</label> == <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r140" class="ident">s</label>) {</code></span>
+<span class="codeline" id="line-764"><code>			<span class="keyword">break</span></code></span>
+<span class="codeline" id="line-765"><code>		}</code></span>
+<span class="codeline" id="line-766"><code>		<label for="r143" class="ident">v</label>, <label for="r144" class="ident">sz</label> = <label for="r142" class="ident">trie</label>.<a href="tables15.0.0.go.html#line-625" class="ident">lookupString</a>(<label for="r140" class="ident">s</label>[<label for="r147" class="ident">i</label>:])</code></span>
+<span class="codeline" id="line-767"><code>		<label for="r145" class="ident">x</label> = <a href="trieval.go.html#line-40" class="ident">info</a>(<label for="r143" class="ident">v</label>)</code></span>
+<span class="codeline" id="line-768"><code>	}</code></span>
+<span class="codeline" id="line-769"><code>	<span class="keyword">if</span> <label for="r146" class="ident">st</label> == <a href="#line-671" class="ident">stateFAIL</a> || <label for="r146" class="ident">st</label> == <a href="#line-670" class="ident">stateAfter</a> {</code></span>
+<span class="codeline" id="line-770"><code>		<span class="keyword">return</span> &amp;<a href="#line-320" class="ident">labelError</a>{<label for="r140" class="ident">s</label>, <span class="lit-string">"C"</span>}</code></span>
+<span class="codeline" id="line-771"><code>	}</code></span>
+<span class="codeline" id="line-772"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-773"><code>}</code></span>
+<span class="codeline" id="line-774"><code></code></span>
+<span class="codeline" id="line-775"><code><span class="keyword">func</span> <label for="r149" class="ident"><a href="../../../../../../pkg/vendor/golang.org/x/net/idna.html#name-ascii" class="ident">ascii</a></label>(<label for="r150" class="ident">s</label> <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-776"><code>	<span class="keyword">for</span> <label for="r151" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r151" class="ident">i</label> &lt; <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r150" class="ident">s</label>); <label for="r151" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-777"><code>		<span class="keyword">if</span> <label for="r150" class="ident">s</label>[<label for="r151" class="ident">i</label>] &gt;= <a href="../../../../../../pkg/unicode/utf8.html" class="ident i2">utf8</a>.<a href="../../../../../unicode/utf8/utf8.go.html#line-17" class="ident">RuneSelf</a> {</code></span>
+<span class="codeline" id="line-778"><code>			<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-779"><code>		}</code></span>
+<span class="codeline" id="line-780"><code>	}</code></span>
+<span class="codeline" id="line-781"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-782"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)

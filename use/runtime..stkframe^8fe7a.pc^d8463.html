@@ -16,7 +16,7 @@
 	runtime (current package)
 		<a href="../src/runtime/heapdump.go.html#line-259">heapdump.go#L259</a>: 	pc := s.<b>pc</b>
 		<a href="../src/runtime/heapdump.go.html#line-287" class="path-duplicate">heapdump.go</a><a href="../src/runtime/heapdump.go.html#line-287">#L287</a>: 	dumpint(uint64(s.<b>pc</b>))
-		<a href="../src/runtime/stack.go.html#line-708">stack.go#L708</a>: 		print("    adjusting ", funcname(f), " frame=[", hex(frame.sp), ",", hex(frame.fp), "] pc=", hex(frame.<b>pc</b>), " continpc=", hex(frame.continpc), "\n")
+		<a href="../src/runtime/stack.go.html#line-759">stack.go#L759</a>: 		print("    adjusting ", funcname(f), " frame=[", hex(frame.sp), ",", hex(frame.fp), "] pc=", hex(frame.<b>pc</b>), " continpc=", hex(frame.continpc), "\n")
 		<a href="../src/runtime/stkframe.go.html#line-44">stkframe.go#L44</a>: 	<b>pc</b> uintptr
 		<a href="../src/runtime/stkframe.go.html#line-126" class="path-duplicate">stkframe.go</a><a href="../src/runtime/stkframe.go.html#line-126">#L126</a>: 			if frame.<b>pc</b> != f.entry() {
 		<a href="../src/runtime/stkframe.go.html#line-127" class="path-duplicate">stkframe.go</a><a href="../src/runtime/stkframe.go.html#line-127">#L127</a>: 				print("runtime: confused by ", funcname(f), ": no frame (sp=", hex(frame.sp), " fp=", hex(frame.fp), ") at entry+", hex(frame.<b>pc</b>-f.entry()), "\n")
@@ -35,19 +35,19 @@
 		<a href="../src/runtime/traceback.go.html#line-309" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-309">#L309</a>: 				if usesLR &amp;&amp; funcspdelta(f, frame.<b>pc</b>) == 0 {
 		<a href="../src/runtime/traceback.go.html#line-327" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-327">#L327</a>: 		frame.fp = frame.sp + uintptr(funcspdelta(f, frame.<b>pc</b>))
 		<a href="../src/runtime/traceback.go.html#line-422" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-422">#L422</a>: 	frame.continpc = frame.<b>pc</b>
-		<a href="../src/runtime/traceback.go.html#line-478" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-478">#L478</a>: 	if frame.<b>pc</b> == frame.lr &amp;&amp; frame.sp == frame.fp {
-		<a href="../src/runtime/traceback.go.html#line-480" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-480">#L480</a>: 		print("runtime: traceback stuck. pc=", hex(frame.<b>pc</b>), " sp=", hex(frame.sp), "\n")
-		<a href="../src/runtime/traceback.go.html#line-495" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-495">#L495</a>: 	frame.<b>pc</b> = frame.lr
-		<a href="../src/runtime/traceback.go.html#line-505" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-505">#L505</a>: 		f = findfunc(frame.<b>pc</b>)
-		<a href="../src/runtime/traceback.go.html#line-508" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-508">#L508</a>: 			frame.<b>pc</b> = x
-		<a href="../src/runtime/traceback.go.html#line-509" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-509">#L509</a>: 		} else if funcspdelta(f, frame.<b>pc</b>) == 0 {
-		<a href="../src/runtime/traceback.go.html#line-521" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-521">#L521</a>: 	u.frame.<b>pc</b> = 0
-		<a href="../src/runtime/traceback.go.html#line-582" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-582">#L582</a>: 	if u.flags&amp;unwindTrap == 0 &amp;&amp; u.frame.<b>pc</b> &gt; u.frame.fn.entry() {
-		<a href="../src/runtime/traceback.go.html#line-584" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-584">#L584</a>: 		return u.frame.<b>pc</b> - 1
-		<a href="../src/runtime/traceback.go.html#line-587" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-587">#L587</a>: 	return u.frame.<b>pc</b>
-		<a href="../src/runtime/traceback.go.html#line-1002" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1002">#L1002</a>: 				if u.frame.<b>pc</b> &gt; f.entry() {
-		<a href="../src/runtime/traceback.go.html#line-1003" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1003">#L1003</a>: 					print(" +", hex(u.frame.<b>pc</b>-f.entry()))
-		<a href="../src/runtime/traceback.go.html#line-1006" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1006">#L1006</a>: 					print(" fp=", hex(u.frame.fp), " sp=", hex(u.frame.sp), " pc=", hex(u.frame.<b>pc</b>))
+		<a href="../src/runtime/traceback.go.html#line-482" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-482">#L482</a>: 	if frame.<b>pc</b> == frame.lr &amp;&amp; frame.sp == frame.fp {
+		<a href="../src/runtime/traceback.go.html#line-484" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-484">#L484</a>: 		print("runtime: traceback stuck. pc=", hex(frame.<b>pc</b>), " sp=", hex(frame.sp), "\n")
+		<a href="../src/runtime/traceback.go.html#line-499" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-499">#L499</a>: 	frame.<b>pc</b> = frame.lr
+		<a href="../src/runtime/traceback.go.html#line-510" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-510">#L510</a>: 		f = findfunc(frame.<b>pc</b>)
+		<a href="../src/runtime/traceback.go.html#line-513" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-513">#L513</a>: 			frame.<b>pc</b> = x
+		<a href="../src/runtime/traceback.go.html#line-514" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-514">#L514</a>: 		} else if funcspdelta(f, frame.<b>pc</b>) == 0 {
+		<a href="../src/runtime/traceback.go.html#line-526" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-526">#L526</a>: 	u.frame.<b>pc</b> = 0
+		<a href="../src/runtime/traceback.go.html#line-587" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-587">#L587</a>: 	if u.flags&amp;unwindTrap == 0 &amp;&amp; u.frame.<b>pc</b> &gt; u.frame.fn.entry() {
+		<a href="../src/runtime/traceback.go.html#line-589" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-589">#L589</a>: 		return u.frame.<b>pc</b> - 1
+		<a href="../src/runtime/traceback.go.html#line-592" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-592">#L592</a>: 	return u.frame.<b>pc</b>
+		<a href="../src/runtime/traceback.go.html#line-1007" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1007">#L1007</a>: 				if u.frame.<b>pc</b> &gt; f.entry() {
+		<a href="../src/runtime/traceback.go.html#line-1008" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1008">#L1008</a>: 					print(" +", hex(u.frame.<b>pc</b>-f.entry()))
+		<a href="../src/runtime/traceback.go.html#line-1011" class="path-duplicate">traceback.go</a><a href="../src/runtime/traceback.go.html#line-1011">#L1011</a>: 					print(" fp=", hex(u.frame.fp), " sp=", hex(u.frame.sp), " pc=", hex(u.frame.<b>pc</b>))
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)

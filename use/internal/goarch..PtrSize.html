@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;">const <b><a href="../../pkg/internal/goarch.html">internal/goarch</a>.<a href="../../src/internal/goarch/goarch.go.html#line-35">PtrSize</a></b></span>
 
-<span class="title">623 uses</span>
+<span class="title">624 uses</span>
 
 	internal/goarch (current package)
 		<a href="../../src/internal/goarch/goarch.go.html#line-35">goarch.go#L35</a>: const <b>PtrSize</b> = 4 &lt;&lt; (^uintptr(0) &gt;&gt; 63)
@@ -135,7 +135,7 @@
 		<a href="../../src/runtime/iface.go.html#line-114" class="path-duplicate">iface.go</a><a href="../../src/runtime/iface.go.html#line-114">#L114</a>: 		p := (**itab)(add(unsafe.Pointer(&amp;t.entries), h*goarch.<b>PtrSize</b>))
 		<a href="../../src/runtime/iface.go.html#line-147" class="path-duplicate">iface.go</a><a href="../../src/runtime/iface.go.html#line-147">#L147</a>: 		t2 := (*itabTableType)(mallocgc((2+2*t.size)*goarch.<b>PtrSize</b>, nil, true))
 		<a href="../../src/runtime/iface.go.html#line-175" class="path-duplicate">iface.go</a><a href="../../src/runtime/iface.go.html#line-175">#L175</a>: 		p := (**itab)(add(unsafe.Pointer(&amp;t.entries), h*goarch.<b>PtrSize</b>))
-		<a href="../../src/runtime/iface.go.html#line-687" class="path-duplicate">iface.go</a><a href="../../src/runtime/iface.go.html#line-687">#L687</a>: 		m := *(**itab)(add(unsafe.Pointer(&amp;t.entries), i*goarch.<b>PtrSize</b>))
+		<a href="../../src/runtime/iface.go.html#line-695" class="path-duplicate">iface.go</a><a href="../../src/runtime/iface.go.html#line-695">#L695</a>: 		m := *(**itab)(add(unsafe.Pointer(&amp;t.entries), i*goarch.<b>PtrSize</b>))
 		<a href="../../src/runtime/lock_spinbit.go.html#line-76">lock_spinbit.go#L76</a>: 		return &amp;(*[8]uint8)(unsafe.Pointer(p))[goarch.<b>PtrSize</b>/1-1]
 		<a href="../../src/runtime/malloc.go.html#line-150">malloc.go#L150</a>: 	_NumStackOrders = 4 - goarch.<b>PtrSize</b>/4*goos.IsWindows - 1*goos.IsPlan9
 		<a href="../../src/runtime/malloc.go.html#line-254" class="path-duplicate">malloc.go</a><a href="../../src/runtime/malloc.go.html#line-254">#L254</a>: 	heapArenaWords = heapArenaBytes / goarch.<b>PtrSize</b>
@@ -505,20 +505,20 @@
 		<a href="../../src/runtime/mgcmark.go.html#line-984" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-984">#L984</a>: 			scanblock(uintptr(unsafe.Pointer(&amp;d.fn)), goarch.<b>PtrSize</b>, &amp;oneptrmask[0], gcw, &amp;state)
 		<a href="../../src/runtime/mgcmark.go.html#line-989" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-989">#L989</a>: 			scanblock(uintptr(unsafe.Pointer(&amp;d.link)), goarch.<b>PtrSize</b>, &amp;oneptrmask[0], gcw, &amp;state)
 		<a href="../../src/runtime/mgcmark.go.html#line-995" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-995">#L995</a>: 			scanblock(uintptr(unsafe.Pointer(&amp;d)), goarch.<b>PtrSize</b>, &amp;oneptrmask[0], gcw, &amp;state)
-		<a href="../../src/runtime/mgcmark.go.html#line-1122" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1122">#L1122</a>: 		size := uintptr(locals.n) * goarch.<b>PtrSize</b>
-		<a href="../../src/runtime/mgcmark.go.html#line-1128" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1128">#L1128</a>: 		scanblock(frame.argp, uintptr(args.n)*goarch.<b>PtrSize</b>, args.bytedata, gcw, state)
-		<a href="../../src/runtime/mgcmark.go.html#line-1488" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1488">#L1488</a>: 		bits := uint32(*addb(ptrmask, i/(goarch.<b>PtrSize</b>*8)))
-		<a href="../../src/runtime/mgcmark.go.html#line-1490" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1490">#L1490</a>: 			i += goarch.<b>PtrSize</b> * 8
-		<a href="../../src/runtime/mgcmark.go.html#line-1510" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1510">#L1510</a>: 			i += goarch.<b>PtrSize</b>
-		<a href="../../src/runtime/mgcmark.go.html#line-1529" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1529">#L1529</a>: 				word := (p - b) / goarch.<b>PtrSize</b>
-		<a href="../../src/runtime/mgcmark.go.html#line-1557" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1557">#L1557</a>: 	for i := uintptr(0); i &lt; n; i += goarch.<b>PtrSize</b> {
-		<a href="../../src/runtime/mgcmark.go.html#line-1559" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1559">#L1559</a>: 			word := i / goarch.<b>PtrSize</b>
-		<a href="../../src/runtime/mgcmark.go.html#line-1568" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1568">#L1568</a>: 				if i%(goarch.<b>PtrSize</b>*8) != 0 {
-		<a href="../../src/runtime/mgcmark.go.html#line-1571" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1571">#L1571</a>: 				i += goarch.<b>PtrSize</b>*8 - goarch.<b>PtrSize</b>
-		<a href="../../src/runtime/mgcmark.go.html#line-1641" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1641">#L1641</a>: 	if obj&amp;(goarch.<b>PtrSize</b>-1) != 0 {
-		<a href="../../src/runtime/mgcmark.go.html#line-1716" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1716">#L1716</a>: 		size = off + goarch.<b>PtrSize</b>
-		<a href="../../src/runtime/mgcmark.go.html#line-1718" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1718">#L1718</a>: 	for i := uintptr(0); i &lt; size; i += goarch.<b>PtrSize</b> {
-		<a href="../../src/runtime/mgcmark.go.html#line-1722" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1722">#L1722</a>: 		if !(i &lt; 128*goarch.<b>PtrSize</b> || off-16*goarch.<b>PtrSize</b> &lt; i &amp;&amp; i &lt; off+16*goarch.<b>PtrSize</b>) {
+		<a href="../../src/runtime/mgcmark.go.html#line-1131" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1131">#L1131</a>: 		size := uintptr(locals.n) * goarch.<b>PtrSize</b>
+		<a href="../../src/runtime/mgcmark.go.html#line-1137" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1137">#L1137</a>: 		scanblock(frame.argp, uintptr(args.n)*goarch.<b>PtrSize</b>, args.bytedata, gcw, state)
+		<a href="../../src/runtime/mgcmark.go.html#line-1497" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1497">#L1497</a>: 		bits := uint32(*addb(ptrmask, i/(goarch.<b>PtrSize</b>*8)))
+		<a href="../../src/runtime/mgcmark.go.html#line-1499" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1499">#L1499</a>: 			i += goarch.<b>PtrSize</b> * 8
+		<a href="../../src/runtime/mgcmark.go.html#line-1519" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1519">#L1519</a>: 			i += goarch.<b>PtrSize</b>
+		<a href="../../src/runtime/mgcmark.go.html#line-1538" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1538">#L1538</a>: 				word := (p - b) / goarch.<b>PtrSize</b>
+		<a href="../../src/runtime/mgcmark.go.html#line-1566" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1566">#L1566</a>: 	for i := uintptr(0); i &lt; n; i += goarch.<b>PtrSize</b> {
+		<a href="../../src/runtime/mgcmark.go.html#line-1568" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1568">#L1568</a>: 			word := i / goarch.<b>PtrSize</b>
+		<a href="../../src/runtime/mgcmark.go.html#line-1577" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1577">#L1577</a>: 				if i%(goarch.<b>PtrSize</b>*8) != 0 {
+		<a href="../../src/runtime/mgcmark.go.html#line-1580" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1580">#L1580</a>: 				i += goarch.<b>PtrSize</b>*8 - goarch.<b>PtrSize</b>
+		<a href="../../src/runtime/mgcmark.go.html#line-1650" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1650">#L1650</a>: 	if obj&amp;(goarch.<b>PtrSize</b>-1) != 0 {
+		<a href="../../src/runtime/mgcmark.go.html#line-1725" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1725">#L1725</a>: 		size = off + goarch.<b>PtrSize</b>
+		<a href="../../src/runtime/mgcmark.go.html#line-1727" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1727">#L1727</a>: 	for i := uintptr(0); i &lt; size; i += goarch.<b>PtrSize</b> {
+		<a href="../../src/runtime/mgcmark.go.html#line-1731" class="path-duplicate">mgcmark.go</a><a href="../../src/runtime/mgcmark.go.html#line-1731">#L1731</a>: 		if !(i &lt; 128*goarch.<b>PtrSize</b> || off-16*goarch.<b>PtrSize</b> &lt; i &amp;&amp; i &lt; off+16*goarch.<b>PtrSize</b>) {
 		<a href="../../src/runtime/mgcmark_greenteagc.go.html#line-203">mgcmark_greenteagc.go#L203</a>: 	for i := uintptr(0); i &lt; bytes; i += goarch.<b>PtrSize</b> {
 		<a href="../../src/runtime/mgcmark_greenteagc.go.html#line-204" class="path-duplicate">mgcmark_greenteagc.go</a><a href="../../src/runtime/mgcmark_greenteagc.go.html#line-204">#L204</a>: 		marks := bswapIfBigEndian(imbMarks[i/goarch.<b>PtrSize</b>])
 		<a href="../../src/runtime/mgcmark_greenteagc.go.html#line-205" class="path-duplicate">mgcmark_greenteagc.go</a><a href="../../src/runtime/mgcmark_greenteagc.go.html#line-205">#L205</a>: 		if i/goarch.<b>PtrSize</b> == uintptr(len(imb.marks)+1)/goarch.<b>PtrSize</b>-1 {
@@ -599,13 +599,14 @@
 		<a href="../../src/runtime/stack.go.html#line-125">stack.go#L125</a>: 	uintptrMask = 1&lt;&lt;(8*goarch.<b>PtrSize</b>) - 1
 		<a href="../../src/runtime/stack.go.html#line-666" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-666">#L666</a>: 				print("        ", add(scanp, (i+j)*goarch.<b>PtrSize</b>), ":", ptrnames[bv.ptrbit(i+j)], ":", hex(*(*uintptr)(add(scanp, (i+j)*goarch.<b>PtrSize</b>))), " # ", i, " ", *addb(bv.bytedata, i/8), "\n")
 		<a href="../../src/runtime/stack.go.html#line-673" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-673">#L673</a>: 			pp := (*uintptr)(add(scanp, (i+j)*goarch.<b>PtrSize</b>))
-		<a href="../../src/runtime/stack.go.html#line-712" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-712">#L712</a>: 	if (goarch.ArchFamily == goarch.AMD64 || goarch.ArchFamily == goarch.ARM64) &amp;&amp; frame.argp-frame.varp == 2*goarch.<b>PtrSize</b> {
-		<a href="../../src/runtime/stack.go.html#line-737" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-737">#L737</a>: 		size := uintptr(locals.n) * goarch.<b>PtrSize</b>
-		<a href="../../src/runtime/stack.go.html#line-767" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-767">#L767</a>: 			for i := uintptr(0); i &lt; ptrBytes; i += goarch.<b>PtrSize</b> {
-		<a href="../../src/runtime/stack.go.html#line-768" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-768">#L768</a>: 				if *addb(gcData, i/(8*goarch.<b>PtrSize</b>))&gt;&gt;(i/goarch.<b>PtrSize</b>&amp;7)&amp;1 != 0 {
-		<a href="../../src/runtime/stack.go.html#line-795" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-795">#L795</a>: 		if oldfp == gp.sched.sp-goarch.<b>PtrSize</b> {
-		<a href="../../src/runtime/stack.go.html#line-796" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-796">#L796</a>: 			memmove(unsafe.Pointer(gp.sched.bp), unsafe.Pointer(oldfp), goarch.<b>PtrSize</b>)
-		<a href="../../src/runtime/stack.go.html#line-1109" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-1109">#L1109</a>: 		sp -= goarch.<b>PtrSize</b>
+		<a href="../../src/runtime/stack.go.html#line-703" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-703">#L703</a>: 	if (goarch.ArchFamily == goarch.AMD64 || goarch.ArchFamily == goarch.ARM64) &amp;&amp; frame.argp-frame.varp == 2*goarch.<b>PtrSize</b> {
+		<a href="../../src/runtime/stack.go.html#line-748" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-748">#L748</a>: 		adjustpointer(adjinfo, unsafe.Pointer(frame.fp+goarch.<b>PtrSize</b>))
+		<a href="../../src/runtime/stack.go.html#line-766" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-766">#L766</a>: 		size := uintptr(locals.n) * goarch.<b>PtrSize</b>
+		<a href="../../src/runtime/stack.go.html#line-796" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-796">#L796</a>: 			for i := uintptr(0); i &lt; ptrBytes; i += goarch.<b>PtrSize</b> {
+		<a href="../../src/runtime/stack.go.html#line-797" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-797">#L797</a>: 				if *addb(gcData, i/(8*goarch.<b>PtrSize</b>))&gt;&gt;(i/goarch.<b>PtrSize</b>&amp;7)&amp;1 != 0 {
+		<a href="../../src/runtime/stack.go.html#line-824" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-824">#L824</a>: 		if oldfp == gp.sched.sp-goarch.<b>PtrSize</b> {
+		<a href="../../src/runtime/stack.go.html#line-825" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-825">#L825</a>: 			memmove(unsafe.Pointer(gp.sched.bp), unsafe.Pointer(oldfp), goarch.<b>PtrSize</b>)
+		<a href="../../src/runtime/stack.go.html#line-1138" class="path-duplicate">stack.go</a><a href="../../src/runtime/stack.go.html#line-1138">#L1138</a>: 		sp -= goarch.<b>PtrSize</b>
 		<a href="../../src/runtime/stkframe.go.html#line-79">stkframe.go#L79</a>: 	return uintptr(argMap.n) * goarch.<b>PtrSize</b>
 		<a href="../../src/runtime/stkframe.go.html#line-97" class="path-duplicate">stkframe.go</a><a href="../../src/runtime/stkframe.go.html#line-97">#L97</a>: 		argMap.n = f.args / goarch.<b>PtrSize</b>
 		<a href="../../src/runtime/stkframe.go.html#line-112" class="path-duplicate">stkframe.go</a><a href="../../src/runtime/stkframe.go.html#line-112">#L112</a>: 			minSP -= goarch.<b>PtrSize</b>
@@ -622,8 +623,8 @@
 		<a href="../../src/runtime/traceback.go.html#line-378" class="path-duplicate">traceback.go</a><a href="../../src/runtime/traceback.go.html#line-378">#L378</a>: 				lrPtr = frame.fp - goarch.<b>PtrSize</b>
 		<a href="../../src/runtime/traceback.go.html#line-387" class="path-duplicate">traceback.go</a><a href="../../src/runtime/traceback.go.html#line-387">#L387</a>: 		frame.varp -= goarch.<b>PtrSize</b>
 		<a href="../../src/runtime/traceback.go.html#line-408" class="path-duplicate">traceback.go</a><a href="../../src/runtime/traceback.go.html#line-408">#L408</a>: 		frame.varp -= goarch.<b>PtrSize</b>
-		<a href="../../src/runtime/traceback.go.html#line-1353" class="path-duplicate">traceback.go</a><a href="../../src/runtime/traceback.go.html#line-1353">#L1353</a>: 	const expand = 32 * goarch.<b>PtrSize</b>
-		<a href="../../src/runtime/traceback.go.html#line-1354" class="path-duplicate">traceback.go</a><a href="../../src/runtime/traceback.go.html#line-1354">#L1354</a>: 	const maxExpand = 256 * goarch.<b>PtrSize</b>
+		<a href="../../src/runtime/traceback.go.html#line-1358" class="path-duplicate">traceback.go</a><a href="../../src/runtime/traceback.go.html#line-1358">#L1358</a>: 	const expand = 32 * goarch.<b>PtrSize</b>
+		<a href="../../src/runtime/traceback.go.html#line-1359" class="path-duplicate">traceback.go</a><a href="../../src/runtime/traceback.go.html#line-1359">#L1359</a>: 	const maxExpand = 256 * goarch.<b>PtrSize</b>
 		<a href="../../src/runtime/tracemap.go.html#line-117">tracemap.go#L117</a>: 		m = &amp;n.children[hashIter&gt;&gt;(8*goarch.<b>PtrSize</b>-2)]
 		<a href="../../src/runtime/tracestack.go.html#line-270">tracestack.go#L270</a>: 		pcBuf[i] = *(*uintptr)(unsafe.Pointer(uintptr(fp) + goarch.<b>PtrSize</b>))
 		<a href="../../src/runtime/tracetype.go.html#line-31">tracetype.go#L31</a>: 	id, _ := t.tab.put(noescape(unsafe.Pointer(&amp;typ)), goarch.<b>PtrSize</b>)

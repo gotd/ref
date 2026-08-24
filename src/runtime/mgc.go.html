@@ -1339,7 +1339,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-923"><code><span class="comment">	// other allocations. The alternative is to blacken</span></code></span>
 <span class="codeline" id="line-924"><code><span class="comment">	// the tiny block on every allocation from it, which</span></code></span>
 <span class="codeline" id="line-925"><code><span class="comment">	// would slow down the tiny allocator.</span></code></span>
-<span class="codeline" id="line-926"><code>	<a href="mgcmark.go.html#line-1778" class="ident">gcMarkTinyAllocs</a>()</code></span>
+<span class="codeline" id="line-926"><code>	<a href="mgcmark.go.html#line-1787" class="ident">gcMarkTinyAllocs</a>()</code></span>
 <span class="codeline" id="line-927"><code></code></span>
 <span class="codeline" id="line-928"><code>	<span class="comment">// At this point all Ps have enabled the write</span></code></span>
 <span class="codeline" id="line-929"><code><span class="comment">	// barrier, thus maintaining the no white to</span></code></span>
@@ -1553,7 +1553,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-1137"><code>		<span class="keyword">goto</span> <label for="r40" class="ident">top</label></code></span>
 <span class="codeline" id="line-1138"><code>	}</code></span>
 <span class="codeline" id="line-1139"><code></code></span>
-<span class="codeline" id="line-1140"><code>	<a href="stack.go.html#line-1392" class="ident">gcComputeStartingStackSize</a>()</code></span>
+<span class="codeline" id="line-1140"><code>	<a href="stack.go.html#line-1421" class="ident">gcComputeStartingStackSize</a>()</code></span>
 <span class="codeline" id="line-1141"><code></code></span>
 <span class="codeline" id="line-1142"><code>	<span class="comment">// Disable assists and background workers. We must do</span></code></span>
 <span class="codeline" id="line-1143"><code><span class="comment">	// this before waking blocked assists.</span></code></span>
@@ -1741,11 +1741,11 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-1325"><code>		<span class="keyword">switch</span> {</code></span>
 <span class="codeline" id="line-1326"><code>		<span class="keyword">case</span> <label for="r67" class="ident">gp</label>.<a href="runtime2.go.html#line-512" class="ident">waitreason</a>.<a href="runtime2.go.html#line-1351" class="ident">isChanWait</a>():</code></span>
 <span class="codeline" id="line-1327"><code>			<span class="keyword">for</span> <label for="r68" class="ident">sg</label> := <label for="r67" class="ident">gp</label>.<a href="runtime2.go.html#line-563" class="ident">waiting</a>; <label for="r68" class="ident">sg</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>; <label for="r68" class="ident">sg</label> = <label for="r68" class="ident">sg</label>.<a href="runtime2.go.html#line-445" class="ident">waitlink</a> {</code></span>
-<span class="codeline" id="line-1328"><code>				<a href="mgcmark.go.html#line-1623" class="ident">shade</a>(<label for="r68" class="ident">sg</label>.<a href="runtime2.go.html#line-447" class="ident">c</a>.<a href="runtime2.go.html#line-374" class="ident">uintptr</a>())</code></span>
+<span class="codeline" id="line-1328"><code>				<a href="mgcmark.go.html#line-1632" class="ident">shade</a>(<label for="r68" class="ident">sg</label>.<a href="runtime2.go.html#line-447" class="ident">c</a>.<a href="runtime2.go.html#line-374" class="ident">uintptr</a>())</code></span>
 <span class="codeline" id="line-1329"><code>			}</code></span>
 <span class="codeline" id="line-1330"><code>		<span class="keyword">case</span> <label for="r67" class="ident">gp</label>.<a href="runtime2.go.html#line-512" class="ident">waitreason</a>.<a href="runtime2.go.html#line-1343" class="ident">isSyncWait</a>():</code></span>
 <span class="codeline" id="line-1331"><code>			<span class="keyword">for</span> <label for="r69" class="ident">sg</label> := <label for="r67" class="ident">gp</label>.<a href="runtime2.go.html#line-563" class="ident">waiting</a>; <label for="r69" class="ident">sg</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>; <label for="r69" class="ident">sg</label> = <label for="r69" class="ident">sg</label>.<a href="runtime2.go.html#line-445" class="ident">waitlink</a> {</code></span>
-<span class="codeline" id="line-1332"><code>				<a href="mgcmark.go.html#line-1623" class="ident">shade</a>(<label for="r69" class="ident">sg</label>.<a href="runtime2.go.html#line-416" class="ident">elem</a>.<a href="runtime2.go.html#line-374" class="ident">uintptr</a>())</code></span>
+<span class="codeline" id="line-1332"><code>				<a href="mgcmark.go.html#line-1632" class="ident">shade</a>(<label for="r69" class="ident">sg</label>.<a href="runtime2.go.html#line-416" class="ident">elem</a>.<a href="runtime2.go.html#line-374" class="ident">uintptr</a>())</code></span>
 <span class="codeline" id="line-1333"><code>			}</code></span>
 <span class="codeline" id="line-1334"><code>		}</code></span>
 <span class="codeline" id="line-1335"><code>	}</code></span>
@@ -1941,7 +1941,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-1525"><code>	<a href="mgcwork.go.html#line-525" class="ident">prepareFreeWorkbufs</a>()</code></span>
 <span class="codeline" id="line-1526"><code></code></span>
 <span class="codeline" id="line-1527"><code>	<span class="comment">// Free stack spans. This must be done between GC cycles.</span></code></span>
-<span class="codeline" id="line-1528"><code>	<a href="stubs.go.html#line-67" class="ident">systemstack</a>(<a href="stack.go.html#line-1309" class="ident">freeStackSpans</a>)</code></span>
+<span class="codeline" id="line-1528"><code>	<a href="stubs.go.html#line-67" class="ident">systemstack</a>(<a href="stack.go.html#line-1338" class="ident">freeStackSpans</a>)</code></span>
 <span class="codeline" id="line-1529"><code></code></span>
 <span class="codeline" id="line-1530"><code>	<span class="comment">// Ensure all mcaches are flushed. Each P will flush its own</span></code></span>
 <span class="codeline" id="line-1531"><code><span class="comment">	// mcache before allocating, but idle Ps may not. Since this</span></code></span>
@@ -2275,7 +2275,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-1859"><code>			<span class="keyword">default</span>:</code></span>
 <span class="codeline" id="line-1860"><code>				<a href="panic.go.html#line-1220" class="ident">throw</a>(<span class="lit-string">"gcBgMarkWorker: unexpected gcMarkWorkerMode"</span>)</code></span>
 <span class="codeline" id="line-1861"><code>			<span class="keyword">case</span> <a href="#line-279" class="ident">gcMarkWorkerDedicatedMode</a>:</code></span>
-<span class="codeline" id="line-1862"><code>				<a href="mgcmark.go.html#line-1173" class="ident">gcDrainMarkWorkerDedicated</a>(&amp;<label for="r115" class="ident">pp</label>.<a href="runtime2.go.html#line-877" class="ident">gcw</a>, <a href="../../pkg/builtin.html#name-true" class="ident">true</a>)</code></span>
+<span class="codeline" id="line-1862"><code>				<a href="mgcmark.go.html#line-1182" class="ident">gcDrainMarkWorkerDedicated</a>(&amp;<label for="r115" class="ident">pp</label>.<a href="runtime2.go.html#line-877" class="ident">gcw</a>, <a href="../../pkg/builtin.html#name-true" class="ident">true</a>)</code></span>
 <span class="codeline" id="line-1863"><code>				<span class="keyword">if</span> <label for="r109" class="ident">gp</label>.<a href="runtime2.go.html#line-514" class="ident">preempt</a> {</code></span>
 <span class="codeline" id="line-1864"><code>					<span class="comment">// We were preempted. This is</span></code></span>
 <span class="codeline" id="line-1865"><code><span class="comment">					// a useful signal to kick</span></code></span>
@@ -2290,11 +2290,11 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-1874"><code>				}</code></span>
 <span class="codeline" id="line-1875"><code>				<span class="comment">// Go back to draining, this time</span></code></span>
 <span class="codeline" id="line-1876"><code><span class="comment">				// without preemption.</span></code></span>
-<span class="codeline" id="line-1877"><code>				<a href="mgcmark.go.html#line-1173" class="ident">gcDrainMarkWorkerDedicated</a>(&amp;<label for="r115" class="ident">pp</label>.<a href="runtime2.go.html#line-877" class="ident">gcw</a>, <a href="../../pkg/builtin.html#name-false" class="ident">false</a>)</code></span>
+<span class="codeline" id="line-1877"><code>				<a href="mgcmark.go.html#line-1182" class="ident">gcDrainMarkWorkerDedicated</a>(&amp;<label for="r115" class="ident">pp</label>.<a href="runtime2.go.html#line-877" class="ident">gcw</a>, <a href="../../pkg/builtin.html#name-false" class="ident">false</a>)</code></span>
 <span class="codeline" id="line-1878"><code>			<span class="keyword">case</span> <a href="#line-289" class="ident">gcMarkWorkerFractionalMode</a>:</code></span>
-<span class="codeline" id="line-1879"><code>				<a href="mgcmark.go.html#line-1183" class="ident">gcDrainMarkWorkerFractional</a>(&amp;<label for="r115" class="ident">pp</label>.<a href="runtime2.go.html#line-877" class="ident">gcw</a>)</code></span>
+<span class="codeline" id="line-1879"><code>				<a href="mgcmark.go.html#line-1192" class="ident">gcDrainMarkWorkerFractional</a>(&amp;<label for="r115" class="ident">pp</label>.<a href="runtime2.go.html#line-877" class="ident">gcw</a>)</code></span>
 <span class="codeline" id="line-1880"><code>			<span class="keyword">case</span> <a href="#line-295" class="ident">gcMarkWorkerIdleMode</a>:</code></span>
-<span class="codeline" id="line-1881"><code>				<a href="mgcmark.go.html#line-1167" class="ident">gcDrainMarkWorkerIdle</a>(&amp;<label for="r115" class="ident">pp</label>.<a href="runtime2.go.html#line-877" class="ident">gcw</a>)</code></span>
+<span class="codeline" id="line-1881"><code>				<a href="mgcmark.go.html#line-1176" class="ident">gcDrainMarkWorkerIdle</a>(&amp;<label for="r115" class="ident">pp</label>.<a href="runtime2.go.html#line-877" class="ident">gcw</a>)</code></span>
 <span class="codeline" id="line-1882"><code>			}</code></span>
 <span class="codeline" id="line-1883"><code>			<a href="proc.go.html#line-1277" class="ident">casgstatus</a>(<label for="r109" class="ident">gp</label>, <a href="runtime2.go.html#line-65" class="ident">_Gwaiting</a>, <a href="runtime2.go.html#line-48" class="ident">_Grunning</a>)</code></span>
 <span class="codeline" id="line-1884"><code>		})</code></span>
