@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/server.go.html#line-254">conn</a>.<a href="../../src/net/http/server.go.html#line-266">rwc</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">45 uses</span>
+<span class="title">47 uses</span>
 
 	net/http (current package)
 		<a href="../../src/net/http/server.go.html#line-266">server.go#L266</a>: 	<b>rwc</b> net.Conn
@@ -52,12 +52,14 @@
 		<a href="../../src/net/http/server.go.html#line-2108" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2108">#L2108</a>: 			c.<b>rwc</b>.SetReadDeadline(time.Now().Add(d))
 		<a href="../../src/net/http/server.go.html#line-2110" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2110">#L2110</a>: 			c.<b>rwc</b>.SetReadDeadline(time.Time{})
 		<a href="../../src/net/http/server.go.html#line-2173" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2173">#L2173</a>: 	c.setState(c.<b>rwc</b>, StateActive, skipHooks)
-		<a href="../../src/net/http/server.go.html#line-2174" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2174">#L2174</a>: 	h := unencryptedHTTP2Request{ctx, c.<b>rwc</b>, serverHandler{c.server}}
-		<a href="../../src/net/http/server.go.html#line-2175" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2175">#L2175</a>: 	fn(c.server, unencryptedTLSConn(c.<b>rwc</b>), h)
-		<a href="../../src/net/http/server.go.html#line-3113" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3113">#L3113</a>: 		c.<b>rwc</b>.Close()
-		<a href="../../src/net/http/server.go.html#line-3217" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3217">#L3217</a>: 		c.<b>rwc</b>.Close()
-		<a href="../../src/net/http/server.go.html#line-3461" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3461">#L3461</a>: 		c.setState(c.<b>rwc</b>, StateNew, runHooks) // before Serve can return
-		<a href="../../src/net/http/server.go.html#line-4035" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-4035">#L4035</a>: 	n, err = w.c.<b>rwc</b>.Write(p)
+		<a href="../../src/net/http/server.go.html#line-2174" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2174">#L2174</a>: 	c.<b>rwc</b>.SetReadDeadline(time.Time{})
+		<a href="../../src/net/http/server.go.html#line-2175" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2175">#L2175</a>: 	c.<b>rwc</b>.SetWriteDeadline(time.Time{})
+		<a href="../../src/net/http/server.go.html#line-2176" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2176">#L2176</a>: 	h := unencryptedHTTP2Request{ctx, c.<b>rwc</b>, serverHandler{c.server}}
+		<a href="../../src/net/http/server.go.html#line-2177" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-2177">#L2177</a>: 	fn(c.server, unencryptedTLSConn(c.<b>rwc</b>), h)
+		<a href="../../src/net/http/server.go.html#line-3115" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3115">#L3115</a>: 		c.<b>rwc</b>.Close()
+		<a href="../../src/net/http/server.go.html#line-3219" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3219">#L3219</a>: 		c.<b>rwc</b>.Close()
+		<a href="../../src/net/http/server.go.html#line-3463" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-3463">#L3463</a>: 		c.setState(c.<b>rwc</b>, StateNew, runHooks) // before Serve can return
+		<a href="../../src/net/http/server.go.html#line-4037" class="path-duplicate">server.go</a><a href="../../src/net/http/server.go.html#line-4037">#L4037</a>: 	n, err = w.c.<b>rwc</b>.Write(p)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
