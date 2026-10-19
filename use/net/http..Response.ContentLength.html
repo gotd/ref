@@ -11,20 +11,21 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/response.go.html#line-35">Response</a>.<a href="../../src/net/http/response.go.html#line-78">ContentLength</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">21 uses</span>
+<span class="title">22 uses</span>
 
 	net/http (current package)
 		<a href="../../src/net/http/client.go.html#line-294">client.go#L294</a>: 		if resp.<b>ContentLength</b> &gt; 0 &amp;&amp; req.Method != "HEAD" {
 		<a href="../../src/net/http/client.go.html#line-295" class="path-duplicate">client.go</a><a href="../../src/net/http/client.go.html#line-295">#L295</a>: 			return nil, didTimeout, fmt.Errorf("http: RoundTripper implementation (%T) returned a *Response with content length %d but a nil Body", rt, resp.<b>ContentLength</b>)
 		<a href="../../src/net/http/client.go.html#line-714" class="path-duplicate">client.go</a><a href="../../src/net/http/client.go.html#line-714">#L714</a>: 			if resp.<b>ContentLength</b> == -1 || resp.<b>ContentLength</b> &lt;= maxBodySlurpSize {
 		<a href="../../src/net/http/filetransport.go.html#line-115">filetransport.go#L115</a>: 		pr.res.<b>ContentLength</b> = -1
-		<a href="../../src/net/http/h2_bundle.go.html#line-9768">h2_bundle.go#L9768</a>: 	res.<b>ContentLength</b> = -1
-		<a href="../../src/net/http/h2_bundle.go.html#line-9771" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9771">#L9771</a>: 			res.<b>ContentLength</b> = int64(cl)
-		<a href="../../src/net/http/h2_bundle.go.html#line-9780" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9780">#L9780</a>: 		res.<b>ContentLength</b> = 0
-		<a href="../../src/net/http/h2_bundle.go.html#line-9789" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9789">#L9789</a>: 		if res.<b>ContentLength</b> &gt; 0 {
-		<a href="../../src/net/http/h2_bundle.go.html#line-9797" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9797">#L9797</a>: 	cs.bufPipe.setBuffer(&amp;http2dataBuffer{expected: res.<b>ContentLength</b>})
-		<a href="../../src/net/http/h2_bundle.go.html#line-9798" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9798">#L9798</a>: 	cs.bytesRemain = res.<b>ContentLength</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-9804" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9804">#L9804</a>: 		res.<b>ContentLength</b> = -1
+		<a href="../../src/net/http/h2_bundle.go.html#line-9907">h2_bundle.go#L9907</a>: 	res.<b>ContentLength</b> = -1
+		<a href="../../src/net/http/h2_bundle.go.html#line-9923" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9923">#L9923</a>: 			res.<b>ContentLength</b> = int64(cl)
+		<a href="../../src/net/http/h2_bundle.go.html#line-9927" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9927">#L9927</a>: 	if res.<b>ContentLength</b> &lt; 0 &amp;&amp; f.StreamEnded() &amp;&amp; !cs.isHead {
+		<a href="../../src/net/http/h2_bundle.go.html#line-9928" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9928">#L9928</a>: 		res.<b>ContentLength</b> = 0
+		<a href="../../src/net/http/h2_bundle.go.html#line-9937" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9937">#L9937</a>: 		if res.<b>ContentLength</b> &gt; 0 {
+		<a href="../../src/net/http/h2_bundle.go.html#line-9945" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9945">#L9945</a>: 	cs.bufPipe.setBuffer(&amp;http2dataBuffer{expected: res.<b>ContentLength</b>})
+		<a href="../../src/net/http/h2_bundle.go.html#line-9946" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9946">#L9946</a>: 	cs.bytesRemain = res.<b>ContentLength</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-9952" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9952">#L9952</a>: 		res.<b>ContentLength</b> = -1
 		<a href="../../src/net/http/response.go.html#line-78">response.go#L78</a>: 	<b>ContentLength</b> int64
 		<a href="../../src/net/http/response.go.html#line-266" class="path-duplicate">response.go</a><a href="../../src/net/http/response.go.html#line-266">#L266</a>: 	if r1.<b>ContentLength</b> == 0 &amp;&amp; r1.Body != nil {
 		<a href="../../src/net/http/response.go.html#line-278" class="path-duplicate">response.go</a><a href="../../src/net/http/response.go.html#line-278">#L278</a>: 			r1.<b>ContentLength</b> = -1
@@ -32,8 +33,8 @@
 		<a href="../../src/net/http/response.go.html#line-315" class="path-duplicate">response.go</a><a href="../../src/net/http/response.go.html#line-315">#L315</a>: 	if r1.<b>ContentLength</b> == 0 &amp;&amp; !chunked(r1.TransferEncoding) &amp;&amp; !contentLengthAlreadySent &amp;&amp; bodyAllowedForStatus(r.StatusCode) {
 		<a href="../../src/net/http/transfer.go.html#line-118">transfer.go#L118</a>: 		t.ContentLength = rr.<b>ContentLength</b>
 		<a href="../../src/net/http/transfer.go.html#line-597" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-597">#L597</a>: 		rr.<b>ContentLength</b> = t.ContentLength
-		<a href="../../src/net/http/transport.go.html#line-2370">transport.go#L2370</a>: 		hasBody := rc.treq.Request.Method != "HEAD" &amp;&amp; resp.<b>ContentLength</b> != 0
-		<a href="../../src/net/http/transport.go.html#line-2437" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2437">#L2437</a>: 			resp.<b>ContentLength</b> = -1
+		<a href="../../src/net/http/transport.go.html#line-2371">transport.go#L2371</a>: 		hasBody := rc.treq.Request.Method != "HEAD" &amp;&amp; resp.<b>ContentLength</b> != 0
+		<a href="../../src/net/http/transport.go.html#line-2442" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2442">#L2442</a>: 			resp.<b>ContentLength</b> = -1
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)

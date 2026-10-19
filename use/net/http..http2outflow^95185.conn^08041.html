@@ -9,18 +9,26 @@
 <script src="../../jvs/golds-v0.8.5.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-1540">http2outflow</a>.<a href="../../src/net/http/h2_bundle.go.html#line-1550">conn</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-1575">http2outflow</a>.<a href="../../src/net/http/h2_bundle.go.html#line-1587">conn</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">8 uses</span>
+<span class="title">15 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/h2_bundle.go.html#line-1550">h2_bundle.go#L1550</a>: 	<b>conn</b> *http2outflow
-		<a href="../../src/net/http/h2_bundle.go.html#line-1553" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1553">#L1553</a>: func (f *http2outflow) setConnFlow(cf *http2outflow) { f.<b>conn</b> = cf }
-		<a href="../../src/net/http/h2_bundle.go.html#line-1557" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1557">#L1557</a>: 	if f.<b>conn</b> != nil &amp;&amp; f.<b>conn</b>.n &lt; n {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1558" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1558">#L1558</a>: 		n = f.<b>conn</b>.n
-		<a href="../../src/net/http/h2_bundle.go.html#line-1568" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1568">#L1568</a>: 	if f.<b>conn</b> != nil {
-		<a href="../../src/net/http/h2_bundle.go.html#line-1569" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1569">#L1569</a>: 		f.<b>conn</b>.n -= n
-		<a href="../../src/net/http/h2_bundle.go.html#line-6195" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6195">#L6195</a>: 	st.flow.<b>conn</b> = &amp;sc.flow // link to conn-level counter
+		<a href="../../src/net/http/h2_bundle.go.html#line-1587">h2_bundle.go#L1587</a>: 	<b>conn</b> *http2connOutflow
+		<a href="../../src/net/http/h2_bundle.go.html#line-1591" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1591">#L1591</a>: 	if f.<b>conn</b> == nil {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1594" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1594">#L1594</a>: 	if f.<b>conn</b>.flowErr {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1598" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1598">#L1598</a>: 	n := int64(f.<b>conn</b>.initial) + int64(f.delta)
+		<a href="../../src/net/http/h2_bundle.go.html#line-1600" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1600">#L1600</a>: 		f.<b>conn</b>.flowErr = true
+		<a href="../../src/net/http/h2_bundle.go.html#line-1603" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1603">#L1603</a>: 	return min(int32(n), f.<b>conn</b>.n), true
+		<a href="../../src/net/http/h2_bundle.go.html#line-1607" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1607">#L1607</a>: 	if f.<b>conn</b> == nil {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1615" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1615">#L1615</a>: 	f.<b>conn</b>.n -= n
+		<a href="../../src/net/http/h2_bundle.go.html#line-1621" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1621">#L1621</a>: 	if f.<b>conn</b> == nil {
+		<a href="../../src/net/http/h2_bundle.go.html#line-1624" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1624">#L1624</a>: 	avail := int64(f.<b>conn</b>.initial) + int64(f.delta)
+		<a href="../../src/net/http/h2_bundle.go.html#line-1628" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-1628">#L1628</a>: 		f.<b>conn</b>.flowErr = true
+		<a href="../../src/net/http/h2_bundle.go.html#line-5757" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5757">#L5757</a>: 			if st.flow.<b>conn</b>.flowErr {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6278" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6278">#L6278</a>: 	st.flow.<b>conn</b> = &amp;sc.flow // link to conn-level counter
+		<a href="../../src/net/http/h2_bundle.go.html#line-9495" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9495">#L9495</a>: 	cs.flow.<b>conn</b> = &amp;cc.flow
+		<a href="../../src/net/http/h2_bundle.go.html#line-10381" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10381">#L10381</a>: 			if cs.flow.<b>conn</b>.flowErr {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)

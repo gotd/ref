@@ -11,17 +11,20 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/response.go.html#line-35">Response</a>.<a href="../../src/net/http/response.go.html#line-51">Header</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">30 uses</span>
+<span class="title">33 uses</span>
 
 	net/http (current package)
 		<a href="../../src/net/http/client.go.html#line-643">client.go#L643</a>: 			loc := resp.<b>Header</b>.Get("Location")
 		<a href="../../src/net/http/filetransport.go.html#line-76">filetransport.go#L76</a>: 			<b>Header</b>:     make(Header),
 		<a href="../../src/net/http/filetransport.go.html#line-121" class="path-duplicate">filetransport.go</a><a href="../../src/net/http/filetransport.go.html#line-121">#L121</a>: 	return pr.res.<b>Header</b>
-		<a href="../../src/net/http/h2_bundle.go.html#line-9693">h2_bundle.go#L9693</a>: 		<b>Header</b>:     header,
-		<a href="../../src/net/http/h2_bundle.go.html#line-9769" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9769">#L9769</a>: 	if clens := res.<b>Header</b>["Content-Length"]; len(clens) == 1 {
-		<a href="../../src/net/http/h2_bundle.go.html#line-9801" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9801">#L9801</a>: 	if cs.requestedGzip &amp;&amp; http2asciiEqualFold(res.<b>Header</b>.Get("Content-Encoding"), "gzip") {
-		<a href="../../src/net/http/h2_bundle.go.html#line-9802" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9802">#L9802</a>: 		res.<b>Header</b>.Del("Content-Encoding")
-		<a href="../../src/net/http/h2_bundle.go.html#line-9803" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9803">#L9803</a>: 		res.<b>Header</b>.Del("Content-Length")
+		<a href="../../src/net/http/h2_bundle.go.html#line-9817">h2_bundle.go#L9817</a>: 		<b>Header</b>:     header,
+		<a href="../../src/net/http/h2_bundle.go.html#line-9905" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9905">#L9905</a>: 		delete(res.<b>Header</b>, k)
+		<a href="../../src/net/http/h2_bundle.go.html#line-9908" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9908">#L9908</a>: 	if clens, ok := res.<b>Header</b>["Content-Length"]; ok {
+		<a href="../../src/net/http/h2_bundle.go.html#line-9920" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9920">#L9920</a>: 			delete(res.<b>Header</b>, "Content-Length")
+		<a href="../../src/net/http/h2_bundle.go.html#line-9922" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9922">#L9922</a>: 			res.<b>Header</b>["Content-Length"] = clens[:1]
+		<a href="../../src/net/http/h2_bundle.go.html#line-9949" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9949">#L9949</a>: 	if cs.requestedGzip &amp;&amp; http2asciiEqualFold(res.<b>Header</b>.Get("Content-Encoding"), "gzip") {
+		<a href="../../src/net/http/h2_bundle.go.html#line-9950" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9950">#L9950</a>: 		res.<b>Header</b>.Del("Content-Encoding")
+		<a href="../../src/net/http/h2_bundle.go.html#line-9951" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-9951">#L9951</a>: 		res.<b>Header</b>.Del("Content-Length")
 		<a href="../../src/net/http/response.go.html#line-51">response.go#L51</a>: 	<b>Header</b> Header
 		<a href="../../src/net/http/response.go.html#line-126" class="path-duplicate">response.go</a><a href="../../src/net/http/response.go.html#line-126">#L126</a>: 	return readSetCookies(r.<b>Header</b>)
 		<a href="../../src/net/http/response.go.html#line-138" class="path-duplicate">response.go</a><a href="../../src/net/http/response.go.html#line-138">#L138</a>: 	lv := r.<b>Header</b>.Get("Location")
@@ -31,10 +34,10 @@
 		<a href="../../src/net/http/response.go.html#line-357" class="path-duplicate">response.go</a><a href="../../src/net/http/response.go.html#line-357">#L357</a>: 	return isProtocolSwitchResponse(r.StatusCode, r.<b>Header</b>)
 		<a href="../../src/net/http/transfer.go.html#line-121">transfer.go#L121</a>: 		t.Header = rr.<b>Header</b>
 		<a href="../../src/net/http/transfer.go.html#line-498" class="path-duplicate">transfer.go</a><a href="../../src/net/http/transfer.go.html#line-498">#L498</a>: 		t.Header = rr.<b>Header</b>
-		<a href="../../src/net/http/transport.go.html#line-2433">transport.go#L2433</a>: 		if rc.addedGzip &amp;&amp; ascii.EqualFold(resp.<b>Header</b>.Get("Content-Encoding"), "gzip") {
-		<a href="../../src/net/http/transport.go.html#line-2435" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2435">#L2435</a>: 			resp.<b>Header</b>.Del("Content-Encoding")
-		<a href="../../src/net/http/transport.go.html#line-2436" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2436">#L2436</a>: 			resp.<b>Header</b>.Del("Content-Length")
-		<a href="../../src/net/http/transport.go.html#line-2535" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2535">#L2535</a>: 				if err := trace.Got1xxResponse(resCode, textproto.MIMEHeader(resp.<b>Header</b>)); err != nil {
+		<a href="../../src/net/http/transport.go.html#line-2438">transport.go#L2438</a>: 		if rc.addedGzip &amp;&amp; ascii.EqualFold(resp.<b>Header</b>.Get("Content-Encoding"), "gzip") {
+		<a href="../../src/net/http/transport.go.html#line-2440" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2440">#L2440</a>: 			resp.<b>Header</b>.Del("Content-Encoding")
+		<a href="../../src/net/http/transport.go.html#line-2441" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2441">#L2441</a>: 			resp.<b>Header</b>.Del("Content-Length")
+		<a href="../../src/net/http/transport.go.html#line-2540" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-2540">#L2540</a>: 				if err := trace.Got1xxResponse(resCode, textproto.MIMEHeader(resp.<b>Header</b>)); err != nil {
 
 	<a href="../../pkg/github.com/coder/websocket.html">github.com/coder/websocket</a>
 		<a href="../../src/github.com/coder/websocket/dial.go.html#line-176">dial.go#L176</a>: 		subprotocol:    resp.<b>Header</b>.Get("Sec-WebSocket-Protocol"),

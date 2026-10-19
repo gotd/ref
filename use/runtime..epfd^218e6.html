@@ -15,14 +15,14 @@
 
 	runtime (current package)
 		<a href="../src/runtime/netpoll_epoll.go.html#line-16">netpoll_epoll.go#L16</a>: 	<b>epfd</b>           int32         = -1 // epoll descriptor
-		<a href="../src/runtime/netpoll_epoll.go.html#line-23" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-23">#L23</a>: 	<b>epfd</b>, errno = linux.EpollCreate1(linux.EPOLL_CLOEXEC)
-		<a href="../src/runtime/netpoll_epoll.go.html#line-37" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-37">#L37</a>: 	errno = linux.EpollCtl(<b>epfd</b>, linux.EPOLL_CTL_ADD, efd, &amp;ev)
-		<a href="../src/runtime/netpoll_epoll.go.html#line-46" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-46">#L46</a>: 	return fd == uintptr(<b>epfd</b>) || fd == netpollEventFd
-		<a href="../src/runtime/netpoll_epoll.go.html#line-54" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-54">#L54</a>: 	return linux.EpollCtl(<b>epfd</b>, linux.EPOLL_CTL_ADD, int32(fd), &amp;ev)
-		<a href="../src/runtime/netpoll_epoll.go.html#line-59" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-59">#L59</a>: 	return linux.EpollCtl(<b>epfd</b>, linux.EPOLL_CTL_DEL, int32(fd), &amp;ev)
-		<a href="../src/runtime/netpoll_epoll.go.html#line-100" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-100">#L100</a>: 	if <b>epfd</b> == -1 {
-		<a href="../src/runtime/netpoll_epoll.go.html#line-119" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-119">#L119</a>: 	n, errno := linux.EpollWait(<b>epfd</b>, events[:], int32(len(events)), waitms)
-		<a href="../src/runtime/netpoll_epoll.go.html#line-122" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-122">#L122</a>: 			println("runtime: epollwait on fd", <b>epfd</b>, "failed with", errno)
+		<a href="../src/runtime/netpoll_epoll.go.html#line-38" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-38">#L38</a>: 	<b>epfd</b>, errno = linux.EpollCreate1(linux.EPOLL_CLOEXEC)
+		<a href="../src/runtime/netpoll_epoll.go.html#line-52" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-52">#L52</a>: 	errno = linux.EpollCtl(<b>epfd</b>, linux.EPOLL_CTL_ADD, efd, &amp;ev)
+		<a href="../src/runtime/netpoll_epoll.go.html#line-61" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-61">#L61</a>: 	return fd == uintptr(<b>epfd</b>) || fd == netpollEventFd
+		<a href="../src/runtime/netpoll_epoll.go.html#line-68" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-68">#L68</a>: 	return linux.EpollCtl(<b>epfd</b>, linux.EPOLL_CTL_ADD, int32(fd), &amp;ev)
+		<a href="../src/runtime/netpoll_epoll.go.html#line-73" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-73">#L73</a>: 	return linux.EpollCtl(<b>epfd</b>, linux.EPOLL_CTL_DEL, int32(fd), &amp;ev)
+		<a href="../src/runtime/netpoll_epoll.go.html#line-114" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-114">#L114</a>: 	if <b>epfd</b> == -1 {
+		<a href="../src/runtime/netpoll_epoll.go.html#line-133" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-133">#L133</a>: 	n, errno := linux.EpollWait(<b>epfd</b>, events[:], int32(len(events)), waitms)
+		<a href="../src/runtime/netpoll_epoll.go.html#line-136" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-136">#L136</a>: 			println("runtime: epollwait on fd", <b>epfd</b>, "failed with", errno)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)

@@ -154,7 +154,9 @@ input[id=r134]:checked ~pre label[for=r134],
 input[id=r135]:checked ~pre label[for=r135],
 input[id=r136]:checked ~pre label[for=r136],
 input[id=r137]:checked ~pre label[for=r137],
-input[id=r138]:checked ~pre label[for=r138]
+input[id=r138]:checked ~pre label[for=r138],
+input[id=r139]:checked ~pre label[for=r139],
+input[id=r140]:checked ~pre label[for=r140]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
 input[id=i1]:checked ~pre .i1,
@@ -301,6 +303,8 @@ input[id=i4]:checked ~pre .i4
 <input id="r136" type="radio" name="g"/>
 <input id="r137" type="radio" name="g"/>
 <input id="r138" type="radio" name="g"/>
+<input id="r139" type="radio" name="g"/>
+<input id="r140" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
 <input id="i2" type="radio" name="i"/>
@@ -616,12 +620,16 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-306"><code>	}</code></span>
 <span class="codeline" id="line-307"><code>}</code></span>
 <span class="codeline" id="line-308"><code></code></span>
-<span class="codeline" id="line-309"><code><span class="comment">// isDirectoryLink always returns false, because Unix systems don't have separate</span></code></span>
-<span class="codeline" id="line-310"><code><span class="comment">// symlink types for files and directories.</span></code></span>
-<span class="codeline" id="line-311"><code><span class="comment">// (See the Windows version of this function for more details.)</span></code></span>
-<span class="codeline" id="line-312"><code><span class="keyword">func</span> <label for="r137" class="ident"><a href="../../pkg/os.html#name-isDirectoryLink" class="ident">isDirectoryLink</a></label>(<label for="r138" class="ident">fi</label> <a href="types.go.html#line-23" class="ident">FileInfo</a>) <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
-<span class="codeline" id="line-313"><code>	<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
-<span class="codeline" id="line-314"><code>}</code></span>
+<span class="codeline" id="line-309"><code><span class="keyword">func</span> <label for="r137" class="ident"><a href="../../pkg/os.html#name-isLink" class="ident">isLink</a></label>(<label for="r138" class="ident">fi</label> <a href="types.go.html#line-23" class="ident">FileInfo</a>) <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-310"><code>	<span class="keyword">return</span> <label for="r138" class="ident">fi</label>.<a href="../io/fs/fs.go.html#line-171" class="ident">Mode</a>()&amp;<a href="types.go.html#line-44" class="ident">ModeSymlink</a> != <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-311"><code>}</code></span>
+<span class="codeline" id="line-312"><code></code></span>
+<span class="codeline" id="line-313"><code><span class="comment">// isDirectoryLink always returns false, because Unix systems don't have separate</span></code></span>
+<span class="codeline" id="line-314"><code><span class="comment">// symlink types for files and directories.</span></code></span>
+<span class="codeline" id="line-315"><code><span class="comment">// (See the Windows version of this function for more details.)</span></code></span>
+<span class="codeline" id="line-316"><code><span class="keyword">func</span> <label for="r139" class="ident"><a href="../../pkg/os.html#name-isDirectoryLink" class="ident">isDirectoryLink</a></label>(<label for="r140" class="ident">fi</label> <a href="types.go.html#line-23" class="ident">FileInfo</a>) <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-317"><code>	<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-318"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)

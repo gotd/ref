@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../../../pkg/vendor/golang.org/x/net/http2/hpack.html">vendor/golang.org/x/net/http2/hpack</a>.<a href="../../../../../../src/vendor/golang.org/x/net/http2/hpack/hpack.go.html#line-36">HeaderField</a>.<a href="../../../../../../src/vendor/golang.org/x/net/http2/hpack/hpack.go.html#line-37">Value</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">85 uses</span>
+<span class="title">87 uses</span>
 
 	vendor/golang.org/x/net/http2/hpack (current package)
 		<a href="../../../../../../src/vendor/golang.org/x/net/http2/hpack/encode.go.html#line-163">encode.go#L163</a>: 	return appendHpackString(dst, f.<b>Value</b>)
@@ -88,17 +88,19 @@
 		<a href="../../../../../../src/vendor/golang.org/x/net/http2/hpack/tables.go.html#line-104" class="path-duplicate">tables.go</a><a href="../../../../../../src/vendor/golang.org/x/net/http2/hpack/tables.go.html#line-104">#L104</a>: 		if id := t.byNameValue[pairNameValue{f.Name, f.<b>Value</b>}]; id != 0 {
 
 	<a href="../../../../../../pkg/net/http.html">net/http</a>
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-3088">h2_bundle.go#L3088</a>: 			return hf.<b>Value</b>
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-3173" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-3173">#L3173</a>: 		if !httpguts.ValidHeaderFieldValue(hf.<b>Value</b>) {
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-6154" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-6154">#L6154</a>: 			st.trailer[key] = append(st.trailer[key], hf.<b>Value</b>)
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-6254" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-6254">#L6254</a>: 		header.Add(sc.canonicalHeader(hf.Name), hf.<b>Value</b>)
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9331" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9331">#L9331</a>: 			hf := hpack.HeaderField{Name: k, <b>Value</b>: v}
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9359" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9359">#L9359</a>: 	cc.henc.WriteField(hpack.HeaderField{Name: name, <b>Value</b>: value})
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9705" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9705">#L9705</a>: 			http2foreachHeaderElement(hf.<b>Value</b>, func(v string) {
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9716" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9716">#L9716</a>: 				vv[0] = hf.<b>Value</b>
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9719" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9719">#L9719</a>: 				header[key] = append(vv, hf.<b>Value</b>)
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9831" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9831">#L9831</a>: 		trailer[key] = append(trailer[key], hf.<b>Value</b>)
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-10949" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-10949">#L10949</a>: 	enc.WriteField(hpack.HeaderField{Name: k, <b>Value</b>: v})
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-3144">h2_bundle.go#L3144</a>: 			return hf.<b>Value</b>
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-3230" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-3230">#L3230</a>: 		if !httpguts.ValidHeaderFieldValue(hf.<b>Value</b>) {
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-3255" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-3255">#L3255</a>: 			fieldCount := strings.Count(hf.<b>Value</b>, ",") + 1
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-3261" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-3261">#L3261</a>: 			size = uint32(len(hf.<b>Value</b>)-fieldCount+1) + uint32(fieldCount)*hpack.HeaderField{}.Size()
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-6237" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-6237">#L6237</a>: 			st.trailer[key] = append(st.trailer[key], hf.<b>Value</b>)
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-6336" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-6336">#L6336</a>: 		header.Add(sc.canonicalHeader(hf.Name), hf.<b>Value</b>)
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9456" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9456">#L9456</a>: 			hf := hpack.HeaderField{Name: k, <b>Value</b>: v}
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9484" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9484">#L9484</a>: 	cc.henc.WriteField(hpack.HeaderField{Name: name, <b>Value</b>: value})
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9829" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9829">#L9829</a>: 			http2foreachHeaderElement(hf.<b>Value</b>, func(v string) {
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9840" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9840">#L9840</a>: 				vv[0] = hf.<b>Value</b>
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9843" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9843">#L9843</a>: 				header[key] = append(vv, hf.<b>Value</b>)
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9979" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9979">#L9979</a>: 		trailer[key] = append(trailer[key], hf.<b>Value</b>)
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-11093" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-11093">#L11093</a>: 	enc.WriteField(hpack.HeaderField{Name: k, <b>Value</b>: v})
 
 	<a href="../../../../../../pkg/net/http/internal/httpcommon.html">net/http/internal/httpcommon</a>
 		<a href="../../../../../../src/net/http/internal/httpcommon/httpcommon.go.html#line-385">httpcommon.go#L385</a>: 			hf := hpack.HeaderField{Name: name, <b>Value</b>: value}

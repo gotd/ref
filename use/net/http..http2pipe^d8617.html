@@ -9,27 +9,28 @@
 <script src="../../jvs/golds-v0.8.5.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-3868">http2pipe</a></b></span>
+<pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-3940">http2pipe</a></b></span>
 
-<span class="title">16 uses</span>
+<span class="title">17 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/h2_bundle.go.html#line-3868">h2_bundle.go#L3868</a>: type <b>http2pipe</b> struct {
-		<a href="../../src/net/http/h2_bundle.go.html#line-3887" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-3887">#L3887</a>: func (p *<b>http2pipe</b>) setBuffer(b http2pipeBuffer) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-3896" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-3896">#L3896</a>: func (p *<b>http2pipe</b>) Len() int {
-		<a href="../../src/net/http/h2_bundle.go.html#line-3907" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-3907">#L3907</a>: func (p *<b>http2pipe</b>) Read(d []byte) (n int, err error) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-3939" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-3939">#L3939</a>: func (p *<b>http2pipe</b>) Write(d []byte) (n int, err error) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-3963" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-3963">#L3963</a>: func (p *<b>http2pipe</b>) CloseWithError(err error) { p.closeWithError(&amp;p.err, err, nil) }
-		<a href="../../src/net/http/h2_bundle.go.html#line-3968" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-3968">#L3968</a>: func (p *<b>http2pipe</b>) BreakWithError(err error) { p.closeWithError(&amp;p.breakErr, err, nil) }
-		<a href="../../src/net/http/h2_bundle.go.html#line-3972" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-3972">#L3972</a>: func (p *<b>http2pipe</b>) closeWithErrorAndCode(err error, fn func()) { p.closeWithError(&amp;p.err, err, fn) }
-		<a href="../../src/net/http/h2_bundle.go.html#line-3974" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-3974">#L3974</a>: func (p *<b>http2pipe</b>) closeWithError(dst *error, err error, fn func()) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4000" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4000">#L4000</a>: func (p *<b>http2pipe</b>) closeDoneLocked() {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4014" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4014">#L4014</a>: func (p *<b>http2pipe</b>) Err() error {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4025" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4025">#L4025</a>: func (p *<b>http2pipe</b>) Done() &lt;-chan struct{} {
-		<a href="../../src/net/http/h2_bundle.go.html#line-4659" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4659">#L4659</a>: 	body      *<b>http2pipe</b>       // non-nil if expecting DATA frames
-		<a href="../../src/net/http/h2_bundle.go.html#line-6278" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6278">#L6278</a>: 		req.Body.(*http2requestBody).pipe = &amp;<b>http2pipe</b>{
-		<a href="../../src/net/http/h2_bundle.go.html#line-6530" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6530">#L6530</a>: 	pipe          *<b>http2pipe</b> // non-nil if we have an HTTP entity message body
-		<a href="../../src/net/http/h2_bundle.go.html#line-7709" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7709">#L7709</a>: 	bufPipe       <b>http2pipe</b> // buffered pipe with the flow-controlled response payload
+		<a href="../../src/net/http/h2_bundle.go.html#line-3940">h2_bundle.go#L3940</a>: type <b>http2pipe</b> struct {
+		<a href="../../src/net/http/h2_bundle.go.html#line-3959" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-3959">#L3959</a>: func (p *<b>http2pipe</b>) setBuffer(b http2pipeBuffer) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-3968" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-3968">#L3968</a>: func (p *<b>http2pipe</b>) Len() int {
+		<a href="../../src/net/http/h2_bundle.go.html#line-3979" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-3979">#L3979</a>: func (p *<b>http2pipe</b>) Read(d []byte) (n int, err error) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4011" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4011">#L4011</a>: func (p *<b>http2pipe</b>) Write(d []byte) (n int, err error) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4035" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4035">#L4035</a>: func (p *<b>http2pipe</b>) CloseWithError(err error) { p.closeWithError(&amp;p.err, err, nil) }
+		<a href="../../src/net/http/h2_bundle.go.html#line-4040" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4040">#L4040</a>: func (p *<b>http2pipe</b>) BreakWithError(err error) { p.closeWithError(&amp;p.breakErr, err, nil) }
+		<a href="../../src/net/http/h2_bundle.go.html#line-4044" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4044">#L4044</a>: func (p *<b>http2pipe</b>) closeWithErrorAndCode(err error, fn func()) { p.closeWithError(&amp;p.err, err, fn) }
+		<a href="../../src/net/http/h2_bundle.go.html#line-4046" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4046">#L4046</a>: func (p *<b>http2pipe</b>) closeWithError(dst *error, err error, fn func()) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4072" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4072">#L4072</a>: func (p *<b>http2pipe</b>) closeDoneLocked() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4086" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4086">#L4086</a>: func (p *<b>http2pipe</b>) Err() error {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4097" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4097">#L4097</a>: func (p *<b>http2pipe</b>) Done() &lt;-chan struct{} {
+		<a href="../../src/net/http/h2_bundle.go.html#line-4732" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-4732">#L4732</a>: 	body      *<b>http2pipe</b> // non-nil if expecting DATA frames
+		<a href="../../src/net/http/h2_bundle.go.html#line-6360" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6360">#L6360</a>: 		st.reqBody.pipe = &amp;<b>http2pipe</b>{
+		<a href="../../src/net/http/h2_bundle.go.html#line-6420" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6420">#L6420</a>: 	body     *<b>http2pipe</b>
+		<a href="../../src/net/http/h2_bundle.go.html#line-6624" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6624">#L6624</a>: 	pipe          *<b>http2pipe</b> // non-nil if we have an HTTP entity message body
+		<a href="../../src/net/http/h2_bundle.go.html#line-7802" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-7802">#L7802</a>: 	bufPipe       <b>http2pipe</b> // buffered pipe with the flow-controlled response payload
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)

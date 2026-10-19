@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../pkg/unsafe.html">unsafe</a>.<a href="../src/unsafe/unsafe.go.html#line-184">Pointer</a></b></span>
 
-<span class="title">3014 uses</span>
+<span class="title">3012 uses</span>
 
 	unsafe (current package)
 		<a href="../src/unsafe/unsafe.go.html#line-184">unsafe.go#L184</a>: type <b>Pointer</b> *ArbitraryType
@@ -1907,13 +1907,10 @@
 		<a href="../src/runtime/netpoll.go.html#line-617" class="path-duplicate">netpoll.go</a><a href="../src/runtime/netpoll.go.html#line-617">#L617</a>: 			return (*g)(unsafe.<b>Pointer</b>(old))
 		<a href="../src/runtime/netpoll.go.html#line-724" class="path-duplicate">netpoll.go</a><a href="../src/runtime/netpoll.go.html#line-724">#L724</a>: 	x := (*eface)(unsafe.<b>Pointer</b>(&amp;i))
 		<a href="../src/runtime/netpoll.go.html#line-726" class="path-duplicate">netpoll.go</a><a href="../src/runtime/netpoll.go.html#line-726">#L726</a>: 	x.data = unsafe.<b>Pointer</b>(&amp;pd.self)
-		<a href="../src/runtime/netpoll_epoll.go.html#line-36">netpoll_epoll.go#L36</a>: 	*(**uintptr)(unsafe.<b>Pointer</b>(&amp;ev.Data)) = &amp;netpollEventFd
-		<a href="../src/runtime/netpoll_epoll.go.html#line-52" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-52">#L52</a>: 	tp := taggedPointerPack(unsafe.<b>Pointer</b>(pd), pd.fdseq.Load())
-		<a href="../src/runtime/netpoll_epoll.go.html#line-53" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-53">#L53</a>: 	*(*taggedPointer)(unsafe.<b>Pointer</b>(&amp;ev.Data)) = tp
-		<a href="../src/runtime/netpoll_epoll.go.html#line-76" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-76">#L76</a>: 		n := write(netpollEventFd, noescape(unsafe.<b>Pointer</b>(&amp;one)), oneSize)
-		<a href="../src/runtime/netpoll_epoll.go.html#line-140" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-140">#L140</a>: 		if *(**uintptr)(unsafe.<b>Pointer</b>(&amp;ev.Data)) == &amp;netpollEventFd {
-		<a href="../src/runtime/netpoll_epoll.go.html#line-152" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-152">#L152</a>: 				read(int32(netpollEventFd), noescape(unsafe.<b>Pointer</b>(&amp;one)), int32(unsafe.Sizeof(one)))
-		<a href="../src/runtime/netpoll_epoll.go.html#line-166" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-166">#L166</a>: 			tp := *(*taggedPointer)(unsafe.<b>Pointer</b>(&amp;ev.Data))
+		<a href="../src/runtime/netpoll_epoll.go.html#line-26">netpoll_epoll.go#L26</a>: 	*(*taggedPointer)(unsafe.<b>Pointer</b>(&amp;ev.Data)) = taggedPointerPack(unsafe.<b>Pointer</b>(pd), fdseq)
+		<a href="../src/runtime/netpoll_epoll.go.html#line-32" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-32">#L32</a>: 	tp := *(*taggedPointer)(unsafe.<b>Pointer</b>(&amp;ev.Data))
+		<a href="../src/runtime/netpoll_epoll.go.html#line-90" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-90">#L90</a>: 		n := write(netpollEventFd, noescape(unsafe.<b>Pointer</b>(&amp;one)), oneSize)
+		<a href="../src/runtime/netpoll_epoll.go.html#line-168" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-168">#L168</a>: 				read(int32(netpollEventFd), noescape(unsafe.<b>Pointer</b>(&amp;one)), int32(unsafe.Sizeof(one)))
 		<a href="../src/runtime/os_linux.go.html#line-73">os_linux.go#L73</a>: 		futex(unsafe.<b>Pointer</b>(addr), _FUTEX_WAIT_PRIVATE, val, nil, nil, 0)
 		<a href="../src/runtime/os_linux.go.html#line-79" class="path-duplicate">os_linux.go</a><a href="../src/runtime/os_linux.go.html#line-79">#L79</a>: 	futex(unsafe.<b>Pointer</b>(addr), _FUTEX_WAIT_PRIVATE, val, &amp;ts, nil, 0)
 		<a href="../src/runtime/os_linux.go.html#line-86" class="path-duplicate">os_linux.go</a><a href="../src/runtime/os_linux.go.html#line-86">#L86</a>: 	ret := futex(unsafe.<b>Pointer</b>(addr), _FUTEX_WAKE_PRIVATE, cnt, nil, nil, 0)
