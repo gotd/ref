@@ -9,33 +9,33 @@
 <script src="../../jvs/golds-v0.8.5.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-10583">http2netHTTPClientConn</a>.<a href="../../src/net/http/h2_bundle.go.html#line-10584">cc</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-10727">http2netHTTPClientConn</a>.<a href="../../src/net/http/h2_bundle.go.html#line-10728">cc</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
 <span class="title">22 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/h2_bundle.go.html#line-10584">h2_bundle.go#L10584</a>: 	<b>cc</b> *http2ClientConn
-		<a href="../../src/net/http/h2_bundle.go.html#line-10588" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10588">#L10588</a>: 	return cc.<b>cc</b>.RoundTrip(req)
-		<a href="../../src/net/http/h2_bundle.go.html#line-10592" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10592">#L10592</a>: 	return cc.<b>cc</b>.Close()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10596" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10596">#L10596</a>: 	cc.<b>cc</b>.mu.Lock()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10597" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10597">#L10597</a>: 	defer cc.<b>cc</b>.mu.Unlock()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10598" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10598">#L10598</a>: 	if cc.<b>cc</b>.closed {
-		<a href="../../src/net/http/h2_bundle.go.html#line-10605" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10605">#L10605</a>: 	defer cc.<b>cc</b>.maybeCallStateHook()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10606" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10606">#L10606</a>: 	cc.<b>cc</b>.mu.Lock()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10607" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10607">#L10607</a>: 	defer cc.<b>cc</b>.mu.Unlock()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10608" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10608">#L10608</a>: 	if !cc.<b>cc</b>.canReserveLocked() {
-		<a href="../../src/net/http/h2_bundle.go.html#line-10611" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10611">#L10611</a>: 	cc.<b>cc</b>.streamsReserved++
-		<a href="../../src/net/http/h2_bundle.go.html#line-10616" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10616">#L10616</a>: 	defer cc.<b>cc</b>.maybeCallStateHook()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10617" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10617">#L10617</a>: 	cc.<b>cc</b>.mu.Lock()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10618" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10618">#L10618</a>: 	defer cc.<b>cc</b>.mu.Unlock()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10623" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10623">#L10623</a>: 	if cc.<b>cc</b>.streamsReserved &gt; 0 {
-		<a href="../../src/net/http/h2_bundle.go.html#line-10624" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10624">#L10624</a>: 		cc.<b>cc</b>.streamsReserved--
-		<a href="../../src/net/http/h2_bundle.go.html#line-10629" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10629">#L10629</a>: 	cc.<b>cc</b>.mu.Lock()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10630" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10630">#L10630</a>: 	defer cc.<b>cc</b>.mu.Unlock()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10631" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10631">#L10631</a>: 	return cc.<b>cc</b>.availableLocked()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10635" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10635">#L10635</a>: 	cc.<b>cc</b>.mu.Lock()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10636" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10636">#L10636</a>: 	defer cc.<b>cc</b>.mu.Unlock()
-		<a href="../../src/net/http/h2_bundle.go.html#line-10637" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10637">#L10637</a>: 	return cc.<b>cc</b>.currentRequestCountLocked()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10728">h2_bundle.go#L10728</a>: 	<b>cc</b> *http2ClientConn
+		<a href="../../src/net/http/h2_bundle.go.html#line-10732" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10732">#L10732</a>: 	return cc.<b>cc</b>.RoundTrip(req)
+		<a href="../../src/net/http/h2_bundle.go.html#line-10736" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10736">#L10736</a>: 	return cc.<b>cc</b>.Close()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10740" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10740">#L10740</a>: 	cc.<b>cc</b>.mu.Lock()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10741" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10741">#L10741</a>: 	defer cc.<b>cc</b>.mu.Unlock()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10742" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10742">#L10742</a>: 	if cc.<b>cc</b>.closed {
+		<a href="../../src/net/http/h2_bundle.go.html#line-10749" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10749">#L10749</a>: 	defer cc.<b>cc</b>.maybeCallStateHook()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10750" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10750">#L10750</a>: 	cc.<b>cc</b>.mu.Lock()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10751" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10751">#L10751</a>: 	defer cc.<b>cc</b>.mu.Unlock()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10752" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10752">#L10752</a>: 	if !cc.<b>cc</b>.canReserveLocked() {
+		<a href="../../src/net/http/h2_bundle.go.html#line-10755" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10755">#L10755</a>: 	cc.<b>cc</b>.streamsReserved++
+		<a href="../../src/net/http/h2_bundle.go.html#line-10760" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10760">#L10760</a>: 	defer cc.<b>cc</b>.maybeCallStateHook()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10761" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10761">#L10761</a>: 	cc.<b>cc</b>.mu.Lock()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10762" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10762">#L10762</a>: 	defer cc.<b>cc</b>.mu.Unlock()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10767" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10767">#L10767</a>: 	if cc.<b>cc</b>.streamsReserved &gt; 0 {
+		<a href="../../src/net/http/h2_bundle.go.html#line-10768" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10768">#L10768</a>: 		cc.<b>cc</b>.streamsReserved--
+		<a href="../../src/net/http/h2_bundle.go.html#line-10773" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10773">#L10773</a>: 	cc.<b>cc</b>.mu.Lock()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10774" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10774">#L10774</a>: 	defer cc.<b>cc</b>.mu.Unlock()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10775" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10775">#L10775</a>: 	return cc.<b>cc</b>.availableLocked()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10779" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10779">#L10779</a>: 	cc.<b>cc</b>.mu.Lock()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10780" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10780">#L10780</a>: 	defer cc.<b>cc</b>.mu.Unlock()
+		<a href="../../src/net/http/h2_bundle.go.html#line-10781" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-10781">#L10781</a>: 	return cc.<b>cc</b>.currentRequestCountLocked()
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)

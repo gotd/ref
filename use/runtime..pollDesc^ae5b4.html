@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/netpoll.go.html#line-75">pollDesc</a></b></span>
 
-<span class="title">32 uses</span>
+<span class="title">34 uses</span>
 
 	runtime (current package)
 		<a href="../src/runtime/netpoll.go.html#line-75">netpoll.go#L75</a>: type <b>pollDesc</b> struct {
@@ -43,9 +43,11 @@
 		<a href="../src/runtime/netpoll.go.html#line-704" class="path-duplicate">netpoll.go</a><a href="../src/runtime/netpoll.go.html#line-704">#L704</a>: 			pd := (*<b>pollDesc</b>)(add(mem, i*pdSize))
 		<a href="../src/runtime/netpoll.go.html#line-723" class="path-duplicate">netpoll.go</a><a href="../src/runtime/netpoll.go.html#line-723">#L723</a>: func (pd *<b>pollDesc</b>) makeArg() (i any) {
 		<a href="../src/runtime/netpoll.go.html#line-731" class="path-duplicate">netpoll.go</a><a href="../src/runtime/netpoll.go.html#line-731">#L731</a>: 	pdEface any    = (*<b>pollDesc</b>)(nil)
-		<a href="../src/runtime/netpoll_epoll.go.html#line-49">netpoll_epoll.go#L49</a>: func netpollopen(fd uintptr, pd *<b>pollDesc</b>) uintptr {
-		<a href="../src/runtime/netpoll_epoll.go.html#line-62" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-62">#L62</a>: func netpollarm(pd *<b>pollDesc</b>, mode int) {
-		<a href="../src/runtime/netpoll_epoll.go.html#line-167" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-167">#L167</a>: 			pd := (*<b>pollDesc</b>)(tp.pointer())
+		<a href="../src/runtime/netpoll_epoll.go.html#line-25">netpoll_epoll.go#L25</a>: func netpollPackData(ev *linux.EpollEvent, pd *<b>pollDesc</b>, fdseq uintptr) {
+		<a href="../src/runtime/netpoll_epoll.go.html#line-31" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-31">#L31</a>: func netpollUnpackData(ev *linux.EpollEvent) (pd *<b>pollDesc</b>, fdseq uintptr) {
+		<a href="../src/runtime/netpoll_epoll.go.html#line-33" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-33">#L33</a>: 	return (*<b>pollDesc</b>)(tp.pointer()), tp.tag()
+		<a href="../src/runtime/netpoll_epoll.go.html#line-64" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-64">#L64</a>: func netpollopen(fd uintptr, pd *<b>pollDesc</b>) uintptr {
+		<a href="../src/runtime/netpoll_epoll.go.html#line-76" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-76">#L76</a>: func netpollarm(pd *<b>pollDesc</b>, mode int) {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)

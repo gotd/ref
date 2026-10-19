@@ -827,7 +827,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-329"><code>			<span class="keyword">return</span> <label for="r42" class="ident">knownRoundTripperImpl</label>(<label for="r45" class="ident">altRT</label>, <label for="r44" class="ident">req</label>)</code></span>
 <span class="codeline" id="line-330"><code>		}</code></span>
 <span class="codeline" id="line-331"><code>		<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-332"><code>	<span class="keyword">case</span> *<a href="h2_bundle.go.html#line-7357" class="ident">http2Transport</a>, <a href="h2_bundle.go.html#line-10557" class="ident">http2noDialH2RoundTripper</a>:</code></span>
+<span class="codeline" id="line-332"><code>	<span class="keyword">case</span> *<a href="h2_bundle.go.html#line-7451" class="ident">http2Transport</a>, <a href="h2_bundle.go.html#line-10701" class="ident">http2noDialH2RoundTripper</a>:</code></span>
 <span class="codeline" id="line-333"><code>		<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
 <span class="codeline" id="line-334"><code>	}</code></span>
 <span class="codeline" id="line-335"><code>	<span class="comment">// There's a very minor chance of a false positive with this.</span></code></span>
@@ -853,7 +853,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-355"><code><span class="comment">// This function populates the second and third, and uses the first if it really needs to.</span></code></span>
 <span class="codeline" id="line-356"><code><span class="keyword">func</span> <label for="r47" class="ident"><a href="../../../pkg/net/http.html#name-setRequestCancel" class="ident">setRequestCancel</a></label>(<label for="r48" class="ident">req</label> *<a href="request.go.html#line-113" class="ident">Request</a>, <label for="r49" class="ident">rt</label> <a href="#line-116" class="ident">RoundTripper</a>, <label for="r50" class="ident">deadline</label> <a href="../../../pkg/time.html" class="ident i14">time</a>.<a href="../../time/time.go.html#line-140" class="ident">Time</a>) (<label for="r51" class="ident">stopTimer</label> <span class="keyword">func</span>(), <label for="r52" class="ident">didTimeout</label> <span class="keyword">func</span>() <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
 <span class="codeline" id="line-357"><code>	<span class="keyword">if</span> <label for="r50" class="ident">deadline</label>.<a href="../../time/time.go.html#line-262" class="ident">IsZero</a>() {</code></span>
-<span class="codeline" id="line-358"><code>		<span class="keyword">return</span> <a href="transport.go.html#line-2788" class="ident">nop</a>, <a href="#line-492" class="ident">alwaysFalse</a></code></span>
+<span class="codeline" id="line-358"><code>		<span class="keyword">return</span> <a href="transport.go.html#line-2793" class="ident">nop</a>, <a href="#line-492" class="ident">alwaysFalse</a></code></span>
 <span class="codeline" id="line-359"><code>	}</code></span>
 <span class="codeline" id="line-360"><code>	<label for="r53" class="ident">knownTransport</label> := <a href="#line-325" class="ident">knownRoundTripperImpl</a>(<label for="r49" class="ident">rt</label>, <label for="r48" class="ident">req</label>)</code></span>
 <span class="codeline" id="line-361"><code>	<label for="r54" class="ident">oldCtx</label> := <label for="r48" class="ident">req</label>.<a href="request.go.html#line-352" class="ident">Context</a>()</code></span>
@@ -862,7 +862,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-364"><code>		<span class="comment">// If they already had a Request.Context that's</span></code></span>
 <span class="codeline" id="line-365"><code><span class="comment">		// expiring sooner, do nothing:</span></code></span>
 <span class="codeline" id="line-366"><code>		<span class="keyword">if</span> !<a href="#line-312" class="ident">timeBeforeContextDeadline</a>(<label for="r50" class="ident">deadline</label>, <label for="r54" class="ident">oldCtx</label>) {</code></span>
-<span class="codeline" id="line-367"><code>			<span class="keyword">return</span> <a href="transport.go.html#line-2788" class="ident">nop</a>, <a href="#line-492" class="ident">alwaysFalse</a></code></span>
+<span class="codeline" id="line-367"><code>			<span class="keyword">return</span> <a href="transport.go.html#line-2793" class="ident">nop</a>, <a href="#line-492" class="ident">alwaysFalse</a></code></span>
 <span class="codeline" id="line-368"><code>		}</code></span>
 <span class="codeline" id="line-369"><code></code></span>
 <span class="codeline" id="line-370"><code>		<span class="keyword">var</span> <label for="r55" class="ident">cancelCtx</label> <span class="keyword">func</span>()</code></span>
@@ -1232,7 +1232,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-734"><code>			<span class="comment">// c.send() always closes req.Body</span></code></span>
 <span class="codeline" id="line-735"><code>			<label for="r110" class="ident">reqBodyClosed</label> = <a href="../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
 <span class="codeline" id="line-736"><code>			<span class="keyword">if</span> !<label for="r106" class="ident">deadline</label>.<a href="../../time/time.go.html#line-262" class="ident">IsZero</a>() &amp;&amp; <label for="r128" class="ident">didTimeout</label>() {</code></span>
-<span class="codeline" id="line-737"><code>				<label for="r127" class="ident">err</label> = &amp;<a href="transport.go.html#line-2768" class="ident">timeoutError</a>{<label for="r127" class="ident">err</label>.Error() + <span class="lit-string">" (Client.Timeout exceeded while awaiting headers)"</span>}</code></span>
+<span class="codeline" id="line-737"><code>				<label for="r127" class="ident">err</label> = &amp;<a href="transport.go.html#line-2773" class="ident">timeoutError</a>{<label for="r127" class="ident">err</label>.Error() + <span class="lit-string">" (Client.Timeout exceeded while awaiting headers)"</span>}</code></span>
 <span class="codeline" id="line-738"><code>			}</code></span>
 <span class="codeline" id="line-739"><code>			<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r114" class="ident">uerr</label>(<label for="r127" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-740"><code>		}</code></span>
@@ -1489,7 +1489,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-991"><code>		<span class="keyword">return</span> <label for="r206" class="ident">n</label>, <label for="r207" class="ident">err</label></code></span>
 <span class="codeline" id="line-992"><code>	}</code></span>
 <span class="codeline" id="line-993"><code>	<span class="keyword">if</span> <label for="r203" class="ident">b</label>.<a href="#line-982" class="ident">reqDidTimeout</a>() {</code></span>
-<span class="codeline" id="line-994"><code>		<label for="r207" class="ident">err</label> = &amp;<a href="transport.go.html#line-2768" class="ident">timeoutError</a>{<label for="r207" class="ident">err</label>.Error() + <span class="lit-string">" (Client.Timeout or context cancellation while reading body)"</span>}</code></span>
+<span class="codeline" id="line-994"><code>		<label for="r207" class="ident">err</label> = &amp;<a href="transport.go.html#line-2773" class="ident">timeoutError</a>{<label for="r207" class="ident">err</label>.Error() + <span class="lit-string">" (Client.Timeout or context cancellation while reading body)"</span>}</code></span>
 <span class="codeline" id="line-995"><code>	}</code></span>
 <span class="codeline" id="line-996"><code>	<span class="keyword">return</span> <label for="r206" class="ident">n</label>, <label for="r207" class="ident">err</label></code></span>
 <span class="codeline" id="line-997"><code>}</code></span>
@@ -1514,8 +1514,8 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-1016"><code><span class="comment">	// directly, we don't know their scope, so we assume</span></code></span>
 <span class="codeline" id="line-1017"><code><span class="comment">	// it's for *.domain.com.</span></code></span>
 <span class="codeline" id="line-1018"><code></code></span>
-<span class="codeline" id="line-1019"><code>	<label for="r214" class="ident">ihost</label> := <a href="transport.go.html#line-3024" class="ident">idnaASCIIFromURL</a>(<label for="r212" class="ident">initial</label>)</code></span>
-<span class="codeline" id="line-1020"><code>	<label for="r215" class="ident">dhost</label> := <a href="transport.go.html#line-3024" class="ident">idnaASCIIFromURL</a>(<label for="r213" class="ident">dest</label>)</code></span>
+<span class="codeline" id="line-1019"><code>	<label for="r214" class="ident">ihost</label> := <a href="transport.go.html#line-3029" class="ident">idnaASCIIFromURL</a>(<label for="r212" class="ident">initial</label>)</code></span>
+<span class="codeline" id="line-1020"><code>	<label for="r215" class="ident">dhost</label> := <a href="transport.go.html#line-3029" class="ident">idnaASCIIFromURL</a>(<label for="r213" class="ident">dest</label>)</code></span>
 <span class="codeline" id="line-1021"><code>	<span class="keyword">return</span> <a href="#line-1028" class="ident">isDomainOrSubdomain</a>(<label for="r215" class="ident">dhost</label>, <label for="r214" class="ident">ihost</label>)</code></span>
 <span class="codeline" id="line-1022"><code>}</code></span>
 <span class="codeline" id="line-1023"><code></code></span>

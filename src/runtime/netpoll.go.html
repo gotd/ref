@@ -529,7 +529,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-221"><code>		<a href="lockrank_off.go.html#line-16" class="ident">lockInit</a>(&amp;<a href="#line-206" class="ident">pollcache</a>.<a href="#line-193" class="ident">lock</a>, <a href="lockrank.go.html#line-32" class="ident">lockRankPollCache</a>)</code></span>
 <span class="codeline" id="line-222"><code>		<a href="lock_spinbit.go.html#line-151" class="ident">lock</a>(&amp;<a href="#line-203" class="ident">netpollInitLock</a>)</code></span>
 <span class="codeline" id="line-223"><code>		<span class="keyword">if</span> <a href="#line-204" class="ident">netpollInited</a>.<a href="../internal/runtime/atomic/types.go.html#line-193" class="ident">Load</a>() == <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-224"><code>			<a href="netpoll_epoll.go.html#line-21" class="ident">netpollinit</a>()</code></span>
+<span class="codeline" id="line-224"><code>			<a href="netpoll_epoll.go.html#line-36" class="ident">netpollinit</a>()</code></span>
 <span class="codeline" id="line-225"><code>			<a href="#line-204" class="ident">netpollInited</a>.<a href="../internal/runtime/atomic/types.go.html#line-213" class="ident">Store</a>(<span class="lit-number">1</span>)</code></span>
 <span class="codeline" id="line-226"><code>		}</code></span>
 <span class="codeline" id="line-227"><code>		<a href="lock_spinbit.go.html#line-260" class="ident">unlock</a>(&amp;<a href="#line-203" class="ident">netpollInitLock</a>)</code></span>
@@ -545,7 +545,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-237"><code><span class="comment">// poll_runtime_isPollServerDescriptor reports whether fd is a</span></code></span>
 <span class="codeline" id="line-238"><code><span class="comment">// descriptor being used by netpoll.</span></code></span>
 <span class="codeline" id="line-239"><code><span class="keyword">func</span> <label for="r25" class="ident"><a href="../../pkg/runtime.html#name-poll_runtime_isPollServerDescriptor" class="ident">poll_runtime_isPollServerDescriptor</a></label>(<label for="r26" class="ident">fd</label> <a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>) <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
-<span class="codeline" id="line-240"><code>	<span class="keyword">return</span> <a href="netpoll_epoll.go.html#line-45" class="ident">netpollIsPollDescriptor</a>(<label for="r26" class="ident">fd</label>)</code></span>
+<span class="codeline" id="line-240"><code>	<span class="keyword">return</span> <a href="netpoll_epoll.go.html#line-60" class="ident">netpollIsPollDescriptor</a>(<label for="r26" class="ident">fd</label>)</code></span>
 <span class="codeline" id="line-241"><code>}</code></span>
 <span class="codeline" id="line-242"><code></code></span>
 <span class="codeline" id="line-243"><code><span class="comment">//go:linkname poll_runtime_pollOpen internal/poll.runtime_pollOpen</span></code></span>
@@ -577,7 +577,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-269"><code>	<label for="r29" class="ident">pd</label>.<a href="#line-153" class="ident">publishInfo</a>()</code></span>
 <span class="codeline" id="line-270"><code>	<a href="lock_spinbit.go.html#line-260" class="ident">unlock</a>(&amp;<label for="r29" class="ident">pd</label>.<a href="#line-103" class="ident">lock</a>)</code></span>
 <span class="codeline" id="line-271"><code></code></span>
-<span class="codeline" id="line-272"><code>	<label for="r32" class="ident">errno</label> := <a href="netpoll_epoll.go.html#line-49" class="ident">netpollopen</a>(<label for="r28" class="ident">fd</label>, <label for="r29" class="ident">pd</label>)</code></span>
+<span class="codeline" id="line-272"><code>	<label for="r32" class="ident">errno</label> := <a href="netpoll_epoll.go.html#line-64" class="ident">netpollopen</a>(<label for="r28" class="ident">fd</label>, <label for="r29" class="ident">pd</label>)</code></span>
 <span class="codeline" id="line-273"><code>	<span class="keyword">if</span> <label for="r32" class="ident">errno</label> != <span class="lit-number">0</span> {</code></span>
 <span class="codeline" id="line-274"><code>		<a href="#line-206" class="ident">pollcache</a>.<a href="#line-297" class="ident">free</a>(<label for="r29" class="ident">pd</label>)</code></span>
 <span class="codeline" id="line-275"><code>		<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r32" class="ident">errno</label>)</code></span>
@@ -598,7 +598,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-290"><code>	<span class="keyword">if</span> <label for="r36" class="ident">rg</label> != <a href="#line-65" class="ident">pdNil</a> &amp;&amp; <label for="r36" class="ident">rg</label> != <a href="#line-66" class="ident">pdReady</a> {</code></span>
 <span class="codeline" id="line-291"><code>		<a href="panic.go.html#line-1220" class="ident">throw</a>(<span class="lit-string">"runtime: blocked read on closing polldesc"</span>)</code></span>
 <span class="codeline" id="line-292"><code>	}</code></span>
-<span class="codeline" id="line-293"><code>	<a href="netpoll_epoll.go.html#line-57" class="ident">netpollclose</a>(<label for="r34" class="ident">pd</label>.<a href="#line-78" class="ident">fd</a>)</code></span>
+<span class="codeline" id="line-293"><code>	<a href="netpoll_epoll.go.html#line-71" class="ident">netpollclose</a>(<label for="r34" class="ident">pd</label>.<a href="#line-78" class="ident">fd</a>)</code></span>
 <span class="codeline" id="line-294"><code>	<a href="#line-206" class="ident">pollcache</a>.<a href="#line-297" class="ident">free</a>(<label for="r34" class="ident">pd</label>)</code></span>
 <span class="codeline" id="line-295"><code>}</code></span>
 <span class="codeline" id="line-296"><code></code></span>
@@ -654,7 +654,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-346"><code>	}</code></span>
 <span class="codeline" id="line-347"><code>	<span class="comment">// As for now only Solaris, illumos, AIX and wasip1 use level-triggered IO.</span></code></span>
 <span class="codeline" id="line-348"><code>	<span class="keyword">if</span> <a href="extern.go.html#line-380" class="ident">GOOS</a> == <span class="lit-string">"solaris"</span> || <a href="extern.go.html#line-380" class="ident">GOOS</a> == <span class="lit-string">"illumos"</span> || <a href="extern.go.html#line-380" class="ident">GOOS</a> == <span class="lit-string">"aix"</span> || <a href="extern.go.html#line-380" class="ident">GOOS</a> == <span class="lit-string">"wasip1"</span> {</code></span>
-<span class="codeline" id="line-349"><code>		<a href="netpoll_epoll.go.html#line-62" class="ident">netpollarm</a>(<label for="r46" class="ident">pd</label>, <label for="r47" class="ident">mode</label>)</code></span>
+<span class="codeline" id="line-349"><code>		<a href="netpoll_epoll.go.html#line-76" class="ident">netpollarm</a>(<label for="r46" class="ident">pd</label>, <label for="r47" class="ident">mode</label>)</code></span>
 <span class="codeline" id="line-350"><code>	}</code></span>
 <span class="codeline" id="line-351"><code>	<span class="keyword">for</span> !<a href="#line-548" class="ident">netpollblock</a>(<label for="r46" class="ident">pd</label>, <a href="../../pkg/builtin.html#name-int32" class="ident">int32</a>(<label for="r47" class="ident">mode</label>), <a href="../../pkg/builtin.html#name-false" class="ident">false</a>) {</code></span>
 <span class="codeline" id="line-352"><code>		<label for="r48" class="ident">errcode</label> = <a href="#line-512" class="ident">netpollcheckerr</a>(<label for="r46" class="ident">pd</label>, <a href="../../pkg/builtin.html#name-int32" class="ident">int32</a>(<label for="r47" class="ident">mode</label>))</code></span>

@@ -9,22 +9,22 @@
 <script src="../../jvs/golds-v0.8.5.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/transport.go.html#line-3115">gzipReader</a>.<a href="../../src/net/http/transport.go.html#line-3120">zerr</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/transport.go.html#line-3120">gzipReader</a>.<a href="../../src/net/http/transport.go.html#line-3125">zerr</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
 <span class="title">11 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/transport.go.html#line-3120">transport.go#L3120</a>: 	<b>zerr</b> error          // sticky gzip reader init error or sentinel value to detect concurrent read and read after close
-		<a href="../../src/net/http/transport.go.html#line-3154" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3154">#L3154</a>: 	if gz.<b>zerr</b> != nil {
-		<a href="../../src/net/http/transport.go.html#line-3155" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3155">#L3155</a>: 		return nil, gz.<b>zerr</b>
-		<a href="../../src/net/http/transport.go.html#line-3158" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3158">#L3158</a>: 		gz.zr, gz.<b>zerr</b> = gzipPoolGet(gz.body)
-		<a href="../../src/net/http/transport.go.html#line-3159" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3159">#L3159</a>: 		if gz.<b>zerr</b> != nil {
-		<a href="../../src/net/http/transport.go.html#line-3160" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3160">#L3160</a>: 			return nil, gz.<b>zerr</b>
-		<a href="../../src/net/http/transport.go.html#line-3164" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3164">#L3164</a>: 	gz.zr, gz.<b>zerr</b> = nil, errConcurrentReadOnResBody
-		<a href="../../src/net/http/transport.go.html#line-3172" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3172">#L3172</a>: 	if gz.<b>zerr</b> == errConcurrentReadOnResBody {
-		<a href="../../src/net/http/transport.go.html#line-3173" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3173">#L3173</a>: 		gz.zr, gz.<b>zerr</b> = zr, nil
-		<a href="../../src/net/http/transport.go.html#line-3184" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3184">#L3184</a>: 	if gz.<b>zerr</b> == nil &amp;&amp; gz.zr != nil {
-		<a href="../../src/net/http/transport.go.html#line-3188" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3188">#L3188</a>: 	gz.<b>zerr</b> = errReadOnClosedResBody
+		<a href="../../src/net/http/transport.go.html#line-3125">transport.go#L3125</a>: 	<b>zerr</b> error          // sticky gzip reader init error or sentinel value to detect concurrent read and read after close
+		<a href="../../src/net/http/transport.go.html#line-3159" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3159">#L3159</a>: 	if gz.<b>zerr</b> != nil {
+		<a href="../../src/net/http/transport.go.html#line-3160" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3160">#L3160</a>: 		return nil, gz.<b>zerr</b>
+		<a href="../../src/net/http/transport.go.html#line-3163" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3163">#L3163</a>: 		gz.zr, gz.<b>zerr</b> = gzipPoolGet(gz.body)
+		<a href="../../src/net/http/transport.go.html#line-3164" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3164">#L3164</a>: 		if gz.<b>zerr</b> != nil {
+		<a href="../../src/net/http/transport.go.html#line-3165" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3165">#L3165</a>: 			return nil, gz.<b>zerr</b>
+		<a href="../../src/net/http/transport.go.html#line-3169" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3169">#L3169</a>: 	gz.zr, gz.<b>zerr</b> = nil, errConcurrentReadOnResBody
+		<a href="../../src/net/http/transport.go.html#line-3177" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3177">#L3177</a>: 	if gz.<b>zerr</b> == errConcurrentReadOnResBody {
+		<a href="../../src/net/http/transport.go.html#line-3178" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3178">#L3178</a>: 		gz.zr, gz.<b>zerr</b> = zr, nil
+		<a href="../../src/net/http/transport.go.html#line-3189" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3189">#L3189</a>: 	if gz.<b>zerr</b> == nil &amp;&amp; gz.zr != nil {
+		<a href="../../src/net/http/transport.go.html#line-3193" class="path-duplicate">transport.go</a><a href="../../src/net/http/transport.go.html#line-3193">#L3193</a>: 	gz.<b>zerr</b> = errReadOnClosedResBody
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)

@@ -11,7 +11,7 @@
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../../../pkg/vendor/golang.org/x/net/http2/hpack.html">vendor/golang.org/x/net/http2/hpack</a>.<a href="../../../../../../src/vendor/golang.org/x/net/http2/hpack/hpack.go.html#line-36">HeaderField</a>.<a href="../../../../../../src/vendor/golang.org/x/net/http2/hpack/hpack.go.html#line-61">Size</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">8 uses</span>
+<span class="title">9 uses</span>
 
 	vendor/golang.org/x/net/http2/hpack (current package)
 		<a href="../../../../../../src/vendor/golang.org/x/net/http2/hpack/encode.go.html#line-141">encode.go#L141</a>: 	return !f.Sensitive &amp;&amp; f.<b>Size</b>() &lt;= e.dynTab.maxSize
@@ -20,9 +20,10 @@
 		<a href="../../../../../../src/vendor/golang.org/x/net/http2/hpack/hpack.go.html#line-183" class="path-duplicate">hpack.go</a><a href="../../../../../../src/vendor/golang.org/x/net/http2/hpack/hpack.go.html#line-183">#L183</a>: 		dt.size -= dt.table.ents[n].<b>Size</b>()
 
 	<a href="../../../../../../pkg/net/http.html">net/http</a>
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-3194">h2_bundle.go#L3194</a>: 		size := hf.<b>Size</b>()
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9332" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9332">#L9332</a>: 			hlSize += uint64(hf.<b>Size</b>())
-		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9748" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9748">#L9748</a>: 				cs.totalHeaderSize += int64(h.<b>Size</b>())
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-3261">h2_bundle.go#L3261</a>: 			size = uint32(len(hf.Value)-fieldCount+1) + uint32(fieldCount)*hpack.HeaderField{}.<b>Size</b>()
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-3264" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-3264">#L3264</a>: 			size = hf.<b>Size</b>()
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9457" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9457">#L9457</a>: 			hlSize += uint64(hf.<b>Size</b>())
+		<a href="../../../../../../src/net/http/h2_bundle.go.html#line-9872" class="path-duplicate">h2_bundle.go</a><a href="../../../../../../src/net/http/h2_bundle.go.html#line-9872">#L9872</a>: 				cs.totalHeaderSize += int64(h.<b>Size</b>())
 
 	<a href="../../../../../../pkg/net/http/internal/httpcommon.html">net/http/internal/httpcommon</a>
 		<a href="../../../../../../src/net/http/internal/httpcommon/httpcommon.go.html#line-386">httpcommon.go#L386</a>: 			hlSize += uint64(hf.<b>Size</b>())

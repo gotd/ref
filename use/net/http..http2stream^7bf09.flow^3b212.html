@@ -9,19 +9,18 @@
 <script src="../../jvs/golds-v0.8.5.js"></script>
 <body onload="onPageLoad()"><div>
 
-<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4655">http2stream</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4667">flow</a></b></span><span style="font-size: large;"><i> (field)</i></span>
+<pre><code><span style="font-size:x-large;"><b><a href="../../pkg/net/http.html">net/http</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4728">http2stream</a>.<a href="../../src/net/http/h2_bundle.go.html#line-4741">flow</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">8 uses</span>
+<span class="title">7 uses</span>
 
 	net/http (current package)
-		<a href="../../src/net/http/h2_bundle.go.html#line-4667">h2_bundle.go#L4667</a>: 	<b>flow</b>             http2outflow // limits writing from Handler to client
-		<a href="../../src/net/http/h2_bundle.go.html#line-5664" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5664">#L5664</a>: 		if !st.<b>flow</b>.add(int32(f.Increment)) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-5820" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5820">#L5820</a>: 		if !st.<b>flow</b>.add(growth) {
-		<a href="../../src/net/http/h2_bundle.go.html#line-6195" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6195">#L6195</a>: 	st.<b>flow</b>.conn = &amp;sc.flow // link to conn-level counter
-		<a href="../../src/net/http/h2_bundle.go.html#line-6196" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6196">#L6196</a>: 	st.<b>flow</b>.add(sc.initialStreamSendWindowSize)
-		<a href="../../src/net/http/h2_bundle.go.html#line-11235" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-11235">#L11235</a>: 	allowed := wr.stream.<b>flow</b>.available()
-		<a href="../../src/net/http/h2_bundle.go.html#line-11246" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-11246">#L11246</a>: 		wr.stream.<b>flow</b>.take(allowed)
-		<a href="../../src/net/http/h2_bundle.go.html#line-11275" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-11275">#L11275</a>: 	wr.stream.<b>flow</b>.take(int32(len(wd.p)))
+		<a href="../../src/net/http/h2_bundle.go.html#line-4741">h2_bundle.go#L4741</a>: 	<b>flow</b>             http2outflow // limits writing from Handler to client
+		<a href="../../src/net/http/h2_bundle.go.html#line-5756" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5756">#L5756</a>: 		if !st.<b>flow</b>.add(int32(f.Increment)) {
+		<a href="../../src/net/http/h2_bundle.go.html#line-5757" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-5757">#L5757</a>: 			if st.<b>flow</b>.conn.flowErr {
+		<a href="../../src/net/http/h2_bundle.go.html#line-6278" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-6278">#L6278</a>: 	st.<b>flow</b>.conn = &amp;sc.flow // link to conn-level counter
+		<a href="../../src/net/http/h2_bundle.go.html#line-11379" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-11379">#L11379</a>: 	avail, ok := wr.stream.<b>flow</b>.available()
+		<a href="../../src/net/http/h2_bundle.go.html#line-11391" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-11391">#L11391</a>: 		wr.stream.<b>flow</b>.take(allowed)
+		<a href="../../src/net/http/h2_bundle.go.html#line-11420" class="path-duplicate">h2_bundle.go</a><a href="../../src/net/http/h2_bundle.go.html#line-11420">#L11420</a>: 	wr.stream.<b>flow</b>.take(int32(len(wd.p)))
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)

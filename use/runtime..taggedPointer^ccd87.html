@@ -15,8 +15,8 @@
 
 	runtime (current package)
 		<a href="../src/runtime/lfstack.go.html#line-83">lfstack.go#L83</a>: 	return (*lfnode)(<b>taggedPointer</b>(val).pointer())
-		<a href="../src/runtime/netpoll_epoll.go.html#line-53">netpoll_epoll.go#L53</a>: 	*(*<b>taggedPointer</b>)(unsafe.Pointer(&amp;ev.Data)) = tp
-		<a href="../src/runtime/netpoll_epoll.go.html#line-166" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-166">#L166</a>: 			tp := *(*<b>taggedPointer</b>)(unsafe.Pointer(&amp;ev.Data))
+		<a href="../src/runtime/netpoll_epoll.go.html#line-26">netpoll_epoll.go#L26</a>: 	*(*<b>taggedPointer</b>)(unsafe.Pointer(&amp;ev.Data)) = taggedPointerPack(unsafe.Pointer(pd), fdseq)
+		<a href="../src/runtime/netpoll_epoll.go.html#line-32" class="path-duplicate">netpoll_epoll.go</a><a href="../src/runtime/netpoll_epoll.go.html#line-32">#L32</a>: 	tp := *(*<b>taggedPointer</b>)(unsafe.Pointer(&amp;ev.Data))
 		<a href="../src/runtime/tagptr.go.html#line-11">tagptr.go#L11</a>: type <b>taggedPointer</b> uint64
 		<a href="../src/runtime/tagptr_64bit.go.html#line-63">tagptr_64bit.go#L63</a>: func taggedPointerPack(ptr unsafe.Pointer, tag uintptr) <b>taggedPointer</b> {
 		<a href="../src/runtime/tagptr_64bit.go.html#line-64" class="path-duplicate">tagptr_64bit.go</a><a href="../src/runtime/tagptr_64bit.go.html#line-64">#L64</a>: 	t := <b>taggedPointer</b>(uint64(uintptr(ptr))&lt;&lt;(tagBits-tagAlignBits) | uint64(tag&amp;(1&lt;&lt;tagBits-1)))
