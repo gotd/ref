@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/gotd/td/telegram/downloader.Scheduler</title>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">type <b><a href="../../../../../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>.<a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-70">Scheduler</a></b></span>
+
+<span class="title">20 uses</span>
+
+	github.com/gotd/td/telegram/downloader (current package)
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/builder.go.html#line-27">builder.go#L27</a>: 	scheduler *<b>Scheduler</b>
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/downloader.go.html#line-25">downloader.go#L25</a>: 	scheduler *<b>Scheduler</b>
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-363">metrics.go#L363</a>: func (s *<b>Scheduler</b>) Instrument(m metric.Meter, attrs ...attribute.KeyValue) (metric.Registration, error) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/reader.go.html#line-36">reader.go#L36</a>: 	scheduler *<b>Scheduler</b> // immutable
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-70">scheduler.go#L70</a>: type <b>Scheduler</b> struct {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-87" class="path-duplicate">scheduler.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-87">#L87</a>: func NewScheduler(opts SchedulerOptions) *<b>Scheduler</b> {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-89" class="path-duplicate">scheduler.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-89">#L89</a>: 	return &amp;<b>Scheduler</b>{
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-97" class="path-duplicate">scheduler.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-97">#L97</a>: func (s *<b>Scheduler</b>) Snapshot() SchedulerSnapshot {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-108" class="path-duplicate">scheduler.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-108">#L108</a>: func (s *<b>Scheduler</b>) notify() {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-114" class="path-duplicate">scheduler.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-114">#L114</a>: func (s *<b>Scheduler</b>) acquire(ctx context.Context) (uint64, error) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-138" class="path-duplicate">scheduler.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-138">#L138</a>: func (s *<b>Scheduler</b>) release(ctx context.Context, epoch uint64, err error) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-163" class="path-duplicate">scheduler.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-163">#L163</a>: func (s *<b>Scheduler</b>) backoff(ctx context.Context, epoch uint64, err error) uint64 {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-178" class="path-duplicate">scheduler.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-178">#L178</a>: func (s *<b>Scheduler</b>) decrease(epoch uint64) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-196" class="path-duplicate">scheduler.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-196">#L196</a>: 	sch   *<b>Scheduler</b>
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-238" class="path-duplicate">scheduler.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-238">#L238</a>: func (d *Downloader) WithScheduler(s *<b>Scheduler</b>) *Downloader {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-245" class="path-duplicate">scheduler.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/scheduler.go.html#line-245">#L245</a>: func (b *Builder) WithScheduler(s *<b>Scheduler</b>) *Builder {
+
+	<a href="../../../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
+		<a href="../../../../../src/github.com/gotd/td/telegram/download.go.html#line-145">download.go#L145</a>: func (c *Client) DownloadScheduler(dc int) *downloader.<b>Scheduler</b> {
+		<a href="../../../../../src/github.com/gotd/td/telegram/download.go.html#line-162" class="path-duplicate">download.go</a><a href="../../../../../src/github.com/gotd/td/telegram/download.go.html#line-162">#L162</a>: 	m    map[int]*downloader.<b>Scheduler</b>
+		<a href="../../../../../src/github.com/gotd/td/telegram/download.go.html#line-172" class="path-duplicate">download.go</a><a href="../../../../../src/github.com/gotd/td/telegram/download.go.html#line-172">#L172</a>: 		m:    map[int]*downloader.<b>Scheduler</b>{},
+		<a href="../../../../../src/github.com/gotd/td/telegram/download.go.html#line-181" class="path-duplicate">download.go</a><a href="../../../../../src/github.com/gotd/td/telegram/download.go.html#line-181">#L181</a>: func (d *downloadSchedulers) get(dc int) *downloader.<b>Scheduler</b> {
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

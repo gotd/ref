@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: github.com/gotd/log.Duration</title>
-<link href="../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../../../pkg/github.com/gotd/log.html">github.com/gotd/log</a>.<a href="../../../src/github.com/gotd/log/attr.go.html#line-172">Duration</a></b></span>
 
-<span class="title">24 uses</span>
+<span class="title">30 uses</span>
 
 	github.com/gotd/log (current package)
 		<a href="../../../src/github.com/gotd/log/attr.go.html#line-172">attr.go#L172</a>: func <b>Duration</b>(key string, value time.Duration) Attr {
@@ -20,19 +20,21 @@
 		<a href="../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-76">client_flow.go#L76</a>: 	c.log.Debug(ctx, "PQ decomposing complete", log.<b>Duration</b>("took", c.clock.Now().Sub(start)))
 
 	<a href="../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
-		<a href="../../../src/github.com/gotd/td/mtproto/ack.go.html#line-29">ack.go#L29</a>: 			log.<b>Duration</b>("elapsed", c.clock.Now().Sub(start)),
-		<a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-60">connect.go#L60</a>: 			log.<b>Duration</b>("duration", c.clock.Now().Sub(start)),
-		<a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-87" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-87">#L87</a>: 			log.<b>Duration</b>("duration", c.clock.Now().Sub(start)),
-		<a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-100" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-100">#L100</a>: 		log.<b>Duration</b>("duration", c.clock.Now().Sub(start)),
-		<a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-129" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-129">#L129</a>: 		log.<b>Duration</b>("timeout", c.exchangeTimeout),
+		<a href="../../../src/github.com/gotd/td/mtproto/ack.go.html#line-38">ack.go#L38</a>: 			log.<b>Duration</b>("elapsed", c.clock.Now().Sub(start)),
+		<a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-63">connect.go#L63</a>: 			log.<b>Duration</b>("duration", c.clock.Now().Sub(start)),
+		<a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-93" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-93">#L93</a>: 			log.<b>Duration</b>("duration", c.clock.Now().Sub(start)),
+		<a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-106" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-106">#L106</a>: 		log.<b>Duration</b>("duration", c.clock.Now().Sub(start)),
+		<a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-135" class="path-duplicate">connect.go</a><a href="../../../src/github.com/gotd/td/mtproto/connect.go.html#line-135">#L135</a>: 		log.<b>Duration</b>("timeout", c.exchangeTimeout),
 		<a href="../../../src/github.com/gotd/td/mtproto/handle_session_created.go.html#line-34">handle_session_created.go#L34</a>: 			log.<b>Duration</b>("time_difference", now.Sub(created)),
-		<a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-112">ping.go#L112</a>: 			logger.Debug(ctx, "Sending ping", log.<b>Duration</b>("timeout", c.pingTimeout))
-		<a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-124" class="path-duplicate">ping.go</a><a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-124">#L124</a>: 					log.<b>Duration</b>("elapsed", c.clock.Now().Sub(start)),
-		<a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-128" class="path-duplicate">ping.go</a><a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-128">#L128</a>: 			logger.Debug(ctx, "Ping acknowledged", log.<b>Duration</b>("elapsed", c.clock.Now().Sub(start)))
-		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-104">read.go#L104</a>: 					log.<b>Duration</b>("waited", waited),
-		<a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-48">write.go#L48</a>: 			log.<b>Duration</b>("waited", waited),
-		<a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-67" class="path-duplicate">write.go</a><a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-67">#L67</a>: 		logger.Debug(ctx, "Send failed", log.Error(err), log.<b>Duration</b>("elapsed", c.clock.Now().Sub(locked)))
-		<a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-72" class="path-duplicate">write.go</a><a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-72">#L72</a>: 		logger.Warn(ctx, "Slow write: transport send took too long", log.<b>Duration</b>("elapsed", elapsed))
+		<a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-140">ping.go#L140</a>: 			logger.Debug(ctx, "Sending ping", log.<b>Duration</b>("timeout", c.pingTimeout))
+		<a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-152" class="path-duplicate">ping.go</a><a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-152">#L152</a>: 					log.<b>Duration</b>("elapsed", c.clock.Now().Sub(start)),
+		<a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-157" class="path-duplicate">ping.go</a><a href="../../../src/github.com/gotd/td/mtproto/ping.go.html#line-157">#L157</a>: 			logger.Debug(ctx, "Ping acknowledged", log.<b>Duration</b>("elapsed", elapsed))
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-73">read.go#L73</a>: 			log.<b>Duration</b>("offset", c.serverTime.Offset()),
+		<a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-163" class="path-duplicate">read.go</a><a href="../../../src/github.com/gotd/td/mtproto/read.go.html#line-163">#L163</a>: 				log.<b>Duration</b>("waited", waited),
+		<a href="../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-42">rpc.go#L42</a>: 				log.<b>Duration</b>("server_time_offset", c.serverTimeOffset()),
+		<a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-64">write.go#L64</a>: 			log.<b>Duration</b>("waited", waited),
+		<a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-83" class="path-duplicate">write.go</a><a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-83">#L83</a>: 		logger.Debug(ctx, "Send failed", log.Error(err), log.<b>Duration</b>("elapsed", c.clock.Now().Sub(locked)))
+		<a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-88" class="path-duplicate">write.go</a><a href="../../../src/github.com/gotd/td/mtproto/write.go.html#line-88">#L88</a>: 		logger.Warn(ctx, "Slow write: transport send took too long", log.<b>Duration</b>("elapsed", elapsed))
 
 	<a href="../../../pkg/github.com/gotd/td/rpc.html">github.com/gotd/td/rpc</a>
 		<a href="../../../src/github.com/gotd/td/rpc/engine.go.html#line-47">engine.go#L47</a>: 		log.<b>Duration</b>("retry_interval", cfg.RetryInterval),
@@ -42,17 +44,21 @@
 		<a href="../../../src/github.com/gotd/td/tdsync/log_group.go.html#line-52" class="path-duplicate">log_group.go</a><a href="../../../src/github.com/gotd/td/tdsync/log_group.go.html#line-52">#L52</a>: 		l.Debug(ctx, "Task complete", log.<b>Duration</b>("elapsed", elapsed))
 
 	<a href="../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
-		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-125">connect.go#L125</a>: 		c.log.Info(context.Background(), "Restarting connection", log.Error(err), log.<b>Duration</b>("backoff", timeout))
+		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-178">connect.go#L178</a>: 			log.<b>Duration</b>("backoff", timeout),
+		<a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-151">invoke.go#L151</a>: 					log.<b>Duration</b>("timeout", timeout),
+		<a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-162" class="path-duplicate">invoke.go</a><a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-162">#L162</a>: 				log.<b>Duration</b>("timeout", timeout),
+		<a href="../../../src/github.com/gotd/td/telegram/sub_conns.go.html#line-229">sub_conns.go#L229</a>: 			log.<b>Duration</b>("duration", elapsed),
+		<a href="../../../src/github.com/gotd/td/telegram/sub_conns.go.html#line-238" class="path-duplicate">sub_conns.go</a><a href="../../../src/github.com/gotd/td/telegram/sub_conns.go.html#line-238">#L238</a>: 		log.<b>Duration</b>("duration", elapsed),
 
 	<a href="../../../pkg/github.com/gotd/td/telegram/internal/manager.html">github.com/gotd/td/telegram/internal/manager</a>
-		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-154">conn.go#L154</a>: 			log.<b>Duration</b>("duration", end.Sub(start)),
-		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-198" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-198">#L198</a>: 		c.log.Debug(ctx, "Connection became ready", log.<b>Duration</b>("waited", c.clock.Now().Sub(start)))
-		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-201" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-201">#L201</a>: 		c.log.Debug(ctx, "Connection died while waiting for readiness", log.<b>Duration</b>("waited", c.clock.Now().Sub(start)))
-		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-205" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-205">#L205</a>: 			log.<b>Duration</b>("waited", c.clock.Now().Sub(start)),
-		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-388" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-388">#L388</a>: 			log.Error(err), log.<b>Duration</b>("duration", duration),
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-164">conn.go#L164</a>: 			log.<b>Duration</b>("duration", end.Sub(start)),
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-208" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-208">#L208</a>: 		c.log.Debug(ctx, "Connection became ready", log.<b>Duration</b>("waited", c.clock.Now().Sub(start)))
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-211" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-211">#L211</a>: 		c.log.Debug(ctx, "Connection died while waiting for readiness", log.<b>Duration</b>("waited", c.clock.Now().Sub(start)))
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-215" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-215">#L215</a>: 			log.<b>Duration</b>("waited", c.clock.Now().Sub(start)),
+		<a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-467" class="path-duplicate">conn.go</a><a href="../../../src/github.com/gotd/td/telegram/internal/manager/conn.go.html#line-467">#L467</a>: 			log.Error(err), log.<b>Duration</b>("duration", duration),
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

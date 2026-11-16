@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: tl_messages_decline_url_auth_gen.go in package github.com/gotd/td/tg</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -303,22 +303,26 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-177"><code><span class="comment">// Links:</span></code></span>
 <span class="codeline" id="line-178"><code><span class="comment">//  1. https://core.telegram.org/api/url-authorization#oauth-authorization</span></code></span>
 <span class="codeline" id="line-179"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-180"><code><span class="comment">// See https://core.telegram.org/method/messages.declineUrlAuth for reference.</span></code></span>
-<span class="codeline" id="line-181"><code><span class="keyword">func</span> (<label for="r33" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r34" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.MessagesDeclineURLAuth.html" class="ident">MessagesDeclineURLAuth</a></label>(<label for="r35" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r36" class="ident">url</label> <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-182"><code>	<span class="keyword">var</span> <label for="r37" class="ident">result</label> <a href="tl_bool_gen.go.html#line-306" class="ident">BoolBox</a></code></span>
-<span class="codeline" id="line-183"><code></code></span>
-<span class="codeline" id="line-184"><code>	<label for="r38" class="ident">request</label> := &amp;<a href="#line-42" class="ident">MessagesDeclineURLAuthRequest</a>{</code></span>
-<span class="codeline" id="line-185"><code>		<a href="#line-49" class="ident">URL</a>: <label for="r36" class="ident">url</label>,</code></span>
-<span class="codeline" id="line-186"><code>	}</code></span>
-<span class="codeline" id="line-187"><code>	<span class="keyword">if</span> <label for="r39" class="ident">err</label> := <label for="r33" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r35" class="ident">ctx</label>, <label for="r38" class="ident">request</label>, &amp;<label for="r37" class="ident">result</label>); <label for="r39" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-188"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a>, <label for="r39" class="ident">err</label></code></span>
-<span class="codeline" id="line-189"><code>	}</code></span>
-<span class="codeline" id="line-190"><code>	<label for="r40" class="ident">_</label>, <label for="r41" class="ident">ok</label> := <label for="r37" class="ident">result</label>.<a href="tl_bool_gen.go.html#line-307" class="ident">Bool</a>.(*<a href="tl_bool_gen.go.html#line-140" class="ident">BoolTrue</a>)</code></span>
-<span class="codeline" id="line-191"><code>	<span class="keyword">return</span> <label for="r41" class="ident">ok</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-192"><code>}</code></span>
+<span class="codeline" id="line-180"><code><span class="comment">// Possible errors:</span></code></span>
+<span class="codeline" id="line-181"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-182"><code><span class="comment">//	400 URL_INVALID: Invalid URL provided.</span></code></span>
+<span class="codeline" id="line-183"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-184"><code><span class="comment">// See https://core.telegram.org/method/messages.declineUrlAuth for reference.</span></code></span>
+<span class="codeline" id="line-185"><code><span class="keyword">func</span> (<label for="r33" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r34" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.MessagesDeclineURLAuth.html" class="ident">MessagesDeclineURLAuth</a></label>(<label for="r35" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r36" class="ident">url</label> <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-186"><code>	<span class="keyword">var</span> <label for="r37" class="ident">result</label> <a href="tl_bool_gen.go.html#line-306" class="ident">BoolBox</a></code></span>
+<span class="codeline" id="line-187"><code></code></span>
+<span class="codeline" id="line-188"><code>	<label for="r38" class="ident">request</label> := &amp;<a href="#line-42" class="ident">MessagesDeclineURLAuthRequest</a>{</code></span>
+<span class="codeline" id="line-189"><code>		<a href="#line-49" class="ident">URL</a>: <label for="r36" class="ident">url</label>,</code></span>
+<span class="codeline" id="line-190"><code>	}</code></span>
+<span class="codeline" id="line-191"><code>	<span class="keyword">if</span> <label for="r39" class="ident">err</label> := <label for="r33" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r35" class="ident">ctx</label>, <label for="r38" class="ident">request</label>, &amp;<label for="r37" class="ident">result</label>); <label for="r39" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-192"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a>, <label for="r39" class="ident">err</label></code></span>
+<span class="codeline" id="line-193"><code>	}</code></span>
+<span class="codeline" id="line-194"><code>	<label for="r40" class="ident">_</label>, <label for="r41" class="ident">ok</label> := <label for="r37" class="ident">result</label>.<a href="tl_bool_gen.go.html#line-307" class="ident">Bool</a>.(*<a href="tl_bool_gen.go.html#line-140" class="ident">BoolTrue</a>)</code></span>
+<span class="codeline" id="line-195"><code>	<span class="keyword">return</span> <label for="r41" class="ident">ok</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-196"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

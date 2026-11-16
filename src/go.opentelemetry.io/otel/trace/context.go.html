@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: context.go in package go.opentelemetry.io/otel/trace</title>
-<link href="../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -55,7 +55,7 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-1"><code><span class="comment">// Copyright The OpenTelemetry Authors</span></code></span>
 <span class="codeline" id="line-2"><code><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></code></span>
 <span class="codeline" id="line-3"><code></code></span>
-<span class="codeline" id="line-4"><code><span class="keyword">package</span> trace <span class="comment">// import "go.opentelemetry.io/otel/trace"</span></code></span>
+<span class="codeline" id="line-4"><code><span class="keyword">package</span> trace</code></span>
 <span class="codeline" id="line-5"><code></code></span>
 <span class="codeline" id="line-6"><code><span class="keyword">import</span> <label for="i0"><span class="lit-string i0">"context"</span></label></code></span>
 <span class="codeline" id="line-7"><code></code></span>
@@ -72,7 +72,7 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-18"><code><span class="comment">// Span. The Span implementation that wraps sc is non-recording and performs</span></code></span>
 <span class="codeline" id="line-19"><code><span class="comment">// no operations other than to return sc as the SpanContext from the</span></code></span>
 <span class="codeline" id="line-20"><code><span class="comment">// SpanContext method.</span></code></span>
-<span class="codeline" id="line-21"><code><span class="keyword">func</span> <label for="r3" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/trace.html#name-ContextWithSpanContext" class="ident">ContextWithSpanContext</a></label>(<label for="r4" class="ident">parent</label> <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r5" class="ident">sc</label> <a href="trace.go.html#line-255" class="ident">SpanContext</a>) <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a> {</code></span>
+<span class="codeline" id="line-21"><code><span class="keyword">func</span> <label for="r3" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/trace.html#name-ContextWithSpanContext" class="ident">ContextWithSpanContext</a></label>(<label for="r4" class="ident">parent</label> <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r5" class="ident">sc</label> <a href="trace.go.html#line-309" class="ident">SpanContext</a>) <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a> {</code></span>
 <span class="codeline" id="line-22"><code>	<span class="keyword">return</span> <a href="#line-13" class="ident">ContextWithSpan</a>(<label for="r4" class="ident">parent</label>, <a href="nonrecording.go.html#line-9" class="ident">nonRecordingSpan</a>{<a href="nonrecording.go.html#line-12" class="ident">sc</a>: <label for="r5" class="ident">sc</label>})</code></span>
 <span class="codeline" id="line-23"><code>}</code></span>
 <span class="codeline" id="line-24"><code></code></span>
@@ -80,8 +80,8 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-26"><code><span class="comment">// as a remote SpanContext and as the current Span. The Span implementation</span></code></span>
 <span class="codeline" id="line-27"><code><span class="comment">// that wraps rsc is non-recording and performs no operations other than to</span></code></span>
 <span class="codeline" id="line-28"><code><span class="comment">// return rsc as the SpanContext from the SpanContext method.</span></code></span>
-<span class="codeline" id="line-29"><code><span class="keyword">func</span> <label for="r6" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/trace.html#name-ContextWithRemoteSpanContext" class="ident">ContextWithRemoteSpanContext</a></label>(<label for="r7" class="ident">parent</label> <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r8" class="ident">rsc</label> <a href="trace.go.html#line-255" class="ident">SpanContext</a>) <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a> {</code></span>
-<span class="codeline" id="line-30"><code>	<span class="keyword">return</span> <a href="#line-21" class="ident">ContextWithSpanContext</a>(<label for="r7" class="ident">parent</label>, <label for="r8" class="ident">rsc</label>.<a href="trace.go.html#line-277" class="ident">WithRemote</a>(<a href="../../../../pkg/builtin.html#name-true" class="ident">true</a>))</code></span>
+<span class="codeline" id="line-29"><code><span class="keyword">func</span> <label for="r6" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/trace.html#name-ContextWithRemoteSpanContext" class="ident">ContextWithRemoteSpanContext</a></label>(<label for="r7" class="ident">parent</label> <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r8" class="ident">rsc</label> <a href="trace.go.html#line-309" class="ident">SpanContext</a>) <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a> {</code></span>
+<span class="codeline" id="line-30"><code>	<span class="keyword">return</span> <a href="#line-21" class="ident">ContextWithSpanContext</a>(<label for="r7" class="ident">parent</label>, <label for="r8" class="ident">rsc</label>.<a href="trace.go.html#line-331" class="ident">WithRemote</a>(<a href="../../../../pkg/builtin.html#name-true" class="ident">true</a>))</code></span>
 <span class="codeline" id="line-31"><code>}</code></span>
 <span class="codeline" id="line-32"><code></code></span>
 <span class="codeline" id="line-33"><code><span class="comment">// SpanFromContext returns the current Span from ctx.</span></code></span>
@@ -99,12 +99,12 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-45"><code>}</code></span>
 <span class="codeline" id="line-46"><code></code></span>
 <span class="codeline" id="line-47"><code><span class="comment">// SpanContextFromContext returns the current Span's SpanContext.</span></code></span>
-<span class="codeline" id="line-48"><code><span class="keyword">func</span> <label for="r13" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/trace.html#name-SpanContextFromContext" class="ident">SpanContextFromContext</a></label>(<label for="r14" class="ident">ctx</label> <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a>) <a href="trace.go.html#line-255" class="ident">SpanContext</a> {</code></span>
+<span class="codeline" id="line-48"><code><span class="keyword">func</span> <label for="r13" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/trace.html#name-SpanContextFromContext" class="ident">SpanContextFromContext</a></label>(<label for="r14" class="ident">ctx</label> <a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a>) <a href="trace.go.html#line-309" class="ident">SpanContext</a> {</code></span>
 <span class="codeline" id="line-49"><code>	<span class="keyword">return</span> <a href="#line-37" class="ident">SpanFromContext</a>(<label for="r14" class="ident">ctx</label>).<a href="span.go.html#line-55" class="ident">SpanContext</a>()</code></span>
 <span class="codeline" id="line-50"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

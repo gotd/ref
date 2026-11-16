@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: dec_num.go in package github.com/go-faster/jx</title>
-<link href="../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -91,7 +91,7 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-25"><code></code></span>
 <span class="codeline" id="line-26"><code>		<label for="r11" class="ident">str</label>, <label for="r12" class="ident">err</label> := <label for="r5" class="ident">d</label>.<a href="dec_str.go.html#line-36" class="ident">str</a>(<a href="dec_str.go.html#line-24" class="ident">value</a>{<a href="dec_str.go.html#line-26" class="ident">raw</a>: <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a>})</code></span>
 <span class="codeline" id="line-27"><code>		<span class="keyword">if</span> <label for="r12" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-28"><code>			<span class="keyword">return</span> <a href="num.go.html#line-21" class="ident">Num</a>{}, <a href="../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r12" class="ident">err</label>, <span class="lit-string">"str"</span>)</code></span>
+<span class="codeline" id="line-28"><code>			<span class="keyword">return</span> <a href="num.go.html#line-21" class="ident">Num</a>{}, <a href="../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r12" class="ident">err</label>, <span class="lit-string">"str"</span>)</code></span>
 <span class="codeline" id="line-29"><code>		}</code></span>
 <span class="codeline" id="line-30"><code></code></span>
 <span class="codeline" id="line-31"><code>		<span class="comment">// Validate number.</span></code></span>
@@ -108,7 +108,7 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-42"><code>				<label for="r13" class="ident">d</label>.<a href="dec_read.go.html#line-146" class="ident">unread</a>()</code></span>
 <span class="codeline" id="line-43"><code></code></span>
 <span class="codeline" id="line-44"><code>				<span class="keyword">if</span> <label for="r16" class="ident">err</label> := <label for="r13" class="ident">d</label>.<a href="dec_skip.go.html#line-70" class="ident">skipNumber</a>(); <label for="r16" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-45"><code>					<span class="keyword">return</span> <a href="num.go.html#line-21" class="ident">Num</a>{}, <a href="../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r16" class="ident">err</label>, <span class="lit-string">"skip number"</span>)</code></span>
+<span class="codeline" id="line-45"><code>					<span class="keyword">return</span> <a href="num.go.html#line-21" class="ident">Num</a>{}, <a href="../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r16" class="ident">err</label>, <span class="lit-string">"skip number"</span>)</code></span>
 <span class="codeline" id="line-46"><code>				}</code></span>
 <span class="codeline" id="line-47"><code>			<span class="keyword">default</span>:</code></span>
 <span class="codeline" id="line-48"><code>				<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="dec_error.go.html#line-15" class="ident">badToken</a>(<label for="r14" class="ident">c</label>, <label for="r9" class="ident">offset</label>)</code></span>
@@ -138,12 +138,12 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-72"><code>		}</code></span>
 <span class="codeline" id="line-73"><code>		<span class="keyword">return</span> <a href="num.go.html#line-21" class="ident">Num</a>(<label for="r19" class="ident">raw</label>), <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
 <span class="codeline" id="line-74"><code>	<span class="keyword">default</span>:</code></span>
-<span class="codeline" id="line-75"><code>		<span class="keyword">return</span> <label for="r7" class="ident">v</label>, <a href="../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"unexpected %s"</span>, <label for="r5" class="ident">d</label>.<a href="dec_read.go.html#line-9" class="ident">Next</a>())</code></span>
+<span class="codeline" id="line-75"><code>		<span class="keyword">return</span> <label for="r7" class="ident">v</label>, <a href="../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../errors/format.go.html#line-45" class="ident">Errorf</a>(<span class="lit-string">"unexpected %s"</span>, <label for="r5" class="ident">d</label>.<a href="dec_read.go.html#line-9" class="ident">Next</a>())</code></span>
 <span class="codeline" id="line-76"><code>	}</code></span>
 <span class="codeline" id="line-77"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

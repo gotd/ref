@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: go.opentelemetry.io/otel/metric.Int64Counter.Add</title>
+<link href="../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.7.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;"><b><a href="../../../pkg/go.opentelemetry.io/otel/metric.html">go.opentelemetry.io/otel/metric</a>.<a href="../../../src/go.opentelemetry.io/otel/metric/syncint64.go.html#line-17">Int64Counter</a>.<a href="../../../src/go.opentelemetry.io/otel/metric/syncint64.go.html#line-30">Add</a></b></span><span style="font-size: large;"><i> (method)</i></span>
+
+<span class="title">26 uses</span>
+
+	go.opentelemetry.io/otel/metric (current package)
+		<a href="../../../src/go.opentelemetry.io/otel/metric/syncint64.go.html#line-30">syncint64.go#L30</a>: 	<b>Add</b>(ctx context.Context, incr int64, options ...AddOption)
+
+	<a href="../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
+		<a href="../../../src/github.com/gotd/td/telegram/account_status.go.html#line-230">account_status.go#L230</a>: 	c.meters().restricted.<b>Add</b>(ctx, 1, metric.WithAttributes(
+		<a href="../../../src/github.com/gotd/td/telegram/auth_lost.go.html#line-246">auth_lost.go#L246</a>: 	c.meters().authLost.<b>Add</b>(bg, 1, metric.WithAttributes(
+		<a href="../../../src/github.com/gotd/td/telegram/connect.go.html#line-181">connect.go#L181</a>: 		c.meters().reconnects.<b>Add</b>(context.Background(), 1, dcAttrs(dc))
+		<a href="../../../src/github.com/gotd/td/telegram/connection_state.go.html#line-96">connection_state.go#L96</a>: 	c.meters().connState.<b>Add</b>(ctx, 1, dcAttrs(dc, attribute.String("state", s.String())))
+		<a href="../../../src/github.com/gotd/td/telegram/connection_state.go.html#line-112" class="path-duplicate">connection_state.go</a><a href="../../../src/github.com/gotd/td/telegram/connection_state.go.html#line-112">#L112</a>: 	c.meters().connDead.<b>Add</b>(ctx, 1, dcAttrs(e.DC, attribute.String("kind", e.Kind.String())))
+		<a href="../../../src/github.com/gotd/td/telegram/file_dc.go.html#line-81">file_dc.go#L81</a>: 		f.client.meters().fileMigrations.<b>Add</b>(ctx, 1, dcAttrs(rpcErr.Argument,
+		<a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-92">invoke.go#L92</a>: 				c.meters().fileMigrations.<b>Add</b>(ctx, 1, dcAttrs(targetDC,
+		<a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-146" class="path-duplicate">invoke.go</a><a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-146">#L146</a>: 				c.meters().requestTimeout.<b>Add</b>(ctx, 1, metric.WithAttributes(
+		<a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-157" class="path-duplicate">invoke.go</a><a href="../../../src/github.com/gotd/td/telegram/invoke.go.html#line-157">#L157</a>: 			c.meters().requestTimeout.<b>Add</b>(ctx, 1, metric.WithAttributes(
+		<a href="../../../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-26">migrate_to_dc.go#L26</a>: 		c.meters().restarts.<b>Add</b>(ctx, 1, metric.WithAttributes(attribute.String("reason", reason)))
+		<a href="../../../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-73" class="path-duplicate">migrate_to_dc.go</a><a href="../../../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-73">#L73</a>: 	c.meters().migrations.<b>Add</b>(ctx, 1, dcAttrs(dcID))
+		<a href="../../../src/github.com/gotd/td/telegram/sub_conns.go.html#line-110">sub_conns.go#L110</a>: 			c.meters().poolEvicted.<b>Add</b>(ctx, 1, dcAttrs(dc,
+		<a href="../../../src/github.com/gotd/td/telegram/sub_conns.go.html#line-208" class="path-duplicate">sub_conns.go</a><a href="../../../src/github.com/gotd/td/telegram/sub_conns.go.html#line-208">#L208</a>: 	m.poolCreated.<b>Add</b>(ctx, 1, dcAttrs(dc,
+
+	<a href="../../../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-206">metrics.go#L206</a>: 	o.requests.<b>Add</b>(ctx, 1, o.requestAttrs[k][requestResult(ctx, err)])
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-209" class="path-duplicate">metrics.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-209">#L209</a>: 		o.bytes.<b>Add</b>(ctx, int64(n), o.kindAttrs[k])
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-225" class="path-duplicate">metrics.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-225">#L225</a>: 	o.downloads.<b>Add</b>(ctx, 1, attrOpt(attribute.String("result", result)))
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-235" class="path-duplicate">metrics.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-235">#L235</a>: 	o.resumes.<b>Add</b>(ctx, 1)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-243" class="path-duplicate">metrics.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-243">#L243</a>: 	o.cdnRedirects.<b>Add</b>(ctx, 1)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-251" class="path-duplicate">metrics.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-251">#L251</a>: 	o.cdnReuploads.<b>Add</b>(ctx, 1)
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-259" class="path-duplicate">metrics.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-259">#L259</a>: 	o.hashMismatches.<b>Add</b>(ctx, 1, attrOpt(attribute.String("kind", kind)))
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-267" class="path-duplicate">metrics.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-267">#L267</a>: 	o.refreshes.<b>Add</b>(ctx, 1, attrOpt(attribute.String("result", result)))
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-283" class="path-duplicate">metrics.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-283">#L283</a>: 	o.backoffs.<b>Add</b>(ctx, 1, attrOpt(attribute.String("reason", reason)))
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-300" class="path-duplicate">metrics.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-300">#L300</a>: 	o.verify.<b>Add</b>(ctx, 1, attrOpt(attribute.String("result", result)))
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-313" class="path-duplicate">metrics.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-313">#L313</a>: 	o.retries.<b>Add</b>(ctx, 1, attrOpt(attribute.String("operation", e.Operation)))
+		<a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-325" class="path-duplicate">metrics.go</a><a href="../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-325">#L325</a>: 	o.retriesExhausted.<b>Add</b>(ctx, 1, attrOpt(attribute.String("operation", op)))
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

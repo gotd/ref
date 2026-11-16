@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: logout.go in package github.com/gotd/td/telegram</title>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	logout.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33],
+input[id=r34]:checked ~pre label[for=r34]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2,
+input[id=i3]:checked ~pre .i3,
+input[id=i4]:checked ~pre .i4,
+input[id=i5]:checked ~pre .i5,
+input[id=i6]:checked ~pre .i6
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="r34" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+<input id="i3" type="radio" name="i"/>
+<input id="i4" type="radio" name="i"/>
+<input id="i5" type="radio" name="i"/>
+<input id="i6" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> telegram</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-4"><code>	<label for="i0"><span class="lit-string i0">"context"</span></label></code></span>
+<span class="codeline" id="line-5"><code>	<label for="i1"><span class="lit-string i1">"time"</span></label></code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code>	<label for="i2"><span class="lit-string i2">"github.com/go-faster/errors"</span></label></code></span>
+<span class="codeline" id="line-8"><code>	<label for="i3"><span class="lit-string i3">"github.com/gotd/log"</span></label></code></span>
+<span class="codeline" id="line-9"><code></code></span>
+<span class="codeline" id="line-10"><code>	<label for="i4"><span class="lit-string i4">"github.com/gotd/td/session"</span></label></code></span>
+<span class="codeline" id="line-11"><code>	<label for="i5"><span class="lit-string i5">"github.com/gotd/td/tg"</span></label></code></span>
+<span class="codeline" id="line-12"><code>	<label for="i6"><span class="lit-string i6">"github.com/gotd/td/tgerr"</span></label></code></span>
+<span class="codeline" id="line-13"><code>)</code></span>
+<span class="codeline" id="line-14"><code></code></span>
+<span class="codeline" id="line-15"><code><span class="comment">// guestLogOutTimeout bounds auth.logOut on each non-primary DC.</span></code></span>
+<span class="codeline" id="line-16"><code><span class="keyword">const</span> <a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-guestLogOutTimeout" class="ident">guestLogOutTimeout</a> = <span class="lit-number">5</span> * <a href="../../../../../pkg/time.html" class="ident i1">time</a>.<a href="../../../../time/time.go.html#line-938" class="ident">Second</a></code></span>
+<span class="codeline" id="line-17"><code></code></span>
+<span class="codeline" id="line-18"><code><span class="comment">// LogOut logs the client out the way Telegram Desktop and TDLib do:</span></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">//  1. auth.logOut on the home DC. A 401 error counts as success: the</span></code></span>
+<span class="codeline" id="line-21"><code><span class="comment">//     authorization is gone either way.</span></code></span>
+<span class="codeline" id="line-22"><code><span class="comment">//  2. auth.logOut on every other DC the client imported the authorization</span></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">//     to (pools of *_MIGRATE redirects and of FileDC), best effort; then</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">//     those pools are closed and their sessions forgotten.</span></code></span>
+<span class="codeline" id="line-25"><code><span class="comment">//  3. The stored session is wiped, so the next client started with the same</span></code></span>
+<span class="codeline" id="line-26"><code><span class="comment">//     storage creates a new auth key and starts unauthorized.</span></code></span>
+<span class="codeline" id="line-27"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-28"><code><span class="comment">// Like TDLib, LogOut is irrevocable: the local steps run even if auth.logOut</span></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">// fails, and its error is returned after them. Lost authorization is not</span></code></span>
+<span class="codeline" id="line-30"><code><span class="comment">// reported to OnAuthLost while and after logging out, and the client stops</span></code></span>
+<span class="codeline" id="line-31"><code><span class="comment">// saving its session until it is authorized again.</span></code></span>
+<span class="codeline" id="line-32"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-33"><code><span class="comment">// The client keeps running, unauthorized, on its current auth key; sign in</span></code></span>
+<span class="codeline" id="line-34"><code><span class="comment">// again or stop it. The auth keys are not destroyed on the server</span></code></span>
+<span class="codeline" id="line-35"><code><span class="comment">// (destroy_auth_key).</span></code></span>
+<span class="codeline" id="line-36"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-37"><code><span class="comment">// The result carries auth.loggedOut.future_auth_token, if the server sent</span></code></span>
+<span class="codeline" id="line-38"><code><span class="comment">// one: pass it to a later sign-in (auth.sendCode logout_tokens) to skip the</span></code></span>
+<span class="codeline" id="line-39"><code><span class="comment">// code.</span></code></span>
+<span class="codeline" id="line-40"><code><span class="keyword">func</span> (<label for="r0" class="ident">c</label> *<a href="client.go.html#line-59" class="ident">Client</a>) <label for="r1" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.LogOut.html" class="ident">LogOut</a></label>(<label for="r2" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>) (*<a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i5">tg</a>.<a href="../tg/tl_auth_logged_out_gen.go.html#line-41" class="ident">AuthLoggedOut</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-41"><code>	<label for="r0" class="ident">c</label>.<a href="client.go.html#line-132" class="ident">auth</a>.<a href="auth_lost.go.html#line-75" class="ident">loggedOut</a>.<a href="../../../../sync/atomic/type.go.html#line-22" class="ident">Store</a>(<a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a>)</code></span>
+<span class="codeline" id="line-42"><code></code></span>
+<span class="codeline" id="line-43"><code>	<label for="r3" class="ident">res</label>, <label for="r4" class="ident">err</label> := <label for="r0" class="ident">c</label>.<a href="invoke.go.html#line-25" class="ident">API</a>().<a href="../tg/tl_auth_log_out_gen.go.html#line-135" class="ident">AuthLogOut</a>(<label for="r2" class="ident">ctx</label>)</code></span>
+<span class="codeline" id="line-44"><code>	<span class="keyword">if</span> <label for="r4" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-45"><code>		<span class="keyword">if</span> <label for="r5" class="ident">rpcErr</label>, <label for="r6" class="ident">ok</label> := <a href="../../../../../pkg/github.com/gotd/td/tgerr.html" class="ident i6">tgerr</a>.<a href="../tgerr/error.go.html#line-131" class="ident">As</a>(<label for="r4" class="ident">err</label>); <label for="r6" class="ident">ok</label> &amp;&amp; <label for="r5" class="ident">rpcErr</label>.<a href="../tgerr/error.go.html#line-16" class="ident">Code</a> == <span class="lit-number">401</span> {</code></span>
+<span class="codeline" id="line-46"><code>			<span class="comment">// Already logged out or the authorization was revoked.</span></code></span>
+<span class="codeline" id="line-47"><code>			<label for="r3" class="ident">res</label>, <label for="r4" class="ident">err</label> = &amp;<a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i5">tg</a>.<a href="../tg/tl_auth_logged_out_gen.go.html#line-41" class="ident">AuthLoggedOut</a>{}, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-48"><code>		} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-49"><code>			<label for="r4" class="ident">err</label> = <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r4" class="ident">err</label>, <span class="lit-string">"auth.logOut"</span>)</code></span>
+<span class="codeline" id="line-50"><code>		}</code></span>
+<span class="codeline" id="line-51"><code>	}</code></span>
+<span class="codeline" id="line-52"><code>	<label for="r0" class="ident">c</label>.<a href="client.go.html#line-132" class="ident">auth</a>.<a href="auth_lost.go.html#line-72" class="ident">authorized</a>.<a href="../../../../sync/atomic/type.go.html#line-22" class="ident">Store</a>(<a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a>)</code></span>
+<span class="codeline" id="line-53"><code></code></span>
+<span class="codeline" id="line-54"><code>	<label for="r0" class="ident">c</label>.<a href="#line-62" class="ident">logOutGuests</a>(<label for="r2" class="ident">ctx</label>)</code></span>
+<span class="codeline" id="line-55"><code>	<span class="keyword">if</span> <label for="r7" class="ident">wErr</label> := <label for="r0" class="ident">c</label>.<a href="#line-119" class="ident">wipeSession</a>(<label for="r2" class="ident">ctx</label>); <label for="r7" class="ident">wErr</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; <label for="r4" class="ident">err</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-56"><code>		<label for="r4" class="ident">err</label> = <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r7" class="ident">wErr</label>, <span class="lit-string">"wipe session"</span>)</code></span>
+<span class="codeline" id="line-57"><code>	}</code></span>
+<span class="codeline" id="line-58"><code>	<span class="keyword">return</span> <label for="r3" class="ident">res</label>, <label for="r4" class="ident">err</label></code></span>
+<span class="codeline" id="line-59"><code>}</code></span>
+<span class="codeline" id="line-60"><code></code></span>
+<span class="codeline" id="line-61"><code><span class="comment">// logOutGuests logs out on every cached non-primary DC pool and closes them.</span></code></span>
+<span class="codeline" id="line-62"><code><span class="keyword">func</span> (<label for="r8" class="ident">c</label> *<a href="client.go.html#line-59" class="ident">Client</a>) <label for="r9" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.logOutGuests^72173.html" class="ident">logOutGuests</a></label>(<label for="r10" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>) {</code></span>
+<span class="codeline" id="line-63"><code>	<label for="r11" class="ident">home</label> := <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-64"><code>	<span class="keyword">if</span> <label for="r8" class="ident">c</label>.<a href="client.go.html#line-119" class="ident">session</a> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-65"><code>		<label for="r11" class="ident">home</label> = <label for="r8" class="ident">c</label>.<a href="client.go.html#line-119" class="ident">session</a>.<a href="../pool/session.go.html#line-70" class="ident">Load</a>().<a href="../pool/session.go.html#line-12" class="ident">DC</a></code></span>
+<span class="codeline" id="line-66"><code>	}</code></span>
+<span class="codeline" id="line-67"><code>	<label for="r12" class="ident">seen</label> := <span class="keyword">map</span>[<a href="pool.go.html#line-21" class="ident">CloseInvoker</a>]<span class="keyword">struct</span>{}{}</code></span>
+<span class="codeline" id="line-68"><code>	<span class="keyword">for</span> <label for="r13" class="ident">_</label>, <label for="r14" class="ident">cache</label> := <span class="keyword">range</span> []*<a href="sub_conns.go.html#line-26" class="ident">dcPoolCache</a>{<label for="r8" class="ident">c</label>.<a href="client.go.html#line-146" class="ident">subConns</a>, <label for="r8" class="ident">c</label>.<a href="client.go.html#line-148" class="ident">filePools</a>} {</code></span>
+<span class="codeline" id="line-69"><code>		<span class="keyword">if</span> <label for="r14" class="ident">cache</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-70"><code>			<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-71"><code>		}</code></span>
+<span class="codeline" id="line-72"><code>		<label for="r14" class="ident">cache</label>.<a href="sub_conns.go.html#line-27" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-45" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-73"><code>		<label for="r15" class="ident">conns</label> := <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>(<span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>]<a href="pool.go.html#line-21" class="ident">CloseInvoker</a>, <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r14" class="ident">cache</label>.<a href="sub_conns.go.html#line-28" class="ident">conns</a>))</code></span>
+<span class="codeline" id="line-74"><code>		<span class="keyword">for</span> <label for="r16" class="ident">dc</label>, <label for="r17" class="ident">conn</label> := <span class="keyword">range</span> <label for="r14" class="ident">cache</label>.<a href="sub_conns.go.html#line-28" class="ident">conns</a> {</code></span>
+<span class="codeline" id="line-75"><code>			<label for="r15" class="ident">conns</label>[<label for="r16" class="ident">dc</label>] = <label for="r17" class="ident">conn</label></code></span>
+<span class="codeline" id="line-76"><code>		}</code></span>
+<span class="codeline" id="line-77"><code>		<label for="r14" class="ident">cache</label>.<a href="sub_conns.go.html#line-28" class="ident">conns</a> = <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>]<a href="pool.go.html#line-21" class="ident">CloseInvoker</a>{}</code></span>
+<span class="codeline" id="line-78"><code>		<label for="r14" class="ident">cache</label>.<a href="sub_conns.go.html#line-27" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-64" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-79"><code></code></span>
+<span class="codeline" id="line-80"><code>		<span class="keyword">for</span> <label for="r18" class="ident">dc</label>, <label for="r19" class="ident">conn</label> := <span class="keyword">range</span> <label for="r15" class="ident">conns</label> {</code></span>
+<span class="codeline" id="line-81"><code>			<span class="keyword">if</span> <label for="r20" class="ident">_</label>, <label for="r21" class="ident">ok</label> := <label for="r12" class="ident">seen</label>[<label for="r19" class="ident">conn</label>]; <label for="r21" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-82"><code>				<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-83"><code>			}</code></span>
+<span class="codeline" id="line-84"><code>			<label for="r12" class="ident">seen</label>[<label for="r19" class="ident">conn</label>] = <span class="keyword">struct</span>{}{}</code></span>
+<span class="codeline" id="line-85"><code>			<span class="keyword">if</span> <label for="r18" class="ident">dc</label> != <label for="r11" class="ident">home</label> {</code></span>
+<span class="codeline" id="line-86"><code>				<label for="r22" class="ident">lctx</label>, <label for="r23" class="ident">cancel</label> := <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-703" class="ident">WithTimeout</a>(<label for="r10" class="ident">ctx</label>, <a href="#line-16" class="ident">guestLogOutTimeout</a>)</code></span>
+<span class="codeline" id="line-87"><code>				<span class="keyword">if</span> <label for="r24" class="ident">_</label>, <label for="r25" class="ident">err</label> := <a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i5">tg</a>.<a href="../tg/tl_client_gen.go.html#line-50" class="ident">NewClient</a>(<label for="r19" class="ident">conn</label>).<a href="../tg/tl_auth_log_out_gen.go.html#line-135" class="ident">AuthLogOut</a>(<label for="r22" class="ident">lctx</label>); <label for="r25" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-88"><code>					<label for="r8" class="ident">c</label>.<a href="client.go.html#line-193" class="ident">log</a>.<a href="../../log/helper.go.html#line-60" class="ident">Debug</a>(<label for="r10" class="ident">ctx</label>, <span class="lit-string">"Guest DC log out failed"</span>, <a href="../../../../../pkg/github.com/gotd/log.html" class="ident i3">log</a>.<a href="../../log/attr.go.html#line-143" class="ident">Int</a>(<span class="lit-string">"dc_id"</span>, <label for="r18" class="ident">dc</label>), <a href="../../../../../pkg/github.com/gotd/log.html" class="ident i3">log</a>.<a href="../../log/attr.go.html#line-183" class="ident">Error</a>(<label for="r25" class="ident">err</label>))</code></span>
+<span class="codeline" id="line-89"><code>				}</code></span>
+<span class="codeline" id="line-90"><code>				<label for="r23" class="ident">cancel</label>()</code></span>
+<span class="codeline" id="line-91"><code>			}</code></span>
+<span class="codeline" id="line-92"><code>			<span class="keyword">if</span> <label for="r26" class="ident">err</label> := <label for="r19" class="ident">conn</label>.<a href="pool.go.html#line-23" class="ident">Close</a>(); <label for="r26" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-93"><code>				<label for="r8" class="ident">c</label>.<a href="client.go.html#line-193" class="ident">log</a>.<a href="../../log/helper.go.html#line-60" class="ident">Debug</a>(<label for="r10" class="ident">ctx</label>, <span class="lit-string">"Close guest DC pool"</span>, <a href="../../../../../pkg/github.com/gotd/log.html" class="ident i3">log</a>.<a href="../../log/attr.go.html#line-143" class="ident">Int</a>(<span class="lit-string">"dc_id"</span>, <label for="r18" class="ident">dc</label>), <a href="../../../../../pkg/github.com/gotd/log.html" class="ident i3">log</a>.<a href="../../log/attr.go.html#line-183" class="ident">Error</a>(<label for="r26" class="ident">err</label>))</code></span>
+<span class="codeline" id="line-94"><code>			}</code></span>
+<span class="codeline" id="line-95"><code>		}</code></span>
+<span class="codeline" id="line-96"><code>	}</code></span>
+<span class="codeline" id="line-97"><code></code></span>
+<span class="codeline" id="line-98"><code>	<label for="r8" class="ident">c</label>.<a href="client.go.html#line-151" class="ident">fileInvokersMux</a>.<a href="../../../../sync/mutex.go.html#line-45" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-99"><code>	<label for="r8" class="ident">c</label>.<a href="client.go.html#line-150" class="ident">fileInvokers</a> = <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>]<a href="../../../../../pkg/github.com/gotd/td/tg.html" class="ident i5">tg</a>.<a href="../tg/tl_client_gen.go.html#line-35" class="ident">Invoker</a>{}</code></span>
+<span class="codeline" id="line-100"><code>	<label for="r8" class="ident">c</label>.<a href="client.go.html#line-151" class="ident">fileInvokersMux</a>.<a href="../../../../sync/mutex.go.html#line-64" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-101"><code></code></span>
+<span class="codeline" id="line-102"><code>	<label for="r8" class="ident">c</label>.<a href="client.go.html#line-173" class="ident">sessionsMux</a>.<a href="../../../../sync/mutex.go.html#line-45" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-103"><code>	<span class="keyword">for</span> <label for="r27" class="ident">dc</label> := <span class="keyword">range</span> <label for="r8" class="ident">c</label>.<a href="client.go.html#line-155" class="ident">sessions</a> {</code></span>
+<span class="codeline" id="line-104"><code>		<a href="../../../../../pkg/builtin.html#name-delete" class="ident">delete</a>(<label for="r8" class="ident">c</label>.<a href="client.go.html#line-155" class="ident">sessions</a>, <label for="r27" class="ident">dc</label>)</code></span>
+<span class="codeline" id="line-105"><code>	}</code></span>
+<span class="codeline" id="line-106"><code>	<span class="keyword">for</span> <label for="r28" class="ident">dc</label> := <span class="keyword">range</span> <label for="r8" class="ident">c</label>.<a href="client.go.html#line-165" class="ident">dcAuthorized</a> {</code></span>
+<span class="codeline" id="line-107"><code>		<a href="../../../../../pkg/builtin.html#name-delete" class="ident">delete</a>(<label for="r8" class="ident">c</label>.<a href="client.go.html#line-165" class="ident">dcAuthorized</a>, <label for="r28" class="ident">dc</label>)</code></span>
+<span class="codeline" id="line-108"><code>	}</code></span>
+<span class="codeline" id="line-109"><code>	<span class="keyword">for</span> <label for="r29" class="ident">dc</label> := <span class="keyword">range</span> <label for="r8" class="ident">c</label>.<a href="client.go.html#line-172" class="ident">sessionStates</a> {</code></span>
+<span class="codeline" id="line-110"><code>		<a href="../../../../../pkg/builtin.html#name-delete" class="ident">delete</a>(<label for="r8" class="ident">c</label>.<a href="client.go.html#line-172" class="ident">sessionStates</a>, <label for="r29" class="ident">dc</label>)</code></span>
+<span class="codeline" id="line-111"><code>	}</code></span>
+<span class="codeline" id="line-112"><code>	<label for="r8" class="ident">c</label>.<a href="client.go.html#line-173" class="ident">sessionsMux</a>.<a href="../../../../sync/mutex.go.html#line-64" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-113"><code>	<label for="r8" class="ident">c</label>.<a href="client.go.html#line-179" class="ident">selfID</a>.<a href="../../../../go.uber.org/atomic/int64.go.html#line-81" class="ident">Store</a>(<span class="lit-number">0</span>)</code></span>
+<span class="codeline" id="line-114"><code>	<label for="r8" class="ident">c</label>.<a href="client.go.html#line-180" class="ident">selfBot</a>.<a href="../../../../go.uber.org/atomic/bool.go.html#line-53" class="ident">Store</a>(<a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a>)</code></span>
+<span class="codeline" id="line-115"><code>}</code></span>
+<span class="codeline" id="line-116"><code></code></span>
+<span class="codeline" id="line-117"><code><span class="comment">// wipeSession clears the stored session: the session loader treats empty</span></code></span>
+<span class="codeline" id="line-118"><code><span class="comment">// data as no session.</span></code></span>
+<span class="codeline" id="line-119"><code><span class="keyword">func</span> (<label for="r30" class="ident">c</label> *<a href="client.go.html#line-59" class="ident">Client</a>) <label for="r31" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.wipeSession^26e46.html" class="ident">wipeSession</a></label>(<label for="r32" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-120"><code>	<label for="r33" class="ident">l</label>, <label for="r34" class="ident">ok</label> := <label for="r30" class="ident">c</label>.<a href="client.go.html#line-215" class="ident">storage</a>.(*<a href="../../../../../pkg/github.com/gotd/td/session.html" class="ident i4">session</a>.<a href="../session/session.go.html#line-150" class="ident">Loader</a>)</code></span>
+<span class="codeline" id="line-121"><code>	<span class="keyword">if</span> !<label for="r34" class="ident">ok</label> || <label for="r33" class="ident">l</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> || <label for="r33" class="ident">l</label>.<a href="../session/session.go.html#line-151" class="ident">Storage</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-122"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-123"><code>	}</code></span>
+<span class="codeline" id="line-124"><code>	<span class="keyword">return</span> <label for="r33" class="ident">l</label>.<a href="../session/session.go.html#line-151" class="ident">Storage</a>.<a href="../session/session.go.html#line-138" class="ident">StoreSession</a>(<label for="r32" class="ident">ctx</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>)</code></span>
+<span class="codeline" id="line-125"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

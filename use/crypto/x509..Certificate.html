@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto/x509.Certificate</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../../pkg/crypto/x509.html">crypto/x509</a>.<a href="../../src/crypto/x509/x509.go.html#line-704">Certificate</a></b></span>
 
-<span class="title">133 uses</span>
+<span class="title">132 uses</span>
 
 	crypto/x509 (current package)
 		<a href="../../src/crypto/x509/cert_pool.go.html#line-50">cert_pool.go#L50</a>: 	constraint func([]*<b>Certificate</b>) error
@@ -28,7 +28,7 @@
 		<a href="../../src/crypto/x509/cert_pool.go.html#line-239" class="path-duplicate">cert_pool.go</a><a href="../../src/crypto/x509/cert_pool.go.html#line-239">#L239</a>: 		s.addCertFunc(sha256.Sum224(cert.Raw), string(cert.RawSubject), func() (*<b>Certificate</b>, error) {
 		<a href="../../src/crypto/x509/cert_pool.go.html#line-287" class="path-duplicate">cert_pool.go</a><a href="../../src/crypto/x509/cert_pool.go.html#line-287">#L287</a>: func (s *CertPool) AddCertWithConstraint(cert *<b>Certificate</b>, constraint func([]*<b>Certificate</b>) error) {
 		<a href="../../src/crypto/x509/cert_pool.go.html#line-291" class="path-duplicate">cert_pool.go</a><a href="../../src/crypto/x509/cert_pool.go.html#line-291">#L291</a>: 	s.addCertFunc(sha256.Sum224(cert.Raw), string(cert.RawSubject), func() (*<b>Certificate</b>, error) {
-		<a href="../../src/crypto/x509/constraints.go.html#line-510">constraints.go#L510</a>: func checkChainConstraints(chain []*<b>Certificate</b>) error {
+		<a href="../../src/crypto/x509/constraints.go.html#line-501">constraints.go#L501</a>: func checkChainConstraints(chain []*<b>Certificate</b>) error {
 		<a href="../../src/crypto/x509/parser.go.html#line-533">parser.go#L533</a>: func parseNameConstraintsExtension(out *<b>Certificate</b>, e pkix.Extension) (unhandled bool, err error) {
 		<a href="../../src/crypto/x509/parser.go.html#line-672" class="path-duplicate">parser.go</a><a href="../../src/crypto/x509/parser.go.html#line-672">#L672</a>: func processExtensions(out *<b>Certificate</b>) error {
 		<a href="../../src/crypto/x509/parser.go.html#line-886" class="path-duplicate">parser.go</a><a href="../../src/crypto/x509/parser.go.html#line-886">#L886</a>: func parseCertificate(der []byte) (*<b>Certificate</b>, error) {
@@ -37,26 +37,25 @@
 		<a href="../../src/crypto/x509/parser.go.html#line-1089" class="path-duplicate">parser.go</a><a href="../../src/crypto/x509/parser.go.html#line-1089">#L1089</a>: func ParseCertificates(der []byte) ([]*<b>Certificate</b>, error) {
 		<a href="../../src/crypto/x509/parser.go.html#line-1090" class="path-duplicate">parser.go</a><a href="../../src/crypto/x509/parser.go.html#line-1090">#L1090</a>: 	var certs []*<b>Certificate</b>
 		<a href="../../src/crypto/x509/root_unix.go.html#line-28">root_unix.go#L28</a>: func (c *<b>Certificate</b>) systemVerify(opts *VerifyOptions) (chains [][]*<b>Certificate</b>, err error) {
-		<a href="../../src/crypto/x509/verify.go.html#line-69">verify.go#L69</a>: 	Cert   *<b>Certificate</b>
-		<a href="../../src/crypto/x509/verify.go.html#line-107" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-107">#L107</a>: 	Certificate *<b>Certificate</b>
-		<a href="../../src/crypto/x509/verify.go.html#line-149" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-149">#L149</a>: 	Cert *<b>Certificate</b>
-		<a href="../../src/crypto/x509/verify.go.html#line-155" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-155">#L155</a>: 	hintCert *<b>Certificate</b>
-		<a href="../../src/crypto/x509/verify.go.html#line-445" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-445">#L445</a>: func (c *<b>Certificate</b>) isValid(certType int, currentChain []*<b>Certificate</b>, opts *VerifyOptions) error {
-		<a href="../../src/crypto/x509/verify.go.html#line-544" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-544">#L544</a>: func (c *<b>Certificate</b>) Verify(opts VerifyOptions) ([][]*<b>Certificate</b>, error) {
-		<a href="../../src/crypto/x509/verify.go.html#line-598" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-598">#L598</a>: 	var candidateChains [][]*<b>Certificate</b>
-		<a href="../../src/crypto/x509/verify.go.html#line-600" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-600">#L600</a>: 		candidateChains = [][]*<b>Certificate</b>{{c}}
-		<a href="../../src/crypto/x509/verify.go.html#line-602" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-602">#L602</a>: 		candidateChains, err = c.buildChains([]*<b>Certificate</b>{c}, nil, &amp;opts)
-		<a href="../../src/crypto/x509/verify.go.html#line-624" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-624">#L624</a>: 	candidateChains = slices.DeleteFunc(candidateChains, func(chain []*<b>Certificate</b>) bool {
-		<a href="../../src/crypto/x509/verify.go.html#line-668" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-668">#L668</a>: func appendToFreshChain(chain []*<b>Certificate</b>, cert *<b>Certificate</b>) []*<b>Certificate</b> {
-		<a href="../../src/crypto/x509/verify.go.html#line-669" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-669">#L669</a>: 	n := make([]*<b>Certificate</b>, len(chain)+1)
-		<a href="../../src/crypto/x509/verify.go.html#line-680" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-680">#L680</a>: func alreadyInChain(candidate *<b>Certificate</b>, chain []*<b>Certificate</b>) bool {
-		<a href="../../src/crypto/x509/verify.go.html#line-730" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-730">#L730</a>: func (c *<b>Certificate</b>) buildChains(currentChain []*<b>Certificate</b>, sigChecks *int, opts *VerifyOptions) (chains [][]*<b>Certificate</b>, err error) {
-		<a href="../../src/crypto/x509/verify.go.html#line-733" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-733">#L733</a>: 		hintCert *<b>Certificate</b>
-		<a href="../../src/crypto/x509/verify.go.html#line-781" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-781">#L781</a>: 			var childChains [][]*<b>Certificate</b>
-		<a href="../../src/crypto/x509/verify.go.html#line-941" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-941">#L941</a>: func (c *<b>Certificate</b>) VerifyHostname(h string) error {
-		<a href="../../src/crypto/x509/verify.go.html#line-986" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-986">#L986</a>: func checkChainForKeyUsage(chain []*<b>Certificate</b>, keyUsages []ExtKeyUsage) bool {
-		<a href="../../src/crypto/x509/verify.go.html#line-1185" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-1185">#L1185</a>: func policiesValid(chain []*<b>Certificate</b>, opts VerifyOptions) bool {
-		<a href="../../src/crypto/x509/verify.go.html#line-1422" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-1422">#L1422</a>: func containsDistrustedSPKIHash(chain []*<b>Certificate</b>) bool {
+		<a href="../../src/crypto/x509/verify.go.html#line-67">verify.go#L67</a>: 	Cert   *<b>Certificate</b>
+		<a href="../../src/crypto/x509/verify.go.html#line-105" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-105">#L105</a>: 	Certificate *<b>Certificate</b>
+		<a href="../../src/crypto/x509/verify.go.html#line-147" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-147">#L147</a>: 	Cert *<b>Certificate</b>
+		<a href="../../src/crypto/x509/verify.go.html#line-153" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-153">#L153</a>: 	hintCert *<b>Certificate</b>
+		<a href="../../src/crypto/x509/verify.go.html#line-439" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-439">#L439</a>: func (c *<b>Certificate</b>) isValid(certType int, currentChain []*<b>Certificate</b>, opts *VerifyOptions) error {
+		<a href="../../src/crypto/x509/verify.go.html#line-538" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-538">#L538</a>: func (c *<b>Certificate</b>) Verify(opts VerifyOptions) ([][]*<b>Certificate</b>, error) {
+		<a href="../../src/crypto/x509/verify.go.html#line-592" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-592">#L592</a>: 	var candidateChains [][]*<b>Certificate</b>
+		<a href="../../src/crypto/x509/verify.go.html#line-594" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-594">#L594</a>: 		candidateChains = [][]*<b>Certificate</b>{{c}}
+		<a href="../../src/crypto/x509/verify.go.html#line-596" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-596">#L596</a>: 		candidateChains, err = c.buildChains([]*<b>Certificate</b>{c}, nil, &amp;opts)
+		<a href="../../src/crypto/x509/verify.go.html#line-618" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-618">#L618</a>: 	candidateChains = slices.DeleteFunc(candidateChains, func(chain []*<b>Certificate</b>) bool {
+		<a href="../../src/crypto/x509/verify.go.html#line-659" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-659">#L659</a>: func appendToFreshChain(chain []*<b>Certificate</b>, cert *<b>Certificate</b>) []*<b>Certificate</b> {
+		<a href="../../src/crypto/x509/verify.go.html#line-660" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-660">#L660</a>: 	n := make([]*<b>Certificate</b>, len(chain)+1)
+		<a href="../../src/crypto/x509/verify.go.html#line-671" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-671">#L671</a>: func alreadyInChain(candidate *<b>Certificate</b>, chain []*<b>Certificate</b>) bool {
+		<a href="../../src/crypto/x509/verify.go.html#line-719" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-719">#L719</a>: func (c *<b>Certificate</b>) buildChains(currentChain []*<b>Certificate</b>, sigChecks *int, opts *VerifyOptions) (chains [][]*<b>Certificate</b>, err error) {
+		<a href="../../src/crypto/x509/verify.go.html#line-722" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-722">#L722</a>: 		hintCert *<b>Certificate</b>
+		<a href="../../src/crypto/x509/verify.go.html#line-770" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-770">#L770</a>: 			var childChains [][]*<b>Certificate</b>
+		<a href="../../src/crypto/x509/verify.go.html#line-923" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-923">#L923</a>: func (c *<b>Certificate</b>) VerifyHostname(h string) error {
+		<a href="../../src/crypto/x509/verify.go.html#line-963" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-963">#L963</a>: func checkChainForKeyUsage(chain []*<b>Certificate</b>, keyUsages []ExtKeyUsage) bool {
+		<a href="../../src/crypto/x509/verify.go.html#line-1162" class="path-duplicate">verify.go</a><a href="../../src/crypto/x509/verify.go.html#line-1162">#L1162</a>: func policiesValid(chain []*<b>Certificate</b>, opts VerifyOptions) bool {
 		<a href="../../src/crypto/x509/x509.go.html#line-704">x509.go#L704</a>: type <b>Certificate</b> struct {
 		<a href="../../src/crypto/x509/x509.go.html#line-913" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-913">#L913</a>: func (c *<b>Certificate</b>) Equal(other *<b>Certificate</b>) bool {
 		<a href="../../src/crypto/x509/x509.go.html#line-920" class="path-duplicate">x509.go</a><a href="../../src/crypto/x509/x509.go.html#line-920">#L920</a>: func (c *<b>Certificate</b>) hasSANExtension() bool {
@@ -90,8 +89,8 @@
 		<a href="../../src/crypto/tls/conn.go.html#line-57">conn.go#L57</a>: 	peerCertificates []*x509.<b>Certificate</b>
 		<a href="../../src/crypto/tls/conn.go.html#line-60" class="path-duplicate">conn.go</a><a href="../../src/crypto/tls/conn.go.html#line-60">#L60</a>: 	verifiedChains [][]*x509.<b>Certificate</b>
 		<a href="../../src/crypto/tls/defaults_fips140.go.html#line-67">defaults_fips140.go#L67</a>: func isCertificateAllowedFIPS(c *x509.<b>Certificate</b>) bool {
-		<a href="../../src/crypto/tls/handshake_client.go.html#line-1110">handshake_client.go#L1110</a>: 	certs := make([]*x509.<b>Certificate</b>, len(certificates))
-		<a href="../../src/crypto/tls/handshake_server.go.html#line-948">handshake_server.go#L948</a>: 	certs := make([]*x509.<b>Certificate</b>, len(certificates))
+		<a href="../../src/crypto/tls/handshake_client.go.html#line-1100">handshake_client.go#L1100</a>: 	certs := make([]*x509.<b>Certificate</b>, len(certificates))
+		<a href="../../src/crypto/tls/handshake_server.go.html#line-942">handshake_server.go#L942</a>: 	certs := make([]*x509.<b>Certificate</b>, len(certificates))
 		<a href="../../src/crypto/tls/key_agreement.go.html#line-35">key_agreement.go#L35</a>: 	processServerKeyExchange(*Config, *clientHelloMsg, *serverHelloMsg, *x509.<b>Certificate</b>, *serverKeyExchangeMsg) error
 		<a href="../../src/crypto/tls/key_agreement.go.html#line-36" class="path-duplicate">key_agreement.go</a><a href="../../src/crypto/tls/key_agreement.go.html#line-36">#L36</a>: 	generateClientKeyExchange(*Config, *clientHelloMsg, *x509.<b>Certificate</b>) ([]byte, *clientKeyExchangeMsg, error)
 		<a href="../../src/crypto/tls/key_agreement.go.html#line-78" class="path-duplicate">key_agreement.go</a><a href="../../src/crypto/tls/key_agreement.go.html#line-78">#L78</a>: func (ka rsaKeyAgreement) processServerKeyExchange(config *Config, clientHello *clientHelloMsg, serverHello *serverHelloMsg, cert *x509.<b>Certificate</b>, skx *serverKeyExchangeMsg) error {
@@ -138,7 +137,7 @@
 		<a href="../../src/github.com/refraction-networking/utls/u_public.go.html#line-790" class="path-duplicate">u_public.go</a><a href="../../src/github.com/refraction-networking/utls/u_public.go.html#line-790">#L790</a>: func (css *ClientSessionState) SetVerifiedChains(VerifiedChains [][]*x509.<b>Certificate</b>) {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

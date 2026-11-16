@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: client.go in package net/http</title>
-<link href="../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -654,7 +654,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-156"><code>		<span class="keyword">return</span> <label for="r3" class="ident">explicitRef</label></code></span>
 <span class="codeline" id="line-157"><code>	}</code></span>
 <span class="codeline" id="line-158"><code></code></span>
-<span class="codeline" id="line-159"><code>	<label for="r4" class="ident">referer</label> := <label for="r1" class="ident">lastReq</label>.<a href="../url/url.go.html#line-798" class="ident">String</a>()</code></span>
+<span class="codeline" id="line-159"><code>	<label for="r4" class="ident">referer</label> := <label for="r1" class="ident">lastReq</label>.<a href="../url/url.go.html#line-792" class="ident">String</a>()</code></span>
 <span class="codeline" id="line-160"><code>	<span class="keyword">if</span> <label for="r1" class="ident">lastReq</label>.<a href="../url/url.go.html#line-279" class="ident">User</a> != <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-161"><code>		<span class="comment">// This is not very efficient, but is the best we can</span></code></span>
 <span class="codeline" id="line-162"><code><span class="comment">		// do without:</span></code></span>
@@ -827,7 +827,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-329"><code>			<span class="keyword">return</span> <label for="r42" class="ident">knownRoundTripperImpl</label>(<label for="r45" class="ident">altRT</label>, <label for="r44" class="ident">req</label>)</code></span>
 <span class="codeline" id="line-330"><code>		}</code></span>
 <span class="codeline" id="line-331"><code>		<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-332"><code>	<span class="keyword">case</span> *<a href="h2_bundle.go.html#line-7451" class="ident">http2Transport</a>, <a href="h2_bundle.go.html#line-10701" class="ident">http2noDialH2RoundTripper</a>:</code></span>
+<span class="codeline" id="line-332"><code>	<span class="keyword">case</span> *<a href="h2_bundle.go.html#line-7357" class="ident">http2Transport</a>, <a href="h2_bundle.go.html#line-10557" class="ident">http2noDialH2RoundTripper</a>:</code></span>
 <span class="codeline" id="line-333"><code>		<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
 <span class="codeline" id="line-334"><code>	}</code></span>
 <span class="codeline" id="line-335"><code>	<span class="comment">// There's a very minor chance of a false positive with this.</span></code></span>
@@ -853,7 +853,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-355"><code><span class="comment">// This function populates the second and third, and uses the first if it really needs to.</span></code></span>
 <span class="codeline" id="line-356"><code><span class="keyword">func</span> <label for="r47" class="ident"><a href="../../../pkg/net/http.html#name-setRequestCancel" class="ident">setRequestCancel</a></label>(<label for="r48" class="ident">req</label> *<a href="request.go.html#line-113" class="ident">Request</a>, <label for="r49" class="ident">rt</label> <a href="#line-116" class="ident">RoundTripper</a>, <label for="r50" class="ident">deadline</label> <a href="../../../pkg/time.html" class="ident i14">time</a>.<a href="../../time/time.go.html#line-140" class="ident">Time</a>) (<label for="r51" class="ident">stopTimer</label> <span class="keyword">func</span>(), <label for="r52" class="ident">didTimeout</label> <span class="keyword">func</span>() <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
 <span class="codeline" id="line-357"><code>	<span class="keyword">if</span> <label for="r50" class="ident">deadline</label>.<a href="../../time/time.go.html#line-262" class="ident">IsZero</a>() {</code></span>
-<span class="codeline" id="line-358"><code>		<span class="keyword">return</span> <a href="transport.go.html#line-2793" class="ident">nop</a>, <a href="#line-492" class="ident">alwaysFalse</a></code></span>
+<span class="codeline" id="line-358"><code>		<span class="keyword">return</span> <a href="transport.go.html#line-2788" class="ident">nop</a>, <a href="#line-492" class="ident">alwaysFalse</a></code></span>
 <span class="codeline" id="line-359"><code>	}</code></span>
 <span class="codeline" id="line-360"><code>	<label for="r53" class="ident">knownTransport</label> := <a href="#line-325" class="ident">knownRoundTripperImpl</a>(<label for="r49" class="ident">rt</label>, <label for="r48" class="ident">req</label>)</code></span>
 <span class="codeline" id="line-361"><code>	<label for="r54" class="ident">oldCtx</label> := <label for="r48" class="ident">req</label>.<a href="request.go.html#line-352" class="ident">Context</a>()</code></span>
@@ -862,7 +862,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-364"><code>		<span class="comment">// If they already had a Request.Context that's</span></code></span>
 <span class="codeline" id="line-365"><code><span class="comment">		// expiring sooner, do nothing:</span></code></span>
 <span class="codeline" id="line-366"><code>		<span class="keyword">if</span> !<a href="#line-312" class="ident">timeBeforeContextDeadline</a>(<label for="r50" class="ident">deadline</label>, <label for="r54" class="ident">oldCtx</label>) {</code></span>
-<span class="codeline" id="line-367"><code>			<span class="keyword">return</span> <a href="transport.go.html#line-2793" class="ident">nop</a>, <a href="#line-492" class="ident">alwaysFalse</a></code></span>
+<span class="codeline" id="line-367"><code>			<span class="keyword">return</span> <a href="transport.go.html#line-2788" class="ident">nop</a>, <a href="#line-492" class="ident">alwaysFalse</a></code></span>
 <span class="codeline" id="line-368"><code>		}</code></span>
 <span class="codeline" id="line-369"><code></code></span>
 <span class="codeline" id="line-370"><code>		<span class="keyword">var</span> <label for="r55" class="ident">cancelCtx</label> <span class="keyword">func</span>()</code></span>
@@ -1145,7 +1145,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-647"><code><span class="comment">				// observed in the wild. See issues #17773 and #49281.</span></code></span>
 <span class="codeline" id="line-648"><code>				<span class="keyword">return</span> <label for="r108" class="ident">resp</label>, <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
 <span class="codeline" id="line-649"><code>			}</code></span>
-<span class="codeline" id="line-650"><code>			<label for="r118" class="ident">u</label>, <label for="r119" class="ident">err</label> := <label for="r103" class="ident">req</label>.<a href="request.go.html#line-130" class="ident">URL</a>.<a href="../url/url.go.html#line-1088" class="ident">Parse</a>(<label for="r117" class="ident">loc</label>)</code></span>
+<span class="codeline" id="line-650"><code>			<label for="r118" class="ident">u</label>, <label for="r119" class="ident">err</label> := <label for="r103" class="ident">req</label>.<a href="request.go.html#line-130" class="ident">URL</a>.<a href="../url/url.go.html#line-1092" class="ident">Parse</a>(<label for="r117" class="ident">loc</label>)</code></span>
 <span class="codeline" id="line-651"><code>			<span class="keyword">if</span> <label for="r119" class="ident">err</label> != <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-652"><code>				<label for="r108" class="ident">resp</label>.<a href="response.go.html#line-336" class="ident">closeBody</a>()</code></span>
 <span class="codeline" id="line-653"><code>				<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r114" class="ident">uerr</label>(<a href="../../../pkg/fmt.html" class="ident i4">fmt</a>.<a href="../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"failed to parse Location header %q: %v"</span>, <label for="r117" class="ident">loc</label>, <label for="r119" class="ident">err</label>))</code></span>
@@ -1155,7 +1155,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-657"><code>				<span class="comment">// If the caller specified a custom Host header and the</span></code></span>
 <span class="codeline" id="line-658"><code><span class="comment">				// redirect location is relative, preserve the Host header</span></code></span>
 <span class="codeline" id="line-659"><code><span class="comment">				// through the redirect. See issue #22233.</span></code></span>
-<span class="codeline" id="line-660"><code>				<span class="keyword">if</span> <label for="r121" class="ident">u</label>, <label for="r122" class="ident">_</label> := <a href="../../../pkg/net/url.html" class="ident i8">url</a>.<a href="../url/url.go.html#line-399" class="ident">Parse</a>(<label for="r117" class="ident">loc</label>); <label for="r121" class="ident">u</label> != <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; !<label for="r121" class="ident">u</label>.<a href="../url/url.go.html#line-1081" class="ident">IsAbs</a>() {</code></span>
+<span class="codeline" id="line-660"><code>				<span class="keyword">if</span> <label for="r121" class="ident">u</label>, <label for="r122" class="ident">_</label> := <a href="../../../pkg/net/url.html" class="ident i8">url</a>.<a href="../url/url.go.html#line-399" class="ident">Parse</a>(<label for="r117" class="ident">loc</label>); <label for="r121" class="ident">u</label> != <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; !<label for="r121" class="ident">u</label>.<a href="../url/url.go.html#line-1085" class="ident">IsAbs</a>() {</code></span>
 <span class="codeline" id="line-661"><code>					<label for="r120" class="ident">host</label> = <label for="r103" class="ident">req</label>.<a href="request.go.html#line-245" class="ident">Host</a></code></span>
 <span class="codeline" id="line-662"><code>				}</code></span>
 <span class="codeline" id="line-663"><code>			}</code></span>
@@ -1232,7 +1232,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-734"><code>			<span class="comment">// c.send() always closes req.Body</span></code></span>
 <span class="codeline" id="line-735"><code>			<label for="r110" class="ident">reqBodyClosed</label> = <a href="../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
 <span class="codeline" id="line-736"><code>			<span class="keyword">if</span> !<label for="r106" class="ident">deadline</label>.<a href="../../time/time.go.html#line-262" class="ident">IsZero</a>() &amp;&amp; <label for="r128" class="ident">didTimeout</label>() {</code></span>
-<span class="codeline" id="line-737"><code>				<label for="r127" class="ident">err</label> = &amp;<a href="transport.go.html#line-2773" class="ident">timeoutError</a>{<label for="r127" class="ident">err</label>.Error() + <span class="lit-string">" (Client.Timeout exceeded while awaiting headers)"</span>}</code></span>
+<span class="codeline" id="line-737"><code>				<label for="r127" class="ident">err</label> = &amp;<a href="transport.go.html#line-2768" class="ident">timeoutError</a>{<label for="r127" class="ident">err</label>.Error() + <span class="lit-string">" (Client.Timeout exceeded while awaiting headers)"</span>}</code></span>
 <span class="codeline" id="line-738"><code>			}</code></span>
 <span class="codeline" id="line-739"><code>			<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r114" class="ident">uerr</label>(<label for="r127" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-740"><code>		}</code></span>
@@ -1394,7 +1394,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-896"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-897"><code><span class="comment">// To make a request with a specified [context.Context], use [NewRequestWithContext]</span></code></span>
 <span class="codeline" id="line-898"><code><span class="comment">// and DefaultClient.Do.</span></code></span>
-<span class="codeline" id="line-899"><code><span class="keyword">func</span> <label for="r176" class="ident"><a href="../../../pkg/net/http.html#name-PostForm" class="ident">PostForm</a></label>(<label for="r177" class="ident">url</label> <a href="../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r178" class="ident">data</label> <a href="../../../pkg/net/url.html" class="ident i8">url</a>.<a href="../url/url.go.html#line-885" class="ident">Values</a>) (<label for="r179" class="ident">resp</label> *<a href="response.go.html#line-35" class="ident">Response</a>, <label for="r180" class="ident">err</label> <a href="../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-899"><code><span class="keyword">func</span> <label for="r176" class="ident"><a href="../../../pkg/net/http.html#name-PostForm" class="ident">PostForm</a></label>(<label for="r177" class="ident">url</label> <a href="../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r178" class="ident">data</label> <a href="../../../pkg/net/url.html" class="ident i8">url</a>.<a href="../url/url.go.html#line-879" class="ident">Values</a>) (<label for="r179" class="ident">resp</label> *<a href="response.go.html#line-35" class="ident">Response</a>, <label for="r180" class="ident">err</label> <a href="../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
 <span class="codeline" id="line-900"><code>	<span class="keyword">return</span> <a href="#line-109" class="ident">DefaultClient</a>.<a href="#line-917" class="ident">PostForm</a>(<label for="r177" class="ident">url</label>, <label for="r178" class="ident">data</label>)</code></span>
 <span class="codeline" id="line-901"><code>}</code></span>
 <span class="codeline" id="line-902"><code></code></span>
@@ -1412,8 +1412,8 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-914"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-915"><code><span class="comment">// To make a request with a specified context.Context, use [NewRequestWithContext]</span></code></span>
 <span class="codeline" id="line-916"><code><span class="comment">// and Client.Do.</span></code></span>
-<span class="codeline" id="line-917"><code><span class="keyword">func</span> (<label for="r181" class="ident">c</label> *<a href="#line-57" class="ident">Client</a>) <label for="r182" class="ident"><a href="../../../use/net/http..Client.PostForm.html" class="ident">PostForm</a></label>(<label for="r183" class="ident">url</label> <a href="../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r184" class="ident">data</label> <a href="../../../pkg/net/url.html" class="ident i8">url</a>.<a href="../url/url.go.html#line-885" class="ident">Values</a>) (<label for="r185" class="ident">resp</label> *<a href="response.go.html#line-35" class="ident">Response</a>, <label for="r186" class="ident">err</label> <a href="../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-918"><code>	<span class="keyword">return</span> <label for="r181" class="ident">c</label>.<a href="#line-874" class="ident">Post</a>(<label for="r183" class="ident">url</label>, <span class="lit-string">"application/x-www-form-urlencoded"</span>, <a href="../../../pkg/strings.html" class="ident i11">strings</a>.<a href="../../strings/reader.go.html#line-156" class="ident">NewReader</a>(<label for="r184" class="ident">data</label>.<a href="../url/url.go.html#line-995" class="ident">Encode</a>()))</code></span>
+<span class="codeline" id="line-917"><code><span class="keyword">func</span> (<label for="r181" class="ident">c</label> *<a href="#line-57" class="ident">Client</a>) <label for="r182" class="ident"><a href="../../../use/net/http..Client.PostForm.html" class="ident">PostForm</a></label>(<label for="r183" class="ident">url</label> <a href="../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r184" class="ident">data</label> <a href="../../../pkg/net/url.html" class="ident i8">url</a>.<a href="../url/url.go.html#line-879" class="ident">Values</a>) (<label for="r185" class="ident">resp</label> *<a href="response.go.html#line-35" class="ident">Response</a>, <label for="r186" class="ident">err</label> <a href="../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-918"><code>	<span class="keyword">return</span> <label for="r181" class="ident">c</label>.<a href="#line-874" class="ident">Post</a>(<label for="r183" class="ident">url</label>, <span class="lit-string">"application/x-www-form-urlencoded"</span>, <a href="../../../pkg/strings.html" class="ident i11">strings</a>.<a href="../../strings/reader.go.html#line-156" class="ident">NewReader</a>(<label for="r184" class="ident">data</label>.<a href="../url/url.go.html#line-988" class="ident">Encode</a>()))</code></span>
 <span class="codeline" id="line-919"><code>}</code></span>
 <span class="codeline" id="line-920"><code></code></span>
 <span class="codeline" id="line-921"><code><span class="comment">// Head issues a HEAD to the specified URL. If the response is one of</span></code></span>
@@ -1489,7 +1489,7 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-991"><code>		<span class="keyword">return</span> <label for="r206" class="ident">n</label>, <label for="r207" class="ident">err</label></code></span>
 <span class="codeline" id="line-992"><code>	}</code></span>
 <span class="codeline" id="line-993"><code>	<span class="keyword">if</span> <label for="r203" class="ident">b</label>.<a href="#line-982" class="ident">reqDidTimeout</a>() {</code></span>
-<span class="codeline" id="line-994"><code>		<label for="r207" class="ident">err</label> = &amp;<a href="transport.go.html#line-2773" class="ident">timeoutError</a>{<label for="r207" class="ident">err</label>.Error() + <span class="lit-string">" (Client.Timeout or context cancellation while reading body)"</span>}</code></span>
+<span class="codeline" id="line-994"><code>		<label for="r207" class="ident">err</label> = &amp;<a href="transport.go.html#line-2768" class="ident">timeoutError</a>{<label for="r207" class="ident">err</label>.Error() + <span class="lit-string">" (Client.Timeout or context cancellation while reading body)"</span>}</code></span>
 <span class="codeline" id="line-995"><code>	}</code></span>
 <span class="codeline" id="line-996"><code>	<span class="keyword">return</span> <label for="r206" class="ident">n</label>, <label for="r207" class="ident">err</label></code></span>
 <span class="codeline" id="line-997"><code>}</code></span>
@@ -1514,8 +1514,8 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-1016"><code><span class="comment">	// directly, we don't know their scope, so we assume</span></code></span>
 <span class="codeline" id="line-1017"><code><span class="comment">	// it's for *.domain.com.</span></code></span>
 <span class="codeline" id="line-1018"><code></code></span>
-<span class="codeline" id="line-1019"><code>	<label for="r214" class="ident">ihost</label> := <a href="transport.go.html#line-3029" class="ident">idnaASCIIFromURL</a>(<label for="r212" class="ident">initial</label>)</code></span>
-<span class="codeline" id="line-1020"><code>	<label for="r215" class="ident">dhost</label> := <a href="transport.go.html#line-3029" class="ident">idnaASCIIFromURL</a>(<label for="r213" class="ident">dest</label>)</code></span>
+<span class="codeline" id="line-1019"><code>	<label for="r214" class="ident">ihost</label> := <a href="transport.go.html#line-3024" class="ident">idnaASCIIFromURL</a>(<label for="r212" class="ident">initial</label>)</code></span>
+<span class="codeline" id="line-1020"><code>	<label for="r215" class="ident">dhost</label> := <a href="transport.go.html#line-3024" class="ident">idnaASCIIFromURL</a>(<label for="r213" class="ident">dest</label>)</code></span>
 <span class="codeline" id="line-1021"><code>	<span class="keyword">return</span> <a href="#line-1028" class="ident">isDomainOrSubdomain</a>(<label for="r215" class="ident">dhost</label>, <label for="r214" class="ident">ihost</label>)</code></span>
 <span class="codeline" id="line-1022"><code>}</code></span>
 <span class="codeline" id="line-1023"><code></code></span>
@@ -1545,13 +1545,13 @@ input[id=i14]:checked ~pre .i14
 <span class="codeline" id="line-1047"><code><span class="keyword">func</span> <label for="r219" class="ident"><a href="../../../pkg/net/http.html#name-stripPassword" class="ident">stripPassword</a></label>(<label for="r220" class="ident">u</label> *<a href="../../../pkg/net/url.html" class="ident i8">url</a>.<a href="../url/url.go.html#line-276" class="ident">URL</a>) <a href="../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
 <span class="codeline" id="line-1048"><code>	<label for="r221" class="ident">_</label>, <label for="r222" class="ident">passSet</label> := <label for="r220" class="ident">u</label>.<a href="../url/url.go.html#line-279" class="ident">User</a>.<a href="../url/url.go.html#line-346" class="ident">Password</a>()</code></span>
 <span class="codeline" id="line-1049"><code>	<span class="keyword">if</span> <label for="r222" class="ident">passSet</label> {</code></span>
-<span class="codeline" id="line-1050"><code>		<span class="keyword">return</span> <a href="../../../pkg/strings.html" class="ident i11">strings</a>.<a href="../../strings/strings.go.html#line-1138" class="ident">Replace</a>(<label for="r220" class="ident">u</label>.<a href="../url/url.go.html#line-798" class="ident">String</a>(), <label for="r220" class="ident">u</label>.<a href="../url/url.go.html#line-279" class="ident">User</a>.<a href="../url/url.go.html#line-355" class="ident">String</a>()+<span class="lit-string">"@"</span>, <label for="r220" class="ident">u</label>.<a href="../url/url.go.html#line-279" class="ident">User</a>.<a href="../url/url.go.html#line-338" class="ident">Username</a>()+<span class="lit-string">":***@"</span>, <span class="lit-number">1</span>)</code></span>
+<span class="codeline" id="line-1050"><code>		<span class="keyword">return</span> <a href="../../../pkg/strings.html" class="ident i11">strings</a>.<a href="../../strings/strings.go.html#line-1138" class="ident">Replace</a>(<label for="r220" class="ident">u</label>.<a href="../url/url.go.html#line-792" class="ident">String</a>(), <label for="r220" class="ident">u</label>.<a href="../url/url.go.html#line-279" class="ident">User</a>.<a href="../url/url.go.html#line-355" class="ident">String</a>()+<span class="lit-string">"@"</span>, <label for="r220" class="ident">u</label>.<a href="../url/url.go.html#line-279" class="ident">User</a>.<a href="../url/url.go.html#line-338" class="ident">Username</a>()+<span class="lit-string">":***@"</span>, <span class="lit-number">1</span>)</code></span>
 <span class="codeline" id="line-1051"><code>	}</code></span>
-<span class="codeline" id="line-1052"><code>	<span class="keyword">return</span> <label for="r220" class="ident">u</label>.<a href="../url/url.go.html#line-798" class="ident">String</a>()</code></span>
+<span class="codeline" id="line-1052"><code>	<span class="keyword">return</span> <label for="r220" class="ident">u</label>.<a href="../url/url.go.html#line-792" class="ident">String</a>()</code></span>
 <span class="codeline" id="line-1053"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

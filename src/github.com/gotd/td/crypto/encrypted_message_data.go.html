@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: encrypted_message_data.go in package github.com/gotd/td/crypto</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -148,7 +148,7 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-46"><code>	<label for="r5" class="ident">b</label>.<a href="../bin/encode.go.html#line-61" class="ident">PutInt32</a>(<span class="lit-number">0</span>)</code></span>
 <span class="codeline" id="line-47"><code>	<label for="r7" class="ident">originalLength</label> := <label for="r5" class="ident">b</label>.<a href="../bin/buffer.go.html#line-61" class="ident">Len</a>()</code></span>
 <span class="codeline" id="line-48"><code>	<span class="keyword">if</span> <label for="r8" class="ident">err</label> := <label for="r5" class="ident">b</label>.<a href="../bin/buffer.go.html#line-13" class="ident">Encode</a>(<label for="r3" class="ident">e</label>.<a href="#line-20" class="ident">Message</a>); <label for="r8" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-49"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r8" class="ident">err</label>, <span class="lit-string">"encode inner message"</span>)</code></span>
+<span class="codeline" id="line-49"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r8" class="ident">err</label>, <span class="lit-string">"encode inner message"</span>)</code></span>
 <span class="codeline" id="line-50"><code>	}</code></span>
 <span class="codeline" id="line-51"><code>	<label for="r9" class="ident">msgLen</label> := <label for="r5" class="ident">b</label>.<a href="../bin/buffer.go.html#line-61" class="ident">Len</a>() - <label for="r7" class="ident">originalLength</label></code></span>
 <span class="codeline" id="line-52"><code></code></span>
@@ -195,7 +195,7 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-93"><code>	}</code></span>
 <span class="codeline" id="line-94"><code>	<label for="r10" class="ident">e</label>.<a href="#line-16" class="ident">MessageDataWithPadding</a> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r10" class="ident">e</label>.<a href="#line-16" class="ident">MessageDataWithPadding</a>[:<span class="lit-number">0</span>], <label for="r12" class="ident">b</label>.<a href="../bin/buffer.go.html#line-9" class="ident">Buf</a>...)</code></span>
 <span class="codeline" id="line-95"><code>	<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r10" class="ident">e</label>.<a href="#line-15" class="ident">MessageDataLen</a>) &gt; <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r10" class="ident">e</label>.<a href="#line-16" class="ident">MessageDataWithPadding</a>) {</code></span>
-<span class="codeline" id="line-96"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(</code></span>
+<span class="codeline" id="line-96"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-45" class="ident">Errorf</a>(</code></span>
 <span class="codeline" id="line-97"><code>			<span class="lit-string">"MessageDataLen field is bigger then MessageDataWithPadding length (%d &gt; %d)"</span>,</code></span>
 <span class="codeline" id="line-98"><code>			<a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r10" class="ident">e</label>.<a href="#line-15" class="ident">MessageDataLen</a>), <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r10" class="ident">e</label>.<a href="#line-16" class="ident">MessageDataWithPadding</a>),</code></span>
 <span class="codeline" id="line-99"><code>		)</code></span>
@@ -244,7 +244,7 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-142"><code>	}</code></span>
 <span class="codeline" id="line-143"><code>	<label for="r23" class="ident">e</label>.<a href="#line-16" class="ident">MessageDataWithPadding</a> = <label for="r25" class="ident">b</label>.<a href="../bin/buffer.go.html#line-9" class="ident">Buf</a></code></span>
 <span class="codeline" id="line-144"><code>	<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r23" class="ident">e</label>.<a href="#line-15" class="ident">MessageDataLen</a>) &gt; <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r23" class="ident">e</label>.<a href="#line-16" class="ident">MessageDataWithPadding</a>) {</code></span>
-<span class="codeline" id="line-145"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(</code></span>
+<span class="codeline" id="line-145"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-45" class="ident">Errorf</a>(</code></span>
 <span class="codeline" id="line-146"><code>			<span class="lit-string">"MessageDataLen field is bigger then MessageDataWithPadding length (%d &gt; %d)"</span>,</code></span>
 <span class="codeline" id="line-147"><code>			<a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r23" class="ident">e</label>.<a href="#line-15" class="ident">MessageDataLen</a>), <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r23" class="ident">e</label>.<a href="#line-16" class="ident">MessageDataWithPadding</a>),</code></span>
 <span class="codeline" id="line-148"><code>		)</code></span>
@@ -258,7 +258,7 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-156"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

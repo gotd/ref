@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: crypto/tls.cipherSuiteTLS13.hash</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../pkg/crypto/tls.html">crypto/tls</a>.<a href="../../src/crypto/tls/cipher_suites.go.html#line-196">cipherSuiteTLS13</a>.<a href="../../src/crypto/tls/cipher_suites.go.html#line-200">hash</a></b></span><span style="font-size: large;"><i> (field)</i></span>
@@ -16,10 +16,10 @@
 	crypto/tls (current package)
 		<a href="../../src/crypto/tls/cipher_suites.go.html#line-200">cipher_suites.go#L200</a>: 	<b>hash</b>   crypto.Hash
 		<a href="../../src/crypto/tls/handshake_client.go.html#line-287">handshake_client.go#L287</a>: 		transcript := suite.<b>hash</b>.New()
-		<a href="../../src/crypto/tls/handshake_client.go.html#line-465" class="path-duplicate">handshake_client.go</a><a href="../../src/crypto/tls/handshake_client.go.html#line-465">#L465</a>: 		if offeredSuite != nil &amp;&amp; offeredSuite.<b>hash</b> == cipherSuite.<b>hash</b> {
-		<a href="../../src/crypto/tls/handshake_client.go.html#line-498" class="path-duplicate">handshake_client.go</a><a href="../../src/crypto/tls/handshake_client.go.html#line-498">#L498</a>: 	hello.pskBinders = [][]byte{make([]byte, cipherSuite.<b>hash</b>.Size())}
-		<a href="../../src/crypto/tls/handshake_client.go.html#line-501" class="path-duplicate">handshake_client.go</a><a href="../../src/crypto/tls/handshake_client.go.html#line-501">#L501</a>: 	earlySecret = tls13.NewEarlySecret(cipherSuite.<b>hash</b>.New, session.secret)
-		<a href="../../src/crypto/tls/handshake_client.go.html#line-503" class="path-duplicate">handshake_client.go</a><a href="../../src/crypto/tls/handshake_client.go.html#line-503">#L503</a>: 	transcript := cipherSuite.<b>hash</b>.New()
+		<a href="../../src/crypto/tls/handshake_client.go.html#line-458" class="path-duplicate">handshake_client.go</a><a href="../../src/crypto/tls/handshake_client.go.html#line-458">#L458</a>: 		if offeredSuite != nil &amp;&amp; offeredSuite.<b>hash</b> == cipherSuite.<b>hash</b> {
+		<a href="../../src/crypto/tls/handshake_client.go.html#line-491" class="path-duplicate">handshake_client.go</a><a href="../../src/crypto/tls/handshake_client.go.html#line-491">#L491</a>: 	hello.pskBinders = [][]byte{make([]byte, cipherSuite.<b>hash</b>.Size())}
+		<a href="../../src/crypto/tls/handshake_client.go.html#line-494" class="path-duplicate">handshake_client.go</a><a href="../../src/crypto/tls/handshake_client.go.html#line-494">#L494</a>: 	earlySecret = tls13.NewEarlySecret(cipherSuite.<b>hash</b>.New, session.secret)
+		<a href="../../src/crypto/tls/handshake_client.go.html#line-496" class="path-duplicate">handshake_client.go</a><a href="../../src/crypto/tls/handshake_client.go.html#line-496">#L496</a>: 	transcript := cipherSuite.<b>hash</b>.New()
 		<a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-65">handshake_client_tls13.go#L65</a>: 	hs.transcript = hs.suite.<b>hash</b>.New()
 		<a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-72" class="path-duplicate">handshake_client_tls13.go</a><a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-72">#L72</a>: 		hs.echContext.innerTranscript = hs.suite.<b>hash</b>.New()
 		<a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-88" class="path-duplicate">handshake_client_tls13.go</a><a href="../../src/crypto/tls/handshake_client_tls13.go.html#line-88">#L88</a>: 		confTranscript := cloneHash(hs.echContext.innerTranscript, hs.suite.<b>hash</b>)
@@ -44,14 +44,14 @@
 		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-748" class="path-duplicate">handshake_server_tls13.go</a><a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-748">#L748</a>: 		earlySecret = tls13.NewEarlySecret(hs.suite.<b>hash</b>.New, nil)
 		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-978" class="path-duplicate">handshake_server_tls13.go</a><a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-978">#L978</a>: 	psk := tls13.ExpandLabel(suite.<b>hash</b>.New, c.resumptionSecret, "resumption",
 		<a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-979" class="path-duplicate">handshake_server_tls13.go</a><a href="../../src/crypto/tls/handshake_server_tls13.go.html#line-979">#L979</a>: 		nil, suite.<b>hash</b>.Size())
-		<a href="../../src/crypto/tls/key_schedule.go.html#line-25">key_schedule.go#L25</a>: 	return tls13.ExpandLabel(c.<b>hash</b>.New, trafficSecret, "traffic upd", nil, c.<b>hash</b>.Size())
-		<a href="../../src/crypto/tls/key_schedule.go.html#line-30" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-30">#L30</a>: 	key = tls13.ExpandLabel(c.<b>hash</b>.New, trafficSecret, "key", nil, c.keyLen)
-		<a href="../../src/crypto/tls/key_schedule.go.html#line-31" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-31">#L31</a>: 	iv = tls13.ExpandLabel(c.<b>hash</b>.New, trafficSecret, "iv", nil, aeadNonceLength)
-		<a href="../../src/crypto/tls/key_schedule.go.html#line-39" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-39">#L39</a>: 	finishedKey := tls13.ExpandLabel(c.<b>hash</b>.New, baseKey, "finished", nil, c.<b>hash</b>.Size())
-		<a href="../../src/crypto/tls/key_schedule.go.html#line-40" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-40">#L40</a>: 	verifyData := hmac.New(c.<b>hash</b>.New, finishedKey)
+		<a href="../../src/crypto/tls/key_schedule.go.html#line-24">key_schedule.go#L24</a>: 	return tls13.ExpandLabel(c.<b>hash</b>.New, trafficSecret, "traffic upd", nil, c.<b>hash</b>.Size())
+		<a href="../../src/crypto/tls/key_schedule.go.html#line-29" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-29">#L29</a>: 	key = tls13.ExpandLabel(c.<b>hash</b>.New, trafficSecret, "key", nil, c.keyLen)
+		<a href="../../src/crypto/tls/key_schedule.go.html#line-30" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-30">#L30</a>: 	iv = tls13.ExpandLabel(c.<b>hash</b>.New, trafficSecret, "iv", nil, aeadNonceLength)
+		<a href="../../src/crypto/tls/key_schedule.go.html#line-38" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-38">#L38</a>: 	finishedKey := tls13.ExpandLabel(c.<b>hash</b>.New, baseKey, "finished", nil, c.<b>hash</b>.Size())
+		<a href="../../src/crypto/tls/key_schedule.go.html#line-39" class="path-duplicate">key_schedule.go</a><a href="../../src/crypto/tls/key_schedule.go.html#line-39">#L39</a>: 	verifyData := hmac.New(c.<b>hash</b>.New, finishedKey)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

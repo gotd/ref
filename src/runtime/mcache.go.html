@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: mcache.go in package runtime</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -233,7 +233,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-105"><code>	<span class="keyword">for</span> <label for="r4" class="ident">i</label> := <span class="keyword">range</span> <label for="r3" class="ident">c</label>.<a href="#line-48" class="ident">alloc</a> {</code></span>
 <span class="codeline" id="line-106"><code>		<label for="r3" class="ident">c</label>.<a href="#line-48" class="ident">alloc</a>[<label for="r4" class="ident">i</label>] = &amp;<a href="#line-95" class="ident">emptymspan</a></code></span>
 <span class="codeline" id="line-107"><code>	}</code></span>
-<span class="codeline" id="line-108"><code>	<label for="r3" class="ident">c</label>.<a href="#line-25" class="ident">nextSample</a> = <a href="malloc.go.html#line-2255" class="ident">nextSample</a>()</code></span>
+<span class="codeline" id="line-108"><code>	<label for="r3" class="ident">c</label>.<a href="#line-25" class="ident">nextSample</a> = <a href="malloc.go.html#line-2307" class="ident">nextSample</a>()</code></span>
 <span class="codeline" id="line-109"><code></code></span>
 <span class="codeline" id="line-110"><code>	<span class="keyword">return</span> <label for="r3" class="ident">c</label></code></span>
 <span class="codeline" id="line-111"><code>}</code></span>
@@ -499,7 +499,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-371"><code><span class="comment">// addReusableNoscan adds a noscan object pointer to the reusable pointer free list</span></code></span>
 <span class="codeline" id="line-372"><code><span class="comment">// for a span class.</span></code></span>
 <span class="codeline" id="line-373"><code><span class="keyword">func</span> (<label for="r41" class="ident">c</label> *<a href="#line-20" class="ident">mcache</a>) <label for="r42" class="ident"><a href="../../use/runtime..mcache^8aa2c.addReusableNoscan^f38f6.html" class="ident">addReusableNoscan</a></label>(<label for="r43" class="ident">spc</label> <a href="mheap.go.html#line-582" class="ident">spanClass</a>, <label for="r44" class="ident">ptr</label> <a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>) {</code></span>
-<span class="codeline" id="line-374"><code>	<span class="keyword">if</span> !<a href="malloc.go.html#line-1047" class="ident">runtimeFreegcEnabled</a> {</code></span>
+<span class="codeline" id="line-374"><code>	<span class="keyword">if</span> !<a href="malloc.go.html#line-1099" class="ident">runtimeFreegcEnabled</a> {</code></span>
 <span class="codeline" id="line-375"><code>		<span class="keyword">return</span></code></span>
 <span class="codeline" id="line-376"><code>	}</code></span>
 <span class="codeline" id="line-377"><code></code></span>
@@ -512,14 +512,14 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-384"><code><span class="comment">// hasReusableNoscan reports whether there is a reusable object available for</span></code></span>
 <span class="codeline" id="line-385"><code><span class="comment">// a noscan spc.</span></code></span>
 <span class="codeline" id="line-386"><code><span class="keyword">func</span> (<label for="r46" class="ident">c</label> *<a href="#line-20" class="ident">mcache</a>) <label for="r47" class="ident"><a href="../../use/runtime..mcache^8aa2c.hasReusableNoscan^ea384.html" class="ident">hasReusableNoscan</a></label>(<label for="r48" class="ident">spc</label> <a href="mheap.go.html#line-582" class="ident">spanClass</a>) <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
-<span class="codeline" id="line-387"><code>	<span class="keyword">if</span> !<a href="malloc.go.html#line-1047" class="ident">runtimeFreegcEnabled</a> {</code></span>
+<span class="codeline" id="line-387"><code>	<span class="keyword">if</span> !<a href="malloc.go.html#line-1099" class="ident">runtimeFreegcEnabled</a> {</code></span>
 <span class="codeline" id="line-388"><code>		<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
 <span class="codeline" id="line-389"><code>	}</code></span>
 <span class="codeline" id="line-390"><code>	<span class="keyword">return</span> <label for="r46" class="ident">c</label>.<a href="#line-57" class="ident">reusableNoscan</a>[<label for="r48" class="ident">spc</label>] != <span class="lit-number">0</span></code></span>
 <span class="codeline" id="line-391"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

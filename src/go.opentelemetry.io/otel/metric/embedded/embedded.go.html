@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: embedded.go in package go.opentelemetry.io/otel/metric/embedded</title>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	embedded.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html">go.opentelemetry.io/otel/metric/embedded</a>
+</code></pre>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright The OpenTelemetry Authors</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></code></span>
+<span class="codeline" id="line-3"><code></code></span>
+<div class="anchor" id="doc"><span class="codeline" id="line-4"><code><span class="comment">// Package embedded provides interfaces embedded within the [OpenTelemetry</span></code></span>
+<span class="codeline" id="line-5"><code><span class="comment">// metric API].</span></code></span>
+<span class="codeline" id="line-6"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-7"><code><span class="comment">// Implementers of the [OpenTelemetry metric API] can embed the relevant type</span></code></span>
+<span class="codeline" id="line-8"><code><span class="comment">// from this package into their implementation directly. Doing so will result</span></code></span>
+<span class="codeline" id="line-9"><code><span class="comment">// in a compilation error for users when the [OpenTelemetry metric API] is</span></code></span>
+<span class="codeline" id="line-10"><code><span class="comment">// extended (which is something that can happen without a major version bump of</span></code></span>
+<span class="codeline" id="line-11"><code><span class="comment">// the API package).</span></code></span>
+<span class="codeline" id="line-12"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">// [OpenTelemetry metric API]: https://pkg.go.dev/go.opentelemetry.io/otel/metric</span></code></span></div><span class="codeline" id="line-14"><code><span class="keyword">package</span> embedded</code></span>
+<span class="codeline" id="line-15"><code></code></span>
+<span class="codeline" id="line-16"><code><span class="comment">// MeterProvider is embedded in</span></code></span>
+<span class="codeline" id="line-17"><code><span class="comment">// [go.opentelemetry.io/otel/metric.MeterProvider].</span></code></span>
+<span class="codeline" id="line-18"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">// [go.opentelemetry.io/otel/metric.MeterProvider] if you want users to</span></code></span>
+<span class="codeline" id="line-21"><code><span class="comment">// experience a compilation error, signaling they need to update to your latest</span></code></span>
+<span class="codeline" id="line-22"><code><span class="comment">// implementation, when the [go.opentelemetry.io/otel/metric.MeterProvider]</span></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">// interface is extended (which is something that can happen without a major</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">// version bump of the API package).</span></code></span>
+<span class="codeline" id="line-25"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-MeterProvider" class="ident">MeterProvider</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.MeterProvider.html#name-go.opentelemetry.io/otel/metric/embedded.meterProvider" class="ident">meterProvider</a>() }</code></span>
+<span class="codeline" id="line-26"><code></code></span>
+<span class="codeline" id="line-27"><code><span class="comment">// Meter is embedded in [go.opentelemetry.io/otel/metric.Meter].</span></code></span>
+<span class="codeline" id="line-28"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-30"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Meter] if you want users to experience a</span></code></span>
+<span class="codeline" id="line-31"><code><span class="comment">// compilation error, signaling they need to update to your latest</span></code></span>
+<span class="codeline" id="line-32"><code><span class="comment">// implementation, when the [go.opentelemetry.io/otel/metric.Meter] interface</span></code></span>
+<span class="codeline" id="line-33"><code><span class="comment">// is extended (which is something that can happen without a major version bump</span></code></span>
+<span class="codeline" id="line-34"><code><span class="comment">// of the API package).</span></code></span>
+<span class="codeline" id="line-35"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Meter" class="ident">Meter</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Meter.html#name-go.opentelemetry.io/otel/metric/embedded.meter" class="ident">meter</a>() }</code></span>
+<span class="codeline" id="line-36"><code></code></span>
+<span class="codeline" id="line-37"><code><span class="comment">// Float64Observer is embedded in</span></code></span>
+<span class="codeline" id="line-38"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64Observer].</span></code></span>
+<span class="codeline" id="line-39"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-40"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64Observer] if you want</span></code></span>
+<span class="codeline" id="line-42"><code><span class="comment">// users to experience a compilation error, signaling they need to update to</span></code></span>
+<span class="codeline" id="line-43"><code><span class="comment">// your latest implementation, when the</span></code></span>
+<span class="codeline" id="line-44"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64Observer] interface is</span></code></span>
+<span class="codeline" id="line-45"><code><span class="comment">// extended (which is something that can happen without a major version bump of</span></code></span>
+<span class="codeline" id="line-46"><code><span class="comment">// the API package).</span></code></span>
+<span class="codeline" id="line-47"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Float64Observer" class="ident">Float64Observer</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Float64Observer.html#name-go.opentelemetry.io/otel/metric/embedded.float64Observer" class="ident">float64Observer</a>() }</code></span>
+<span class="codeline" id="line-48"><code></code></span>
+<span class="codeline" id="line-49"><code><span class="comment">// Int64Observer is embedded in</span></code></span>
+<span class="codeline" id="line-50"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64Observer].</span></code></span>
+<span class="codeline" id="line-51"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-52"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-53"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64Observer] if you want users</span></code></span>
+<span class="codeline" id="line-54"><code><span class="comment">// to experience a compilation error, signaling they need to update to your</span></code></span>
+<span class="codeline" id="line-55"><code><span class="comment">// latest implementation, when the</span></code></span>
+<span class="codeline" id="line-56"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64Observer] interface is</span></code></span>
+<span class="codeline" id="line-57"><code><span class="comment">// extended (which is something that can happen without a major version bump of</span></code></span>
+<span class="codeline" id="line-58"><code><span class="comment">// the API package).</span></code></span>
+<span class="codeline" id="line-59"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Int64Observer" class="ident">Int64Observer</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Int64Observer.html#name-go.opentelemetry.io/otel/metric/embedded.int64Observer" class="ident">int64Observer</a>() }</code></span>
+<span class="codeline" id="line-60"><code></code></span>
+<span class="codeline" id="line-61"><code><span class="comment">// Observer is embedded in [go.opentelemetry.io/otel/metric.Observer].</span></code></span>
+<span class="codeline" id="line-62"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-63"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-64"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Observer] if you want users to experience a</span></code></span>
+<span class="codeline" id="line-65"><code><span class="comment">// compilation error, signaling they need to update to your latest</span></code></span>
+<span class="codeline" id="line-66"><code><span class="comment">// implementation, when the [go.opentelemetry.io/otel/metric.Observer]</span></code></span>
+<span class="codeline" id="line-67"><code><span class="comment">// interface is extended (which is something that can happen without a major</span></code></span>
+<span class="codeline" id="line-68"><code><span class="comment">// version bump of the API package).</span></code></span>
+<span class="codeline" id="line-69"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Observer" class="ident">Observer</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Observer.html#name-go.opentelemetry.io/otel/metric/embedded.observer" class="ident">observer</a>() }</code></span>
+<span class="codeline" id="line-70"><code></code></span>
+<span class="codeline" id="line-71"><code><span class="comment">// Registration is embedded in [go.opentelemetry.io/otel/metric.Registration].</span></code></span>
+<span class="codeline" id="line-72"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-73"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-74"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Registration] if you want users to</span></code></span>
+<span class="codeline" id="line-75"><code><span class="comment">// experience a compilation error, signaling they need to update to your latest</span></code></span>
+<span class="codeline" id="line-76"><code><span class="comment">// implementation, when the [go.opentelemetry.io/otel/metric.Registration]</span></code></span>
+<span class="codeline" id="line-77"><code><span class="comment">// interface is extended (which is something that can happen without a major</span></code></span>
+<span class="codeline" id="line-78"><code><span class="comment">// version bump of the API package).</span></code></span>
+<span class="codeline" id="line-79"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Registration" class="ident">Registration</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Registration.html#name-go.opentelemetry.io/otel/metric/embedded.registration" class="ident">registration</a>() }</code></span>
+<span class="codeline" id="line-80"><code></code></span>
+<span class="codeline" id="line-81"><code><span class="comment">// Float64Counter is embedded in</span></code></span>
+<span class="codeline" id="line-82"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64Counter].</span></code></span>
+<span class="codeline" id="line-83"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-84"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-85"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64Counter] if you want</span></code></span>
+<span class="codeline" id="line-86"><code><span class="comment">// users to experience a compilation error, signaling they need to update to</span></code></span>
+<span class="codeline" id="line-87"><code><span class="comment">// your latest implementation, when the</span></code></span>
+<span class="codeline" id="line-88"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64Counter] interface is</span></code></span>
+<span class="codeline" id="line-89"><code><span class="comment">// extended (which is something that can happen without a major version bump of</span></code></span>
+<span class="codeline" id="line-90"><code><span class="comment">// the API package).</span></code></span>
+<span class="codeline" id="line-91"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Float64Counter" class="ident">Float64Counter</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Float64Counter.html#name-go.opentelemetry.io/otel/metric/embedded.float64Counter" class="ident">float64Counter</a>() }</code></span>
+<span class="codeline" id="line-92"><code></code></span>
+<span class="codeline" id="line-93"><code><span class="comment">// Float64Histogram is embedded in</span></code></span>
+<span class="codeline" id="line-94"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64Histogram].</span></code></span>
+<span class="codeline" id="line-95"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-96"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-97"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64Histogram] if you want</span></code></span>
+<span class="codeline" id="line-98"><code><span class="comment">// users to experience a compilation error, signaling they need to update to</span></code></span>
+<span class="codeline" id="line-99"><code><span class="comment">// your latest implementation, when the</span></code></span>
+<span class="codeline" id="line-100"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64Histogram] interface is</span></code></span>
+<span class="codeline" id="line-101"><code><span class="comment">// extended (which is something that can happen without a major version bump of</span></code></span>
+<span class="codeline" id="line-102"><code><span class="comment">// the API package).</span></code></span>
+<span class="codeline" id="line-103"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Float64Histogram" class="ident">Float64Histogram</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Float64Histogram.html#name-go.opentelemetry.io/otel/metric/embedded.float64Histogram" class="ident">float64Histogram</a>() }</code></span>
+<span class="codeline" id="line-104"><code></code></span>
+<span class="codeline" id="line-105"><code><span class="comment">// Float64Gauge is embedded in [go.opentelemetry.io/otel/metric.Float64Gauge].</span></code></span>
+<span class="codeline" id="line-106"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-107"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-108"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64Gauge] if you want users to</span></code></span>
+<span class="codeline" id="line-109"><code><span class="comment">// experience a compilation error, signaling they need to update to your latest</span></code></span>
+<span class="codeline" id="line-110"><code><span class="comment">// implementation, when the [go.opentelemetry.io/otel/metric.Float64Gauge]</span></code></span>
+<span class="codeline" id="line-111"><code><span class="comment">// interface is extended (which is something that can happen without a major</span></code></span>
+<span class="codeline" id="line-112"><code><span class="comment">// version bump of the API package).</span></code></span>
+<span class="codeline" id="line-113"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Float64Gauge" class="ident">Float64Gauge</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Float64Gauge.html#name-go.opentelemetry.io/otel/metric/embedded.float64Gauge" class="ident">float64Gauge</a>() }</code></span>
+<span class="codeline" id="line-114"><code></code></span>
+<span class="codeline" id="line-115"><code><span class="comment">// Float64ObservableCounter is embedded in</span></code></span>
+<span class="codeline" id="line-116"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64ObservableCounter].</span></code></span>
+<span class="codeline" id="line-117"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-118"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-119"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64ObservableCounter] if you</span></code></span>
+<span class="codeline" id="line-120"><code><span class="comment">// want users to experience a compilation error, signaling they need to update</span></code></span>
+<span class="codeline" id="line-121"><code><span class="comment">// to your latest implementation, when the</span></code></span>
+<span class="codeline" id="line-122"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64ObservableCounter]</span></code></span>
+<span class="codeline" id="line-123"><code><span class="comment">// interface is extended (which is something that can happen without a major</span></code></span>
+<span class="codeline" id="line-124"><code><span class="comment">// version bump of the API package).</span></code></span>
+<span class="codeline" id="line-125"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Float64ObservableCounter" class="ident">Float64ObservableCounter</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Float64ObservableCounter.html#name-go.opentelemetry.io/otel/metric/embedded.float64ObservableCounter" class="ident">float64ObservableCounter</a>() }</code></span>
+<span class="codeline" id="line-126"><code></code></span>
+<span class="codeline" id="line-127"><code><span class="comment">// Float64ObservableGauge is embedded in</span></code></span>
+<span class="codeline" id="line-128"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64ObservableGauge].</span></code></span>
+<span class="codeline" id="line-129"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-130"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-131"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64ObservableGauge] if you</span></code></span>
+<span class="codeline" id="line-132"><code><span class="comment">// want users to experience a compilation error, signaling they need to update</span></code></span>
+<span class="codeline" id="line-133"><code><span class="comment">// to your latest implementation, when the</span></code></span>
+<span class="codeline" id="line-134"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64ObservableGauge]</span></code></span>
+<span class="codeline" id="line-135"><code><span class="comment">// interface is extended (which is something that can happen without a major</span></code></span>
+<span class="codeline" id="line-136"><code><span class="comment">// version bump of the API package).</span></code></span>
+<span class="codeline" id="line-137"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Float64ObservableGauge" class="ident">Float64ObservableGauge</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Float64ObservableGauge.html#name-go.opentelemetry.io/otel/metric/embedded.float64ObservableGauge" class="ident">float64ObservableGauge</a>() }</code></span>
+<span class="codeline" id="line-138"><code></code></span>
+<span class="codeline" id="line-139"><code><span class="comment">// Float64ObservableUpDownCounter is embedded in</span></code></span>
+<span class="codeline" id="line-140"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64ObservableUpDownCounter].</span></code></span>
+<span class="codeline" id="line-141"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-142"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-143"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64ObservableUpDownCounter]</span></code></span>
+<span class="codeline" id="line-144"><code><span class="comment">// if you want users to experience a compilation error, signaling they need to</span></code></span>
+<span class="codeline" id="line-145"><code><span class="comment">// update to your latest implementation, when the</span></code></span>
+<span class="codeline" id="line-146"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64ObservableUpDownCounter]</span></code></span>
+<span class="codeline" id="line-147"><code><span class="comment">// interface is extended (which is something that can happen without a major</span></code></span>
+<span class="codeline" id="line-148"><code><span class="comment">// version bump of the API package).</span></code></span>
+<span class="codeline" id="line-149"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Float64ObservableUpDownCounter" class="ident">Float64ObservableUpDownCounter</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Float64ObservableUpDownCounter.html#name-go.opentelemetry.io/otel/metric/embedded.float64ObservableUpDownCounter" class="ident">float64ObservableUpDownCounter</a>() }</code></span>
+<span class="codeline" id="line-150"><code></code></span>
+<span class="codeline" id="line-151"><code><span class="comment">// Float64UpDownCounter is embedded in</span></code></span>
+<span class="codeline" id="line-152"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64UpDownCounter].</span></code></span>
+<span class="codeline" id="line-153"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-154"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-155"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64UpDownCounter] if you</span></code></span>
+<span class="codeline" id="line-156"><code><span class="comment">// want users to experience a compilation error, signaling they need to update</span></code></span>
+<span class="codeline" id="line-157"><code><span class="comment">// to your latest implementation, when the</span></code></span>
+<span class="codeline" id="line-158"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Float64UpDownCounter] interface</span></code></span>
+<span class="codeline" id="line-159"><code><span class="comment">// is extended (which is something that can happen without a major version bump</span></code></span>
+<span class="codeline" id="line-160"><code><span class="comment">// of the API package).</span></code></span>
+<span class="codeline" id="line-161"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Float64UpDownCounter" class="ident">Float64UpDownCounter</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Float64UpDownCounter.html#name-go.opentelemetry.io/otel/metric/embedded.float64UpDownCounter" class="ident">float64UpDownCounter</a>() }</code></span>
+<span class="codeline" id="line-162"><code></code></span>
+<span class="codeline" id="line-163"><code><span class="comment">// Int64Counter is embedded in</span></code></span>
+<span class="codeline" id="line-164"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64Counter].</span></code></span>
+<span class="codeline" id="line-165"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-166"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-167"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64Counter] if you want users</span></code></span>
+<span class="codeline" id="line-168"><code><span class="comment">// to experience a compilation error, signaling they need to update to your</span></code></span>
+<span class="codeline" id="line-169"><code><span class="comment">// latest implementation, when the</span></code></span>
+<span class="codeline" id="line-170"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64Counter] interface is</span></code></span>
+<span class="codeline" id="line-171"><code><span class="comment">// extended (which is something that can happen without a major version bump of</span></code></span>
+<span class="codeline" id="line-172"><code><span class="comment">// the API package).</span></code></span>
+<span class="codeline" id="line-173"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Int64Counter" class="ident">Int64Counter</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Int64Counter.html#name-go.opentelemetry.io/otel/metric/embedded.int64Counter" class="ident">int64Counter</a>() }</code></span>
+<span class="codeline" id="line-174"><code></code></span>
+<span class="codeline" id="line-175"><code><span class="comment">// Int64Histogram is embedded in</span></code></span>
+<span class="codeline" id="line-176"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64Histogram].</span></code></span>
+<span class="codeline" id="line-177"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-178"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-179"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64Histogram] if you want</span></code></span>
+<span class="codeline" id="line-180"><code><span class="comment">// users to experience a compilation error, signaling they need to update to</span></code></span>
+<span class="codeline" id="line-181"><code><span class="comment">// your latest implementation, when the</span></code></span>
+<span class="codeline" id="line-182"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64Histogram] interface is</span></code></span>
+<span class="codeline" id="line-183"><code><span class="comment">// extended (which is something that can happen without a major version bump of</span></code></span>
+<span class="codeline" id="line-184"><code><span class="comment">// the API package).</span></code></span>
+<span class="codeline" id="line-185"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Int64Histogram" class="ident">Int64Histogram</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Int64Histogram.html#name-go.opentelemetry.io/otel/metric/embedded.int64Histogram" class="ident">int64Histogram</a>() }</code></span>
+<span class="codeline" id="line-186"><code></code></span>
+<span class="codeline" id="line-187"><code><span class="comment">// Int64Gauge is embedded in [go.opentelemetry.io/otel/metric.Int64Gauge].</span></code></span>
+<span class="codeline" id="line-188"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-189"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-190"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64Gauge] if you want users to experience</span></code></span>
+<span class="codeline" id="line-191"><code><span class="comment">// a compilation error, signaling they need to update to your latest</span></code></span>
+<span class="codeline" id="line-192"><code><span class="comment">// implementation, when the [go.opentelemetry.io/otel/metric.Int64Gauge]</span></code></span>
+<span class="codeline" id="line-193"><code><span class="comment">// interface is extended (which is something that can happen without a major</span></code></span>
+<span class="codeline" id="line-194"><code><span class="comment">// version bump of the API package).</span></code></span>
+<span class="codeline" id="line-195"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Int64Gauge" class="ident">Int64Gauge</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Int64Gauge.html#name-go.opentelemetry.io/otel/metric/embedded.int64Gauge" class="ident">int64Gauge</a>() }</code></span>
+<span class="codeline" id="line-196"><code></code></span>
+<span class="codeline" id="line-197"><code><span class="comment">// Int64ObservableCounter is embedded in</span></code></span>
+<span class="codeline" id="line-198"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64ObservableCounter].</span></code></span>
+<span class="codeline" id="line-199"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-200"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-201"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64ObservableCounter] if you</span></code></span>
+<span class="codeline" id="line-202"><code><span class="comment">// want users to experience a compilation error, signaling they need to update</span></code></span>
+<span class="codeline" id="line-203"><code><span class="comment">// to your latest implementation, when the</span></code></span>
+<span class="codeline" id="line-204"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64ObservableCounter]</span></code></span>
+<span class="codeline" id="line-205"><code><span class="comment">// interface is extended (which is something that can happen without a major</span></code></span>
+<span class="codeline" id="line-206"><code><span class="comment">// version bump of the API package).</span></code></span>
+<span class="codeline" id="line-207"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Int64ObservableCounter" class="ident">Int64ObservableCounter</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Int64ObservableCounter.html#name-go.opentelemetry.io/otel/metric/embedded.int64ObservableCounter" class="ident">int64ObservableCounter</a>() }</code></span>
+<span class="codeline" id="line-208"><code></code></span>
+<span class="codeline" id="line-209"><code><span class="comment">// Int64ObservableGauge is embedded in</span></code></span>
+<span class="codeline" id="line-210"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64ObservableGauge].</span></code></span>
+<span class="codeline" id="line-211"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-212"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-213"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64ObservableGauge] if you</span></code></span>
+<span class="codeline" id="line-214"><code><span class="comment">// want users to experience a compilation error, signaling they need to update</span></code></span>
+<span class="codeline" id="line-215"><code><span class="comment">// to your latest implementation, when the</span></code></span>
+<span class="codeline" id="line-216"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64ObservableGauge] interface</span></code></span>
+<span class="codeline" id="line-217"><code><span class="comment">// is extended (which is something that can happen without a major version bump</span></code></span>
+<span class="codeline" id="line-218"><code><span class="comment">// of the API package).</span></code></span>
+<span class="codeline" id="line-219"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Int64ObservableGauge" class="ident">Int64ObservableGauge</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Int64ObservableGauge.html#name-go.opentelemetry.io/otel/metric/embedded.int64ObservableGauge" class="ident">int64ObservableGauge</a>() }</code></span>
+<span class="codeline" id="line-220"><code></code></span>
+<span class="codeline" id="line-221"><code><span class="comment">// Int64ObservableUpDownCounter is embedded in</span></code></span>
+<span class="codeline" id="line-222"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64ObservableUpDownCounter].</span></code></span>
+<span class="codeline" id="line-223"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-224"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-225"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64ObservableUpDownCounter] if</span></code></span>
+<span class="codeline" id="line-226"><code><span class="comment">// you want users to experience a compilation error, signaling they need to</span></code></span>
+<span class="codeline" id="line-227"><code><span class="comment">// update to your latest implementation, when the</span></code></span>
+<span class="codeline" id="line-228"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64ObservableUpDownCounter]</span></code></span>
+<span class="codeline" id="line-229"><code><span class="comment">// interface is extended (which is something that can happen without a major</span></code></span>
+<span class="codeline" id="line-230"><code><span class="comment">// version bump of the API package).</span></code></span>
+<span class="codeline" id="line-231"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Int64ObservableUpDownCounter" class="ident">Int64ObservableUpDownCounter</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Int64ObservableUpDownCounter.html#name-go.opentelemetry.io/otel/metric/embedded.int64ObservableUpDownCounter" class="ident">int64ObservableUpDownCounter</a>() }</code></span>
+<span class="codeline" id="line-232"><code></code></span>
+<span class="codeline" id="line-233"><code><span class="comment">// Int64UpDownCounter is embedded in</span></code></span>
+<span class="codeline" id="line-234"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64UpDownCounter].</span></code></span>
+<span class="codeline" id="line-235"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-236"><code><span class="comment">// Embed this interface in your implementation of the</span></code></span>
+<span class="codeline" id="line-237"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64UpDownCounter] if you want</span></code></span>
+<span class="codeline" id="line-238"><code><span class="comment">// users to experience a compilation error, signaling they need to update to</span></code></span>
+<span class="codeline" id="line-239"><code><span class="comment">// your latest implementation, when the</span></code></span>
+<span class="codeline" id="line-240"><code><span class="comment">// [go.opentelemetry.io/otel/metric.Int64UpDownCounter] interface is</span></code></span>
+<span class="codeline" id="line-241"><code><span class="comment">// extended (which is something that can happen without a major version bump of</span></code></span>
+<span class="codeline" id="line-242"><code><span class="comment">// the API package).</span></code></span>
+<span class="codeline" id="line-243"><code><span class="keyword">type</span> <a href="../../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html#name-Int64UpDownCounter" class="ident">Int64UpDownCounter</a> <span class="keyword">interface</span>{ <a href="../../../../../imp/go.opentelemetry.io/otel/metric/embedded.Int64UpDownCounter.html#name-go.opentelemetry.io/otel/metric/embedded.int64UpDownCounter" class="ident">int64UpDownCounter</a>() }</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

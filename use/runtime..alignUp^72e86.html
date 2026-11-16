@@ -5,27 +5,29 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: runtime.alignUp</title>
-<link href="../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../jvs/golds-v0.8.5.js"></script>
+<link href="../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../pkg/runtime.html">runtime</a>.<a href="../src/runtime/stubs.go.html#line-374">alignUp</a></b></span>
 
-<span class="title">103 uses</span>
+<span class="title">102 uses</span>
 
 	runtime (current package)
 		<a href="../src/runtime/cgocall.go.html#line-495">cgocall.go#L495</a>: 		sched.sp = *(*uintptr)(unsafe.Pointer(sched.sp + <b>alignUp</b>(sys.MinFrameSize, sys.StackAlign)))
 		<a href="../src/runtime/malloc.go.html#line-582">malloc.go#L582</a>: 			randHeapBase = <b>alignUp</b>(randHeapBase, heapArenaBytes)
 		<a href="../src/runtime/malloc.go.html#line-693" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-693">#L693</a>: 		p = <b>alignUp</b>(p+(256&lt;&lt;10), heapArenaBytes)
 		<a href="../src/runtime/malloc.go.html#line-744" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-744">#L744</a>: 	n = <b>alignUp</b>(n, heapArenaBytes)
-		<a href="../src/runtime/malloc.go.html#line-1251" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1251">#L1251</a>: 		off = <b>alignUp</b>(off, 8)
-		<a href="../src/runtime/malloc.go.html#line-1259" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1259">#L1259</a>: 		off = <b>alignUp</b>(off, 8)
-		<a href="../src/runtime/malloc.go.html#line-1261" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1261">#L1261</a>: 		off = <b>alignUp</b>(off, 4)
-		<a href="../src/runtime/malloc.go.html#line-1263" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1263">#L1263</a>: 		off = <b>alignUp</b>(off, 2)
-		<a href="../src/runtime/malloc.go.html#line-2372" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-2372">#L2372</a>: 	persistent.off = <b>alignUp</b>(persistent.off, align)
-		<a href="../src/runtime/malloc.go.html#line-2390" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-2390">#L2390</a>: 		persistent.off = <b>alignUp</b>(goarch.PtrSize, align)
-		<a href="../src/runtime/malloc.go.html#line-2449" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-2449">#L2449</a>: 	p := <b>alignUp</b>(l.next, align)
-		<a href="../src/runtime/malloc.go.html#line-2454" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-2454">#L2454</a>: 	if pEnd := <b>alignUp</b>(l.next-1, physPageSize); pEnd &gt; l.mapped {
+		<a href="../src/runtime/malloc.go.html#line-951" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-951">#L951</a>: 		p = <b>alignUp</b>(p, align)
+		<a href="../src/runtime/malloc.go.html#line-965" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-965">#L965</a>: 		pAligned := <b>alignUp</b>(p, align)
+		<a href="../src/runtime/malloc.go.html#line-1303" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1303">#L1303</a>: 		off = <b>alignUp</b>(off, 8)
+		<a href="../src/runtime/malloc.go.html#line-1311" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1311">#L1311</a>: 		off = <b>alignUp</b>(off, 8)
+		<a href="../src/runtime/malloc.go.html#line-1313" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1313">#L1313</a>: 		off = <b>alignUp</b>(off, 4)
+		<a href="../src/runtime/malloc.go.html#line-1315" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-1315">#L1315</a>: 		off = <b>alignUp</b>(off, 2)
+		<a href="../src/runtime/malloc.go.html#line-2424" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-2424">#L2424</a>: 	persistent.off = <b>alignUp</b>(persistent.off, align)
+		<a href="../src/runtime/malloc.go.html#line-2442" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-2442">#L2442</a>: 		persistent.off = <b>alignUp</b>(goarch.PtrSize, align)
+		<a href="../src/runtime/malloc.go.html#line-2501" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-2501">#L2501</a>: 	p := <b>alignUp</b>(l.next, align)
+		<a href="../src/runtime/malloc.go.html#line-2506" class="path-duplicate">malloc.go</a><a href="../src/runtime/malloc.go.html#line-2506">#L2506</a>: 	if pEnd := <b>alignUp</b>(l.next-1, physPageSize); pEnd &gt; l.mapped {
 		<a href="../src/runtime/malloc_generated.go.html#line-4342">malloc_generated.go#L4342</a>: 		off = <b>alignUp</b>(off, 8)
 		<a href="../src/runtime/malloc_generated.go.html#line-4345" class="path-duplicate">malloc_generated.go</a><a href="../src/runtime/malloc_generated.go.html#line-4345">#L4345</a>: 		off = <b>alignUp</b>(off, 8)
 		<a href="../src/runtime/malloc_generated.go.html#line-4347" class="path-duplicate">malloc_generated.go</a><a href="../src/runtime/malloc_generated.go.html#line-4347">#L4347</a>: 		off = <b>alignUp</b>(off, 4)
@@ -91,12 +93,9 @@
 		<a href="../src/runtime/malloc_stubs.go.html#line-413" class="path-duplicate">malloc_stubs.go</a><a href="../src/runtime/malloc_stubs.go.html#line-413">#L413</a>: 		off = <b>alignUp</b>(off, 4)
 		<a href="../src/runtime/malloc_stubs.go.html#line-415" class="path-duplicate">malloc_stubs.go</a><a href="../src/runtime/malloc_stubs.go.html#line-415">#L415</a>: 		off = <b>alignUp</b>(off, 2)
 		<a href="../src/runtime/mbitmap.go.html#line-812">mbitmap.go#L812</a>: 	off := <b>alignUp</b>(uintptr(cheaprand())%dataSize, goarch.PtrSize)
-		<a href="../src/runtime/mem.go.html#line-213">mem.go#L213</a>: 		p = <b>alignUp</b>(p, align)
-		<a href="../src/runtime/mem.go.html#line-227" class="path-duplicate">mem.go</a><a href="../src/runtime/mem.go.html#line-227">#L227</a>: 		pAligned := <b>alignUp</b>(p, align)
 		<a href="../src/runtime/mem_linux.go.html#line-106">mem_linux.go#L106</a>: 		beg := <b>alignUp</b>(uintptr(v), physHugePageSize)
 		<a href="../src/runtime/mfinal.go.html#line-529">mfinal.go#L529</a>: 		nret = <b>alignUp</b>(nret, uintptr(t.Align_)) + t.Size_
 		<a href="../src/runtime/mfinal.go.html#line-531" class="path-duplicate">mfinal.go</a><a href="../src/runtime/mfinal.go.html#line-531">#L531</a>: 	nret = <b>alignUp</b>(nret, goarch.PtrSize)
-		<a href="../src/runtime/mgcmark.go.html#line-1099">mgcmark.go#L1099</a>: 					size += <b>alignUp</b>(sys.MinFrameSize, sys.StackAlign)
 		<a href="../src/runtime/mgcscavenge.go.html#line-910">mgcscavenge.go#L910</a>: 		max = <b>alignUp</b>(max, minimum)
 		<a href="../src/runtime/mgcscavenge.go.html#line-970" class="path-duplicate">mgcscavenge.go</a><a href="../src/runtime/mgcscavenge.go.html#line-970">#L970</a>: 		hugePageAbove := uint(<b>alignUp</b>(uintptr(start), pagesPerHugePage))
 		<a href="../src/runtime/mheap.go.html#line-1290">mheap.go#L1290</a>: 		base = <b>alignUp</b>(base, physPageSize)
@@ -115,11 +114,11 @@
 		<a href="../src/runtime/stkframe.go.html#line-281">stkframe.go#L281</a>: 		off:       -int32(<b>alignUp</b>(abiRegArgsType.Size_, 8)), // It's always the highest address local.
 		<a href="../src/runtime/stubs.go.html#line-374">stubs.go#L374</a>: func <b>alignUp</b>(n, a uintptr) uintptr {
 		<a href="../src/runtime/symtab.go.html#line-663">symtab.go#L663</a>: 		maxpc = <b>alignUp</b>(maxpc, 1&lt;&lt;16) // round up for end PC
-		<a href="../src/runtime/traceback.go.html#line-509">traceback.go#L509</a>: 		frame.sp += <b>alignUp</b>(sys.MinFrameSize, sys.StackAlign)
+		<a href="../src/runtime/traceback.go.html#line-504">traceback.go#L504</a>: 		frame.sp += <b>alignUp</b>(sys.MinFrameSize, sys.StackAlign)
 		<a href="../src/runtime/traceregion.go.html#line-44">traceregion.go#L44</a>: 	n = <b>alignUp</b>(n, 8)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

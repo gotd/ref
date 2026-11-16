@@ -5,18 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: github.com/klauspost/compress/zstd.sequenceDecs.maxSyncLen</title>
-<link href="../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/klauspost/compress/zstd.html">github.com/klauspost/compress/zstd</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-63">sequenceDecs</a>.<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-76">maxSyncLen</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">15 uses</span>
+<span class="title">18 uses</span>
 
 	github.com/klauspost/compress/zstd (current package)
-		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-496">blockdec.go#L496</a>: 	if hist.decoders.<b>maxSyncLen</b> &gt; 0 {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-497" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-497">#L497</a>: 		hist.decoders.<b>maxSyncLen</b> += uint64(before)
-		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-498" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-498">#L498</a>: 		hist.decoders.<b>maxSyncLen</b> -= uint64(len(hist.decoders.out))
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-497">blockdec.go#L497</a>: 	if hist.decoders.<b>maxSyncLen</b> &gt; 0 {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-498" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-498">#L498</a>: 		hist.decoders.<b>maxSyncLen</b> += uint64(before)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-499" class="path-duplicate">blockdec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/blockdec.go.html#line-499">#L499</a>: 		hist.decoders.<b>maxSyncLen</b> -= uint64(len(hist.decoders.out))
 		<a href="../../../../src/github.com/klauspost/compress/zstd/framedec.go.html#line-338">framedec.go#L338</a>: 	d.history.decoders.<b>maxSyncLen</b> = 0
 		<a href="../../../../src/github.com/klauspost/compress/zstd/framedec.go.html#line-340" class="path-duplicate">framedec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/framedec.go.html#line-340">#L340</a>: 		d.history.decoders.<b>maxSyncLen</b> = uint64(cap(dst) - len(dst))
 		<a href="../../../../src/github.com/klauspost/compress/zstd/framedec.go.html#line-343" class="path-duplicate">framedec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/framedec.go.html#line-343">#L343</a>: 		if !d.o.limitToCap || d.FrameContentSize+uint64(len(dst)) &lt; d.history.decoders.<b>maxSyncLen</b> {
@@ -27,11 +27,13 @@
 		<a href="../../../../src/github.com/klauspost/compress/zstd/framedec.go.html#line-355" class="path-duplicate">framedec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/framedec.go.html#line-355">#L355</a>: 		if !d.o.limitToCap &amp;&amp; uint64(cap(dst)) &lt; d.history.decoders.<b>maxSyncLen</b> {
 		<a href="../../../../src/github.com/klauspost/compress/zstd/framedec.go.html#line-357" class="path-duplicate">framedec.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/framedec.go.html#line-357">#L357</a>: 			dst2 := make([]byte, len(dst), d.history.decoders.<b>maxSyncLen</b>+compressedBlockOverAlloc)
 		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec.go.html#line-76">seqdec.go#L76</a>: 	<b>maxSyncLen</b>   uint64
-		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-85">seqdec_asm.go#L85</a>: 	if s.<b>maxSyncLen</b> == 0 &amp;&amp; cap(s.out)-len(s.out) &lt; maxCompressedBlockSize {
-		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-141" class="path-duplicate">seqdec_asm.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-141">#L141</a>: 			println("msl:", s.<b>maxSyncLen</b>, "cap", cap(s.out), "bef:", startSize, "sz:", size-startSize, "mbs:", maxBlockSize, "outsz:", cap(s.out)-startSize)
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-97">seqdec_asm.go#L97</a>: 	if s.<b>maxSyncLen</b> == 0 &amp;&amp; cap(s.out)-len(s.out) &lt; maxCompressedBlockSizeAlloc {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-100" class="path-duplicate">seqdec_asm.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-100">#L100</a>: 	if s.<b>maxSyncLen</b> &gt; 0 &amp;&amp; cap(s.out)-len(s.out)-compressedBlockOverAlloc &lt; int(s.<b>maxSyncLen</b>) {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-114" class="path-duplicate">seqdec_asm.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-114">#L114</a>: 	if s.<b>maxSyncLen</b> == 0 &amp;&amp; cap(s.out)-len(s.out) &lt; maxCompressedBlockSize {
+		<a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-168" class="path-duplicate">seqdec_asm.go</a><a href="../../../../src/github.com/klauspost/compress/zstd/seqdec_asm.go.html#line-168">#L168</a>: 			println("msl:", s.<b>maxSyncLen</b>, "cap", cap(s.out), "bef:", startSize, "sz:", size-startSize, "mbs:", maxBlockSize, "outsz:", cap(s.out)-startSize)
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

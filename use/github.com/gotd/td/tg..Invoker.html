@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: github.com/gotd/td/tg.Invoker</title>
-<link href="../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../../../../pkg/github.com/gotd/td/tg.html">github.com/gotd/td/tg</a>.<a href="../../../../src/github.com/gotd/td/tg/tl_client_gen.go.html#line-35">Invoker</a></b></span>
 
-<span class="title">13 uses</span>
+<span class="title">21 uses</span>
 
 	github.com/gotd/td/tg (current package)
 		<a href="../../../../src/github.com/gotd/td/tg/tl_client_gen.go.html#line-35">tl_client_gen.go#L35</a>: type <b>Invoker</b> interface {
@@ -20,8 +20,16 @@
 		<a href="../../../../src/github.com/gotd/td/tg/tl_client_gen.go.html#line-50" class="path-duplicate">tl_client_gen.go</a><a href="../../../../src/github.com/gotd/td/tg/tl_client_gen.go.html#line-50">#L50</a>: func NewClient(invoker <b>Invoker</b>) *Client {
 
 	<a href="../../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
-		<a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-80">client.go#L80</a>: 	invoker tg.<b>Invoker</b> // immutable
+		<a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-94">client.go#L94</a>: 	invoker tg.<b>Invoker</b> // immutable
+		<a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-150" class="path-duplicate">client.go</a><a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-150">#L150</a>: 	fileInvokers    map[int]tg.<b>Invoker</b>
+		<a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-380" class="path-duplicate">client.go</a><a href="../../../../src/github.com/gotd/td/telegram/client.go.html#line-380">#L380</a>: 	c.fileInvokers = map[int]tg.<b>Invoker</b>{}
+		<a href="../../../../src/github.com/gotd/td/telegram/connect.go.html#line-273">connect.go#L273</a>: 		c.fileInvokers = map[int]tg.<b>Invoker</b>{}
 		<a href="../../../../src/github.com/gotd/td/telegram/dc_transfer.go.html#line-12">dc_transfer.go#L12</a>: 	return func(ctx context.Context, invoker tg.<b>Invoker</b>) error {
+		<a href="../../../../src/github.com/gotd/td/telegram/download.go.html#line-246">download.go#L246</a>: func (c *Client) DownloadVia(invoker tg.<b>Invoker</b>, location tg.InputFileLocationClass) *downloader.Builder {
+		<a href="../../../../src/github.com/gotd/td/telegram/download.go.html#line-256" class="path-duplicate">download.go</a><a href="../../../../src/github.com/gotd/td/telegram/download.go.html#line-256">#L256</a>: func (c *Client) DownloadWebVia(invoker tg.<b>Invoker</b>, location tg.InputWebFileLocationClass) *downloader.Builder {
+		<a href="../../../../src/github.com/gotd/td/telegram/file_dc.go.html#line-34">file_dc.go#L34</a>: func (c *Client) FileDC(ctx context.Context, dc int) (tg.<b>Invoker</b>, error) {
+		<a href="../../../../src/github.com/gotd/td/telegram/invoke.go.html#line-64">invoke.go#L64</a>: 	next   tg.<b>Invoker</b>
+		<a href="../../../../src/github.com/gotd/td/telegram/logout.go.html#line-99">logout.go#L99</a>: 	c.fileInvokers = map[int]tg.<b>Invoker</b>{}
 		<a href="../../../../src/github.com/gotd/td/telegram/middleware.go.html#line-20">middleware.go#L20</a>: 	Handle(next tg.<b>Invoker</b>) InvokeFunc
 		<a href="../../../../src/github.com/gotd/td/telegram/middleware.go.html#line-24" class="path-duplicate">middleware.go</a><a href="../../../../src/github.com/gotd/td/telegram/middleware.go.html#line-24">#L24</a>: type MiddlewareFunc func(next tg.<b>Invoker</b>) InvokeFunc
 		<a href="../../../../src/github.com/gotd/td/telegram/middleware.go.html#line-27" class="path-duplicate">middleware.go</a><a href="../../../../src/github.com/gotd/td/telegram/middleware.go.html#line-27">#L27</a>: func (m MiddlewareFunc) Handle(next tg.<b>Invoker</b>) InvokeFunc { return m(next) }
@@ -29,10 +37,10 @@
 		<a href="../../../../src/github.com/gotd/td/telegram/pool.go.html#line-22">pool.go#L22</a>: 	tg.<b>Invoker</b>
 
 	<a href="../../../../pkg/github.com/gotd/td/telegram/internal/manager.html">github.com/gotd/td/telegram/internal/manager</a>
-		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/create.go.html#line-17">create.go#L17</a>: type SetupCallback = func(ctx context.Context, invoker tg.<b>Invoker</b>) error
+		<a href="../../../../src/github.com/gotd/td/telegram/internal/manager/create.go.html#line-21">create.go#L21</a>: type SetupCallback = func(ctx context.Context, invoker tg.<b>Invoker</b>) error
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

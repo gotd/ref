@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: pool.go in package github.com/gotd/td/pool</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -334,7 +334,7 @@ input[id=i6]:checked ~pre .i6
 <span class="codeline" id="line-185"><code>		<span class="keyword">case</span> <a href="../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r32" class="ident">ctx</label>.<a href="../../../../context/context.go.html#line-108" class="ident">Done</a>():</code></span>
 <span class="codeline" id="line-186"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r32" class="ident">ctx</label>.<a href="../../../../context/context.go.html#line-115" class="ident">Err</a>()</code></span>
 <span class="codeline" id="line-187"><code>		<span class="keyword">case</span> <a href="../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r30" class="ident">c</label>.<a href="#line-27" class="ident">ctx</a>.<a href="../../../../context/context.go.html#line-108" class="ident">Done</a>():</code></span>
-<span class="codeline" id="line-188"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r30" class="ident">c</label>.<a href="#line-27" class="ident">ctx</a>.<a href="../../../../context/context.go.html#line-115" class="ident">Err</a>(), <span class="lit-string">"DC closed"</span>)</code></span>
+<span class="codeline" id="line-188"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r30" class="ident">c</label>.<a href="#line-27" class="ident">ctx</a>.<a href="../../../../context/context.go.html#line-115" class="ident">Err</a>(), <span class="lit-string">"DC closed"</span>)</code></span>
 <span class="codeline" id="line-189"><code>		<span class="keyword">case</span> <a href="../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r39" class="ident">conn</label>.<a href="pool_conn.go.html#line-30" class="ident">Ready</a>():</code></span>
 <span class="codeline" id="line-190"><code>			<span class="keyword">return</span> <label for="r39" class="ident">conn</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
 <span class="codeline" id="line-191"><code>		<span class="keyword">case</span> <a href="../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r39" class="ident">conn</label>.<a href="pool_conn.go.html#line-41" class="ident">Dead</a>():</code></span>
@@ -371,7 +371,7 @@ input[id=i6]:checked ~pre .i6
 <span class="codeline" id="line-222"><code>	<span class="keyword">case</span> <a href="../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r32" class="ident">ctx</label>.<a href="../../../../context/context.go.html#line-108" class="ident">Done</a>():</code></span>
 <span class="codeline" id="line-223"><code>		<label for="r34" class="ident">err</label> = <label for="r32" class="ident">ctx</label>.<a href="../../../../context/context.go.html#line-115" class="ident">Err</a>()</code></span>
 <span class="codeline" id="line-224"><code>	<span class="keyword">case</span> <a href="../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r30" class="ident">c</label>.<a href="#line-27" class="ident">ctx</a>.<a href="../../../../context/context.go.html#line-108" class="ident">Done</a>():</code></span>
-<span class="codeline" id="line-225"><code>		<label for="r34" class="ident">err</label> = <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r30" class="ident">c</label>.<a href="#line-27" class="ident">ctx</a>.<a href="../../../../context/context.go.html#line-115" class="ident">Err</a>(), <span class="lit-string">"DC closed"</span>)</code></span>
+<span class="codeline" id="line-225"><code>		<label for="r34" class="ident">err</label> = <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r30" class="ident">c</label>.<a href="#line-27" class="ident">ctx</a>.<a href="../../../../context/context.go.html#line-115" class="ident">Err</a>(), <span class="lit-string">"DC closed"</span>)</code></span>
 <span class="codeline" id="line-226"><code>	}</code></span>
 <span class="codeline" id="line-227"><code></code></span>
 <span class="codeline" id="line-228"><code>	<span class="comment">// Executed only if at least one of context is Done.</span></code></span>
@@ -396,10 +396,10 @@ input[id=i6]:checked ~pre .i6
 <span class="codeline" id="line-247"><code>	<span class="keyword">for</span> {</code></span>
 <span class="codeline" id="line-248"><code>		<label for="r52" class="ident">conn</label>, <label for="r53" class="ident">err</label> := <label for="r47" class="ident">c</label>.<a href="#line-157" class="ident">acquire</a>(<label for="r49" class="ident">ctx</label>)</code></span>
 <span class="codeline" id="line-249"><code>		<span class="keyword">if</span> <label for="r53" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-250"><code>			<span class="keyword">if</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-114" class="ident">Is</a>(<label for="r53" class="ident">err</label>, <a href="pool_conn.go.html#line-15" class="ident">ErrConnDead</a>) {</code></span>
+<span class="codeline" id="line-250"><code>			<span class="keyword">if</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-120" class="ident">Is</a>(<label for="r53" class="ident">err</label>, <a href="pool_conn.go.html#line-15" class="ident">ErrConnDead</a>) {</code></span>
 <span class="codeline" id="line-251"><code>				<span class="keyword">continue</span></code></span>
 <span class="codeline" id="line-252"><code>			}</code></span>
-<span class="codeline" id="line-253"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r53" class="ident">err</label>, <span class="lit-string">"acquire connection"</span>)</code></span>
+<span class="codeline" id="line-253"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r53" class="ident">err</label>, <span class="lit-string">"acquire connection"</span>)</code></span>
 <span class="codeline" id="line-254"><code>		}</code></span>
 <span class="codeline" id="line-255"><code></code></span>
 <span class="codeline" id="line-256"><code>		<label for="r47" class="ident">c</label>.<a href="#line-24" class="ident">log</a>.<a href="../../log/helper.go.html#line-60" class="ident">Debug</a>(<label for="r49" class="ident">ctx</label>, <span class="lit-string">"DC Invoke"</span>)</code></span>
@@ -420,7 +420,7 @@ input[id=i6]:checked ~pre .i6
 <span class="codeline" id="line-271"><code>		<label for="r47" class="ident">c</label>.<a href="#line-138" class="ident">release</a>(<label for="r52" class="ident">conn</label>)</code></span>
 <span class="codeline" id="line-272"><code>		<span class="keyword">if</span> <label for="r53" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-273"><code>			<label for="r47" class="ident">c</label>.<a href="#line-24" class="ident">log</a>.<a href="../../log/helper.go.html#line-60" class="ident">Debug</a>(<label for="r49" class="ident">ctx</label>, <span class="lit-string">"DC Invoke failed"</span>, <a href="../../../../../pkg/github.com/gotd/log.html" class="ident i3">log</a>.<a href="../../log/attr.go.html#line-183" class="ident">Error</a>(<label for="r53" class="ident">err</label>))</code></span>
-<span class="codeline" id="line-274"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r53" class="ident">err</label>, <span class="lit-string">"invoke pool"</span>)</code></span>
+<span class="codeline" id="line-274"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i2">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r53" class="ident">err</label>, <span class="lit-string">"invoke pool"</span>)</code></span>
 <span class="codeline" id="line-275"><code>		}</code></span>
 <span class="codeline" id="line-276"><code></code></span>
 <span class="codeline" id="line-277"><code>		<label for="r47" class="ident">c</label>.<a href="#line-24" class="ident">log</a>.<a href="../../log/helper.go.html#line-60" class="ident">Debug</a>(<label for="r49" class="ident">ctx</label>, <span class="lit-string">"DC Invoke complete"</span>)</code></span>
@@ -443,7 +443,7 @@ input[id=i6]:checked ~pre .i6
 <span class="codeline" id="line-294"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

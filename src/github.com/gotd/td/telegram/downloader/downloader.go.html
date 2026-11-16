@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: downloader.go in package github.com/gotd/td/telegram/downloader</title>
-<link href="../../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -33,10 +33,15 @@ input[id=r13]:checked ~pre label[for=r13],
 input[id=r14]:checked ~pre label[for=r14],
 input[id=r15]:checked ~pre label[for=r15],
 input[id=r16]:checked ~pre label[for=r16],
-input[id=r17]:checked ~pre label[for=r17]
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
-input[id=i1]:checked ~pre .i1
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2,
+input[id=i3]:checked ~pre .i3
 {background: brown; color: #eed;}
 </style><input id="r0" type="radio" name="g"/>
 <input id="r1" type="radio" name="g"/>
@@ -56,89 +61,116 @@ input[id=i1]:checked ~pre .i1
 <input id="r15" type="radio" name="g"/>
 <input id="r16" type="radio" name="g"/>
 <input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+<input id="i3" type="radio" name="i"/>
 
 <pre class="line-numbers">
 <div class="anchor" id="doc"><span class="codeline" id="line-1"><code><span class="comment">// Package downloader contains downloading files helpers.</span></code></span></div><span class="codeline" id="line-2"><code><span class="keyword">package</span> downloader</code></span>
 <span class="codeline" id="line-3"><code></code></span>
 <span class="codeline" id="line-4"><code><span class="keyword">import</span> (</code></span>
-<span class="codeline" id="line-5"><code>	<label for="i0"><span class="lit-string i0">"github.com/gotd/td/bin"</span></label></code></span>
-<span class="codeline" id="line-6"><code>	<label for="i1"><span class="lit-string i1">"github.com/gotd/td/tg"</span></label></code></span>
-<span class="codeline" id="line-7"><code>)</code></span>
+<span class="codeline" id="line-5"><code>	<label for="i0"><span class="lit-string i0">"go.opentelemetry.io/otel/metric"</span></label></code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code>	<label for="i1"><span class="lit-string i1">"github.com/gotd/log"</span></label></code></span>
 <span class="codeline" id="line-8"><code></code></span>
-<span class="codeline" id="line-9"><code><span class="comment">// Downloader is Telegram file downloader.</span></code></span>
-<span class="codeline" id="line-10"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-Downloader" class="ident">Downloader</a> <span class="keyword">struct</span> {</code></span>
-<span class="codeline" id="line-11"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.partSize^839eb.html" class="ident">partSize</a> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
-<span class="codeline" id="line-12"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.pool^27cac.html" class="ident">pool</a>     *<a href="../../../../../../pkg/github.com/gotd/td/bin.html" class="ident i0">bin</a>.<a href="../../bin/pool.go.html#line-6" class="ident">Pool</a></code></span>
-<span class="codeline" id="line-13"><code>	<span class="comment">// allowCDN is tri-state:</span></code></span>
-<span class="codeline" id="line-14"><code><span class="comment">	// nil  -&gt; keep default downloader behavior (CDN disabled),</span></code></span>
-<span class="codeline" id="line-15"><code><span class="comment">	// true -&gt; allow redirect flow,</span></code></span>
-<span class="codeline" id="line-16"><code><span class="comment">	// false-&gt; force legacy master-only flow.</span></code></span>
-<span class="codeline" id="line-17"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.allowCDN^56163.html" class="ident">allowCDN</a> *<a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
-<span class="codeline" id="line-18"><code>	<span class="comment">// retryHandler observes transient downloader errors that are retried.</span></code></span>
-<span class="codeline" id="line-19"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.retryHandler^19860.html" class="ident">retryHandler</a> <a href="retry_event.go.html#line-24" class="ident">RetryHandler</a></code></span>
-<span class="codeline" id="line-20"><code>}</code></span>
-<span class="codeline" id="line-21"><code></code></span>
-<span class="codeline" id="line-22"><code><span class="keyword">const</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-defaultPartSize" class="ident">defaultPartSize</a> = <span class="lit-number">512</span> * <span class="lit-number">1024</span> <span class="comment">// 512 kb</span></code></span>
-<span class="codeline" id="line-23"><code></code></span>
-<span class="codeline" id="line-24"><code><span class="comment">// NewDownloader creates new Downloader.</span></code></span>
-<span class="codeline" id="line-25"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-NewDownloader" class="ident">NewDownloader</a></label>() *<a href="#line-10" class="ident">Downloader</a> {</code></span>
-<span class="codeline" id="line-26"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-new" class="ident">new</a>(<a href="#line-10" class="ident">Downloader</a>).<a href="#line-33" class="ident">WithPartSize</a>(<a href="#line-22" class="ident">defaultPartSize</a>)</code></span>
-<span class="codeline" id="line-27"><code>}</code></span>
-<span class="codeline" id="line-28"><code></code></span>
-<span class="codeline" id="line-29"><code><span class="comment">// WithPartSize sets chunk size.</span></code></span>
-<span class="codeline" id="line-30"><code><span class="comment">// Must be divisible by 4KB.</span></code></span>
-<span class="codeline" id="line-31"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-32"><code><span class="comment">// See https://core.telegram.org/api/files#downloading-files.</span></code></span>
-<span class="codeline" id="line-33"><code><span class="keyword">func</span> (<label for="r1" class="ident">d</label> *<a href="#line-10" class="ident">Downloader</a>) <label for="r2" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.WithPartSize.html" class="ident">WithPartSize</a></label>(<label for="r3" class="ident">partSize</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) *<a href="#line-10" class="ident">Downloader</a> {</code></span>
-<span class="codeline" id="line-34"><code>	<label for="r1" class="ident">d</label>.<a href="#line-11" class="ident">partSize</a> = <label for="r3" class="ident">partSize</label></code></span>
-<span class="codeline" id="line-35"><code>	<label for="r1" class="ident">d</label>.<a href="#line-12" class="ident">pool</a> = <a href="../../../../../../pkg/github.com/gotd/td/bin.html" class="ident i0">bin</a>.<a href="../../bin/pool.go.html#line-12" class="ident">NewPool</a>(<label for="r3" class="ident">partSize</label>)</code></span>
-<span class="codeline" id="line-36"><code>	<span class="keyword">return</span> <label for="r1" class="ident">d</label></code></span>
-<span class="codeline" id="line-37"><code>}</code></span>
-<span class="codeline" id="line-38"><code></code></span>
-<span class="codeline" id="line-39"><code><span class="comment">// WithAllowCDN explicitly enables or disables CDN redirect flow.</span></code></span>
-<span class="codeline" id="line-40"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-41"><code><span class="comment">// This flag is explicit: if it is not set, downloader keeps legacy</span></code></span>
-<span class="codeline" id="line-42"><code><span class="comment">// master-DC-only behavior and does not attempt CDN redirect handling.</span></code></span>
-<span class="codeline" id="line-43"><code><span class="comment">// Client integration (`telegram.Client.Downloader`) sets this option from</span></code></span>
-<span class="codeline" id="line-44"><code><span class="comment">// `telegram.Options.AllowCDN`.</span></code></span>
-<span class="codeline" id="line-45"><code><span class="keyword">func</span> (<label for="r4" class="ident">d</label> *<a href="#line-10" class="ident">Downloader</a>) <label for="r5" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.WithAllowCDN.html" class="ident">WithAllowCDN</a></label>(<label for="r6" class="ident">allow</label> <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) *<a href="#line-10" class="ident">Downloader</a> {</code></span>
-<span class="codeline" id="line-46"><code>	<label for="r4" class="ident">d</label>.<a href="#line-17" class="ident">allowCDN</a> = &amp;<label for="r6" class="ident">allow</label></code></span>
-<span class="codeline" id="line-47"><code>	<span class="keyword">return</span> <label for="r4" class="ident">d</label></code></span>
-<span class="codeline" id="line-48"><code>}</code></span>
-<span class="codeline" id="line-49"><code></code></span>
-<span class="codeline" id="line-50"><code><span class="comment">// WithRetryHandler sets callback for transient download errors that are retried</span></code></span>
-<span class="codeline" id="line-51"><code><span class="comment">// internally by downloader.</span></code></span>
-<span class="codeline" id="line-52"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-53"><code><span class="comment">// Handler can be called concurrently from download workers.</span></code></span>
-<span class="codeline" id="line-54"><code><span class="keyword">func</span> (<label for="r7" class="ident">d</label> *<a href="#line-10" class="ident">Downloader</a>) <label for="r8" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.WithRetryHandler.html" class="ident">WithRetryHandler</a></label>(<label for="r9" class="ident">handler</label> <a href="retry_event.go.html#line-24" class="ident">RetryHandler</a>) *<a href="#line-10" class="ident">Downloader</a> {</code></span>
-<span class="codeline" id="line-55"><code>	<label for="r7" class="ident">d</label>.<a href="#line-19" class="ident">retryHandler</a> = <label for="r9" class="ident">handler</label></code></span>
-<span class="codeline" id="line-56"><code>	<span class="keyword">return</span> <label for="r7" class="ident">d</label></code></span>
-<span class="codeline" id="line-57"><code>}</code></span>
-<span class="codeline" id="line-58"><code></code></span>
-<span class="codeline" id="line-59"><code><span class="comment">// Download creates Builder for plain downloads.</span></code></span>
-<span class="codeline" id="line-60"><code><span class="keyword">func</span> (<label for="r10" class="ident">d</label> *<a href="#line-10" class="ident">Downloader</a>) <label for="r11" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.Download.html" class="ident">Download</a></label>(<label for="r12" class="ident">rpc</label> <a href="client.go.html#line-16" class="ident">Client</a>, <label for="r13" class="ident">location</label> <a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i1">tg</a>.<a href="../../tg/tl_input_file_location_gen.go.html#line-2611" class="ident">InputFileLocationClass</a>) *<a href="builder.go.html#line-16" class="ident">Builder</a> {</code></span>
-<span class="codeline" id="line-61"><code>	<span class="keyword">return</span> <a href="builder.go.html#line-28" class="ident">newBuilder</a>(<label for="r10" class="ident">d</label>, <a href="master.go.html#line-25" class="ident">master</a>{</code></span>
-<span class="codeline" id="line-62"><code>		<a href="master.go.html#line-26" class="ident">client</a>:       <label for="r12" class="ident">rpc</label>,</code></span>
-<span class="codeline" id="line-63"><code>		<a href="master.go.html#line-28" class="ident">precise</a>:      <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>,</code></span>
-<span class="codeline" id="line-64"><code>		<a href="master.go.html#line-29" class="ident">allowCDN</a>:     <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a>,</code></span>
-<span class="codeline" id="line-65"><code>		<a href="master.go.html#line-31" class="ident">retryHandler</a>: <label for="r10" class="ident">d</label>.<a href="#line-19" class="ident">retryHandler</a>,</code></span>
-<span class="codeline" id="line-66"><code>		<a href="master.go.html#line-32" class="ident">location</a>:     <label for="r13" class="ident">location</label>,</code></span>
-<span class="codeline" id="line-67"><code>	})</code></span>
-<span class="codeline" id="line-68"><code>}</code></span>
-<span class="codeline" id="line-69"><code></code></span>
-<span class="codeline" id="line-70"><code><span class="comment">// Web creates Builder for web files downloads.</span></code></span>
-<span class="codeline" id="line-71"><code><span class="keyword">func</span> (<label for="r14" class="ident">d</label> *<a href="#line-10" class="ident">Downloader</a>) <label for="r15" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.Web.html" class="ident">Web</a></label>(<label for="r16" class="ident">rpc</label> <a href="client.go.html#line-16" class="ident">Client</a>, <label for="r17" class="ident">location</label> <a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i1">tg</a>.<a href="../../tg/tl_input_web_file_location_gen.go.html#line-827" class="ident">InputWebFileLocationClass</a>) *<a href="builder.go.html#line-16" class="ident">Builder</a> {</code></span>
-<span class="codeline" id="line-72"><code>	<span class="keyword">return</span> <a href="builder.go.html#line-28" class="ident">newBuilder</a>(<label for="r14" class="ident">d</label>, <a href="web.go.html#line-15" class="ident">web</a>{</code></span>
-<span class="codeline" id="line-73"><code>		<a href="web.go.html#line-16" class="ident">client</a>:       <label for="r16" class="ident">rpc</label>,</code></span>
-<span class="codeline" id="line-74"><code>		<a href="web.go.html#line-18" class="ident">retryHandler</a>: <label for="r14" class="ident">d</label>.<a href="#line-19" class="ident">retryHandler</a>,</code></span>
-<span class="codeline" id="line-75"><code>		<a href="web.go.html#line-20" class="ident">location</a>:     <label for="r17" class="ident">location</label>,</code></span>
-<span class="codeline" id="line-76"><code>	})</code></span>
-<span class="codeline" id="line-77"><code>}</code></span>
+<span class="codeline" id="line-9"><code>	<label for="i2"><span class="lit-string i2">"github.com/gotd/td/bin"</span></label></code></span>
+<span class="codeline" id="line-10"><code>	<label for="i3"><span class="lit-string i3">"github.com/gotd/td/tg"</span></label></code></span>
+<span class="codeline" id="line-11"><code>)</code></span>
+<span class="codeline" id="line-12"><code></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">// Downloader is Telegram file downloader.</span></code></span>
+<span class="codeline" id="line-14"><code><span class="keyword">type</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-Downloader" class="ident">Downloader</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-15"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.partSize^839eb.html" class="ident">partSize</a> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.pool^27cac.html" class="ident">pool</a>     *<a href="../../../../../../pkg/github.com/gotd/td/bin.html" class="ident i2">bin</a>.<a href="../../bin/pool.go.html#line-6" class="ident">Pool</a></code></span>
+<span class="codeline" id="line-17"><code>	<span class="comment">// allowCDN is tri-state:</span></code></span>
+<span class="codeline" id="line-18"><code><span class="comment">	// nil  -&gt; keep default downloader behavior (CDN disabled),</span></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">	// true -&gt; allow redirect flow,</span></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">	// false-&gt; force legacy master-only flow.</span></code></span>
+<span class="codeline" id="line-21"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.allowCDN^56163.html" class="ident">allowCDN</a> *<a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-22"><code>	<span class="comment">// retryHandler observes transient downloader errors that are retried.</span></code></span>
+<span class="codeline" id="line-23"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.retryHandler^19860.html" class="ident">retryHandler</a> <a href="retry_event.go.html#line-27" class="ident">RetryHandler</a></code></span>
+<span class="codeline" id="line-24"><code>	<span class="comment">// scheduler limits in-flight part requests, nil means no limit.</span></code></span>
+<span class="codeline" id="line-25"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.scheduler^a02ba.html" class="ident">scheduler</a> *<a href="scheduler.go.html#line-70" class="ident">Scheduler</a></code></span>
+<span class="codeline" id="line-26"><code></code></span>
+<span class="codeline" id="line-27"><code>	<span class="comment">// meterProvider and logger are set by WithMeterProvider and WithLogger.</span></code></span>
+<span class="codeline" id="line-28"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.meterProvider^f7a2b.html" class="ident">meterProvider</a> <a href="../../../../../../pkg/go.opentelemetry.io/otel/metric.html" class="ident i0">metric</a>.<a href="../../../../../go.opentelemetry.io/otel/metric/meter.go.html#line-18" class="ident">MeterProvider</a></code></span>
+<span class="codeline" id="line-29"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.logger^2686a.html" class="ident">logger</a>        <a href="../../../../../../pkg/github.com/gotd/log.html" class="ident i1">log</a>.<a href="../../../log/log.go.html#line-48" class="ident">Logger</a></code></span>
+<span class="codeline" id="line-30"><code>	<span class="comment">// obs reports metrics and logs, nil if neither is set.</span></code></span>
+<span class="codeline" id="line-31"><code>	<a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.obs^d39ed.html" class="ident">obs</a> *<a href="metrics.go.html#line-74" class="ident">observer</a></code></span>
+<span class="codeline" id="line-32"><code>}</code></span>
+<span class="codeline" id="line-33"><code></code></span>
+<span class="codeline" id="line-34"><code><span class="keyword">const</span> <a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-defaultPartSize" class="ident">defaultPartSize</a> = <span class="lit-number">512</span> * <span class="lit-number">1024</span> <span class="comment">// 512 kb</span></code></span>
+<span class="codeline" id="line-35"><code></code></span>
+<span class="codeline" id="line-36"><code><span class="comment">// NewDownloader creates new Downloader.</span></code></span>
+<span class="codeline" id="line-37"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../../pkg/github.com/gotd/td/telegram/downloader.html#name-NewDownloader" class="ident">NewDownloader</a></label>() *<a href="#line-14" class="ident">Downloader</a> {</code></span>
+<span class="codeline" id="line-38"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-new" class="ident">new</a>(<a href="#line-14" class="ident">Downloader</a>).<a href="#line-55" class="ident">WithPartSize</a>(<a href="#line-34" class="ident">defaultPartSize</a>)</code></span>
+<span class="codeline" id="line-39"><code>}</code></span>
+<span class="codeline" id="line-40"><code></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">// Clone returns a copy of the Downloader, sharing its instruments (metrics</span></code></span>
+<span class="codeline" id="line-42"><code><span class="comment">// and logger), so that With* methods of the copy don't change the original.</span></code></span>
+<span class="codeline" id="line-43"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-44"><code><span class="comment">// Use it to configure a shared, instrumented Downloader per download without</span></code></span>
+<span class="codeline" id="line-45"><code><span class="comment">// creating instruments again.</span></code></span>
+<span class="codeline" id="line-46"><code><span class="keyword">func</span> (<label for="r1" class="ident">d</label> *<a href="#line-14" class="ident">Downloader</a>) <label for="r2" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.Clone.html" class="ident">Clone</a></label>() *<a href="#line-14" class="ident">Downloader</a> {</code></span>
+<span class="codeline" id="line-47"><code>	<label for="r3" class="ident">c</label> := *<label for="r1" class="ident">d</label></code></span>
+<span class="codeline" id="line-48"><code>	<span class="keyword">return</span> &amp;<label for="r3" class="ident">c</label></code></span>
+<span class="codeline" id="line-49"><code>}</code></span>
+<span class="codeline" id="line-50"><code></code></span>
+<span class="codeline" id="line-51"><code><span class="comment">// WithPartSize sets chunk size.</span></code></span>
+<span class="codeline" id="line-52"><code><span class="comment">// Must be divisible by 4KB.</span></code></span>
+<span class="codeline" id="line-53"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-54"><code><span class="comment">// See https://core.telegram.org/api/files#downloading-files.</span></code></span>
+<span class="codeline" id="line-55"><code><span class="keyword">func</span> (<label for="r4" class="ident">d</label> *<a href="#line-14" class="ident">Downloader</a>) <label for="r5" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.WithPartSize.html" class="ident">WithPartSize</a></label>(<label for="r6" class="ident">partSize</label> <a href="../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) *<a href="#line-14" class="ident">Downloader</a> {</code></span>
+<span class="codeline" id="line-56"><code>	<label for="r4" class="ident">d</label>.<a href="#line-15" class="ident">partSize</a> = <label for="r6" class="ident">partSize</label></code></span>
+<span class="codeline" id="line-57"><code>	<label for="r4" class="ident">d</label>.<a href="#line-16" class="ident">pool</a> = <a href="../../../../../../pkg/github.com/gotd/td/bin.html" class="ident i2">bin</a>.<a href="../../bin/pool.go.html#line-12" class="ident">NewPool</a>(<label for="r6" class="ident">partSize</label>)</code></span>
+<span class="codeline" id="line-58"><code>	<span class="keyword">return</span> <label for="r4" class="ident">d</label></code></span>
+<span class="codeline" id="line-59"><code>}</code></span>
+<span class="codeline" id="line-60"><code></code></span>
+<span class="codeline" id="line-61"><code><span class="comment">// WithAllowCDN explicitly enables or disables CDN redirect flow.</span></code></span>
+<span class="codeline" id="line-62"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-63"><code><span class="comment">// This flag is explicit: if it is not set, downloader keeps legacy</span></code></span>
+<span class="codeline" id="line-64"><code><span class="comment">// master-DC-only behavior and does not attempt CDN redirect handling.</span></code></span>
+<span class="codeline" id="line-65"><code><span class="comment">// Client integration (`telegram.Client.Downloader`) sets this option from</span></code></span>
+<span class="codeline" id="line-66"><code><span class="comment">// `telegram.Options.AllowCDN`.</span></code></span>
+<span class="codeline" id="line-67"><code><span class="keyword">func</span> (<label for="r7" class="ident">d</label> *<a href="#line-14" class="ident">Downloader</a>) <label for="r8" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.WithAllowCDN.html" class="ident">WithAllowCDN</a></label>(<label for="r9" class="ident">allow</label> <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) *<a href="#line-14" class="ident">Downloader</a> {</code></span>
+<span class="codeline" id="line-68"><code>	<label for="r7" class="ident">d</label>.<a href="#line-21" class="ident">allowCDN</a> = &amp;<label for="r9" class="ident">allow</label></code></span>
+<span class="codeline" id="line-69"><code>	<span class="keyword">return</span> <label for="r7" class="ident">d</label></code></span>
+<span class="codeline" id="line-70"><code>}</code></span>
+<span class="codeline" id="line-71"><code></code></span>
+<span class="codeline" id="line-72"><code><span class="comment">// WithRetryHandler sets callback for transient download errors that are retried</span></code></span>
+<span class="codeline" id="line-73"><code><span class="comment">// internally by downloader.</span></code></span>
+<span class="codeline" id="line-74"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-75"><code><span class="comment">// Handler can be called concurrently from download workers.</span></code></span>
+<span class="codeline" id="line-76"><code><span class="keyword">func</span> (<label for="r10" class="ident">d</label> *<a href="#line-14" class="ident">Downloader</a>) <label for="r11" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.WithRetryHandler.html" class="ident">WithRetryHandler</a></label>(<label for="r12" class="ident">handler</label> <a href="retry_event.go.html#line-27" class="ident">RetryHandler</a>) *<a href="#line-14" class="ident">Downloader</a> {</code></span>
+<span class="codeline" id="line-77"><code>	<label for="r10" class="ident">d</label>.<a href="#line-23" class="ident">retryHandler</a> = <label for="r12" class="ident">handler</label></code></span>
+<span class="codeline" id="line-78"><code>	<span class="keyword">return</span> <label for="r10" class="ident">d</label></code></span>
+<span class="codeline" id="line-79"><code>}</code></span>
+<span class="codeline" id="line-80"><code></code></span>
+<span class="codeline" id="line-81"><code><span class="comment">// Download creates Builder for plain downloads.</span></code></span>
+<span class="codeline" id="line-82"><code><span class="keyword">func</span> (<label for="r13" class="ident">d</label> *<a href="#line-14" class="ident">Downloader</a>) <label for="r14" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.Download.html" class="ident">Download</a></label>(<label for="r15" class="ident">rpc</label> <a href="client.go.html#line-16" class="ident">Client</a>, <label for="r16" class="ident">location</label> <a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i3">tg</a>.<a href="../../tg/tl_input_file_location_gen.go.html#line-2619" class="ident">InputFileLocationClass</a>) *<a href="builder.go.html#line-16" class="ident">Builder</a> {</code></span>
+<span class="codeline" id="line-83"><code>	<span class="keyword">return</span> <a href="builder.go.html#line-45" class="ident">newBuilder</a>(<label for="r13" class="ident">d</label>, <a href="master.go.html#line-25" class="ident">master</a>{</code></span>
+<span class="codeline" id="line-84"><code>		<a href="master.go.html#line-26" class="ident">client</a>:       <label for="r15" class="ident">rpc</label>,</code></span>
+<span class="codeline" id="line-85"><code>		<a href="master.go.html#line-30" class="ident">precise</a>:      <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a>,</code></span>
+<span class="codeline" id="line-86"><code>		<a href="master.go.html#line-31" class="ident">allowCDN</a>:     <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a>,</code></span>
+<span class="codeline" id="line-87"><code>		<a href="master.go.html#line-33" class="ident">retryHandler</a>: <label for="r13" class="ident">d</label>.<a href="#line-31" class="ident">obs</a>.<a href="metrics.go.html#line-330" class="ident">wrapRetry</a>(<label for="r13" class="ident">d</label>.<a href="#line-23" class="ident">retryHandler</a>),</code></span>
+<span class="codeline" id="line-88"><code>		<a href="master.go.html#line-34" class="ident">location</a>:     <label for="r16" class="ident">location</label>,</code></span>
+<span class="codeline" id="line-89"><code>	})</code></span>
+<span class="codeline" id="line-90"><code>}</code></span>
+<span class="codeline" id="line-91"><code></code></span>
+<span class="codeline" id="line-92"><code><span class="comment">// Web creates Builder for web files downloads.</span></code></span>
+<span class="codeline" id="line-93"><code><span class="keyword">func</span> (<label for="r17" class="ident">d</label> *<a href="#line-14" class="ident">Downloader</a>) <label for="r18" class="ident"><a href="../../../../../../use/github.com/gotd/td/telegram/downloader..Downloader.Web.html" class="ident">Web</a></label>(<label for="r19" class="ident">rpc</label> <a href="client.go.html#line-16" class="ident">Client</a>, <label for="r20" class="ident">location</label> <a href="../../../../../../pkg/github.com/gotd/td/tg.html" class="ident i3">tg</a>.<a href="../../tg/tl_input_web_file_location_gen.go.html#line-827" class="ident">InputWebFileLocationClass</a>) *<a href="builder.go.html#line-16" class="ident">Builder</a> {</code></span>
+<span class="codeline" id="line-94"><code>	<span class="keyword">return</span> <a href="builder.go.html#line-45" class="ident">newBuilder</a>(<label for="r17" class="ident">d</label>, <a href="web.go.html#line-15" class="ident">web</a>{</code></span>
+<span class="codeline" id="line-95"><code>		<a href="web.go.html#line-16" class="ident">client</a>:       <label for="r19" class="ident">rpc</label>,</code></span>
+<span class="codeline" id="line-96"><code>		<a href="web.go.html#line-18" class="ident">retryHandler</a>: <label for="r17" class="ident">d</label>.<a href="#line-31" class="ident">obs</a>.<a href="metrics.go.html#line-330" class="ident">wrapRetry</a>(<label for="r17" class="ident">d</label>.<a href="#line-23" class="ident">retryHandler</a>),</code></span>
+<span class="codeline" id="line-97"><code>		<a href="web.go.html#line-20" class="ident">location</a>:     <label for="r20" class="ident">location</label>,</code></span>
+<span class="codeline" id="line-98"><code>	})</code></span>
+<span class="codeline" id="line-99"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

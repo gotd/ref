@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: tl_account_init_passkey_registration_gen.go in package github.com/gotd/td/tg</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -241,21 +241,22 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-141"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-142"><code><span class="comment">// Possible errors:</span></code></span>
 <span class="codeline" id="line-143"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-144"><code><span class="comment">//	403 ACCESS_DENIED:</span></code></span>
-<span class="codeline" id="line-145"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-146"><code><span class="comment">// See https://core.telegram.org/method/account.initPasskeyRegistration for reference.</span></code></span>
-<span class="codeline" id="line-147"><code><span class="keyword">func</span> (<label for="r23" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r24" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.AccountInitPasskeyRegistration.html" class="ident">AccountInitPasskeyRegistration</a></label>(<label for="r25" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>) (*<a href="tl_account_passkey_registration_options_gen.go.html#line-41" class="ident">AccountPasskeyRegistrationOptions</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-148"><code>	<span class="keyword">var</span> <label for="r26" class="ident">result</label> <a href="tl_account_passkey_registration_options_gen.go.html#line-41" class="ident">AccountPasskeyRegistrationOptions</a></code></span>
-<span class="codeline" id="line-149"><code></code></span>
-<span class="codeline" id="line-150"><code>	<label for="r27" class="ident">request</label> := &amp;<a href="#line-42" class="ident">AccountInitPasskeyRegistrationRequest</a>{}</code></span>
-<span class="codeline" id="line-151"><code>	<span class="keyword">if</span> <label for="r28" class="ident">err</label> := <label for="r23" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r25" class="ident">ctx</label>, <label for="r27" class="ident">request</label>, &amp;<label for="r26" class="ident">result</label>); <label for="r28" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-152"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r28" class="ident">err</label></code></span>
-<span class="codeline" id="line-153"><code>	}</code></span>
-<span class="codeline" id="line-154"><code>	<span class="keyword">return</span> &amp;<label for="r26" class="ident">result</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-155"><code>}</code></span>
+<span class="codeline" id="line-144"><code><span class="comment">//	403 ACCESS_DENIED: The account was deactivated, or is a bot/service account.</span></code></span>
+<span class="codeline" id="line-145"><code><span class="comment">//	406 FRESH_RESET_AUTHORISATION_FORBIDDEN: You can't logout other sessions if less than 24 hours have passed since you logged on the current session.</span></code></span>
+<span class="codeline" id="line-146"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-147"><code><span class="comment">// See https://core.telegram.org/method/account.initPasskeyRegistration for reference.</span></code></span>
+<span class="codeline" id="line-148"><code><span class="keyword">func</span> (<label for="r23" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r24" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.AccountInitPasskeyRegistration.html" class="ident">AccountInitPasskeyRegistration</a></label>(<label for="r25" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>) (*<a href="tl_account_passkey_registration_options_gen.go.html#line-41" class="ident">AccountPasskeyRegistrationOptions</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-149"><code>	<span class="keyword">var</span> <label for="r26" class="ident">result</label> <a href="tl_account_passkey_registration_options_gen.go.html#line-41" class="ident">AccountPasskeyRegistrationOptions</a></code></span>
+<span class="codeline" id="line-150"><code></code></span>
+<span class="codeline" id="line-151"><code>	<label for="r27" class="ident">request</label> := &amp;<a href="#line-42" class="ident">AccountInitPasskeyRegistrationRequest</a>{}</code></span>
+<span class="codeline" id="line-152"><code>	<span class="keyword">if</span> <label for="r28" class="ident">err</label> := <label for="r23" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r25" class="ident">ctx</label>, <label for="r27" class="ident">request</label>, &amp;<label for="r26" class="ident">result</label>); <label for="r28" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-153"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r28" class="ident">err</label></code></span>
+<span class="codeline" id="line-154"><code>	}</code></span>
+<span class="codeline" id="line-155"><code>	<span class="keyword">return</span> &amp;<label for="r26" class="ident">result</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-156"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

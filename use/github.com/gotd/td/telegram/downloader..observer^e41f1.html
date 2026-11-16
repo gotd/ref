@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References: github.com/gotd/td/telegram/downloader.observer</title>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre><code><span style="font-size:x-large;">type <b><a href="../../../../../pkg/github.com/gotd/td/telegram/downloader.html">github.com/gotd/td/telegram/downloader</a>.<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-74">observer</a></b></span>
+
+<span class="title">19 uses</span>
+
+	github.com/gotd/td/telegram/downloader (current package)
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/downloader.go.html#line-31">downloader.go#L31</a>: 	obs *<b>observer</b>
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-74">metrics.go#L74</a>: type <b>observer</b> struct {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-101" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-101">#L101</a>: func newObserver(mp metric.MeterProvider, lg log.Logger) *<b>observer</b> {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-106" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-106">#L106</a>: 	o := &amp;<b>observer</b>{log: log.For(lg)}
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-162" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-162">#L162</a>: func (o *<b>observer</b>) with(ctx context.Context) context.Context {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-170" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-170">#L170</a>: func observerFrom(ctx context.Context) *<b>observer</b> {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-171" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-171">#L171</a>: 	o, _ := ctx.Value(observerKey{}).(*<b>observer</b>)
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-201" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-201">#L201</a>: func (o *<b>observer</b>) request(ctx context.Context, kind string, start time.Time, n int, err error) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-214" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-214">#L214</a>: func (o *<b>observer</b>) download(ctx context.Context, err error) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-231" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-231">#L231</a>: func (o *<b>observer</b>) resume(ctx context.Context, offset int64) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-239" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-239">#L239</a>: func (o *<b>observer</b>) cdnRedirect(ctx context.Context, dc int) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-247" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-247">#L247</a>: func (o *<b>observer</b>) cdnReupload(ctx context.Context, dc int) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-255" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-255">#L255</a>: func (o *<b>observer</b>) hashMismatch(ctx context.Context, kind string, offset int64) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-263" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-263">#L263</a>: func (o *<b>observer</b>) refresh(ctx context.Context, result string, err error) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-275" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-275">#L275</a>: func (o *<b>observer</b>) backoff(ctx context.Context, err error) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-287" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-287">#L287</a>: func (o *<b>observer</b>) verified(ctx context.Context, verified, size int64, err error) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-308" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-308">#L308</a>: func (o *<b>observer</b>) retry(e RetryEvent) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-321" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-321">#L321</a>: func (o *<b>observer</b>) exhausted(ctx context.Context, op string, err error) {
+		<a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-330" class="path-duplicate">metrics.go</a><a href="../../../../../src/github.com/gotd/td/telegram/downloader/metrics.go.html#line-330">#L330</a>: func (o *<b>observer</b>) wrapRetry(h RetryHandler) RetryHandler {
+</code></pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

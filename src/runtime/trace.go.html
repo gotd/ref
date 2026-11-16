@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: trace.go in package runtime</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -637,7 +637,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-417"><code><span class="comment">	// The critical section on each goroutine here is going to be quite short, so the likelihood</span></code></span>
 <span class="codeline" id="line-418"><code><span class="comment">	// that we observe a zero value is high.</span></code></span>
 <span class="codeline" id="line-419"><code>	<span class="keyword">for</span> <a href="#line-193" class="ident">trace</a>.<a href="#line-292" class="ident">exitingSyscall</a>.<a href="../internal/runtime/atomic/types.go.html#line-20" class="ident">Load</a>() != <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-420"><code>		<a href="os_linux.go.html#line-456" class="ident">osyield</a>()</code></span>
+<span class="codeline" id="line-420"><code>		<a href="os_linux.go.html#line-455" class="ident">osyield</a>()</code></span>
 <span class="codeline" id="line-421"><code>	}</code></span>
 <span class="codeline" id="line-422"><code></code></span>
 <span class="codeline" id="line-423"><code>	<span class="comment">// Record some initial pieces of information.</span></code></span>
@@ -926,7 +926,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-706"><code>			}</code></span>
 <span class="codeline" id="line-707"><code>			<span class="comment">// Yield only if we're going to be going around the loop again.</span></code></span>
 <span class="codeline" id="line-708"><code>			<span class="keyword">if</span> <label for="r32" class="ident">mToFlush</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-709"><code>				<a href="os_linux.go.html#line-456" class="ident">osyield</a>()</code></span>
+<span class="codeline" id="line-709"><code>				<a href="os_linux.go.html#line-455" class="ident">osyield</a>()</code></span>
 <span class="codeline" id="line-710"><code>			}</code></span>
 <span class="codeline" id="line-711"><code></code></span>
 <span class="codeline" id="line-712"><code>			<span class="keyword">if</span> <label for="r35" class="ident">debugDeadlock</label> {</code></span>
@@ -1026,7 +1026,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-806"><code>			<span class="keyword">for</span> <a href="#line-193" class="ident">trace</a>.<a href="#line-210" class="ident">empty</a> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-807"><code>				<label for="r47" class="ident">buf</label> := <a href="#line-193" class="ident">trace</a>.<a href="#line-210" class="ident">empty</a></code></span>
 <span class="codeline" id="line-808"><code>				<a href="#line-193" class="ident">trace</a>.<a href="#line-210" class="ident">empty</a> = <label for="r47" class="ident">buf</label>.<a href="tracebuf.go.html#line-260" class="ident">link</a></code></span>
-<span class="codeline" id="line-809"><code>				<a href="mem.go.html#line-131" class="ident">sysFree</a>(<a href="../../pkg/unsafe.html" class="ident i2">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r47" class="ident">buf</label>), <a href="../../pkg/unsafe.html" class="ident i2">unsafe</a>.<a href="../../pkg/unsafe.html#name-Sizeof" class="ident">Sizeof</a>(*<label for="r47" class="ident">buf</label>), &amp;<a href="mstats.go.html#line-52" class="ident">memstats</a>.<a href="mstats.go.html#line-31" class="ident">other_sys</a>)</code></span>
+<span class="codeline" id="line-809"><code>				<a href="mem.go.html#line-127" class="ident">sysFree</a>(<a href="../../pkg/unsafe.html" class="ident i2">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r47" class="ident">buf</label>), <a href="../../pkg/unsafe.html" class="ident i2">unsafe</a>.<a href="../../pkg/unsafe.html#name-Sizeof" class="ident">Sizeof</a>(*<label for="r47" class="ident">buf</label>), &amp;<a href="mstats.go.html#line-52" class="ident">memstats</a>.<a href="mstats.go.html#line-31" class="ident">other_sys</a>)</code></span>
 <span class="codeline" id="line-810"><code>			}</code></span>
 <span class="codeline" id="line-811"><code>			<span class="comment">// Clear trace.shutdown and other flags.</span></code></span>
 <span class="codeline" id="line-812"><code>			<a href="#line-193" class="ident">trace</a>.<a href="#line-219" class="ident">headerWritten</a> = <a href="../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
@@ -1443,7 +1443,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-1223"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: dir.go in package os</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -232,7 +232,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-116"><code>	<span class="keyword">if</span> <label for="r22" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-117"><code>		<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r22" class="ident">err</label></code></span>
 <span class="codeline" id="line-118"><code>	}</code></span>
-<span class="codeline" id="line-119"><code>	<span class="keyword">defer</span> <label for="r21" class="ident">f</label>.<a href="file_posix.go.html#line-20" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-119"><code>	<span class="keyword">defer</span> <label for="r21" class="ident">f</label>.<a href="file_posix.go.html#line-19" class="ident">Close</a>()</code></span>
 <span class="codeline" id="line-120"><code></code></span>
 <span class="codeline" id="line-121"><code>	<label for="r23" class="ident">dirs</label>, <label for="r22" class="ident">err</label> := <label for="r21" class="ident">f</label>.<a href="#line-97" class="ident">ReadDir</a>(-<span class="lit-number">1</span>)</code></span>
 <span class="codeline" id="line-122"><code>	<a href="../../pkg/slices.html" class="ident i4">slices</a>.<a href="../slices/sort.go.html#line-30" class="ident">SortFunc</a>(<label for="r23" class="ident">dirs</label>, <span class="keyword">func</span>(<label for="r24" class="ident">a</label>, <label for="r25" class="ident">b</label> <a href="#line-85" class="ident">DirEntry</a>) <a href="../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
@@ -278,7 +278,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-162"><code>			<span class="keyword">if</span> <label for="r35" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-163"><code>				<span class="keyword">return</span> <label for="r35" class="ident">err</label></code></span>
 <span class="codeline" id="line-164"><code>			}</code></span>
-<span class="codeline" id="line-165"><code>			<span class="keyword">return</span> <a href="file_unix.go.html#line-418" class="ident">Symlink</a>(<label for="r34" class="ident">target</label>, <label for="r33" class="ident">newPath</label>)</code></span>
+<span class="codeline" id="line-165"><code>			<span class="keyword">return</span> <a href="file_unix.go.html#line-417" class="ident">Symlink</a>(<label for="r34" class="ident">target</label>, <label for="r33" class="ident">newPath</label>)</code></span>
 <span class="codeline" id="line-166"><code>		<span class="keyword">case</span> <span class="lit-number">0</span>:</code></span>
 <span class="codeline" id="line-167"><code>			<label for="r36" class="ident">r</label>, <label for="r37" class="ident">err</label> := <label for="r28" class="ident">fsys</label>.<a href="../io/fs/fs.go.html#line-51" class="ident">Open</a>(<label for="r29" class="ident">path</label>)</code></span>
 <span class="codeline" id="line-168"><code>			<span class="keyword">if</span> <label for="r37" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
@@ -295,10 +295,10 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-179"><code>			}</code></span>
 <span class="codeline" id="line-180"><code></code></span>
 <span class="codeline" id="line-181"><code>			<span class="keyword">if</span> <label for="r40" class="ident">_</label>, <label for="r41" class="ident">err</label> := <a href="../../pkg/io.html" class="ident i2">io</a>.<a href="../io/io.go.html#line-387" class="ident">Copy</a>(<label for="r39" class="ident">w</label>, <label for="r36" class="ident">r</label>); <label for="r41" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-182"><code>				<label for="r39" class="ident">w</label>.<a href="file_posix.go.html#line-20" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-182"><code>				<label for="r39" class="ident">w</label>.<a href="file_posix.go.html#line-19" class="ident">Close</a>()</code></span>
 <span class="codeline" id="line-183"><code>				<span class="keyword">return</span> &amp;<a href="error.go.html#line-46" class="ident">PathError</a>{<a href="../io/fs/fs.go.html#line-262" class="ident">Op</a>: <span class="lit-string">"Copy"</span>, <a href="../io/fs/fs.go.html#line-263" class="ident">Path</a>: <label for="r33" class="ident">newPath</label>, <a href="../io/fs/fs.go.html#line-264" class="ident">Err</a>: <label for="r41" class="ident">err</label>}</code></span>
 <span class="codeline" id="line-184"><code>			}</code></span>
-<span class="codeline" id="line-185"><code>			<span class="keyword">return</span> <label for="r39" class="ident">w</label>.<a href="file_posix.go.html#line-20" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-185"><code>			<span class="keyword">return</span> <label for="r39" class="ident">w</label>.<a href="file_posix.go.html#line-19" class="ident">Close</a>()</code></span>
 <span class="codeline" id="line-186"><code>		<span class="keyword">default</span>:</code></span>
 <span class="codeline" id="line-187"><code>			<span class="keyword">return</span> &amp;<a href="error.go.html#line-46" class="ident">PathError</a>{<a href="../io/fs/fs.go.html#line-262" class="ident">Op</a>: <span class="lit-string">"CopyFS"</span>, <a href="../io/fs/fs.go.html#line-263" class="ident">Path</a>: <label for="r29" class="ident">path</label>, <a href="../io/fs/fs.go.html#line-264" class="ident">Err</a>: <a href="error.go.html#line-19" class="ident">ErrInvalid</a>}</code></span>
 <span class="codeline" id="line-188"><code>		}</code></span>
@@ -306,7 +306,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-190"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

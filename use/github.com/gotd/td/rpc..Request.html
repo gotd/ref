@@ -5,28 +5,32 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: github.com/gotd/td/rpc.Request</title>
-<link href="../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../../../../pkg/github.com/gotd/td/rpc.html">github.com/gotd/td/rpc</a>.<a href="../../../../src/github.com/gotd/td/rpc/engine.go.html#line-70">Request</a></b></span>
 
-<span class="title">8 uses</span>
+<span class="title">12 uses</span>
 
 	github.com/gotd/td/rpc (current package)
 		<a href="../../../../src/github.com/gotd/td/rpc/engine.go.html#line-70">engine.go#L70</a>: type <b>Request</b> struct {
 		<a href="../../../../src/github.com/gotd/td/rpc/engine.go.html#line-79" class="path-duplicate">engine.go</a><a href="../../../../src/github.com/gotd/td/rpc/engine.go.html#line-79">#L79</a>: func (e *Engine) Do(ctx context.Context, req <b>Request</b>) error {
-		<a href="../../../../src/github.com/gotd/td/rpc/engine.go.html#line-201" class="path-duplicate">engine.go</a><a href="../../../../src/github.com/gotd/td/rpc/engine.go.html#line-201">#L201</a>: func (e *Engine) retryUntilAck(ctx context.Context, req <b>Request</b>) (sent bool, err error) {
+		<a href="../../../../src/github.com/gotd/td/rpc/engine.go.html#line-214" class="path-duplicate">engine.go</a><a href="../../../../src/github.com/gotd/td/rpc/engine.go.html#line-214">#L214</a>: func (e *Engine) retryUntilAck(ctx context.Context, req <b>Request</b>) (sent bool, err error) {
 		<a href="../../../../src/github.com/gotd/td/rpc/external.go.html#line-18">external.go#L18</a>: type DropHandler func(req <b>Request</b>) error
 		<a href="../../../../src/github.com/gotd/td/rpc/external.go.html#line-21" class="path-duplicate">external.go</a><a href="../../../../src/github.com/gotd/td/rpc/external.go.html#line-21">#L21</a>: func NopDrop(<b>Request</b>) error { return nil }
 
 	<a href="../../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
-		<a href="../../../../src/github.com/gotd/td/mtproto/bind.go.html#line-98">bind.go#L98</a>: 	call := rpc.<b>Request</b>{
-		<a href="../../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-19">rpc.go#L19</a>: 	req := rpc.<b>Request</b>{
-		<a href="../../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-50" class="path-duplicate">rpc.go</a><a href="../../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-50">#L50</a>: func (c *Conn) dropRPC(req rpc.<b>Request</b>) error {
+		<a href="../../../../src/github.com/gotd/td/mtproto/bind.go.html#line-119">bind.go#L119</a>: 	call := rpc.<b>Request</b>{
+		<a href="../../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-81">rpc.go#L81</a>: 	req := rpc.<b>Request</b>{
+		<a href="../../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-103" class="path-duplicate">rpc.go</a><a href="../../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-103">#L103</a>: func (c *Conn) invoke(ctx context.Context, req rpc.<b>Request</b>) error {
+		<a href="../../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-123" class="path-duplicate">rpc.go</a><a href="../../../../src/github.com/gotd/td/mtproto/rpc.go.html#line-123">#L123</a>: func (c *Conn) dropRPC(req rpc.<b>Request</b>) error {
+		<a href="../../../../src/github.com/gotd/td/mtproto/wire_tracer.go.html#line-232">wire_tracer.go#L232</a>: func (c *Conn) traceRequestStart(req rpc.<b>Request</b>) time.Time {
+		<a href="../../../../src/github.com/gotd/td/mtproto/wire_tracer.go.html#line-239" class="path-duplicate">wire_tracer.go</a><a href="../../../../src/github.com/gotd/td/mtproto/wire_tracer.go.html#line-239">#L239</a>: func (c *Conn) traceRequestDone(req rpc.<b>Request</b>, start time.Time, err error) {
+		<a href="../../../../src/github.com/gotd/td/mtproto/wire_tracer.go.html#line-244" class="path-duplicate">wire_tracer.go</a><a href="../../../../src/github.com/gotd/td/mtproto/wire_tracer.go.html#line-244">#L244</a>: func (c *Conn) traceResend(req rpc.<b>Request</b>, reason string) {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

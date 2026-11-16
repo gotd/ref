@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: tl_messages_get_common_chats_gen.go in package github.com/gotd/td/tg</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -381,21 +381,22 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-231"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-232"><code><span class="comment">// Possible errors:</span></code></span>
 <span class="codeline" id="line-233"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-234"><code><span class="comment">//	400 MSG_ID_INVALID: Invalid message ID provided.</span></code></span>
-<span class="codeline" id="line-235"><code><span class="comment">//	400 USER_ID_INVALID: The provided user ID is invalid.</span></code></span>
-<span class="codeline" id="line-236"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-237"><code><span class="comment">// See https://core.telegram.org/method/messages.getCommonChats for reference.</span></code></span>
-<span class="codeline" id="line-238"><code><span class="keyword">func</span> (<label for="r48" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r49" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.MessagesGetCommonChats.html" class="ident">MessagesGetCommonChats</a></label>(<label for="r50" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r51" class="ident">request</label> *<a href="#line-38" class="ident">MessagesGetCommonChatsRequest</a>) (<a href="tl_messages_chats_gen.go.html#line-402" class="ident">MessagesChatsClass</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-239"><code>	<span class="keyword">var</span> <label for="r52" class="ident">result</label> <a href="tl_messages_chats_gen.go.html#line-453" class="ident">MessagesChatsBox</a></code></span>
-<span class="codeline" id="line-240"><code></code></span>
-<span class="codeline" id="line-241"><code>	<span class="keyword">if</span> <label for="r53" class="ident">err</label> := <label for="r48" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r50" class="ident">ctx</label>, <label for="r51" class="ident">request</label>, &amp;<label for="r52" class="ident">result</label>); <label for="r53" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-242"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r53" class="ident">err</label></code></span>
-<span class="codeline" id="line-243"><code>	}</code></span>
-<span class="codeline" id="line-244"><code>	<span class="keyword">return</span> <label for="r52" class="ident">result</label>.<a href="tl_messages_chats_gen.go.html#line-454" class="ident">Chats</a>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-245"><code>}</code></span>
+<span class="codeline" id="line-234"><code><span class="comment">//	400 CHANNEL_PRIVATE: You haven't joined this channel/supergroup.</span></code></span>
+<span class="codeline" id="line-235"><code><span class="comment">//	400 MSG_ID_INVALID: Invalid message ID provided.</span></code></span>
+<span class="codeline" id="line-236"><code><span class="comment">//	400 USER_ID_INVALID: The provided user ID is invalid.</span></code></span>
+<span class="codeline" id="line-237"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-238"><code><span class="comment">// See https://core.telegram.org/method/messages.getCommonChats for reference.</span></code></span>
+<span class="codeline" id="line-239"><code><span class="keyword">func</span> (<label for="r48" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r49" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.MessagesGetCommonChats.html" class="ident">MessagesGetCommonChats</a></label>(<label for="r50" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r51" class="ident">request</label> *<a href="#line-38" class="ident">MessagesGetCommonChatsRequest</a>) (<a href="tl_messages_chats_gen.go.html#line-402" class="ident">MessagesChatsClass</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-240"><code>	<span class="keyword">var</span> <label for="r52" class="ident">result</label> <a href="tl_messages_chats_gen.go.html#line-453" class="ident">MessagesChatsBox</a></code></span>
+<span class="codeline" id="line-241"><code></code></span>
+<span class="codeline" id="line-242"><code>	<span class="keyword">if</span> <label for="r53" class="ident">err</label> := <label for="r48" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r50" class="ident">ctx</label>, <label for="r51" class="ident">request</label>, &amp;<label for="r52" class="ident">result</label>); <label for="r53" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-243"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r53" class="ident">err</label></code></span>
+<span class="codeline" id="line-244"><code>	}</code></span>
+<span class="codeline" id="line-245"><code>	<span class="keyword">return</span> <label for="r52" class="ident">result</label>.<a href="tl_messages_chats_gen.go.html#line-454" class="ident">Chats</a>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-246"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: connection_state.go in package github.com/gotd/td/telegram</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -20,59 +20,172 @@ input[id=r0]:checked ~pre label[for=r0],
 input[id=r1]:checked ~pre label[for=r1],
 input[id=r2]:checked ~pre label[for=r2],
 input[id=r3]:checked ~pre label[for=r3],
-input[id=r4]:checked ~pre label[for=r4]
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13]
 {background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2
 {background: brown; color: #eed;}
 </style><input id="r0" type="radio" name="g"/>
 <input id="r1" type="radio" name="g"/>
 <input id="r2" type="radio" name="g"/>
 <input id="r3" type="radio" name="g"/>
 <input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
 
 <pre class="line-numbers">
 <span class="codeline" id="line-1"><code><span class="keyword">package</span> telegram</code></span>
 <span class="codeline" id="line-2"><code></code></span>
-<span class="codeline" id="line-3"><code><span class="comment">// ConnectionState represents the state of the primary connection.</span></code></span>
-<span class="codeline" id="line-4"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-5"><code><span class="comment">// See Options.OnConnectionState.</span></code></span>
-<span class="codeline" id="line-6"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnectionState" class="ident">ConnectionState</a> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-3"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-4"><code>	<label for="i0"><span class="lit-string i0">"context"</span></label></code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code>	<label for="i1"><span class="lit-string i1">"go.opentelemetry.io/otel/attribute"</span></label></code></span>
 <span class="codeline" id="line-7"><code></code></span>
-<span class="codeline" id="line-8"><code><span class="keyword">const</span> (</code></span>
-<span class="codeline" id="line-9"><code>	<span class="comment">// ConnectionStateConnecting means that client is establishing the primary</span></code></span>
-<span class="codeline" id="line-10"><code><span class="comment">	// connection (initial connect or reconnect after failure).</span></code></span>
-<span class="codeline" id="line-11"><code>	<a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnectionStateConnecting" class="ident">ConnectionStateConnecting</a> <a href="#line-6" class="ident">ConnectionState</a> = <a href="../../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
-<span class="codeline" id="line-12"><code>	<span class="comment">// ConnectionStateReady means that the primary connection is initialized</span></code></span>
-<span class="codeline" id="line-13"><code><span class="comment">	// and ready to send requests.</span></code></span>
-<span class="codeline" id="line-14"><code>	<a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnectionStateReady" class="ident">ConnectionStateReady</a></code></span>
-<span class="codeline" id="line-15"><code>	<span class="comment">// ConnectionStateDisconnected means that the primary connection is dead.</span></code></span>
-<span class="codeline" id="line-16"><code><span class="comment">	// Client will reconnect automatically, transitioning to</span></code></span>
-<span class="codeline" id="line-17"><code><span class="comment">	// ConnectionStateConnecting.</span></code></span>
-<span class="codeline" id="line-18"><code>	<a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnectionStateDisconnected" class="ident">ConnectionStateDisconnected</a></code></span>
-<span class="codeline" id="line-19"><code>)</code></span>
-<span class="codeline" id="line-20"><code></code></span>
-<span class="codeline" id="line-21"><code><span class="comment">// String implements fmt.Stringer.</span></code></span>
-<span class="codeline" id="line-22"><code><span class="keyword">func</span> (<label for="r0" class="ident">s</label> <a href="#line-6" class="ident">ConnectionState</a>) <label for="r1" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..ConnectionState.String.html" class="ident">String</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
-<span class="codeline" id="line-23"><code>	<span class="keyword">switch</span> <label for="r0" class="ident">s</label> {</code></span>
-<span class="codeline" id="line-24"><code>	<span class="keyword">case</span> <a href="#line-11" class="ident">ConnectionStateConnecting</a>:</code></span>
-<span class="codeline" id="line-25"><code>		<span class="keyword">return</span> <span class="lit-string">"connecting"</span></code></span>
-<span class="codeline" id="line-26"><code>	<span class="keyword">case</span> <a href="#line-14" class="ident">ConnectionStateReady</a>:</code></span>
-<span class="codeline" id="line-27"><code>		<span class="keyword">return</span> <span class="lit-string">"ready"</span></code></span>
-<span class="codeline" id="line-28"><code>	<span class="keyword">case</span> <a href="#line-18" class="ident">ConnectionStateDisconnected</a>:</code></span>
-<span class="codeline" id="line-29"><code>		<span class="keyword">return</span> <span class="lit-string">"disconnected"</span></code></span>
-<span class="codeline" id="line-30"><code>	<span class="keyword">default</span>:</code></span>
-<span class="codeline" id="line-31"><code>		<span class="keyword">return</span> <span class="lit-string">"unknown"</span></code></span>
-<span class="codeline" id="line-32"><code>	}</code></span>
-<span class="codeline" id="line-33"><code>}</code></span>
-<span class="codeline" id="line-34"><code></code></span>
-<span class="codeline" id="line-35"><code><span class="comment">// notifyConnectionState calls OnConnectionState callback, if set.</span></code></span>
-<span class="codeline" id="line-36"><code><span class="keyword">func</span> (<label for="r2" class="ident">c</label> *<a href="client.go.html#line-57" class="ident">Client</a>) <label for="r3" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.notifyConnectionState^9d5e4.html" class="ident">notifyConnectionState</a></label>(<label for="r4" class="ident">s</label> <a href="#line-6" class="ident">ConnectionState</a>) {</code></span>
-<span class="codeline" id="line-37"><code>	<span class="keyword">if</span> <label for="r2" class="ident">c</label>.<a href="client.go.html#line-71" class="ident">onConnectionState</a> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-38"><code>		<label for="r2" class="ident">c</label>.<a href="client.go.html#line-71" class="ident">onConnectionState</a>(<label for="r4" class="ident">s</label>)</code></span>
-<span class="codeline" id="line-39"><code>	}</code></span>
-<span class="codeline" id="line-40"><code>}</code></span>
+<span class="codeline" id="line-8"><code>	<label for="i2"><span class="lit-string i2">"github.com/gotd/log"</span></label></code></span>
+<span class="codeline" id="line-9"><code>)</code></span>
+<span class="codeline" id="line-10"><code></code></span>
+<span class="codeline" id="line-11"><code><span class="comment">// ConnectionState represents the state of the primary connection.</span></code></span>
+<span class="codeline" id="line-12"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">// See Options.OnConnectionState.</span></code></span>
+<span class="codeline" id="line-14"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnectionState" class="ident">ConnectionState</a> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-15"><code></code></span>
+<span class="codeline" id="line-16"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-17"><code>	<span class="comment">// ConnectionStateConnecting means that client is establishing the primary</span></code></span>
+<span class="codeline" id="line-18"><code><span class="comment">	// connection (initial connect or reconnect after failure).</span></code></span>
+<span class="codeline" id="line-19"><code>	<a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnectionStateConnecting" class="ident">ConnectionStateConnecting</a> <a href="#line-14" class="ident">ConnectionState</a> = <a href="../../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-20"><code>	<span class="comment">// ConnectionStateReady means that the primary connection is initialized</span></code></span>
+<span class="codeline" id="line-21"><code><span class="comment">	// and ready to send requests.</span></code></span>
+<span class="codeline" id="line-22"><code>	<a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnectionStateReady" class="ident">ConnectionStateReady</a></code></span>
+<span class="codeline" id="line-23"><code>	<span class="comment">// ConnectionStateDisconnected means that the primary connection is dead.</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">	// Client will reconnect automatically, transitioning to</span></code></span>
+<span class="codeline" id="line-25"><code><span class="comment">	// ConnectionStateConnecting.</span></code></span>
+<span class="codeline" id="line-26"><code>	<a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnectionStateDisconnected" class="ident">ConnectionStateDisconnected</a></code></span>
+<span class="codeline" id="line-27"><code>)</code></span>
+<span class="codeline" id="line-28"><code></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">// String implements fmt.Stringer.</span></code></span>
+<span class="codeline" id="line-30"><code><span class="keyword">func</span> (<label for="r0" class="ident">s</label> <a href="#line-14" class="ident">ConnectionState</a>) <label for="r1" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..ConnectionState.String.html" class="ident">String</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-31"><code>	<span class="keyword">switch</span> <label for="r0" class="ident">s</label> {</code></span>
+<span class="codeline" id="line-32"><code>	<span class="keyword">case</span> <a href="#line-19" class="ident">ConnectionStateConnecting</a>:</code></span>
+<span class="codeline" id="line-33"><code>		<span class="keyword">return</span> <span class="lit-string">"connecting"</span></code></span>
+<span class="codeline" id="line-34"><code>	<span class="keyword">case</span> <a href="#line-22" class="ident">ConnectionStateReady</a>:</code></span>
+<span class="codeline" id="line-35"><code>		<span class="keyword">return</span> <span class="lit-string">"ready"</span></code></span>
+<span class="codeline" id="line-36"><code>	<span class="keyword">case</span> <a href="#line-26" class="ident">ConnectionStateDisconnected</a>:</code></span>
+<span class="codeline" id="line-37"><code>		<span class="keyword">return</span> <span class="lit-string">"disconnected"</span></code></span>
+<span class="codeline" id="line-38"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-39"><code>		<span class="keyword">return</span> <span class="lit-string">"unknown"</span></code></span>
+<span class="codeline" id="line-40"><code>	}</code></span>
+<span class="codeline" id="line-41"><code>}</code></span>
+<span class="codeline" id="line-42"><code></code></span>
+<span class="codeline" id="line-43"><code><span class="comment">// ConnKind is the kind of client connection.</span></code></span>
+<span class="codeline" id="line-44"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnKind" class="ident">ConnKind</a> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-45"><code></code></span>
+<span class="codeline" id="line-46"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-47"><code>	<span class="comment">// ConnKindPrimary is the primary connection of Client.Run.</span></code></span>
+<span class="codeline" id="line-48"><code>	<a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnKindPrimary" class="ident">ConnKindPrimary</a> <a href="#line-44" class="ident">ConnKind</a> = <a href="../../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-49"><code>	<span class="comment">// ConnKindData is a connection of a pool: Client.Pool, Client.DC,</span></code></span>
+<span class="codeline" id="line-50"><code><span class="comment">	// Client.MediaOnly, Client.FileDC, or a FILE_MIGRATE connection.</span></code></span>
+<span class="codeline" id="line-51"><code>	<a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnKindData" class="ident">ConnKindData</a></code></span>
+<span class="codeline" id="line-52"><code>	<span class="comment">// ConnKindCDN is a connection to a CDN DC.</span></code></span>
+<span class="codeline" id="line-53"><code>	<a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnKindCDN" class="ident">ConnKindCDN</a></code></span>
+<span class="codeline" id="line-54"><code>)</code></span>
+<span class="codeline" id="line-55"><code></code></span>
+<span class="codeline" id="line-56"><code><span class="comment">// String implements fmt.Stringer.</span></code></span>
+<span class="codeline" id="line-57"><code><span class="keyword">func</span> (<label for="r2" class="ident">k</label> <a href="#line-44" class="ident">ConnKind</a>) <label for="r3" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..ConnKind.String.html" class="ident">String</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-58"><code>	<span class="keyword">switch</span> <label for="r2" class="ident">k</label> {</code></span>
+<span class="codeline" id="line-59"><code>	<span class="keyword">case</span> <a href="#line-48" class="ident">ConnKindPrimary</a>:</code></span>
+<span class="codeline" id="line-60"><code>		<span class="keyword">return</span> <span class="lit-string">"primary"</span></code></span>
+<span class="codeline" id="line-61"><code>	<span class="keyword">case</span> <a href="#line-51" class="ident">ConnKindData</a>:</code></span>
+<span class="codeline" id="line-62"><code>		<span class="keyword">return</span> <span class="lit-string">"data"</span></code></span>
+<span class="codeline" id="line-63"><code>	<span class="keyword">case</span> <a href="#line-53" class="ident">ConnKindCDN</a>:</code></span>
+<span class="codeline" id="line-64"><code>		<span class="keyword">return</span> <span class="lit-string">"cdn"</span></code></span>
+<span class="codeline" id="line-65"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-66"><code>		<span class="keyword">return</span> <span class="lit-string">"unknown"</span></code></span>
+<span class="codeline" id="line-67"><code>	}</code></span>
+<span class="codeline" id="line-68"><code>}</code></span>
+<span class="codeline" id="line-69"><code></code></span>
+<span class="codeline" id="line-70"><code><span class="comment">// ConnDeadEvent describes a dead connection.</span></code></span>
+<span class="codeline" id="line-71"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-72"><code><span class="comment">// See Options.OnConnDead.</span></code></span>
+<span class="codeline" id="line-73"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnDeadEvent" class="ident">ConnDeadEvent</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-74"><code>	<span class="comment">// DC is the ID of the DC of the connection.</span></code></span>
+<span class="codeline" id="line-75"><code>	<a href="../../../../../use/github.com/gotd/td/telegram..ConnDeadEvent.DC.html" class="ident">DC</a> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-76"><code>	<span class="comment">// Kind is the kind of the connection.</span></code></span>
+<span class="codeline" id="line-77"><code>	<a href="../../../../../use/github.com/gotd/td/telegram..ConnDeadEvent.Kind.html" class="ident">Kind</a> <a href="#line-44" class="ident">ConnKind</a></code></span>
+<span class="codeline" id="line-78"><code>	<span class="comment">// Err is the reason.</span></code></span>
+<span class="codeline" id="line-79"><code>	<a href="../../../../../use/github.com/gotd/td/telegram..ConnDeadEvent.Err.html" class="ident">Err</a> <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
+<span class="codeline" id="line-80"><code>}</code></span>
+<span class="codeline" id="line-81"><code></code></span>
+<span class="codeline" id="line-82"><code><span class="comment">// ConnectionStateEvent describes a state change of the primary connection.</span></code></span>
+<span class="codeline" id="line-83"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-84"><code><span class="comment">// See Options.OnConnectionStateEvent.</span></code></span>
+<span class="codeline" id="line-85"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/telegram.html#name-ConnectionStateEvent" class="ident">ConnectionStateEvent</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-86"><code>	<span class="comment">// DC is the ID of the DC of the primary connection.</span></code></span>
+<span class="codeline" id="line-87"><code>	<a href="../../../../../use/github.com/gotd/td/telegram..ConnectionStateEvent.DC.html" class="ident">DC</a> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-88"><code>	<span class="comment">// State is the new state.</span></code></span>
+<span class="codeline" id="line-89"><code>	<a href="../../../../../use/github.com/gotd/td/telegram..ConnectionStateEvent.State.html" class="ident">State</a> <a href="#line-14" class="ident">ConnectionState</a></code></span>
+<span class="codeline" id="line-90"><code>}</code></span>
+<span class="codeline" id="line-91"><code></code></span>
+<span class="codeline" id="line-92"><code><span class="comment">// notifyConnectionState calls OnConnectionState and OnConnectionStateEvent</span></code></span>
+<span class="codeline" id="line-93"><code><span class="comment">// callbacks, if set, for the primary connection to the given DC.</span></code></span>
+<span class="codeline" id="line-94"><code><span class="keyword">func</span> (<label for="r4" class="ident">c</label> *<a href="client.go.html#line-59" class="ident">Client</a>) <label for="r5" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.notifyConnectionState^9d5e4.html" class="ident">notifyConnectionState</a></label>(<label for="r6" class="ident">s</label> <a href="#line-14" class="ident">ConnectionState</a>, <label for="r7" class="ident">dc</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) {</code></span>
+<span class="codeline" id="line-95"><code>	<label for="r8" class="ident">ctx</label> := <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-215" class="ident">Background</a>()</code></span>
+<span class="codeline" id="line-96"><code>	<label for="r4" class="ident">c</label>.<a href="metrics.go.html#line-159" class="ident">meters</a>().<a href="metrics.go.html#line-42" class="ident">connState</a>.<a href="../../../../go.opentelemetry.io/otel/metric/syncint64.go.html#line-30" class="ident">Add</a>(<label for="r8" class="ident">ctx</label>, <span class="lit-number">1</span>, <a href="metrics.go.html#line-194" class="ident">dcAttrs</a>(<label for="r7" class="ident">dc</label>, <a href="../../../../../pkg/go.opentelemetry.io/otel/attribute.html" class="ident i1">attribute</a>.<a href="../../../../go.opentelemetry.io/otel/attribute/kv.go.html#line-96" class="ident">String</a>(<span class="lit-string">"state"</span>, <label for="r6" class="ident">s</label>.<a href="#line-30" class="ident">String</a>())))</code></span>
+<span class="codeline" id="line-97"><code>	<label for="r4" class="ident">c</label>.<a href="client.go.html#line-193" class="ident">log</a>.<a href="../../log/helper.go.html#line-60" class="ident">Debug</a>(<label for="r8" class="ident">ctx</label>, <span class="lit-string">"Connection state"</span>,</code></span>
+<span class="codeline" id="line-98"><code>		<a href="../../../../../pkg/github.com/gotd/log.html" class="ident i2">log</a>.<a href="../../log/attr.go.html#line-138" class="ident">String</a>(<span class="lit-string">"state"</span>, <label for="r6" class="ident">s</label>.<a href="#line-30" class="ident">String</a>()),</code></span>
+<span class="codeline" id="line-99"><code>		<a href="../../../../../pkg/github.com/gotd/log.html" class="ident i2">log</a>.<a href="../../log/attr.go.html#line-143" class="ident">Int</a>(<span class="lit-string">"dc_id"</span>, <label for="r7" class="ident">dc</label>),</code></span>
+<span class="codeline" id="line-100"><code>	)</code></span>
+<span class="codeline" id="line-101"><code>	<span class="keyword">if</span> <label for="r4" class="ident">c</label>.<a href="client.go.html#line-73" class="ident">onConnectionState</a> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-102"><code>		<label for="r4" class="ident">c</label>.<a href="client.go.html#line-73" class="ident">onConnectionState</a>(<label for="r6" class="ident">s</label>)</code></span>
+<span class="codeline" id="line-103"><code>	}</code></span>
+<span class="codeline" id="line-104"><code>	<span class="keyword">if</span> <label for="r4" class="ident">c</label>.<a href="client.go.html#line-77" class="ident">onConnectionStateEvent</a> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-105"><code>		<label for="r4" class="ident">c</label>.<a href="client.go.html#line-77" class="ident">onConnectionStateEvent</a>(<a href="#line-85" class="ident">ConnectionStateEvent</a>{<a href="#line-87" class="ident">DC</a>: <label for="r7" class="ident">dc</label>, <a href="#line-89" class="ident">State</a>: <label for="r6" class="ident">s</label>})</code></span>
+<span class="codeline" id="line-106"><code>	}</code></span>
+<span class="codeline" id="line-107"><code>}</code></span>
+<span class="codeline" id="line-108"><code></code></span>
+<span class="codeline" id="line-109"><code><span class="comment">// notifyConnDead calls OnDead and OnConnDead callbacks, if set.</span></code></span>
+<span class="codeline" id="line-110"><code><span class="keyword">func</span> (<label for="r9" class="ident">c</label> *<a href="client.go.html#line-59" class="ident">Client</a>) <label for="r10" class="ident"><a href="../../../../../use/github.com/gotd/td/telegram..Client.notifyConnDead^16cbe.html" class="ident">notifyConnDead</a></label>(<label for="r11" class="ident">e</label> <a href="#line-73" class="ident">ConnDeadEvent</a>) {</code></span>
+<span class="codeline" id="line-111"><code>	<label for="r12" class="ident">ctx</label> := <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-215" class="ident">Background</a>()</code></span>
+<span class="codeline" id="line-112"><code>	<label for="r9" class="ident">c</label>.<a href="metrics.go.html#line-159" class="ident">meters</a>().<a href="metrics.go.html#line-43" class="ident">connDead</a>.<a href="../../../../go.opentelemetry.io/otel/metric/syncint64.go.html#line-30" class="ident">Add</a>(<label for="r12" class="ident">ctx</label>, <span class="lit-number">1</span>, <a href="metrics.go.html#line-194" class="ident">dcAttrs</a>(<label for="r11" class="ident">e</label>.<a href="#line-75" class="ident">DC</a>, <a href="../../../../../pkg/go.opentelemetry.io/otel/attribute.html" class="ident i1">attribute</a>.<a href="../../../../go.opentelemetry.io/otel/attribute/kv.go.html#line-96" class="ident">String</a>(<span class="lit-string">"kind"</span>, <label for="r11" class="ident">e</label>.<a href="#line-77" class="ident">Kind</a>.<a href="#line-57" class="ident">String</a>())))</code></span>
+<span class="codeline" id="line-113"><code>	<label for="r13" class="ident">fields</label> := []<a href="../../../../../pkg/github.com/gotd/log.html" class="ident i2">log</a>.<a href="../../log/attr.go.html#line-28" class="ident">Attr</a>{</code></span>
+<span class="codeline" id="line-114"><code>		<a href="../../../../../pkg/github.com/gotd/log.html" class="ident i2">log</a>.<a href="../../log/attr.go.html#line-138" class="ident">String</a>(<span class="lit-string">"kind"</span>, <label for="r11" class="ident">e</label>.<a href="#line-77" class="ident">Kind</a>.<a href="#line-57" class="ident">String</a>()),</code></span>
+<span class="codeline" id="line-115"><code>		<a href="../../../../../pkg/github.com/gotd/log.html" class="ident i2">log</a>.<a href="../../log/attr.go.html#line-143" class="ident">Int</a>(<span class="lit-string">"dc_id"</span>, <label for="r11" class="ident">e</label>.<a href="#line-75" class="ident">DC</a>),</code></span>
+<span class="codeline" id="line-116"><code>		<a href="../../../../../pkg/github.com/gotd/log.html" class="ident i2">log</a>.<a href="../../log/attr.go.html#line-183" class="ident">Error</a>(<label for="r11" class="ident">e</label>.<a href="#line-79" class="ident">Err</a>),</code></span>
+<span class="codeline" id="line-117"><code>	}</code></span>
+<span class="codeline" id="line-118"><code>	<span class="keyword">if</span> <label for="r11" class="ident">e</label>.<a href="#line-77" class="ident">Kind</a> == <a href="#line-48" class="ident">ConnKindPrimary</a> {</code></span>
+<span class="codeline" id="line-119"><code>		<label for="r9" class="ident">c</label>.<a href="client.go.html#line-193" class="ident">log</a>.<a href="../../log/helper.go.html#line-70" class="ident">Warn</a>(<label for="r12" class="ident">ctx</label>, <span class="lit-string">"Connection dead"</span>, <label for="r13" class="ident">fields</label>...)</code></span>
+<span class="codeline" id="line-120"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-121"><code>		<label for="r9" class="ident">c</label>.<a href="client.go.html#line-193" class="ident">log</a>.<a href="../../log/helper.go.html#line-60" class="ident">Debug</a>(<label for="r12" class="ident">ctx</label>, <span class="lit-string">"Connection dead"</span>, <label for="r13" class="ident">fields</label>...)</code></span>
+<span class="codeline" id="line-122"><code>	}</code></span>
+<span class="codeline" id="line-123"><code>	<span class="keyword">if</span> <label for="r9" class="ident">c</label>.<a href="client.go.html#line-69" class="ident">onDead</a> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-124"><code>		<label for="r9" class="ident">c</label>.<a href="client.go.html#line-69" class="ident">onDead</a>(<label for="r11" class="ident">e</label>.<a href="#line-79" class="ident">Err</a>)</code></span>
+<span class="codeline" id="line-125"><code>	}</code></span>
+<span class="codeline" id="line-126"><code>	<span class="keyword">if</span> <label for="r9" class="ident">c</label>.<a href="client.go.html#line-79" class="ident">onConnDead</a> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-127"><code>		<label for="r9" class="ident">c</label>.<a href="client.go.html#line-79" class="ident">onConnDead</a>(<label for="r11" class="ident">e</label>)</code></span>
+<span class="codeline" id="line-128"><code>	}</code></span>
+<span class="codeline" id="line-129"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

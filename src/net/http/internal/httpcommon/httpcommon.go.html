@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: httpcommon.go in package net/http/internal/httpcommon</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -404,7 +404,7 @@ input[id=i11]:checked ~pre .i11
 <span class="codeline" id="line-138"><code>	<a href="#line-70" class="ident">commonLowerHeader</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>(<span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r15" class="ident">common</label>))</code></span>
 <span class="codeline" id="line-139"><code>	<a href="#line-71" class="ident">commonCanonHeader</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>(<span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r15" class="ident">common</label>))</code></span>
 <span class="codeline" id="line-140"><code>	<span class="keyword">for</span> <label for="r16" class="ident">_</label>, <label for="r17" class="ident">v</label> := <span class="keyword">range</span> <label for="r15" class="ident">common</label> {</code></span>
-<span class="codeline" id="line-141"><code>		<label for="r18" class="ident">chk</label> := <a href="../../../../../pkg/net/textproto.html" class="ident i4">textproto</a>.<a href="../../../textproto/reader.go.html#line-655" class="ident">CanonicalMIMEHeaderKey</a>(<label for="r17" class="ident">v</label>)</code></span>
+<span class="codeline" id="line-141"><code>		<label for="r18" class="ident">chk</label> := <a href="../../../../../pkg/net/textproto.html" class="ident i4">textproto</a>.<a href="../../../textproto/reader.go.html#line-653" class="ident">CanonicalMIMEHeaderKey</a>(<label for="r17" class="ident">v</label>)</code></span>
 <span class="codeline" id="line-142"><code>		<a href="#line-70" class="ident">commonLowerHeader</a>[<label for="r18" class="ident">chk</label>] = <label for="r17" class="ident">v</label></code></span>
 <span class="codeline" id="line-143"><code>		<a href="#line-71" class="ident">commonCanonHeader</a>[<label for="r17" class="ident">v</label>] = <label for="r18" class="ident">chk</label></code></span>
 <span class="codeline" id="line-144"><code>	}</code></span>
@@ -426,7 +426,7 @@ input[id=i11]:checked ~pre .i11
 <span class="codeline" id="line-160"><code>	<span class="keyword">if</span> <label for="r27" class="ident">s</label>, <label for="r28" class="ident">ok</label> := <a href="#line-71" class="ident">commonCanonHeader</a>[<label for="r26" class="ident">v</label>]; <label for="r28" class="ident">ok</label> {</code></span>
 <span class="codeline" id="line-161"><code>		<span class="keyword">return</span> <label for="r27" class="ident">s</label></code></span>
 <span class="codeline" id="line-162"><code>	}</code></span>
-<span class="codeline" id="line-163"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/net/textproto.html" class="ident i4">textproto</a>.<a href="../../../textproto/reader.go.html#line-655" class="ident">CanonicalMIMEHeaderKey</a>(<label for="r26" class="ident">v</label>)</code></span>
+<span class="codeline" id="line-163"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/net/textproto.html" class="ident i4">textproto</a>.<a href="../../../textproto/reader.go.html#line-653" class="ident">CanonicalMIMEHeaderKey</a>(<label for="r26" class="ident">v</label>)</code></span>
 <span class="codeline" id="line-164"><code>}</code></span>
 <span class="codeline" id="line-165"><code></code></span>
 <span class="codeline" id="line-166"><code><span class="comment">// CachedCanonicalHeader returns the canonical form of a well-known header name.</span></code></span>
@@ -517,7 +517,7 @@ input[id=i11]:checked ~pre .i11
 <span class="codeline" id="line-251"><code>	<span class="comment">// Validate the path, except for non-extended CONNECT requests which have no path.</span></code></span>
 <span class="codeline" id="line-252"><code>	<span class="keyword">var</span> <label for="r48" class="ident">path</label> <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
 <span class="codeline" id="line-253"><code>	<span class="keyword">if</span> !<label for="r45" class="ident">isNormalConnect</label> {</code></span>
-<span class="codeline" id="line-254"><code>		<label for="r48" class="ident">path</label> = <label for="r41" class="ident">req</label>.<a href="#line-181" class="ident">URL</a>.<a href="../../../url/url.go.html#line-1151" class="ident">RequestURI</a>()</code></span>
+<span class="codeline" id="line-254"><code>		<label for="r48" class="ident">path</label> = <label for="r41" class="ident">req</label>.<a href="#line-181" class="ident">URL</a>.<a href="../../../url/url.go.html#line-1155" class="ident">RequestURI</a>()</code></span>
 <span class="codeline" id="line-255"><code>		<span class="keyword">if</span> !<a href="#line-492" class="ident">validPseudoPath</a>(<label for="r48" class="ident">path</label>) {</code></span>
 <span class="codeline" id="line-256"><code>			<label for="r49" class="ident">orig</label> := <label for="r48" class="ident">path</label></code></span>
 <span class="codeline" id="line-257"><code>			<label for="r48" class="ident">path</label> = <a href="../../../../../pkg/strings.html" class="ident i8">strings</a>.<a href="../../../../strings/strings.go.html#line-1122" class="ident">TrimPrefix</a>(<label for="r48" class="ident">path</label>, <label for="r41" class="ident">req</label>.<a href="#line-181" class="ident">URL</a>.<a href="../../../url/url.go.html#line-277" class="ident">Scheme</a>+<span class="lit-string">"://"</span>+<label for="r43" class="ident">host</label>)</code></span>
@@ -835,7 +835,7 @@ input[id=i11]:checked ~pre .i11
 <span class="codeline" id="line-569"><code>	<span class="keyword">var</span> <label for="r102" class="ident">trailer</label> <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>][]<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
 <span class="codeline" id="line-570"><code>	<span class="keyword">for</span> <label for="r103" class="ident">_</label>, <label for="r104" class="ident">v</label> := <span class="keyword">range</span> <label for="r99" class="ident">rp</label>.<a href="#line-539" class="ident">Header</a>[<span class="lit-string">"Trailer"</span>] {</code></span>
 <span class="codeline" id="line-571"><code>		<span class="keyword">for</span> <label for="r105" class="ident">_</label>, <label for="r106" class="ident">key</label> := <span class="keyword">range</span> <a href="../../../../../pkg/strings.html" class="ident i8">strings</a>.<a href="../../../../strings/strings.go.html#line-361" class="ident">Split</a>(<label for="r104" class="ident">v</label>, <span class="lit-string">","</span>) {</code></span>
-<span class="codeline" id="line-572"><code>			<label for="r106" class="ident">key</label> = <a href="../../../../../pkg/net/textproto.html" class="ident i4">textproto</a>.<a href="../../../textproto/reader.go.html#line-655" class="ident">CanonicalMIMEHeaderKey</a>(<a href="../../../../../pkg/net/textproto.html" class="ident i4">textproto</a>.<a href="../../../textproto/textproto.go.html#line-127" class="ident">TrimString</a>(<label for="r106" class="ident">key</label>))</code></span>
+<span class="codeline" id="line-572"><code>			<label for="r106" class="ident">key</label> = <a href="../../../../../pkg/net/textproto.html" class="ident i4">textproto</a>.<a href="../../../textproto/reader.go.html#line-653" class="ident">CanonicalMIMEHeaderKey</a>(<a href="../../../../../pkg/net/textproto.html" class="ident i4">textproto</a>.<a href="../../../textproto/textproto.go.html#line-127" class="ident">TrimString</a>(<label for="r106" class="ident">key</label>))</code></span>
 <span class="codeline" id="line-573"><code>			<span class="keyword">switch</span> <label for="r106" class="ident">key</label> {</code></span>
 <span class="codeline" id="line-574"><code>			<span class="keyword">case</span> <span class="lit-string">"Transfer-Encoding"</span>, <span class="lit-string">"Trailer"</span>, <span class="lit-string">"Content-Length"</span>:</code></span>
 <span class="codeline" id="line-575"><code>				<span class="comment">// Bogus. (copy of http1 rules)</span></code></span>
@@ -884,7 +884,7 @@ input[id=i11]:checked ~pre .i11
 <span class="codeline" id="line-618"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

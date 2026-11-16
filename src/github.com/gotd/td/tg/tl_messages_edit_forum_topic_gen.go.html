@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: tl_messages_edit_forum_topic_gen.go in package github.com/gotd/td/tg</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -683,19 +683,21 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-427"><code><span class="comment">// Possible errors:</span></code></span>
 <span class="codeline" id="line-428"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-429"><code><span class="comment">//	400 CHANNEL_INVALID: The provided channel is invalid.</span></code></span>
-<span class="codeline" id="line-430"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-431"><code><span class="comment">// See https://core.telegram.org/method/messages.editForumTopic for reference.</span></code></span>
-<span class="codeline" id="line-432"><code><span class="keyword">func</span> (<label for="r101" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r102" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.MessagesEditForumTopic.html" class="ident">MessagesEditForumTopic</a></label>(<label for="r103" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r104" class="ident">request</label> *<a href="#line-41" class="ident">MessagesEditForumTopicRequest</a>) (<a href="tl_updates_gen.go.html#line-2917" class="ident">UpdatesClass</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-433"><code>	<span class="keyword">var</span> <label for="r105" class="ident">result</label> <a href="tl_updates_gen.go.html#line-2998" class="ident">UpdatesBox</a></code></span>
-<span class="codeline" id="line-434"><code></code></span>
-<span class="codeline" id="line-435"><code>	<span class="keyword">if</span> <label for="r106" class="ident">err</label> := <label for="r101" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r103" class="ident">ctx</label>, <label for="r104" class="ident">request</label>, &amp;<label for="r105" class="ident">result</label>); <label for="r106" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-436"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r106" class="ident">err</label></code></span>
-<span class="codeline" id="line-437"><code>	}</code></span>
-<span class="codeline" id="line-438"><code>	<span class="keyword">return</span> <label for="r105" class="ident">result</label>.<a href="tl_updates_gen.go.html#line-2999" class="ident">Updates</a>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-439"><code>}</code></span>
+<span class="codeline" id="line-430"><code><span class="comment">//	400 TOPIC_CLOSE_SEPARATELY: The close flag cannot be provided together with any of the other flags.</span></code></span>
+<span class="codeline" id="line-431"><code><span class="comment">//	400 TOPIC_NOT_MODIFIED: The updated topic info is equal to the current topic info, nothing was changed.</span></code></span>
+<span class="codeline" id="line-432"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-433"><code><span class="comment">// See https://core.telegram.org/method/messages.editForumTopic for reference.</span></code></span>
+<span class="codeline" id="line-434"><code><span class="keyword">func</span> (<label for="r101" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r102" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.MessagesEditForumTopic.html" class="ident">MessagesEditForumTopic</a></label>(<label for="r103" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r104" class="ident">request</label> *<a href="#line-41" class="ident">MessagesEditForumTopicRequest</a>) (<a href="tl_updates_gen.go.html#line-2917" class="ident">UpdatesClass</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-435"><code>	<span class="keyword">var</span> <label for="r105" class="ident">result</label> <a href="tl_updates_gen.go.html#line-2998" class="ident">UpdatesBox</a></code></span>
+<span class="codeline" id="line-436"><code></code></span>
+<span class="codeline" id="line-437"><code>	<span class="keyword">if</span> <label for="r106" class="ident">err</label> := <label for="r101" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r103" class="ident">ctx</label>, <label for="r104" class="ident">request</label>, &amp;<label for="r105" class="ident">result</label>); <label for="r106" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-438"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r106" class="ident">err</label></code></span>
+<span class="codeline" id="line-439"><code>	}</code></span>
+<span class="codeline" id="line-440"><code>	<span class="keyword">return</span> <label for="r105" class="ident">result</label>.<a href="tl_updates_gen.go.html#line-2999" class="ident">Updates</a>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-441"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

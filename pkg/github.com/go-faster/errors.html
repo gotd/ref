@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Package: github.com/go-faster/errors</title>
-<link href="../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="package-details"><code><span style="font-size:xx-large;">package <b>errors</b></span>
@@ -236,7 +236,7 @@
 			func <a href="#name-Formatter">Formatter</a>.<a href="../../../src/github.com/go-faster/errors/format.go.html#line-18">FormatError</a>(p <b>Printer</b>) (next <a href="../../builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-Frame">Frame</a>.<a href="../../../src/github.com/go-faster/errors/frame.go.html#line-46">Format</a>(p <b>Printer</b>)</span></span>
 
-</span></div><div class="anchor type-res" id="name-Wrapper" data-popularity="3350">	<input type='checkbox' class="fold" id="Wrapper-fold-content"><label for="Wrapper-fold-content"> <a href="../../../use/github.com/go-faster/errors..Wrapper.html">type</a> <a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-13">Wrapper</a> <b><i>(interface)</i></b></label><span id='Wrapper-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Wrapper" data-popularity="3650">	<input type='checkbox' class="fold" id="Wrapper-fold-content"><label for="Wrapper-fold-content"> <a href="../../../use/github.com/go-faster/errors..Wrapper.html">type</a> <a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-13">Wrapper</a> <b><i>(interface)</i></b></label><span id='Wrapper-fold-content-docs' class="fold-docs">
 <span class="md-text">		A Wrapper provides context around another error.</span>
 
 		<input type='checkbox' class="fold" id="Wrapper-fold-methods"><label for="Wrapper-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Wrapper-fold-methods-items' class="fold-items"><span>
@@ -244,9 +244,11 @@
 <span class="md-text">				Unwrap returns the next error in the error chain.
 				If there is no next error, Unwrap returns nil.</span>
 </span></span></span>
-		<input type='checkbox' class="fold" id="Wrapper-fold-impledby"><label for="Wrapper-fold-impledby">Implemented By (<i>at least 22, in which 14 are exported</i>)</label><span id='Wrapper-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Wrapper-fold-impledby"><label for="Wrapper-fold-impledby">Implemented By (<i>at least 24, in which 16 are exported</i>)</label><span id='Wrapper-fold-impledby-items' class="fold-items"><span>
 			*github.com/cenkalti/backoff/v4.<a href="../cenkalti/backoff/v4.html#name-PermanentError">PermanentError</a></span><span>
 			*github.com/gotd/td/exchange.<a href="../gotd/td/exchange.html#name-ServerExchangeError">ServerExchangeError</a></span><span>
+			*github.com/gotd/td/telegram.<a href="../gotd/td/telegram.html#name-ConfigError">ConfigError</a></span><span>
+			*github.com/gotd/td/telegram/internal/manager.<a href="../gotd/td/telegram/internal/manager.html#name-InitError">InitError</a></span><span>
 			*github.com/refraction-networking/utls.<a href="../refraction-networking/utls.html#name-CertificateVerificationError">CertificateVerificationError</a></span><span>
 			*crypto/tls.<a href="../../crypto/tls.html#name-CertificateVerificationError">CertificateVerificationError</a></span><span>
 			 crypto/x509.<a href="../../crypto/x509.html#name-SystemRootsError">SystemRootsError</a></span><span>
@@ -382,9 +384,9 @@
 			*wrapError : fmt.<a href="../../fmt.html#name-Formatter">Formatter</a></span></span>
 
 </span></div></div>
-<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 18, in which 16 are exported)</i></span></span>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 19, in which 16 are exported)</i></span></span>
 
-<div class="anchor value-res" id="name-As">	<input type='checkbox' class="fold" id="As-fold-content"><label for="As-fold-content"> <a href="../../../use/github.com/go-faster/errors..As.html">func</a> <a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-134">As</a>(err <a href="../../builtin.html#name-error">error</a>, target interface{}) <a href="../../builtin.html#name-bool">bool</a></label><span id='As-fold-content-docs' class="fold-docs">
+<div class="anchor value-res" id="name-As">	<input type='checkbox' class="fold" id="As-fold-content"><label for="As-fold-content"> <a href="../../../use/github.com/go-faster/errors..As.html">func</a> <a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-140">As</a>(err <a href="../../builtin.html#name-error">error</a>, target interface{}) <a href="../../builtin.html#name-bool">bool</a></label><span id='As-fold-content-docs' class="fold-docs">
 <span class="md-text">		As finds the first error in err's chain that matches target, and if so, sets
 		target to that error value and returns true. Otherwise, it returns false.
 		
@@ -413,8 +415,11 @@
 </span></div><div class="anchor value-res" id="name-DisableTrace">	<input type='checkbox' class="fold" id="DisableTrace-fold-content"><label for="DisableTrace-fold-content"> <a href="../../../use/github.com/go-faster/errors..DisableTrace.html">func</a> <a href="../../../src/github.com/go-faster/errors/trace.go.html#line-32">DisableTrace</a>()</label><span id='DisableTrace-fold-content-docs' class="fold-docs">
 <span class="md-text">		DisableTrace disables capturing caller frames.</span>
 
-</span></div><div class="anchor value-res" id="name-Errorf">	<input type='checkbox' class="fold" id="Errorf-fold-content"><label for="Errorf-fold-content"> <a href="../../../use/github.com/go-faster/errors..Errorf.html">func</a> <a href="../../../src/github.com/go-faster/errors/format.go.html#line-42">Errorf</a>(format <a href="../../builtin.html#name-string">string</a>, a ...interface{}) <a href="../../builtin.html#name-error">error</a></label><span id='Errorf-fold-content-docs' class="fold-docs">
-<span class="md-text">		Errorf creates new error with format.</span>
+</span></div><div class="anchor value-res" id="name-Errorf">	<input type='checkbox' class="fold" id="Errorf-fold-content"><label for="Errorf-fold-content"> <a href="../../../use/github.com/go-faster/errors..Errorf.html">func</a> <a href="../../../src/github.com/go-faster/errors/format.go.html#line-45">Errorf</a>(format <a href="../../builtin.html#name-string">string</a>, a ...interface{}) <a href="../../builtin.html#name-error">error</a></label><span id='Errorf-fold-content-docs' class="fold-docs">
+<span class="md-text">		Errorf creates new error with format.
+		
+		If format contains the %w directive, Errorf falls back to fmt.Errorf
+		and does not capture a caller frame.</span>
 
 </span></div><div class="anchor value-res" id="name-FormatError">	<input type='checkbox' class="fold" id="FormatError-fold-content"><label for="FormatError-fold-content"> <a href="../../../use/github.com/go-faster/errors..FormatError.html">func</a> <a href="../../../src/github.com/go-faster/errors/adaptor.go.html#line-17">FormatError</a>(f <a href="#name-Formatter">Formatter</a>, s <a href="../../fmt.html">fmt</a>.<a href="../../fmt.html#name-State">State</a>, verb <a href="../../builtin.html#name-rune">rune</a>)</label><span id='FormatError-fold-content-docs' class="fold-docs">
 <span class="md-text">		FormatError calls the FormatError method of f with an errors.Printer
@@ -429,7 +434,7 @@
 		
 		Into is type-safe alternative to As.</span>
 
-</span></div><div class="anchor value-res" id="name-Is">	<input type='checkbox' class="fold" id="Is-fold-content"><label for="Is-fold-content"> <a href="../../../use/github.com/go-faster/errors..Is.html">func</a> <a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-114">Is</a>(err, target <a href="../../builtin.html#name-error">error</a>) <a href="../../builtin.html#name-bool">bool</a></label><span id='Is-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor value-res" id="name-Is">	<input type='checkbox' class="fold" id="Is-fold-content"><label for="Is-fold-content"> <a href="../../../use/github.com/go-faster/errors..Is.html">func</a> <a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-120">Is</a>(err, target <a href="../../builtin.html#name-error">error</a>) <a href="../../builtin.html#name-bool">bool</a></label><span id='Is-fold-content-docs' class="fold-docs">
 <span class="md-text">		Is reports whether any error in err's chain matches target.
 		
 		The chain consists of err itself followed by the sequence of errors obtained by
@@ -484,19 +489,30 @@
 		type contains an Unwrap method returning error.
 		Otherwise, Unwrap returns nil.</span>
 
-</span></div><div class="anchor value-res" id="name-Wrap">	<input type='checkbox' class="fold" id="Wrap-fold-content"><label for="Wrap-fold-content"> <a href="../../../use/github.com/go-faster/errors..Wrap.html">func</a> <a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-81">Wrap</a>(err <a href="../../builtin.html#name-error">error</a>, message <a href="../../builtin.html#name-string">string</a>) <a href="../../builtin.html#name-error">error</a></label><span id='Wrap-fold-content-docs' class="fold-docs">
-<span class="md-text">		Wrap error with message and caller.</span>
+</span></div><div class="anchor value-res" id="name-Wrap">	<input type='checkbox' class="fold" id="Wrap-fold-content"><label for="Wrap-fold-content"> <a href="../../../use/github.com/go-faster/errors..Wrap.html">func</a> <a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-85">Wrap</a>(err <a href="../../builtin.html#name-error">error</a>, message <a href="../../builtin.html#name-string">string</a>) <a href="../../builtin.html#name-error">error</a></label><span id='Wrap-fold-content-docs' class="fold-docs">
+<span class="md-text">		Wrap error with message and caller.
+		
+		Wrap always returns a non-nil error, even if err is nil, matching the
+		behavior of fmt.Errorf with a nil %w operand. Call Wrap only after
+		checking that err is non-nil.</span>
 
-</span></div><div class="anchor value-res" id="name-Wrapf">	<input type='checkbox' class="fold" id="Wrapf-fold-content"><label for="Wrapf-fold-content"> <a href="../../../use/github.com/go-faster/errors..Wrapf.html">func</a> <a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-90">Wrapf</a>(err <a href="../../builtin.html#name-error">error</a>, format <a href="../../builtin.html#name-string">string</a>, a ...interface{}) <a href="../../builtin.html#name-error">error</a></label><span id='Wrapf-fold-content-docs' class="fold-docs">
-<span class="md-text">		Wrapf wraps error with formatted message and caller.</span>
+</span></div><div class="anchor value-res" id="name-Wrapf">	<input type='checkbox' class="fold" id="Wrapf-fold-content"><label for="Wrapf-fold-content"> <a href="../../../use/github.com/go-faster/errors..Wrapf.html">func</a> <a href="../../../src/github.com/go-faster/errors/wrap.go.html#line-96">Wrapf</a>(err <a href="../../builtin.html#name-error">error</a>, format <a href="../../builtin.html#name-string">string</a>, a ...interface{}) <a href="../../builtin.html#name-error">error</a></label><span id='Wrapf-fold-content-docs' class="fold-docs">
+<span class="md-text">		Wrapf wraps error with formatted message and caller.
+		
+		Like Wrap, Wrapf always returns a non-nil error, even if err is nil.</span>
 
-</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-enableTrace"><i>	<input type='checkbox' class="fold" id="enableTrace-fold-content"><label for="enableTrace-fold-content"> <a href="../../../use/github.com/go-faster/errors..enableTrace^2a9ce.html">func</a> <a href="../../../src/github.com/go-faster/errors/trace.go.html#line-29">enableTrace</a>()</label><span id='enableTrace-fold-content-docs' class="fold-docs">
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 3 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 3 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-enableTrace"><i>	<input type='checkbox' class="fold" id="enableTrace-fold-content"><label for="enableTrace-fold-content"> <a href="../../../use/github.com/go-faster/errors..enableTrace^2a9ce.html">func</a> <a href="../../../src/github.com/go-faster/errors/trace.go.html#line-29">enableTrace</a>()</label><span id='enableTrace-fold-content-docs' class="fold-docs">
 <span class="md-text">		enableTrace enables capturing caller frames.
 		
 		Intentionally left unexported.</span>
 
 </span></i></div><div class="anchor value-res hidden" id="name-setTrace"><i>	<input type='checkbox' class="fold" id="setTrace-fold-content"><label for="setTrace-fold-content"> <a href="../../../use/github.com/go-faster/errors..setTrace^31635.html">func</a> <a href="../../../src/github.com/go-faster/errors/trace.go.html#line-18">setTrace</a>(trace <a href="../../builtin.html#name-bool">bool</a>)</label><span id='setTrace-fold-content-docs' class="fold-docs">
 <span class="md-text">		setTrace sets tracing flag that controls capturing caller frames.</span>
+
+</span></i></div><div class="anchor value-res hidden" id="name-sprintf"><i>	<input type='checkbox' class="fold" id="sprintf-fold-content"><label for="sprintf-fold-content"> <a href="../../../use/github.com/go-faster/errors..sprintf^1c870.html">func</a> <a href="../../../src/github.com/go-faster/errors/format.go.html#line-55">sprintf</a>(format <a href="../../builtin.html#name-string">string</a>, a []interface{}) <a href="../../builtin.html#name-string">string</a></label><span id='sprintf-fold-content-docs' class="fold-docs">
+<span class="md-text">		sprintf is deliberately non-variadic: forwarding (format, a...) straight
+		to fmt.Sprintf from Errorf makes vet's printf analyzer classify Errorf as
+		a plain printf wrapper, rejecting %w in callers' format strings.</span>
 
 </span></i></div></div>
 <div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 2, neither is exported)</i></span></span>
@@ -506,7 +522,7 @@
 
 	<input type='checkbox' class="showhide" id="unexported-constants-showhide"><i><label for="unexported-constants-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-constants-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-traceDisabled"><i>	<span class="nodocs"><a href="../../../use/github.com/go-faster/errors..traceDisabled^bba08.html">const</a> <a href="../../../src/github.com/go-faster/errors/trace.go.html#line-14">traceDisabled</a> = 1</span></i></div><div class="anchor value-res hidden" id="name-traceEnabled"><i>	<span class="nodocs"><a href="../../../use/github.com/go-faster/errors..traceEnabled^a7986.html">const</a> <a href="../../../src/github.com/go-faster/errors/trace.go.html#line-13">traceEnabled</a> = 0 // <span class="md-text">enabled by default</span></span></i></div></div></code></pre><pre id="footer">
 <table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

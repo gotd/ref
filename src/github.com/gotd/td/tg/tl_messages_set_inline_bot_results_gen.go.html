@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: tl_messages_set_inline_bot_results_gen.go in package github.com/gotd/td/tg</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -816,28 +816,29 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-522"><code><span class="comment">//	400 SWITCH_PM_TEXT_EMPTY: The switch_pm.text field was empty.</span></code></span>
 <span class="codeline" id="line-523"><code><span class="comment">//	400 SWITCH_WEBVIEW_URL_INVALID: The URL specified in switch_webview.url is invalid!</span></code></span>
 <span class="codeline" id="line-524"><code><span class="comment">//	400 URL_INVALID: Invalid URL provided.</span></code></span>
-<span class="codeline" id="line-525"><code><span class="comment">//	400 USER_BOT_REQUIRED: This method can only be called by a bot.</span></code></span>
-<span class="codeline" id="line-526"><code><span class="comment">//	400 VIDEO_CONTENT_TYPE_INVALID: The video's content type is invalid.</span></code></span>
-<span class="codeline" id="line-527"><code><span class="comment">//	400 VIDEO_TITLE_EMPTY: The specified video title is empty.</span></code></span>
-<span class="codeline" id="line-528"><code><span class="comment">//	400 WEBDOCUMENT_INVALID: Invalid webdocument URL provided.</span></code></span>
-<span class="codeline" id="line-529"><code><span class="comment">//	400 WEBDOCUMENT_MIME_INVALID: Invalid webdocument mime type provided.</span></code></span>
-<span class="codeline" id="line-530"><code><span class="comment">//	400 WEBDOCUMENT_SIZE_TOO_BIG: Webdocument is too big!</span></code></span>
-<span class="codeline" id="line-531"><code><span class="comment">//	400 WEBDOCUMENT_URL_EMPTY: The passed web document URL is empty.</span></code></span>
-<span class="codeline" id="line-532"><code><span class="comment">//	400 WEBDOCUMENT_URL_INVALID: The specified webdocument URL is invalid.</span></code></span>
-<span class="codeline" id="line-533"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-534"><code><span class="comment">// See https://core.telegram.org/method/messages.setInlineBotResults for reference.</span></code></span>
-<span class="codeline" id="line-535"><code><span class="keyword">func</span> (<label for="r118" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r119" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.MessagesSetInlineBotResults.html" class="ident">MessagesSetInlineBotResults</a></label>(<label for="r120" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r121" class="ident">request</label> *<a href="#line-38" class="ident">MessagesSetInlineBotResultsRequest</a>) (<a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-536"><code>	<span class="keyword">var</span> <label for="r122" class="ident">result</label> <a href="tl_bool_gen.go.html#line-306" class="ident">BoolBox</a></code></span>
-<span class="codeline" id="line-537"><code></code></span>
-<span class="codeline" id="line-538"><code>	<span class="keyword">if</span> <label for="r123" class="ident">err</label> := <label for="r118" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r120" class="ident">ctx</label>, <label for="r121" class="ident">request</label>, &amp;<label for="r122" class="ident">result</label>); <label for="r123" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-539"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a>, <label for="r123" class="ident">err</label></code></span>
-<span class="codeline" id="line-540"><code>	}</code></span>
-<span class="codeline" id="line-541"><code>	<label for="r124" class="ident">_</label>, <label for="r125" class="ident">ok</label> := <label for="r122" class="ident">result</label>.<a href="tl_bool_gen.go.html#line-307" class="ident">Bool</a>.(*<a href="tl_bool_gen.go.html#line-140" class="ident">BoolTrue</a>)</code></span>
-<span class="codeline" id="line-542"><code>	<span class="keyword">return</span> <label for="r125" class="ident">ok</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-543"><code>}</code></span>
+<span class="codeline" id="line-525"><code><span class="comment">//	403 USER_BOT_INVALID: User accounts must provide the bot method parameter when calling this method. If there is no such method parameter, this method can only be invoked by bot accounts.</span></code></span>
+<span class="codeline" id="line-526"><code><span class="comment">//	400 USER_BOT_REQUIRED: This method can only be called by a bot.</span></code></span>
+<span class="codeline" id="line-527"><code><span class="comment">//	400 VIDEO_CONTENT_TYPE_INVALID: The video's content type is invalid.</span></code></span>
+<span class="codeline" id="line-528"><code><span class="comment">//	400 VIDEO_TITLE_EMPTY: The specified video title is empty.</span></code></span>
+<span class="codeline" id="line-529"><code><span class="comment">//	400 WEBDOCUMENT_INVALID: Invalid webdocument URL provided.</span></code></span>
+<span class="codeline" id="line-530"><code><span class="comment">//	400 WEBDOCUMENT_MIME_INVALID: Invalid webdocument mime type provided.</span></code></span>
+<span class="codeline" id="line-531"><code><span class="comment">//	400 WEBDOCUMENT_SIZE_TOO_BIG: Webdocument is too big!</span></code></span>
+<span class="codeline" id="line-532"><code><span class="comment">//	400 WEBDOCUMENT_URL_EMPTY: The passed web document URL is empty.</span></code></span>
+<span class="codeline" id="line-533"><code><span class="comment">//	400 WEBDOCUMENT_URL_INVALID: The specified webdocument URL is invalid.</span></code></span>
+<span class="codeline" id="line-534"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-535"><code><span class="comment">// See https://core.telegram.org/method/messages.setInlineBotResults for reference.</span></code></span>
+<span class="codeline" id="line-536"><code><span class="keyword">func</span> (<label for="r118" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r119" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.MessagesSetInlineBotResults.html" class="ident">MessagesSetInlineBotResults</a></label>(<label for="r120" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r121" class="ident">request</label> *<a href="#line-38" class="ident">MessagesSetInlineBotResultsRequest</a>) (<a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-537"><code>	<span class="keyword">var</span> <label for="r122" class="ident">result</label> <a href="tl_bool_gen.go.html#line-306" class="ident">BoolBox</a></code></span>
+<span class="codeline" id="line-538"><code></code></span>
+<span class="codeline" id="line-539"><code>	<span class="keyword">if</span> <label for="r123" class="ident">err</label> := <label for="r118" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r120" class="ident">ctx</label>, <label for="r121" class="ident">request</label>, &amp;<label for="r122" class="ident">result</label>); <label for="r123" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-540"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a>, <label for="r123" class="ident">err</label></code></span>
+<span class="codeline" id="line-541"><code>	}</code></span>
+<span class="codeline" id="line-542"><code>	<label for="r124" class="ident">_</label>, <label for="r125" class="ident">ok</label> := <label for="r122" class="ident">result</label>.<a href="tl_bool_gen.go.html#line-307" class="ident">Bool</a>.(*<a href="tl_bool_gen.go.html#line-140" class="ident">BoolTrue</a>)</code></span>
+<span class="codeline" id="line-543"><code>	<span class="keyword">return</span> <label for="r125" class="ident">ok</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-544"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

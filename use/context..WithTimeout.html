@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: context.WithTimeout</title>
-<link href="../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../jvs/golds-v0.8.5.js"></script>
+<link href="../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">func <b><a href="../pkg/context.html">context</a>.<a href="../src/context/context.go.html#line-703">WithTimeout</a></b></span>
 
-<span class="title">19 uses</span>
+<span class="title">22 uses</span>
 
 	context (current package)
 		<a href="../src/context/context.go.html#line-703">context.go#L703</a>: func <b>WithTimeout</b>(parent Context, timeout time.Duration) (Context, CancelFunc) {
@@ -31,25 +31,28 @@
 		<a href="../src/github.com/gotd/td/exchange/proto.go.html#line-45" class="path-duplicate">proto.go</a><a href="../src/github.com/gotd/td/exchange/proto.go.html#line-45">#L45</a>: 	ctx, cancel := context.<b>WithTimeout</b>(ctx, w.timeout)
 
 	<a href="../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
-		<a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-21">connect.go#L21</a>: 		connectCtx, cancel = context.<b>WithTimeout</b>(ctx, c.dialTimeout)
-		<a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-33" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-33">#L33</a>: 		dialCtx, cancel = context.<b>WithTimeout</b>(ctx, c.dialTimeout)
-		<a href="../src/github.com/gotd/td/mtproto/ping.go.html#line-114">ping.go#L114</a>: 				ctx, cancel := context.<b>WithTimeout</b>(ctx, c.pingTimeout)
-		<a href="../src/github.com/gotd/td/mtproto/rpc.go.html#line-51">rpc.go#L51</a>: 	ctx, cancel := context.<b>WithTimeout</b>(context.Background(),
-		<a href="../src/github.com/gotd/td/mtproto/salt.go.html#line-40">salt.go#L40</a>: 	ctx, cancel := context.<b>WithTimeout</b>(ctx, c.getTimeout(request.TypeID()))
+		<a href="../src/github.com/gotd/td/mtproto/bind.go.html#line-249">bind.go#L249</a>: 	ctx, cancel := context.<b>WithTimeout</b>(ctx, 30*time.Second)
+		<a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-22">connect.go#L22</a>: 		connectCtx, cancel = context.<b>WithTimeout</b>(ctx, c.dialTimeout)
+		<a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-34" class="path-duplicate">connect.go</a><a href="../src/github.com/gotd/td/mtproto/connect.go.html#line-34">#L34</a>: 		dialCtx, cancel = context.<b>WithTimeout</b>(ctx, c.dialTimeout)
+		<a href="../src/github.com/gotd/td/mtproto/ping.go.html#line-142">ping.go#L142</a>: 				ctx, cancel := context.<b>WithTimeout</b>(ctx, c.pingTimeout)
+		<a href="../src/github.com/gotd/td/mtproto/rpc.go.html#line-124">rpc.go#L124</a>: 	ctx, cancel := context.<b>WithTimeout</b>(context.Background(),
+		<a href="../src/github.com/gotd/td/mtproto/salt.go.html#line-41">salt.go#L41</a>: 	ctx, cancel := context.<b>WithTimeout</b>(ctx, c.getTimeout(request.TypeID()))
 
 	<a href="../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
-		<a href="../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-49">migrate_to_dc.go#L49</a>: 	mctx, cancel := context.<b>WithTimeout</b>(ctx, c.migrationTimeout)
+		<a href="../src/github.com/gotd/td/telegram/logout.go.html#line-86">logout.go#L86</a>: 				lctx, cancel := context.<b>WithTimeout</b>(ctx, guestLogOutTimeout)
+		<a href="../src/github.com/gotd/td/telegram/migrate_to_dc.go.html#line-57">migrate_to_dc.go#L57</a>: 	mctx, cancel := context.<b>WithTimeout</b>(ctx, c.migrationTimeout)
+		<a href="../src/github.com/gotd/td/telegram/sub_conns.go.html#line-167">sub_conns.go#L167</a>: 		cctx, cancelTimeout = context.<b>WithTimeout</b>(cctx, c.migrationTimeout)
 
 	<a href="../pkg/github.com/refraction-networking/utls.html">github.com/refraction-networking/utls</a>
 		<a href="../src/github.com/refraction-networking/utls/tls.go.html#line-124">tls.go#L124</a>: 		ctx, cancel = context.<b>WithTimeout</b>(ctx, netDialer.Timeout)
 
 	<a href="../pkg/net/http.html">net/http</a>
-		<a href="../src/net/http/h2_bundle.go.html#line-8271">h2_bundle.go#L8271</a>: 	ctx, cancel := context.<b>WithTimeout</b>(context.Background(), pingTimeout)
-		<a href="../src/net/http/server.go.html#line-3840">server.go#L3840</a>: 		ctx, cancelCtx = context.<b>WithTimeout</b>(r.Context(), h.dt)
+		<a href="../src/net/http/h2_bundle.go.html#line-8179">h2_bundle.go#L8179</a>: 	ctx, cancel := context.<b>WithTimeout</b>(context.Background(), pingTimeout)
+		<a href="../src/net/http/server.go.html#line-3820">server.go#L3820</a>: 		ctx, cancelCtx = context.<b>WithTimeout</b>(r.Context(), h.dt)
 		<a href="../src/net/http/transport.go.html#line-1767">transport.go#L1767</a>: var testHookProxyConnectTimeout = context.<b>WithTimeout</b>
 </code></pre><pre id="footer">
 <table><tr><td><img src="../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
