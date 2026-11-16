@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: rsa_pad.go in package github.com/gotd/td/crypto</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -162,14 +162,14 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-38"><code><span class="comment">	//</span></code></span>
 <span class="codeline" id="line-39"><code><span class="comment">	// One has to check that data is not longer than 144 bytes.</span></code></span>
 <span class="codeline" id="line-40"><code>	<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r5" class="ident">data</label>) &gt; <a href="#line-25" class="ident">rsaPadDataLimit</a> {</code></span>
-<span class="codeline" id="line-41"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i6">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"data length is bigger that 144 (%d)"</span>, <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r5" class="ident">data</label>))</code></span>
+<span class="codeline" id="line-41"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i6">errors</a>.<a href="../../../go-faster/errors/format.go.html#line-45" class="ident">Errorf</a>(<span class="lit-string">"data length is bigger that 144 (%d)"</span>, <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r5" class="ident">data</label>))</code></span>
 <span class="codeline" id="line-42"><code>	}</code></span>
 <span class="codeline" id="line-43"><code></code></span>
 <span class="codeline" id="line-44"><code>	<label for="r8" class="ident">dataWithPadding</label> := <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="#line-26" class="ident">dataWithPaddingLength</a>)</code></span>
 <span class="codeline" id="line-45"><code>	<a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r8" class="ident">dataWithPadding</label>, <label for="r5" class="ident">data</label>)</code></span>
 <span class="codeline" id="line-46"><code>	<span class="comment">// Filling data_with_padding with random bytes.</span></code></span>
 <span class="codeline" id="line-47"><code>	<span class="keyword">if</span> <label for="r9" class="ident">_</label>, <label for="r10" class="ident">err</label> := <a href="../../../../../pkg/io.html" class="ident i4">io</a>.<a href="../../../../io/io.go.html#line-353" class="ident">ReadFull</a>(<label for="r7" class="ident">randomSource</label>, <label for="r8" class="ident">dataWithPadding</label>[<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r5" class="ident">data</label>):]); <label for="r10" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-48"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i6">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r10" class="ident">err</label>, <span class="lit-string">"pad data with random"</span>)</code></span>
+<span class="codeline" id="line-48"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i6">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r10" class="ident">err</label>, <span class="lit-string">"pad data with random"</span>)</code></span>
 <span class="codeline" id="line-49"><code>	}</code></span>
 <span class="codeline" id="line-50"><code></code></span>
 <span class="codeline" id="line-51"><code>	<span class="comment">// Make a copy.</span></code></span>
@@ -182,7 +182,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-58"><code>		<span class="comment">// 3) A random 32-byte temp_key is generated.</span></code></span>
 <span class="codeline" id="line-59"><code>		<label for="r12" class="ident">tempKey</label> := <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="#line-28" class="ident">tempKeySize</a>)</code></span>
 <span class="codeline" id="line-60"><code>		<span class="keyword">if</span> <label for="r13" class="ident">_</label>, <label for="r14" class="ident">err</label> := <a href="../../../../../pkg/io.html" class="ident i4">io</a>.<a href="../../../../io/io.go.html#line-353" class="ident">ReadFull</a>(<label for="r7" class="ident">randomSource</label>, <label for="r12" class="ident">tempKey</label>); <label for="r14" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-61"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i6">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r14" class="ident">err</label>, <span class="lit-string">"generate temp_key"</span>)</code></span>
+<span class="codeline" id="line-61"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i6">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r14" class="ident">err</label>, <span class="lit-string">"generate temp_key"</span>)</code></span>
 <span class="codeline" id="line-62"><code>		}</code></span>
 <span class="codeline" id="line-63"><code></code></span>
 <span class="codeline" id="line-64"><code>		<span class="comment">// 4) data_with_hash := data_pad_reversed + SHA256(temp_key + data_with_padding);</span></code></span>
@@ -202,7 +202,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-78"><code>		{</code></span>
 <span class="codeline" id="line-79"><code>			<label for="r18" class="ident">aesBlock</label>, <label for="r19" class="ident">err</label> := <a href="../../../../../pkg/crypto/aes.html" class="ident i1">aes</a>.<a href="../../../../crypto/aes/aes.go.html#line-36" class="ident">NewCipher</a>(<label for="r12" class="ident">tempKey</label>)</code></span>
 <span class="codeline" id="line-80"><code>			<span class="keyword">if</span> <label for="r19" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-81"><code>				<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i6">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r19" class="ident">err</label>, <span class="lit-string">"create cipher"</span>)</code></span>
+<span class="codeline" id="line-81"><code>				<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i6">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r19" class="ident">err</label>, <span class="lit-string">"create cipher"</span>)</code></span>
 <span class="codeline" id="line-82"><code>			}</code></span>
 <span class="codeline" id="line-83"><code>			<span class="keyword">var</span> <label for="r20" class="ident">zeroIV</label> <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i9">bin</a>.<a href="../bin/int256.go.html#line-6" class="ident">Int256</a></code></span>
 <span class="codeline" id="line-84"><code>			<a href="../../../../../pkg/github.com/gotd/ige.html" class="ident i8">ige</a>.<a href="../../ige/encrypt.go.html#line-35" class="ident">EncryptBlocks</a>(<label for="r18" class="ident">aesBlock</label>, <label for="r20" class="ident">zeroIV</label>[:], <label for="r17" class="ident">aesEncrypted</label>, <label for="r15" class="ident">dataWithHash</label>)</code></span>
@@ -261,7 +261,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-137"><code>	{</code></span>
 <span class="codeline" id="line-138"><code>		<label for="r35" class="ident">aesBlock</label>, <label for="r36" class="ident">err</label> := <a href="../../../../../pkg/crypto/aes.html" class="ident i1">aes</a>.<a href="../../../../crypto/aes/aes.go.html#line-36" class="ident">NewCipher</a>(<label for="r32" class="ident">tempKey</label>)</code></span>
 <span class="codeline" id="line-139"><code>		<span class="keyword">if</span> <label for="r36" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-140"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i6">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r36" class="ident">err</label>, <span class="lit-string">"create cipher"</span>)</code></span>
+<span class="codeline" id="line-140"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/github.com/go-faster/errors.html" class="ident i6">errors</a>.<a href="../../../go-faster/errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r36" class="ident">err</label>, <span class="lit-string">"create cipher"</span>)</code></span>
 <span class="codeline" id="line-141"><code>		}</code></span>
 <span class="codeline" id="line-142"><code>		<span class="keyword">var</span> <label for="r37" class="ident">zeroIV</label> <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i9">bin</a>.<a href="../bin/int256.go.html#line-6" class="ident">Int256</a></code></span>
 <span class="codeline" id="line-143"><code>		<a href="../../../../../pkg/github.com/gotd/ige.html" class="ident i8">ige</a>.<a href="../../ige/decrypt.go.html#line-35" class="ident">DecryptBlocks</a>(<label for="r35" class="ident">aesBlock</label>, <label for="r37" class="ident">zeroIV</label>[:], <label for="r34" class="ident">dataWithHash</label>, <label for="r31" class="ident">aesEncrypted</label>)</code></span>
@@ -285,7 +285,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-161"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

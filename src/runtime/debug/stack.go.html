@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: stack.go in package runtime/debug</title>
-<link href="../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -129,7 +129,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-74"><code><span class="comment">		// A side effect of Fd() is that it calls SetBlocking,</span></code></span>
 <span class="codeline" id="line-75"><code><span class="comment">		// which is important so that writes of a crash report</span></code></span>
 <span class="codeline" id="line-76"><code><span class="comment">		// to a full pipe buffer don't get lost.</span></code></span>
-<span class="codeline" id="line-77"><code>		<label for="r8" class="ident">fd2</label>, <label for="r9" class="ident">_</label>, <label for="r10" class="ident">err</label> := <a href="../../../pkg/internal/poll.html" class="ident i0">poll</a>.<a href="../../internal/poll/fd_unix.go.html#line-653" class="ident">DupCloseOnExec</a>(<a href="../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r5" class="ident">f</label>.<a href="../../os/file.go.html#line-722" class="ident">Fd</a>()))</code></span>
+<span class="codeline" id="line-77"><code>		<label for="r8" class="ident">fd2</label>, <label for="r9" class="ident">_</label>, <label for="r10" class="ident">err</label> := <a href="../../../pkg/internal/poll.html" class="ident i0">poll</a>.<a href="../../internal/poll/fd_unix.go.html#line-653" class="ident">DupCloseOnExec</a>(<a href="../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r5" class="ident">f</label>.<a href="../../os/file.go.html#line-725" class="ident">Fd</a>()))</code></span>
 <span class="codeline" id="line-78"><code>		<span class="keyword">if</span> <label for="r10" class="ident">err</label> != <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-79"><code>			<span class="keyword">return</span> <label for="r10" class="ident">err</label></code></span>
 <span class="codeline" id="line-80"><code>		}</code></span>
@@ -139,7 +139,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-84"><code>	<span class="keyword">if</span> <label for="r11" class="ident">prev</label> := <a href="#line-93" class="ident">runtime_setCrashFD</a>(<label for="r7" class="ident">fd</label>); <label for="r11" class="ident">prev</label> != ^<a href="../../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>(<span class="lit-number">0</span>) {</code></span>
 <span class="codeline" id="line-85"><code>		<span class="comment">// We use NewFile+Close because it is portable</span></code></span>
 <span class="codeline" id="line-86"><code><span class="comment">		// unlike syscall.Close, whose parameter type varies.</span></code></span>
-<span class="codeline" id="line-87"><code>		<a href="../../../pkg/os.html" class="ident i1">os</a>.<a href="../../os/file.go.html#line-133" class="ident">NewFile</a>(<label for="r11" class="ident">prev</label>, <span class="lit-string">""</span>).<a href="../../os/file_posix.go.html#line-20" class="ident">Close</a>() <span class="comment">// ignore error</span></code></span>
+<span class="codeline" id="line-87"><code>		<a href="../../../pkg/os.html" class="ident i1">os</a>.<a href="../../os/file.go.html#line-133" class="ident">NewFile</a>(<label for="r11" class="ident">prev</label>, <span class="lit-string">""</span>).<a href="../../os/file_posix.go.html#line-19" class="ident">Close</a>() <span class="comment">// ignore error</span></code></span>
 <span class="codeline" id="line-88"><code>	}</code></span>
 <span class="codeline" id="line-89"><code>	<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
 <span class="codeline" id="line-90"><code>}</code></span>
@@ -148,7 +148,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-93"><code><span class="keyword">func</span> <label for="r12" class="ident"><a href="../../../pkg/runtime/debug.html#name-runtime_setCrashFD" class="ident">runtime_setCrashFD</a></label>(<a href="../../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>) <a href="../../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a></code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

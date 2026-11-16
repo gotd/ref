@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: asyncint64.go in package go.opentelemetry.io/otel/metric</title>
+<link href="../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.7.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	asyncint64.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/go.opentelemetry.io/otel/metric.html">go.opentelemetry.io/otel/metric</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33],
+input[id=r34]:checked ~pre label[for=r34],
+input[id=r35]:checked ~pre label[for=r35],
+input[id=r36]:checked ~pre label[for=r36],
+input[id=r37]:checked ~pre label[for=r37],
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40],
+input[id=r41]:checked ~pre label[for=r41],
+input[id=r42]:checked ~pre label[for=r42],
+input[id=r43]:checked ~pre label[for=r43],
+input[id=r44]:checked ~pre label[for=r44],
+input[id=r45]:checked ~pre label[for=r45],
+input[id=r46]:checked ~pre label[for=r46],
+input[id=r47]:checked ~pre label[for=r47],
+input[id=r48]:checked ~pre label[for=r48],
+input[id=r49]:checked ~pre label[for=r49]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="r34" type="radio" name="g"/>
+<input id="r35" type="radio" name="g"/>
+<input id="r36" type="radio" name="g"/>
+<input id="r37" type="radio" name="g"/>
+<input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="r41" type="radio" name="g"/>
+<input id="r42" type="radio" name="g"/>
+<input id="r43" type="radio" name="g"/>
+<input id="r44" type="radio" name="g"/>
+<input id="r45" type="radio" name="g"/>
+<input id="r46" type="radio" name="g"/>
+<input id="r47" type="radio" name="g"/>
+<input id="r48" type="radio" name="g"/>
+<input id="r49" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright The OpenTelemetry Authors</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></code></span>
+<span class="codeline" id="line-3"><code></code></span>
+<span class="codeline" id="line-4"><code><span class="keyword">package</span> metric</code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-7"><code>	<label for="i0"><span class="lit-string i0">"context"</span></label></code></span>
+<span class="codeline" id="line-8"><code></code></span>
+<span class="codeline" id="line-9"><code>	<label for="i1"><span class="lit-string i1">"go.opentelemetry.io/otel/metric/embedded"</span></label></code></span>
+<span class="codeline" id="line-10"><code>)</code></span>
+<span class="codeline" id="line-11"><code></code></span>
+<span class="codeline" id="line-12"><code><span class="comment">// Int64Observable describes a set of instruments used asynchronously to record</span></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">// int64 measurements once per collection cycle. Observations of these</span></code></span>
+<span class="codeline" id="line-14"><code><span class="comment">// instruments are only made within a callback.</span></code></span>
+<span class="codeline" id="line-15"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-16"><code><span class="comment">// Warning: Methods may be added to this interface in minor releases.</span></code></span>
+<span class="codeline" id="line-17"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-Int64Observable" class="ident">Int64Observable</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-18"><code>	<a href="instrument.go.html#line-12" class="ident">Observable</a></code></span>
+<span class="codeline" id="line-19"><code></code></span>
+<span class="codeline" id="line-20"><code>	<a href="../../../../imp/go.opentelemetry.io/otel/metric.Int64Observable.html#name-go.opentelemetry.io/otel/metric.int64Observable" class="ident">int64Observable</a>()</code></span>
+<span class="codeline" id="line-21"><code>}</code></span>
+<span class="codeline" id="line-22"><code></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">// Int64ObservableCounter is an instrument used to asynchronously record</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">// increasing int64 measurements once per collection cycle. Observations are</span></code></span>
+<span class="codeline" id="line-25"><code><span class="comment">// only made within a callback for this instrument. The value observed is</span></code></span>
+<span class="codeline" id="line-26"><code><span class="comment">// assumed the to be the cumulative sum of the count.</span></code></span>
+<span class="codeline" id="line-27"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-28"><code><span class="comment">// Warning: Methods may be added to this interface in minor releases. See</span></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">// package documentation on API implementation for information on how to set</span></code></span>
+<span class="codeline" id="line-30"><code><span class="comment">// default behavior for unimplemented methods.</span></code></span>
+<span class="codeline" id="line-31"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-Int64ObservableCounter" class="ident">Int64ObservableCounter</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-32"><code>	<span class="comment">// Users of the interface can ignore this. This embedded type is only used</span></code></span>
+<span class="codeline" id="line-33"><code><span class="comment">	// by implementations of this interface. See the "API Implementations"</span></code></span>
+<span class="codeline" id="line-34"><code><span class="comment">	// section of the package documentation for more information.</span></code></span>
+<span class="codeline" id="line-35"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html" class="ident i1">embedded</a>.<a href="embedded/embedded.go.html#line-207" class="ident">Int64ObservableCounter</a></code></span>
+<span class="codeline" id="line-36"><code></code></span>
+<span class="codeline" id="line-37"><code>	<a href="#line-17" class="ident">Int64Observable</a></code></span>
+<span class="codeline" id="line-38"><code>}</code></span>
+<span class="codeline" id="line-39"><code></code></span>
+<span class="codeline" id="line-40"><code><span class="comment">// Int64ObservableCounterConfig contains options for asynchronous counter</span></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">// instruments that record int64 values.</span></code></span>
+<span class="codeline" id="line-42"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-Int64ObservableCounterConfig" class="ident">Int64ObservableCounterConfig</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-43"><code>	<a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableCounterConfig.description^c9046.html" class="ident">description</a> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-44"><code>	<a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableCounterConfig.unit^385cf.html" class="ident">unit</a>        <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-45"><code>	<a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableCounterConfig.callbacks^371c6.html" class="ident">callbacks</a>   []<a href="#line-245" class="ident">Int64Callback</a></code></span>
+<span class="codeline" id="line-46"><code>}</code></span>
+<span class="codeline" id="line-47"><code></code></span>
+<span class="codeline" id="line-48"><code><span class="comment">// NewInt64ObservableCounterConfig returns a new [Int64ObservableCounterConfig]</span></code></span>
+<span class="codeline" id="line-49"><code><span class="comment">// with all opts applied.</span></code></span>
+<span class="codeline" id="line-50"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-NewInt64ObservableCounterConfig" class="ident">NewInt64ObservableCounterConfig</a></label>(<label for="r1" class="ident">opts</label> ...<a href="#line-80" class="ident">Int64ObservableCounterOption</a>) <a href="#line-42" class="ident">Int64ObservableCounterConfig</a> {</code></span>
+<span class="codeline" id="line-51"><code>	<span class="keyword">var</span> <label for="r2" class="ident">config</label> <a href="#line-42" class="ident">Int64ObservableCounterConfig</a></code></span>
+<span class="codeline" id="line-52"><code>	<span class="keyword">for</span> <label for="r3" class="ident">_</label>, <label for="r4" class="ident">o</label> := <span class="keyword">range</span> <label for="r1" class="ident">opts</label> {</code></span>
+<span class="codeline" id="line-53"><code>		<span class="keyword">if</span> <label for="r5" class="ident">_</label>, <label for="r6" class="ident">ok</label> := <label for="r4" class="ident">o</label>.(<a href="config.go.html#line-45" class="ident">experimentalOption</a>); <label for="r6" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-54"><code>			<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-55"><code>		}</code></span>
+<span class="codeline" id="line-56"><code>		<label for="r2" class="ident">config</label> = <label for="r4" class="ident">o</label>.<a href="#line-81" class="ident">applyInt64ObservableCounter</a>(<label for="r2" class="ident">config</label>)</code></span>
+<span class="codeline" id="line-57"><code>	}</code></span>
+<span class="codeline" id="line-58"><code>	<span class="keyword">return</span> <label for="r2" class="ident">config</label></code></span>
+<span class="codeline" id="line-59"><code>}</code></span>
+<span class="codeline" id="line-60"><code></code></span>
+<span class="codeline" id="line-61"><code><span class="comment">// Description returns the configured description.</span></code></span>
+<span class="codeline" id="line-62"><code><span class="keyword">func</span> (<label for="r7" class="ident">c</label> <a href="#line-42" class="ident">Int64ObservableCounterConfig</a>) <label for="r8" class="ident"><a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableCounterConfig.Description.html" class="ident">Description</a></label>() <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-63"><code>	<span class="keyword">return</span> <label for="r7" class="ident">c</label>.<a href="#line-43" class="ident">description</a></code></span>
+<span class="codeline" id="line-64"><code>}</code></span>
+<span class="codeline" id="line-65"><code></code></span>
+<span class="codeline" id="line-66"><code><span class="comment">// Unit returns the configured unit.</span></code></span>
+<span class="codeline" id="line-67"><code><span class="keyword">func</span> (<label for="r9" class="ident">c</label> <a href="#line-42" class="ident">Int64ObservableCounterConfig</a>) <label for="r10" class="ident"><a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableCounterConfig.Unit.html" class="ident">Unit</a></label>() <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-68"><code>	<span class="keyword">return</span> <label for="r9" class="ident">c</label>.<a href="#line-44" class="ident">unit</a></code></span>
+<span class="codeline" id="line-69"><code>}</code></span>
+<span class="codeline" id="line-70"><code></code></span>
+<span class="codeline" id="line-71"><code><span class="comment">// Callbacks returns the configured callbacks.</span></code></span>
+<span class="codeline" id="line-72"><code><span class="keyword">func</span> (<label for="r11" class="ident">c</label> <a href="#line-42" class="ident">Int64ObservableCounterConfig</a>) <label for="r12" class="ident"><a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableCounterConfig.Callbacks.html" class="ident">Callbacks</a></label>() []<a href="#line-245" class="ident">Int64Callback</a> {</code></span>
+<span class="codeline" id="line-73"><code>	<span class="keyword">return</span> <label for="r11" class="ident">c</label>.<a href="#line-45" class="ident">callbacks</a></code></span>
+<span class="codeline" id="line-74"><code>}</code></span>
+<span class="codeline" id="line-75"><code></code></span>
+<span class="codeline" id="line-76"><code><span class="comment">// Int64ObservableCounterOption applies options to a</span></code></span>
+<span class="codeline" id="line-77"><code><span class="comment">// [Int64ObservableCounterConfig]. See [Int64ObservableOption] and</span></code></span>
+<span class="codeline" id="line-78"><code><span class="comment">// [InstrumentOption] for other options that can be used as an</span></code></span>
+<span class="codeline" id="line-79"><code><span class="comment">// Int64ObservableCounterOption.</span></code></span>
+<span class="codeline" id="line-80"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-Int64ObservableCounterOption" class="ident">Int64ObservableCounterOption</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-81"><code>	<a href="../../../../imp/go.opentelemetry.io/otel/metric.Int64ObservableCounterOption.html#name-go.opentelemetry.io/otel/metric.applyInt64ObservableCounter" class="ident">applyInt64ObservableCounter</a>(<a href="#line-42" class="ident">Int64ObservableCounterConfig</a>) <a href="#line-42" class="ident">Int64ObservableCounterConfig</a></code></span>
+<span class="codeline" id="line-82"><code>}</code></span>
+<span class="codeline" id="line-83"><code></code></span>
+<span class="codeline" id="line-84"><code><span class="comment">// Int64ObservableUpDownCounter is an instrument used to asynchronously record</span></code></span>
+<span class="codeline" id="line-85"><code><span class="comment">// int64 measurements once per collection cycle. Observations are only made</span></code></span>
+<span class="codeline" id="line-86"><code><span class="comment">// within a callback for this instrument. The value observed is assumed the to</span></code></span>
+<span class="codeline" id="line-87"><code><span class="comment">// be the cumulative sum of the count.</span></code></span>
+<span class="codeline" id="line-88"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-89"><code><span class="comment">// Warning: Methods may be added to this interface in minor releases. See</span></code></span>
+<span class="codeline" id="line-90"><code><span class="comment">// package documentation on API implementation for information on how to set</span></code></span>
+<span class="codeline" id="line-91"><code><span class="comment">// default behavior for unimplemented methods.</span></code></span>
+<span class="codeline" id="line-92"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-Int64ObservableUpDownCounter" class="ident">Int64ObservableUpDownCounter</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-93"><code>	<span class="comment">// Users of the interface can ignore this. This embedded type is only used</span></code></span>
+<span class="codeline" id="line-94"><code><span class="comment">	// by implementations of this interface. See the "API Implementations"</span></code></span>
+<span class="codeline" id="line-95"><code><span class="comment">	// section of the package documentation for more information.</span></code></span>
+<span class="codeline" id="line-96"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html" class="ident i1">embedded</a>.<a href="embedded/embedded.go.html#line-231" class="ident">Int64ObservableUpDownCounter</a></code></span>
+<span class="codeline" id="line-97"><code></code></span>
+<span class="codeline" id="line-98"><code>	<a href="#line-17" class="ident">Int64Observable</a></code></span>
+<span class="codeline" id="line-99"><code>}</code></span>
+<span class="codeline" id="line-100"><code></code></span>
+<span class="codeline" id="line-101"><code><span class="comment">// Int64ObservableUpDownCounterConfig contains options for asynchronous counter</span></code></span>
+<span class="codeline" id="line-102"><code><span class="comment">// instruments that record int64 values.</span></code></span>
+<span class="codeline" id="line-103"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-Int64ObservableUpDownCounterConfig" class="ident">Int64ObservableUpDownCounterConfig</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-104"><code>	<a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableUpDownCounterConfig.description^c9046.html" class="ident">description</a> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-105"><code>	<a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableUpDownCounterConfig.unit^385cf.html" class="ident">unit</a>        <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-106"><code>	<a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableUpDownCounterConfig.callbacks^371c6.html" class="ident">callbacks</a>   []<a href="#line-245" class="ident">Int64Callback</a></code></span>
+<span class="codeline" id="line-107"><code>}</code></span>
+<span class="codeline" id="line-108"><code></code></span>
+<span class="codeline" id="line-109"><code><span class="comment">// NewInt64ObservableUpDownCounterConfig returns a new</span></code></span>
+<span class="codeline" id="line-110"><code><span class="comment">// [Int64ObservableUpDownCounterConfig] with all opts applied.</span></code></span>
+<span class="codeline" id="line-111"><code><span class="keyword">func</span> <label for="r13" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-NewInt64ObservableUpDownCounterConfig" class="ident">NewInt64ObservableUpDownCounterConfig</a></label>(</code></span>
+<span class="codeline" id="line-112"><code>	<label for="r14" class="ident">opts</label> ...<a href="#line-143" class="ident">Int64ObservableUpDownCounterOption</a>,</code></span>
+<span class="codeline" id="line-113"><code>) <a href="#line-103" class="ident">Int64ObservableUpDownCounterConfig</a> {</code></span>
+<span class="codeline" id="line-114"><code>	<span class="keyword">var</span> <label for="r15" class="ident">config</label> <a href="#line-103" class="ident">Int64ObservableUpDownCounterConfig</a></code></span>
+<span class="codeline" id="line-115"><code>	<span class="keyword">for</span> <label for="r16" class="ident">_</label>, <label for="r17" class="ident">o</label> := <span class="keyword">range</span> <label for="r14" class="ident">opts</label> {</code></span>
+<span class="codeline" id="line-116"><code>		<span class="keyword">if</span> <label for="r18" class="ident">_</label>, <label for="r19" class="ident">ok</label> := <label for="r17" class="ident">o</label>.(<a href="config.go.html#line-45" class="ident">experimentalOption</a>); <label for="r19" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-117"><code>			<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-118"><code>		}</code></span>
+<span class="codeline" id="line-119"><code>		<label for="r15" class="ident">config</label> = <label for="r17" class="ident">o</label>.<a href="#line-144" class="ident">applyInt64ObservableUpDownCounter</a>(<label for="r15" class="ident">config</label>)</code></span>
+<span class="codeline" id="line-120"><code>	}</code></span>
+<span class="codeline" id="line-121"><code>	<span class="keyword">return</span> <label for="r15" class="ident">config</label></code></span>
+<span class="codeline" id="line-122"><code>}</code></span>
+<span class="codeline" id="line-123"><code></code></span>
+<span class="codeline" id="line-124"><code><span class="comment">// Description returns the configured description.</span></code></span>
+<span class="codeline" id="line-125"><code><span class="keyword">func</span> (<label for="r20" class="ident">c</label> <a href="#line-103" class="ident">Int64ObservableUpDownCounterConfig</a>) <label for="r21" class="ident"><a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableUpDownCounterConfig.Description.html" class="ident">Description</a></label>() <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-126"><code>	<span class="keyword">return</span> <label for="r20" class="ident">c</label>.<a href="#line-104" class="ident">description</a></code></span>
+<span class="codeline" id="line-127"><code>}</code></span>
+<span class="codeline" id="line-128"><code></code></span>
+<span class="codeline" id="line-129"><code><span class="comment">// Unit returns the configured unit.</span></code></span>
+<span class="codeline" id="line-130"><code><span class="keyword">func</span> (<label for="r22" class="ident">c</label> <a href="#line-103" class="ident">Int64ObservableUpDownCounterConfig</a>) <label for="r23" class="ident"><a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableUpDownCounterConfig.Unit.html" class="ident">Unit</a></label>() <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-131"><code>	<span class="keyword">return</span> <label for="r22" class="ident">c</label>.<a href="#line-105" class="ident">unit</a></code></span>
+<span class="codeline" id="line-132"><code>}</code></span>
+<span class="codeline" id="line-133"><code></code></span>
+<span class="codeline" id="line-134"><code><span class="comment">// Callbacks returns the configured callbacks.</span></code></span>
+<span class="codeline" id="line-135"><code><span class="keyword">func</span> (<label for="r24" class="ident">c</label> <a href="#line-103" class="ident">Int64ObservableUpDownCounterConfig</a>) <label for="r25" class="ident"><a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableUpDownCounterConfig.Callbacks.html" class="ident">Callbacks</a></label>() []<a href="#line-245" class="ident">Int64Callback</a> {</code></span>
+<span class="codeline" id="line-136"><code>	<span class="keyword">return</span> <label for="r24" class="ident">c</label>.<a href="#line-106" class="ident">callbacks</a></code></span>
+<span class="codeline" id="line-137"><code>}</code></span>
+<span class="codeline" id="line-138"><code></code></span>
+<span class="codeline" id="line-139"><code><span class="comment">// Int64ObservableUpDownCounterOption applies options to a</span></code></span>
+<span class="codeline" id="line-140"><code><span class="comment">// [Int64ObservableUpDownCounterConfig]. See [Int64ObservableOption] and</span></code></span>
+<span class="codeline" id="line-141"><code><span class="comment">// [InstrumentOption] for other options that can be used as an</span></code></span>
+<span class="codeline" id="line-142"><code><span class="comment">// Int64ObservableUpDownCounterOption.</span></code></span>
+<span class="codeline" id="line-143"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-Int64ObservableUpDownCounterOption" class="ident">Int64ObservableUpDownCounterOption</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-144"><code>	<a href="../../../../imp/go.opentelemetry.io/otel/metric.Int64ObservableUpDownCounterOption.html#name-go.opentelemetry.io/otel/metric.applyInt64ObservableUpDownCounter" class="ident">applyInt64ObservableUpDownCounter</a>(<a href="#line-103" class="ident">Int64ObservableUpDownCounterConfig</a>) <a href="#line-103" class="ident">Int64ObservableUpDownCounterConfig</a></code></span>
+<span class="codeline" id="line-145"><code>}</code></span>
+<span class="codeline" id="line-146"><code></code></span>
+<span class="codeline" id="line-147"><code><span class="comment">// Int64ObservableGauge is an instrument used to asynchronously record</span></code></span>
+<span class="codeline" id="line-148"><code><span class="comment">// instantaneous int64 measurements once per collection cycle. Observations are</span></code></span>
+<span class="codeline" id="line-149"><code><span class="comment">// only made within a callback for this instrument.</span></code></span>
+<span class="codeline" id="line-150"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-151"><code><span class="comment">// Warning: Methods may be added to this interface in minor releases. See</span></code></span>
+<span class="codeline" id="line-152"><code><span class="comment">// package documentation on API implementation for information on how to set</span></code></span>
+<span class="codeline" id="line-153"><code><span class="comment">// default behavior for unimplemented methods.</span></code></span>
+<span class="codeline" id="line-154"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-Int64ObservableGauge" class="ident">Int64ObservableGauge</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-155"><code>	<span class="comment">// Users of the interface can ignore this. This embedded type is only used</span></code></span>
+<span class="codeline" id="line-156"><code><span class="comment">	// by implementations of this interface. See the "API Implementations"</span></code></span>
+<span class="codeline" id="line-157"><code><span class="comment">	// section of the package documentation for more information.</span></code></span>
+<span class="codeline" id="line-158"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html" class="ident i1">embedded</a>.<a href="embedded/embedded.go.html#line-219" class="ident">Int64ObservableGauge</a></code></span>
+<span class="codeline" id="line-159"><code></code></span>
+<span class="codeline" id="line-160"><code>	<a href="#line-17" class="ident">Int64Observable</a></code></span>
+<span class="codeline" id="line-161"><code>}</code></span>
+<span class="codeline" id="line-162"><code></code></span>
+<span class="codeline" id="line-163"><code><span class="comment">// Int64ObservableGaugeConfig contains options for asynchronous counter</span></code></span>
+<span class="codeline" id="line-164"><code><span class="comment">// instruments that record int64 values.</span></code></span>
+<span class="codeline" id="line-165"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-Int64ObservableGaugeConfig" class="ident">Int64ObservableGaugeConfig</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-166"><code>	<a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableGaugeConfig.description^c9046.html" class="ident">description</a> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-167"><code>	<a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableGaugeConfig.unit^385cf.html" class="ident">unit</a>        <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-168"><code>	<a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableGaugeConfig.callbacks^371c6.html" class="ident">callbacks</a>   []<a href="#line-245" class="ident">Int64Callback</a></code></span>
+<span class="codeline" id="line-169"><code>}</code></span>
+<span class="codeline" id="line-170"><code></code></span>
+<span class="codeline" id="line-171"><code><span class="comment">// NewInt64ObservableGaugeConfig returns a new [Int64ObservableGaugeConfig]</span></code></span>
+<span class="codeline" id="line-172"><code><span class="comment">// with all opts applied.</span></code></span>
+<span class="codeline" id="line-173"><code><span class="keyword">func</span> <label for="r26" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-NewInt64ObservableGaugeConfig" class="ident">NewInt64ObservableGaugeConfig</a></label>(<label for="r27" class="ident">opts</label> ...<a href="#line-203" class="ident">Int64ObservableGaugeOption</a>) <a href="#line-165" class="ident">Int64ObservableGaugeConfig</a> {</code></span>
+<span class="codeline" id="line-174"><code>	<span class="keyword">var</span> <label for="r28" class="ident">config</label> <a href="#line-165" class="ident">Int64ObservableGaugeConfig</a></code></span>
+<span class="codeline" id="line-175"><code>	<span class="keyword">for</span> <label for="r29" class="ident">_</label>, <label for="r30" class="ident">o</label> := <span class="keyword">range</span> <label for="r27" class="ident">opts</label> {</code></span>
+<span class="codeline" id="line-176"><code>		<span class="keyword">if</span> <label for="r31" class="ident">_</label>, <label for="r32" class="ident">ok</label> := <label for="r30" class="ident">o</label>.(<a href="config.go.html#line-45" class="ident">experimentalOption</a>); <label for="r32" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-177"><code>			<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-178"><code>		}</code></span>
+<span class="codeline" id="line-179"><code>		<label for="r28" class="ident">config</label> = <label for="r30" class="ident">o</label>.<a href="#line-204" class="ident">applyInt64ObservableGauge</a>(<label for="r28" class="ident">config</label>)</code></span>
+<span class="codeline" id="line-180"><code>	}</code></span>
+<span class="codeline" id="line-181"><code>	<span class="keyword">return</span> <label for="r28" class="ident">config</label></code></span>
+<span class="codeline" id="line-182"><code>}</code></span>
+<span class="codeline" id="line-183"><code></code></span>
+<span class="codeline" id="line-184"><code><span class="comment">// Description returns the configured description.</span></code></span>
+<span class="codeline" id="line-185"><code><span class="keyword">func</span> (<label for="r33" class="ident">c</label> <a href="#line-165" class="ident">Int64ObservableGaugeConfig</a>) <label for="r34" class="ident"><a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableGaugeConfig.Description.html" class="ident">Description</a></label>() <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-186"><code>	<span class="keyword">return</span> <label for="r33" class="ident">c</label>.<a href="#line-166" class="ident">description</a></code></span>
+<span class="codeline" id="line-187"><code>}</code></span>
+<span class="codeline" id="line-188"><code></code></span>
+<span class="codeline" id="line-189"><code><span class="comment">// Unit returns the configured unit.</span></code></span>
+<span class="codeline" id="line-190"><code><span class="keyword">func</span> (<label for="r35" class="ident">c</label> <a href="#line-165" class="ident">Int64ObservableGaugeConfig</a>) <label for="r36" class="ident"><a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableGaugeConfig.Unit.html" class="ident">Unit</a></label>() <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-191"><code>	<span class="keyword">return</span> <label for="r35" class="ident">c</label>.<a href="#line-167" class="ident">unit</a></code></span>
+<span class="codeline" id="line-192"><code>}</code></span>
+<span class="codeline" id="line-193"><code></code></span>
+<span class="codeline" id="line-194"><code><span class="comment">// Callbacks returns the configured callbacks.</span></code></span>
+<span class="codeline" id="line-195"><code><span class="keyword">func</span> (<label for="r37" class="ident">c</label> <a href="#line-165" class="ident">Int64ObservableGaugeConfig</a>) <label for="r38" class="ident"><a href="../../../../use/go.opentelemetry.io/otel/metric..Int64ObservableGaugeConfig.Callbacks.html" class="ident">Callbacks</a></label>() []<a href="#line-245" class="ident">Int64Callback</a> {</code></span>
+<span class="codeline" id="line-196"><code>	<span class="keyword">return</span> <label for="r37" class="ident">c</label>.<a href="#line-168" class="ident">callbacks</a></code></span>
+<span class="codeline" id="line-197"><code>}</code></span>
+<span class="codeline" id="line-198"><code></code></span>
+<span class="codeline" id="line-199"><code><span class="comment">// Int64ObservableGaugeOption applies options to a</span></code></span>
+<span class="codeline" id="line-200"><code><span class="comment">// [Int64ObservableGaugeConfig]. See [Int64ObservableOption] and</span></code></span>
+<span class="codeline" id="line-201"><code><span class="comment">// [InstrumentOption] for other options that can be used as an</span></code></span>
+<span class="codeline" id="line-202"><code><span class="comment">// Int64ObservableGaugeOption.</span></code></span>
+<span class="codeline" id="line-203"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-Int64ObservableGaugeOption" class="ident">Int64ObservableGaugeOption</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-204"><code>	<a href="../../../../imp/go.opentelemetry.io/otel/metric.Int64ObservableGaugeOption.html#name-go.opentelemetry.io/otel/metric.applyInt64ObservableGauge" class="ident">applyInt64ObservableGauge</a>(<a href="#line-165" class="ident">Int64ObservableGaugeConfig</a>) <a href="#line-165" class="ident">Int64ObservableGaugeConfig</a></code></span>
+<span class="codeline" id="line-205"><code>}</code></span>
+<span class="codeline" id="line-206"><code></code></span>
+<span class="codeline" id="line-207"><code><span class="comment">// Int64Observer is a recorder of int64 measurements.</span></code></span>
+<span class="codeline" id="line-208"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-209"><code><span class="comment">// Warning: Methods may be added to this interface in minor releases. See</span></code></span>
+<span class="codeline" id="line-210"><code><span class="comment">// package documentation on API implementation for information on how to set</span></code></span>
+<span class="codeline" id="line-211"><code><span class="comment">// default behavior for unimplemented methods.</span></code></span>
+<span class="codeline" id="line-212"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-Int64Observer" class="ident">Int64Observer</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-213"><code>	<span class="comment">// Users of the interface can ignore this. This embedded type is only used</span></code></span>
+<span class="codeline" id="line-214"><code><span class="comment">	// by implementations of this interface. See the "API Implementations"</span></code></span>
+<span class="codeline" id="line-215"><code><span class="comment">	// section of the package documentation for more information.</span></code></span>
+<span class="codeline" id="line-216"><code>	<a href="../../../../pkg/go.opentelemetry.io/otel/metric/embedded.html" class="ident i1">embedded</a>.<a href="embedded/embedded.go.html#line-59" class="ident">Int64Observer</a></code></span>
+<span class="codeline" id="line-217"><code></code></span>
+<span class="codeline" id="line-218"><code>	<span class="comment">// Observe records the int64 value.</span></code></span>
+<span class="codeline" id="line-219"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-220"><code><span class="comment">	// Use the WithAttributeSet (or, if performance is not a concern,</span></code></span>
+<span class="codeline" id="line-221"><code><span class="comment">	// the WithAttributes) option to include measurement attributes.</span></code></span>
+<span class="codeline" id="line-222"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-223"><code><span class="comment">	// Implementations of this method need to be safe for a user to call</span></code></span>
+<span class="codeline" id="line-224"><code><span class="comment">	// concurrently.</span></code></span>
+<span class="codeline" id="line-225"><code>	<a href="../../../../imp/go.opentelemetry.io/otel/metric.Int64Observer.html#name-Observe" class="ident">Observe</a>(value <a href="../../../../pkg/builtin.html#name-int64" class="ident">int64</a>, options ...<a href="instrument.go.html#line-276" class="ident">ObserveOption</a>)</code></span>
+<span class="codeline" id="line-226"><code>}</code></span>
+<span class="codeline" id="line-227"><code></code></span>
+<span class="codeline" id="line-228"><code><span class="comment">// Int64Callback is a function registered with a Meter that makes observations</span></code></span>
+<span class="codeline" id="line-229"><code><span class="comment">// for an Int64Observable instrument it is registered with. Calls to the</span></code></span>
+<span class="codeline" id="line-230"><code><span class="comment">// Int64Observer record measurement values for the Int64Observable.</span></code></span>
+<span class="codeline" id="line-231"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-232"><code><span class="comment">// The function needs to complete in a finite amount of time and the deadline</span></code></span>
+<span class="codeline" id="line-233"><code><span class="comment">// of the passed context is expected to be honored.</span></code></span>
+<span class="codeline" id="line-234"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-235"><code><span class="comment">// The function needs to make unique observations across all registered</span></code></span>
+<span class="codeline" id="line-236"><code><span class="comment">// Int64Callbacks. Meaning, it should not report measurements with the same</span></code></span>
+<span class="codeline" id="line-237"><code><span class="comment">// attributes as another Int64Callbacks also registered for the same</span></code></span>
+<span class="codeline" id="line-238"><code><span class="comment">// instrument.</span></code></span>
+<span class="codeline" id="line-239"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-240"><code><span class="comment">// The function needs to be reentrant and concurrent safe.</span></code></span>
+<span class="codeline" id="line-241"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-242"><code><span class="comment">// Note that Go's mutexes are not reentrant, and locking a mutex takes</span></code></span>
+<span class="codeline" id="line-243"><code><span class="comment">// an indefinite amount of time. It is therefore advised to avoid</span></code></span>
+<span class="codeline" id="line-244"><code><span class="comment">// using mutexes inside callbacks.</span></code></span>
+<span class="codeline" id="line-245"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-Int64Callback" class="ident">Int64Callback</a> <span class="keyword">func</span>(<a href="../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../context/context.go.html#line-71" class="ident">Context</a>, <a href="#line-212" class="ident">Int64Observer</a>) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
+<span class="codeline" id="line-246"><code></code></span>
+<span class="codeline" id="line-247"><code><span class="comment">// Int64ObservableOption applies options to int64 Observer instruments.</span></code></span>
+<span class="codeline" id="line-248"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-Int64ObservableOption" class="ident">Int64ObservableOption</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-249"><code>	<a href="#line-80" class="ident">Int64ObservableCounterOption</a></code></span>
+<span class="codeline" id="line-250"><code>	<a href="#line-143" class="ident">Int64ObservableUpDownCounterOption</a></code></span>
+<span class="codeline" id="line-251"><code>	<a href="#line-203" class="ident">Int64ObservableGaugeOption</a></code></span>
+<span class="codeline" id="line-252"><code>}</code></span>
+<span class="codeline" id="line-253"><code></code></span>
+<span class="codeline" id="line-254"><code><span class="keyword">type</span> <a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-int64CallbackOpt" class="ident">int64CallbackOpt</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-255"><code>	<a href="../../../../use/go.opentelemetry.io/otel/metric..int64CallbackOpt^d7b70.cback^bdf41.html" class="ident">cback</a> <a href="#line-245" class="ident">Int64Callback</a></code></span>
+<span class="codeline" id="line-256"><code>}</code></span>
+<span class="codeline" id="line-257"><code></code></span>
+<span class="codeline" id="line-258"><code><span class="keyword">func</span> (<label for="r39" class="ident">o</label> <a href="#line-254" class="ident">int64CallbackOpt</a>) <label for="r40" class="ident"><a href="../../../../use/go.opentelemetry.io/otel/metric..int64CallbackOpt^d7b70.applyInt64ObservableCounter^21a7c.html" class="ident">applyInt64ObservableCounter</a></label>(<label for="r41" class="ident">cfg</label> <a href="#line-42" class="ident">Int64ObservableCounterConfig</a>) <a href="#line-42" class="ident">Int64ObservableCounterConfig</a> {</code></span>
+<span class="codeline" id="line-259"><code>	<label for="r41" class="ident">cfg</label>.<a href="#line-45" class="ident">callbacks</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r41" class="ident">cfg</label>.<a href="#line-45" class="ident">callbacks</a>, <label for="r39" class="ident">o</label>.<a href="#line-255" class="ident">cback</a>)</code></span>
+<span class="codeline" id="line-260"><code>	<span class="keyword">return</span> <label for="r41" class="ident">cfg</label></code></span>
+<span class="codeline" id="line-261"><code>}</code></span>
+<span class="codeline" id="line-262"><code></code></span>
+<span class="codeline" id="line-263"><code><span class="keyword">func</span> (<label for="r42" class="ident">o</label> <a href="#line-254" class="ident">int64CallbackOpt</a>) <label for="r43" class="ident"><a href="../../../../use/go.opentelemetry.io/otel/metric..int64CallbackOpt^d7b70.applyInt64ObservableUpDownCounter^856fa.html" class="ident">applyInt64ObservableUpDownCounter</a></label>(</code></span>
+<span class="codeline" id="line-264"><code>	<label for="r44" class="ident">cfg</label> <a href="#line-103" class="ident">Int64ObservableUpDownCounterConfig</a>,</code></span>
+<span class="codeline" id="line-265"><code>) <a href="#line-103" class="ident">Int64ObservableUpDownCounterConfig</a> {</code></span>
+<span class="codeline" id="line-266"><code>	<label for="r44" class="ident">cfg</label>.<a href="#line-106" class="ident">callbacks</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r44" class="ident">cfg</label>.<a href="#line-106" class="ident">callbacks</a>, <label for="r42" class="ident">o</label>.<a href="#line-255" class="ident">cback</a>)</code></span>
+<span class="codeline" id="line-267"><code>	<span class="keyword">return</span> <label for="r44" class="ident">cfg</label></code></span>
+<span class="codeline" id="line-268"><code>}</code></span>
+<span class="codeline" id="line-269"><code></code></span>
+<span class="codeline" id="line-270"><code><span class="keyword">func</span> (<label for="r45" class="ident">o</label> <a href="#line-254" class="ident">int64CallbackOpt</a>) <label for="r46" class="ident"><a href="../../../../use/go.opentelemetry.io/otel/metric..int64CallbackOpt^d7b70.applyInt64ObservableGauge^47f00.html" class="ident">applyInt64ObservableGauge</a></label>(<label for="r47" class="ident">cfg</label> <a href="#line-165" class="ident">Int64ObservableGaugeConfig</a>) <a href="#line-165" class="ident">Int64ObservableGaugeConfig</a> {</code></span>
+<span class="codeline" id="line-271"><code>	<label for="r47" class="ident">cfg</label>.<a href="#line-168" class="ident">callbacks</a> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r47" class="ident">cfg</label>.<a href="#line-168" class="ident">callbacks</a>, <label for="r45" class="ident">o</label>.<a href="#line-255" class="ident">cback</a>)</code></span>
+<span class="codeline" id="line-272"><code>	<span class="keyword">return</span> <label for="r47" class="ident">cfg</label></code></span>
+<span class="codeline" id="line-273"><code>}</code></span>
+<span class="codeline" id="line-274"><code></code></span>
+<span class="codeline" id="line-275"><code><span class="comment">// WithInt64Callback adds callback to be called for an instrument.</span></code></span>
+<span class="codeline" id="line-276"><code><span class="keyword">func</span> <label for="r48" class="ident"><a href="../../../../pkg/go.opentelemetry.io/otel/metric.html#name-WithInt64Callback" class="ident">WithInt64Callback</a></label>(<label for="r49" class="ident">callback</label> <a href="#line-245" class="ident">Int64Callback</a>) <a href="#line-248" class="ident">Int64ObservableOption</a> {</code></span>
+<span class="codeline" id="line-277"><code>	<span class="keyword">return</span> <a href="#line-254" class="ident">int64CallbackOpt</a>{<label for="r49" class="ident">callback</label>}</code></span>
+<span class="codeline" id="line-278"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

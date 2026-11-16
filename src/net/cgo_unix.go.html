@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: cgo_unix.go in package net</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -630,46 +630,43 @@ input[id=i7]:checked ~pre .i7
 <span class="codeline" id="line-342"><code><span class="comment">	// useful in the response, even though there *is* a response.</span></code></span>
 <span class="codeline" id="line-343"><code>	<label for="r116" class="ident">bufSize</label> := <a href="dnsclient_unix.go.html#line-39" class="ident">maxDNSPacketSize</a></code></span>
 <span class="codeline" id="line-344"><code>	<label for="r117" class="ident">buf</label> := (*<a href="cgo_unix_cgo.go.html#line-60" class="ident">_C_uchar</a>)(<a href="cgo_unix_cgo.go.html#line-68" class="ident">_C_malloc</a>(<a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>(<label for="r116" class="ident">bufSize</label>)))</code></span>
-<span class="codeline" id="line-345"><code>	<span class="keyword">defer</span> <span class="keyword">func</span>() {</code></span>
-<span class="codeline" id="line-346"><code>		<span class="comment">// Free in a closure which captures buf to pick up a reallocated buffer from below.</span></code></span>
-<span class="codeline" id="line-347"><code>		<a href="cgo_unix_cgo.go.html#line-69" class="ident">_C_free</a>(<a href="../../pkg/unsafe.html" class="ident i6">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r117" class="ident">buf</label>))</code></span>
-<span class="codeline" id="line-348"><code>	}()</code></span>
-<span class="codeline" id="line-349"><code></code></span>
-<span class="codeline" id="line-350"><code>	<label for="r118" class="ident">s</label>, <label for="r119" class="ident">err</label> := <a href="../../pkg/syscall.html" class="ident i5">syscall</a>.<a href="../syscall/syscall.go.html#line-67" class="ident">BytePtrFromString</a>(<label for="r108" class="ident">hostname</label>)</code></span>
-<span class="codeline" id="line-351"><code>	<span class="keyword">if</span> <label for="r119" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-352"><code>		<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r119" class="ident">err</label></code></span>
-<span class="codeline" id="line-353"><code>	}</code></span>
-<span class="codeline" id="line-354"><code></code></span>
-<span class="codeline" id="line-355"><code>	<span class="keyword">var</span> <label for="r120" class="ident">size</label> <a href="../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
-<span class="codeline" id="line-356"><code>	<span class="keyword">for</span> {</code></span>
-<span class="codeline" id="line-357"><code>		<label for="r120" class="ident">size</label> = <a href="cgo_unix_cgo_res.go.html#line-38" class="ident">_C_res_nsearch</a>(<label for="r112" class="ident">state</label>, (*<a href="cgo_unix_cgo.go.html#line-59" class="ident">_C_char</a>)(<a href="../../pkg/unsafe.html" class="ident i6">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r118" class="ident">s</label>)), <label for="r110" class="ident">class</label>, <label for="r109" class="ident">rtype</label>, <label for="r117" class="ident">buf</label>, <label for="r116" class="ident">bufSize</label>)</code></span>
-<span class="codeline" id="line-358"><code>		<span class="keyword">if</span> <label for="r120" class="ident">size</label> &lt;= <span class="lit-number">0</span> || <label for="r120" class="ident">size</label> &gt; <span class="lit-number">0xffff</span> {</code></span>
-<span class="codeline" id="line-359"><code>			<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../pkg/errors.html" class="ident i1">errors</a>.<a href="../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"res_nsearch failure"</span>)</code></span>
+<span class="codeline" id="line-345"><code>	<span class="keyword">defer</span> <a href="cgo_unix_cgo.go.html#line-69" class="ident">_C_free</a>(<a href="../../pkg/unsafe.html" class="ident i6">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r117" class="ident">buf</label>))</code></span>
+<span class="codeline" id="line-346"><code></code></span>
+<span class="codeline" id="line-347"><code>	<label for="r118" class="ident">s</label>, <label for="r119" class="ident">err</label> := <a href="../../pkg/syscall.html" class="ident i5">syscall</a>.<a href="../syscall/syscall.go.html#line-67" class="ident">BytePtrFromString</a>(<label for="r108" class="ident">hostname</label>)</code></span>
+<span class="codeline" id="line-348"><code>	<span class="keyword">if</span> <label for="r119" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-349"><code>		<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r119" class="ident">err</label></code></span>
+<span class="codeline" id="line-350"><code>	}</code></span>
+<span class="codeline" id="line-351"><code></code></span>
+<span class="codeline" id="line-352"><code>	<span class="keyword">var</span> <label for="r120" class="ident">size</label> <a href="../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-353"><code>	<span class="keyword">for</span> {</code></span>
+<span class="codeline" id="line-354"><code>		<label for="r120" class="ident">size</label> = <a href="cgo_unix_cgo_res.go.html#line-38" class="ident">_C_res_nsearch</a>(<label for="r112" class="ident">state</label>, (*<a href="cgo_unix_cgo.go.html#line-59" class="ident">_C_char</a>)(<a href="../../pkg/unsafe.html" class="ident i6">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r118" class="ident">s</label>)), <label for="r110" class="ident">class</label>, <label for="r109" class="ident">rtype</label>, <label for="r117" class="ident">buf</label>, <label for="r116" class="ident">bufSize</label>)</code></span>
+<span class="codeline" id="line-355"><code>		<span class="keyword">if</span> <label for="r120" class="ident">size</label> &lt;= <span class="lit-number">0</span> || <label for="r120" class="ident">size</label> &gt; <span class="lit-number">0xffff</span> {</code></span>
+<span class="codeline" id="line-356"><code>			<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../pkg/errors.html" class="ident i1">errors</a>.<a href="../errors/errors.go.html#line-64" class="ident">New</a>(<span class="lit-string">"res_nsearch failure"</span>)</code></span>
+<span class="codeline" id="line-357"><code>		}</code></span>
+<span class="codeline" id="line-358"><code>		<span class="keyword">if</span> <label for="r120" class="ident">size</label> &lt;= <label for="r116" class="ident">bufSize</label> {</code></span>
+<span class="codeline" id="line-359"><code>			<span class="keyword">break</span></code></span>
 <span class="codeline" id="line-360"><code>		}</code></span>
-<span class="codeline" id="line-361"><code>		<span class="keyword">if</span> <label for="r120" class="ident">size</label> &lt;= <label for="r116" class="ident">bufSize</label> {</code></span>
-<span class="codeline" id="line-362"><code>			<span class="keyword">break</span></code></span>
-<span class="codeline" id="line-363"><code>		}</code></span>
-<span class="codeline" id="line-364"><code></code></span>
-<span class="codeline" id="line-365"><code>		<span class="comment">// Allocate a bigger buffer to fit the entire msg.</span></code></span>
-<span class="codeline" id="line-366"><code>		<a href="cgo_unix_cgo.go.html#line-69" class="ident">_C_free</a>(<a href="../../pkg/unsafe.html" class="ident i6">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r117" class="ident">buf</label>))</code></span>
-<span class="codeline" id="line-367"><code>		<label for="r116" class="ident">bufSize</label> = <label for="r120" class="ident">size</label></code></span>
-<span class="codeline" id="line-368"><code>		<label for="r117" class="ident">buf</label> = (*<a href="cgo_unix_cgo.go.html#line-60" class="ident">_C_uchar</a>)(<a href="cgo_unix_cgo.go.html#line-68" class="ident">_C_malloc</a>(<a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>(<label for="r116" class="ident">bufSize</label>)))</code></span>
-<span class="codeline" id="line-369"><code>	}</code></span>
-<span class="codeline" id="line-370"><code></code></span>
-<span class="codeline" id="line-371"><code>	<span class="keyword">var</span> <label for="r121" class="ident">p</label> <a href="../../pkg/vendor/golang.org/x/net/dns/dnsmessage.html" class="ident i0">dnsmessage</a>.<a href="../vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-559" class="ident">Parser</a></code></span>
-<span class="codeline" id="line-372"><code>	<span class="keyword">if</span> <label for="r122" class="ident">_</label>, <label for="r123" class="ident">err</label> := <label for="r121" class="ident">p</label>.<a href="../vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-573" class="ident">Start</a>(<a href="../../pkg/unsafe.html" class="ident i6">unsafe</a>.<a href="../../pkg/unsafe.html#name-Slice" class="ident">Slice</a>((*<a href="../../pkg/builtin.html#name-byte" class="ident">byte</a>)(<a href="../../pkg/unsafe.html" class="ident i6">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r117" class="ident">buf</label>)), <label for="r120" class="ident">size</label>)); <label for="r123" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-373"><code>		<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r123" class="ident">err</label></code></span>
-<span class="codeline" id="line-374"><code>	}</code></span>
-<span class="codeline" id="line-375"><code>	<label for="r121" class="ident">p</label>.<a href="../vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-727" class="ident">SkipAllQuestions</a>()</code></span>
-<span class="codeline" id="line-376"><code>	<label for="r124" class="ident">resources</label>, <label for="r119" class="ident">err</label> := <label for="r121" class="ident">p</label>.<a href="../vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-748" class="ident">AllAnswers</a>()</code></span>
-<span class="codeline" id="line-377"><code>	<span class="keyword">if</span> <label for="r119" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-378"><code>		<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r119" class="ident">err</label></code></span>
-<span class="codeline" id="line-379"><code>	}</code></span>
-<span class="codeline" id="line-380"><code>	<span class="keyword">return</span> <label for="r124" class="ident">resources</label>, <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-381"><code>}</code></span>
+<span class="codeline" id="line-361"><code></code></span>
+<span class="codeline" id="line-362"><code>		<span class="comment">// Allocate a bigger buffer to fit the entire msg.</span></code></span>
+<span class="codeline" id="line-363"><code>		<a href="cgo_unix_cgo.go.html#line-69" class="ident">_C_free</a>(<a href="../../pkg/unsafe.html" class="ident i6">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r117" class="ident">buf</label>))</code></span>
+<span class="codeline" id="line-364"><code>		<label for="r116" class="ident">bufSize</label> = <label for="r120" class="ident">size</label></code></span>
+<span class="codeline" id="line-365"><code>		<label for="r117" class="ident">buf</label> = (*<a href="cgo_unix_cgo.go.html#line-60" class="ident">_C_uchar</a>)(<a href="cgo_unix_cgo.go.html#line-68" class="ident">_C_malloc</a>(<a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>(<label for="r116" class="ident">bufSize</label>)))</code></span>
+<span class="codeline" id="line-366"><code>	}</code></span>
+<span class="codeline" id="line-367"><code></code></span>
+<span class="codeline" id="line-368"><code>	<span class="keyword">var</span> <label for="r121" class="ident">p</label> <a href="../../pkg/vendor/golang.org/x/net/dns/dnsmessage.html" class="ident i0">dnsmessage</a>.<a href="../vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-559" class="ident">Parser</a></code></span>
+<span class="codeline" id="line-369"><code>	<span class="keyword">if</span> <label for="r122" class="ident">_</label>, <label for="r123" class="ident">err</label> := <label for="r121" class="ident">p</label>.<a href="../vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-573" class="ident">Start</a>(<a href="../../pkg/unsafe.html" class="ident i6">unsafe</a>.<a href="../../pkg/unsafe.html#name-Slice" class="ident">Slice</a>((*<a href="../../pkg/builtin.html#name-byte" class="ident">byte</a>)(<a href="../../pkg/unsafe.html" class="ident i6">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r117" class="ident">buf</label>)), <label for="r120" class="ident">size</label>)); <label for="r123" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-370"><code>		<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r123" class="ident">err</label></code></span>
+<span class="codeline" id="line-371"><code>	}</code></span>
+<span class="codeline" id="line-372"><code>	<label for="r121" class="ident">p</label>.<a href="../vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-727" class="ident">SkipAllQuestions</a>()</code></span>
+<span class="codeline" id="line-373"><code>	<label for="r124" class="ident">resources</label>, <label for="r119" class="ident">err</label> := <label for="r121" class="ident">p</label>.<a href="../vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-748" class="ident">AllAnswers</a>()</code></span>
+<span class="codeline" id="line-374"><code>	<span class="keyword">if</span> <label for="r119" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-375"><code>		<span class="keyword">return</span> <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r119" class="ident">err</label></code></span>
+<span class="codeline" id="line-376"><code>	}</code></span>
+<span class="codeline" id="line-377"><code>	<span class="keyword">return</span> <label for="r124" class="ident">resources</label>, <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-378"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

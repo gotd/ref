@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: message_id.go in package github.com/gotd/td/proto</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -54,11 +54,21 @@ input[id=r34]:checked ~pre label[for=r34],
 input[id=r35]:checked ~pre label[for=r35],
 input[id=r36]:checked ~pre label[for=r36],
 input[id=r37]:checked ~pre label[for=r37],
-input[id=r38]:checked ~pre label[for=r38]
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40],
+input[id=r41]:checked ~pre label[for=r41],
+input[id=r42]:checked ~pre label[for=r42],
+input[id=r43]:checked ~pre label[for=r43],
+input[id=r44]:checked ~pre label[for=r44],
+input[id=r45]:checked ~pre label[for=r45],
+input[id=r46]:checked ~pre label[for=r46],
+input[id=r47]:checked ~pre label[for=r47]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
 input[id=i1]:checked ~pre .i1,
-input[id=i2]:checked ~pre .i2
+input[id=i2]:checked ~pre .i2,
+input[id=i3]:checked ~pre .i3
 {background: brown; color: #eed;}
 </style><input id="r0" type="radio" name="g"/>
 <input id="r1" type="radio" name="g"/>
@@ -99,234 +109,297 @@ input[id=i2]:checked ~pre .i2
 <input id="r36" type="radio" name="g"/>
 <input id="r37" type="radio" name="g"/>
 <input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="r41" type="radio" name="g"/>
+<input id="r42" type="radio" name="g"/>
+<input id="r43" type="radio" name="g"/>
+<input id="r44" type="radio" name="g"/>
+<input id="r45" type="radio" name="g"/>
+<input id="r46" type="radio" name="g"/>
+<input id="r47" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
 <input id="i2" type="radio" name="i"/>
+<input id="i3" type="radio" name="i"/>
 
 <pre class="line-numbers">
 <span class="codeline" id="line-1"><code><span class="keyword">package</span> proto</code></span>
 <span class="codeline" id="line-2"><code></code></span>
 <span class="codeline" id="line-3"><code><span class="keyword">import</span> (</code></span>
 <span class="codeline" id="line-4"><code>	<label for="i0"><span class="lit-string i0">"fmt"</span></label></code></span>
-<span class="codeline" id="line-5"><code>	<label for="i1"><span class="lit-string i1">"sync"</span></label></code></span>
-<span class="codeline" id="line-6"><code>	<label for="i2"><span class="lit-string i2">"time"</span></label></code></span>
-<span class="codeline" id="line-7"><code>)</code></span>
-<span class="codeline" id="line-8"><code></code></span>
-<span class="codeline" id="line-9"><code><span class="comment">// Message identifiers are coupled to message creation time.</span></code></span>
-<span class="codeline" id="line-10"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-11"><code><span class="comment">// https://core.telegram.org/mtproto/description#message-identifier-msg-id</span></code></span>
-<span class="codeline" id="line-12"><code></code></span>
-<span class="codeline" id="line-13"><code><span class="keyword">const</span> (</code></span>
-<span class="codeline" id="line-14"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-yieldClient" class="ident">yieldClient</a>         = <span class="lit-number">0</span></code></span>
-<span class="codeline" id="line-15"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-yieldServerResponse" class="ident">yieldServerResponse</a> = <span class="lit-number">1</span></code></span>
-<span class="codeline" id="line-16"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-yieldFromServer" class="ident">yieldFromServer</a>     = <span class="lit-number">3</span></code></span>
-<span class="codeline" id="line-17"><code></code></span>
-<span class="codeline" id="line-18"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-messageIDModulo" class="ident">messageIDModulo</a> = <span class="lit-number">4</span></code></span>
-<span class="codeline" id="line-19"><code>)</code></span>
-<span class="codeline" id="line-20"><code></code></span>
-<span class="codeline" id="line-21"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../pkg/github.com/gotd/td/proto.html#name-newMessageID" class="ident">newMessageID</a></label>(<label for="r1" class="ident">nowNano</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>, <label for="r2" class="ident">yield</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a> {</code></span>
-<span class="codeline" id="line-22"><code>	<span class="keyword">const</span> <label for="r3" class="ident">nano</label> = <span class="lit-number">1e9</span></code></span>
-<span class="codeline" id="line-23"><code>	<span class="comment">// Must approximately equal unixtime*2^32.</span></code></span>
-<span class="codeline" id="line-24"><code></code></span>
-<span class="codeline" id="line-25"><code>	<span class="comment">// Important: to counter replay-attacks the lower 32 bits of msg_id</span></code></span>
-<span class="codeline" id="line-26"><code><span class="comment">	// passed by the client must not be empty and must present a</span></code></span>
-<span class="codeline" id="line-27"><code><span class="comment">	// fractional part of the time point when the message was created.</span></code></span>
-<span class="codeline" id="line-28"><code>	<label for="r4" class="ident">intPart</label> := <label for="r1" class="ident">nowNano</label> / <label for="r3" class="ident">nano</label></code></span>
-<span class="codeline" id="line-29"><code>	<label for="r5" class="ident">fracPart</label> := <label for="r1" class="ident">nowNano</label> % <label for="r3" class="ident">nano</label></code></span>
-<span class="codeline" id="line-30"><code></code></span>
-<span class="codeline" id="line-31"><code>	<span class="comment">// Ensure that fracPart % 4 == 0.</span></code></span>
-<span class="codeline" id="line-32"><code>	<label for="r5" class="ident">fracPart</label> &amp;= -<a href="#line-18" class="ident">messageIDModulo</a></code></span>
-<span class="codeline" id="line-33"><code>	<span class="comment">// Adding modulo 4 yield to ensure message type.</span></code></span>
-<span class="codeline" id="line-34"><code>	<label for="r5" class="ident">fracPart</label> += <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<label for="r2" class="ident">yield</label>)</code></span>
-<span class="codeline" id="line-35"><code></code></span>
-<span class="codeline" id="line-36"><code>	<span class="keyword">return</span> (<label for="r4" class="ident">intPart</label> &lt;&lt; <span class="lit-number">32</span>) | <label for="r5" class="ident">fracPart</label></code></span>
-<span class="codeline" id="line-37"><code>}</code></span>
-<span class="codeline" id="line-38"><code></code></span>
-<span class="codeline" id="line-39"><code><span class="comment">// MessageID represents 64-bit message id.</span></code></span>
-<span class="codeline" id="line-40"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageID" class="ident">MessageID</a> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
-<span class="codeline" id="line-41"><code></code></span>
-<span class="codeline" id="line-42"><code><span class="keyword">func</span> (<label for="r6" class="ident">id</label> <a href="#line-40" class="ident">MessageID</a>) <label for="r7" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageID.String.html" class="ident">String</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
-<span class="codeline" id="line-43"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i0">fmt</a>.<a href="../../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"%x (%s, %s)"</span>,</code></span>
-<span class="codeline" id="line-44"><code>		<a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<label for="r6" class="ident">id</label>), <label for="r6" class="ident">id</label>.<a href="#line-90" class="ident">Type</a>(), <label for="r6" class="ident">id</label>.<a href="#line-83" class="ident">Time</a>().<a href="../../../../time/format.go.html#line-639" class="ident">Format</a>(<a href="../../../../../pkg/time.html" class="ident i2">time</a>.<a href="../../../../time/format.go.html#line-119" class="ident">RFC3339</a>),</code></span>
-<span class="codeline" id="line-45"><code>	)</code></span>
+<span class="codeline" id="line-5"><code>	<label for="i1"><span class="lit-string i1">"math/rand/v2"</span></label></code></span>
+<span class="codeline" id="line-6"><code>	<label for="i2"><span class="lit-string i2">"sync"</span></label></code></span>
+<span class="codeline" id="line-7"><code>	<label for="i3"><span class="lit-string i3">"time"</span></label></code></span>
+<span class="codeline" id="line-8"><code>)</code></span>
+<span class="codeline" id="line-9"><code></code></span>
+<span class="codeline" id="line-10"><code><span class="comment">// Message identifiers are coupled to message creation time.</span></code></span>
+<span class="codeline" id="line-11"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-12"><code><span class="comment">// https://core.telegram.org/mtproto/description#message-identifier-msg-id</span></code></span>
+<span class="codeline" id="line-13"><code></code></span>
+<span class="codeline" id="line-14"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-15"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-yieldClient" class="ident">yieldClient</a>         = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-yieldServerResponse" class="ident">yieldServerResponse</a> = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-17"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-yieldFromServer" class="ident">yieldFromServer</a>     = <span class="lit-number">3</span></code></span>
+<span class="codeline" id="line-18"><code></code></span>
+<span class="codeline" id="line-19"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-messageIDModulo" class="ident">messageIDModulo</a> = <span class="lit-number">4</span></code></span>
+<span class="codeline" id="line-20"><code>)</code></span>
+<span class="codeline" id="line-21"><code></code></span>
+<span class="codeline" id="line-22"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../pkg/github.com/gotd/td/proto.html#name-newMessageID" class="ident">newMessageID</a></label>(<label for="r1" class="ident">nowNano</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>, <label for="r2" class="ident">yield</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a> {</code></span>
+<span class="codeline" id="line-23"><code>	<span class="keyword">return</span> <a href="#line-31" class="ident">newMessageIDJitter</a>(<label for="r1" class="ident">nowNano</label>, <label for="r2" class="ident">yield</label>, <span class="lit-number">0</span>)</code></span>
+<span class="codeline" id="line-24"><code>}</code></span>
+<span class="codeline" id="line-25"><code></code></span>
+<span class="codeline" id="line-26"><code><span class="comment">// newMessageIDJitter returns a message id for the time point nowNano: unix</span></code></span>
+<span class="codeline" id="line-27"><code><span class="comment">// seconds in the upper 32 bits and the fraction of the second in units of</span></code></span>
+<span class="codeline" id="line-28"><code><span class="comment">// 2^-32 s in the lower 32 bits (msg_id approximately equals unixtime * 2^32),</span></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">// with the lower bits XORed with jitter (TDLib XORs 22 random bits, about</span></code></span>
+<span class="codeline" id="line-30"><code><span class="comment">// 1 ms, for clocks of low precision) and the two lowest bits set to yield.</span></code></span>
+<span class="codeline" id="line-31"><code><span class="keyword">func</span> <label for="r3" class="ident"><a href="../../../../../pkg/github.com/gotd/td/proto.html#name-newMessageIDJitter" class="ident">newMessageIDJitter</a></label>(<label for="r4" class="ident">nowNano</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>, <label for="r5" class="ident">yield</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r6" class="ident">jitter</label> <a href="../../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>) <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a> {</code></span>
+<span class="codeline" id="line-32"><code>	<span class="keyword">const</span> <label for="r7" class="ident">nano</label> = <span class="lit-number">1e9</span></code></span>
+<span class="codeline" id="line-33"><code></code></span>
+<span class="codeline" id="line-34"><code>	<span class="comment">// Important: to counter replay-attacks the lower 32 bits of msg_id</span></code></span>
+<span class="codeline" id="line-35"><code><span class="comment">	// passed by the client must not be empty and must present a</span></code></span>
+<span class="codeline" id="line-36"><code><span class="comment">	// fractional part of the time point when the message was created.</span></code></span>
+<span class="codeline" id="line-37"><code>	<label for="r8" class="ident">intPart</label> := <label for="r4" class="ident">nowNano</label> / <label for="r7" class="ident">nano</label></code></span>
+<span class="codeline" id="line-38"><code>	<label for="r9" class="ident">frac</label> := <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r4" class="ident">nowNano</label>%<label for="r7" class="ident">nano</label>) &lt;&lt; <span class="lit-number">32</span> / <label for="r7" class="ident">nano</label></code></span>
+<span class="codeline" id="line-39"><code>	<label for="r9" class="ident">frac</label> ^= <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r6" class="ident">jitter</label>)</code></span>
+<span class="codeline" id="line-40"><code></code></span>
+<span class="codeline" id="line-41"><code>	<span class="comment">// Ensure that frac % 4 == 0 and add modulo 4 yield to ensure message</span></code></span>
+<span class="codeline" id="line-42"><code><span class="comment">	// type.</span></code></span>
+<span class="codeline" id="line-43"><code>	<label for="r9" class="ident">frac</label> = <label for="r9" class="ident">frac</label>&amp;^(<a href="#line-19" class="ident">messageIDModulo</a>-<span class="lit-number">1</span>) | <a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r5" class="ident">yield</label>)</code></span>
+<span class="codeline" id="line-44"><code></code></span>
+<span class="codeline" id="line-45"><code>	<span class="keyword">return</span> <label for="r8" class="ident">intPart</label>&lt;&lt;<span class="lit-number">32</span> | <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<label for="r9" class="ident">frac</label>)</code></span>
 <span class="codeline" id="line-46"><code>}</code></span>
 <span class="codeline" id="line-47"><code></code></span>
-<span class="codeline" id="line-48"><code><span class="comment">// MessageType is type of message determined by message id.</span></code></span>
-<span class="codeline" id="line-49"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-50"><code><span class="comment">// A message is rejected over 300 seconds after it is created or</span></code></span>
-<span class="codeline" id="line-51"><code><span class="comment">// 30 seconds before it is created (this is needed to protect from replay attacks).</span></code></span>
-<span class="codeline" id="line-52"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-53"><code><span class="comment">// The identifier of a message container must be strictly greater than those of</span></code></span>
-<span class="codeline" id="line-54"><code><span class="comment">// its nested messages.</span></code></span>
-<span class="codeline" id="line-55"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageType" class="ident">MessageType</a> <a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-48"><code><span class="comment">// MessageID represents 64-bit message id.</span></code></span>
+<span class="codeline" id="line-49"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageID" class="ident">MessageID</a> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
+<span class="codeline" id="line-50"><code></code></span>
+<span class="codeline" id="line-51"><code><span class="keyword">func</span> (<label for="r10" class="ident">id</label> <a href="#line-49" class="ident">MessageID</a>) <label for="r11" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageID.String.html" class="ident">String</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-52"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i0">fmt</a>.<a href="../../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"%x (%s, %s)"</span>,</code></span>
+<span class="codeline" id="line-53"><code>		<a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<label for="r10" class="ident">id</label>), <label for="r10" class="ident">id</label>.<a href="#line-100" class="ident">Type</a>(), <label for="r10" class="ident">id</label>.<a href="#line-92" class="ident">Time</a>().<a href="../../../../time/format.go.html#line-639" class="ident">Format</a>(<a href="../../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../../time/format.go.html#line-119" class="ident">RFC3339</a>),</code></span>
+<span class="codeline" id="line-54"><code>	)</code></span>
+<span class="codeline" id="line-55"><code>}</code></span>
 <span class="codeline" id="line-56"><code></code></span>
-<span class="codeline" id="line-57"><code><span class="keyword">const</span> (</code></span>
-<span class="codeline" id="line-58"><code>	<span class="comment">// MessageUnknown reports that message id has unknown time and probably</span></code></span>
-<span class="codeline" id="line-59"><code><span class="comment">	// should be ignored.</span></code></span>
-<span class="codeline" id="line-60"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageUnknown" class="ident">MessageUnknown</a> <a href="#line-55" class="ident">MessageType</a> = <a href="../../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
-<span class="codeline" id="line-61"><code>	<span class="comment">// MessageFromClient is client message identifiers.</span></code></span>
-<span class="codeline" id="line-62"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageFromClient" class="ident">MessageFromClient</a></code></span>
-<span class="codeline" id="line-63"><code>	<span class="comment">// MessageServerResponse is a response to a client message.</span></code></span>
-<span class="codeline" id="line-64"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageServerResponse" class="ident">MessageServerResponse</a></code></span>
-<span class="codeline" id="line-65"><code>	<span class="comment">// MessageFromServer is a message from the server.</span></code></span>
-<span class="codeline" id="line-66"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageFromServer" class="ident">MessageFromServer</a></code></span>
-<span class="codeline" id="line-67"><code>)</code></span>
-<span class="codeline" id="line-68"><code></code></span>
-<span class="codeline" id="line-69"><code><span class="keyword">func</span> (<label for="r8" class="ident">m</label> <a href="#line-55" class="ident">MessageType</a>) <label for="r9" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageType.String.html" class="ident">String</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
-<span class="codeline" id="line-70"><code>	<span class="keyword">switch</span> <label for="r8" class="ident">m</label> {</code></span>
-<span class="codeline" id="line-71"><code>	<span class="keyword">case</span> <a href="#line-62" class="ident">MessageFromClient</a>:</code></span>
-<span class="codeline" id="line-72"><code>		<span class="keyword">return</span> <span class="lit-string">"FromClient"</span></code></span>
-<span class="codeline" id="line-73"><code>	<span class="keyword">case</span> <a href="#line-64" class="ident">MessageServerResponse</a>:</code></span>
-<span class="codeline" id="line-74"><code>		<span class="keyword">return</span> <span class="lit-string">"ServerResponse"</span></code></span>
-<span class="codeline" id="line-75"><code>	<span class="keyword">case</span> <a href="#line-66" class="ident">MessageFromServer</a>:</code></span>
-<span class="codeline" id="line-76"><code>		<span class="keyword">return</span> <span class="lit-string">"FromServer"</span></code></span>
-<span class="codeline" id="line-77"><code>	<span class="keyword">default</span>:</code></span>
-<span class="codeline" id="line-78"><code>		<span class="keyword">return</span> <span class="lit-string">"Unknown"</span></code></span>
-<span class="codeline" id="line-79"><code>	}</code></span>
-<span class="codeline" id="line-80"><code>}</code></span>
-<span class="codeline" id="line-81"><code></code></span>
-<span class="codeline" id="line-82"><code><span class="comment">// Time returns approximate time when MessageID were generated.</span></code></span>
-<span class="codeline" id="line-83"><code><span class="keyword">func</span> (<label for="r10" class="ident">id</label> <a href="#line-40" class="ident">MessageID</a>) <label for="r11" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageID.Time.html" class="ident">Time</a></label>() <a href="../../../../../pkg/time.html" class="ident i2">time</a>.<a href="../../../../time/time.go.html#line-140" class="ident">Time</a> {</code></span>
-<span class="codeline" id="line-84"><code>	<label for="r12" class="ident">intPart</label> := <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<label for="r10" class="ident">id</label>) &gt;&gt; <span class="lit-number">32</span></code></span>
-<span class="codeline" id="line-85"><code>	<label for="r13" class="ident">fracPart</label> := <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<a href="../../../../../pkg/builtin.html#name-int32" class="ident">int32</a>(<label for="r10" class="ident">id</label>))</code></span>
-<span class="codeline" id="line-86"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/time.html" class="ident i2">time</a>.<a href="../../../../time/time.go.html#line-1655" class="ident">Unix</a>(<label for="r12" class="ident">intPart</label>, <label for="r13" class="ident">fracPart</label>).<a href="../../../../time/time.go.html#line-1368" class="ident">UTC</a>()</code></span>
-<span class="codeline" id="line-87"><code>}</code></span>
-<span class="codeline" id="line-88"><code></code></span>
-<span class="codeline" id="line-89"><code><span class="comment">// Type returns message type.</span></code></span>
-<span class="codeline" id="line-90"><code><span class="keyword">func</span> (<label for="r14" class="ident">id</label> <a href="#line-40" class="ident">MessageID</a>) <label for="r15" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageID.Type.html" class="ident">Type</a></label>() <a href="#line-55" class="ident">MessageType</a> {</code></span>
-<span class="codeline" id="line-91"><code>	<span class="keyword">switch</span> <label for="r14" class="ident">id</label> % <a href="#line-18" class="ident">messageIDModulo</a> {</code></span>
-<span class="codeline" id="line-92"><code>	<span class="keyword">case</span> <a href="#line-14" class="ident">yieldClient</a>:</code></span>
-<span class="codeline" id="line-93"><code>		<span class="keyword">return</span> <a href="#line-62" class="ident">MessageFromClient</a></code></span>
-<span class="codeline" id="line-94"><code>	<span class="keyword">case</span> <a href="#line-15" class="ident">yieldServerResponse</a>:</code></span>
-<span class="codeline" id="line-95"><code>		<span class="keyword">return</span> <a href="#line-64" class="ident">MessageServerResponse</a></code></span>
-<span class="codeline" id="line-96"><code>	<span class="keyword">case</span> <a href="#line-16" class="ident">yieldFromServer</a>:</code></span>
-<span class="codeline" id="line-97"><code>		<span class="keyword">return</span> <a href="#line-66" class="ident">MessageFromServer</a></code></span>
-<span class="codeline" id="line-98"><code>	<span class="keyword">default</span>:</code></span>
-<span class="codeline" id="line-99"><code>		<span class="keyword">return</span> <a href="#line-60" class="ident">MessageUnknown</a></code></span>
-<span class="codeline" id="line-100"><code>	}</code></span>
-<span class="codeline" id="line-101"><code>}</code></span>
-<span class="codeline" id="line-102"><code></code></span>
-<span class="codeline" id="line-103"><code><span class="comment">// NewMessageID returns new message id for provided time and type.</span></code></span>
-<span class="codeline" id="line-104"><code><span class="keyword">func</span> <label for="r16" class="ident"><a href="../../../../../pkg/github.com/gotd/td/proto.html#name-NewMessageID" class="ident">NewMessageID</a></label>(<label for="r17" class="ident">now</label> <a href="../../../../../pkg/time.html" class="ident i2">time</a>.<a href="../../../../time/time.go.html#line-140" class="ident">Time</a>, <label for="r18" class="ident">typ</label> <a href="#line-55" class="ident">MessageType</a>) <a href="#line-40" class="ident">MessageID</a> {</code></span>
-<span class="codeline" id="line-105"><code>	<span class="keyword">return</span> <a href="#line-110" class="ident">NewMessageIDNano</a>(<label for="r17" class="ident">now</label>.<a href="../../../../time/time.go.html#line-1460" class="ident">UnixNano</a>(), <label for="r18" class="ident">typ</label>)</code></span>
-<span class="codeline" id="line-106"><code>}</code></span>
-<span class="codeline" id="line-107"><code></code></span>
-<span class="codeline" id="line-108"><code><span class="comment">// NewMessageIDNano returns new message id for provided current unix</span></code></span>
-<span class="codeline" id="line-109"><code><span class="comment">// nanoseconds and type.</span></code></span>
-<span class="codeline" id="line-110"><code><span class="keyword">func</span> <label for="r19" class="ident"><a href="../../../../../pkg/github.com/gotd/td/proto.html#name-NewMessageIDNano" class="ident">NewMessageIDNano</a></label>(<label for="r20" class="ident">nano</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>, <label for="r21" class="ident">typ</label> <a href="#line-55" class="ident">MessageType</a>) <a href="#line-40" class="ident">MessageID</a> {</code></span>
-<span class="codeline" id="line-111"><code>	<span class="keyword">var</span> <label for="r22" class="ident">yield</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
-<span class="codeline" id="line-112"><code>	<span class="keyword">switch</span> <label for="r21" class="ident">typ</label> {</code></span>
-<span class="codeline" id="line-113"><code>	<span class="keyword">case</span> <a href="#line-62" class="ident">MessageFromClient</a>:</code></span>
-<span class="codeline" id="line-114"><code>		<label for="r22" class="ident">yield</label> = <a href="#line-14" class="ident">yieldClient</a></code></span>
-<span class="codeline" id="line-115"><code>	<span class="keyword">case</span> <a href="#line-66" class="ident">MessageFromServer</a>:</code></span>
-<span class="codeline" id="line-116"><code>		<label for="r22" class="ident">yield</label> = <a href="#line-16" class="ident">yieldFromServer</a></code></span>
-<span class="codeline" id="line-117"><code>	<span class="keyword">case</span> <a href="#line-64" class="ident">MessageServerResponse</a>:</code></span>
-<span class="codeline" id="line-118"><code>		<label for="r22" class="ident">yield</label> = <a href="#line-15" class="ident">yieldServerResponse</a></code></span>
-<span class="codeline" id="line-119"><code>	<span class="keyword">default</span>:</code></span>
-<span class="codeline" id="line-120"><code>		<label for="r22" class="ident">yield</label> = <a href="#line-14" class="ident">yieldClient</a></code></span>
-<span class="codeline" id="line-121"><code>	}</code></span>
-<span class="codeline" id="line-122"><code>	<span class="keyword">return</span> <a href="#line-40" class="ident">MessageID</a>(<a href="#line-21" class="ident">newMessageID</a>(<label for="r20" class="ident">nano</label>, <label for="r22" class="ident">yield</label>))</code></span>
-<span class="codeline" id="line-123"><code>}</code></span>
-<span class="codeline" id="line-124"><code></code></span>
-<span class="codeline" id="line-125"><code><span class="comment">// MessageIDGen is message id generator that provides collision prevention.</span></code></span>
-<span class="codeline" id="line-126"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-127"><code><span class="comment">// The main reason of such structure is that now() can return same time during</span></code></span>
-<span class="codeline" id="line-128"><code><span class="comment">// multiple calls and that leads to duplicate message id.</span></code></span>
-<span class="codeline" id="line-129"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageIDGen" class="ident">MessageIDGen</a> <span class="keyword">struct</span> {</code></span>
-<span class="codeline" id="line-130"><code>	<a href="../../../../../use/github.com/gotd/td/proto..MessageIDGen.mux^99830.html" class="ident">mux</a>  <a href="../../../../../pkg/sync.html" class="ident i1">sync</a>.<a href="../../../../sync/mutex.go.html#line-30" class="ident">Mutex</a></code></span>
-<span class="codeline" id="line-131"><code>	<a href="../../../../../use/github.com/gotd/td/proto..MessageIDGen.nano^f7a59.html" class="ident">nano</a> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
-<span class="codeline" id="line-132"><code>	<a href="../../../../../use/github.com/gotd/td/proto..MessageIDGen.now^ed5eb.html" class="ident">now</a>  <span class="keyword">func</span>() <a href="../../../../../pkg/time.html" class="ident i2">time</a>.<a href="../../../../time/time.go.html#line-140" class="ident">Time</a></code></span>
-<span class="codeline" id="line-133"><code>}</code></span>
-<span class="codeline" id="line-134"><code></code></span>
-<span class="codeline" id="line-135"><code><span class="comment">// New generates new message id for provided type, protecting from collisions</span></code></span>
-<span class="codeline" id="line-136"><code><span class="comment">// that are caused by low system time resolution.</span></code></span>
-<span class="codeline" id="line-137"><code><span class="keyword">func</span> (<label for="r23" class="ident">g</label> *<a href="#line-129" class="ident">MessageIDGen</a>) <label for="r24" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageIDGen.New.html" class="ident">New</a></label>(<label for="r25" class="ident">t</label> <a href="#line-55" class="ident">MessageType</a>) <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a> {</code></span>
-<span class="codeline" id="line-138"><code>	<label for="r23" class="ident">g</label>.<a href="#line-130" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-45" class="ident">Lock</a>()</code></span>
-<span class="codeline" id="line-139"><code>	<span class="keyword">defer</span> <label for="r23" class="ident">g</label>.<a href="#line-130" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-64" class="ident">Unlock</a>()</code></span>
-<span class="codeline" id="line-140"><code></code></span>
-<span class="codeline" id="line-141"><code>	<span class="comment">// Minimum resolution is required because id is only approximately</span></code></span>
-<span class="codeline" id="line-142"><code><span class="comment">	// equal to unix nano time, some part is replaced by message type.</span></code></span>
-<span class="codeline" id="line-143"><code>	<span class="keyword">const</span> <label for="r26" class="ident">minResolutionNanos</label> = <span class="lit-number">10</span></code></span>
-<span class="codeline" id="line-144"><code></code></span>
-<span class="codeline" id="line-145"><code>	<label for="r27" class="ident">nano</label> := <label for="r23" class="ident">g</label>.<a href="#line-132" class="ident">now</a>().<a href="../../../../time/time.go.html#line-1460" class="ident">UnixNano</a>()</code></span>
-<span class="codeline" id="line-146"><code>	<span class="keyword">if</span> <label for="r27" class="ident">nano</label> &gt; <label for="r23" class="ident">g</label>.<a href="#line-131" class="ident">nano</a> {</code></span>
-<span class="codeline" id="line-147"><code>		<label for="r23" class="ident">g</label>.<a href="#line-131" class="ident">nano</a> = <label for="r27" class="ident">nano</label></code></span>
-<span class="codeline" id="line-148"><code>	} <span class="keyword">else</span> {</code></span>
-<span class="codeline" id="line-149"><code>		<label for="r23" class="ident">g</label>.<a href="#line-131" class="ident">nano</a> += <label for="r26" class="ident">minResolutionNanos</label></code></span>
-<span class="codeline" id="line-150"><code>	}</code></span>
+<span class="codeline" id="line-57"><code><span class="comment">// MessageType is type of message determined by message id.</span></code></span>
+<span class="codeline" id="line-58"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-59"><code><span class="comment">// A message is rejected over 300 seconds after it is created or</span></code></span>
+<span class="codeline" id="line-60"><code><span class="comment">// 30 seconds before it is created (this is needed to protect from replay attacks).</span></code></span>
+<span class="codeline" id="line-61"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-62"><code><span class="comment">// The identifier of a message container must be strictly greater than those of</span></code></span>
+<span class="codeline" id="line-63"><code><span class="comment">// its nested messages.</span></code></span>
+<span class="codeline" id="line-64"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageType" class="ident">MessageType</a> <a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-65"><code></code></span>
+<span class="codeline" id="line-66"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-67"><code>	<span class="comment">// MessageUnknown reports that message id has unknown time and probably</span></code></span>
+<span class="codeline" id="line-68"><code><span class="comment">	// should be ignored.</span></code></span>
+<span class="codeline" id="line-69"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageUnknown" class="ident">MessageUnknown</a> <a href="#line-64" class="ident">MessageType</a> = <a href="../../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-70"><code>	<span class="comment">// MessageFromClient is client message identifiers.</span></code></span>
+<span class="codeline" id="line-71"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageFromClient" class="ident">MessageFromClient</a></code></span>
+<span class="codeline" id="line-72"><code>	<span class="comment">// MessageServerResponse is a response to a client message.</span></code></span>
+<span class="codeline" id="line-73"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageServerResponse" class="ident">MessageServerResponse</a></code></span>
+<span class="codeline" id="line-74"><code>	<span class="comment">// MessageFromServer is a message from the server.</span></code></span>
+<span class="codeline" id="line-75"><code>	<a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageFromServer" class="ident">MessageFromServer</a></code></span>
+<span class="codeline" id="line-76"><code>)</code></span>
+<span class="codeline" id="line-77"><code></code></span>
+<span class="codeline" id="line-78"><code><span class="keyword">func</span> (<label for="r12" class="ident">m</label> <a href="#line-64" class="ident">MessageType</a>) <label for="r13" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageType.String.html" class="ident">String</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-79"><code>	<span class="keyword">switch</span> <label for="r12" class="ident">m</label> {</code></span>
+<span class="codeline" id="line-80"><code>	<span class="keyword">case</span> <a href="#line-71" class="ident">MessageFromClient</a>:</code></span>
+<span class="codeline" id="line-81"><code>		<span class="keyword">return</span> <span class="lit-string">"FromClient"</span></code></span>
+<span class="codeline" id="line-82"><code>	<span class="keyword">case</span> <a href="#line-73" class="ident">MessageServerResponse</a>:</code></span>
+<span class="codeline" id="line-83"><code>		<span class="keyword">return</span> <span class="lit-string">"ServerResponse"</span></code></span>
+<span class="codeline" id="line-84"><code>	<span class="keyword">case</span> <a href="#line-75" class="ident">MessageFromServer</a>:</code></span>
+<span class="codeline" id="line-85"><code>		<span class="keyword">return</span> <span class="lit-string">"FromServer"</span></code></span>
+<span class="codeline" id="line-86"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-87"><code>		<span class="keyword">return</span> <span class="lit-string">"Unknown"</span></code></span>
+<span class="codeline" id="line-88"><code>	}</code></span>
+<span class="codeline" id="line-89"><code>}</code></span>
+<span class="codeline" id="line-90"><code></code></span>
+<span class="codeline" id="line-91"><code><span class="comment">// Time returns approximate time when MessageID were generated.</span></code></span>
+<span class="codeline" id="line-92"><code><span class="keyword">func</span> (<label for="r14" class="ident">id</label> <a href="#line-49" class="ident">MessageID</a>) <label for="r15" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageID.Time.html" class="ident">Time</a></label>() <a href="../../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../../time/time.go.html#line-140" class="ident">Time</a> {</code></span>
+<span class="codeline" id="line-93"><code>	<label for="r16" class="ident">intPart</label> := <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<label for="r14" class="ident">id</label>) &gt;&gt; <span class="lit-number">32</span></code></span>
+<span class="codeline" id="line-94"><code>	<span class="comment">// The lower 32 bits are the fraction of the second in units of 2^-32 s.</span></code></span>
+<span class="codeline" id="line-95"><code>	<label for="r17" class="ident">nanos</label> := <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<a href="../../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<a href="../../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a>(<label for="r14" class="ident">id</label>)) * <span class="lit-number">1e9</span> &gt;&gt; <span class="lit-number">32</span>)</code></span>
+<span class="codeline" id="line-96"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../../time/time.go.html#line-1655" class="ident">Unix</a>(<label for="r16" class="ident">intPart</label>, <label for="r17" class="ident">nanos</label>).<a href="../../../../time/time.go.html#line-1368" class="ident">UTC</a>()</code></span>
+<span class="codeline" id="line-97"><code>}</code></span>
+<span class="codeline" id="line-98"><code></code></span>
+<span class="codeline" id="line-99"><code><span class="comment">// Type returns message type.</span></code></span>
+<span class="codeline" id="line-100"><code><span class="keyword">func</span> (<label for="r18" class="ident">id</label> <a href="#line-49" class="ident">MessageID</a>) <label for="r19" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageID.Type.html" class="ident">Type</a></label>() <a href="#line-64" class="ident">MessageType</a> {</code></span>
+<span class="codeline" id="line-101"><code>	<span class="keyword">switch</span> <label for="r18" class="ident">id</label> % <a href="#line-19" class="ident">messageIDModulo</a> {</code></span>
+<span class="codeline" id="line-102"><code>	<span class="keyword">case</span> <a href="#line-15" class="ident">yieldClient</a>:</code></span>
+<span class="codeline" id="line-103"><code>		<span class="keyword">return</span> <a href="#line-71" class="ident">MessageFromClient</a></code></span>
+<span class="codeline" id="line-104"><code>	<span class="keyword">case</span> <a href="#line-16" class="ident">yieldServerResponse</a>:</code></span>
+<span class="codeline" id="line-105"><code>		<span class="keyword">return</span> <a href="#line-73" class="ident">MessageServerResponse</a></code></span>
+<span class="codeline" id="line-106"><code>	<span class="keyword">case</span> <a href="#line-17" class="ident">yieldFromServer</a>:</code></span>
+<span class="codeline" id="line-107"><code>		<span class="keyword">return</span> <a href="#line-75" class="ident">MessageFromServer</a></code></span>
+<span class="codeline" id="line-108"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-109"><code>		<span class="keyword">return</span> <a href="#line-69" class="ident">MessageUnknown</a></code></span>
+<span class="codeline" id="line-110"><code>	}</code></span>
+<span class="codeline" id="line-111"><code>}</code></span>
+<span class="codeline" id="line-112"><code></code></span>
+<span class="codeline" id="line-113"><code><span class="comment">// NewMessageID returns new message id for provided time and type.</span></code></span>
+<span class="codeline" id="line-114"><code><span class="keyword">func</span> <label for="r20" class="ident"><a href="../../../../../pkg/github.com/gotd/td/proto.html#name-NewMessageID" class="ident">NewMessageID</a></label>(<label for="r21" class="ident">now</label> <a href="../../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../../time/time.go.html#line-140" class="ident">Time</a>, <label for="r22" class="ident">typ</label> <a href="#line-64" class="ident">MessageType</a>) <a href="#line-49" class="ident">MessageID</a> {</code></span>
+<span class="codeline" id="line-115"><code>	<span class="keyword">return</span> <a href="#line-120" class="ident">NewMessageIDNano</a>(<label for="r21" class="ident">now</label>.<a href="../../../../time/time.go.html#line-1460" class="ident">UnixNano</a>(), <label for="r22" class="ident">typ</label>)</code></span>
+<span class="codeline" id="line-116"><code>}</code></span>
+<span class="codeline" id="line-117"><code></code></span>
+<span class="codeline" id="line-118"><code><span class="comment">// NewMessageIDNano returns new message id for provided current unix</span></code></span>
+<span class="codeline" id="line-119"><code><span class="comment">// nanoseconds and type.</span></code></span>
+<span class="codeline" id="line-120"><code><span class="keyword">func</span> <label for="r23" class="ident"><a href="../../../../../pkg/github.com/gotd/td/proto.html#name-NewMessageIDNano" class="ident">NewMessageIDNano</a></label>(<label for="r24" class="ident">nano</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>, <label for="r25" class="ident">typ</label> <a href="#line-64" class="ident">MessageType</a>) <a href="#line-49" class="ident">MessageID</a> {</code></span>
+<span class="codeline" id="line-121"><code>	<span class="keyword">return</span> <a href="#line-49" class="ident">MessageID</a>(<a href="#line-22" class="ident">newMessageID</a>(<label for="r24" class="ident">nano</label>, <a href="#line-125" class="ident">messageYield</a>(<label for="r25" class="ident">typ</label>)))</code></span>
+<span class="codeline" id="line-122"><code>}</code></span>
+<span class="codeline" id="line-123"><code></code></span>
+<span class="codeline" id="line-124"><code><span class="comment">// messageYield returns the two lowest bits of message ids of type typ.</span></code></span>
+<span class="codeline" id="line-125"><code><span class="keyword">func</span> <label for="r26" class="ident"><a href="../../../../../pkg/github.com/gotd/td/proto.html#name-messageYield" class="ident">messageYield</a></label>(<label for="r27" class="ident">typ</label> <a href="#line-64" class="ident">MessageType</a>) <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-126"><code>	<span class="keyword">switch</span> <label for="r27" class="ident">typ</label> {</code></span>
+<span class="codeline" id="line-127"><code>	<span class="keyword">case</span> <a href="#line-75" class="ident">MessageFromServer</a>:</code></span>
+<span class="codeline" id="line-128"><code>		<span class="keyword">return</span> <a href="#line-17" class="ident">yieldFromServer</a></code></span>
+<span class="codeline" id="line-129"><code>	<span class="keyword">case</span> <a href="#line-73" class="ident">MessageServerResponse</a>:</code></span>
+<span class="codeline" id="line-130"><code>		<span class="keyword">return</span> <a href="#line-16" class="ident">yieldServerResponse</a></code></span>
+<span class="codeline" id="line-131"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-132"><code>		<span class="keyword">return</span> <a href="#line-15" class="ident">yieldClient</a></code></span>
+<span class="codeline" id="line-133"><code>	}</code></span>
+<span class="codeline" id="line-134"><code>}</code></span>
+<span class="codeline" id="line-135"><code></code></span>
+<span class="codeline" id="line-136"><code><span class="comment">// MessageIDGen is message id generator that provides collision prevention.</span></code></span>
+<span class="codeline" id="line-137"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-138"><code><span class="comment">// Ids follow TDLib (AuthData::next_message_id): the time of now() with 22</span></code></span>
+<span class="codeline" id="line-139"><code><span class="comment">// random bits XORed into the fraction, and if that is not above the last id</span></code></span>
+<span class="codeline" id="line-140"><code><span class="comment">// (now() returned the same or an earlier time, e.g. after a correction of the</span></code></span>
+<span class="codeline" id="line-141"><code><span class="comment">// server time offset), the last id plus a random multiple of 4. So ids always</span></code></span>
+<span class="codeline" id="line-142"><code><span class="comment">// increase, and their lower bits don't reveal the clock resolution.</span></code></span>
+<span class="codeline" id="line-143"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageIDGen" class="ident">MessageIDGen</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-144"><code>	<a href="../../../../../use/github.com/gotd/td/proto..MessageIDGen.mux^99830.html" class="ident">mux</a>  <a href="../../../../../pkg/sync.html" class="ident i2">sync</a>.<a href="../../../../sync/mutex.go.html#line-30" class="ident">Mutex</a></code></span>
+<span class="codeline" id="line-145"><code>	<a href="../../../../../use/github.com/gotd/td/proto..MessageIDGen.last^3547c.html" class="ident">last</a> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
+<span class="codeline" id="line-146"><code>	<a href="../../../../../use/github.com/gotd/td/proto..MessageIDGen.now^ed5eb.html" class="ident">now</a>  <span class="keyword">func</span>() <a href="../../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../../time/time.go.html#line-140" class="ident">Time</a></code></span>
+<span class="codeline" id="line-147"><code>}</code></span>
+<span class="codeline" id="line-148"><code></code></span>
+<span class="codeline" id="line-149"><code><span class="comment">// jitterBits is the number of random lower bits of generated ids (TDLib).</span></code></span>
+<span class="codeline" id="line-150"><code><span class="keyword">const</span> <a href="../../../../../pkg/github.com/gotd/td/proto.html#name-jitterBits" class="ident">jitterBits</a> = <span class="lit-number">22</span></code></span>
 <span class="codeline" id="line-151"><code></code></span>
-<span class="codeline" id="line-152"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<a href="#line-110" class="ident">NewMessageIDNano</a>(<label for="r23" class="ident">g</label>.<a href="#line-131" class="ident">nano</a>, <label for="r25" class="ident">t</label>))</code></span>
-<span class="codeline" id="line-153"><code>}</code></span>
-<span class="codeline" id="line-154"><code></code></span>
-<span class="codeline" id="line-155"><code><span class="comment">// NewMessageIDGen creates new message id generator.</span></code></span>
-<span class="codeline" id="line-156"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-157"><code><span class="comment">// Current time will be provided by now() function.</span></code></span>
-<span class="codeline" id="line-158"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-159"><code><span class="comment">// This generator compensates time resolution problem removing</span></code></span>
-<span class="codeline" id="line-160"><code><span class="comment">// probability of id collision.</span></code></span>
-<span class="codeline" id="line-161"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-162"><code><span class="comment">// Such problem can be observed for relatively high RPS, sequential calls to</span></code></span>
-<span class="codeline" id="line-163"><code><span class="comment">// time.Now() will return same time which leads to equal ids.</span></code></span>
-<span class="codeline" id="line-164"><code><span class="keyword">func</span> <label for="r28" class="ident"><a href="../../../../../pkg/github.com/gotd/td/proto.html#name-NewMessageIDGen" class="ident">NewMessageIDGen</a></label>(<label for="r29" class="ident">now</label> <span class="keyword">func</span>() <a href="../../../../../pkg/time.html" class="ident i2">time</a>.<a href="../../../../time/time.go.html#line-140" class="ident">Time</a>) *<a href="#line-129" class="ident">MessageIDGen</a> {</code></span>
-<span class="codeline" id="line-165"><code>	<span class="keyword">return</span> &amp;<a href="#line-129" class="ident">MessageIDGen</a>{</code></span>
-<span class="codeline" id="line-166"><code>		<a href="#line-132" class="ident">now</a>: <label for="r29" class="ident">now</label>,</code></span>
-<span class="codeline" id="line-167"><code>	}</code></span>
-<span class="codeline" id="line-168"><code>}</code></span>
-<span class="codeline" id="line-169"><code></code></span>
-<span class="codeline" id="line-170"><code><span class="comment">// MessageIDBuf stores last N message ids and is used in replay attack mitigation.</span></code></span>
-<span class="codeline" id="line-171"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageIDBuf" class="ident">MessageIDBuf</a> <span class="keyword">struct</span> {</code></span>
-<span class="codeline" id="line-172"><code>	<a href="../../../../../use/github.com/gotd/td/proto..MessageIDBuf.mux^99830.html" class="ident">mux</a> <a href="../../../../../pkg/sync.html" class="ident i1">sync</a>.<a href="../../../../sync/mutex.go.html#line-30" class="ident">Mutex</a></code></span>
-<span class="codeline" id="line-173"><code>	<a href="../../../../../use/github.com/gotd/td/proto..MessageIDBuf.buf^3ef31.html" class="ident">buf</a> []<a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
-<span class="codeline" id="line-174"><code>}</code></span>
-<span class="codeline" id="line-175"><code></code></span>
-<span class="codeline" id="line-176"><code><span class="comment">// NewMessageIDBuf initializes new message id buffer for last N stored values.</span></code></span>
-<span class="codeline" id="line-177"><code><span class="keyword">func</span> <label for="r30" class="ident"><a href="../../../../../pkg/github.com/gotd/td/proto.html#name-NewMessageIDBuf" class="ident">NewMessageIDBuf</a></label>(<label for="r31" class="ident">n</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) *<a href="#line-171" class="ident">MessageIDBuf</a> {</code></span>
-<span class="codeline" id="line-178"><code>	<span class="keyword">return</span> &amp;<a href="#line-171" class="ident">MessageIDBuf</a>{</code></span>
-<span class="codeline" id="line-179"><code>		<a href="#line-173" class="ident">buf</a>: <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>, <label for="r31" class="ident">n</label>),</code></span>
-<span class="codeline" id="line-180"><code>	}</code></span>
-<span class="codeline" id="line-181"><code>}</code></span>
-<span class="codeline" id="line-182"><code></code></span>
-<span class="codeline" id="line-183"><code><span class="comment">// Consume returns false if message should be discarded.</span></code></span>
-<span class="codeline" id="line-184"><code><span class="keyword">func</span> (<label for="r32" class="ident">b</label> *<a href="#line-171" class="ident">MessageIDBuf</a>) <label for="r33" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageIDBuf.Consume.html" class="ident">Consume</a></label>(<label for="r34" class="ident">newID</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>) <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
-<span class="codeline" id="line-185"><code>	<span class="comment">// In addition, the identifiers (msg_id) of the last N messages received</span></code></span>
-<span class="codeline" id="line-186"><code><span class="comment">	// from the other side must be stored, and if a message comes in with an</span></code></span>
-<span class="codeline" id="line-187"><code><span class="comment">	// msg_id lower than all or equal to any of the stored values, that message</span></code></span>
-<span class="codeline" id="line-188"><code><span class="comment">	// is to be ignored. Otherwise, the new message msg_id is added to the set,</span></code></span>
-<span class="codeline" id="line-189"><code><span class="comment">	// and, if the number of stored msg_id values is greater than N, the oldest</span></code></span>
-<span class="codeline" id="line-190"><code><span class="comment">	// (i. e. the lowest) is discarded.</span></code></span>
-<span class="codeline" id="line-191"><code><span class="comment">	//</span></code></span>
-<span class="codeline" id="line-192"><code><span class="comment">	// https://core.telegram.org/mtproto/security_guidelines#checking-msg-id</span></code></span>
-<span class="codeline" id="line-193"><code></code></span>
-<span class="codeline" id="line-194"><code>	<label for="r32" class="ident">b</label>.<a href="#line-172" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-45" class="ident">Lock</a>()</code></span>
-<span class="codeline" id="line-195"><code>	<span class="keyword">defer</span> <label for="r32" class="ident">b</label>.<a href="#line-172" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-64" class="ident">Unlock</a>()</code></span>
-<span class="codeline" id="line-196"><code></code></span>
-<span class="codeline" id="line-197"><code>	<span class="keyword">var</span> (</code></span>
-<span class="codeline" id="line-198"><code>		<label for="r35" class="ident">minIDx</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
-<span class="codeline" id="line-199"><code>		<label for="r36" class="ident">minID</label>  <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
-<span class="codeline" id="line-200"><code>	)</code></span>
-<span class="codeline" id="line-201"><code>	<span class="keyword">for</span> <label for="r37" class="ident">i</label>, <label for="r38" class="ident">id</label> := <span class="keyword">range</span> <label for="r32" class="ident">b</label>.<a href="#line-173" class="ident">buf</a> {</code></span>
-<span class="codeline" id="line-202"><code>		<span class="keyword">if</span> <label for="r38" class="ident">id</label> == <label for="r34" class="ident">newID</label> {</code></span>
-<span class="codeline" id="line-203"><code>			<span class="comment">// Equal to stored value.</span></code></span>
-<span class="codeline" id="line-204"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
-<span class="codeline" id="line-205"><code>		}</code></span>
-<span class="codeline" id="line-206"><code>		<span class="comment">// Searching for minimum value.</span></code></span>
-<span class="codeline" id="line-207"><code>		<span class="keyword">if</span> <label for="r38" class="ident">id</label> &lt; <label for="r36" class="ident">minID</label> {</code></span>
-<span class="codeline" id="line-208"><code>			<label for="r35" class="ident">minIDx</label> = <label for="r37" class="ident">i</label></code></span>
-<span class="codeline" id="line-209"><code>			<label for="r36" class="ident">minID</label> = <label for="r38" class="ident">id</label></code></span>
-<span class="codeline" id="line-210"><code>		}</code></span>
+<span class="codeline" id="line-152"><code><span class="comment">// New generates new message id for provided type, protecting from collisions</span></code></span>
+<span class="codeline" id="line-153"><code><span class="comment">// that are caused by low system time resolution.</span></code></span>
+<span class="codeline" id="line-154"><code><span class="keyword">func</span> (<label for="r28" class="ident">g</label> *<a href="#line-143" class="ident">MessageIDGen</a>) <label for="r29" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageIDGen.New.html" class="ident">New</a></label>(<label for="r30" class="ident">t</label> <a href="#line-64" class="ident">MessageType</a>) <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a> {</code></span>
+<span class="codeline" id="line-155"><code>	<label for="r28" class="ident">g</label>.<a href="#line-144" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-45" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-156"><code>	<span class="keyword">defer</span> <label for="r28" class="ident">g</label>.<a href="#line-144" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-64" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-157"><code></code></span>
+<span class="codeline" id="line-158"><code>	<label for="r31" class="ident">r</label> := <a href="../../../../../pkg/math/rand/v2.html" class="ident i1">rand</a>.<a href="../../../../math/rand/v2/rand.go.html#line-274" class="ident">Uint32</a>() <span class="comment">// #nosec G404: jitter, not a secret</span></code></span>
+<span class="codeline" id="line-159"><code>	<label for="r32" class="ident">id</label> := <a href="#line-31" class="ident">newMessageIDJitter</a>(<label for="r28" class="ident">g</label>.<a href="#line-146" class="ident">now</a>().<a href="../../../../time/time.go.html#line-1460" class="ident">UnixNano</a>(), <a href="#line-125" class="ident">messageYield</a>(<label for="r30" class="ident">t</label>), <label for="r31" class="ident">r</label>&amp;(<span class="lit-number">1</span>&lt;&lt;<a href="#line-150" class="ident">jitterBits</a>-<span class="lit-number">1</span>))</code></span>
+<span class="codeline" id="line-160"><code>	<span class="keyword">if</span> <label for="r32" class="ident">id</label> &lt;= <label for="r28" class="ident">g</label>.<a href="#line-145" class="ident">last</a> {</code></span>
+<span class="codeline" id="line-161"><code>		<label for="r33" class="ident">step</label> := <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<label for="r31" class="ident">r</label>&gt;&gt;<a href="#line-150" class="ident">jitterBits</a>&amp;<span class="lit-number">1023</span>) + <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-162"><code>		<label for="r32" class="ident">id</label> = (<label for="r28" class="ident">g</label>.<a href="#line-145" class="ident">last</a>&amp;^(<a href="#line-19" class="ident">messageIDModulo</a>-<span class="lit-number">1</span>) + <a href="#line-19" class="ident">messageIDModulo</a>*<label for="r33" class="ident">step</label>) | <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>(<a href="#line-125" class="ident">messageYield</a>(<label for="r30" class="ident">t</label>))</code></span>
+<span class="codeline" id="line-163"><code>	}</code></span>
+<span class="codeline" id="line-164"><code>	<label for="r28" class="ident">g</label>.<a href="#line-145" class="ident">last</a> = <label for="r32" class="ident">id</label></code></span>
+<span class="codeline" id="line-165"><code>	<span class="keyword">return</span> <label for="r32" class="ident">id</label></code></span>
+<span class="codeline" id="line-166"><code>}</code></span>
+<span class="codeline" id="line-167"><code></code></span>
+<span class="codeline" id="line-168"><code><span class="comment">// Reset forgets the last generated id, so the next ids follow the current</span></code></span>
+<span class="codeline" id="line-169"><code><span class="comment">// time again even if earlier ones were higher, e.g. generated before the</span></code></span>
+<span class="codeline" id="line-170"><code><span class="comment">// server time offset was corrected. Ids must keep increasing within a</span></code></span>
+<span class="codeline" id="line-171"><code><span class="comment">// server session, so Reset is for a new session only.</span></code></span>
+<span class="codeline" id="line-172"><code><span class="keyword">func</span> (<label for="r34" class="ident">g</label> *<a href="#line-143" class="ident">MessageIDGen</a>) <label for="r35" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageIDGen.Reset.html" class="ident">Reset</a></label>() {</code></span>
+<span class="codeline" id="line-173"><code>	<label for="r34" class="ident">g</label>.<a href="#line-144" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-45" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-174"><code>	<label for="r34" class="ident">g</label>.<a href="#line-145" class="ident">last</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-175"><code>	<label for="r34" class="ident">g</label>.<a href="#line-144" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-64" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-176"><code>}</code></span>
+<span class="codeline" id="line-177"><code></code></span>
+<span class="codeline" id="line-178"><code><span class="comment">// NewMessageIDGen creates new message id generator.</span></code></span>
+<span class="codeline" id="line-179"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-180"><code><span class="comment">// Current time will be provided by now() function, e.g. the server time of</span></code></span>
+<span class="codeline" id="line-181"><code><span class="comment">// mtproto.ServerTime.</span></code></span>
+<span class="codeline" id="line-182"><code><span class="keyword">func</span> <label for="r36" class="ident"><a href="../../../../../pkg/github.com/gotd/td/proto.html#name-NewMessageIDGen" class="ident">NewMessageIDGen</a></label>(<label for="r37" class="ident">now</label> <span class="keyword">func</span>() <a href="../../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../../time/time.go.html#line-140" class="ident">Time</a>) *<a href="#line-143" class="ident">MessageIDGen</a> {</code></span>
+<span class="codeline" id="line-183"><code>	<span class="keyword">return</span> &amp;<a href="#line-143" class="ident">MessageIDGen</a>{</code></span>
+<span class="codeline" id="line-184"><code>		<a href="#line-146" class="ident">now</a>: <label for="r37" class="ident">now</label>,</code></span>
+<span class="codeline" id="line-185"><code>	}</code></span>
+<span class="codeline" id="line-186"><code>}</code></span>
+<span class="codeline" id="line-187"><code></code></span>
+<span class="codeline" id="line-188"><code><span class="comment">// MessageIDBuf stores the last N received message ids and is used in replay</span></code></span>
+<span class="codeline" id="line-189"><code><span class="comment">// attack mitigation.</span></code></span>
+<span class="codeline" id="line-190"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-191"><code><span class="comment">// It works like TDLib's MessageIdDuplicateChecker: ids are kept sorted in a</span></code></span>
+<span class="codeline" id="line-192"><code><span class="comment">// buffer of 2N, so an id is checked by binary search, an increasing id (the</span></code></span>
+<span class="codeline" id="line-193"><code><span class="comment">// common case) is appended, and the oldest N are dropped at once when the</span></code></span>
+<span class="codeline" id="line-194"><code><span class="comment">// buffer is full.</span></code></span>
+<span class="codeline" id="line-195"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/proto.html#name-MessageIDBuf" class="ident">MessageIDBuf</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-196"><code>	<a href="../../../../../use/github.com/gotd/td/proto..MessageIDBuf.mux^99830.html" class="ident">mux</a> <a href="../../../../../pkg/sync.html" class="ident i2">sync</a>.<a href="../../../../sync/mutex.go.html#line-30" class="ident">Mutex</a></code></span>
+<span class="codeline" id="line-197"><code>	<span class="comment">// buf[:end] holds the stored ids in increasing order.</span></code></span>
+<span class="codeline" id="line-198"><code>	<a href="../../../../../use/github.com/gotd/td/proto..MessageIDBuf.buf^3ef31.html" class="ident">buf</a> []<a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
+<span class="codeline" id="line-199"><code>	<a href="../../../../../use/github.com/gotd/td/proto..MessageIDBuf.end^361e4.html" class="ident">end</a> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-200"><code>	<a href="../../../../../use/github.com/gotd/td/proto..MessageIDBuf.n^1b16b.html" class="ident">n</a>   <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-201"><code>}</code></span>
+<span class="codeline" id="line-202"><code></code></span>
+<span class="codeline" id="line-203"><code><span class="comment">// NewMessageIDBuf initializes new message id buffer for last N stored values.</span></code></span>
+<span class="codeline" id="line-204"><code><span class="keyword">func</span> <label for="r38" class="ident"><a href="../../../../../pkg/github.com/gotd/td/proto.html#name-NewMessageIDBuf" class="ident">NewMessageIDBuf</a></label>(<label for="r39" class="ident">n</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) *<a href="#line-195" class="ident">MessageIDBuf</a> {</code></span>
+<span class="codeline" id="line-205"><code>	<span class="keyword">if</span> <label for="r39" class="ident">n</label> &lt; <span class="lit-number">1</span> {</code></span>
+<span class="codeline" id="line-206"><code>		<label for="r39" class="ident">n</label> = <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-207"><code>	}</code></span>
+<span class="codeline" id="line-208"><code>	<span class="keyword">return</span> &amp;<a href="#line-195" class="ident">MessageIDBuf</a>{</code></span>
+<span class="codeline" id="line-209"><code>		<a href="#line-198" class="ident">buf</a>: <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>, <span class="lit-number">2</span>*<label for="r39" class="ident">n</label>),</code></span>
+<span class="codeline" id="line-210"><code>		<a href="#line-200" class="ident">n</a>:   <label for="r39" class="ident">n</label>,</code></span>
 <span class="codeline" id="line-211"><code>	}</code></span>
-<span class="codeline" id="line-212"><code>	<span class="keyword">if</span> <label for="r34" class="ident">newID</label> &lt; <label for="r36" class="ident">minID</label> {</code></span>
-<span class="codeline" id="line-213"><code>		<span class="comment">// Lower than all stored values.</span></code></span>
-<span class="codeline" id="line-214"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
-<span class="codeline" id="line-215"><code>	}</code></span>
-<span class="codeline" id="line-216"><code></code></span>
-<span class="codeline" id="line-217"><code>	<span class="comment">// Message is accepted. Replacing lowest message id with new id.</span></code></span>
-<span class="codeline" id="line-218"><code>	<label for="r32" class="ident">b</label>.<a href="#line-173" class="ident">buf</a>[<label for="r35" class="ident">minIDx</label>] = <label for="r34" class="ident">newID</label></code></span>
-<span class="codeline" id="line-219"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-212"><code>}</code></span>
+<span class="codeline" id="line-213"><code></code></span>
+<span class="codeline" id="line-214"><code><span class="comment">// Reset forgets all stored message ids, e.g. when a new session is started.</span></code></span>
+<span class="codeline" id="line-215"><code><span class="keyword">func</span> (<label for="r40" class="ident">b</label> *<a href="#line-195" class="ident">MessageIDBuf</a>) <label for="r41" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageIDBuf.Reset.html" class="ident">Reset</a></label>() {</code></span>
+<span class="codeline" id="line-216"><code>	<label for="r40" class="ident">b</label>.<a href="#line-196" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-45" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-217"><code>	<span class="keyword">defer</span> <label for="r40" class="ident">b</label>.<a href="#line-196" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-64" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-218"><code></code></span>
+<span class="codeline" id="line-219"><code>	<label for="r40" class="ident">b</label>.<a href="#line-199" class="ident">end</a> = <span class="lit-number">0</span></code></span>
 <span class="codeline" id="line-220"><code>}</code></span>
+<span class="codeline" id="line-221"><code></code></span>
+<span class="codeline" id="line-222"><code><span class="comment">// Consume returns false if message should be discarded.</span></code></span>
+<span class="codeline" id="line-223"><code><span class="keyword">func</span> (<label for="r42" class="ident">b</label> *<a href="#line-195" class="ident">MessageIDBuf</a>) <label for="r43" class="ident"><a href="../../../../../use/github.com/gotd/td/proto..MessageIDBuf.Consume.html" class="ident">Consume</a></label>(<label for="r44" class="ident">newID</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>) <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-224"><code>	<span class="comment">// In addition, the identifiers (msg_id) of the last N messages received</span></code></span>
+<span class="codeline" id="line-225"><code><span class="comment">	// from the other side must be stored, and if a message comes in with an</span></code></span>
+<span class="codeline" id="line-226"><code><span class="comment">	// msg_id lower than all or equal to any of the stored values, that message</span></code></span>
+<span class="codeline" id="line-227"><code><span class="comment">	// is to be ignored. Otherwise, the new message msg_id is added to the set,</span></code></span>
+<span class="codeline" id="line-228"><code><span class="comment">	// and, if the number of stored msg_id values is greater than N, the oldest</span></code></span>
+<span class="codeline" id="line-229"><code><span class="comment">	// (i. e. the lowest) is discarded.</span></code></span>
+<span class="codeline" id="line-230"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-231"><code><span class="comment">	// https://core.telegram.org/mtproto/security_guidelines#checking-msg-id</span></code></span>
+<span class="codeline" id="line-232"><code>	<span class="keyword">if</span> <label for="r44" class="ident">newID</label> &lt;= <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-233"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-234"><code>	}</code></span>
+<span class="codeline" id="line-235"><code></code></span>
+<span class="codeline" id="line-236"><code>	<label for="r42" class="ident">b</label>.<a href="#line-196" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-45" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-237"><code>	<span class="keyword">defer</span> <label for="r42" class="ident">b</label>.<a href="#line-196" class="ident">mux</a>.<a href="../../../../sync/mutex.go.html#line-64" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-238"><code></code></span>
+<span class="codeline" id="line-239"><code>	<span class="keyword">if</span> <label for="r42" class="ident">b</label>.<a href="#line-199" class="ident">end</a> == <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r42" class="ident">b</label>.<a href="#line-198" class="ident">buf</a>) {</code></span>
+<span class="codeline" id="line-240"><code>		<span class="comment">// Forget the oldest N ids.</span></code></span>
+<span class="codeline" id="line-241"><code>		<a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r42" class="ident">b</label>.<a href="#line-198" class="ident">buf</a>[:<label for="r42" class="ident">b</label>.<a href="#line-200" class="ident">n</a>], <label for="r42" class="ident">b</label>.<a href="#line-198" class="ident">buf</a>[<label for="r42" class="ident">b</label>.<a href="#line-200" class="ident">n</a>:])</code></span>
+<span class="codeline" id="line-242"><code>		<label for="r42" class="ident">b</label>.<a href="#line-199" class="ident">end</a> = <label for="r42" class="ident">b</label>.<a href="#line-200" class="ident">n</a></code></span>
+<span class="codeline" id="line-243"><code>	}</code></span>
+<span class="codeline" id="line-244"><code>	<span class="keyword">if</span> <label for="r42" class="ident">b</label>.<a href="#line-199" class="ident">end</a> == <span class="lit-number">0</span> || <label for="r44" class="ident">newID</label> &gt; <label for="r42" class="ident">b</label>.<a href="#line-198" class="ident">buf</a>[<label for="r42" class="ident">b</label>.<a href="#line-199" class="ident">end</a>-<span class="lit-number">1</span>] {</code></span>
+<span class="codeline" id="line-245"><code>		<span class="comment">// Fast path: ids mostly increase.</span></code></span>
+<span class="codeline" id="line-246"><code>		<label for="r42" class="ident">b</label>.<a href="#line-198" class="ident">buf</a>[<label for="r42" class="ident">b</label>.<a href="#line-199" class="ident">end</a>] = <label for="r44" class="ident">newID</label></code></span>
+<span class="codeline" id="line-247"><code>		<label for="r42" class="ident">b</label>.<a href="#line-199" class="ident">end</a>++</code></span>
+<span class="codeline" id="line-248"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-249"><code>	}</code></span>
+<span class="codeline" id="line-250"><code>	<span class="keyword">if</span> <label for="r42" class="ident">b</label>.<a href="#line-199" class="ident">end</a> &gt;= <label for="r42" class="ident">b</label>.<a href="#line-200" class="ident">n</a> &amp;&amp; <label for="r44" class="ident">newID</label> &lt; <label for="r42" class="ident">b</label>.<a href="#line-198" class="ident">buf</a>[<span class="lit-number">0</span>] {</code></span>
+<span class="codeline" id="line-251"><code>		<span class="comment">// Lower than all of the last N stored ids.</span></code></span>
+<span class="codeline" id="line-252"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-253"><code>	}</code></span>
+<span class="codeline" id="line-254"><code></code></span>
+<span class="codeline" id="line-255"><code>	<span class="comment">// Binary search for the first stored id &gt;= newID.</span></code></span>
+<span class="codeline" id="line-256"><code>	<label for="r45" class="ident">lo</label>, <label for="r46" class="ident">hi</label> := <span class="lit-number">0</span>, <label for="r42" class="ident">b</label>.<a href="#line-199" class="ident">end</a></code></span>
+<span class="codeline" id="line-257"><code>	<span class="keyword">for</span> <label for="r45" class="ident">lo</label> &lt; <label for="r46" class="ident">hi</label> {</code></span>
+<span class="codeline" id="line-258"><code>		<label for="r47" class="ident">mid</label> := <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>(<a href="../../../../../pkg/builtin.html#name-uint" class="ident">uint</a>(<label for="r45" class="ident">lo</label>+<label for="r46" class="ident">hi</label>) &gt;&gt; <span class="lit-number">1</span>)</code></span>
+<span class="codeline" id="line-259"><code>		<span class="keyword">if</span> <label for="r42" class="ident">b</label>.<a href="#line-198" class="ident">buf</a>[<label for="r47" class="ident">mid</label>] &lt; <label for="r44" class="ident">newID</label> {</code></span>
+<span class="codeline" id="line-260"><code>			<label for="r45" class="ident">lo</label> = <label for="r47" class="ident">mid</label> + <span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-261"><code>		} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-262"><code>			<label for="r46" class="ident">hi</label> = <label for="r47" class="ident">mid</label></code></span>
+<span class="codeline" id="line-263"><code>		}</code></span>
+<span class="codeline" id="line-264"><code>	}</code></span>
+<span class="codeline" id="line-265"><code>	<span class="keyword">if</span> <label for="r42" class="ident">b</label>.<a href="#line-198" class="ident">buf</a>[<label for="r45" class="ident">lo</label>] == <label for="r44" class="ident">newID</label> {</code></span>
+<span class="codeline" id="line-266"><code>		<span class="comment">// Equal to a stored id.</span></code></span>
+<span class="codeline" id="line-267"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-268"><code>	}</code></span>
+<span class="codeline" id="line-269"><code>	<a href="../../../../../pkg/builtin.html#name-copy" class="ident">copy</a>(<label for="r42" class="ident">b</label>.<a href="#line-198" class="ident">buf</a>[<label for="r45" class="ident">lo</label>+<span class="lit-number">1</span>:<label for="r42" class="ident">b</label>.<a href="#line-199" class="ident">end</a>+<span class="lit-number">1</span>], <label for="r42" class="ident">b</label>.<a href="#line-198" class="ident">buf</a>[<label for="r45" class="ident">lo</label>:<label for="r42" class="ident">b</label>.<a href="#line-199" class="ident">end</a>])</code></span>
+<span class="codeline" id="line-270"><code>	<label for="r42" class="ident">b</label>.<a href="#line-198" class="ident">buf</a>[<label for="r45" class="ident">lo</label>] = <label for="r44" class="ident">newID</label></code></span>
+<span class="codeline" id="line-271"><code>	<label for="r42" class="ident">b</label>.<a href="#line-199" class="ident">end</a>++</code></span>
+<span class="codeline" id="line-272"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-273"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

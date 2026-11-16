@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: keygen.go in package crypto/internal/fips140/rsa</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -341,7 +341,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-185"><code></code></span>
 <span class="codeline" id="line-186"><code>	<label for="r30" class="ident">b</label> := <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, (<label for="r29" class="ident">bits</label>+<span class="lit-number">7</span>)/<span class="lit-number">8</span>)</code></span>
 <span class="codeline" id="line-187"><code>	<span class="keyword">for</span> {</code></span>
-<span class="codeline" id="line-188"><code>		<span class="keyword">if</span> <label for="r31" class="ident">err</label> := <a href="../../../../../pkg/crypto/internal/fips140/drbg.html" class="ident i2">drbg</a>.<a href="../drbg/rand.go.html#line-102" class="ident">ReadWithReader</a>(<label for="r28" class="ident">rand</label>, <label for="r30" class="ident">b</label>); <label for="r31" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-188"><code>		<span class="keyword">if</span> <label for="r31" class="ident">err</label> := <a href="../../../../../pkg/crypto/internal/fips140/drbg.html" class="ident i2">drbg</a>.<a href="../drbg/rand.go.html#line-133" class="ident">ReadWithReader</a>(<label for="r28" class="ident">rand</label>, <label for="r30" class="ident">b</label>); <label for="r31" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-189"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r31" class="ident">err</label></code></span>
 <span class="codeline" id="line-190"><code>		}</code></span>
 <span class="codeline" id="line-191"><code>		<span class="comment">// Clear the most significant bits to reach the desired size. We use a</span></code></span>
@@ -445,7 +445,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-289"><code></code></span>
 <span class="codeline" id="line-290"><code>	<label for="r44" class="ident">b</label> := <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, (<label for="r42" class="ident">bits</label>+<span class="lit-number">7</span>)/<span class="lit-number">8</span>)</code></span>
 <span class="codeline" id="line-291"><code>	<span class="keyword">for</span> {</code></span>
-<span class="codeline" id="line-292"><code>		<a href="../../../../../pkg/crypto/internal/fips140/drbg.html" class="ident i2">drbg</a>.<a href="../drbg/rand.go.html#line-33" class="ident">Read</a>(<label for="r44" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-292"><code>		<a href="../../../../../pkg/crypto/internal/fips140/drbg.html" class="ident i2">drbg</a>.<a href="../drbg/rand.go.html#line-64" class="ident">Read</a>(<label for="r44" class="ident">b</label>)</code></span>
 <span class="codeline" id="line-293"><code>		<label for="r45" class="ident">excess</label> := <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r44" class="ident">b</label>)*<span class="lit-number">8</span> - <label for="r42" class="ident">bits</label></code></span>
 <span class="codeline" id="line-294"><code>		<label for="r44" class="ident">b</label>[<span class="lit-number">0</span>] &amp;= <span class="lit-number">0b1111_1111</span> &gt;&gt; <label for="r45" class="ident">excess</label></code></span>
 <span class="codeline" id="line-295"><code>		<label for="r46" class="ident">result</label>, <label for="r47" class="ident">err</label> := <a href="#line-382" class="ident">millerRabinIteration</a>(<label for="r35" class="ident">mr</label>, <label for="r44" class="ident">b</label>)</code></span>
@@ -575,7 +575,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-419"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

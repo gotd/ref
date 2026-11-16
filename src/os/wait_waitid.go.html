@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: wait_waitid.go in package os</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -56,7 +56,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-20"><code><span class="comment">// It does not actually call p.Wait.</span></code></span>
 <span class="codeline" id="line-21"><code><span class="keyword">func</span> (<label for="r0" class="ident">p</label> *<a href="exec.go.html#line-43" class="ident">Process</a>) <label for="r1" class="ident"><a href="../../use/os..Process.blockUntilWaitable^e2839.html" class="ident">blockUntilWaitable</a></label>() (<a href="../../pkg/builtin.html#name-bool" class="ident">bool</a>, <a href="../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
 <span class="codeline" id="line-22"><code>	<span class="keyword">var</span> <label for="r2" class="ident">info</label> <a href="../../pkg/internal/syscall/unix.html" class="ident i0">unix</a>.<a href="../internal/syscall/unix/siginfo_linux.go.html#line-18" class="ident">SiginfoChild</a></code></span>
-<span class="codeline" id="line-23"><code>	<label for="r3" class="ident">err</label> := <a href="file_posix.go.html#line-261" class="ident">ignoringEINTR</a>(<span class="keyword">func</span>() <a href="../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-23"><code>	<label for="r3" class="ident">err</label> := <a href="file_posix.go.html#line-254" class="ident">ignoringEINTR</a>(<span class="keyword">func</span>() <a href="../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
 <span class="codeline" id="line-24"><code>		<span class="keyword">return</span> <a href="../../pkg/internal/syscall/unix.html" class="ident i0">unix</a>.<a href="../internal/syscall/unix/waitid_linux.go.html#line-17" class="ident">Waitid</a>(<a href="../../pkg/internal/syscall/unix.html" class="ident i0">unix</a>.<a href="../internal/syscall/unix/waitid_linux.go.html#line-13" class="ident">P_PID</a>, <label for="r0" class="ident">p</label>.<a href="exec.go.html#line-44" class="ident">Pid</a>, &amp;<label for="r2" class="ident">info</label>, <a href="../../pkg/syscall.html" class="ident i2">syscall</a>.<a href="../syscall/zerrors_linux_amd64.go.html#line-1171" class="ident">WEXITED</a>|<a href="../../pkg/syscall.html" class="ident i2">syscall</a>.<a href="../syscall/zerrors_linux_amd64.go.html#line-1174" class="ident">WNOWAIT</a>, <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a>)</code></span>
 <span class="codeline" id="line-25"><code>	})</code></span>
 <span class="codeline" id="line-26"><code>	<a href="../../pkg/runtime.html" class="ident i1">runtime</a>.<a href="../runtime/mfinal.go.html#line-575" class="ident">KeepAlive</a>(<label for="r0" class="ident">p</label>)</code></span>
@@ -73,7 +73,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-37"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

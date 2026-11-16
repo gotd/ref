@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: init_error.go in package github.com/gotd/td/telegram/internal/manager</title>
+<link href="../../../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../../../jvs/golds-v0.8.7.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	init_error.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html">github.com/gotd/td/telegram/internal/manager</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3]
+{background: #226; color: #ff8;}
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> manager</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// InitError is returned by Conn.Run when the initConnection request</span></code></span>
+<span class="codeline" id="line-4"><code><span class="comment">// (invokeWithLayer(initConnection(help.getConfig))) fails.</span></code></span>
+<span class="codeline" id="line-5"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-6"><code><span class="comment">// It lets callers tell a rejected connection setup apart from errors of</span></code></span>
+<span class="codeline" id="line-7"><code><span class="comment">// the transport, the key exchange or the setup callback.</span></code></span>
+<span class="codeline" id="line-8"><code><span class="keyword">type</span> <a href="../../../../../../../pkg/github.com/gotd/td/telegram/internal/manager.html#name-InitError" class="ident">InitError</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-9"><code>	<a href="../../../../../../../use/github.com/gotd/td/telegram/internal/manager..InitError.Err.html" class="ident">Err</a> <a href="../../../../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
+<span class="codeline" id="line-10"><code>}</code></span>
+<span class="codeline" id="line-11"><code></code></span>
+<span class="codeline" id="line-12"><code><span class="comment">// Error implements error.</span></code></span>
+<span class="codeline" id="line-13"><code><span class="keyword">func</span> (<label for="r0" class="ident">e</label> *<a href="#line-8" class="ident">InitError</a>) <label for="r1" class="ident"><a href="../../../../../../../use/github.com/gotd/td/telegram/internal/manager..InitError.Error.html" class="ident">Error</a></label>() <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-14"><code>	<span class="keyword">return</span> <span class="lit-string">"initConnection: "</span> + <label for="r0" class="ident">e</label>.<a href="#line-9" class="ident">Err</a>.Error()</code></span>
+<span class="codeline" id="line-15"><code>}</code></span>
+<span class="codeline" id="line-16"><code></code></span>
+<span class="codeline" id="line-17"><code><span class="comment">// Unwrap returns the underlying error.</span></code></span>
+<span class="codeline" id="line-18"><code><span class="keyword">func</span> (<label for="r2" class="ident">e</label> *<a href="#line-8" class="ident">InitError</a>) <label for="r3" class="ident"><a href="../../../../../../../use/github.com/gotd/td/telegram/internal/manager..InitError.Unwrap.html" class="ident">Unwrap</a></label>() <a href="../../../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-19"><code>	<span class="keyword">return</span> <label for="r2" class="ident">e</label>.<a href="#line-9" class="ident">Err</a></code></span>
+<span class="codeline" id="line-20"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

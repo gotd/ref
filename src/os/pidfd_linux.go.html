@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: pidfd_linux.go in package os</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -208,7 +208,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-104"><code>		<label for="r18" class="ident">info</label>   <a href="../../pkg/internal/syscall/unix.html" class="ident i0">unix</a>.<a href="../internal/syscall/unix/siginfo_linux.go.html#line-18" class="ident">SiginfoChild</a></code></span>
 <span class="codeline" id="line-105"><code>		<label for="r19" class="ident">rusage</label> <a href="../../pkg/syscall.html" class="ident i3">syscall</a>.<a href="../syscall/ztypes_linux_amd64.go.html#line-73" class="ident">Rusage</a></code></span>
 <span class="codeline" id="line-106"><code>	)</code></span>
-<span class="codeline" id="line-107"><code>	<label for="r20" class="ident">err</label> := <a href="file_posix.go.html#line-261" class="ident">ignoringEINTR</a>(<span class="keyword">func</span>() <a href="../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-107"><code>	<label for="r20" class="ident">err</label> := <a href="file_posix.go.html#line-254" class="ident">ignoringEINTR</a>(<span class="keyword">func</span>() <a href="../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
 <span class="codeline" id="line-108"><code>		<span class="keyword">return</span> <a href="../../pkg/internal/syscall/unix.html" class="ident i0">unix</a>.<a href="../internal/syscall/unix/waitid_linux.go.html#line-17" class="ident">Waitid</a>(<a href="../../pkg/internal/syscall/unix.html" class="ident i0">unix</a>.<a href="../internal/syscall/unix/waitid_linux.go.html#line-14" class="ident">P_PIDFD</a>, <a href="../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r16" class="ident">handle</label>), &amp;<label for="r18" class="ident">info</label>, <a href="../../pkg/syscall.html" class="ident i3">syscall</a>.<a href="../syscall/zerrors_linux_amd64.go.html#line-1171" class="ident">WEXITED</a>, &amp;<label for="r19" class="ident">rusage</label>)</code></span>
 <span class="codeline" id="line-109"><code>	})</code></span>
 <span class="codeline" id="line-110"><code>	<span class="keyword">if</span> <label for="r20" class="ident">err</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
@@ -272,7 +272,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-168"><code>	<span class="keyword">defer</span> <a href="../../pkg/syscall.html" class="ident i3">syscall</a>.<a href="../syscall/zsyscall_linux_amd64.go.html#line-334" class="ident">Close</a>(<a href="../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r28" class="ident">fd</label>))</code></span>
 <span class="codeline" id="line-169"><code></code></span>
 <span class="codeline" id="line-170"><code>	<span class="comment">// Check waitid(P_PIDFD) works.</span></code></span>
-<span class="codeline" id="line-171"><code>	<label for="r29" class="ident">err</label> = <a href="file_posix.go.html#line-261" class="ident">ignoringEINTR</a>(<span class="keyword">func</span>() <a href="../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-171"><code>	<label for="r29" class="ident">err</label> = <a href="file_posix.go.html#line-254" class="ident">ignoringEINTR</a>(<span class="keyword">func</span>() <a href="../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
 <span class="codeline" id="line-172"><code>		<span class="keyword">var</span> <label for="r30" class="ident">info</label> <a href="../../pkg/internal/syscall/unix.html" class="ident i0">unix</a>.<a href="../internal/syscall/unix/siginfo_linux.go.html#line-18" class="ident">SiginfoChild</a></code></span>
 <span class="codeline" id="line-173"><code>		<span class="comment">// We don't actually care about the info, but passing a nil pointer</span></code></span>
 <span class="codeline" id="line-174"><code><span class="comment">		// makes valgrind complain because 0x0 is unaddressable.</span></code></span>
@@ -314,7 +314,7 @@ input[id=i4]:checked ~pre .i4
 <span class="codeline" id="line-210"><code><span class="keyword">func</span> <label for="r35" class="ident"><a href="../../pkg/os.html#name-restoreSIGSYS" class="ident">restoreSIGSYS</a></label>()</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

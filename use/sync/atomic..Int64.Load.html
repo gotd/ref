@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: sync/atomic.Int64.Load</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../pkg/sync/atomic.html">sync/atomic</a>.<a href="../../src/sync/atomic/type.go.html#line-107">Int64</a>.<a href="../../src/sync/atomic/type.go.html#line-114">Load</a></b></span><span style="font-size: large;"><i> (method)</i></span>
 
-<span class="title">5 uses</span>
+<span class="title">8 uses</span>
 
 	sync/atomic (current package)
 		<a href="../../src/sync/atomic/type.go.html#line-114">type.go#L114</a>: func (x *Int64) <b>Load</b>() int64 { return LoadInt64(&amp;x.v) }
@@ -21,9 +21,14 @@
 		<a href="../../src/github.com/coder/websocket/netconn.go.html#line-157" class="path-duplicate">netconn.go</a><a href="../../src/github.com/coder/websocket/netconn.go.html#line-157">#L157</a>: 	if nc.readExpired.<b>Load</b>() == 1 {
 		<a href="../../src/github.com/coder/websocket/read.go.html#line-517">read.go#L517</a>: 	lr.n = lr.limit.<b>Load</b>()
 		<a href="../../src/github.com/coder/websocket/read.go.html#line-527" class="path-duplicate">read.go</a><a href="../../src/github.com/coder/websocket/read.go.html#line-527">#L527</a>: 		reason := fmt.Errorf("read limited at %d bytes", lr.limit.<b>Load</b>())
+
+	<a href="../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../../src/github.com/gotd/td/mtproto/server_time.go.html#line-48">server_time.go#L48</a>: 	return t.base.Now().Add(time.Duration(t.offset.<b>Load</b>()))
+		<a href="../../src/github.com/gotd/td/mtproto/server_time.go.html#line-53" class="path-duplicate">server_time.go</a><a href="../../src/github.com/gotd/td/mtproto/server_time.go.html#line-53">#L53</a>: 	return time.Duration(t.offset.<b>Load</b>())
+		<a href="../../src/github.com/gotd/td/mtproto/server_time.go.html#line-88" class="path-duplicate">server_time.go</a><a href="../../src/github.com/gotd/td/mtproto/server_time.go.html#line-88">#L88</a>: 	if diff &gt; t.offset.<b>Load</b>()+int64(minOffsetStep) {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

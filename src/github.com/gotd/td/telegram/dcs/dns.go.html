@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: dns.go in package github.com/gotd/td/telegram/dcs</title>
-<link href="../../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -308,7 +308,7 @@ input[id=i13]:checked ~pre .i13
 <span class="codeline" id="line-152"><code>		<label for="r43" class="ident">totalLength</label> += <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r39" class="ident">txt</label>[<label for="r44" class="ident">i</label>])</code></span>
 <span class="codeline" id="line-153"><code>	}</code></span>
 <span class="codeline" id="line-154"><code>	<span class="keyword">if</span> <label for="r43" class="ident">totalLength</label> != <label for="r42" class="ident">encodedLen</label> {</code></span>
-<span class="codeline" id="line-155"><code>		<span class="keyword">return</span> <a href="#line-99" class="ident">DNSConfig</a>{}, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/format.go.html#line-42" class="ident">Errorf</a>(<span class="lit-string">"invalid input length %d"</span>, <label for="r43" class="ident">totalLength</label>)</code></span>
+<span class="codeline" id="line-155"><code>		<span class="keyword">return</span> <a href="#line-99" class="ident">DNSConfig</a>{}, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/format.go.html#line-45" class="ident">Errorf</a>(<span class="lit-string">"invalid input length %d"</span>, <label for="r43" class="ident">totalLength</label>)</code></span>
 <span class="codeline" id="line-156"><code>	}</code></span>
 <span class="codeline" id="line-157"><code></code></span>
 <span class="codeline" id="line-158"><code>	<span class="keyword">var</span> (</code></span>
@@ -321,12 +321,12 @@ input[id=i13]:checked ~pre .i13
 <span class="codeline" id="line-165"><code>	}</code></span>
 <span class="codeline" id="line-166"><code></code></span>
 <span class="codeline" id="line-167"><code>	<span class="keyword">if</span> <label for="r49" class="ident">_</label>, <label for="r50" class="ident">err</label> := <label for="r40" class="ident">encoding</label>.<a href="../../../../../encoding/base64/base64.go.html#line-518" class="ident">Decode</a>(<label for="r46" class="ident">decoded</label>[:], <label for="r45" class="ident">encoded</label>[:]); <label for="r50" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-168"><code>		<span class="keyword">return</span> <a href="#line-99" class="ident">DNSConfig</a>{}, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r50" class="ident">err</label>, <span class="lit-string">"decode"</span>)</code></span>
+<span class="codeline" id="line-168"><code>		<span class="keyword">return</span> <a href="#line-99" class="ident">DNSConfig</a>{}, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r50" class="ident">err</label>, <span class="lit-string">"decode"</span>)</code></span>
 <span class="codeline" id="line-169"><code>	}</code></span>
 <span class="codeline" id="line-170"><code></code></span>
 <span class="codeline" id="line-171"><code>	<label for="r51" class="ident">cfg</label>, <label for="r52" class="ident">err</label> := <a href="#line-51" class="ident">parseDNSList</a>(<label for="r46" class="ident">decoded</label>)</code></span>
 <span class="codeline" id="line-172"><code>	<span class="keyword">if</span> <label for="r52" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-173"><code>		<span class="keyword">return</span> <a href="#line-99" class="ident">DNSConfig</a>{}, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r52" class="ident">err</label>, <span class="lit-string">"decrypt config"</span>)</code></span>
+<span class="codeline" id="line-173"><code>		<span class="keyword">return</span> <a href="#line-99" class="ident">DNSConfig</a>{}, <a href="../../../../../../pkg/github.com/go-faster/errors.html" class="ident i10">errors</a>.<a href="../../../../go-faster/errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r52" class="ident">err</label>, <span class="lit-string">"decrypt config"</span>)</code></span>
 <span class="codeline" id="line-174"><code>	}</code></span>
 <span class="codeline" id="line-175"><code></code></span>
 <span class="codeline" id="line-176"><code>	<span class="keyword">return</span> <a href="#line-99" class="ident">DNSConfig</a>{</code></span>
@@ -337,7 +337,7 @@ input[id=i13]:checked ~pre .i13
 <span class="codeline" id="line-181"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

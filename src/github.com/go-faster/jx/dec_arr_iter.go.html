@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: dec_arr_iter.go in package github.com/go-faster/jx</title>
-<link href="../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -67,7 +67,7 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-15"><code><span class="comment">// ArrIter creates new array iterator.</span></code></span>
 <span class="codeline" id="line-16"><code><span class="keyword">func</span> (<label for="r0" class="ident">d</label> *<a href="dec.go.html#line-77" class="ident">Decoder</a>) <label for="r1" class="ident"><a href="../../../../use/github.com/go-faster/jx..Decoder.ArrIter.html" class="ident">ArrIter</a></label>() (<a href="#line-8" class="ident">ArrIter</a>, <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
 <span class="codeline" id="line-17"><code>	<span class="keyword">if</span> <label for="r2" class="ident">err</label> := <label for="r0" class="ident">d</label>.<a href="dec_read.go.html#line-21" class="ident">consume</a>(<span class="lit-number">'['</span>); <label for="r2" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-18"><code>		<span class="keyword">return</span> <a href="#line-8" class="ident">ArrIter</a>{}, <a href="../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r2" class="ident">err</label>, <span class="lit-string">`"[" expected`</span>)</code></span>
+<span class="codeline" id="line-18"><code>		<span class="keyword">return</span> <a href="#line-8" class="ident">ArrIter</a>{}, <a href="../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r2" class="ident">err</label>, <span class="lit-string">`"[" expected`</span>)</code></span>
 <span class="codeline" id="line-19"><code>	}</code></span>
 <span class="codeline" id="line-20"><code>	<span class="keyword">if</span> <label for="r3" class="ident">err</label> := <label for="r0" class="ident">d</label>.<a href="dec_depth.go.html#line-10" class="ident">incDepth</a>(); <label for="r3" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-21"><code>		<span class="keyword">return</span> <a href="#line-8" class="ident">ArrIter</a>{}, <label for="r3" class="ident">err</label></code></span>
@@ -99,7 +99,7 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-47"><code>	<span class="keyword">if</span> <label for="r6" class="ident">i</label>.<a href="#line-12" class="ident">comma</a> {</code></span>
 <span class="codeline" id="line-48"><code>		<span class="keyword">if</span> <label for="r9" class="ident">c</label> != <span class="lit-number">','</span> {</code></span>
 <span class="codeline" id="line-49"><code>			<label for="r11" class="ident">err</label> := <a href="dec_error.go.html#line-15" class="ident">badToken</a>(<label for="r9" class="ident">c</label>, <label for="r8" class="ident">dec</label>.<a href="dec.go.html#line-118" class="ident">offset</a>()-<span class="lit-number">1</span>)</code></span>
-<span class="codeline" id="line-50"><code>			<label for="r6" class="ident">i</label>.<a href="#line-10" class="ident">err</a> = <a href="../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../errors/wrap.go.html#line-81" class="ident">Wrap</a>(<label for="r11" class="ident">err</label>, <span class="lit-string">`"," expected`</span>)</code></span>
+<span class="codeline" id="line-50"><code>			<label for="r6" class="ident">i</label>.<a href="#line-10" class="ident">err</a> = <a href="../../../../pkg/github.com/go-faster/errors.html" class="ident i0">errors</a>.<a href="../errors/wrap.go.html#line-85" class="ident">Wrap</a>(<label for="r11" class="ident">err</label>, <span class="lit-string">`"," expected`</span>)</code></span>
 <span class="codeline" id="line-51"><code>			<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
 <span class="codeline" id="line-52"><code>		}</code></span>
 <span class="codeline" id="line-53"><code>	} <span class="keyword">else</span> {</code></span>
@@ -115,7 +115,7 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-63"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

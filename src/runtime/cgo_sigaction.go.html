@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: cgo_sigaction.go in package runtime</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -82,7 +82,7 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-34"><code>		<a href="asan0.go.html#line-21" class="ident">asanwrite</a>(<a href="../../pkg/unsafe.html" class="ident i0">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r2" class="ident">new</label>), <a href="../../pkg/unsafe.html" class="ident i0">unsafe</a>.<a href="../../pkg/unsafe.html#name-Sizeof" class="ident">Sizeof</a>(*<label for="r2" class="ident">new</label>))</code></span>
 <span class="codeline" id="line-35"><code>	}</code></span>
 <span class="codeline" id="line-36"><code>	<span class="keyword">if</span> <a href="#line-19" class="ident">_cgo_sigaction</a> == <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> || <a href="proc.go.html#line-5207" class="ident">inForkedChild</a> {</code></span>
-<span class="codeline" id="line-37"><code>		<a href="os_linux.go.html#line-534" class="ident">sysSigaction</a>(<label for="r1" class="ident">sig</label>, <label for="r2" class="ident">new</label>, <label for="r3" class="ident">old</label>)</code></span>
+<span class="codeline" id="line-37"><code>		<a href="os_linux.go.html#line-533" class="ident">sysSigaction</a>(<label for="r1" class="ident">sig</label>, <label for="r2" class="ident">new</label>, <label for="r3" class="ident">old</label>)</code></span>
 <span class="codeline" id="line-38"><code>	} <span class="keyword">else</span> {</code></span>
 <span class="codeline" id="line-39"><code>		<span class="comment">// We need to call _cgo_sigaction, which means we need a big enough stack</span></code></span>
 <span class="codeline" id="line-40"><code><span class="comment">		// for C.  To complicate matters, we may be in libpreinit (before the</span></code></span>
@@ -92,7 +92,7 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-44"><code></code></span>
 <span class="codeline" id="line-45"><code>		<span class="keyword">var</span> <label for="r4" class="ident">ret</label> <a href="../../pkg/builtin.html#name-int32" class="ident">int32</a></code></span>
 <span class="codeline" id="line-46"><code></code></span>
-<span class="codeline" id="line-47"><code>		<a href="os_linux.go.html#line-569" class="ident">fixSigactionForCgo</a>(<label for="r2" class="ident">new</label>)</code></span>
+<span class="codeline" id="line-47"><code>		<a href="os_linux.go.html#line-568" class="ident">fixSigactionForCgo</a>(<label for="r2" class="ident">new</label>)</code></span>
 <span class="codeline" id="line-48"><code></code></span>
 <span class="codeline" id="line-49"><code>		<span class="keyword">var</span> <label for="r5" class="ident">g</label> *<a href="runtime2.go.html#line-473" class="ident">g</a></code></span>
 <span class="codeline" id="line-50"><code>		<span class="keyword">if</span> <a href="proc.go.html#line-140" class="ident">mainStarted</a> {</code></span>
@@ -127,7 +127,7 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-79"><code>			<span class="comment">// libc reserves certain signals — normally 32-33 — for pthreads, and</span></code></span>
 <span class="codeline" id="line-80"><code><span class="comment">			// returns EINVAL for sigaction calls on those signals.  If we get EINVAL,</span></code></span>
 <span class="codeline" id="line-81"><code><span class="comment">			// fall back to making the syscall directly.</span></code></span>
-<span class="codeline" id="line-82"><code>			<a href="os_linux.go.html#line-534" class="ident">sysSigaction</a>(<label for="r1" class="ident">sig</label>, <label for="r2" class="ident">new</label>, <label for="r3" class="ident">old</label>)</code></span>
+<span class="codeline" id="line-82"><code>			<a href="os_linux.go.html#line-533" class="ident">sysSigaction</a>(<label for="r1" class="ident">sig</label>, <label for="r2" class="ident">new</label>, <label for="r3" class="ident">old</label>)</code></span>
 <span class="codeline" id="line-83"><code>		}</code></span>
 <span class="codeline" id="line-84"><code>	}</code></span>
 <span class="codeline" id="line-85"><code></code></span>
@@ -146,7 +146,7 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-98"><code><span class="keyword">func</span> <label for="r8" class="ident"><a href="../../pkg/runtime.html#name-callCgoSigaction" class="ident">callCgoSigaction</a></label>(<label for="r9" class="ident">sig</label> <a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>, <label for="r10" class="ident">new</label>, <label for="r11" class="ident">old</label> *<a href="defs_linux_amd64.go.html#line-118" class="ident">sigactiont</a>) <a href="../../pkg/builtin.html#name-int32" class="ident">int32</a></code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

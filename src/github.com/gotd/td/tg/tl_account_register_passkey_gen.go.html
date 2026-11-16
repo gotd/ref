@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: tl_account_register_passkey_gen.go in package github.com/gotd/td/tg</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -55,8 +55,7 @@ input[id=r35]:checked ~pre label[for=r35],
 input[id=r36]:checked ~pre label[for=r36],
 input[id=r37]:checked ~pre label[for=r37],
 input[id=r38]:checked ~pre label[for=r38],
-input[id=r39]:checked ~pre label[for=r39],
-input[id=r40]:checked ~pre label[for=r40]
+input[id=r39]:checked ~pre label[for=r39]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
 input[id=i1]:checked ~pre .i1,
@@ -109,7 +108,6 @@ input[id=i9]:checked ~pre .i9
 <input id="r37" type="radio" name="g"/>
 <input id="r38" type="radio" name="g"/>
 <input id="r39" type="radio" name="g"/>
-<input id="r40" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
 <input id="i2" type="radio" name="i"/>
@@ -165,7 +163,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-41"><code><span class="comment">// See https://core.telegram.org/method/account.registerPasskey for reference.</span></code></span>
 <span class="codeline" id="line-42"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-AccountRegisterPasskeyRequest" class="ident">AccountRegisterPasskeyRequest</a> <span class="keyword">struct</span> {</code></span>
 <span class="codeline" id="line-43"><code>	<span class="comment">// Registration result.</span></code></span>
-<span class="codeline" id="line-44"><code>	<a href="../../../../../use/github.com/gotd/td/tg..AccountRegisterPasskeyRequest.Credential.html" class="ident">Credential</a> <a href="tl_input_passkey_credential_gen.go.html#line-397" class="ident">InputPasskeyCredentialClass</a></code></span>
+<span class="codeline" id="line-44"><code>	<a href="../../../../../use/github.com/gotd/td/tg..AccountRegisterPasskeyRequest.Credential.html" class="ident">Credential</a> <a href="tl_input_passkey_credential_public_key_gen.go.html#line-43" class="ident">InputPasskeyCredentialPublicKey</a></code></span>
 <span class="codeline" id="line-45"><code>}</code></span>
 <span class="codeline" id="line-46"><code></code></span>
 <span class="codeline" id="line-47"><code><span class="comment">// AccountRegisterPasskeyRequestTypeID is TL type id of AccountRegisterPasskeyRequest.</span></code></span>
@@ -183,7 +181,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-59"><code>	<span class="keyword">if</span> <label for="r0" class="ident">r</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-60"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
 <span class="codeline" id="line-61"><code>	}</code></span>
-<span class="codeline" id="line-62"><code>	<span class="keyword">if</span> !(<label for="r0" class="ident">r</label>.<a href="#line-44" class="ident">Credential</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>) {</code></span>
+<span class="codeline" id="line-62"><code>	<span class="keyword">if</span> !(<label for="r0" class="ident">r</label>.<a href="#line-44" class="ident">Credential</a>.<a href="tl_input_passkey_credential_public_key_gen.go.html#line-71" class="ident">Zero</a>()) {</code></span>
 <span class="codeline" id="line-63"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
 <span class="codeline" id="line-64"><code>	}</code></span>
 <span class="codeline" id="line-65"><code></code></span>
@@ -201,7 +199,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-77"><code></code></span>
 <span class="codeline" id="line-78"><code><span class="comment">// FillFrom fills AccountRegisterPasskeyRequest from given interface.</span></code></span>
 <span class="codeline" id="line-79"><code><span class="keyword">func</span> (<label for="r5" class="ident">r</label> *<a href="#line-42" class="ident">AccountRegisterPasskeyRequest</a>) <label for="r6" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..AccountRegisterPasskeyRequest.FillFrom.html" class="ident">FillFrom</a></label>(<label for="r7" class="ident">from</label> <span class="keyword">interface</span> {</code></span>
-<span class="codeline" id="line-80"><code>	<label for="r8" class="ident">GetCredential</label>() (<label for="r9" class="ident">value</label> <a href="tl_input_passkey_credential_gen.go.html#line-397" class="ident">InputPasskeyCredentialClass</a>)</code></span>
+<span class="codeline" id="line-80"><code>	<label for="r8" class="ident">GetCredential</label>() (<label for="r9" class="ident">value</label> <a href="tl_input_passkey_credential_public_key_gen.go.html#line-43" class="ident">InputPasskeyCredentialPublicKey</a>)</code></span>
 <span class="codeline" id="line-81"><code>}) {</code></span>
 <span class="codeline" id="line-82"><code>	<label for="r5" class="ident">r</label>.<a href="#line-44" class="ident">Credential</a> = <label for="r7" class="ident">from</label>.<label for="r8" class="ident">GetCredential</label>()</code></span>
 <span class="codeline" id="line-83"><code>}</code></span>
@@ -251,75 +249,71 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-127"><code>	<span class="keyword">if</span> <label for="r18" class="ident">r</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-128"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't encode account.registerPasskey#55b41fd6 as nil"</span>)</code></span>
 <span class="codeline" id="line-129"><code>	}</code></span>
-<span class="codeline" id="line-130"><code>	<span class="keyword">if</span> <label for="r18" class="ident">r</label>.<a href="#line-44" class="ident">Credential</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-131"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode account.registerPasskey#55b41fd6: field credential is nil"</span>)</code></span>
+<span class="codeline" id="line-130"><code>	<span class="keyword">if</span> <label for="r21" class="ident">err</label> := <label for="r18" class="ident">r</label>.<a href="#line-44" class="ident">Credential</a>.<a href="tl_input_passkey_credential_public_key_gen.go.html#line-148" class="ident">Encode</a>(<label for="r20" class="ident">b</label>); <label for="r21" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-131"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode account.registerPasskey#55b41fd6: field credential: %w"</span>, <label for="r21" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-132"><code>	}</code></span>
-<span class="codeline" id="line-133"><code>	<span class="keyword">if</span> <label for="r21" class="ident">err</label> := <label for="r18" class="ident">r</label>.<a href="#line-44" class="ident">Credential</a>.<a href="../bin/bin.go.html#line-38" class="ident">Encode</a>(<label for="r20" class="ident">b</label>); <label for="r21" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-134"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode account.registerPasskey#55b41fd6: field credential: %w"</span>, <label for="r21" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-135"><code>	}</code></span>
-<span class="codeline" id="line-136"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-137"><code>}</code></span>
-<span class="codeline" id="line-138"><code></code></span>
-<span class="codeline" id="line-139"><code><span class="comment">// Decode implements bin.Decoder.</span></code></span>
-<span class="codeline" id="line-140"><code><span class="keyword">func</span> (<label for="r22" class="ident">r</label> *<a href="#line-42" class="ident">AccountRegisterPasskeyRequest</a>) <label for="r23" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..AccountRegisterPasskeyRequest.Decode.html" class="ident">Decode</a></label>(<label for="r24" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-141"><code>	<span class="keyword">if</span> <label for="r22" class="ident">r</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-142"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't decode account.registerPasskey#55b41fd6 to nil"</span>)</code></span>
+<span class="codeline" id="line-133"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-134"><code>}</code></span>
+<span class="codeline" id="line-135"><code></code></span>
+<span class="codeline" id="line-136"><code><span class="comment">// Decode implements bin.Decoder.</span></code></span>
+<span class="codeline" id="line-137"><code><span class="keyword">func</span> (<label for="r22" class="ident">r</label> *<a href="#line-42" class="ident">AccountRegisterPasskeyRequest</a>) <label for="r23" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..AccountRegisterPasskeyRequest.Decode.html" class="ident">Decode</a></label>(<label for="r24" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-138"><code>	<span class="keyword">if</span> <label for="r22" class="ident">r</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-139"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't decode account.registerPasskey#55b41fd6 to nil"</span>)</code></span>
+<span class="codeline" id="line-140"><code>	}</code></span>
+<span class="codeline" id="line-141"><code>	<span class="keyword">if</span> <label for="r25" class="ident">err</label> := <label for="r24" class="ident">b</label>.<a href="../bin/decode.go.html#line-98" class="ident">ConsumeID</a>(<a href="#line-48" class="ident">AccountRegisterPasskeyRequestTypeID</a>); <label for="r25" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-142"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode account.registerPasskey#55b41fd6: %w"</span>, <label for="r25" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-143"><code>	}</code></span>
-<span class="codeline" id="line-144"><code>	<span class="keyword">if</span> <label for="r25" class="ident">err</label> := <label for="r24" class="ident">b</label>.<a href="../bin/decode.go.html#line-98" class="ident">ConsumeID</a>(<a href="#line-48" class="ident">AccountRegisterPasskeyRequestTypeID</a>); <label for="r25" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-145"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode account.registerPasskey#55b41fd6: %w"</span>, <label for="r25" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-146"><code>	}</code></span>
-<span class="codeline" id="line-147"><code>	<span class="keyword">return</span> <label for="r22" class="ident">r</label>.<a href="#line-151" class="ident">DecodeBare</a>(<label for="r24" class="ident">b</label>)</code></span>
-<span class="codeline" id="line-148"><code>}</code></span>
-<span class="codeline" id="line-149"><code></code></span>
-<span class="codeline" id="line-150"><code><span class="comment">// DecodeBare implements bin.BareDecoder.</span></code></span>
-<span class="codeline" id="line-151"><code><span class="keyword">func</span> (<label for="r26" class="ident">r</label> *<a href="#line-42" class="ident">AccountRegisterPasskeyRequest</a>) <label for="r27" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..AccountRegisterPasskeyRequest.DecodeBare.html" class="ident">DecodeBare</a></label>(<label for="r28" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-152"><code>	<span class="keyword">if</span> <label for="r26" class="ident">r</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-153"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't decode account.registerPasskey#55b41fd6 to nil"</span>)</code></span>
-<span class="codeline" id="line-154"><code>	}</code></span>
-<span class="codeline" id="line-155"><code>	{</code></span>
-<span class="codeline" id="line-156"><code>		<label for="r29" class="ident">value</label>, <label for="r30" class="ident">err</label> := <a href="tl_input_passkey_credential_gen.go.html#line-417" class="ident">DecodeInputPasskeyCredential</a>(<label for="r28" class="ident">b</label>)</code></span>
-<span class="codeline" id="line-157"><code>		<span class="keyword">if</span> <label for="r30" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-158"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode account.registerPasskey#55b41fd6: field credential: %w"</span>, <label for="r30" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-159"><code>		}</code></span>
-<span class="codeline" id="line-160"><code>		<label for="r26" class="ident">r</label>.<a href="#line-44" class="ident">Credential</a> = <label for="r29" class="ident">value</label></code></span>
-<span class="codeline" id="line-161"><code>	}</code></span>
-<span class="codeline" id="line-162"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-163"><code>}</code></span>
-<span class="codeline" id="line-164"><code></code></span>
-<span class="codeline" id="line-165"><code><span class="comment">// GetCredential returns value of Credential field.</span></code></span>
-<span class="codeline" id="line-166"><code><span class="keyword">func</span> (<label for="r31" class="ident">r</label> *<a href="#line-42" class="ident">AccountRegisterPasskeyRequest</a>) <label for="r32" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..AccountRegisterPasskeyRequest.GetCredential.html" class="ident">GetCredential</a></label>() (<label for="r33" class="ident">value</label> <a href="tl_input_passkey_credential_gen.go.html#line-397" class="ident">InputPasskeyCredentialClass</a>) {</code></span>
-<span class="codeline" id="line-167"><code>	<span class="keyword">if</span> <label for="r31" class="ident">r</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-168"><code>		<span class="keyword">return</span></code></span>
-<span class="codeline" id="line-169"><code>	}</code></span>
-<span class="codeline" id="line-170"><code>	<span class="keyword">return</span> <label for="r31" class="ident">r</label>.<a href="#line-44" class="ident">Credential</a></code></span>
-<span class="codeline" id="line-171"><code>}</code></span>
-<span class="codeline" id="line-172"><code></code></span>
-<span class="codeline" id="line-173"><code><span class="comment">// AccountRegisterPasskey invokes method account.registerPasskey#55b41fd6 returning error if any.</span></code></span>
-<span class="codeline" id="line-174"><code><span class="comment">// Complete passkey registration for the current account, see here »¹ for more info on</span></code></span>
-<span class="codeline" id="line-175"><code><span class="comment">// the full flow.</span></code></span>
+<span class="codeline" id="line-144"><code>	<span class="keyword">return</span> <label for="r22" class="ident">r</label>.<a href="#line-148" class="ident">DecodeBare</a>(<label for="r24" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-145"><code>}</code></span>
+<span class="codeline" id="line-146"><code></code></span>
+<span class="codeline" id="line-147"><code><span class="comment">// DecodeBare implements bin.BareDecoder.</span></code></span>
+<span class="codeline" id="line-148"><code><span class="keyword">func</span> (<label for="r26" class="ident">r</label> *<a href="#line-42" class="ident">AccountRegisterPasskeyRequest</a>) <label for="r27" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..AccountRegisterPasskeyRequest.DecodeBare.html" class="ident">DecodeBare</a></label>(<label for="r28" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-149"><code>	<span class="keyword">if</span> <label for="r26" class="ident">r</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-150"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't decode account.registerPasskey#55b41fd6 to nil"</span>)</code></span>
+<span class="codeline" id="line-151"><code>	}</code></span>
+<span class="codeline" id="line-152"><code>	{</code></span>
+<span class="codeline" id="line-153"><code>		<span class="keyword">if</span> <label for="r29" class="ident">err</label> := <label for="r26" class="ident">r</label>.<a href="#line-44" class="ident">Credential</a>.<a href="tl_input_passkey_credential_public_key_gen.go.html#line-173" class="ident">Decode</a>(<label for="r28" class="ident">b</label>); <label for="r29" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-154"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode account.registerPasskey#55b41fd6: field credential: %w"</span>, <label for="r29" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-155"><code>		}</code></span>
+<span class="codeline" id="line-156"><code>	}</code></span>
+<span class="codeline" id="line-157"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-158"><code>}</code></span>
+<span class="codeline" id="line-159"><code></code></span>
+<span class="codeline" id="line-160"><code><span class="comment">// GetCredential returns value of Credential field.</span></code></span>
+<span class="codeline" id="line-161"><code><span class="keyword">func</span> (<label for="r30" class="ident">r</label> *<a href="#line-42" class="ident">AccountRegisterPasskeyRequest</a>) <label for="r31" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..AccountRegisterPasskeyRequest.GetCredential.html" class="ident">GetCredential</a></label>() (<label for="r32" class="ident">value</label> <a href="tl_input_passkey_credential_public_key_gen.go.html#line-43" class="ident">InputPasskeyCredentialPublicKey</a>) {</code></span>
+<span class="codeline" id="line-162"><code>	<span class="keyword">if</span> <label for="r30" class="ident">r</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-163"><code>		<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-164"><code>	}</code></span>
+<span class="codeline" id="line-165"><code>	<span class="keyword">return</span> <label for="r30" class="ident">r</label>.<a href="#line-44" class="ident">Credential</a></code></span>
+<span class="codeline" id="line-166"><code>}</code></span>
+<span class="codeline" id="line-167"><code></code></span>
+<span class="codeline" id="line-168"><code><span class="comment">// AccountRegisterPasskey invokes method account.registerPasskey#55b41fd6 returning error if any.</span></code></span>
+<span class="codeline" id="line-169"><code><span class="comment">// Complete passkey registration for the current account, see here »¹ for more info on</span></code></span>
+<span class="codeline" id="line-170"><code><span class="comment">// the full flow.</span></code></span>
+<span class="codeline" id="line-171"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-172"><code><span class="comment">// Links:</span></code></span>
+<span class="codeline" id="line-173"><code><span class="comment">//  1. https://core.telegram.org/api/passkeys#creating-a-passkey</span></code></span>
+<span class="codeline" id="line-174"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-175"><code><span class="comment">// Possible errors:</span></code></span>
 <span class="codeline" id="line-176"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-177"><code><span class="comment">// Links:</span></code></span>
-<span class="codeline" id="line-178"><code><span class="comment">//  1. https://core.telegram.org/api/passkeys#creating-a-passkey</span></code></span>
+<span class="codeline" id="line-177"><code><span class="comment">//	400 CREDENTIAL_INVALID: The specified credential is invalid.</span></code></span>
+<span class="codeline" id="line-178"><code><span class="comment">//	400 PASSKEY_ORIGIN_MISMATCH: Third-party clients currently don't support passkeys even when changing the origin.</span></code></span>
 <span class="codeline" id="line-179"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-180"><code><span class="comment">// Possible errors:</span></code></span>
-<span class="codeline" id="line-181"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-182"><code><span class="comment">//	400 CREDENTIAL_INVALID:</span></code></span>
-<span class="codeline" id="line-183"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-184"><code><span class="comment">// See https://core.telegram.org/method/account.registerPasskey for reference.</span></code></span>
-<span class="codeline" id="line-185"><code><span class="keyword">func</span> (<label for="r34" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r35" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.AccountRegisterPasskey.html" class="ident">AccountRegisterPasskey</a></label>(<label for="r36" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r37" class="ident">credential</label> <a href="tl_input_passkey_credential_gen.go.html#line-397" class="ident">InputPasskeyCredentialClass</a>) (*<a href="tl_passkey_gen.go.html#line-43" class="ident">Passkey</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-186"><code>	<span class="keyword">var</span> <label for="r38" class="ident">result</label> <a href="tl_passkey_gen.go.html#line-43" class="ident">Passkey</a></code></span>
-<span class="codeline" id="line-187"><code></code></span>
-<span class="codeline" id="line-188"><code>	<label for="r39" class="ident">request</label> := &amp;<a href="#line-42" class="ident">AccountRegisterPasskeyRequest</a>{</code></span>
-<span class="codeline" id="line-189"><code>		<a href="#line-44" class="ident">Credential</a>: <label for="r37" class="ident">credential</label>,</code></span>
-<span class="codeline" id="line-190"><code>	}</code></span>
-<span class="codeline" id="line-191"><code>	<span class="keyword">if</span> <label for="r40" class="ident">err</label> := <label for="r34" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r36" class="ident">ctx</label>, <label for="r39" class="ident">request</label>, &amp;<label for="r38" class="ident">result</label>); <label for="r40" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-192"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r40" class="ident">err</label></code></span>
-<span class="codeline" id="line-193"><code>	}</code></span>
-<span class="codeline" id="line-194"><code>	<span class="keyword">return</span> &amp;<label for="r38" class="ident">result</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-195"><code>}</code></span>
+<span class="codeline" id="line-180"><code><span class="comment">// See https://core.telegram.org/method/account.registerPasskey for reference.</span></code></span>
+<span class="codeline" id="line-181"><code><span class="keyword">func</span> (<label for="r33" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r34" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.AccountRegisterPasskey.html" class="ident">AccountRegisterPasskey</a></label>(<label for="r35" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r36" class="ident">credential</label> <a href="tl_input_passkey_credential_public_key_gen.go.html#line-43" class="ident">InputPasskeyCredentialPublicKey</a>) (*<a href="tl_passkey_gen.go.html#line-43" class="ident">Passkey</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-182"><code>	<span class="keyword">var</span> <label for="r37" class="ident">result</label> <a href="tl_passkey_gen.go.html#line-43" class="ident">Passkey</a></code></span>
+<span class="codeline" id="line-183"><code></code></span>
+<span class="codeline" id="line-184"><code>	<label for="r38" class="ident">request</label> := &amp;<a href="#line-42" class="ident">AccountRegisterPasskeyRequest</a>{</code></span>
+<span class="codeline" id="line-185"><code>		<a href="#line-44" class="ident">Credential</a>: <label for="r36" class="ident">credential</label>,</code></span>
+<span class="codeline" id="line-186"><code>	}</code></span>
+<span class="codeline" id="line-187"><code>	<span class="keyword">if</span> <label for="r39" class="ident">err</label> := <label for="r33" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r35" class="ident">ctx</label>, <label for="r38" class="ident">request</label>, &amp;<label for="r37" class="ident">result</label>); <label for="r39" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-188"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r39" class="ident">err</label></code></span>
+<span class="codeline" id="line-189"><code>	}</code></span>
+<span class="codeline" id="line-190"><code>	<span class="keyword">return</span> &amp;<label for="r37" class="ident">result</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-191"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

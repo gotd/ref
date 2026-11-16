@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Package: builtin</title>
-<link href="../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../jvs/golds-v0.8.5.js"></script>
+<link href="../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="package-details"><code><span style="font-size:xx-large;">package <b>builtin</b></span>
@@ -49,13 +49,13 @@
 <span class="md-text">		complex64 is the set of all complex numbers with float32 real and
 		imaginary parts.</span>
 
-</span></div><div class="anchor type-res" id="name-error" data-popularity="22850">	<input type='checkbox' class="fold" id="error-fold-content"><label for="error-fold-content"> type error <b><i>(interface)</i></b></label><span id='error-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-error" data-popularity="23300">	<input type='checkbox' class="fold" id="error-fold-content"><label for="error-fold-content"> type error <b><i>(interface)</i></b></label><span id='error-fold-content-docs' class="fold-docs">
 <span class="md-text">		The error built-in interface type is the conventional interface for
 		representing an error condition, with the nil value representing no error.</span>
 
 		<input type='checkbox' checked class="fold" id="error-fold-methods"><label for="error-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='error-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( error) Error() <a href="#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="error-fold-impledby"><label for="error-fold-impledby">Implemented By (<i>at least 152, in which 84 are exported</i>)</label><span id='error-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="error-fold-impledby"><label for="error-fold-impledby">Implemented By (<i>at least 155, in which 87 are exported</i>)</label><span id='error-fold-impledby-items' class="fold-items"><span>
 			 compress/flate.<a href="compress/flate.html#name-CorruptInputError">CorruptInputError</a></span><span>
 			 compress/flate.<a href="compress/flate.html#name-InternalError">InternalError</a></span><span>
 			*compress/flate.<a href="compress/flate.html#name-ReadError">ReadError</a></span><span>
@@ -99,10 +99,13 @@
 			*github.com/gotd/td/rpc.<a href="github.com/gotd/td/rpc.html#name-RetryLimitReachedErr">RetryLimitReachedErr</a></span><span>
 			*github.com/gotd/td/session/tdesktop.<a href="github.com/gotd/td/session/tdesktop.html#name-WrongMagicError">WrongMagicError</a></span><span>
 			*github.com/gotd/td/tdjson.<a href="github.com/gotd/td/tdjson.html#name-UnexpectedIDError">UnexpectedIDError</a></span><span>
+			*github.com/gotd/td/telegram.<a href="github.com/gotd/td/telegram.html#name-AuthLostError">AuthLostError</a></span><span>
+			*github.com/gotd/td/telegram.<a href="github.com/gotd/td/telegram.html#name-ConfigError">ConfigError</a></span><span>
 			*github.com/gotd/td/telegram/auth.<a href="github.com/gotd/td/telegram/auth.html#name-ResetFailedWaitError">ResetFailedWaitError</a></span><span>
 			*github.com/gotd/td/telegram/auth.<a href="github.com/gotd/td/telegram/auth.html#name-SignUpRequired">SignUpRequired</a></span><span>
 			*github.com/gotd/td/telegram/auth/qrlogin.<a href="github.com/gotd/td/telegram/auth/qrlogin.html#name-MigrationNeededError">MigrationNeededError</a></span><span>
 			*github.com/gotd/td/telegram/downloader.<a href="github.com/gotd/td/telegram/downloader.html#name-RedirectError">RedirectError</a></span><span>
+			*github.com/gotd/td/telegram/internal/manager.<a href="github.com/gotd/td/telegram/internal/manager.html#name-InitError">InitError</a></span><span>
 			*github.com/gotd/td/tgerr.<a href="github.com/gotd/td/tgerr.html#name-Error">Error</a></span><span>
 			 github.com/klauspost/compress/flate.<a href="github.com/klauspost/compress/flate.html#name-InternalError">InternalError</a></span><span>
 			 github.com/refraction-networking/utls.<a href="github.com/refraction-networking/utls.html#name-AlertError">AlertError</a></span><span>
@@ -403,15 +406,10 @@
 		If T is a floating-point type and any of the arguments are NaNs,
 		min will return NaN.</span>
 
-</span></div><div class="anchor value-res" id="name-new">	<input type='checkbox' class="fold" id="new-fold-content"><label for="new-fold-content"> func new(TypeOrExpr) *Type</label><span id='new-fold-content-docs' class="fold-docs">
-<span class="md-text">		The built-in function new allocates a new, initialized variable and returns
-		a pointer to it. It accepts a single argument, which may be either a type
-		or an expression.
-		If the argument is a type T, then new(T) allocates a variable of type T
-		initialized to its zero value.
-		Otherwise, the argument is an expression x and new(x) allocates a variable
-		of the type of x initialized to the value of x. If that value is an untyped
-		constant, it is first implicitly converted to its default type.</span>
+</span></div><div class="anchor value-res" id="name-new">	<input type='checkbox' class="fold" id="new-fold-content"><label for="new-fold-content"> func new(Type) *Type</label><span id='new-fold-content-docs' class="fold-docs">
+<span class="md-text">		The new built-in function allocates memory. The first argument is a type,
+		not a value, and the value returned is a pointer to a newly
+		allocated zero value of that type.</span>
 
 </span></div><div class="anchor value-res" id="name-panic">	<input type='checkbox' class="fold" id="panic-fold-content"><label for="panic-fold-content"> func <a href="../src/runtime/panic.go.html#line-809">panic</a>(v <a href="#name-any">any</a>)</label><span id='panic-fold-content-docs' class="fold-docs">
 <span class="md-text">		The panic built-in function stops normal execution of the current
@@ -481,7 +479,7 @@
 
 </span></div></div></code></pre><pre id="footer">
 <table><tr><td><img src="../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

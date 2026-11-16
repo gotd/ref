@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: malloc_stubs.go in package runtime</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -340,14 +340,14 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-40"><code><span class="keyword">const</span> <a href="../../pkg/runtime.html#name-isTiny_" class="ident">isTiny_</a> = <a href="../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
 <span class="codeline" id="line-41"><code></code></span>
 <span class="codeline" id="line-42"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../pkg/runtime.html#name-malloc0" class="ident">malloc0</a></label>(<label for="r1" class="ident">size</label> <a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>, <label for="r2" class="ident">typ</label> *<a href="type.go.html#line-25" class="ident">_type</a>, <label for="r3" class="ident">needzero</label> <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a>) <a href="../../pkg/unsafe.html" class="ident i3">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a> {</code></span>
-<span class="codeline" id="line-43"><code>	<span class="keyword">if</span> <a href="malloc.go.html#line-1033" class="ident">doubleCheckMalloc</a> {</code></span>
+<span class="codeline" id="line-43"><code>	<span class="keyword">if</span> <a href="malloc.go.html#line-1085" class="ident">doubleCheckMalloc</a> {</code></span>
 <span class="codeline" id="line-44"><code>		<span class="keyword">if</span> <a href="mgc.go.html#line-223" class="ident">gcphase</a> == <a href="mgc.go.html#line-253" class="ident">_GCmarktermination</a> {</code></span>
 <span class="codeline" id="line-45"><code>			<a href="panic.go.html#line-1220" class="ident">throw</a>(<span class="lit-string">"mallocgc called with gcphase == _GCmarktermination"</span>)</code></span>
 <span class="codeline" id="line-46"><code>		}</code></span>
 <span class="codeline" id="line-47"><code>	}</code></span>
 <span class="codeline" id="line-48"><code></code></span>
 <span class="codeline" id="line-49"><code>	<span class="comment">// Short-circuit zero-sized allocation requests.</span></code></span>
-<span class="codeline" id="line-50"><code>	<span class="keyword">return</span> <a href="../../pkg/unsafe.html" class="ident i3">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(&amp;<a href="malloc.go.html#line-965" class="ident">zerobase</a>)</code></span>
+<span class="codeline" id="line-50"><code>	<span class="keyword">return</span> <a href="../../pkg/unsafe.html" class="ident i3">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(&amp;<a href="malloc.go.html#line-1017" class="ident">zerobase</a>)</code></span>
 <span class="codeline" id="line-51"><code>}</code></span>
 <span class="codeline" id="line-52"><code></code></span>
 <span class="codeline" id="line-53"><code><span class="keyword">func</span> <label for="r4" class="ident"><a href="../../pkg/runtime.html#name-mallocPanic" class="ident">mallocPanic</a></label>(<label for="r5" class="ident">size</label> <a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>, <label for="r6" class="ident">typ</label> *<a href="type.go.html#line-25" class="ident">_type</a>, <label for="r7" class="ident">needzero</label> <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a>) <a href="../../pkg/unsafe.html" class="ident i3">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a> {</code></span>
@@ -369,7 +369,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-69"><code>			<span class="keyword">return</span> <a href="malloc_generated.go.html#line-6643" class="ident">mallocgcSmallNoScanSC2</a>(<label for="r9" class="ident">size</label>, <label for="r10" class="ident">typ</label>, <label for="r11" class="ident">needzero</label>)</code></span>
 <span class="codeline" id="line-70"><code>		}</code></span>
 <span class="codeline" id="line-71"><code>	}</code></span>
-<span class="codeline" id="line-72"><code>	<span class="keyword">if</span> <a href="malloc.go.html#line-1033" class="ident">doubleCheckMalloc</a> {</code></span>
+<span class="codeline" id="line-72"><code>	<span class="keyword">if</span> <a href="malloc.go.html#line-1085" class="ident">doubleCheckMalloc</a> {</code></span>
 <span class="codeline" id="line-73"><code>		<span class="keyword">if</span> <a href="mgc.go.html#line-223" class="ident">gcphase</a> == <a href="mgc.go.html#line-253" class="ident">_GCmarktermination</a> {</code></span>
 <span class="codeline" id="line-74"><code>			<a href="panic.go.html#line-1220" class="ident">throw</a>(<span class="lit-string">"mallocgc called with gcphase == _GCmarktermination"</span>)</code></span>
 <span class="codeline" id="line-75"><code>		}</code></span>
@@ -382,7 +382,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-82"><code></code></span>
 <span class="codeline" id="line-83"><code>	<span class="comment">// Pre-malloc debug hooks.</span></code></span>
 <span class="codeline" id="line-84"><code>	<span class="keyword">if</span> <a href="runtime1.go.html#line-306" class="ident">debug</a>.<a href="runtime1.go.html#line-338" class="ident">malloc</a> {</code></span>
-<span class="codeline" id="line-85"><code>		<span class="keyword">if</span> <label for="r13" class="ident">x</label> := <a href="malloc.go.html#line-1789" class="ident">preMallocgcDebug</a>(<label for="r9" class="ident">size</label>, <label for="r10" class="ident">typ</label>); <label for="r13" class="ident">x</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-85"><code>		<span class="keyword">if</span> <label for="r13" class="ident">x</label> := <a href="malloc.go.html#line-1841" class="ident">preMallocgcDebug</a>(<label for="r9" class="ident">size</label>, <label for="r10" class="ident">typ</label>); <label for="r13" class="ident">x</label> != <a href="../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-86"><code>			<span class="keyword">return</span> <label for="r13" class="ident">x</label></code></span>
 <span class="codeline" id="line-87"><code>		}</code></span>
 <span class="codeline" id="line-88"><code>	}</code></span>
@@ -390,7 +390,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-90"><code>	<span class="comment">// Assist the GC if needed. (On the reuse path, we currently compensate for this;</span></code></span>
 <span class="codeline" id="line-91"><code><span class="comment">	// changes here might require changes there.)</span></code></span>
 <span class="codeline" id="line-92"><code>	<span class="keyword">if</span> <a href="mgc.go.html#line-248" class="ident">gcBlackenEnabled</a> != <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-93"><code>		<a href="malloc.go.html#line-1847" class="ident">deductAssistCredit</a>(<label for="r9" class="ident">size</label>)</code></span>
+<span class="codeline" id="line-93"><code>		<a href="malloc.go.html#line-1899" class="ident">deductAssistCredit</a>(<label for="r9" class="ident">size</label>)</code></span>
 <span class="codeline" id="line-94"><code>	}</code></span>
 <span class="codeline" id="line-95"><code></code></span>
 <span class="codeline" id="line-96"><code>	<span class="comment">// Actually do the allocation.</span></code></span>
@@ -421,7 +421,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-121"><code></code></span>
 <span class="codeline" id="line-122"><code>	<span class="comment">// Post-malloc debug hooks.</span></code></span>
 <span class="codeline" id="line-123"><code>	<span class="keyword">if</span> <a href="runtime1.go.html#line-306" class="ident">debug</a>.<a href="runtime1.go.html#line-338" class="ident">malloc</a> {</code></span>
-<span class="codeline" id="line-124"><code>		<a href="malloc.go.html#line-1819" class="ident">postMallocgcDebug</a>(<label for="r14" class="ident">x</label>, <label for="r15" class="ident">elemsize</label>, <label for="r10" class="ident">typ</label>)</code></span>
+<span class="codeline" id="line-124"><code>		<a href="malloc.go.html#line-1871" class="ident">postMallocgcDebug</a>(<label for="r14" class="ident">x</label>, <label for="r15" class="ident">elemsize</label>, <label for="r10" class="ident">typ</label>)</code></span>
 <span class="codeline" id="line-125"><code>	}</code></span>
 <span class="codeline" id="line-126"><code>	<span class="keyword">return</span> <label for="r14" class="ident">x</label></code></span>
 <span class="codeline" id="line-127"><code>}</code></span>
@@ -457,7 +457,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-157"><code></code></span>
 <span class="codeline" id="line-158"><code>	<span class="comment">// Set mp.mallocing to keep from being preempted by GC.</span></code></span>
 <span class="codeline" id="line-159"><code>	<label for="r32" class="ident">mp</label> := <a href="runtime1.go.html#line-600" class="ident">acquirem</a>()</code></span>
-<span class="codeline" id="line-160"><code>	<span class="keyword">if</span> <a href="malloc.go.html#line-1033" class="ident">doubleCheckMalloc</a> {</code></span>
+<span class="codeline" id="line-160"><code>	<span class="keyword">if</span> <a href="malloc.go.html#line-1085" class="ident">doubleCheckMalloc</a> {</code></span>
 <span class="codeline" id="line-161"><code>		<a href="#line-139" class="ident">doubleCheckSmallScanNoHeader</a>(<label for="r27" class="ident">size</label>, <label for="r28" class="ident">typ</label>, <label for="r32" class="ident">mp</label>)</code></span>
 <span class="codeline" id="line-162"><code>	}</code></span>
 <span class="codeline" id="line-163"><code>	<label for="r32" class="ident">mp</label>.<a href="runtime2.go.html#line-646" class="ident">mallocing</a> = <span class="lit-number">1</span></code></span>
@@ -468,7 +468,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-168"><code>	<label for="r36" class="ident">span</label> := <label for="r34" class="ident">c</label>.<a href="mcache.go.html#line-48" class="ident">alloc</a>[<label for="r35" class="ident">spc</label>]</code></span>
 <span class="codeline" id="line-169"><code>	<label for="r37" class="ident">v</label> := <a href="#line-532" class="ident">nextFreeFastStub</a>(<label for="r36" class="ident">span</label>)</code></span>
 <span class="codeline" id="line-170"><code>	<span class="keyword">if</span> <label for="r37" class="ident">v</label> == <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-171"><code>		<label for="r37" class="ident">v</label>, <label for="r36" class="ident">span</label>, <label for="r33" class="ident">checkGCTrigger</label> = <label for="r34" class="ident">c</label>.<a href="malloc.go.html#line-996" class="ident">nextFree</a>(<label for="r35" class="ident">spc</label>)</code></span>
+<span class="codeline" id="line-171"><code>		<label for="r37" class="ident">v</label>, <label for="r36" class="ident">span</label>, <label for="r33" class="ident">checkGCTrigger</label> = <label for="r34" class="ident">c</label>.<a href="malloc.go.html#line-1048" class="ident">nextFree</a>(<label for="r35" class="ident">spc</label>)</code></span>
 <span class="codeline" id="line-172"><code>	}</code></span>
 <span class="codeline" id="line-173"><code>	<label for="r38" class="ident">x</label> := <a href="../../pkg/unsafe.html" class="ident i3">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r37" class="ident">v</label>)</code></span>
 <span class="codeline" id="line-174"><code>	<span class="keyword">if</span> <label for="r36" class="ident">span</label>.<a href="mheap.go.html#line-507" class="ident">needzero</a> != <span class="lit-number">0</span> {</code></span>
@@ -498,7 +498,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-198"><code><span class="comment">		// All slots hold nil so no scanning is needed.</span></code></span>
 <span class="codeline" id="line-199"><code><span class="comment">		// This may be racing with GC so do it atomically if there can be</span></code></span>
 <span class="codeline" id="line-200"><code><span class="comment">		// a race marking the bit.</span></code></span>
-<span class="codeline" id="line-201"><code>		<a href="mgcmark.go.html#line-1757" class="ident">gcmarknewobject</a>(<label for="r36" class="ident">span</label>, <a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>(<label for="r38" class="ident">x</label>))</code></span>
+<span class="codeline" id="line-201"><code>		<a href="mgcmark.go.html#line-1748" class="ident">gcmarknewobject</a>(<label for="r36" class="ident">span</label>, <a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>(<label for="r38" class="ident">x</label>))</code></span>
 <span class="codeline" id="line-202"><code>	} <span class="keyword">else</span> {</code></span>
 <span class="codeline" id="line-203"><code>		<span class="comment">// Track the last free index before the mark phase. This field</span></code></span>
 <span class="codeline" id="line-204"><code><span class="comment">		// is only used by the garbage collector. During the mark phase</span></code></span>
@@ -522,7 +522,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-222"><code><span class="comment">	// using the whole allocation slot.</span></code></span>
 <span class="codeline" id="line-223"><code>	<label for="r34" class="ident">c</label>.<a href="mcache.go.html#line-25" class="ident">nextSample</a> -= <a href="../../pkg/builtin.html#name-int64" class="ident">int64</a>(<label for="r31" class="ident">elemsize</label>)</code></span>
 <span class="codeline" id="line-224"><code>	<span class="keyword">if</span> <label for="r34" class="ident">c</label>.<a href="mcache.go.html#line-25" class="ident">nextSample</a> &lt; <span class="lit-number">0</span> || <a href="mprof.go.html#line-880" class="ident">MemProfileRate</a> != <label for="r34" class="ident">c</label>.<a href="mcache.go.html#line-26" class="ident">memProfRate</a> {</code></span>
-<span class="codeline" id="line-225"><code>		<a href="malloc.go.html#line-2238" class="ident">profilealloc</a>(<label for="r32" class="ident">mp</label>, <label for="r38" class="ident">x</label>, <label for="r31" class="ident">elemsize</label>)</code></span>
+<span class="codeline" id="line-225"><code>		<a href="malloc.go.html#line-2290" class="ident">profilealloc</a>(<label for="r32" class="ident">mp</label>, <label for="r38" class="ident">x</label>, <label for="r31" class="ident">elemsize</label>)</code></span>
 <span class="codeline" id="line-226"><code>	}</code></span>
 <span class="codeline" id="line-227"><code>	<label for="r32" class="ident">mp</label>.<a href="runtime2.go.html#line-646" class="ident">mallocing</a> = <span class="lit-number">0</span></code></span>
 <span class="codeline" id="line-228"><code>	<a href="runtime1.go.html#line-607" class="ident">releasem</a>(<label for="r32" class="ident">mp</label>)</code></span>
@@ -559,7 +559,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-259"><code></code></span>
 <span class="codeline" id="line-260"><code>	<span class="comment">// Set mp.mallocing to keep from being preempted by GC.</span></code></span>
 <span class="codeline" id="line-261"><code>	<label for="r52" class="ident">mp</label> := <a href="runtime1.go.html#line-600" class="ident">acquirem</a>()</code></span>
-<span class="codeline" id="line-262"><code>	<span class="keyword">if</span> <a href="malloc.go.html#line-1033" class="ident">doubleCheckMalloc</a> {</code></span>
+<span class="codeline" id="line-262"><code>	<span class="keyword">if</span> <a href="malloc.go.html#line-1085" class="ident">doubleCheckMalloc</a> {</code></span>
 <span class="codeline" id="line-263"><code>		<a href="#line-239" class="ident">doubleCheckSmallNoScan</a>(<label for="r48" class="ident">typ</label>, <label for="r52" class="ident">mp</label>)</code></span>
 <span class="codeline" id="line-264"><code>	}</code></span>
 <span class="codeline" id="line-265"><code>	<label for="r52" class="ident">mp</label>.<a href="runtime2.go.html#line-646" class="ident">mallocing</a> = <span class="lit-number">1</span></code></span>
@@ -570,9 +570,9 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-270"><code>	<label for="r56" class="ident">span</label> := <label for="r54" class="ident">c</label>.<a href="mcache.go.html#line-48" class="ident">alloc</a>[<label for="r55" class="ident">spc</label>]</code></span>
 <span class="codeline" id="line-271"><code></code></span>
 <span class="codeline" id="line-272"><code>	<span class="comment">// First, check for a reusable object.</span></code></span>
-<span class="codeline" id="line-273"><code>	<span class="keyword">if</span> <a href="malloc.go.html#line-1047" class="ident">runtimeFreegcEnabled</a> &amp;&amp; <label for="r54" class="ident">c</label>.<a href="mcache.go.html#line-386" class="ident">hasReusableNoscan</a>(<label for="r55" class="ident">spc</label>) {</code></span>
+<span class="codeline" id="line-273"><code>	<span class="keyword">if</span> <a href="malloc.go.html#line-1099" class="ident">runtimeFreegcEnabled</a> &amp;&amp; <label for="r54" class="ident">c</label>.<a href="mcache.go.html#line-386" class="ident">hasReusableNoscan</a>(<label for="r55" class="ident">spc</label>) {</code></span>
 <span class="codeline" id="line-274"><code>		<span class="comment">// We have a reusable object, use it.</span></code></span>
-<span class="codeline" id="line-275"><code>		<label for="r57" class="ident">v</label> := <a href="malloc.go.html#line-1456" class="ident">mallocgcSmallNoscanReuse</a>(<label for="r54" class="ident">c</label>, <label for="r56" class="ident">span</label>, <label for="r55" class="ident">spc</label>, <label for="r51" class="ident">elemsize</label>, <label for="r49" class="ident">needzero</label>)</code></span>
+<span class="codeline" id="line-275"><code>		<label for="r57" class="ident">v</label> := <a href="malloc.go.html#line-1508" class="ident">mallocgcSmallNoscanReuse</a>(<label for="r54" class="ident">c</label>, <label for="r56" class="ident">span</label>, <label for="r55" class="ident">spc</label>, <label for="r51" class="ident">elemsize</label>, <label for="r49" class="ident">needzero</label>)</code></span>
 <span class="codeline" id="line-276"><code>		<label for="r52" class="ident">mp</label>.<a href="runtime2.go.html#line-646" class="ident">mallocing</a> = <span class="lit-number">0</span></code></span>
 <span class="codeline" id="line-277"><code>		<a href="runtime1.go.html#line-607" class="ident">releasem</a>(<label for="r52" class="ident">mp</label>)</code></span>
 <span class="codeline" id="line-278"><code></code></span>
@@ -587,7 +587,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-287"><code></code></span>
 <span class="codeline" id="line-288"><code>	<label for="r58" class="ident">v</label> := <a href="#line-532" class="ident">nextFreeFastStub</a>(<label for="r56" class="ident">span</label>)</code></span>
 <span class="codeline" id="line-289"><code>	<span class="keyword">if</span> <label for="r58" class="ident">v</label> == <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-290"><code>		<label for="r58" class="ident">v</label>, <label for="r56" class="ident">span</label>, <label for="r53" class="ident">checkGCTrigger</label> = <label for="r54" class="ident">c</label>.<a href="malloc.go.html#line-996" class="ident">nextFree</a>(<label for="r55" class="ident">spc</label>)</code></span>
+<span class="codeline" id="line-290"><code>		<label for="r58" class="ident">v</label>, <label for="r56" class="ident">span</label>, <label for="r53" class="ident">checkGCTrigger</label> = <label for="r54" class="ident">c</label>.<a href="malloc.go.html#line-1048" class="ident">nextFree</a>(<label for="r55" class="ident">spc</label>)</code></span>
 <span class="codeline" id="line-291"><code>	}</code></span>
 <span class="codeline" id="line-292"><code>	<label for="r59" class="ident">x</label> := <a href="../../pkg/unsafe.html" class="ident i3">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r58" class="ident">v</label>)</code></span>
 <span class="codeline" id="line-293"><code>	<span class="keyword">if</span> <label for="r49" class="ident">needzero</label> &amp;&amp; <label for="r56" class="ident">span</label>.<a href="mheap.go.html#line-507" class="ident">needzero</a> != <span class="lit-number">0</span> {</code></span>
@@ -607,7 +607,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-307"><code><span class="comment">		// All slots hold nil so no scanning is needed.</span></code></span>
 <span class="codeline" id="line-308"><code><span class="comment">		// This may be racing with GC so do it atomically if there can be</span></code></span>
 <span class="codeline" id="line-309"><code><span class="comment">		// a race marking the bit.</span></code></span>
-<span class="codeline" id="line-310"><code>		<a href="mgcmark.go.html#line-1757" class="ident">gcmarknewobject</a>(<label for="r56" class="ident">span</label>, <a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>(<label for="r59" class="ident">x</label>))</code></span>
+<span class="codeline" id="line-310"><code>		<a href="mgcmark.go.html#line-1748" class="ident">gcmarknewobject</a>(<label for="r56" class="ident">span</label>, <a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>(<label for="r59" class="ident">x</label>))</code></span>
 <span class="codeline" id="line-311"><code>	} <span class="keyword">else</span> {</code></span>
 <span class="codeline" id="line-312"><code>		<span class="comment">// Track the last free index before the mark phase. This field</span></code></span>
 <span class="codeline" id="line-313"><code><span class="comment">		// is only used by the garbage collector. During the mark phase</span></code></span>
@@ -631,7 +631,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-331"><code><span class="comment">	// using the whole allocation slot.</span></code></span>
 <span class="codeline" id="line-332"><code>	<label for="r54" class="ident">c</label>.<a href="mcache.go.html#line-25" class="ident">nextSample</a> -= <a href="../../pkg/builtin.html#name-int64" class="ident">int64</a>(<label for="r51" class="ident">elemsize</label>)</code></span>
 <span class="codeline" id="line-333"><code>	<span class="keyword">if</span> <label for="r54" class="ident">c</label>.<a href="mcache.go.html#line-25" class="ident">nextSample</a> &lt; <span class="lit-number">0</span> || <a href="mprof.go.html#line-880" class="ident">MemProfileRate</a> != <label for="r54" class="ident">c</label>.<a href="mcache.go.html#line-26" class="ident">memProfRate</a> {</code></span>
-<span class="codeline" id="line-334"><code>		<a href="malloc.go.html#line-2238" class="ident">profilealloc</a>(<label for="r52" class="ident">mp</label>, <label for="r59" class="ident">x</label>, <label for="r51" class="ident">elemsize</label>)</code></span>
+<span class="codeline" id="line-334"><code>		<a href="malloc.go.html#line-2290" class="ident">profilealloc</a>(<label for="r52" class="ident">mp</label>, <label for="r59" class="ident">x</label>, <label for="r51" class="ident">elemsize</label>)</code></span>
 <span class="codeline" id="line-335"><code>	}</code></span>
 <span class="codeline" id="line-336"><code>	<label for="r52" class="ident">mp</label>.<a href="runtime2.go.html#line-646" class="ident">mallocing</a> = <span class="lit-number">0</span></code></span>
 <span class="codeline" id="line-337"><code>	<a href="runtime1.go.html#line-607" class="ident">releasem</a>(<label for="r52" class="ident">mp</label>)</code></span>
@@ -662,7 +662,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-362"><code></code></span>
 <span class="codeline" id="line-363"><code>	<span class="comment">// Set mp.mallocing to keep from being preempted by GC.</span></code></span>
 <span class="codeline" id="line-364"><code>	<label for="r71" class="ident">mp</label> := <a href="runtime1.go.html#line-600" class="ident">acquirem</a>()</code></span>
-<span class="codeline" id="line-365"><code>	<span class="keyword">if</span> <a href="malloc.go.html#line-1033" class="ident">doubleCheckMalloc</a> {</code></span>
+<span class="codeline" id="line-365"><code>	<span class="keyword">if</span> <a href="malloc.go.html#line-1085" class="ident">doubleCheckMalloc</a> {</code></span>
 <span class="codeline" id="line-366"><code>		<a href="#line-347" class="ident">doubleCheckTiny</a>(<label for="r69" class="ident">constsize</label>, <label for="r67" class="ident">typ</label>, <label for="r71" class="ident">mp</label>)</code></span>
 <span class="codeline" id="line-367"><code>	}</code></span>
 <span class="codeline" id="line-368"><code>	<label for="r71" class="ident">mp</label>.<a href="runtime2.go.html#line-646" class="ident">mallocing</a> = <span class="lit-number">1</span></code></span>
@@ -728,7 +728,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-428"><code>	<label for="r76" class="ident">span</label> := <label for="r72" class="ident">c</label>.<a href="mcache.go.html#line-48" class="ident">alloc</a>[<a href="mheap.go.html#line-586" class="ident">tinySpanClass</a>]</code></span>
 <span class="codeline" id="line-429"><code>	<label for="r77" class="ident">v</label> := <a href="#line-512" class="ident">nextFreeFastTiny</a>(<label for="r76" class="ident">span</label>)</code></span>
 <span class="codeline" id="line-430"><code>	<span class="keyword">if</span> <label for="r77" class="ident">v</label> == <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-431"><code>		<label for="r77" class="ident">v</label>, <label for="r76" class="ident">span</label>, <label for="r75" class="ident">checkGCTrigger</label> = <label for="r72" class="ident">c</label>.<a href="malloc.go.html#line-996" class="ident">nextFree</a>(<a href="mheap.go.html#line-586" class="ident">tinySpanClass</a>)</code></span>
+<span class="codeline" id="line-431"><code>		<label for="r77" class="ident">v</label>, <label for="r76" class="ident">span</label>, <label for="r75" class="ident">checkGCTrigger</label> = <label for="r72" class="ident">c</label>.<a href="malloc.go.html#line-1048" class="ident">nextFree</a>(<a href="mheap.go.html#line-586" class="ident">tinySpanClass</a>)</code></span>
 <span class="codeline" id="line-432"><code>	}</code></span>
 <span class="codeline" id="line-433"><code>	<label for="r78" class="ident">x</label> := <a href="../../pkg/unsafe.html" class="ident i3">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r77" class="ident">v</label>)</code></span>
 <span class="codeline" id="line-434"><code>	(*[<span class="lit-number">2</span>]<a href="../../pkg/builtin.html#name-uint64" class="ident">uint64</a>)(<label for="r78" class="ident">x</label>)[<span class="lit-number">0</span>] = <span class="lit-number">0</span> <span class="comment">// Always zero</span></code></span>
@@ -754,7 +754,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-454"><code><span class="comment">		// All slots hold nil so no scanning is needed.</span></code></span>
 <span class="codeline" id="line-455"><code><span class="comment">		// This may be racing with GC so do it atomically if there can be</span></code></span>
 <span class="codeline" id="line-456"><code><span class="comment">		// a race marking the bit.</span></code></span>
-<span class="codeline" id="line-457"><code>		<a href="mgcmark.go.html#line-1757" class="ident">gcmarknewobject</a>(<label for="r76" class="ident">span</label>, <a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>(<label for="r78" class="ident">x</label>))</code></span>
+<span class="codeline" id="line-457"><code>		<a href="mgcmark.go.html#line-1748" class="ident">gcmarknewobject</a>(<label for="r76" class="ident">span</label>, <a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>(<label for="r78" class="ident">x</label>))</code></span>
 <span class="codeline" id="line-458"><code>	} <span class="keyword">else</span> {</code></span>
 <span class="codeline" id="line-459"><code>		<span class="comment">// Track the last free index before the mark phase. This field</span></code></span>
 <span class="codeline" id="line-460"><code><span class="comment">		// is only used by the garbage collector. During the mark phase</span></code></span>
@@ -778,7 +778,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-478"><code><span class="comment">	// using the whole allocation slot.</span></code></span>
 <span class="codeline" id="line-479"><code>	<label for="r72" class="ident">c</label>.<a href="mcache.go.html#line-25" class="ident">nextSample</a> -= <a href="../../pkg/builtin.html#name-int64" class="ident">int64</a>(<label for="r70" class="ident">elemsize</label>)</code></span>
 <span class="codeline" id="line-480"><code>	<span class="keyword">if</span> <label for="r72" class="ident">c</label>.<a href="mcache.go.html#line-25" class="ident">nextSample</a> &lt; <span class="lit-number">0</span> || <a href="mprof.go.html#line-880" class="ident">MemProfileRate</a> != <label for="r72" class="ident">c</label>.<a href="mcache.go.html#line-26" class="ident">memProfRate</a> {</code></span>
-<span class="codeline" id="line-481"><code>		<a href="malloc.go.html#line-2238" class="ident">profilealloc</a>(<label for="r71" class="ident">mp</label>, <label for="r78" class="ident">x</label>, <label for="r70" class="ident">elemsize</label>)</code></span>
+<span class="codeline" id="line-481"><code>		<a href="malloc.go.html#line-2290" class="ident">profilealloc</a>(<label for="r71" class="ident">mp</label>, <label for="r78" class="ident">x</label>, <label for="r70" class="ident">elemsize</label>)</code></span>
 <span class="codeline" id="line-482"><code>	}</code></span>
 <span class="codeline" id="line-483"><code>	<label for="r71" class="ident">mp</label>.<a href="runtime2.go.html#line-646" class="ident">mallocing</a> = <span class="lit-number">0</span></code></span>
 <span class="codeline" id="line-484"><code>	<a href="runtime1.go.html#line-607" class="ident">releasem</a>(<label for="r71" class="ident">mp</label>)</code></span>
@@ -938,7 +938,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-638"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

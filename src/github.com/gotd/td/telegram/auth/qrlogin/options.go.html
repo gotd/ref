@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: options.go in package github.com/gotd/td/telegram/auth/qrlogin</title>
-<link href="../../../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -40,17 +40,22 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-10"><code><span class="keyword">type</span> <a href="../../../../../../../pkg/github.com/gotd/td/telegram/auth/qrlogin.html#name-Options" class="ident">Options</a> <span class="keyword">struct</span> {</code></span>
 <span class="codeline" id="line-11"><code>	<a href="../../../../../../../use/github.com/gotd/td/telegram/auth/qrlogin..Options.Migrate.html" class="ident">Migrate</a> <span class="keyword">func</span>(ctx <a href="../../../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../../../context/context.go.html#line-71" class="ident">Context</a>, dcID <a href="../../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) <a href="../../../../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
 <span class="codeline" id="line-12"><code>	<a href="../../../../../../../use/github.com/gotd/td/telegram/auth/qrlogin..Options.Clock.html" class="ident">Clock</a>   <a href="../../../../../../../pkg/github.com/gotd/td/clock.html" class="ident i1">clock</a>.<a href="../../../clock/clock.go.html#line-11" class="ident">Clock</a></code></span>
-<span class="codeline" id="line-13"><code>}</code></span>
-<span class="codeline" id="line-14"><code></code></span>
-<span class="codeline" id="line-15"><code><span class="keyword">func</span> (<label for="r0" class="ident">o</label> *<a href="#line-10" class="ident">Options</a>) <label for="r1" class="ident"><a href="../../../../../../../use/github.com/gotd/td/telegram/auth/qrlogin..Options.setDefaults^984b0.html" class="ident">setDefaults</a></label>() {</code></span>
-<span class="codeline" id="line-16"><code>	<span class="comment">// It's okay to use zero value Migrate.</span></code></span>
-<span class="codeline" id="line-17"><code>	<span class="keyword">if</span> <label for="r0" class="ident">o</label>.<a href="#line-12" class="ident">Clock</a> == <a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-18"><code>		<label for="r0" class="ident">o</label>.<a href="#line-12" class="ident">Clock</a> = <a href="../../../../../../../pkg/github.com/gotd/td/clock.html" class="ident i1">clock</a>.<a href="../../../clock/system.go.html#line-50" class="ident">System</a></code></span>
-<span class="codeline" id="line-19"><code>	}</code></span>
-<span class="codeline" id="line-20"><code>}</code></span>
+<span class="codeline" id="line-13"><code>	<span class="comment">// Password returns 2FA password of the account (optional).</span></code></span>
+<span class="codeline" id="line-14"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-15"><code><span class="comment">	// If set, Import and Auth complete 2FA (auth.checkPassword) when the</span></code></span>
+<span class="codeline" id="line-16"><code><span class="comment">	// account has a password, instead of returning SESSION_PASSWORD_NEEDED.</span></code></span>
+<span class="codeline" id="line-17"><code>	<a href="../../../../../../../use/github.com/gotd/td/telegram/auth/qrlogin..Options.Password.html" class="ident">Password</a> <span class="keyword">func</span>(ctx <a href="../../../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../../../context/context.go.html#line-71" class="ident">Context</a>) (<a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <a href="../../../../../../../pkg/builtin.html#name-error" class="ident">error</a>)</code></span>
+<span class="codeline" id="line-18"><code>}</code></span>
+<span class="codeline" id="line-19"><code></code></span>
+<span class="codeline" id="line-20"><code><span class="keyword">func</span> (<label for="r0" class="ident">o</label> *<a href="#line-10" class="ident">Options</a>) <label for="r1" class="ident"><a href="../../../../../../../use/github.com/gotd/td/telegram/auth/qrlogin..Options.setDefaults^984b0.html" class="ident">setDefaults</a></label>() {</code></span>
+<span class="codeline" id="line-21"><code>	<span class="comment">// It's okay to use zero value Migrate.</span></code></span>
+<span class="codeline" id="line-22"><code>	<span class="keyword">if</span> <label for="r0" class="ident">o</label>.<a href="#line-12" class="ident">Clock</a> == <a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-23"><code>		<label for="r0" class="ident">o</label>.<a href="#line-12" class="ident">Clock</a> = <a href="../../../../../../../pkg/github.com/gotd/td/clock.html" class="ident i1">clock</a>.<a href="../../../clock/system.go.html#line-50" class="ident">System</a></code></span>
+<span class="codeline" id="line-24"><code>	}</code></span>
+<span class="codeline" id="line-25"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

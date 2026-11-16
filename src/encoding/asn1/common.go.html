@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: common.go in package encoding/asn1</title>
-<link href="../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -206,17 +206,17 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-150"><code><span class="comment">// and expected compound flag.</span></code></span>
 <span class="codeline" id="line-151"><code><span class="keyword">func</span> <label for="r8" class="ident"><a href="../../../pkg/encoding/asn1.html#name-getUniversalType" class="ident">getUniversalType</a></label>(<label for="r9" class="ident">t</label> <a href="../../../pkg/reflect.html" class="ident i0">reflect</a>.<a href="../../reflect/type.go.html#line-41" class="ident">Type</a>) (<label for="r10" class="ident">matchAny</label> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <label for="r11" class="ident">tagNumber</label> <a href="../../../pkg/builtin.html#name-int" class="ident">int</a>, <label for="r12" class="ident">isCompound</label>, <label for="r13" class="ident">ok</label> <a href="../../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
 <span class="codeline" id="line-152"><code>	<span class="keyword">switch</span> <label for="r9" class="ident">t</label> {</code></span>
-<span class="codeline" id="line-153"><code>	<span class="keyword">case</span> <a href="asn1.go.html#line-696" class="ident">rawValueType</a>:</code></span>
+<span class="codeline" id="line-153"><code>	<span class="keyword">case</span> <a href="asn1.go.html#line-695" class="ident">rawValueType</a>:</code></span>
 <span class="codeline" id="line-154"><code>		<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-true" class="ident">true</a>, -<span class="lit-number">1</span>, <a href="../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-155"><code>	<span class="keyword">case</span> <a href="asn1.go.html#line-692" class="ident">objectIdentifierType</a>:</code></span>
+<span class="codeline" id="line-155"><code>	<span class="keyword">case</span> <a href="asn1.go.html#line-691" class="ident">objectIdentifierType</a>:</code></span>
 <span class="codeline" id="line-156"><code>		<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="#line-28" class="ident">TagOID</a>, <a href="../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-157"><code>	<span class="keyword">case</span> <a href="asn1.go.html#line-691" class="ident">bitStringType</a>:</code></span>
+<span class="codeline" id="line-157"><code>	<span class="keyword">case</span> <a href="asn1.go.html#line-690" class="ident">bitStringType</a>:</code></span>
 <span class="codeline" id="line-158"><code>		<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="#line-25" class="ident">TagBitString</a>, <a href="../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-159"><code>	<span class="keyword">case</span> <a href="asn1.go.html#line-695" class="ident">timeType</a>:</code></span>
+<span class="codeline" id="line-159"><code>	<span class="keyword">case</span> <a href="asn1.go.html#line-694" class="ident">timeType</a>:</code></span>
 <span class="codeline" id="line-160"><code>		<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="#line-37" class="ident">TagUTCTime</a>, <a href="../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-161"><code>	<span class="keyword">case</span> <a href="asn1.go.html#line-693" class="ident">enumeratedType</a>:</code></span>
+<span class="codeline" id="line-161"><code>	<span class="keyword">case</span> <a href="asn1.go.html#line-692" class="ident">enumeratedType</a>:</code></span>
 <span class="codeline" id="line-162"><code>		<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="#line-29" class="ident">TagEnum</a>, <a href="../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-163"><code>	<span class="keyword">case</span> <a href="asn1.go.html#line-698" class="ident">bigIntType</a>:</code></span>
+<span class="codeline" id="line-163"><code>	<span class="keyword">case</span> <a href="asn1.go.html#line-697" class="ident">bigIntType</a>:</code></span>
 <span class="codeline" id="line-164"><code>		<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="#line-24" class="ident">TagInteger</a>, <a href="../../../pkg/builtin.html#name-false" class="ident">false</a>, <a href="../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
 <span class="codeline" id="line-165"><code>	}</code></span>
 <span class="codeline" id="line-166"><code>	<span class="keyword">switch</span> <label for="r9" class="ident">t</label>.<a href="../../reflect/type.go.html#line-116" class="ident">Kind</a>() {</code></span>
@@ -241,7 +241,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-185"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: tl_chat_theme_gen.go in package github.com/gotd/td/tg</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -292,7 +292,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-44"><code><span class="keyword">const</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-ChatThemeTypeID" class="ident">ChatThemeTypeID</a> = <span class="lit-number">0xc3dffc04</span></code></span>
 <span class="codeline" id="line-45"><code></code></span>
 <span class="codeline" id="line-46"><code><span class="comment">// construct implements constructor of ChatThemeClass.</span></code></span>
-<span class="codeline" id="line-47"><code><span class="keyword">func</span> (<label for="r0" class="ident">c</label> <a href="#line-38" class="ident">ChatTheme</a>) <label for="r1" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatTheme.construct^b252d.html" class="ident">construct</a></label>() <a href="#line-380" class="ident">ChatThemeClass</a> { <span class="keyword">return</span> &amp;<label for="r0" class="ident">c</label> }</code></span>
+<span class="codeline" id="line-47"><code><span class="keyword">func</span> (<label for="r0" class="ident">c</label> <a href="#line-38" class="ident">ChatTheme</a>) <label for="r1" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatTheme.construct^b252d.html" class="ident">construct</a></label>() <a href="#line-381" class="ident">ChatThemeClass</a> { <span class="keyword">return</span> &amp;<label for="r0" class="ident">c</label> }</code></span>
 <span class="codeline" id="line-48"><code></code></span>
 <span class="codeline" id="line-49"><code><span class="comment">// Ensuring interfaces in compile-time for ChatTheme.</span></code></span>
 <span class="codeline" id="line-50"><code><span class="keyword">var</span> (</code></span>
@@ -301,7 +301,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-53"><code>	_ <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-48" class="ident">BareEncoder</a> = &amp;<a href="#line-38" class="ident">ChatTheme</a>{}</code></span>
 <span class="codeline" id="line-54"><code>	_ <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-54" class="ident">BareDecoder</a> = &amp;<a href="#line-38" class="ident">ChatTheme</a>{}</code></span>
 <span class="codeline" id="line-55"><code></code></span>
-<span class="codeline" id="line-56"><code>	_ <a href="#line-380" class="ident">ChatThemeClass</a> = &amp;<a href="#line-38" class="ident">ChatTheme</a>{}</code></span>
+<span class="codeline" id="line-56"><code>	_ <a href="#line-381" class="ident">ChatThemeClass</a> = &amp;<a href="#line-38" class="ident">ChatTheme</a>{}</code></span>
 <span class="codeline" id="line-57"><code>)</code></span>
 <span class="codeline" id="line-58"><code></code></span>
 <span class="codeline" id="line-59"><code><span class="keyword">func</span> (<label for="r2" class="ident">c</label> *<a href="#line-38" class="ident">ChatTheme</a>) <label for="r3" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatTheme.Zero.html" class="ident">Zero</a></label>() <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
@@ -422,290 +422,291 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-174"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-175"><code><span class="comment">// See https://core.telegram.org/constructor/chatThemeUniqueGift for reference.</span></code></span>
 <span class="codeline" id="line-176"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-ChatThemeUniqueGift" class="ident">ChatThemeUniqueGift</a> <span class="keyword">struct</span> {</code></span>
-<span class="codeline" id="line-177"><code>	<span class="comment">// The owned collectible gift on which this theme is based, as a starGiftUnique¹</span></code></span>
-<span class="codeline" id="line-178"><code><span class="comment">	// constructor.</span></code></span>
+<span class="codeline" id="line-177"><code>	<span class="comment">// The owned or hosted collectible gift »¹ on which this theme is based, as a</span></code></span>
+<span class="codeline" id="line-178"><code><span class="comment">	// starGiftUnique² constructor.</span></code></span>
 <span class="codeline" id="line-179"><code><span class="comment">	//</span></code></span>
 <span class="codeline" id="line-180"><code><span class="comment">	// Links:</span></code></span>
-<span class="codeline" id="line-181"><code><span class="comment">	//  1) https://core.telegram.org/constructor/starGiftUnique</span></code></span>
-<span class="codeline" id="line-182"><code>	<a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.Gift.html" class="ident">Gift</a> <a href="tl_star_gift_gen.go.html#line-2748" class="ident">StarGiftClass</a></code></span>
-<span class="codeline" id="line-183"><code>	<span class="comment">// Theme settings.</span></code></span>
-<span class="codeline" id="line-184"><code>	<a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.ThemeSettings.html" class="ident">ThemeSettings</a> []<a href="tl_theme_settings_gen.go.html#line-38" class="ident">ThemeSettings</a></code></span>
-<span class="codeline" id="line-185"><code>}</code></span>
-<span class="codeline" id="line-186"><code></code></span>
-<span class="codeline" id="line-187"><code><span class="comment">// ChatThemeUniqueGiftTypeID is TL type id of ChatThemeUniqueGift.</span></code></span>
-<span class="codeline" id="line-188"><code><span class="keyword">const</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-ChatThemeUniqueGiftTypeID" class="ident">ChatThemeUniqueGiftTypeID</a> = <span class="lit-number">0x3458f9c8</span></code></span>
-<span class="codeline" id="line-189"><code></code></span>
-<span class="codeline" id="line-190"><code><span class="comment">// construct implements constructor of ChatThemeClass.</span></code></span>
-<span class="codeline" id="line-191"><code><span class="keyword">func</span> (<label for="r35" class="ident">c</label> <a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r36" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.construct^b252d.html" class="ident">construct</a></label>() <a href="#line-380" class="ident">ChatThemeClass</a> { <span class="keyword">return</span> &amp;<label for="r35" class="ident">c</label> }</code></span>
-<span class="codeline" id="line-192"><code></code></span>
-<span class="codeline" id="line-193"><code><span class="comment">// Ensuring interfaces in compile-time for ChatThemeUniqueGift.</span></code></span>
-<span class="codeline" id="line-194"><code><span class="keyword">var</span> (</code></span>
-<span class="codeline" id="line-195"><code>	_ <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-37" class="ident">Encoder</a>     = &amp;<a href="#line-176" class="ident">ChatThemeUniqueGift</a>{}</code></span>
-<span class="codeline" id="line-196"><code>	_ <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-42" class="ident">Decoder</a>     = &amp;<a href="#line-176" class="ident">ChatThemeUniqueGift</a>{}</code></span>
-<span class="codeline" id="line-197"><code>	_ <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-48" class="ident">BareEncoder</a> = &amp;<a href="#line-176" class="ident">ChatThemeUniqueGift</a>{}</code></span>
-<span class="codeline" id="line-198"><code>	_ <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-54" class="ident">BareDecoder</a> = &amp;<a href="#line-176" class="ident">ChatThemeUniqueGift</a>{}</code></span>
-<span class="codeline" id="line-199"><code></code></span>
-<span class="codeline" id="line-200"><code>	_ <a href="#line-380" class="ident">ChatThemeClass</a> = &amp;<a href="#line-176" class="ident">ChatThemeUniqueGift</a>{}</code></span>
-<span class="codeline" id="line-201"><code>)</code></span>
-<span class="codeline" id="line-202"><code></code></span>
-<span class="codeline" id="line-203"><code><span class="keyword">func</span> (<label for="r37" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r38" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.Zero.html" class="ident">Zero</a></label>() <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
-<span class="codeline" id="line-204"><code>	<span class="keyword">if</span> <label for="r37" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-205"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-206"><code>	}</code></span>
-<span class="codeline" id="line-207"><code>	<span class="keyword">if</span> !(<label for="r37" class="ident">c</label>.<a href="#line-182" class="ident">Gift</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>) {</code></span>
-<span class="codeline" id="line-208"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
-<span class="codeline" id="line-209"><code>	}</code></span>
-<span class="codeline" id="line-210"><code>	<span class="keyword">if</span> !(<label for="r37" class="ident">c</label>.<a href="#line-184" class="ident">ThemeSettings</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>) {</code></span>
-<span class="codeline" id="line-211"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
-<span class="codeline" id="line-212"><code>	}</code></span>
-<span class="codeline" id="line-213"><code></code></span>
-<span class="codeline" id="line-214"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-215"><code>}</code></span>
-<span class="codeline" id="line-216"><code></code></span>
-<span class="codeline" id="line-217"><code><span class="comment">// String implements fmt.Stringer.</span></code></span>
-<span class="codeline" id="line-218"><code><span class="keyword">func</span> (<label for="r39" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r40" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.String.html" class="ident">String</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
-<span class="codeline" id="line-219"><code>	<span class="keyword">if</span> <label for="r39" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-220"><code>		<span class="keyword">return</span> <span class="lit-string">"ChatThemeUniqueGift(nil)"</span></code></span>
-<span class="codeline" id="line-221"><code>	}</code></span>
-<span class="codeline" id="line-222"><code>	<span class="keyword">type</span> <label for="r41" class="ident">Alias</label> <a href="#line-176" class="ident">ChatThemeUniqueGift</a></code></span>
-<span class="codeline" id="line-223"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"ChatThemeUniqueGift%+v"</span>, <label for="r41" class="ident">Alias</label>(*<label for="r39" class="ident">c</label>))</code></span>
-<span class="codeline" id="line-224"><code>}</code></span>
-<span class="codeline" id="line-225"><code></code></span>
-<span class="codeline" id="line-226"><code><span class="comment">// FillFrom fills ChatThemeUniqueGift from given interface.</span></code></span>
-<span class="codeline" id="line-227"><code><span class="keyword">func</span> (<label for="r42" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r43" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.FillFrom.html" class="ident">FillFrom</a></label>(<label for="r44" class="ident">from</label> <span class="keyword">interface</span> {</code></span>
-<span class="codeline" id="line-228"><code>	<label for="r45" class="ident">GetGift</label>() (<label for="r46" class="ident">value</label> <a href="tl_star_gift_gen.go.html#line-2748" class="ident">StarGiftClass</a>)</code></span>
-<span class="codeline" id="line-229"><code>	<label for="r47" class="ident">GetThemeSettings</label>() (<label for="r48" class="ident">value</label> []<a href="tl_theme_settings_gen.go.html#line-38" class="ident">ThemeSettings</a>)</code></span>
-<span class="codeline" id="line-230"><code>}) {</code></span>
-<span class="codeline" id="line-231"><code>	<label for="r42" class="ident">c</label>.<a href="#line-182" class="ident">Gift</a> = <label for="r44" class="ident">from</label>.<label for="r45" class="ident">GetGift</label>()</code></span>
-<span class="codeline" id="line-232"><code>	<label for="r42" class="ident">c</label>.<a href="#line-184" class="ident">ThemeSettings</a> = <label for="r44" class="ident">from</label>.<label for="r47" class="ident">GetThemeSettings</label>()</code></span>
-<span class="codeline" id="line-233"><code>}</code></span>
-<span class="codeline" id="line-234"><code></code></span>
-<span class="codeline" id="line-235"><code><span class="comment">// TypeID returns type id in TL schema.</span></code></span>
-<span class="codeline" id="line-236"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-237"><code><span class="comment">// See https://core.telegram.org/mtproto/TL-tl#remarks.</span></code></span>
-<span class="codeline" id="line-238"><code><span class="keyword">func</span> (*<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r49" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.TypeID.html" class="ident">TypeID</a></label>() <a href="../../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a> {</code></span>
-<span class="codeline" id="line-239"><code>	<span class="keyword">return</span> <a href="#line-188" class="ident">ChatThemeUniqueGiftTypeID</a></code></span>
-<span class="codeline" id="line-240"><code>}</code></span>
-<span class="codeline" id="line-241"><code></code></span>
-<span class="codeline" id="line-242"><code><span class="comment">// TypeName returns name of type in TL schema.</span></code></span>
-<span class="codeline" id="line-243"><code><span class="keyword">func</span> (*<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r50" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.TypeName.html" class="ident">TypeName</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
-<span class="codeline" id="line-244"><code>	<span class="keyword">return</span> <span class="lit-string">"chatThemeUniqueGift"</span></code></span>
-<span class="codeline" id="line-245"><code>}</code></span>
-<span class="codeline" id="line-246"><code></code></span>
-<span class="codeline" id="line-247"><code><span class="comment">// TypeInfo returns info about TL type.</span></code></span>
-<span class="codeline" id="line-248"><code><span class="keyword">func</span> (<label for="r51" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r52" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.TypeInfo.html" class="ident">TypeInfo</a></label>() <a href="../../../../../pkg/github.com/gotd/td/tdp.html" class="ident i8">tdp</a>.<a href="../tdp/type.go.html#line-11" class="ident">Type</a> {</code></span>
-<span class="codeline" id="line-249"><code>	<label for="r53" class="ident">typ</label> := <a href="../../../../../pkg/github.com/gotd/td/tdp.html" class="ident i8">tdp</a>.<a href="../tdp/type.go.html#line-11" class="ident">Type</a>{</code></span>
-<span class="codeline" id="line-250"><code>		<a href="../tdp/type.go.html#line-13" class="ident">Name</a>: <span class="lit-string">"chatThemeUniqueGift"</span>,</code></span>
-<span class="codeline" id="line-251"><code>		<a href="../tdp/type.go.html#line-15" class="ident">ID</a>:   <a href="#line-188" class="ident">ChatThemeUniqueGiftTypeID</a>,</code></span>
-<span class="codeline" id="line-252"><code>	}</code></span>
-<span class="codeline" id="line-253"><code>	<span class="keyword">if</span> <label for="r51" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-254"><code>		<label for="r53" class="ident">typ</label>.<a href="../tdp/type.go.html#line-19" class="ident">Null</a> = <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
-<span class="codeline" id="line-255"><code>		<span class="keyword">return</span> <label for="r53" class="ident">typ</label></code></span>
-<span class="codeline" id="line-256"><code>	}</code></span>
-<span class="codeline" id="line-257"><code>	<label for="r53" class="ident">typ</label>.<a href="../tdp/type.go.html#line-17" class="ident">Fields</a> = []<a href="../../../../../pkg/github.com/gotd/td/tdp.html" class="ident i8">tdp</a>.<a href="../tdp/type.go.html#line-4" class="ident">Field</a>{</code></span>
-<span class="codeline" id="line-258"><code>		{</code></span>
-<span class="codeline" id="line-259"><code>			<a href="../tdp/type.go.html#line-5" class="ident">Name</a>:       <span class="lit-string">"Gift"</span>,</code></span>
-<span class="codeline" id="line-260"><code>			<a href="../tdp/type.go.html#line-6" class="ident">SchemaName</a>: <span class="lit-string">"gift"</span>,</code></span>
-<span class="codeline" id="line-261"><code>		},</code></span>
-<span class="codeline" id="line-262"><code>		{</code></span>
-<span class="codeline" id="line-263"><code>			<a href="../tdp/type.go.html#line-5" class="ident">Name</a>:       <span class="lit-string">"ThemeSettings"</span>,</code></span>
-<span class="codeline" id="line-264"><code>			<a href="../tdp/type.go.html#line-6" class="ident">SchemaName</a>: <span class="lit-string">"theme_settings"</span>,</code></span>
-<span class="codeline" id="line-265"><code>		},</code></span>
-<span class="codeline" id="line-266"><code>	}</code></span>
-<span class="codeline" id="line-267"><code>	<span class="keyword">return</span> <label for="r53" class="ident">typ</label></code></span>
-<span class="codeline" id="line-268"><code>}</code></span>
-<span class="codeline" id="line-269"><code></code></span>
-<span class="codeline" id="line-270"><code><span class="comment">// Encode implements bin.Encoder.</span></code></span>
-<span class="codeline" id="line-271"><code><span class="keyword">func</span> (<label for="r54" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r55" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.Encode.html" class="ident">Encode</a></label>(<label for="r56" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-272"><code>	<span class="keyword">if</span> <label for="r54" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-273"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't encode chatThemeUniqueGift#3458f9c8 as nil"</span>)</code></span>
-<span class="codeline" id="line-274"><code>	}</code></span>
-<span class="codeline" id="line-275"><code>	<label for="r56" class="ident">b</label>.<a href="../bin/encode.go.html#line-9" class="ident">PutID</a>(<a href="#line-188" class="ident">ChatThemeUniqueGiftTypeID</a>)</code></span>
-<span class="codeline" id="line-276"><code>	<span class="keyword">return</span> <label for="r54" class="ident">c</label>.<a href="#line-280" class="ident">EncodeBare</a>(<label for="r56" class="ident">b</label>)</code></span>
-<span class="codeline" id="line-277"><code>}</code></span>
-<span class="codeline" id="line-278"><code></code></span>
-<span class="codeline" id="line-279"><code><span class="comment">// EncodeBare implements bin.BareEncoder.</span></code></span>
-<span class="codeline" id="line-280"><code><span class="keyword">func</span> (<label for="r57" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r58" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.EncodeBare.html" class="ident">EncodeBare</a></label>(<label for="r59" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-281"><code>	<span class="keyword">if</span> <label for="r57" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-282"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't encode chatThemeUniqueGift#3458f9c8 as nil"</span>)</code></span>
-<span class="codeline" id="line-283"><code>	}</code></span>
-<span class="codeline" id="line-284"><code>	<span class="keyword">if</span> <label for="r57" class="ident">c</label>.<a href="#line-182" class="ident">Gift</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-285"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode chatThemeUniqueGift#3458f9c8: field gift is nil"</span>)</code></span>
-<span class="codeline" id="line-286"><code>	}</code></span>
-<span class="codeline" id="line-287"><code>	<span class="keyword">if</span> <label for="r60" class="ident">err</label> := <label for="r57" class="ident">c</label>.<a href="#line-182" class="ident">Gift</a>.<a href="../bin/bin.go.html#line-38" class="ident">Encode</a>(<label for="r59" class="ident">b</label>); <label for="r60" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-288"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode chatThemeUniqueGift#3458f9c8: field gift: %w"</span>, <label for="r60" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-289"><code>	}</code></span>
-<span class="codeline" id="line-290"><code>	<label for="r59" class="ident">b</label>.<a href="../bin/encode.go.html#line-31" class="ident">PutVectorHeader</a>(<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r57" class="ident">c</label>.<a href="#line-184" class="ident">ThemeSettings</a>))</code></span>
-<span class="codeline" id="line-291"><code>	<span class="keyword">for</span> <label for="r61" class="ident">idx</label>, <label for="r62" class="ident">v</label> := <span class="keyword">range</span> <label for="r57" class="ident">c</label>.<a href="#line-184" class="ident">ThemeSettings</a> {</code></span>
-<span class="codeline" id="line-292"><code>		<span class="keyword">if</span> <label for="r63" class="ident">err</label> := <label for="r62" class="ident">v</label>.<a href="tl_theme_settings_gen.go.html#line-218" class="ident">Encode</a>(<label for="r59" class="ident">b</label>); <label for="r63" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-293"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode chatThemeUniqueGift#3458f9c8: field theme_settings element with index %d: %w"</span>, <label for="r61" class="ident">idx</label>, <label for="r63" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-294"><code>		}</code></span>
-<span class="codeline" id="line-295"><code>	}</code></span>
-<span class="codeline" id="line-296"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-297"><code>}</code></span>
-<span class="codeline" id="line-298"><code></code></span>
-<span class="codeline" id="line-299"><code><span class="comment">// Decode implements bin.Decoder.</span></code></span>
-<span class="codeline" id="line-300"><code><span class="keyword">func</span> (<label for="r64" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r65" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.Decode.html" class="ident">Decode</a></label>(<label for="r66" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-301"><code>	<span class="keyword">if</span> <label for="r64" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-302"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't decode chatThemeUniqueGift#3458f9c8 to nil"</span>)</code></span>
-<span class="codeline" id="line-303"><code>	}</code></span>
-<span class="codeline" id="line-304"><code>	<span class="keyword">if</span> <label for="r67" class="ident">err</label> := <label for="r66" class="ident">b</label>.<a href="../bin/decode.go.html#line-98" class="ident">ConsumeID</a>(<a href="#line-188" class="ident">ChatThemeUniqueGiftTypeID</a>); <label for="r67" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-305"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode chatThemeUniqueGift#3458f9c8: %w"</span>, <label for="r67" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-306"><code>	}</code></span>
-<span class="codeline" id="line-307"><code>	<span class="keyword">return</span> <label for="r64" class="ident">c</label>.<a href="#line-311" class="ident">DecodeBare</a>(<label for="r66" class="ident">b</label>)</code></span>
-<span class="codeline" id="line-308"><code>}</code></span>
-<span class="codeline" id="line-309"><code></code></span>
-<span class="codeline" id="line-310"><code><span class="comment">// DecodeBare implements bin.BareDecoder.</span></code></span>
-<span class="codeline" id="line-311"><code><span class="keyword">func</span> (<label for="r68" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r69" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.DecodeBare.html" class="ident">DecodeBare</a></label>(<label for="r70" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-312"><code>	<span class="keyword">if</span> <label for="r68" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-313"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't decode chatThemeUniqueGift#3458f9c8 to nil"</span>)</code></span>
-<span class="codeline" id="line-314"><code>	}</code></span>
-<span class="codeline" id="line-315"><code>	{</code></span>
-<span class="codeline" id="line-316"><code>		<label for="r71" class="ident">value</label>, <label for="r72" class="ident">err</label> := <a href="tl_star_gift_gen.go.html#line-2788" class="ident">DecodeStarGift</a>(<label for="r70" class="ident">b</label>)</code></span>
-<span class="codeline" id="line-317"><code>		<span class="keyword">if</span> <label for="r72" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-318"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode chatThemeUniqueGift#3458f9c8: field gift: %w"</span>, <label for="r72" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-319"><code>		}</code></span>
-<span class="codeline" id="line-320"><code>		<label for="r68" class="ident">c</label>.<a href="#line-182" class="ident">Gift</a> = <label for="r71" class="ident">value</label></code></span>
-<span class="codeline" id="line-321"><code>	}</code></span>
-<span class="codeline" id="line-322"><code>	{</code></span>
-<span class="codeline" id="line-323"><code>		<label for="r73" class="ident">headerLen</label>, <label for="r74" class="ident">err</label> := <label for="r70" class="ident">b</label>.<a href="../bin/decode.go.html#line-111" class="ident">VectorHeader</a>()</code></span>
-<span class="codeline" id="line-324"><code>		<span class="keyword">if</span> <label for="r74" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-325"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode chatThemeUniqueGift#3458f9c8: field theme_settings: %w"</span>, <label for="r74" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-326"><code>		}</code></span>
-<span class="codeline" id="line-327"><code></code></span>
-<span class="codeline" id="line-328"><code>		<span class="keyword">if</span> <label for="r73" class="ident">headerLen</label> &gt; <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-329"><code>			<label for="r68" class="ident">c</label>.<a href="#line-184" class="ident">ThemeSettings</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="tl_theme_settings_gen.go.html#line-38" class="ident">ThemeSettings</a>, <span class="lit-number">0</span>, <label for="r73" class="ident">headerLen</label>%<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/const.go.html#line-4" class="ident">PreallocateLimit</a>)</code></span>
-<span class="codeline" id="line-330"><code>		}</code></span>
-<span class="codeline" id="line-331"><code>		<span class="keyword">for</span> <label for="r75" class="ident">idx</label> := <span class="lit-number">0</span>; <label for="r75" class="ident">idx</label> &lt; <label for="r73" class="ident">headerLen</label>; <label for="r75" class="ident">idx</label>++ {</code></span>
-<span class="codeline" id="line-332"><code>			<span class="keyword">var</span> <label for="r76" class="ident">value</label> <a href="tl_theme_settings_gen.go.html#line-38" class="ident">ThemeSettings</a></code></span>
-<span class="codeline" id="line-333"><code>			<span class="keyword">if</span> <label for="r77" class="ident">err</label> := <label for="r76" class="ident">value</label>.<a href="tl_theme_settings_gen.go.html#line-263" class="ident">Decode</a>(<label for="r70" class="ident">b</label>); <label for="r77" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-334"><code>				<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode chatThemeUniqueGift#3458f9c8: field theme_settings: %w"</span>, <label for="r77" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-335"><code>			}</code></span>
-<span class="codeline" id="line-336"><code>			<label for="r68" class="ident">c</label>.<a href="#line-184" class="ident">ThemeSettings</a> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r68" class="ident">c</label>.<a href="#line-184" class="ident">ThemeSettings</a>, <label for="r76" class="ident">value</label>)</code></span>
-<span class="codeline" id="line-337"><code>		}</code></span>
-<span class="codeline" id="line-338"><code>	}</code></span>
-<span class="codeline" id="line-339"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-340"><code>}</code></span>
-<span class="codeline" id="line-341"><code></code></span>
-<span class="codeline" id="line-342"><code><span class="comment">// GetGift returns value of Gift field.</span></code></span>
-<span class="codeline" id="line-343"><code><span class="keyword">func</span> (<label for="r78" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r79" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.GetGift.html" class="ident">GetGift</a></label>() (<label for="r80" class="ident">value</label> <a href="tl_star_gift_gen.go.html#line-2748" class="ident">StarGiftClass</a>) {</code></span>
-<span class="codeline" id="line-344"><code>	<span class="keyword">if</span> <label for="r78" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-345"><code>		<span class="keyword">return</span></code></span>
-<span class="codeline" id="line-346"><code>	}</code></span>
-<span class="codeline" id="line-347"><code>	<span class="keyword">return</span> <label for="r78" class="ident">c</label>.<a href="#line-182" class="ident">Gift</a></code></span>
-<span class="codeline" id="line-348"><code>}</code></span>
-<span class="codeline" id="line-349"><code></code></span>
-<span class="codeline" id="line-350"><code><span class="comment">// GetThemeSettings returns value of ThemeSettings field.</span></code></span>
-<span class="codeline" id="line-351"><code><span class="keyword">func</span> (<label for="r81" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r82" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.GetThemeSettings.html" class="ident">GetThemeSettings</a></label>() (<label for="r83" class="ident">value</label> []<a href="tl_theme_settings_gen.go.html#line-38" class="ident">ThemeSettings</a>) {</code></span>
-<span class="codeline" id="line-352"><code>	<span class="keyword">if</span> <label for="r81" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-353"><code>		<span class="keyword">return</span></code></span>
-<span class="codeline" id="line-354"><code>	}</code></span>
-<span class="codeline" id="line-355"><code>	<span class="keyword">return</span> <label for="r81" class="ident">c</label>.<a href="#line-184" class="ident">ThemeSettings</a></code></span>
-<span class="codeline" id="line-356"><code>}</code></span>
-<span class="codeline" id="line-357"><code></code></span>
-<span class="codeline" id="line-358"><code><span class="comment">// ChatThemeClassName is schema name of ChatThemeClass.</span></code></span>
-<span class="codeline" id="line-359"><code><span class="keyword">const</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-ChatThemeClassName" class="ident">ChatThemeClassName</a> = <span class="lit-string">"ChatTheme"</span></code></span>
-<span class="codeline" id="line-360"><code></code></span>
-<span class="codeline" id="line-361"><code><span class="comment">// ChatThemeClass represents ChatTheme generic type.</span></code></span>
-<span class="codeline" id="line-362"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-363"><code><span class="comment">// See https://core.telegram.org/type/ChatTheme for reference.</span></code></span>
-<span class="codeline" id="line-364"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-365"><code><span class="comment">// Constructors:</span></code></span>
-<span class="codeline" id="line-366"><code><span class="comment">//   - [ChatTheme]</span></code></span>
-<span class="codeline" id="line-367"><code><span class="comment">//   - [ChatThemeUniqueGift]</span></code></span>
-<span class="codeline" id="line-368"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-369"><code><span class="comment">// Example:</span></code></span>
-<span class="codeline" id="line-370"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-371"><code><span class="comment">//	g, err := tg.DecodeChatTheme(buf)</span></code></span>
-<span class="codeline" id="line-372"><code><span class="comment">//	if err != nil {</span></code></span>
-<span class="codeline" id="line-373"><code><span class="comment">//	    panic(err)</span></code></span>
-<span class="codeline" id="line-374"><code><span class="comment">//	}</span></code></span>
-<span class="codeline" id="line-375"><code><span class="comment">//	switch v := g.(type) {</span></code></span>
-<span class="codeline" id="line-376"><code><span class="comment">//	case *tg.ChatTheme: // chatTheme#c3dffc04</span></code></span>
-<span class="codeline" id="line-377"><code><span class="comment">//	case *tg.ChatThemeUniqueGift: // chatThemeUniqueGift#3458f9c8</span></code></span>
-<span class="codeline" id="line-378"><code><span class="comment">//	default: panic(v)</span></code></span>
-<span class="codeline" id="line-379"><code><span class="comment">//	}</span></code></span>
-<span class="codeline" id="line-380"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-ChatThemeClass" class="ident">ChatThemeClass</a> <span class="keyword">interface</span> {</code></span>
-<span class="codeline" id="line-381"><code>	<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-37" class="ident">Encoder</a></code></span>
-<span class="codeline" id="line-382"><code>	<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-42" class="ident">Decoder</a></code></span>
-<span class="codeline" id="line-383"><code>	<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-48" class="ident">BareEncoder</a></code></span>
-<span class="codeline" id="line-384"><code>	<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-54" class="ident">BareDecoder</a></code></span>
-<span class="codeline" id="line-385"><code>	<a href="../../../../../imp/github.com/gotd/td/tg.ChatThemeClass.html#name-github.com/gotd/td/tg.construct" class="ident">construct</a>() <a href="#line-380" class="ident">ChatThemeClass</a></code></span>
-<span class="codeline" id="line-386"><code></code></span>
-<span class="codeline" id="line-387"><code>	<span class="comment">// TypeID returns type id in TL schema.</span></code></span>
-<span class="codeline" id="line-388"><code><span class="comment">	//</span></code></span>
-<span class="codeline" id="line-389"><code><span class="comment">	// See https://core.telegram.org/mtproto/TL-tl#remarks.</span></code></span>
-<span class="codeline" id="line-390"><code>	<a href="../../../../../imp/github.com/gotd/td/tg.ChatThemeClass.html#name-TypeID" class="ident">TypeID</a>() <a href="../../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
-<span class="codeline" id="line-391"><code>	<span class="comment">// TypeName returns name of type in TL schema.</span></code></span>
-<span class="codeline" id="line-392"><code>	<a href="../../../../../imp/github.com/gotd/td/tg.ChatThemeClass.html#name-TypeName" class="ident">TypeName</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
-<span class="codeline" id="line-393"><code>	<span class="comment">// String implements fmt.Stringer.</span></code></span>
-<span class="codeline" id="line-394"><code>	<a href="../../../../../imp/github.com/gotd/td/tg.ChatThemeClass.html#name-String" class="ident">String</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
-<span class="codeline" id="line-395"><code>	<span class="comment">// Zero returns true if current object has a zero value.</span></code></span>
-<span class="codeline" id="line-396"><code>	<a href="../../../../../imp/github.com/gotd/td/tg.ChatThemeClass.html#name-Zero" class="ident">Zero</a>() <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
-<span class="codeline" id="line-397"><code>}</code></span>
-<span class="codeline" id="line-398"><code></code></span>
-<span class="codeline" id="line-399"><code><span class="comment">// AsInput tries to map ChatTheme to InputChatTheme.</span></code></span>
-<span class="codeline" id="line-400"><code><span class="keyword">func</span> (<label for="r84" class="ident">c</label> *<a href="#line-38" class="ident">ChatTheme</a>) <label for="r85" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatTheme.AsInput.html" class="ident">AsInput</a></label>() *<a href="tl_input_chat_theme_gen.go.html#line-143" class="ident">InputChatTheme</a> {</code></span>
-<span class="codeline" id="line-401"><code>	<label for="r86" class="ident">value</label> := <a href="../../../../../pkg/builtin.html#name-new" class="ident">new</a>(<a href="tl_input_chat_theme_gen.go.html#line-143" class="ident">InputChatTheme</a>)</code></span>
-<span class="codeline" id="line-402"><code>	<label for="r86" class="ident">value</label>.<a href="tl_input_chat_theme_gen.go.html#line-145" class="ident">Emoticon</a> = <label for="r84" class="ident">c</label>.<a href="#line-162" class="ident">GetEmoticon</a>()</code></span>
-<span class="codeline" id="line-403"><code></code></span>
-<span class="codeline" id="line-404"><code>	<span class="keyword">return</span> <label for="r86" class="ident">value</label></code></span>
-<span class="codeline" id="line-405"><code>}</code></span>
-<span class="codeline" id="line-406"><code></code></span>
-<span class="codeline" id="line-407"><code><span class="comment">// DecodeChatTheme implements binary de-serialization for ChatThemeClass.</span></code></span>
-<span class="codeline" id="line-408"><code><span class="keyword">func</span> <label for="r87" class="ident"><a href="../../../../../pkg/github.com/gotd/td/tg.html#name-DecodeChatTheme" class="ident">DecodeChatTheme</a></label>(<label for="r88" class="ident">buf</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) (<a href="#line-380" class="ident">ChatThemeClass</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-409"><code>	<label for="r89" class="ident">id</label>, <label for="r90" class="ident">err</label> := <label for="r88" class="ident">buf</label>.<a href="../bin/decode.go.html#line-10" class="ident">PeekID</a>()</code></span>
-<span class="codeline" id="line-410"><code>	<span class="keyword">if</span> <label for="r90" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-411"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r90" class="ident">err</label></code></span>
-<span class="codeline" id="line-412"><code>	}</code></span>
-<span class="codeline" id="line-413"><code>	<span class="keyword">switch</span> <label for="r89" class="ident">id</label> {</code></span>
-<span class="codeline" id="line-414"><code>	<span class="keyword">case</span> <a href="#line-44" class="ident">ChatThemeTypeID</a>:</code></span>
-<span class="codeline" id="line-415"><code>		<span class="comment">// Decoding chatTheme#c3dffc04.</span></code></span>
-<span class="codeline" id="line-416"><code>		<label for="r91" class="ident">v</label> := <a href="#line-38" class="ident">ChatTheme</a>{}</code></span>
-<span class="codeline" id="line-417"><code>		<span class="keyword">if</span> <label for="r92" class="ident">err</label> := <label for="r91" class="ident">v</label>.<a href="#line-136" class="ident">Decode</a>(<label for="r88" class="ident">buf</label>); <label for="r92" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-418"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode ChatThemeClass: %w"</span>, <label for="r92" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-419"><code>		}</code></span>
-<span class="codeline" id="line-420"><code>		<span class="keyword">return</span> &amp;<label for="r91" class="ident">v</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-421"><code>	<span class="keyword">case</span> <a href="#line-188" class="ident">ChatThemeUniqueGiftTypeID</a>:</code></span>
-<span class="codeline" id="line-422"><code>		<span class="comment">// Decoding chatThemeUniqueGift#3458f9c8.</span></code></span>
-<span class="codeline" id="line-423"><code>		<label for="r93" class="ident">v</label> := <a href="#line-176" class="ident">ChatThemeUniqueGift</a>{}</code></span>
-<span class="codeline" id="line-424"><code>		<span class="keyword">if</span> <label for="r94" class="ident">err</label> := <label for="r93" class="ident">v</label>.<a href="#line-300" class="ident">Decode</a>(<label for="r88" class="ident">buf</label>); <label for="r94" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-425"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode ChatThemeClass: %w"</span>, <label for="r94" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-426"><code>		}</code></span>
-<span class="codeline" id="line-427"><code>		<span class="keyword">return</span> &amp;<label for="r93" class="ident">v</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-428"><code>	<span class="keyword">default</span>:</code></span>
-<span class="codeline" id="line-429"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode ChatThemeClass: %w"</span>, <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/errors.go.html#line-25" class="ident">NewUnexpectedID</a>(<label for="r89" class="ident">id</label>))</code></span>
-<span class="codeline" id="line-430"><code>	}</code></span>
-<span class="codeline" id="line-431"><code>}</code></span>
-<span class="codeline" id="line-432"><code></code></span>
-<span class="codeline" id="line-433"><code><span class="comment">// ChatTheme boxes the ChatThemeClass providing a helper.</span></code></span>
-<span class="codeline" id="line-434"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-ChatThemeBox" class="ident">ChatThemeBox</a> <span class="keyword">struct</span> {</code></span>
-<span class="codeline" id="line-435"><code>	<a href="../../../../../use/github.com/gotd/td/tg..ChatThemeBox.ChatTheme.html" class="ident">ChatTheme</a> <a href="#line-380" class="ident">ChatThemeClass</a></code></span>
-<span class="codeline" id="line-436"><code>}</code></span>
-<span class="codeline" id="line-437"><code></code></span>
-<span class="codeline" id="line-438"><code><span class="comment">// Decode implements bin.Decoder for ChatThemeBox.</span></code></span>
-<span class="codeline" id="line-439"><code><span class="keyword">func</span> (<label for="r95" class="ident">b</label> *<a href="#line-434" class="ident">ChatThemeBox</a>) <label for="r96" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeBox.Decode.html" class="ident">Decode</a></label>(<label for="r97" class="ident">buf</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-440"><code>	<span class="keyword">if</span> <label for="r95" class="ident">b</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-441"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode ChatThemeBox to nil"</span>)</code></span>
-<span class="codeline" id="line-442"><code>	}</code></span>
-<span class="codeline" id="line-443"><code>	<label for="r98" class="ident">v</label>, <label for="r99" class="ident">err</label> := <a href="#line-408" class="ident">DecodeChatTheme</a>(<label for="r97" class="ident">buf</label>)</code></span>
-<span class="codeline" id="line-444"><code>	<span class="keyword">if</span> <label for="r99" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-445"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode boxed value: %w"</span>, <label for="r99" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-446"><code>	}</code></span>
-<span class="codeline" id="line-447"><code>	<label for="r95" class="ident">b</label>.<a href="#line-435" class="ident">ChatTheme</a> = <label for="r98" class="ident">v</label></code></span>
-<span class="codeline" id="line-448"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-449"><code>}</code></span>
-<span class="codeline" id="line-450"><code></code></span>
-<span class="codeline" id="line-451"><code><span class="comment">// Encode implements bin.Encode for ChatThemeBox.</span></code></span>
-<span class="codeline" id="line-452"><code><span class="keyword">func</span> (<label for="r100" class="ident">b</label> *<a href="#line-434" class="ident">ChatThemeBox</a>) <label for="r101" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeBox.Encode.html" class="ident">Encode</a></label>(<label for="r102" class="ident">buf</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-453"><code>	<span class="keyword">if</span> <label for="r100" class="ident">b</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> || <label for="r100" class="ident">b</label>.<a href="#line-435" class="ident">ChatTheme</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-454"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode ChatThemeClass as nil"</span>)</code></span>
-<span class="codeline" id="line-455"><code>	}</code></span>
-<span class="codeline" id="line-456"><code>	<span class="keyword">return</span> <label for="r100" class="ident">b</label>.<a href="#line-435" class="ident">ChatTheme</a>.<a href="../bin/bin.go.html#line-38" class="ident">Encode</a>(<label for="r102" class="ident">buf</label>)</code></span>
-<span class="codeline" id="line-457"><code>}</code></span>
+<span class="codeline" id="line-181"><code><span class="comment">	//  1) https://core.telegram.org/api/gifts#hosted-collectible-gifts</span></code></span>
+<span class="codeline" id="line-182"><code><span class="comment">	//  2) https://core.telegram.org/constructor/starGiftUnique</span></code></span>
+<span class="codeline" id="line-183"><code>	<a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.Gift.html" class="ident">Gift</a> <a href="tl_star_gift_gen.go.html#line-2749" class="ident">StarGiftClass</a></code></span>
+<span class="codeline" id="line-184"><code>	<span class="comment">// Theme settings.</span></code></span>
+<span class="codeline" id="line-185"><code>	<a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.ThemeSettings.html" class="ident">ThemeSettings</a> []<a href="tl_theme_settings_gen.go.html#line-38" class="ident">ThemeSettings</a></code></span>
+<span class="codeline" id="line-186"><code>}</code></span>
+<span class="codeline" id="line-187"><code></code></span>
+<span class="codeline" id="line-188"><code><span class="comment">// ChatThemeUniqueGiftTypeID is TL type id of ChatThemeUniqueGift.</span></code></span>
+<span class="codeline" id="line-189"><code><span class="keyword">const</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-ChatThemeUniqueGiftTypeID" class="ident">ChatThemeUniqueGiftTypeID</a> = <span class="lit-number">0x3458f9c8</span></code></span>
+<span class="codeline" id="line-190"><code></code></span>
+<span class="codeline" id="line-191"><code><span class="comment">// construct implements constructor of ChatThemeClass.</span></code></span>
+<span class="codeline" id="line-192"><code><span class="keyword">func</span> (<label for="r35" class="ident">c</label> <a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r36" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.construct^b252d.html" class="ident">construct</a></label>() <a href="#line-381" class="ident">ChatThemeClass</a> { <span class="keyword">return</span> &amp;<label for="r35" class="ident">c</label> }</code></span>
+<span class="codeline" id="line-193"><code></code></span>
+<span class="codeline" id="line-194"><code><span class="comment">// Ensuring interfaces in compile-time for ChatThemeUniqueGift.</span></code></span>
+<span class="codeline" id="line-195"><code><span class="keyword">var</span> (</code></span>
+<span class="codeline" id="line-196"><code>	_ <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-37" class="ident">Encoder</a>     = &amp;<a href="#line-176" class="ident">ChatThemeUniqueGift</a>{}</code></span>
+<span class="codeline" id="line-197"><code>	_ <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-42" class="ident">Decoder</a>     = &amp;<a href="#line-176" class="ident">ChatThemeUniqueGift</a>{}</code></span>
+<span class="codeline" id="line-198"><code>	_ <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-48" class="ident">BareEncoder</a> = &amp;<a href="#line-176" class="ident">ChatThemeUniqueGift</a>{}</code></span>
+<span class="codeline" id="line-199"><code>	_ <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-54" class="ident">BareDecoder</a> = &amp;<a href="#line-176" class="ident">ChatThemeUniqueGift</a>{}</code></span>
+<span class="codeline" id="line-200"><code></code></span>
+<span class="codeline" id="line-201"><code>	_ <a href="#line-381" class="ident">ChatThemeClass</a> = &amp;<a href="#line-176" class="ident">ChatThemeUniqueGift</a>{}</code></span>
+<span class="codeline" id="line-202"><code>)</code></span>
+<span class="codeline" id="line-203"><code></code></span>
+<span class="codeline" id="line-204"><code><span class="keyword">func</span> (<label for="r37" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r38" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.Zero.html" class="ident">Zero</a></label>() <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-205"><code>	<span class="keyword">if</span> <label for="r37" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-206"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-207"><code>	}</code></span>
+<span class="codeline" id="line-208"><code>	<span class="keyword">if</span> !(<label for="r37" class="ident">c</label>.<a href="#line-183" class="ident">Gift</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>) {</code></span>
+<span class="codeline" id="line-209"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-210"><code>	}</code></span>
+<span class="codeline" id="line-211"><code>	<span class="keyword">if</span> !(<label for="r37" class="ident">c</label>.<a href="#line-185" class="ident">ThemeSettings</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>) {</code></span>
+<span class="codeline" id="line-212"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-213"><code>	}</code></span>
+<span class="codeline" id="line-214"><code></code></span>
+<span class="codeline" id="line-215"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-216"><code>}</code></span>
+<span class="codeline" id="line-217"><code></code></span>
+<span class="codeline" id="line-218"><code><span class="comment">// String implements fmt.Stringer.</span></code></span>
+<span class="codeline" id="line-219"><code><span class="keyword">func</span> (<label for="r39" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r40" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.String.html" class="ident">String</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-220"><code>	<span class="keyword">if</span> <label for="r39" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-221"><code>		<span class="keyword">return</span> <span class="lit-string">"ChatThemeUniqueGift(nil)"</span></code></span>
+<span class="codeline" id="line-222"><code>	}</code></span>
+<span class="codeline" id="line-223"><code>	<span class="keyword">type</span> <label for="r41" class="ident">Alias</label> <a href="#line-176" class="ident">ChatThemeUniqueGift</a></code></span>
+<span class="codeline" id="line-224"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<span class="lit-string">"ChatThemeUniqueGift%+v"</span>, <label for="r41" class="ident">Alias</label>(*<label for="r39" class="ident">c</label>))</code></span>
+<span class="codeline" id="line-225"><code>}</code></span>
+<span class="codeline" id="line-226"><code></code></span>
+<span class="codeline" id="line-227"><code><span class="comment">// FillFrom fills ChatThemeUniqueGift from given interface.</span></code></span>
+<span class="codeline" id="line-228"><code><span class="keyword">func</span> (<label for="r42" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r43" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.FillFrom.html" class="ident">FillFrom</a></label>(<label for="r44" class="ident">from</label> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-229"><code>	<label for="r45" class="ident">GetGift</label>() (<label for="r46" class="ident">value</label> <a href="tl_star_gift_gen.go.html#line-2749" class="ident">StarGiftClass</a>)</code></span>
+<span class="codeline" id="line-230"><code>	<label for="r47" class="ident">GetThemeSettings</label>() (<label for="r48" class="ident">value</label> []<a href="tl_theme_settings_gen.go.html#line-38" class="ident">ThemeSettings</a>)</code></span>
+<span class="codeline" id="line-231"><code>}) {</code></span>
+<span class="codeline" id="line-232"><code>	<label for="r42" class="ident">c</label>.<a href="#line-183" class="ident">Gift</a> = <label for="r44" class="ident">from</label>.<label for="r45" class="ident">GetGift</label>()</code></span>
+<span class="codeline" id="line-233"><code>	<label for="r42" class="ident">c</label>.<a href="#line-185" class="ident">ThemeSettings</a> = <label for="r44" class="ident">from</label>.<label for="r47" class="ident">GetThemeSettings</label>()</code></span>
+<span class="codeline" id="line-234"><code>}</code></span>
+<span class="codeline" id="line-235"><code></code></span>
+<span class="codeline" id="line-236"><code><span class="comment">// TypeID returns type id in TL schema.</span></code></span>
+<span class="codeline" id="line-237"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-238"><code><span class="comment">// See https://core.telegram.org/mtproto/TL-tl#remarks.</span></code></span>
+<span class="codeline" id="line-239"><code><span class="keyword">func</span> (*<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r49" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.TypeID.html" class="ident">TypeID</a></label>() <a href="../../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a> {</code></span>
+<span class="codeline" id="line-240"><code>	<span class="keyword">return</span> <a href="#line-189" class="ident">ChatThemeUniqueGiftTypeID</a></code></span>
+<span class="codeline" id="line-241"><code>}</code></span>
+<span class="codeline" id="line-242"><code></code></span>
+<span class="codeline" id="line-243"><code><span class="comment">// TypeName returns name of type in TL schema.</span></code></span>
+<span class="codeline" id="line-244"><code><span class="keyword">func</span> (*<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r50" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.TypeName.html" class="ident">TypeName</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-245"><code>	<span class="keyword">return</span> <span class="lit-string">"chatThemeUniqueGift"</span></code></span>
+<span class="codeline" id="line-246"><code>}</code></span>
+<span class="codeline" id="line-247"><code></code></span>
+<span class="codeline" id="line-248"><code><span class="comment">// TypeInfo returns info about TL type.</span></code></span>
+<span class="codeline" id="line-249"><code><span class="keyword">func</span> (<label for="r51" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r52" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.TypeInfo.html" class="ident">TypeInfo</a></label>() <a href="../../../../../pkg/github.com/gotd/td/tdp.html" class="ident i8">tdp</a>.<a href="../tdp/type.go.html#line-11" class="ident">Type</a> {</code></span>
+<span class="codeline" id="line-250"><code>	<label for="r53" class="ident">typ</label> := <a href="../../../../../pkg/github.com/gotd/td/tdp.html" class="ident i8">tdp</a>.<a href="../tdp/type.go.html#line-11" class="ident">Type</a>{</code></span>
+<span class="codeline" id="line-251"><code>		<a href="../tdp/type.go.html#line-13" class="ident">Name</a>: <span class="lit-string">"chatThemeUniqueGift"</span>,</code></span>
+<span class="codeline" id="line-252"><code>		<a href="../tdp/type.go.html#line-15" class="ident">ID</a>:   <a href="#line-189" class="ident">ChatThemeUniqueGiftTypeID</a>,</code></span>
+<span class="codeline" id="line-253"><code>	}</code></span>
+<span class="codeline" id="line-254"><code>	<span class="keyword">if</span> <label for="r51" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-255"><code>		<label for="r53" class="ident">typ</label>.<a href="../tdp/type.go.html#line-19" class="ident">Null</a> = <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-256"><code>		<span class="keyword">return</span> <label for="r53" class="ident">typ</label></code></span>
+<span class="codeline" id="line-257"><code>	}</code></span>
+<span class="codeline" id="line-258"><code>	<label for="r53" class="ident">typ</label>.<a href="../tdp/type.go.html#line-17" class="ident">Fields</a> = []<a href="../../../../../pkg/github.com/gotd/td/tdp.html" class="ident i8">tdp</a>.<a href="../tdp/type.go.html#line-4" class="ident">Field</a>{</code></span>
+<span class="codeline" id="line-259"><code>		{</code></span>
+<span class="codeline" id="line-260"><code>			<a href="../tdp/type.go.html#line-5" class="ident">Name</a>:       <span class="lit-string">"Gift"</span>,</code></span>
+<span class="codeline" id="line-261"><code>			<a href="../tdp/type.go.html#line-6" class="ident">SchemaName</a>: <span class="lit-string">"gift"</span>,</code></span>
+<span class="codeline" id="line-262"><code>		},</code></span>
+<span class="codeline" id="line-263"><code>		{</code></span>
+<span class="codeline" id="line-264"><code>			<a href="../tdp/type.go.html#line-5" class="ident">Name</a>:       <span class="lit-string">"ThemeSettings"</span>,</code></span>
+<span class="codeline" id="line-265"><code>			<a href="../tdp/type.go.html#line-6" class="ident">SchemaName</a>: <span class="lit-string">"theme_settings"</span>,</code></span>
+<span class="codeline" id="line-266"><code>		},</code></span>
+<span class="codeline" id="line-267"><code>	}</code></span>
+<span class="codeline" id="line-268"><code>	<span class="keyword">return</span> <label for="r53" class="ident">typ</label></code></span>
+<span class="codeline" id="line-269"><code>}</code></span>
+<span class="codeline" id="line-270"><code></code></span>
+<span class="codeline" id="line-271"><code><span class="comment">// Encode implements bin.Encoder.</span></code></span>
+<span class="codeline" id="line-272"><code><span class="keyword">func</span> (<label for="r54" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r55" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.Encode.html" class="ident">Encode</a></label>(<label for="r56" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-273"><code>	<span class="keyword">if</span> <label for="r54" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-274"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't encode chatThemeUniqueGift#3458f9c8 as nil"</span>)</code></span>
+<span class="codeline" id="line-275"><code>	}</code></span>
+<span class="codeline" id="line-276"><code>	<label for="r56" class="ident">b</label>.<a href="../bin/encode.go.html#line-9" class="ident">PutID</a>(<a href="#line-189" class="ident">ChatThemeUniqueGiftTypeID</a>)</code></span>
+<span class="codeline" id="line-277"><code>	<span class="keyword">return</span> <label for="r54" class="ident">c</label>.<a href="#line-281" class="ident">EncodeBare</a>(<label for="r56" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-278"><code>}</code></span>
+<span class="codeline" id="line-279"><code></code></span>
+<span class="codeline" id="line-280"><code><span class="comment">// EncodeBare implements bin.BareEncoder.</span></code></span>
+<span class="codeline" id="line-281"><code><span class="keyword">func</span> (<label for="r57" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r58" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.EncodeBare.html" class="ident">EncodeBare</a></label>(<label for="r59" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-282"><code>	<span class="keyword">if</span> <label for="r57" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-283"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't encode chatThemeUniqueGift#3458f9c8 as nil"</span>)</code></span>
+<span class="codeline" id="line-284"><code>	}</code></span>
+<span class="codeline" id="line-285"><code>	<span class="keyword">if</span> <label for="r57" class="ident">c</label>.<a href="#line-183" class="ident">Gift</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-286"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode chatThemeUniqueGift#3458f9c8: field gift is nil"</span>)</code></span>
+<span class="codeline" id="line-287"><code>	}</code></span>
+<span class="codeline" id="line-288"><code>	<span class="keyword">if</span> <label for="r60" class="ident">err</label> := <label for="r57" class="ident">c</label>.<a href="#line-183" class="ident">Gift</a>.<a href="../bin/bin.go.html#line-38" class="ident">Encode</a>(<label for="r59" class="ident">b</label>); <label for="r60" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-289"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode chatThemeUniqueGift#3458f9c8: field gift: %w"</span>, <label for="r60" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-290"><code>	}</code></span>
+<span class="codeline" id="line-291"><code>	<label for="r59" class="ident">b</label>.<a href="../bin/encode.go.html#line-31" class="ident">PutVectorHeader</a>(<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r57" class="ident">c</label>.<a href="#line-185" class="ident">ThemeSettings</a>))</code></span>
+<span class="codeline" id="line-292"><code>	<span class="keyword">for</span> <label for="r61" class="ident">idx</label>, <label for="r62" class="ident">v</label> := <span class="keyword">range</span> <label for="r57" class="ident">c</label>.<a href="#line-185" class="ident">ThemeSettings</a> {</code></span>
+<span class="codeline" id="line-293"><code>		<span class="keyword">if</span> <label for="r63" class="ident">err</label> := <label for="r62" class="ident">v</label>.<a href="tl_theme_settings_gen.go.html#line-218" class="ident">Encode</a>(<label for="r59" class="ident">b</label>); <label for="r63" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-294"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode chatThemeUniqueGift#3458f9c8: field theme_settings element with index %d: %w"</span>, <label for="r61" class="ident">idx</label>, <label for="r63" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-295"><code>		}</code></span>
+<span class="codeline" id="line-296"><code>	}</code></span>
+<span class="codeline" id="line-297"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-298"><code>}</code></span>
+<span class="codeline" id="line-299"><code></code></span>
+<span class="codeline" id="line-300"><code><span class="comment">// Decode implements bin.Decoder.</span></code></span>
+<span class="codeline" id="line-301"><code><span class="keyword">func</span> (<label for="r64" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r65" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.Decode.html" class="ident">Decode</a></label>(<label for="r66" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-302"><code>	<span class="keyword">if</span> <label for="r64" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-303"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't decode chatThemeUniqueGift#3458f9c8 to nil"</span>)</code></span>
+<span class="codeline" id="line-304"><code>	}</code></span>
+<span class="codeline" id="line-305"><code>	<span class="keyword">if</span> <label for="r67" class="ident">err</label> := <label for="r66" class="ident">b</label>.<a href="../bin/decode.go.html#line-98" class="ident">ConsumeID</a>(<a href="#line-189" class="ident">ChatThemeUniqueGiftTypeID</a>); <label for="r67" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-306"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode chatThemeUniqueGift#3458f9c8: %w"</span>, <label for="r67" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-307"><code>	}</code></span>
+<span class="codeline" id="line-308"><code>	<span class="keyword">return</span> <label for="r64" class="ident">c</label>.<a href="#line-312" class="ident">DecodeBare</a>(<label for="r66" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-309"><code>}</code></span>
+<span class="codeline" id="line-310"><code></code></span>
+<span class="codeline" id="line-311"><code><span class="comment">// DecodeBare implements bin.BareDecoder.</span></code></span>
+<span class="codeline" id="line-312"><code><span class="keyword">func</span> (<label for="r68" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r69" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.DecodeBare.html" class="ident">DecodeBare</a></label>(<label for="r70" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-313"><code>	<span class="keyword">if</span> <label for="r68" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-314"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't decode chatThemeUniqueGift#3458f9c8 to nil"</span>)</code></span>
+<span class="codeline" id="line-315"><code>	}</code></span>
+<span class="codeline" id="line-316"><code>	{</code></span>
+<span class="codeline" id="line-317"><code>		<label for="r71" class="ident">value</label>, <label for="r72" class="ident">err</label> := <a href="tl_star_gift_gen.go.html#line-2789" class="ident">DecodeStarGift</a>(<label for="r70" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-318"><code>		<span class="keyword">if</span> <label for="r72" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-319"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode chatThemeUniqueGift#3458f9c8: field gift: %w"</span>, <label for="r72" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-320"><code>		}</code></span>
+<span class="codeline" id="line-321"><code>		<label for="r68" class="ident">c</label>.<a href="#line-183" class="ident">Gift</a> = <label for="r71" class="ident">value</label></code></span>
+<span class="codeline" id="line-322"><code>	}</code></span>
+<span class="codeline" id="line-323"><code>	{</code></span>
+<span class="codeline" id="line-324"><code>		<label for="r73" class="ident">headerLen</label>, <label for="r74" class="ident">err</label> := <label for="r70" class="ident">b</label>.<a href="../bin/decode.go.html#line-111" class="ident">VectorHeader</a>()</code></span>
+<span class="codeline" id="line-325"><code>		<span class="keyword">if</span> <label for="r74" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-326"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode chatThemeUniqueGift#3458f9c8: field theme_settings: %w"</span>, <label for="r74" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-327"><code>		}</code></span>
+<span class="codeline" id="line-328"><code></code></span>
+<span class="codeline" id="line-329"><code>		<span class="keyword">if</span> <label for="r73" class="ident">headerLen</label> &gt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-330"><code>			<label for="r68" class="ident">c</label>.<a href="#line-185" class="ident">ThemeSettings</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="tl_theme_settings_gen.go.html#line-38" class="ident">ThemeSettings</a>, <span class="lit-number">0</span>, <label for="r73" class="ident">headerLen</label>%<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/const.go.html#line-4" class="ident">PreallocateLimit</a>)</code></span>
+<span class="codeline" id="line-331"><code>		}</code></span>
+<span class="codeline" id="line-332"><code>		<span class="keyword">for</span> <label for="r75" class="ident">idx</label> := <span class="lit-number">0</span>; <label for="r75" class="ident">idx</label> &lt; <label for="r73" class="ident">headerLen</label>; <label for="r75" class="ident">idx</label>++ {</code></span>
+<span class="codeline" id="line-333"><code>			<span class="keyword">var</span> <label for="r76" class="ident">value</label> <a href="tl_theme_settings_gen.go.html#line-38" class="ident">ThemeSettings</a></code></span>
+<span class="codeline" id="line-334"><code>			<span class="keyword">if</span> <label for="r77" class="ident">err</label> := <label for="r76" class="ident">value</label>.<a href="tl_theme_settings_gen.go.html#line-263" class="ident">Decode</a>(<label for="r70" class="ident">b</label>); <label for="r77" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-335"><code>				<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode chatThemeUniqueGift#3458f9c8: field theme_settings: %w"</span>, <label for="r77" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-336"><code>			}</code></span>
+<span class="codeline" id="line-337"><code>			<label for="r68" class="ident">c</label>.<a href="#line-185" class="ident">ThemeSettings</a> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r68" class="ident">c</label>.<a href="#line-185" class="ident">ThemeSettings</a>, <label for="r76" class="ident">value</label>)</code></span>
+<span class="codeline" id="line-338"><code>		}</code></span>
+<span class="codeline" id="line-339"><code>	}</code></span>
+<span class="codeline" id="line-340"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-341"><code>}</code></span>
+<span class="codeline" id="line-342"><code></code></span>
+<span class="codeline" id="line-343"><code><span class="comment">// GetGift returns value of Gift field.</span></code></span>
+<span class="codeline" id="line-344"><code><span class="keyword">func</span> (<label for="r78" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r79" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.GetGift.html" class="ident">GetGift</a></label>() (<label for="r80" class="ident">value</label> <a href="tl_star_gift_gen.go.html#line-2749" class="ident">StarGiftClass</a>) {</code></span>
+<span class="codeline" id="line-345"><code>	<span class="keyword">if</span> <label for="r78" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-346"><code>		<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-347"><code>	}</code></span>
+<span class="codeline" id="line-348"><code>	<span class="keyword">return</span> <label for="r78" class="ident">c</label>.<a href="#line-183" class="ident">Gift</a></code></span>
+<span class="codeline" id="line-349"><code>}</code></span>
+<span class="codeline" id="line-350"><code></code></span>
+<span class="codeline" id="line-351"><code><span class="comment">// GetThemeSettings returns value of ThemeSettings field.</span></code></span>
+<span class="codeline" id="line-352"><code><span class="keyword">func</span> (<label for="r81" class="ident">c</label> *<a href="#line-176" class="ident">ChatThemeUniqueGift</a>) <label for="r82" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeUniqueGift.GetThemeSettings.html" class="ident">GetThemeSettings</a></label>() (<label for="r83" class="ident">value</label> []<a href="tl_theme_settings_gen.go.html#line-38" class="ident">ThemeSettings</a>) {</code></span>
+<span class="codeline" id="line-353"><code>	<span class="keyword">if</span> <label for="r81" class="ident">c</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-354"><code>		<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-355"><code>	}</code></span>
+<span class="codeline" id="line-356"><code>	<span class="keyword">return</span> <label for="r81" class="ident">c</label>.<a href="#line-185" class="ident">ThemeSettings</a></code></span>
+<span class="codeline" id="line-357"><code>}</code></span>
+<span class="codeline" id="line-358"><code></code></span>
+<span class="codeline" id="line-359"><code><span class="comment">// ChatThemeClassName is schema name of ChatThemeClass.</span></code></span>
+<span class="codeline" id="line-360"><code><span class="keyword">const</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-ChatThemeClassName" class="ident">ChatThemeClassName</a> = <span class="lit-string">"ChatTheme"</span></code></span>
+<span class="codeline" id="line-361"><code></code></span>
+<span class="codeline" id="line-362"><code><span class="comment">// ChatThemeClass represents ChatTheme generic type.</span></code></span>
+<span class="codeline" id="line-363"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-364"><code><span class="comment">// See https://core.telegram.org/type/ChatTheme for reference.</span></code></span>
+<span class="codeline" id="line-365"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-366"><code><span class="comment">// Constructors:</span></code></span>
+<span class="codeline" id="line-367"><code><span class="comment">//   - [ChatTheme]</span></code></span>
+<span class="codeline" id="line-368"><code><span class="comment">//   - [ChatThemeUniqueGift]</span></code></span>
+<span class="codeline" id="line-369"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-370"><code><span class="comment">// Example:</span></code></span>
+<span class="codeline" id="line-371"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-372"><code><span class="comment">//	g, err := tg.DecodeChatTheme(buf)</span></code></span>
+<span class="codeline" id="line-373"><code><span class="comment">//	if err != nil {</span></code></span>
+<span class="codeline" id="line-374"><code><span class="comment">//	    panic(err)</span></code></span>
+<span class="codeline" id="line-375"><code><span class="comment">//	}</span></code></span>
+<span class="codeline" id="line-376"><code><span class="comment">//	switch v := g.(type) {</span></code></span>
+<span class="codeline" id="line-377"><code><span class="comment">//	case *tg.ChatTheme: // chatTheme#c3dffc04</span></code></span>
+<span class="codeline" id="line-378"><code><span class="comment">//	case *tg.ChatThemeUniqueGift: // chatThemeUniqueGift#3458f9c8</span></code></span>
+<span class="codeline" id="line-379"><code><span class="comment">//	default: panic(v)</span></code></span>
+<span class="codeline" id="line-380"><code><span class="comment">//	}</span></code></span>
+<span class="codeline" id="line-381"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-ChatThemeClass" class="ident">ChatThemeClass</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-382"><code>	<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-37" class="ident">Encoder</a></code></span>
+<span class="codeline" id="line-383"><code>	<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-42" class="ident">Decoder</a></code></span>
+<span class="codeline" id="line-384"><code>	<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-48" class="ident">BareEncoder</a></code></span>
+<span class="codeline" id="line-385"><code>	<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/bin.go.html#line-54" class="ident">BareDecoder</a></code></span>
+<span class="codeline" id="line-386"><code>	<a href="../../../../../imp/github.com/gotd/td/tg.ChatThemeClass.html#name-github.com/gotd/td/tg.construct" class="ident">construct</a>() <a href="#line-381" class="ident">ChatThemeClass</a></code></span>
+<span class="codeline" id="line-387"><code></code></span>
+<span class="codeline" id="line-388"><code>	<span class="comment">// TypeID returns type id in TL schema.</span></code></span>
+<span class="codeline" id="line-389"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-390"><code><span class="comment">	// See https://core.telegram.org/mtproto/TL-tl#remarks.</span></code></span>
+<span class="codeline" id="line-391"><code>	<a href="../../../../../imp/github.com/gotd/td/tg.ChatThemeClass.html#name-TypeID" class="ident">TypeID</a>() <a href="../../../../../pkg/builtin.html#name-uint32" class="ident">uint32</a></code></span>
+<span class="codeline" id="line-392"><code>	<span class="comment">// TypeName returns name of type in TL schema.</span></code></span>
+<span class="codeline" id="line-393"><code>	<a href="../../../../../imp/github.com/gotd/td/tg.ChatThemeClass.html#name-TypeName" class="ident">TypeName</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-394"><code>	<span class="comment">// String implements fmt.Stringer.</span></code></span>
+<span class="codeline" id="line-395"><code>	<a href="../../../../../imp/github.com/gotd/td/tg.ChatThemeClass.html#name-String" class="ident">String</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-396"><code>	<span class="comment">// Zero returns true if current object has a zero value.</span></code></span>
+<span class="codeline" id="line-397"><code>	<a href="../../../../../imp/github.com/gotd/td/tg.ChatThemeClass.html#name-Zero" class="ident">Zero</a>() <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-398"><code>}</code></span>
+<span class="codeline" id="line-399"><code></code></span>
+<span class="codeline" id="line-400"><code><span class="comment">// AsInput tries to map ChatTheme to InputChatTheme.</span></code></span>
+<span class="codeline" id="line-401"><code><span class="keyword">func</span> (<label for="r84" class="ident">c</label> *<a href="#line-38" class="ident">ChatTheme</a>) <label for="r85" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatTheme.AsInput.html" class="ident">AsInput</a></label>() *<a href="tl_input_chat_theme_gen.go.html#line-143" class="ident">InputChatTheme</a> {</code></span>
+<span class="codeline" id="line-402"><code>	<label for="r86" class="ident">value</label> := <a href="../../../../../pkg/builtin.html#name-new" class="ident">new</a>(<a href="tl_input_chat_theme_gen.go.html#line-143" class="ident">InputChatTheme</a>)</code></span>
+<span class="codeline" id="line-403"><code>	<label for="r86" class="ident">value</label>.<a href="tl_input_chat_theme_gen.go.html#line-145" class="ident">Emoticon</a> = <label for="r84" class="ident">c</label>.<a href="#line-162" class="ident">GetEmoticon</a>()</code></span>
+<span class="codeline" id="line-404"><code></code></span>
+<span class="codeline" id="line-405"><code>	<span class="keyword">return</span> <label for="r86" class="ident">value</label></code></span>
+<span class="codeline" id="line-406"><code>}</code></span>
+<span class="codeline" id="line-407"><code></code></span>
+<span class="codeline" id="line-408"><code><span class="comment">// DecodeChatTheme implements binary de-serialization for ChatThemeClass.</span></code></span>
+<span class="codeline" id="line-409"><code><span class="keyword">func</span> <label for="r87" class="ident"><a href="../../../../../pkg/github.com/gotd/td/tg.html#name-DecodeChatTheme" class="ident">DecodeChatTheme</a></label>(<label for="r88" class="ident">buf</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) (<a href="#line-381" class="ident">ChatThemeClass</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-410"><code>	<label for="r89" class="ident">id</label>, <label for="r90" class="ident">err</label> := <label for="r88" class="ident">buf</label>.<a href="../bin/decode.go.html#line-10" class="ident">PeekID</a>()</code></span>
+<span class="codeline" id="line-411"><code>	<span class="keyword">if</span> <label for="r90" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-412"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r90" class="ident">err</label></code></span>
+<span class="codeline" id="line-413"><code>	}</code></span>
+<span class="codeline" id="line-414"><code>	<span class="keyword">switch</span> <label for="r89" class="ident">id</label> {</code></span>
+<span class="codeline" id="line-415"><code>	<span class="keyword">case</span> <a href="#line-44" class="ident">ChatThemeTypeID</a>:</code></span>
+<span class="codeline" id="line-416"><code>		<span class="comment">// Decoding chatTheme#c3dffc04.</span></code></span>
+<span class="codeline" id="line-417"><code>		<label for="r91" class="ident">v</label> := <a href="#line-38" class="ident">ChatTheme</a>{}</code></span>
+<span class="codeline" id="line-418"><code>		<span class="keyword">if</span> <label for="r92" class="ident">err</label> := <label for="r91" class="ident">v</label>.<a href="#line-136" class="ident">Decode</a>(<label for="r88" class="ident">buf</label>); <label for="r92" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-419"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode ChatThemeClass: %w"</span>, <label for="r92" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-420"><code>		}</code></span>
+<span class="codeline" id="line-421"><code>		<span class="keyword">return</span> &amp;<label for="r91" class="ident">v</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-422"><code>	<span class="keyword">case</span> <a href="#line-189" class="ident">ChatThemeUniqueGiftTypeID</a>:</code></span>
+<span class="codeline" id="line-423"><code>		<span class="comment">// Decoding chatThemeUniqueGift#3458f9c8.</span></code></span>
+<span class="codeline" id="line-424"><code>		<label for="r93" class="ident">v</label> := <a href="#line-176" class="ident">ChatThemeUniqueGift</a>{}</code></span>
+<span class="codeline" id="line-425"><code>		<span class="keyword">if</span> <label for="r94" class="ident">err</label> := <label for="r93" class="ident">v</label>.<a href="#line-301" class="ident">Decode</a>(<label for="r88" class="ident">buf</label>); <label for="r94" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-426"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode ChatThemeClass: %w"</span>, <label for="r94" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-427"><code>		}</code></span>
+<span class="codeline" id="line-428"><code>		<span class="keyword">return</span> &amp;<label for="r93" class="ident">v</label>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-429"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-430"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode ChatThemeClass: %w"</span>, <a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/errors.go.html#line-25" class="ident">NewUnexpectedID</a>(<label for="r89" class="ident">id</label>))</code></span>
+<span class="codeline" id="line-431"><code>	}</code></span>
+<span class="codeline" id="line-432"><code>}</code></span>
+<span class="codeline" id="line-433"><code></code></span>
+<span class="codeline" id="line-434"><code><span class="comment">// ChatTheme boxes the ChatThemeClass providing a helper.</span></code></span>
+<span class="codeline" id="line-435"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-ChatThemeBox" class="ident">ChatThemeBox</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-436"><code>	<a href="../../../../../use/github.com/gotd/td/tg..ChatThemeBox.ChatTheme.html" class="ident">ChatTheme</a> <a href="#line-381" class="ident">ChatThemeClass</a></code></span>
+<span class="codeline" id="line-437"><code>}</code></span>
+<span class="codeline" id="line-438"><code></code></span>
+<span class="codeline" id="line-439"><code><span class="comment">// Decode implements bin.Decoder for ChatThemeBox.</span></code></span>
+<span class="codeline" id="line-440"><code><span class="keyword">func</span> (<label for="r95" class="ident">b</label> *<a href="#line-435" class="ident">ChatThemeBox</a>) <label for="r96" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeBox.Decode.html" class="ident">Decode</a></label>(<label for="r97" class="ident">buf</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-441"><code>	<span class="keyword">if</span> <label for="r95" class="ident">b</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-442"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode ChatThemeBox to nil"</span>)</code></span>
+<span class="codeline" id="line-443"><code>	}</code></span>
+<span class="codeline" id="line-444"><code>	<label for="r98" class="ident">v</label>, <label for="r99" class="ident">err</label> := <a href="#line-409" class="ident">DecodeChatTheme</a>(<label for="r97" class="ident">buf</label>)</code></span>
+<span class="codeline" id="line-445"><code>	<span class="keyword">if</span> <label for="r99" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-446"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode boxed value: %w"</span>, <label for="r99" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-447"><code>	}</code></span>
+<span class="codeline" id="line-448"><code>	<label for="r95" class="ident">b</label>.<a href="#line-436" class="ident">ChatTheme</a> = <label for="r98" class="ident">v</label></code></span>
+<span class="codeline" id="line-449"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-450"><code>}</code></span>
+<span class="codeline" id="line-451"><code></code></span>
+<span class="codeline" id="line-452"><code><span class="comment">// Encode implements bin.Encode for ChatThemeBox.</span></code></span>
+<span class="codeline" id="line-453"><code><span class="keyword">func</span> (<label for="r100" class="ident">b</label> *<a href="#line-435" class="ident">ChatThemeBox</a>) <label for="r101" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..ChatThemeBox.Encode.html" class="ident">Encode</a></label>(<label for="r102" class="ident">buf</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-454"><code>	<span class="keyword">if</span> <label for="r100" class="ident">b</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> || <label for="r100" class="ident">b</label>.<a href="#line-436" class="ident">ChatTheme</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-455"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode ChatThemeClass as nil"</span>)</code></span>
+<span class="codeline" id="line-456"><code>	}</code></span>
+<span class="codeline" id="line-457"><code>	<span class="keyword">return</span> <label for="r100" class="ident">b</label>.<a href="#line-436" class="ident">ChatTheme</a>.<a href="../bin/bin.go.html#line-38" class="ident">Encode</a>(<label for="r102" class="ident">buf</label>)</code></span>
+<span class="codeline" id="line-458"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

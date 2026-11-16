@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: github.com/gotd/td/crypto.AuthKey.ID</title>
-<link href="../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;"><b><a href="../../../../pkg/github.com/gotd/td/crypto.html">github.com/gotd/td/crypto</a>.<a href="../../../../src/github.com/gotd/td/crypto/key.go.html#line-54">AuthKey</a>.<a href="../../../../src/github.com/gotd/td/crypto/key.go.html#line-56">ID</a></b></span><span style="font-size: large;"><i> (field)</i></span>
 
-<span class="title">14 uses</span>
+<span class="title">33 uses</span>
 
 	github.com/gotd/td/crypto (current package)
 		<a href="../../../../src/github.com/gotd/td/crypto/bind.go.html#line-160">bind.go#L160</a>: 		AuthKeyID:     permKey.<b>ID</b>,
@@ -25,18 +25,37 @@
 		<a href="../../../../src/github.com/gotd/td/crypto/key.go.html#line-131" class="path-duplicate">key.go</a><a href="../../../../src/github.com/gotd/td/crypto/key.go.html#line-131">#L131</a>: 	return log.Group("", log.String("id", hex.EncodeToString(a.<b>ID</b>[:])))
 
 	<a href="../../../../pkg/github.com/gotd/td/exchange.html">github.com/gotd/td/exchange</a>
-		<a href="../../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-282">client_flow.go#L282</a>: 				AuthKey:    crypto.AuthKey{Value: key, <b>ID</b>: authKeyID},
+		<a href="../../../../src/github.com/gotd/td/exchange/client_flow.go.html#line-283">client_flow.go#L283</a>: 				AuthKey:    crypto.AuthKey{Value: key, <b>ID</b>: authKeyID},
+
+	<a href="../../../../pkg/github.com/gotd/td/mtproto.html">github.com/gotd/td/mtproto</a>
+		<a href="../../../../src/github.com/gotd/td/mtproto/bind.go.html#line-260">bind.go#L260</a>: 	if probe.session().Key.<b>ID</b> != perm.<b>ID</b> {
+		<a href="../../../../src/github.com/gotd/td/mtproto/session.go.html#line-61">session.go#L61</a>: 	id, n, ok := c.sessionState.load(key.<b>ID</b>)
+		<a href="../../../../src/github.com/gotd/td/mtproto/session.go.html#line-95" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/mtproto/session.go.html#line-95">#L95</a>: 	c.sessionState.release(s.Key.<b>ID</b>, id, n)
+		<a href="../../../../src/github.com/gotd/td/mtproto/wire_tracer.go.html#line-200">wire_tracer.go#L200</a>: 		AuthKeyID: key.<b>ID</b>,
+		<a href="../../../../src/github.com/gotd/td/mtproto/wire_tracer.go.html#line-220" class="path-duplicate">wire_tracer.go</a><a href="../../../../src/github.com/gotd/td/mtproto/wire_tracer.go.html#line-220">#L220</a>: 	c.traceEvent(WireEvent{Type: t, AuthKeyID: key.<b>ID</b>, TempKey: temp, ExpiresAt: expiresAt})
 
 	<a href="../../../../pkg/github.com/gotd/td/session.html">github.com/gotd/td/session</a>
 		<a href="../../../../src/github.com/gotd/td/session/telethon.go.html#line-79">telethon.go#L79</a>: 	id := key.WithID().<b>ID</b>
 
 	<a href="../../../../pkg/github.com/gotd/td/telegram.html">github.com/gotd/td/telegram</a>
-		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-40">session.go#L40</a>: 	copy(key.<b>ID</b>[:], data.AuthKeyID)
-		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-42" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-42">#L42</a>: 	if key.Value.ID() != key.<b>ID</b> {
-		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-87" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-87">#L87</a>: 	data.AuthKeyID = keyToSave.<b>ID</b>[:]
+		<a href="../../../../src/github.com/gotd/td/telegram/pfs.go.html#line-38">pfs.go#L38</a>: 		c.droppedKeys[dc] = old.AuthKey.<b>ID</b>
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-41">session.go#L41</a>: 	copy(key.<b>ID</b>[:], data.AuthKeyID)
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-43" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-43">#L43</a>: 	if key.Value.ID() != key.<b>ID</b> {
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-85" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-85">#L85</a>: 		copy(key.<b>ID</b>[:], k.AuthKeyID)
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-86" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-86">#L86</a>: 		if key.Zero() || key.Value.ID() != key.<b>ID</b> {
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-97" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-97">#L97</a>: 		c.dcAuthorized[dc] = key.<b>ID</b>
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-113" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-113">#L113</a>: 		if v.AuthKey.Zero() || v.AuthKey.<b>ID</b> != id {
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-118" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-118">#L118</a>: 			AuthKeyID:  append([]byte(nil), v.AuthKey.<b>ID</b>[:]...),
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-183" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-183">#L183</a>: 	return ok &amp;&amp; !key.Zero() &amp;&amp; key.<b>ID</b> == id
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-202" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-202">#L202</a>: 		case c.dcAuthorized[dc] != key.<b>ID</b>:
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-203" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-203">#L203</a>: 			c.dcAuthorized[dc] = key.<b>ID</b>
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-312" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-312">#L312</a>: 	case !bytes.Equal(data.AuthKeyID, keyToSave.<b>ID</b>[:]):
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-317" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-317">#L317</a>: 	data.AuthKeyID = keyToSave.<b>ID</b>[:]
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-391" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-391">#L391</a>: 	return ok &amp;&amp; dropped == data.AuthKey.<b>ID</b>
+		<a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-397" class="path-duplicate">session.go</a><a href="../../../../src/github.com/gotd/td/telegram/session.go.html#line-397">#L397</a>: 		if prev := existing.Load(); data.KeyCreatedAt == 0 &amp;&amp; prev.AuthKey.<b>ID</b> == data.AuthKey.<b>ID</b> {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: arena.go in package runtime</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -530,7 +530,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-178"><code>		<label for="r28" class="ident">xe</label>.<a href="runtime2.go.html#line-191" class="ident">data</a> = <a href="../../pkg/unsafe.html" class="ident i5">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r27" class="ident">sl</label>)</code></span>
 <span class="codeline" id="line-179"><code>	<span class="keyword">case</span> <a href="../../pkg/internal/abi.html" class="ident i0">abi</a>.<a href="../internal/abi/type.go.html#line-74" class="ident">Pointer</a>:</code></span>
 <span class="codeline" id="line-180"><code>		<label for="r29" class="ident">et</label> := (*<a href="type.go.html#line-413" class="ident">ptrtype</a>)(<a href="../../pkg/unsafe.html" class="ident i5">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r19" class="ident">t</label>)).<a href="../internal/abi/type.go.html#line-545" class="ident">Elem</a></code></span>
-<span class="codeline" id="line-181"><code>		<label for="r30" class="ident">e2</label> := <a href="malloc.go.html#line-2156" class="ident">newobject</a>(<label for="r29" class="ident">et</label>)</code></span>
+<span class="codeline" id="line-181"><code>		<label for="r30" class="ident">e2</label> := <a href="malloc.go.html#line-2208" class="ident">newobject</a>(<label for="r29" class="ident">et</label>)</code></span>
 <span class="codeline" id="line-182"><code>		<a href="mbarrier.go.html#line-150" class="ident">typedmemmove</a>(<label for="r29" class="ident">et</label>, <label for="r30" class="ident">e2</label>, <label for="r18" class="ident">e</label>.<a href="runtime2.go.html#line-191" class="ident">data</a>)</code></span>
 <span class="codeline" id="line-183"><code>		<label for="r31" class="ident">xe</label> := <a href="runtime2.go.html#line-194" class="ident">efaceOf</a>(&amp;<label for="r21" class="ident">x</label>)</code></span>
 <span class="codeline" id="line-184"><code>		<label for="r31" class="ident">xe</label>.<a href="runtime2.go.html#line-190" class="ident">_type</a> = <label for="r19" class="ident">t</label></code></span>
@@ -808,15 +808,15 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-456"><code>		<label for="r65" class="ident">size</label> *= <a href="../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>(<label for="r64" class="ident">cap</label>)</code></span>
 <span class="codeline" id="line-457"><code>	}</code></span>
 <span class="codeline" id="line-458"><code>	<span class="keyword">if</span> <label for="r65" class="ident">size</label> == <span class="lit-number">0</span> || <label for="r64" class="ident">cap</label> == <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-459"><code>		<span class="keyword">return</span> <a href="../../pkg/unsafe.html" class="ident i5">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(&amp;<a href="malloc.go.html#line-965" class="ident">zerobase</a>)</code></span>
+<span class="codeline" id="line-459"><code>		<span class="keyword">return</span> <a href="../../pkg/unsafe.html" class="ident i5">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(&amp;<a href="malloc.go.html#line-1017" class="ident">zerobase</a>)</code></span>
 <span class="codeline" id="line-460"><code>	}</code></span>
 <span class="codeline" id="line-461"><code>	<span class="keyword">if</span> <label for="r65" class="ident">size</label> &gt; <a href="#line-202" class="ident">userArenaChunkMaxAllocBytes</a> {</code></span>
 <span class="codeline" id="line-462"><code>		<span class="comment">// Redirect allocations that don't fit into a chunk well directly</span></code></span>
 <span class="codeline" id="line-463"><code><span class="comment">		// from the heap.</span></code></span>
 <span class="codeline" id="line-464"><code>		<span class="keyword">if</span> <label for="r64" class="ident">cap</label> &gt;= <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-465"><code>			<span class="keyword">return</span> <a href="malloc.go.html#line-2199" class="ident">newarray</a>(<label for="r63" class="ident">typ</label>, <label for="r64" class="ident">cap</label>)</code></span>
+<span class="codeline" id="line-465"><code>			<span class="keyword">return</span> <a href="malloc.go.html#line-2251" class="ident">newarray</a>(<label for="r63" class="ident">typ</label>, <label for="r64" class="ident">cap</label>)</code></span>
 <span class="codeline" id="line-466"><code>		}</code></span>
-<span class="codeline" id="line-467"><code>		<span class="keyword">return</span> <a href="malloc.go.html#line-2156" class="ident">newobject</a>(<label for="r63" class="ident">typ</label>)</code></span>
+<span class="codeline" id="line-467"><code>		<span class="keyword">return</span> <a href="malloc.go.html#line-2208" class="ident">newobject</a>(<label for="r63" class="ident">typ</label>)</code></span>
 <span class="codeline" id="line-468"><code>	}</code></span>
 <span class="codeline" id="line-469"><code></code></span>
 <span class="codeline" id="line-470"><code>	<span class="comment">// Prevent preemption as we set up the space for a new object.</span></code></span>
@@ -1098,7 +1098,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-746"><code><span class="comment">	// what that looks like until we actually allocate things into the</span></code></span>
 <span class="codeline" id="line-747"><code><span class="comment">	// arena).</span></code></span>
 <span class="codeline" id="line-748"><code>	<span class="keyword">if</span> <a href="mgc.go.html#line-248" class="ident">gcBlackenEnabled</a> != <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-749"><code>		<a href="malloc.go.html#line-1847" class="ident">deductAssistCredit</a>(<a href="#line-193" class="ident">userArenaChunkBytes</a>)</code></span>
+<span class="codeline" id="line-749"><code>		<a href="malloc.go.html#line-1899" class="ident">deductAssistCredit</a>(<a href="#line-193" class="ident">userArenaChunkBytes</a>)</code></span>
 <span class="codeline" id="line-750"><code>	}</code></span>
 <span class="codeline" id="line-751"><code></code></span>
 <span class="codeline" id="line-752"><code>	<span class="comment">// Set mp.mallocing to keep from being preempted by GC.</span></code></span>
@@ -1126,7 +1126,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-774"><code><span class="comment">	// This may be racing with GC so do it atomically if there can be</span></code></span>
 <span class="codeline" id="line-775"><code><span class="comment">	// a race marking the bit.</span></code></span>
 <span class="codeline" id="line-776"><code>	<span class="keyword">if</span> <a href="mgc.go.html#line-223" class="ident">gcphase</a> != <a href="mgc.go.html#line-251" class="ident">_GCoff</a> {</code></span>
-<span class="codeline" id="line-777"><code>		<a href="mgcmark.go.html#line-1757" class="ident">gcmarknewobject</a>(<label for="r127" class="ident">span</label>, <label for="r127" class="ident">span</label>.<a href="mheap.go.html#line-518" class="ident">base</a>())</code></span>
+<span class="codeline" id="line-777"><code>		<a href="mgcmark.go.html#line-1748" class="ident">gcmarknewobject</a>(<label for="r127" class="ident">span</label>, <label for="r127" class="ident">span</label>.<a href="mheap.go.html#line-518" class="ident">base</a>())</code></span>
 <span class="codeline" id="line-778"><code>	}</code></span>
 <span class="codeline" id="line-779"><code></code></span>
 <span class="codeline" id="line-780"><code>	<span class="keyword">if</span> <a href="race0.go.html#line-15" class="ident">raceenabled</a> {</code></span>
@@ -1156,7 +1156,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-804"><code>		<span class="keyword">if</span> <label for="r130" class="ident">rate</label> != <span class="lit-number">1</span> &amp;&amp; <a href="../../pkg/builtin.html#name-int64" class="ident">int64</a>(<a href="#line-193" class="ident">userArenaChunkBytes</a>) &lt; <label for="r131" class="ident">c</label>.<a href="mcache.go.html#line-25" class="ident">nextSample</a> {</code></span>
 <span class="codeline" id="line-805"><code>			<label for="r131" class="ident">c</label>.<a href="mcache.go.html#line-25" class="ident">nextSample</a> -= <a href="../../pkg/builtin.html#name-int64" class="ident">int64</a>(<a href="#line-193" class="ident">userArenaChunkBytes</a>)</code></span>
 <span class="codeline" id="line-806"><code>		} <span class="keyword">else</span> {</code></span>
-<span class="codeline" id="line-807"><code>			<a href="malloc.go.html#line-2238" class="ident">profilealloc</a>(<label for="r126" class="ident">mp</label>, <a href="../../pkg/unsafe.html" class="ident i5">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r127" class="ident">span</label>.<a href="mheap.go.html#line-518" class="ident">base</a>()), <a href="#line-193" class="ident">userArenaChunkBytes</a>)</code></span>
+<span class="codeline" id="line-807"><code>			<a href="malloc.go.html#line-2290" class="ident">profilealloc</a>(<label for="r126" class="ident">mp</label>, <a href="../../pkg/unsafe.html" class="ident i5">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r127" class="ident">span</label>.<a href="mheap.go.html#line-518" class="ident">base</a>()), <a href="#line-193" class="ident">userArenaChunkBytes</a>)</code></span>
 <span class="codeline" id="line-808"><code>		}</code></span>
 <span class="codeline" id="line-809"><code>	}</code></span>
 <span class="codeline" id="line-810"><code>	<label for="r126" class="ident">mp</label>.<a href="runtime2.go.html#line-646" class="ident">mallocing</a> = <span class="lit-number">0</span></code></span>
@@ -1229,7 +1229,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-877"><code>	<span class="comment">// Actually set the arena chunk to fault, so we'll get dangling pointer errors.</span></code></span>
 <span class="codeline" id="line-878"><code><span class="comment">	// sysFault currently uses a method on each OS that forces it to evacuate all</span></code></span>
 <span class="codeline" id="line-879"><code><span class="comment">	// memory backing the chunk.</span></code></span>
-<span class="codeline" id="line-880"><code>	<a href="mem.go.html#line-156" class="ident">sysFault</a>(<a href="../../pkg/unsafe.html" class="ident i5">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r135" class="ident">s</label>.<a href="mheap.go.html#line-518" class="ident">base</a>()), <label for="r135" class="ident">s</label>.<a href="mheap.go.html#line-429" class="ident">npages</a>*<a href="malloc.go.html#line-118" class="ident">pageSize</a>)</code></span>
+<span class="codeline" id="line-880"><code>	<a href="mem.go.html#line-149" class="ident">sysFault</a>(<a href="../../pkg/unsafe.html" class="ident i5">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r135" class="ident">s</label>.<a href="mheap.go.html#line-518" class="ident">base</a>()), <label for="r135" class="ident">s</label>.<a href="mheap.go.html#line-429" class="ident">npages</a>*<a href="malloc.go.html#line-118" class="ident">pageSize</a>)</code></span>
 <span class="codeline" id="line-881"><code></code></span>
 <span class="codeline" id="line-882"><code>	<span class="comment">// Everything on the list is counted as in-use, however sysFault transitions to</span></code></span>
 <span class="codeline" id="line-883"><code><span class="comment">	// Reserved, not Prepared, so we skip updating heapFree or heapReleased and just</span></code></span>
@@ -1398,7 +1398,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-1046"><code><span class="comment">	//</span></code></span>
 <span class="codeline" id="line-1047"><code><span class="comment">	// Unlike (*mheap).grow, just map in everything that we</span></code></span>
 <span class="codeline" id="line-1048"><code><span class="comment">	// asked for. We're likely going to use it all.</span></code></span>
-<span class="codeline" id="line-1049"><code>	<a href="mem.go.html#line-277" class="ident">sysMap</a>(<a href="../../pkg/unsafe.html" class="ident i5">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r151" class="ident">base</label>), <a href="#line-193" class="ident">userArenaChunkBytes</a>, &amp;<a href="mgcpacer.go.html#line-90" class="ident">gcController</a>.<a href="mgcpacer.go.html#line-359" class="ident">heapReleased</a>, <span class="lit-string">"user arena chunk"</span>)</code></span>
+<span class="codeline" id="line-1049"><code>	<a href="mem.go.html#line-182" class="ident">sysMap</a>(<a href="../../pkg/unsafe.html" class="ident i5">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r151" class="ident">base</label>), <a href="#line-193" class="ident">userArenaChunkBytes</a>, &amp;<a href="mgcpacer.go.html#line-90" class="ident">gcController</a>.<a href="mgcpacer.go.html#line-359" class="ident">heapReleased</a>, <span class="lit-string">"user arena chunk"</span>)</code></span>
 <span class="codeline" id="line-1050"><code>	<a href="mem.go.html#line-89" class="ident">sysUsed</a>(<a href="../../pkg/unsafe.html" class="ident i5">unsafe</a>.<a href="../../pkg/unsafe.html#name-Pointer" class="ident">Pointer</a>(<label for="r151" class="ident">base</label>), <a href="#line-193" class="ident">userArenaChunkBytes</a>, <a href="#line-193" class="ident">userArenaChunkBytes</a>)</code></span>
 <span class="codeline" id="line-1051"><code></code></span>
 <span class="codeline" id="line-1052"><code>	<span class="comment">// Model the user arena as a heap span for a large object.</span></code></span>
@@ -1424,7 +1424,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-1072"><code></code></span>
 <span class="codeline" id="line-1073"><code>	<span class="comment">// Adjust size to include redzone.</span></code></span>
 <span class="codeline" id="line-1074"><code>	<span class="keyword">if</span> <a href="asan0.go.html#line-15" class="ident">asanenabled</a> {</code></span>
-<span class="codeline" id="line-1075"><code>		<label for="r150" class="ident">s</label>.<a href="mheap.go.html#line-510" class="ident">elemsize</a> -= <a href="malloc.go.html#line-2482" class="ident">redZoneSize</a>(<label for="r150" class="ident">s</label>.<a href="mheap.go.html#line-510" class="ident">elemsize</a>)</code></span>
+<span class="codeline" id="line-1075"><code>		<label for="r150" class="ident">s</label>.<a href="mheap.go.html#line-510" class="ident">elemsize</a> -= <a href="malloc.go.html#line-2534" class="ident">redZoneSize</a>(<label for="r150" class="ident">s</label>.<a href="mheap.go.html#line-510" class="ident">elemsize</a>)</code></span>
 <span class="codeline" id="line-1076"><code>	}</code></span>
 <span class="codeline" id="line-1077"><code></code></span>
 <span class="codeline" id="line-1078"><code>	<span class="comment">// Account for this new arena chunk memory.</span></code></span>
@@ -1482,7 +1482,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-1130"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

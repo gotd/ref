@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: tl_messages_get_messages_gen.go in package github.com/gotd/td/tg</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -327,21 +327,26 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-187"><code><span class="comment">// MessagesGetMessages invokes method messages.getMessages#63c66506 returning error if any.</span></code></span>
 <span class="codeline" id="line-188"><code><span class="comment">// Returns the list of messages by their IDs.</span></code></span>
 <span class="codeline" id="line-189"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-190"><code><span class="comment">// See https://core.telegram.org/method/messages.getMessages for reference.</span></code></span>
-<span class="codeline" id="line-191"><code><span class="keyword">func</span> (<label for="r42" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r43" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.MessagesGetMessages.html" class="ident">MessagesGetMessages</a></label>(<label for="r44" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r45" class="ident">id</label> []<a href="tl_input_message_gen.go.html#line-595" class="ident">InputMessageClass</a>) (<a href="tl_messages_messages_gen.go.html#line-1524" class="ident">MessagesMessagesClass</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-192"><code>	<span class="keyword">var</span> <label for="r46" class="ident">result</label> <a href="tl_messages_messages_gen.go.html#line-1643" class="ident">MessagesMessagesBox</a></code></span>
-<span class="codeline" id="line-193"><code></code></span>
-<span class="codeline" id="line-194"><code>	<label for="r47" class="ident">request</label> := &amp;<a href="#line-38" class="ident">MessagesGetMessagesRequest</a>{</code></span>
-<span class="codeline" id="line-195"><code>		<a href="#line-40" class="ident">ID</a>: <label for="r45" class="ident">id</label>,</code></span>
-<span class="codeline" id="line-196"><code>	}</code></span>
-<span class="codeline" id="line-197"><code>	<span class="keyword">if</span> <label for="r48" class="ident">err</label> := <label for="r42" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r44" class="ident">ctx</label>, <label for="r47" class="ident">request</label>, &amp;<label for="r46" class="ident">result</label>); <label for="r48" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-198"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r48" class="ident">err</label></code></span>
-<span class="codeline" id="line-199"><code>	}</code></span>
-<span class="codeline" id="line-200"><code>	<span class="keyword">return</span> <label for="r46" class="ident">result</label>.<a href="tl_messages_messages_gen.go.html#line-1644" class="ident">Messages</a>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-201"><code>}</code></span>
+<span class="codeline" id="line-190"><code><span class="comment">// Possible errors:</span></code></span>
+<span class="codeline" id="line-191"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-192"><code><span class="comment">//	400 MESSAGE_ID_INVALID: The provided message id is invalid.</span></code></span>
+<span class="codeline" id="line-193"><code><span class="comment">//	400 MSG_ID_INVALID: Invalid message ID provided.</span></code></span>
+<span class="codeline" id="line-194"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-195"><code><span class="comment">// See https://core.telegram.org/method/messages.getMessages for reference.</span></code></span>
+<span class="codeline" id="line-196"><code><span class="keyword">func</span> (<label for="r42" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r43" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.MessagesGetMessages.html" class="ident">MessagesGetMessages</a></label>(<label for="r44" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r45" class="ident">id</label> []<a href="tl_input_message_gen.go.html#line-595" class="ident">InputMessageClass</a>) (<a href="tl_messages_messages_gen.go.html#line-1530" class="ident">MessagesMessagesClass</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-197"><code>	<span class="keyword">var</span> <label for="r46" class="ident">result</label> <a href="tl_messages_messages_gen.go.html#line-1652" class="ident">MessagesMessagesBox</a></code></span>
+<span class="codeline" id="line-198"><code></code></span>
+<span class="codeline" id="line-199"><code>	<label for="r47" class="ident">request</label> := &amp;<a href="#line-38" class="ident">MessagesGetMessagesRequest</a>{</code></span>
+<span class="codeline" id="line-200"><code>		<a href="#line-40" class="ident">ID</a>: <label for="r45" class="ident">id</label>,</code></span>
+<span class="codeline" id="line-201"><code>	}</code></span>
+<span class="codeline" id="line-202"><code>	<span class="keyword">if</span> <label for="r48" class="ident">err</label> := <label for="r42" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r44" class="ident">ctx</label>, <label for="r47" class="ident">request</label>, &amp;<label for="r46" class="ident">result</label>); <label for="r48" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-203"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r48" class="ident">err</label></code></span>
+<span class="codeline" id="line-204"><code>	}</code></span>
+<span class="codeline" id="line-205"><code>	<span class="keyword">return</span> <label for="r46" class="ident">result</label>.<a href="tl_messages_messages_gen.go.html#line-1653" class="ident">Messages</a>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-206"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

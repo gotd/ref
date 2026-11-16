@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: doc.go in package go.opentelemetry.io/otel/metric</title>
+<link href="../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.7.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	doc.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/go.opentelemetry.io/otel/metric.html">go.opentelemetry.io/otel/metric</a>
+</code></pre>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright The OpenTelemetry Authors</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></code></span>
+<span class="codeline" id="line-3"><code></code></span>
+<div class="anchor" id="doc"><span class="codeline" id="line-4"><code><span class="comment">/*</span></code></span>
+<span class="codeline" id="line-5"><code><span class="comment">Package metric provides the OpenTelemetry API used to measure metrics about</span></code></span>
+<span class="codeline" id="line-6"><code><span class="comment">source code operation.</span></code></span>
+<span class="codeline" id="line-7"><code></code></span>
+<span class="codeline" id="line-8"><code><span class="comment">This API is separate from its implementation so the instrumentation built from</span></code></span>
+<span class="codeline" id="line-9"><code><span class="comment">it is reusable. See [go.opentelemetry.io/otel/sdk/metric] for the official</span></code></span>
+<span class="codeline" id="line-10"><code><span class="comment">OpenTelemetry implementation of this API.</span></code></span>
+<span class="codeline" id="line-11"><code></code></span>
+<span class="codeline" id="line-12"><code><span class="comment">All measurements made with this package are made via instruments. These</span></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">instruments are created by a [Meter] which itself is created by a</span></code></span>
+<span class="codeline" id="line-14"><code><span class="comment">[MeterProvider]. Applications need to accept a [MeterProvider] implementation</span></code></span>
+<span class="codeline" id="line-15"><code><span class="comment">as a starting point when instrumenting. This can be done directly, or by using</span></code></span>
+<span class="codeline" id="line-16"><code><span class="comment">the OpenTelemetry global MeterProvider via [GetMeterProvider]. Using an</span></code></span>
+<span class="codeline" id="line-17"><code><span class="comment">appropriately named [Meter] from the accepted [MeterProvider], instrumentation</span></code></span>
+<span class="codeline" id="line-18"><code><span class="comment">can then be built from the [Meter]'s instruments.</span></code></span>
+<span class="codeline" id="line-19"><code></code></span>
+<span class="codeline" id="line-20"><code><span class="comment"># Instruments</span></code></span>
+<span class="codeline" id="line-21"><code></code></span>
+<span class="codeline" id="line-22"><code><span class="comment">Each instrument is designed to make measurements of a particular type. Broadly,</span></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">all instruments fall into two overlapping logical categories: asynchronous or</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">synchronous, and int64 or float64.</span></code></span>
+<span class="codeline" id="line-25"><code></code></span>
+<span class="codeline" id="line-26"><code><span class="comment">All synchronous instruments ([Int64Counter], [Int64UpDownCounter],</span></code></span>
+<span class="codeline" id="line-27"><code><span class="comment">[Int64Histogram], [Int64Gauge], [Float64Counter], [Float64UpDownCounter],</span></code></span>
+<span class="codeline" id="line-28"><code><span class="comment">[Float64Histogram], and [Float64Gauge]) are used to measure the operation and</span></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">performance of source code during the source code execution. These instruments</span></code></span>
+<span class="codeline" id="line-30"><code><span class="comment">only make measurements when the source code they instrument is run.</span></code></span>
+<span class="codeline" id="line-31"><code></code></span>
+<span class="codeline" id="line-32"><code><span class="comment">All asynchronous instruments ([Int64ObservableCounter],</span></code></span>
+<span class="codeline" id="line-33"><code><span class="comment">[Int64ObservableUpDownCounter], [Int64ObservableGauge],</span></code></span>
+<span class="codeline" id="line-34"><code><span class="comment">[Float64ObservableCounter], [Float64ObservableUpDownCounter], and</span></code></span>
+<span class="codeline" id="line-35"><code><span class="comment">[Float64ObservableGauge]) are used to measure metrics outside of the execution</span></code></span>
+<span class="codeline" id="line-36"><code><span class="comment">of source code. They are said to make "observations" via a callback function</span></code></span>
+<span class="codeline" id="line-37"><code><span class="comment">called once every measurement collection cycle.</span></code></span>
+<span class="codeline" id="line-38"><code></code></span>
+<span class="codeline" id="line-39"><code><span class="comment">Each instrument is also grouped by the value type it measures. Either int64 or</span></code></span>
+<span class="codeline" id="line-40"><code><span class="comment">float64. The value being measured will dictate which instrument in these</span></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">categories to use.</span></code></span>
+<span class="codeline" id="line-42"><code></code></span>
+<span class="codeline" id="line-43"><code><span class="comment">Outside of these two broad categories, instruments are described by the</span></code></span>
+<span class="codeline" id="line-44"><code><span class="comment">function they are designed to serve. All Counters ([Int64Counter],</span></code></span>
+<span class="codeline" id="line-45"><code><span class="comment">[Float64Counter], [Int64ObservableCounter], and [Float64ObservableCounter]) are</span></code></span>
+<span class="codeline" id="line-46"><code><span class="comment">designed to measure values that never decrease in value, but instead only</span></code></span>
+<span class="codeline" id="line-47"><code><span class="comment">incrementally increase in value. UpDownCounters ([Int64UpDownCounter],</span></code></span>
+<span class="codeline" id="line-48"><code><span class="comment">[Float64UpDownCounter], [Int64ObservableUpDownCounter], and</span></code></span>
+<span class="codeline" id="line-49"><code><span class="comment">[Float64ObservableUpDownCounter]) on the other hand, are designed to measure</span></code></span>
+<span class="codeline" id="line-50"><code><span class="comment">values that can increase and decrease. When more information needs to be</span></code></span>
+<span class="codeline" id="line-51"><code><span class="comment">conveyed about all the synchronous measurements made during a collection cycle,</span></code></span>
+<span class="codeline" id="line-52"><code><span class="comment">a Histogram ([Int64Histogram] and [Float64Histogram]) should be used. Finally,</span></code></span>
+<span class="codeline" id="line-53"><code><span class="comment">when just the most recent measurement needs to be conveyed, a Gauge</span></code></span>
+<span class="codeline" id="line-54"><code><span class="comment">([Int64Gauge], [Float64Gauge], [Int64ObservableGauge], and</span></code></span>
+<span class="codeline" id="line-55"><code><span class="comment">[Float64ObservableGauge]) should be used: the synchronous variants record an</span></code></span>
+<span class="codeline" id="line-56"><code><span class="comment">instantaneous value at a specific point in code, while the observable variants</span></code></span>
+<span class="codeline" id="line-57"><code><span class="comment">sample the value via a callback once per collection cycle.</span></code></span>
+<span class="codeline" id="line-58"><code></code></span>
+<span class="codeline" id="line-59"><code><span class="comment">See the [OpenTelemetry documentation] for more information about instruments</span></code></span>
+<span class="codeline" id="line-60"><code><span class="comment">and their intended use.</span></code></span>
+<span class="codeline" id="line-61"><code></code></span>
+<span class="codeline" id="line-62"><code><span class="comment"># Instrument Name</span></code></span>
+<span class="codeline" id="line-63"><code></code></span>
+<span class="codeline" id="line-64"><code><span class="comment">OpenTelemetry defines an [instrument name syntax] that restricts what</span></code></span>
+<span class="codeline" id="line-65"><code><span class="comment">instrument names are allowed.</span></code></span>
+<span class="codeline" id="line-66"><code></code></span>
+<span class="codeline" id="line-67"><code><span class="comment">Instrument names should ...</span></code></span>
+<span class="codeline" id="line-68"><code></code></span>
+<span class="codeline" id="line-69"><code><span class="comment">  - Not be empty.</span></code></span>
+<span class="codeline" id="line-70"><code><span class="comment">  - Have an alphabetic character as their first letter.</span></code></span>
+<span class="codeline" id="line-71"><code><span class="comment">  - Have any letter after the first be an alphanumeric character, ‘_’, ‘.’,</span></code></span>
+<span class="codeline" id="line-72"><code><span class="comment">    ‘-’, or ‘/’.</span></code></span>
+<span class="codeline" id="line-73"><code><span class="comment">  - Have a maximum length of 255 letters.</span></code></span>
+<span class="codeline" id="line-74"><code></code></span>
+<span class="codeline" id="line-75"><code><span class="comment">To ensure compatibility with observability platforms, all instruments created</span></code></span>
+<span class="codeline" id="line-76"><code><span class="comment">need to conform to this syntax. Not all implementations of the API will validate</span></code></span>
+<span class="codeline" id="line-77"><code><span class="comment">these names, it is the callers responsibility to ensure compliance.</span></code></span>
+<span class="codeline" id="line-78"><code></code></span>
+<span class="codeline" id="line-79"><code><span class="comment"># Measurements</span></code></span>
+<span class="codeline" id="line-80"><code></code></span>
+<span class="codeline" id="line-81"><code><span class="comment">Measurements are made by recording values and information about the values with</span></code></span>
+<span class="codeline" id="line-82"><code><span class="comment">an instrument. How these measurements are recorded depends on the instrument.</span></code></span>
+<span class="codeline" id="line-83"><code></code></span>
+<span class="codeline" id="line-84"><code><span class="comment">Measurements for synchronous instruments ([Int64Counter], [Int64UpDownCounter],</span></code></span>
+<span class="codeline" id="line-85"><code><span class="comment">[Int64Histogram], [Int64Gauge], [Float64Counter], [Float64UpDownCounter],</span></code></span>
+<span class="codeline" id="line-86"><code><span class="comment">[Float64Histogram], and [Float64Gauge]) are recorded using the instrument</span></code></span>
+<span class="codeline" id="line-87"><code><span class="comment">methods directly. All counter instruments have an Add method that is used to</span></code></span>
+<span class="codeline" id="line-88"><code><span class="comment">measure an increment value, and all histogram and synchronous gauge</span></code></span>
+<span class="codeline" id="line-89"><code><span class="comment">instruments have a Record method to measure a data point.</span></code></span>
+<span class="codeline" id="line-90"><code></code></span>
+<span class="codeline" id="line-91"><code><span class="comment">Asynchronous instruments ([Int64ObservableCounter],</span></code></span>
+<span class="codeline" id="line-92"><code><span class="comment">[Int64ObservableUpDownCounter], [Int64ObservableGauge],</span></code></span>
+<span class="codeline" id="line-93"><code><span class="comment">[Float64ObservableCounter], [Float64ObservableUpDownCounter], and</span></code></span>
+<span class="codeline" id="line-94"><code><span class="comment">[Float64ObservableGauge]) record measurements within a callback function. The</span></code></span>
+<span class="codeline" id="line-95"><code><span class="comment">callback is registered with the Meter which ensures the callback is called once</span></code></span>
+<span class="codeline" id="line-96"><code><span class="comment">per collection cycle. A callback can be registered two ways: during the</span></code></span>
+<span class="codeline" id="line-97"><code><span class="comment">instrument's creation using an option, or later using the RegisterCallback</span></code></span>
+<span class="codeline" id="line-98"><code><span class="comment">method of the [Meter] that created the instrument.</span></code></span>
+<span class="codeline" id="line-99"><code></code></span>
+<span class="codeline" id="line-100"><code><span class="comment">If the following criteria are met, an option ([WithInt64Callback] or</span></code></span>
+<span class="codeline" id="line-101"><code><span class="comment">[WithFloat64Callback]) can be used during the asynchronous instrument's</span></code></span>
+<span class="codeline" id="line-102"><code><span class="comment">creation to register a callback ([Int64Callback] or [Float64Callback],</span></code></span>
+<span class="codeline" id="line-103"><code><span class="comment">respectively):</span></code></span>
+<span class="codeline" id="line-104"><code></code></span>
+<span class="codeline" id="line-105"><code><span class="comment">  - The measurement process is known when the instrument is created</span></code></span>
+<span class="codeline" id="line-106"><code><span class="comment">  - Only that instrument will make a measurement within the callback</span></code></span>
+<span class="codeline" id="line-107"><code><span class="comment">  - The callback never needs to be unregistered</span></code></span>
+<span class="codeline" id="line-108"><code></code></span>
+<span class="codeline" id="line-109"><code><span class="comment">If the criteria are not met, use the RegisterCallback method of the [Meter] that</span></code></span>
+<span class="codeline" id="line-110"><code><span class="comment">created the instrument to register a [Callback].</span></code></span>
+<span class="codeline" id="line-111"><code></code></span>
+<span class="codeline" id="line-112"><code><span class="comment"># Avoiding Expensive Computations</span></code></span>
+<span class="codeline" id="line-113"><code></code></span>
+<span class="codeline" id="line-114"><code><span class="comment">All synchronous instruments provide an Enabled method that reports whether the</span></code></span>
+<span class="codeline" id="line-115"><code><span class="comment">instrument will process measurements for the given context. When no SDK is</span></code></span>
+<span class="codeline" id="line-116"><code><span class="comment">registered or the instrument is otherwise disabled, Enabled returns false. This</span></code></span>
+<span class="codeline" id="line-117"><code><span class="comment">can be used to avoid expensive measurement work when a measurement will not be</span></code></span>
+<span class="codeline" id="line-118"><code><span class="comment">recorded:</span></code></span>
+<span class="codeline" id="line-119"><code></code></span>
+<span class="codeline" id="line-120"><code><span class="comment">	if counter.Enabled(ctx) {</span></code></span>
+<span class="codeline" id="line-121"><code><span class="comment">		counter.Add(ctx, 1, metric.WithAttributes(expensiveAttributes()...))</span></code></span>
+<span class="codeline" id="line-122"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-123"><code></code></span>
+<span class="codeline" id="line-124"><code><span class="comment">This is especially valuable when computing attributes is expensive.</span></code></span>
+<span class="codeline" id="line-125"><code><span class="comment">[WithAttributes] performs non-trivial work on every call to build an</span></code></span>
+<span class="codeline" id="line-126"><code><span class="comment">[attribute.Set] from the provided attributes, and that work is wasted if the</span></code></span>
+<span class="codeline" id="line-127"><code><span class="comment">measurement is not recorded.</span></code></span>
+<span class="codeline" id="line-128"><code></code></span>
+<span class="codeline" id="line-129"><code><span class="comment">For performance sensitive code where the same attribute set is used repeatedly,</span></code></span>
+<span class="codeline" id="line-130"><code><span class="comment">prefer [WithAttributeSet]. It accepts a pre-built [attribute.Set], letting you</span></code></span>
+<span class="codeline" id="line-131"><code><span class="comment">pay the construction cost once and reuse it across many measurements:</span></code></span>
+<span class="codeline" id="line-132"><code></code></span>
+<span class="codeline" id="line-133"><code><span class="comment">	attrs := attribute.NewSet(attribute.String("key", "val"))</span></code></span>
+<span class="codeline" id="line-134"><code><span class="comment">	// ... later, on each call:</span></code></span>
+<span class="codeline" id="line-135"><code><span class="comment">	counter.Add(ctx, 1, metric.WithAttributeSet(attrs))</span></code></span>
+<span class="codeline" id="line-136"><code></code></span>
+<span class="codeline" id="line-137"><code><span class="comment"># API Implementations</span></code></span>
+<span class="codeline" id="line-138"><code></code></span>
+<span class="codeline" id="line-139"><code><span class="comment">This package does not conform to the standard Go versioning policy, all of its</span></code></span>
+<span class="codeline" id="line-140"><code><span class="comment">interfaces may have methods added to them without a package major version bump.</span></code></span>
+<span class="codeline" id="line-141"><code><span class="comment">This non-standard API evolution could surprise an uninformed implementation</span></code></span>
+<span class="codeline" id="line-142"><code><span class="comment">author. They could unknowingly build their implementation in a way that would</span></code></span>
+<span class="codeline" id="line-143"><code><span class="comment">result in a runtime panic for their users that update to the new API.</span></code></span>
+<span class="codeline" id="line-144"><code></code></span>
+<span class="codeline" id="line-145"><code><span class="comment">The API is designed to help inform an instrumentation author about this</span></code></span>
+<span class="codeline" id="line-146"><code><span class="comment">non-standard API evolution. It requires them to choose a default behavior for</span></code></span>
+<span class="codeline" id="line-147"><code><span class="comment">unimplemented interface methods. There are three behavior choices they can</span></code></span>
+<span class="codeline" id="line-148"><code><span class="comment">make:</span></code></span>
+<span class="codeline" id="line-149"><code></code></span>
+<span class="codeline" id="line-150"><code><span class="comment">  - Compilation failure</span></code></span>
+<span class="codeline" id="line-151"><code><span class="comment">  - Panic</span></code></span>
+<span class="codeline" id="line-152"><code><span class="comment">  - Default to another implementation</span></code></span>
+<span class="codeline" id="line-153"><code></code></span>
+<span class="codeline" id="line-154"><code><span class="comment">All interfaces in this API embed a corresponding interface from</span></code></span>
+<span class="codeline" id="line-155"><code><span class="comment">[go.opentelemetry.io/otel/metric/embedded]. If an author wants the default</span></code></span>
+<span class="codeline" id="line-156"><code><span class="comment">behavior of their implementations to be a compilation failure, signaling to</span></code></span>
+<span class="codeline" id="line-157"><code><span class="comment">their users they need to update to the latest version of that implementation,</span></code></span>
+<span class="codeline" id="line-158"><code><span class="comment">they need to embed the corresponding interface from</span></code></span>
+<span class="codeline" id="line-159"><code><span class="comment">[go.opentelemetry.io/otel/metric/embedded] in their implementation. For</span></code></span>
+<span class="codeline" id="line-160"><code><span class="comment">example,</span></code></span>
+<span class="codeline" id="line-161"><code></code></span>
+<span class="codeline" id="line-162"><code><span class="comment">	import "go.opentelemetry.io/otel/metric/embedded"</span></code></span>
+<span class="codeline" id="line-163"><code></code></span>
+<span class="codeline" id="line-164"><code><span class="comment">	type MeterProvider struct {</span></code></span>
+<span class="codeline" id="line-165"><code><span class="comment">		embedded.MeterProvider</span></code></span>
+<span class="codeline" id="line-166"><code><span class="comment">		// ...</span></code></span>
+<span class="codeline" id="line-167"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-168"><code></code></span>
+<span class="codeline" id="line-169"><code><span class="comment">If an author wants the default behavior of their implementations to a panic,</span></code></span>
+<span class="codeline" id="line-170"><code><span class="comment">they need to embed the API interface directly.</span></code></span>
+<span class="codeline" id="line-171"><code></code></span>
+<span class="codeline" id="line-172"><code><span class="comment">	import "go.opentelemetry.io/otel/metric"</span></code></span>
+<span class="codeline" id="line-173"><code></code></span>
+<span class="codeline" id="line-174"><code><span class="comment">	type MeterProvider struct {</span></code></span>
+<span class="codeline" id="line-175"><code><span class="comment">		metric.MeterProvider</span></code></span>
+<span class="codeline" id="line-176"><code><span class="comment">		// ...</span></code></span>
+<span class="codeline" id="line-177"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-178"><code></code></span>
+<span class="codeline" id="line-179"><code><span class="comment">This is not a recommended behavior as it could lead to publishing packages that</span></code></span>
+<span class="codeline" id="line-180"><code><span class="comment">contain runtime panics when users update other package that use newer versions</span></code></span>
+<span class="codeline" id="line-181"><code><span class="comment">of [go.opentelemetry.io/otel/metric].</span></code></span>
+<span class="codeline" id="line-182"><code></code></span>
+<span class="codeline" id="line-183"><code><span class="comment">Finally, an author can embed another implementation in theirs. The embedded</span></code></span>
+<span class="codeline" id="line-184"><code><span class="comment">implementation will be used for methods not defined by the author. For example,</span></code></span>
+<span class="codeline" id="line-185"><code><span class="comment">an author who wants to default to silently dropping the call can use</span></code></span>
+<span class="codeline" id="line-186"><code><span class="comment">[go.opentelemetry.io/otel/metric/noop]:</span></code></span>
+<span class="codeline" id="line-187"><code></code></span>
+<span class="codeline" id="line-188"><code><span class="comment">	import "go.opentelemetry.io/otel/metric/noop"</span></code></span>
+<span class="codeline" id="line-189"><code></code></span>
+<span class="codeline" id="line-190"><code><span class="comment">	type MeterProvider struct {</span></code></span>
+<span class="codeline" id="line-191"><code><span class="comment">		noop.MeterProvider</span></code></span>
+<span class="codeline" id="line-192"><code><span class="comment">		// ...</span></code></span>
+<span class="codeline" id="line-193"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-194"><code></code></span>
+<span class="codeline" id="line-195"><code><span class="comment">It is strongly recommended that authors only embed</span></code></span>
+<span class="codeline" id="line-196"><code><span class="comment">[go.opentelemetry.io/otel/metric/noop] if they choose this default behavior.</span></code></span>
+<span class="codeline" id="line-197"><code><span class="comment">That implementation is the only one OpenTelemetry authors can guarantee will</span></code></span>
+<span class="codeline" id="line-198"><code><span class="comment">fully implement all the API interfaces when a user updates their API.</span></code></span>
+<span class="codeline" id="line-199"><code></code></span>
+<span class="codeline" id="line-200"><code><span class="comment">[instrument name syntax]: https://opentelemetry.io/docs/specs/otel/metrics/api/#instrument-name-syntax</span></code></span>
+<span class="codeline" id="line-201"><code><span class="comment">[OpenTelemetry documentation]: https://opentelemetry.io/docs/concepts/signals/metrics/</span></code></span>
+<span class="codeline" id="line-202"><code><span class="comment">[GetMeterProvider]: https://pkg.go.dev/go.opentelemetry.io/otel#GetMeterProvider</span></code></span>
+<span class="codeline" id="line-203"><code><span class="comment">*/</span></code></span></div><span class="codeline" id="line-204"><code><span class="keyword">package</span> metric</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

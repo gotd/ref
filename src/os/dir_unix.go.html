@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: dir_unix.go in package os</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -254,7 +254,7 @@ input[id=i6]:checked ~pre .i6
 <span class="codeline" id="line-138"><code>		<span class="keyword">if</span> <label for="r6" class="ident">mode</label> == <a href="dir.go.html#line-18" class="ident">readdirName</a> {</code></span>
 <span class="codeline" id="line-139"><code>			<label for="r7" class="ident">names</label> = <a href="../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r7" class="ident">names</label>, <a href="../../pkg/builtin.html#name-string" class="ident">string</a>(<label for="r21" class="ident">name</label>))</code></span>
 <span class="codeline" id="line-140"><code>		} <span class="keyword">else</span> <span class="keyword">if</span> <label for="r6" class="ident">mode</label> == <a href="dir.go.html#line-19" class="ident">readdirDirEntry</a> {</code></span>
-<span class="codeline" id="line-141"><code>			<label for="r24" class="ident">de</label>, <label for="r25" class="ident">err</label> := <a href="file_unix.go.html#line-469" class="ident">newUnixDirent</a>(<label for="r3" class="ident">f</label>, <a href="../../pkg/builtin.html#name-string" class="ident">string</a>(<label for="r21" class="ident">name</label>), <a href="dirent_linux.go.html#line-28" class="ident">direntType</a>(<label for="r17" class="ident">rec</label>))</code></span>
+<span class="codeline" id="line-141"><code>			<label for="r24" class="ident">de</label>, <label for="r25" class="ident">err</label> := <a href="file_unix.go.html#line-468" class="ident">newUnixDirent</a>(<label for="r3" class="ident">f</label>.<a href="file_unix.go.html#line-61" class="ident">name</a>, <a href="../../pkg/builtin.html#name-string" class="ident">string</a>(<label for="r21" class="ident">name</label>), <a href="dirent_linux.go.html#line-28" class="ident">direntType</a>(<label for="r17" class="ident">rec</label>))</code></span>
 <span class="codeline" id="line-142"><code>			<span class="keyword">if</span> <a href="error.go.html#line-90" class="ident">IsNotExist</a>(<label for="r25" class="ident">err</label>) {</code></span>
 <span class="codeline" id="line-143"><code>				<span class="comment">// File disappeared between readdir and stat.</span></code></span>
 <span class="codeline" id="line-144"><code><span class="comment">				// Treat as if it didn't exist.</span></code></span>
@@ -265,7 +265,7 @@ input[id=i6]:checked ~pre .i6
 <span class="codeline" id="line-149"><code>			}</code></span>
 <span class="codeline" id="line-150"><code>			<label for="r8" class="ident">dirents</label> = <a href="../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r8" class="ident">dirents</label>, <label for="r24" class="ident">de</label>)</code></span>
 <span class="codeline" id="line-151"><code>		} <span class="keyword">else</span> {</code></span>
-<span class="codeline" id="line-152"><code>			<label for="r26" class="ident">info</label>, <label for="r27" class="ident">err</label> := <label for="r3" class="ident">f</label>.<a href="statat.go.html#line-13" class="ident">lstatat</a>(<a href="../../pkg/builtin.html#name-string" class="ident">string</a>(<label for="r21" class="ident">name</label>))</code></span>
+<span class="codeline" id="line-152"><code>			<label for="r26" class="ident">info</label>, <label for="r27" class="ident">err</label> := <a href="file.go.html#line-432" class="ident">lstat</a>(<label for="r3" class="ident">f</label>.<a href="file_unix.go.html#line-61" class="ident">name</a> + <span class="lit-string">"/"</span> + <a href="../../pkg/builtin.html#name-string" class="ident">string</a>(<label for="r21" class="ident">name</label>))</code></span>
 <span class="codeline" id="line-153"><code>			<span class="keyword">if</span> <a href="error.go.html#line-90" class="ident">IsNotExist</a>(<label for="r27" class="ident">err</label>) {</code></span>
 <span class="codeline" id="line-154"><code>				<span class="comment">// File disappeared between readdir + stat.</span></code></span>
 <span class="codeline" id="line-155"><code><span class="comment">				// Treat as if it didn't exist.</span></code></span>
@@ -326,7 +326,7 @@ input[id=i6]:checked ~pre .i6
 <span class="codeline" id="line-210"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

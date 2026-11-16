@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: tl_messages_edit_chat_creator_gen.go in package github.com/gotd/td/tg</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -194,7 +194,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-36"><code><span class="comment">// here »¹ for the full flow.</span></code></span>
 <span class="codeline" id="line-37"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-38"><code><span class="comment">// Links:</span></code></span>
-<span class="codeline" id="line-39"><code><span class="comment">//  1. https://core.telegram.org/api/channel#transferring-ownership-of-a-groupchannel</span></code></span>
+<span class="codeline" id="line-39"><code><span class="comment">//  1. https://core.telegram.org/api/channel#transferring-ownership-of-a-group-channel</span></code></span>
 <span class="codeline" id="line-40"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-41"><code><span class="comment">// See https://core.telegram.org/method/messages.editChatCreator for reference.</span></code></span>
 <span class="codeline" id="line-42"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-MessagesEditChatCreatorRequest" class="ident">MessagesEditChatCreatorRequest</a> <span class="keyword">struct</span> {</code></span>
@@ -405,20 +405,37 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-247"><code><span class="comment">// here »¹ for the full flow.</span></code></span>
 <span class="codeline" id="line-248"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-249"><code><span class="comment">// Links:</span></code></span>
-<span class="codeline" id="line-250"><code><span class="comment">//  1. https://core.telegram.org/api/channel#transferring-ownership-of-a-groupchannel</span></code></span>
+<span class="codeline" id="line-250"><code><span class="comment">//  1. https://core.telegram.org/api/channel#transferring-ownership-of-a-group-channel</span></code></span>
 <span class="codeline" id="line-251"><code><span class="comment">//</span></code></span>
-<span class="codeline" id="line-252"><code><span class="comment">// See https://core.telegram.org/method/messages.editChatCreator for reference.</span></code></span>
-<span class="codeline" id="line-253"><code><span class="keyword">func</span> (<label for="r52" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r53" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.MessagesEditChatCreator.html" class="ident">MessagesEditChatCreator</a></label>(<label for="r54" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r55" class="ident">request</label> *<a href="#line-42" class="ident">MessagesEditChatCreatorRequest</a>) (<a href="tl_updates_gen.go.html#line-2917" class="ident">UpdatesClass</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
-<span class="codeline" id="line-254"><code>	<span class="keyword">var</span> <label for="r56" class="ident">result</label> <a href="tl_updates_gen.go.html#line-2998" class="ident">UpdatesBox</a></code></span>
-<span class="codeline" id="line-255"><code></code></span>
-<span class="codeline" id="line-256"><code>	<span class="keyword">if</span> <label for="r57" class="ident">err</label> := <label for="r52" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r54" class="ident">ctx</label>, <label for="r55" class="ident">request</label>, &amp;<label for="r56" class="ident">result</label>); <label for="r57" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-257"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r57" class="ident">err</label></code></span>
-<span class="codeline" id="line-258"><code>	}</code></span>
-<span class="codeline" id="line-259"><code>	<span class="keyword">return</span> <label for="r56" class="ident">result</label>.<a href="tl_updates_gen.go.html#line-2999" class="ident">Updates</a>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-260"><code>}</code></span>
+<span class="codeline" id="line-252"><code><span class="comment">// Possible errors:</span></code></span>
+<span class="codeline" id="line-253"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-254"><code><span class="comment">//	400 CHANNELS_ADMIN_PUBLIC_TOO_MUCH: You're admin of too many public channels, make some channels private to change the username of this channel.</span></code></span>
+<span class="codeline" id="line-255"><code><span class="comment">//	400 CHANNEL_PRIVATE: You haven't joined this channel/supergroup.</span></code></span>
+<span class="codeline" id="line-256"><code><span class="comment">//	400 CHAT_ADMIN_REQUIRED: You must be an admin in this chat to do this.</span></code></span>
+<span class="codeline" id="line-257"><code><span class="comment">//	400 CHAT_MEMBER_ADD_FAILED: Could not add participants.</span></code></span>
+<span class="codeline" id="line-258"><code><span class="comment">//	400 INPUT_USER_DEACTIVATED: The specified user was deleted.</span></code></span>
+<span class="codeline" id="line-259"><code><span class="comment">//	400 PASSWORD_HASH_INVALID: The provided password hash is invalid.</span></code></span>
+<span class="codeline" id="line-260"><code><span class="comment">//	400 PASSWORD_MISSING: You must enable 2FA before executing this operation.</span></code></span>
+<span class="codeline" id="line-261"><code><span class="comment">//	400 PASSWORD_TOO_FRESH_%d: The password was modified less than 24 hours ago, try again in %d seconds.</span></code></span>
+<span class="codeline" id="line-262"><code><span class="comment">//	400 SESSION_TOO_FRESH_%d: This session was created less than 24 hours ago, try again in %d seconds.</span></code></span>
+<span class="codeline" id="line-263"><code><span class="comment">//	400 SRP_ID_INVALID: Invalid SRP ID provided.</span></code></span>
+<span class="codeline" id="line-264"><code><span class="comment">//	400 USERS_TOO_MUCH: The maximum number of users has been exceeded (to create a chat, for example).</span></code></span>
+<span class="codeline" id="line-265"><code><span class="comment">//	403 USER_CHANNELS_TOO_MUCH: One of the users you tried to add is already in too many channels/supergroups.</span></code></span>
+<span class="codeline" id="line-266"><code><span class="comment">//	400 USER_NOT_MUTUAL_CONTACT: The provided user is not a mutual contact.</span></code></span>
+<span class="codeline" id="line-267"><code><span class="comment">//	403 USER_PRIVACY_RESTRICTED: The user's privacy settings do not allow you to do this.</span></code></span>
+<span class="codeline" id="line-268"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-269"><code><span class="comment">// See https://core.telegram.org/method/messages.editChatCreator for reference.</span></code></span>
+<span class="codeline" id="line-270"><code><span class="keyword">func</span> (<label for="r52" class="ident">c</label> *<a href="tl_client_gen.go.html#line-40" class="ident">Client</a>) <label for="r53" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..Client.MessagesEditChatCreator.html" class="ident">MessagesEditChatCreator</a></label>(<label for="r54" class="ident">ctx</label> <a href="../../../../../pkg/context.html" class="ident i0">context</a>.<a href="../../../../context/context.go.html#line-71" class="ident">Context</a>, <label for="r55" class="ident">request</label> *<a href="#line-42" class="ident">MessagesEditChatCreatorRequest</a>) (<a href="tl_updates_gen.go.html#line-2917" class="ident">UpdatesClass</a>, <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-271"><code>	<span class="keyword">var</span> <label for="r56" class="ident">result</label> <a href="tl_updates_gen.go.html#line-2998" class="ident">UpdatesBox</a></code></span>
+<span class="codeline" id="line-272"><code></code></span>
+<span class="codeline" id="line-273"><code>	<span class="keyword">if</span> <label for="r57" class="ident">err</label> := <label for="r52" class="ident">c</label>.<a href="tl_client_gen.go.html#line-41" class="ident">rpc</a>.<a href="tl_client_gen.go.html#line-36" class="ident">Invoke</a>(<label for="r54" class="ident">ctx</label>, <label for="r55" class="ident">request</label>, &amp;<label for="r56" class="ident">result</label>); <label for="r57" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-274"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r57" class="ident">err</label></code></span>
+<span class="codeline" id="line-275"><code>	}</code></span>
+<span class="codeline" id="line-276"><code>	<span class="keyword">return</span> <label for="r56" class="ident">result</label>.<a href="tl_updates_gen.go.html#line-2999" class="ident">Updates</a>, <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-277"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

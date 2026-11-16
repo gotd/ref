@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: cpuprof.go in package runtime</title>
-<link href="../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../jvs/golds-v0.8.5.js"></script>
+<link href="../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -191,7 +191,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-107"><code>	<span class="comment">// Simple cas-lock to coordinate with setcpuprofilerate.</span></code></span>
 <span class="codeline" id="line-108"><code>	<span class="keyword">for</span> !<a href="proc.go.html#line-5728" class="ident">prof</a>.<a href="proc.go.html#line-5729" class="ident">signalLock</a>.<a href="../internal/runtime/atomic/types.go.html#line-235" class="ident">CompareAndSwap</a>(<span class="lit-number">0</span>, <span class="lit-number">1</span>) {</code></span>
 <span class="codeline" id="line-109"><code>		<span class="comment">// TODO: Is it safe to osyield here? https://go.dev/issue/52672</span></code></span>
-<span class="codeline" id="line-110"><code>		<a href="os_linux.go.html#line-456" class="ident">osyield</a>()</code></span>
+<span class="codeline" id="line-110"><code>		<a href="os_linux.go.html#line-455" class="ident">osyield</a>()</code></span>
 <span class="codeline" id="line-111"><code>	}</code></span>
 <span class="codeline" id="line-112"><code></code></span>
 <span class="codeline" id="line-113"><code>	<span class="keyword">if</span> <a href="proc.go.html#line-5728" class="ident">prof</a>.<a href="proc.go.html#line-5733" class="ident">hz</a>.<a href="../internal/runtime/atomic/types.go.html#line-20" class="ident">Load</a>() != <span class="lit-number">0</span> { <span class="comment">// implies cpuprof.log != nil</span></code></span>
@@ -228,7 +228,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-144"><code><span class="comment">	// signals may have changed this.)</span></code></span>
 <span class="codeline" id="line-145"><code>	<span class="keyword">for</span> !<a href="proc.go.html#line-5728" class="ident">prof</a>.<a href="proc.go.html#line-5729" class="ident">signalLock</a>.<a href="../internal/runtime/atomic/types.go.html#line-235" class="ident">CompareAndSwap</a>(<span class="lit-number">0</span>, <span class="lit-number">1</span>) {</code></span>
 <span class="codeline" id="line-146"><code>		<span class="comment">// TODO: Is it safe to osyield here? https://go.dev/issue/52672</span></code></span>
-<span class="codeline" id="line-147"><code>		<a href="os_linux.go.html#line-456" class="ident">osyield</a>()</code></span>
+<span class="codeline" id="line-147"><code>		<a href="os_linux.go.html#line-455" class="ident">osyield</a>()</code></span>
 <span class="codeline" id="line-148"><code>	}</code></span>
 <span class="codeline" id="line-149"><code></code></span>
 <span class="codeline" id="line-150"><code>	<span class="keyword">if</span> <a href="#line-59" class="ident">cpuprof</a>.<a href="#line-54" class="ident">numExtra</a>+<span class="lit-number">1</span>+<a href="../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r10" class="ident">stk</label>) &lt; <a href="../../pkg/builtin.html#name-len" class="ident">len</a>(<a href="#line-59" class="ident">cpuprof</a>.<a href="#line-53" class="ident">extra</a>) {</code></span>
@@ -342,7 +342,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-258"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

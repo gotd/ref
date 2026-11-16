@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: root_unix.go in package crypto/x509</title>
-<link href="../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -127,7 +127,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-25"><code>	<a href="../../../pkg/crypto/x509.html#name-certDirEnv" class="ident">certDirEnv</a> = <span class="lit-string">"SSL_CERT_DIR"</span></code></span>
 <span class="codeline" id="line-26"><code>)</code></span>
 <span class="codeline" id="line-27"><code></code></span>
-<span class="codeline" id="line-28"><code><span class="keyword">func</span> (<label for="r0" class="ident">c</label> *<a href="x509.go.html#line-704" class="ident">Certificate</a>) <label for="r1" class="ident"><a href="../../../use/crypto/x509..Certificate.systemVerify^8b54b.html" class="ident">systemVerify</a></label>(<label for="r2" class="ident">opts</label> *<a href="verify.go.html#line-194" class="ident">VerifyOptions</a>) (<label for="r3" class="ident">chains</label> [][]*<a href="x509.go.html#line-704" class="ident">Certificate</a>, <label for="r4" class="ident">err</label> <a href="../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-28"><code><span class="keyword">func</span> (<label for="r0" class="ident">c</label> *<a href="x509.go.html#line-704" class="ident">Certificate</a>) <label for="r1" class="ident"><a href="../../../use/crypto/x509..Certificate.systemVerify^8b54b.html" class="ident">systemVerify</a></label>(<label for="r2" class="ident">opts</label> *<a href="verify.go.html#line-192" class="ident">VerifyOptions</a>) (<label for="r3" class="ident">chains</label> [][]*<a href="x509.go.html#line-704" class="ident">Certificate</a>, <label for="r4" class="ident">err</label> <a href="../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
 <span class="codeline" id="line-29"><code>	<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
 <span class="codeline" id="line-30"><code>}</code></span>
 <span class="codeline" id="line-31"><code></code></span>
@@ -141,7 +141,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-39"><code></code></span>
 <span class="codeline" id="line-40"><code>	<span class="keyword">var</span> <label for="r9" class="ident">firstErr</label> <a href="../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
 <span class="codeline" id="line-41"><code>	<span class="keyword">for</span> <label for="r10" class="ident">_</label>, <label for="r11" class="ident">file</label> := <span class="keyword">range</span> <label for="r7" class="ident">files</label> {</code></span>
-<span class="codeline" id="line-42"><code>		<label for="r12" class="ident">data</label>, <label for="r13" class="ident">err</label> := <a href="../../../pkg/os.html" class="ident i1">os</a>.<a href="../../os/file.go.html#line-864" class="ident">ReadFile</a>(<label for="r11" class="ident">file</label>)</code></span>
+<span class="codeline" id="line-42"><code>		<label for="r12" class="ident">data</label>, <label for="r13" class="ident">err</label> := <a href="../../../pkg/os.html" class="ident i1">os</a>.<a href="../../os/file.go.html#line-867" class="ident">ReadFile</a>(<label for="r11" class="ident">file</label>)</code></span>
 <span class="codeline" id="line-43"><code>		<span class="keyword">if</span> <label for="r13" class="ident">err</label> == <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-44"><code>			<label for="r6" class="ident">roots</label>.<a href="cert_pool.go.html#line-219" class="ident">AppendCertsFromPEM</a>(<label for="r12" class="ident">data</label>)</code></span>
 <span class="codeline" id="line-45"><code>			<span class="keyword">break</span></code></span>
@@ -169,7 +169,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-67"><code>			<span class="keyword">continue</span></code></span>
 <span class="codeline" id="line-68"><code>		}</code></span>
 <span class="codeline" id="line-69"><code>		<span class="keyword">for</span> <label for="r20" class="ident">_</label>, <label for="r21" class="ident">fi</label> := <span class="keyword">range</span> <label for="r18" class="ident">fis</label> {</code></span>
-<span class="codeline" id="line-70"><code>			<label for="r22" class="ident">data</label>, <label for="r23" class="ident">err</label> := <a href="../../../pkg/os.html" class="ident i1">os</a>.<a href="../../os/file.go.html#line-864" class="ident">ReadFile</a>(<label for="r17" class="ident">directory</label> + <span class="lit-string">"/"</span> + <label for="r21" class="ident">fi</label>.<a href="../../io/fs/fs.go.html#line-107" class="ident">Name</a>())</code></span>
+<span class="codeline" id="line-70"><code>			<label for="r22" class="ident">data</label>, <label for="r23" class="ident">err</label> := <a href="../../../pkg/os.html" class="ident i1">os</a>.<a href="../../os/file.go.html#line-867" class="ident">ReadFile</a>(<label for="r17" class="ident">directory</label> + <span class="lit-string">"/"</span> + <label for="r21" class="ident">fi</label>.<a href="../../io/fs/fs.go.html#line-107" class="ident">Name</a>())</code></span>
 <span class="codeline" id="line-71"><code>			<span class="keyword">if</span> <label for="r23" class="ident">err</label> == <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-72"><code>				<label for="r6" class="ident">roots</label>.<a href="cert_pool.go.html#line-219" class="ident">AppendCertsFromPEM</a>(<label for="r22" class="ident">data</label>)</code></span>
 <span class="codeline" id="line-73"><code>			}</code></span>
@@ -205,12 +205,12 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-103"><code>	<span class="keyword">if</span> <label for="r32" class="ident">f</label>.<a href="../../io/fs/fs.go.html#line-114" class="ident">Type</a>()&amp;<a href="../../../pkg/io/fs.html" class="ident i0">fs</a>.<a href="../../io/fs/fs.go.html#line-196" class="ident">ModeSymlink</a> == <span class="lit-number">0</span> {</code></span>
 <span class="codeline" id="line-104"><code>		<span class="keyword">return</span> <a href="../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
 <span class="codeline" id="line-105"><code>	}</code></span>
-<span class="codeline" id="line-106"><code>	<label for="r34" class="ident">target</label>, <label for="r35" class="ident">err</label> := <a href="../../../pkg/os.html" class="ident i1">os</a>.<a href="../../os/file.go.html#line-446" class="ident">Readlink</a>(<a href="../../../pkg/path/filepath.html" class="ident i2">filepath</a>.<a href="../../path/filepath/path.go.html#line-130" class="ident">Join</a>(<label for="r33" class="ident">dir</label>, <label for="r32" class="ident">f</label>.<a href="../../io/fs/fs.go.html#line-107" class="ident">Name</a>()))</code></span>
+<span class="codeline" id="line-106"><code>	<label for="r34" class="ident">target</label>, <label for="r35" class="ident">err</label> := <a href="../../../pkg/os.html" class="ident i1">os</a>.<a href="../../os/file.go.html#line-449" class="ident">Readlink</a>(<a href="../../../pkg/path/filepath.html" class="ident i2">filepath</a>.<a href="../../path/filepath/path.go.html#line-130" class="ident">Join</a>(<label for="r33" class="ident">dir</label>, <label for="r32" class="ident">f</label>.<a href="../../io/fs/fs.go.html#line-107" class="ident">Name</a>()))</code></span>
 <span class="codeline" id="line-107"><code>	<span class="keyword">return</span> <label for="r35" class="ident">err</label> == <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; !<a href="../../../pkg/strings.html" class="ident i3">strings</a>.<a href="../../strings/strings.go.html#line-62" class="ident">Contains</a>(<label for="r34" class="ident">target</label>, <span class="lit-string">"/"</span>)</code></span>
 <span class="codeline" id="line-108"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

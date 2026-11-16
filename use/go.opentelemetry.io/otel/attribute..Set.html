@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>References: go.opentelemetry.io/otel/attribute.Set</title>
-<link href="../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre><code><span style="font-size:x-large;">type <b><a href="../../../pkg/go.opentelemetry.io/otel/attribute.html">go.opentelemetry.io/otel/attribute</a>.<a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-30">Set</a></b></span>
 
-<span class="title">33 uses</span>
+<span class="title">48 uses</span>
 
 	go.opentelemetry.io/otel/attribute (current package)
 		<a href="../../../src/go.opentelemetry.io/otel/attribute/iterator.go.html#line-9">iterator.go#L9</a>: 	storage *<b>Set</b>
@@ -36,10 +36,26 @@
 		<a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-230" class="path-duplicate">set.go</a><a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-230">#L230</a>: func NewSetWithFiltered(kvs []KeyValue, filter Filter) (<b>Set</b>, []KeyValue) {
 		<a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-293" class="path-duplicate">set.go</a><a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-293">#L293</a>: func NewSetWithSortableFiltered(kvs []KeyValue, _ *Sortable, filter Filter) (<b>Set</b>, []KeyValue) {
 		<a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-315" class="path-duplicate">set.go</a><a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-315">#L315</a>: func (l *<b>Set</b>) Filter(re Filter) (<b>Set</b>, []KeyValue) {
-		<a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-359" class="path-duplicate">set.go</a><a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-359">#L359</a>: func newSet(kvs []KeyValue) <b>Set</b> {
-		<a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-360" class="path-duplicate">set.go</a><a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-360">#L360</a>: 	s := <b>Set</b>{
-		<a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-410" class="path-duplicate">set.go</a><a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-410">#L410</a>: func (l *<b>Set</b>) MarshalJSON() ([]byte, error) {
-		<a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-415" class="path-duplicate">set.go</a><a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-415">#L415</a>: func (l <b>Set</b>) MarshalLog() any {
+		<a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-362" class="path-duplicate">set.go</a><a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-362">#L362</a>: func newSet(kvs []KeyValue) <b>Set</b> {
+		<a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-363" class="path-duplicate">set.go</a><a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-363">#L363</a>: 	s := <b>Set</b>{
+		<a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-420" class="path-duplicate">set.go</a><a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-420">#L420</a>: func (l *<b>Set</b>) String() string {
+		<a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-428" class="path-duplicate">set.go</a><a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-428">#L428</a>: func (l *<b>Set</b>) MarshalJSON() ([]byte, error) {
+		<a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-433" class="path-duplicate">set.go</a><a href="../../../src/go.opentelemetry.io/otel/attribute/set.go.html#line-433">#L433</a>: func (l <b>Set</b>) MarshalLog() any {
+
+	<a href="../../../pkg/go.opentelemetry.io/otel/metric.html">go.opentelemetry.io/otel/metric</a>
+		<a href="../../../src/go.opentelemetry.io/otel/metric/config.go.html#line-16">config.go#L16</a>: 	attrs                  attribute.<b>Set</b>
+		<a href="../../../src/go.opentelemetry.io/otel/metric/config.go.html#line-30" class="path-duplicate">config.go</a><a href="../../../src/go.opentelemetry.io/otel/metric/config.go.html#line-30">#L30</a>: func (cfg MeterConfig) InstrumentationAttributes() attribute.<b>Set</b> {
+		<a href="../../../src/go.opentelemetry.io/otel/metric/config.go.html#line-95" class="path-duplicate">config.go</a><a href="../../../src/go.opentelemetry.io/otel/metric/config.go.html#line-95">#L95</a>: func WithInstrumentationAttributeSet(set attribute.<b>Set</b>) MeterOption {
+		<a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-226">instrument.go#L226</a>: 	attrs attribute.<b>Set</b>
+		<a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-242" class="path-duplicate">instrument.go</a><a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-242">#L242</a>: func (c AddConfig) Attributes() attribute.<b>Set</b> {
+		<a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-254" class="path-duplicate">instrument.go</a><a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-254">#L254</a>: 	attrs attribute.<b>Set</b>
+		<a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-270" class="path-duplicate">instrument.go</a><a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-270">#L270</a>: func (c RecordConfig) Attributes() attribute.<b>Set</b> {
+		<a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-282" class="path-duplicate">instrument.go</a><a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-282">#L282</a>: 	attrs attribute.<b>Set</b>
+		<a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-298" class="path-duplicate">instrument.go</a><a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-298">#L298</a>: func (c ObserveConfig) Attributes() attribute.<b>Set</b> {
+		<a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-310" class="path-duplicate">instrument.go</a><a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-310">#L310</a>: 	set attribute.<b>Set</b>
+		<a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-313" class="path-duplicate">instrument.go</a><a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-313">#L313</a>: func (o *attrOpt) Set(set attribute.<b>Set</b>) {
+		<a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-319" class="path-duplicate">instrument.go</a><a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-319">#L319</a>: func mergeSets(a, b attribute.<b>Set</b>) attribute.<b>Set</b> {
+		<a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-374" class="path-duplicate">instrument.go</a><a href="../../../src/go.opentelemetry.io/otel/metric/instrument.go.html#line-374">#L374</a>: func WithAttributeSet(attributes attribute.<b>Set</b>) MeasurementOption {
 
 	<a href="../../../pkg/go.opentelemetry.io/otel/trace.html">go.opentelemetry.io/otel/trace</a>
 		<a href="../../../src/go.opentelemetry.io/otel/trace/config.go.html#line-18">config.go#L18</a>: 	attrs     attribute.<b>Set</b>
@@ -48,7 +64,7 @@
 		<a href="../../../src/go.opentelemetry.io/otel/trace/config.go.html#line-355" class="path-duplicate">config.go</a><a href="../../../src/go.opentelemetry.io/otel/trace/config.go.html#line-355">#L355</a>: func WithInstrumentationAttributeSet(set attribute.<b>Set</b>) TracerOption {
 </code></pre><pre id="footer">
 <table><tr><td><img src="../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: tl_keyboard_button_row_gen.go in package github.com/gotd/td/tg</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -54,10 +54,7 @@ input[id=r34]:checked ~pre label[for=r34],
 input[id=r35]:checked ~pre label[for=r35],
 input[id=r36]:checked ~pre label[for=r36],
 input[id=r37]:checked ~pre label[for=r37],
-input[id=r38]:checked ~pre label[for=r38],
-input[id=r39]:checked ~pre label[for=r39],
-input[id=r40]:checked ~pre label[for=r40],
-input[id=r41]:checked ~pre label[for=r41]
+input[id=r38]:checked ~pre label[for=r38]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
 input[id=i1]:checked ~pre .i1,
@@ -109,9 +106,6 @@ input[id=i9]:checked ~pre .i9
 <input id="r36" type="radio" name="g"/>
 <input id="r37" type="radio" name="g"/>
 <input id="r38" type="radio" name="g"/>
-<input id="r39" type="radio" name="g"/>
-<input id="r40" type="radio" name="g"/>
-<input id="r41" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
 <input id="i2" type="radio" name="i"/>
@@ -163,7 +157,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-37"><code><span class="comment">// See https://core.telegram.org/constructor/keyboardButtonRow for reference.</span></code></span>
 <span class="codeline" id="line-38"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-KeyboardButtonRow" class="ident">KeyboardButtonRow</a> <span class="keyword">struct</span> {</code></span>
 <span class="codeline" id="line-39"><code>	<span class="comment">// Bot or inline keyboard buttons</span></code></span>
-<span class="codeline" id="line-40"><code>	<a href="../../../../../use/github.com/gotd/td/tg..KeyboardButtonRow.Buttons.html" class="ident">Buttons</a> []<a href="tl_keyboard_button_gen.go.html#line-4854" class="ident">KeyboardButtonClass</a></code></span>
+<span class="codeline" id="line-40"><code>	<a href="../../../../../use/github.com/gotd/td/tg..KeyboardButtonRow.Buttons.html" class="ident">Buttons</a> []<a href="tl_keyboard_button_gen.go.html#line-45" class="ident">KeyboardButton</a></code></span>
 <span class="codeline" id="line-41"><code>}</code></span>
 <span class="codeline" id="line-42"><code></code></span>
 <span class="codeline" id="line-43"><code><span class="comment">// KeyboardButtonRowTypeID is TL type id of KeyboardButtonRow.</span></code></span>
@@ -199,7 +193,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-73"><code></code></span>
 <span class="codeline" id="line-74"><code><span class="comment">// FillFrom fills KeyboardButtonRow from given interface.</span></code></span>
 <span class="codeline" id="line-75"><code><span class="keyword">func</span> (<label for="r5" class="ident">k</label> *<a href="#line-38" class="ident">KeyboardButtonRow</a>) <label for="r6" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..KeyboardButtonRow.FillFrom.html" class="ident">FillFrom</a></label>(<label for="r7" class="ident">from</label> <span class="keyword">interface</span> {</code></span>
-<span class="codeline" id="line-76"><code>	<label for="r8" class="ident">GetButtons</label>() (<label for="r9" class="ident">value</label> []<a href="tl_keyboard_button_gen.go.html#line-4854" class="ident">KeyboardButtonClass</a>)</code></span>
+<span class="codeline" id="line-76"><code>	<label for="r8" class="ident">GetButtons</label>() (<label for="r9" class="ident">value</label> []<a href="tl_keyboard_button_gen.go.html#line-45" class="ident">KeyboardButton</a>)</code></span>
 <span class="codeline" id="line-77"><code>}) {</code></span>
 <span class="codeline" id="line-78"><code>	<label for="r5" class="ident">k</label>.<a href="#line-40" class="ident">Buttons</a> = <label for="r7" class="ident">from</label>.<label for="r8" class="ident">GetButtons</label>()</code></span>
 <span class="codeline" id="line-79"><code>}</code></span>
@@ -251,67 +245,59 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-125"><code>	}</code></span>
 <span class="codeline" id="line-126"><code>	<label for="r20" class="ident">b</label>.<a href="../bin/encode.go.html#line-31" class="ident">PutVectorHeader</a>(<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r18" class="ident">k</label>.<a href="#line-40" class="ident">Buttons</a>))</code></span>
 <span class="codeline" id="line-127"><code>	<span class="keyword">for</span> <label for="r21" class="ident">idx</label>, <label for="r22" class="ident">v</label> := <span class="keyword">range</span> <label for="r18" class="ident">k</label>.<a href="#line-40" class="ident">Buttons</a> {</code></span>
-<span class="codeline" id="line-128"><code>		<span class="keyword">if</span> <label for="r22" class="ident">v</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-129"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode keyboardButtonRow#77608b83: field buttons element with index %d is nil"</span>, <label for="r21" class="ident">idx</label>)</code></span>
+<span class="codeline" id="line-128"><code>		<span class="keyword">if</span> <label for="r23" class="ident">err</label> := <label for="r22" class="ident">v</label>.<a href="tl_keyboard_button_gen.go.html#line-166" class="ident">Encode</a>(<label for="r20" class="ident">b</label>); <label for="r23" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-129"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode keyboardButtonRow#77608b83: field buttons element with index %d: %w"</span>, <label for="r21" class="ident">idx</label>, <label for="r23" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-130"><code>		}</code></span>
-<span class="codeline" id="line-131"><code>		<span class="keyword">if</span> <label for="r23" class="ident">err</label> := <label for="r22" class="ident">v</label>.<a href="../bin/bin.go.html#line-38" class="ident">Encode</a>(<label for="r20" class="ident">b</label>); <label for="r23" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-132"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode keyboardButtonRow#77608b83: field buttons element with index %d: %w"</span>, <label for="r21" class="ident">idx</label>, <label for="r23" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-133"><code>		}</code></span>
-<span class="codeline" id="line-134"><code>	}</code></span>
-<span class="codeline" id="line-135"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-136"><code>}</code></span>
-<span class="codeline" id="line-137"><code></code></span>
-<span class="codeline" id="line-138"><code><span class="comment">// Decode implements bin.Decoder.</span></code></span>
-<span class="codeline" id="line-139"><code><span class="keyword">func</span> (<label for="r24" class="ident">k</label> *<a href="#line-38" class="ident">KeyboardButtonRow</a>) <label for="r25" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..KeyboardButtonRow.Decode.html" class="ident">Decode</a></label>(<label for="r26" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-140"><code>	<span class="keyword">if</span> <label for="r24" class="ident">k</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-141"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't decode keyboardButtonRow#77608b83 to nil"</span>)</code></span>
+<span class="codeline" id="line-131"><code>	}</code></span>
+<span class="codeline" id="line-132"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-133"><code>}</code></span>
+<span class="codeline" id="line-134"><code></code></span>
+<span class="codeline" id="line-135"><code><span class="comment">// Decode implements bin.Decoder.</span></code></span>
+<span class="codeline" id="line-136"><code><span class="keyword">func</span> (<label for="r24" class="ident">k</label> *<a href="#line-38" class="ident">KeyboardButtonRow</a>) <label for="r25" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..KeyboardButtonRow.Decode.html" class="ident">Decode</a></label>(<label for="r26" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-137"><code>	<span class="keyword">if</span> <label for="r24" class="ident">k</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-138"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't decode keyboardButtonRow#77608b83 to nil"</span>)</code></span>
+<span class="codeline" id="line-139"><code>	}</code></span>
+<span class="codeline" id="line-140"><code>	<span class="keyword">if</span> <label for="r27" class="ident">err</label> := <label for="r26" class="ident">b</label>.<a href="../bin/decode.go.html#line-98" class="ident">ConsumeID</a>(<a href="#line-44" class="ident">KeyboardButtonRowTypeID</a>); <label for="r27" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-141"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode keyboardButtonRow#77608b83: %w"</span>, <label for="r27" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-142"><code>	}</code></span>
-<span class="codeline" id="line-143"><code>	<span class="keyword">if</span> <label for="r27" class="ident">err</label> := <label for="r26" class="ident">b</label>.<a href="../bin/decode.go.html#line-98" class="ident">ConsumeID</a>(<a href="#line-44" class="ident">KeyboardButtonRowTypeID</a>); <label for="r27" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-144"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode keyboardButtonRow#77608b83: %w"</span>, <label for="r27" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-145"><code>	}</code></span>
-<span class="codeline" id="line-146"><code>	<span class="keyword">return</span> <label for="r24" class="ident">k</label>.<a href="#line-150" class="ident">DecodeBare</a>(<label for="r26" class="ident">b</label>)</code></span>
-<span class="codeline" id="line-147"><code>}</code></span>
-<span class="codeline" id="line-148"><code></code></span>
-<span class="codeline" id="line-149"><code><span class="comment">// DecodeBare implements bin.BareDecoder.</span></code></span>
-<span class="codeline" id="line-150"><code><span class="keyword">func</span> (<label for="r28" class="ident">k</label> *<a href="#line-38" class="ident">KeyboardButtonRow</a>) <label for="r29" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..KeyboardButtonRow.DecodeBare.html" class="ident">DecodeBare</a></label>(<label for="r30" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-151"><code>	<span class="keyword">if</span> <label for="r28" class="ident">k</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-152"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't decode keyboardButtonRow#77608b83 to nil"</span>)</code></span>
-<span class="codeline" id="line-153"><code>	}</code></span>
-<span class="codeline" id="line-154"><code>	{</code></span>
-<span class="codeline" id="line-155"><code>		<label for="r31" class="ident">headerLen</label>, <label for="r32" class="ident">err</label> := <label for="r30" class="ident">b</label>.<a href="../bin/decode.go.html#line-111" class="ident">VectorHeader</a>()</code></span>
-<span class="codeline" id="line-156"><code>		<span class="keyword">if</span> <label for="r32" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-157"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode keyboardButtonRow#77608b83: field buttons: %w"</span>, <label for="r32" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-158"><code>		}</code></span>
-<span class="codeline" id="line-159"><code></code></span>
-<span class="codeline" id="line-160"><code>		<span class="keyword">if</span> <label for="r31" class="ident">headerLen</label> &gt; <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-161"><code>			<label for="r28" class="ident">k</label>.<a href="#line-40" class="ident">Buttons</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="tl_keyboard_button_gen.go.html#line-4854" class="ident">KeyboardButtonClass</a>, <span class="lit-number">0</span>, <label for="r31" class="ident">headerLen</label>%<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/const.go.html#line-4" class="ident">PreallocateLimit</a>)</code></span>
-<span class="codeline" id="line-162"><code>		}</code></span>
-<span class="codeline" id="line-163"><code>		<span class="keyword">for</span> <label for="r33" class="ident">idx</label> := <span class="lit-number">0</span>; <label for="r33" class="ident">idx</label> &lt; <label for="r31" class="ident">headerLen</label>; <label for="r33" class="ident">idx</label>++ {</code></span>
-<span class="codeline" id="line-164"><code>			<label for="r34" class="ident">value</label>, <label for="r35" class="ident">err</label> := <a href="tl_keyboard_button_gen.go.html#line-4883" class="ident">DecodeKeyboardButton</a>(<label for="r30" class="ident">b</label>)</code></span>
-<span class="codeline" id="line-165"><code>			<span class="keyword">if</span> <label for="r35" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-166"><code>				<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode keyboardButtonRow#77608b83: field buttons: %w"</span>, <label for="r35" class="ident">err</label>)</code></span>
-<span class="codeline" id="line-167"><code>			}</code></span>
-<span class="codeline" id="line-168"><code>			<label for="r28" class="ident">k</label>.<a href="#line-40" class="ident">Buttons</a> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r28" class="ident">k</label>.<a href="#line-40" class="ident">Buttons</a>, <label for="r34" class="ident">value</label>)</code></span>
-<span class="codeline" id="line-169"><code>		}</code></span>
-<span class="codeline" id="line-170"><code>	}</code></span>
-<span class="codeline" id="line-171"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
-<span class="codeline" id="line-172"><code>}</code></span>
-<span class="codeline" id="line-173"><code></code></span>
-<span class="codeline" id="line-174"><code><span class="comment">// GetButtons returns value of Buttons field.</span></code></span>
-<span class="codeline" id="line-175"><code><span class="keyword">func</span> (<label for="r36" class="ident">k</label> *<a href="#line-38" class="ident">KeyboardButtonRow</a>) <label for="r37" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..KeyboardButtonRow.GetButtons.html" class="ident">GetButtons</a></label>() (<label for="r38" class="ident">value</label> []<a href="tl_keyboard_button_gen.go.html#line-4854" class="ident">KeyboardButtonClass</a>) {</code></span>
-<span class="codeline" id="line-176"><code>	<span class="keyword">if</span> <label for="r36" class="ident">k</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
-<span class="codeline" id="line-177"><code>		<span class="keyword">return</span></code></span>
-<span class="codeline" id="line-178"><code>	}</code></span>
-<span class="codeline" id="line-179"><code>	<span class="keyword">return</span> <label for="r36" class="ident">k</label>.<a href="#line-40" class="ident">Buttons</a></code></span>
-<span class="codeline" id="line-180"><code>}</code></span>
-<span class="codeline" id="line-181"><code></code></span>
-<span class="codeline" id="line-182"><code><span class="comment">// MapButtons returns field Buttons wrapped in KeyboardButtonClassArray helper.</span></code></span>
-<span class="codeline" id="line-183"><code><span class="keyword">func</span> (<label for="r39" class="ident">k</label> *<a href="#line-38" class="ident">KeyboardButtonRow</a>) <label for="r40" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..KeyboardButtonRow.MapButtons.html" class="ident">MapButtons</a></label>() (<label for="r41" class="ident">value</label> <a href="tl_keyboard_button_slices_gen.go.html#line-38" class="ident">KeyboardButtonClassArray</a>) {</code></span>
-<span class="codeline" id="line-184"><code>	<span class="keyword">return</span> <a href="tl_keyboard_button_slices_gen.go.html#line-38" class="ident">KeyboardButtonClassArray</a>(<label for="r39" class="ident">k</label>.<a href="#line-40" class="ident">Buttons</a>)</code></span>
-<span class="codeline" id="line-185"><code>}</code></span>
+<span class="codeline" id="line-143"><code>	<span class="keyword">return</span> <label for="r24" class="ident">k</label>.<a href="#line-147" class="ident">DecodeBare</a>(<label for="r26" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-144"><code>}</code></span>
+<span class="codeline" id="line-145"><code></code></span>
+<span class="codeline" id="line-146"><code><span class="comment">// DecodeBare implements bin.BareDecoder.</span></code></span>
+<span class="codeline" id="line-147"><code><span class="keyword">func</span> (<label for="r28" class="ident">k</label> *<a href="#line-38" class="ident">KeyboardButtonRow</a>) <label for="r29" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..KeyboardButtonRow.DecodeBare.html" class="ident">DecodeBare</a></label>(<label for="r30" class="ident">b</label> *<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/buffer.go.html#line-8" class="ident">Buffer</a>) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-148"><code>	<span class="keyword">if</span> <label for="r28" class="ident">k</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-149"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"can't decode keyboardButtonRow#77608b83 to nil"</span>)</code></span>
+<span class="codeline" id="line-150"><code>	}</code></span>
+<span class="codeline" id="line-151"><code>	{</code></span>
+<span class="codeline" id="line-152"><code>		<label for="r31" class="ident">headerLen</label>, <label for="r32" class="ident">err</label> := <label for="r30" class="ident">b</label>.<a href="../bin/decode.go.html#line-111" class="ident">VectorHeader</a>()</code></span>
+<span class="codeline" id="line-153"><code>		<span class="keyword">if</span> <label for="r32" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-154"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode keyboardButtonRow#77608b83: field buttons: %w"</span>, <label for="r32" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-155"><code>		}</code></span>
+<span class="codeline" id="line-156"><code></code></span>
+<span class="codeline" id="line-157"><code>		<span class="keyword">if</span> <label for="r31" class="ident">headerLen</label> &gt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-158"><code>			<label for="r28" class="ident">k</label>.<a href="#line-40" class="ident">Buttons</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="tl_keyboard_button_gen.go.html#line-45" class="ident">KeyboardButton</a>, <span class="lit-number">0</span>, <label for="r31" class="ident">headerLen</label>%<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/const.go.html#line-4" class="ident">PreallocateLimit</a>)</code></span>
+<span class="codeline" id="line-159"><code>		}</code></span>
+<span class="codeline" id="line-160"><code>		<span class="keyword">for</span> <label for="r33" class="ident">idx</label> := <span class="lit-number">0</span>; <label for="r33" class="ident">idx</label> &lt; <label for="r31" class="ident">headerLen</label>; <label for="r33" class="ident">idx</label>++ {</code></span>
+<span class="codeline" id="line-161"><code>			<span class="keyword">var</span> <label for="r34" class="ident">value</label> <a href="tl_keyboard_button_gen.go.html#line-45" class="ident">KeyboardButton</a></code></span>
+<span class="codeline" id="line-162"><code>			<span class="keyword">if</span> <label for="r35" class="ident">err</label> := <label for="r34" class="ident">value</label>.<a href="tl_keyboard_button_gen.go.html#line-199" class="ident">Decode</a>(<label for="r30" class="ident">b</label>); <label for="r35" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-163"><code>				<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode keyboardButtonRow#77608b83: field buttons: %w"</span>, <label for="r35" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-164"><code>			}</code></span>
+<span class="codeline" id="line-165"><code>			<label for="r28" class="ident">k</label>.<a href="#line-40" class="ident">Buttons</a> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r28" class="ident">k</label>.<a href="#line-40" class="ident">Buttons</a>, <label for="r34" class="ident">value</label>)</code></span>
+<span class="codeline" id="line-166"><code>		}</code></span>
+<span class="codeline" id="line-167"><code>	}</code></span>
+<span class="codeline" id="line-168"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-169"><code>}</code></span>
+<span class="codeline" id="line-170"><code></code></span>
+<span class="codeline" id="line-171"><code><span class="comment">// GetButtons returns value of Buttons field.</span></code></span>
+<span class="codeline" id="line-172"><code><span class="keyword">func</span> (<label for="r36" class="ident">k</label> *<a href="#line-38" class="ident">KeyboardButtonRow</a>) <label for="r37" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..KeyboardButtonRow.GetButtons.html" class="ident">GetButtons</a></label>() (<label for="r38" class="ident">value</label> []<a href="tl_keyboard_button_gen.go.html#line-45" class="ident">KeyboardButton</a>) {</code></span>
+<span class="codeline" id="line-173"><code>	<span class="keyword">if</span> <label for="r36" class="ident">k</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-174"><code>		<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-175"><code>	}</code></span>
+<span class="codeline" id="line-176"><code>	<span class="keyword">return</span> <label for="r36" class="ident">k</label>.<a href="#line-40" class="ident">Buttons</a></code></span>
+<span class="codeline" id="line-177"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

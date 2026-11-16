@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: tl_recent_story_vector_gen.go in package github.com/gotd/td/tg</title>
-<link href="../../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -152,7 +152,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-34"><code><span class="comment">// RecentStoryVector is a box for Vector&lt;RecentStory&gt;</span></code></span>
 <span class="codeline" id="line-35"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gotd/td/tg.html#name-RecentStoryVector" class="ident">RecentStoryVector</a> <span class="keyword">struct</span> {</code></span>
 <span class="codeline" id="line-36"><code>	<span class="comment">// Elements of Vector&lt;RecentStory&gt;</span></code></span>
-<span class="codeline" id="line-37"><code>	<a href="../../../../../use/github.com/gotd/td/tg..RecentStoryVector.Elems.html" class="ident">Elems</a> []<a href="tl_recent_story_gen.go.html#line-37" class="ident">RecentStory</a></code></span>
+<span class="codeline" id="line-37"><code>	<a href="../../../../../use/github.com/gotd/td/tg..RecentStoryVector.Elems.html" class="ident">Elems</a> []<a href="tl_recent_story_gen.go.html#line-45" class="ident">RecentStory</a></code></span>
 <span class="codeline" id="line-38"><code>}</code></span>
 <span class="codeline" id="line-39"><code></code></span>
 <span class="codeline" id="line-40"><code><span class="comment">// RecentStoryVectorTypeID is TL type id of RecentStoryVector.</span></code></span>
@@ -188,7 +188,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-70"><code></code></span>
 <span class="codeline" id="line-71"><code><span class="comment">// FillFrom fills RecentStoryVector from given interface.</span></code></span>
 <span class="codeline" id="line-72"><code><span class="keyword">func</span> (<label for="r5" class="ident">vec</label> *<a href="#line-35" class="ident">RecentStoryVector</a>) <label for="r6" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..RecentStoryVector.FillFrom.html" class="ident">FillFrom</a></label>(<label for="r7" class="ident">from</label> <span class="keyword">interface</span> {</code></span>
-<span class="codeline" id="line-73"><code>	<label for="r8" class="ident">GetElems</label>() (<label for="r9" class="ident">value</label> []<a href="tl_recent_story_gen.go.html#line-37" class="ident">RecentStory</a>)</code></span>
+<span class="codeline" id="line-73"><code>	<label for="r8" class="ident">GetElems</label>() (<label for="r9" class="ident">value</label> []<a href="tl_recent_story_gen.go.html#line-45" class="ident">RecentStory</a>)</code></span>
 <span class="codeline" id="line-74"><code>}) {</code></span>
 <span class="codeline" id="line-75"><code>	<label for="r5" class="ident">vec</label>.<a href="#line-37" class="ident">Elems</a> = <label for="r7" class="ident">from</label>.<label for="r8" class="ident">GetElems</label>()</code></span>
 <span class="codeline" id="line-76"><code>}</code></span>
@@ -240,7 +240,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-122"><code>	}</code></span>
 <span class="codeline" id="line-123"><code>	<label for="r20" class="ident">b</label>.<a href="../bin/encode.go.html#line-31" class="ident">PutVectorHeader</a>(<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r18" class="ident">vec</label>.<a href="#line-37" class="ident">Elems</a>))</code></span>
 <span class="codeline" id="line-124"><code>	<span class="keyword">for</span> <label for="r21" class="ident">idx</label>, <label for="r22" class="ident">v</label> := <span class="keyword">range</span> <label for="r18" class="ident">vec</label>.<a href="#line-37" class="ident">Elems</a> {</code></span>
-<span class="codeline" id="line-125"><code>		<span class="keyword">if</span> <label for="r23" class="ident">err</label> := <label for="r22" class="ident">v</label>.<a href="tl_recent_story_gen.go.html#line-148" class="ident">Encode</a>(<label for="r20" class="ident">b</label>); <label for="r23" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-125"><code>		<span class="keyword">if</span> <label for="r23" class="ident">err</label> := <label for="r22" class="ident">v</label>.<a href="tl_recent_story_gen.go.html#line-163" class="ident">Encode</a>(<label for="r20" class="ident">b</label>); <label for="r23" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-126"><code>			<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to encode Vector&lt;RecentStory&gt;: field Elems element with index %d: %w"</span>, <label for="r21" class="ident">idx</label>, <label for="r23" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-127"><code>		}</code></span>
 <span class="codeline" id="line-128"><code>	}</code></span>
@@ -268,11 +268,11 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-150"><code>		}</code></span>
 <span class="codeline" id="line-151"><code></code></span>
 <span class="codeline" id="line-152"><code>		<span class="keyword">if</span> <label for="r30" class="ident">headerLen</label> &gt; <span class="lit-number">0</span> {</code></span>
-<span class="codeline" id="line-153"><code>			<label for="r27" class="ident">vec</label>.<a href="#line-37" class="ident">Elems</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="tl_recent_story_gen.go.html#line-37" class="ident">RecentStory</a>, <span class="lit-number">0</span>, <label for="r30" class="ident">headerLen</label>%<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/const.go.html#line-4" class="ident">PreallocateLimit</a>)</code></span>
+<span class="codeline" id="line-153"><code>			<label for="r27" class="ident">vec</label>.<a href="#line-37" class="ident">Elems</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="tl_recent_story_gen.go.html#line-45" class="ident">RecentStory</a>, <span class="lit-number">0</span>, <label for="r30" class="ident">headerLen</label>%<a href="../../../../../pkg/github.com/gotd/td/bin.html" class="ident i6">bin</a>.<a href="../bin/const.go.html#line-4" class="ident">PreallocateLimit</a>)</code></span>
 <span class="codeline" id="line-154"><code>		}</code></span>
 <span class="codeline" id="line-155"><code>		<span class="keyword">for</span> <label for="r32" class="ident">idx</label> := <span class="lit-number">0</span>; <label for="r32" class="ident">idx</label> &lt; <label for="r30" class="ident">headerLen</label>; <label for="r32" class="ident">idx</label>++ {</code></span>
-<span class="codeline" id="line-156"><code>			<span class="keyword">var</span> <label for="r33" class="ident">value</label> <a href="tl_recent_story_gen.go.html#line-37" class="ident">RecentStory</a></code></span>
-<span class="codeline" id="line-157"><code>			<span class="keyword">if</span> <label for="r34" class="ident">err</label> := <label for="r33" class="ident">value</label>.<a href="tl_recent_story_gen.go.html#line-172" class="ident">Decode</a>(<label for="r29" class="ident">b</label>); <label for="r34" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-156"><code>			<span class="keyword">var</span> <label for="r33" class="ident">value</label> <a href="tl_recent_story_gen.go.html#line-45" class="ident">RecentStory</a></code></span>
+<span class="codeline" id="line-157"><code>			<span class="keyword">if</span> <label for="r34" class="ident">err</label> := <label for="r33" class="ident">value</label>.<a href="tl_recent_story_gen.go.html#line-187" class="ident">Decode</a>(<label for="r29" class="ident">b</label>); <label for="r34" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-158"><code>				<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i2">fmt</a>.<a href="../../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<span class="lit-string">"unable to decode Vector&lt;RecentStory&gt;: field Elems: %w"</span>, <label for="r34" class="ident">err</label>)</code></span>
 <span class="codeline" id="line-159"><code>			}</code></span>
 <span class="codeline" id="line-160"><code>			<label for="r27" class="ident">vec</label>.<a href="#line-37" class="ident">Elems</a> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r27" class="ident">vec</label>.<a href="#line-37" class="ident">Elems</a>, <label for="r33" class="ident">value</label>)</code></span>
@@ -282,7 +282,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-164"><code>}</code></span>
 <span class="codeline" id="line-165"><code></code></span>
 <span class="codeline" id="line-166"><code><span class="comment">// GetElems returns value of Elems field.</span></code></span>
-<span class="codeline" id="line-167"><code><span class="keyword">func</span> (<label for="r35" class="ident">vec</label> *<a href="#line-35" class="ident">RecentStoryVector</a>) <label for="r36" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..RecentStoryVector.GetElems.html" class="ident">GetElems</a></label>() (<label for="r37" class="ident">value</label> []<a href="tl_recent_story_gen.go.html#line-37" class="ident">RecentStory</a>) {</code></span>
+<span class="codeline" id="line-167"><code><span class="keyword">func</span> (<label for="r35" class="ident">vec</label> *<a href="#line-35" class="ident">RecentStoryVector</a>) <label for="r36" class="ident"><a href="../../../../../use/github.com/gotd/td/tg..RecentStoryVector.GetElems.html" class="ident">GetElems</a></label>() (<label for="r37" class="ident">value</label> []<a href="tl_recent_story_gen.go.html#line-45" class="ident">RecentStory</a>) {</code></span>
 <span class="codeline" id="line-168"><code>	<span class="keyword">if</span> <label for="r35" class="ident">vec</label> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-169"><code>		<span class="keyword">return</span></code></span>
 <span class="codeline" id="line-170"><code>	}</code></span>
@@ -290,7 +290,7 @@ input[id=i9]:checked ~pre .i9
 <span class="codeline" id="line-172"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source: format.go in package github.com/go-faster/errors</title>
-<link href="../../../../css/auto-v0.8.5.css" rel="stylesheet">
-<script src="../../../../jvs/golds-v0.8.5.js"></script>
+<link href="../../../../css/auto-v0.8.7.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.8.7.js"></script>
 <body onload="onPageLoad()"><div>
 
 <pre id="header"><code><span class="title">Source File</span>
@@ -18,7 +18,10 @@
 <style>input[type=radio] {display: none;}
 input[id=r0]:checked ~pre label[for=r0],
 input[id=r1]:checked ~pre label[for=r1],
-input[id=r2]:checked ~pre label[for=r2]
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5]
 {background: #226; color: #ff8;}
 input[id=i0]:checked ~pre .i0,
 input[id=i1]:checked ~pre .i1
@@ -26,6 +29,9 @@ input[id=i1]:checked ~pre .i1
 </style><input id="r0" type="radio" name="g"/>
 <input id="r1" type="radio" name="g"/>
 <input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
 <input id="i0" type="radio" name="i"/>
 <input id="i1" type="radio" name="i"/>
 
@@ -71,15 +77,25 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-39"><code>}</code></span>
 <span class="codeline" id="line-40"><code></code></span>
 <span class="codeline" id="line-41"><code><span class="comment">// Errorf creates new error with format.</span></code></span>
-<span class="codeline" id="line-42"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/github.com/go-faster/errors.html#name-Errorf" class="ident">Errorf</a></label>(<label for="r1" class="ident">format</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r2" class="ident">a</label> ...<span class="keyword">interface</span>{}) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
-<span class="codeline" id="line-43"><code>	<span class="keyword">if</span> !<a href="trace.go.html#line-35" class="ident">Trace</a>() || <a href="../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../strings/strings.go.html#line-62" class="ident">Contains</a>(<label for="r1" class="ident">format</label>, <span class="lit-string">"%w"</span>) {</code></span>
-<span class="codeline" id="line-44"><code>		<span class="keyword">return</span> <a href="../../../../pkg/fmt.html" class="ident i0">fmt</a>.<a href="../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<label for="r1" class="ident">format</label>, <label for="r2" class="ident">a</label>...)</code></span>
-<span class="codeline" id="line-45"><code>	}</code></span>
-<span class="codeline" id="line-46"><code>	<span class="keyword">return</span> &amp;<a href="errors.go.html#line-13" class="ident">errorString</a>{<a href="../../../../pkg/fmt.html" class="ident i0">fmt</a>.<a href="../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<label for="r1" class="ident">format</label>, <label for="r2" class="ident">a</label>...), <a href="frame.go.html#line-22" class="ident">Caller</a>(<span class="lit-number">1</span>)}</code></span>
-<span class="codeline" id="line-47"><code>}</code></span>
+<span class="codeline" id="line-42"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-43"><code><span class="comment">// If format contains the %w directive, Errorf falls back to fmt.Errorf</span></code></span>
+<span class="codeline" id="line-44"><code><span class="comment">// and does not capture a caller frame.</span></code></span>
+<span class="codeline" id="line-45"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/github.com/go-faster/errors.html#name-Errorf" class="ident">Errorf</a></label>(<label for="r1" class="ident">format</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r2" class="ident">a</label> ...<span class="keyword">interface</span>{}) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-46"><code>	<span class="keyword">if</span> !<a href="trace.go.html#line-35" class="ident">Trace</a>() || <a href="../../../../pkg/strings.html" class="ident i1">strings</a>.<a href="../../../strings/strings.go.html#line-62" class="ident">Contains</a>(<label for="r1" class="ident">format</label>, <span class="lit-string">"%w"</span>) {</code></span>
+<span class="codeline" id="line-47"><code>		<span class="keyword">return</span> <a href="../../../../pkg/fmt.html" class="ident i0">fmt</a>.<a href="../../../fmt/errors.go.html#line-23" class="ident">Errorf</a>(<label for="r1" class="ident">format</label>, <label for="r2" class="ident">a</label>...)</code></span>
+<span class="codeline" id="line-48"><code>	}</code></span>
+<span class="codeline" id="line-49"><code>	<span class="keyword">return</span> &amp;<a href="errors.go.html#line-13" class="ident">errorString</a>{<a href="#line-55" class="ident">sprintf</a>(<label for="r1" class="ident">format</label>, <label for="r2" class="ident">a</label>), <a href="frame.go.html#line-22" class="ident">Caller</a>(<span class="lit-number">1</span>)}</code></span>
+<span class="codeline" id="line-50"><code>}</code></span>
+<span class="codeline" id="line-51"><code></code></span>
+<span class="codeline" id="line-52"><code><span class="comment">// sprintf is deliberately non-variadic: forwarding (format, a...) straight</span></code></span>
+<span class="codeline" id="line-53"><code><span class="comment">// to fmt.Sprintf from Errorf makes vet's printf analyzer classify Errorf as</span></code></span>
+<span class="codeline" id="line-54"><code><span class="comment">// a plain printf wrapper, rejecting %w in callers' format strings.</span></code></span>
+<span class="codeline" id="line-55"><code><span class="keyword">func</span> <label for="r3" class="ident"><a href="../../../../pkg/github.com/go-faster/errors.html#name-sprintf" class="ident">sprintf</a></label>(<label for="r4" class="ident">format</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>, <label for="r5" class="ident">a</label> []<span class="keyword">interface</span>{}) <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-56"><code>	<span class="keyword">return</span> <a href="../../../../pkg/fmt.html" class="ident i0">fmt</a>.<a href="../../../fmt/print.go.html#line-237" class="ident">Sprintf</a>(<label for="r4" class="ident">format</label>, <label for="r5" class="ident">a</label>...)</code></span>
+<span class="codeline" id="line-57"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../png/zigo101-twitter.png"></td>
-<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.5</i>. (GOOS=linux GOARCH=amd64)
+<td>The pages are generated with <a href="https://go101.org/apps-and-libs/golds.html"><b>Golds</b></a> <i>v0.8.7</i>. (GOOS=linux GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
 PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
 Please follow <a href="https://twitter.com/zigo_101">@zigo_101</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
