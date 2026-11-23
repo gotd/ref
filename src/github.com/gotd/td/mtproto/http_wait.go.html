@@ -123,8 +123,8 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-55"><code><span class="comment">	// During createAuthKey (exclusive Lock) this blocks, so no http_wait is sent</span></code></span>
 <span class="codeline" id="line-56"><code><span class="comment">	// with a stale key; any long-poll started earlier delivers at most a -404,</span></code></span>
 <span class="codeline" id="line-57"><code><span class="comment">	// which the exchange layer swallows (continue-on-ProtocolErr).</span></code></span>
-<span class="codeline" id="line-58"><code>	<label for="r8" class="ident">c</label>.<a href="conn.go.html#line-127" class="ident">exchangeLock</a>.<a href="../../../../sync/rwmutex.go.html#line-67" class="ident">RLock</a>()</code></span>
-<span class="codeline" id="line-59"><code>	<span class="keyword">defer</span> <label for="r8" class="ident">c</label>.<a href="conn.go.html#line-127" class="ident">exchangeLock</a>.<a href="../../../../sync/rwmutex.go.html#line-114" class="ident">RUnlock</a>()</code></span>
+<span class="codeline" id="line-58"><code>	<label for="r8" class="ident">c</label>.<a href="conn.go.html#line-130" class="ident">exchangeLock</a>.<a href="../../../../sync/rwmutex.go.html#line-67" class="ident">RLock</a>()</code></span>
+<span class="codeline" id="line-59"><code>	<span class="keyword">defer</span> <label for="r8" class="ident">c</label>.<a href="conn.go.html#line-130" class="ident">exchangeLock</a>.<a href="../../../../sync/rwmutex.go.html#line-114" class="ident">RUnlock</a>()</code></span>
 <span class="codeline" id="line-60"><code></code></span>
 <span class="codeline" id="line-61"><code>	<span class="comment">// Allocated under the lock, so it is numbered in the current session.</span></code></span>
 <span class="codeline" id="line-62"><code>	<label for="r15" class="ident">msgID</label>, <label for="r16" class="ident">seqNo</label> := <label for="r8" class="ident">c</label>.<a href="write.go.html#line-103" class="ident">nextMsgSeq</a>(<a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a>)</code></span>
