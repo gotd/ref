@@ -93,7 +93,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-39"><code>		)</code></span>
 <span class="codeline" id="line-40"><code>	}</code></span>
 <span class="codeline" id="line-41"><code></code></span>
-<span class="codeline" id="line-42"><code>	<label for="r9" class="ident">ticker</label> := <label for="r0" class="ident">c</label>.<a href="conn.go.html#line-63" class="ident">clock</a>.<a href="../clock/clock.go.html#line-14" class="ident">Ticker</a>(<label for="r0" class="ident">c</label>.<a href="conn.go.html#line-108" class="ident">ackInterval</a>)</code></span>
+<span class="codeline" id="line-42"><code>	<label for="r9" class="ident">ticker</label> := <label for="r0" class="ident">c</label>.<a href="conn.go.html#line-63" class="ident">clock</a>.<a href="../clock/clock.go.html#line-14" class="ident">Ticker</a>(<label for="r0" class="ident">c</label>.<a href="conn.go.html#line-111" class="ident">ackInterval</a>)</code></span>
 <span class="codeline" id="line-43"><code>	<span class="keyword">defer</span> <label for="r9" class="ident">ticker</label>.<a href="../../neo/time.go.html#line-19" class="ident">Stop</a>()</code></span>
 <span class="codeline" id="line-44"><code></code></span>
 <span class="codeline" id="line-45"><code>	<span class="keyword">for</span> {</code></span>
@@ -104,7 +104,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-50"><code>			<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r4" class="ident">buf</label>) &gt; <span class="lit-number">0</span> {</code></span>
 <span class="codeline" id="line-51"><code>				<label for="r6" class="ident">send</label>()</code></span>
 <span class="codeline" id="line-52"><code>			}</code></span>
-<span class="codeline" id="line-53"><code>		<span class="keyword">case</span> <label for="r10" class="ident">msgID</label> := <a href="../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r0" class="ident">c</label>.<a href="conn.go.html#line-106" class="ident">ackSendChan</a>:</code></span>
+<span class="codeline" id="line-53"><code>		<span class="keyword">case</span> <label for="r10" class="ident">msgID</label> := <a href="../../../../runtime/chan.go.html#line-508">&lt;-</a><label for="r0" class="ident">c</label>.<a href="conn.go.html#line-109" class="ident">ackSendChan</a>:</code></span>
 <span class="codeline" id="line-54"><code>			<span class="keyword">if</span> <label for="r11" class="ident">session</label> := <label for="r0" class="ident">c</label>.<a href="session.go.html#line-122" class="ident">currentSessionID</a>(); <label for="r11" class="ident">session</label> != <label for="r5" class="ident">bufSession</label> {</code></span>
 <span class="codeline" id="line-55"><code>				<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r4" class="ident">buf</label>) &gt; <span class="lit-number">0</span> {</code></span>
 <span class="codeline" id="line-56"><code>					<label for="r3" class="ident">logger</label>.<a href="../../log/helper.go.html#line-60" class="ident">Debug</a>(<label for="r2" class="ident">ctx</label>, <span class="lit-string">"Session changed, dropping pending acks"</span>, <a href="../../../../../pkg/github.com/gotd/log.html" class="ident i2">log</a>.<a href="../../log/attr.go.html#line-216" class="ident">Any</a>(<span class="lit-string">"msg_ids"</span>, <label for="r4" class="ident">buf</label>))</code></span>
@@ -113,9 +113,9 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-59"><code>				<label for="r5" class="ident">bufSession</label> = <label for="r11" class="ident">session</label></code></span>
 <span class="codeline" id="line-60"><code>			}</code></span>
 <span class="codeline" id="line-61"><code>			<label for="r4" class="ident">buf</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r4" class="ident">buf</label>, <label for="r10" class="ident">msgID</label>)</code></span>
-<span class="codeline" id="line-62"><code>			<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r4" class="ident">buf</label>) &gt;= <label for="r0" class="ident">c</label>.<a href="conn.go.html#line-107" class="ident">ackBatchSize</a> {</code></span>
+<span class="codeline" id="line-62"><code>			<span class="keyword">if</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r4" class="ident">buf</label>) &gt;= <label for="r0" class="ident">c</label>.<a href="conn.go.html#line-110" class="ident">ackBatchSize</a> {</code></span>
 <span class="codeline" id="line-63"><code>				<label for="r6" class="ident">send</label>()</code></span>
-<span class="codeline" id="line-64"><code>				<label for="r9" class="ident">ticker</label>.<a href="../../neo/time.go.html#line-20" class="ident">Reset</a>(<label for="r0" class="ident">c</label>.<a href="conn.go.html#line-108" class="ident">ackInterval</a>)</code></span>
+<span class="codeline" id="line-64"><code>				<label for="r9" class="ident">ticker</label>.<a href="../../neo/time.go.html#line-20" class="ident">Reset</a>(<label for="r0" class="ident">c</label>.<a href="conn.go.html#line-111" class="ident">ackInterval</a>)</code></span>
 <span class="codeline" id="line-65"><code>			}</code></span>
 <span class="codeline" id="line-66"><code>		}</code></span>
 <span class="codeline" id="line-67"><code>	}</code></span>

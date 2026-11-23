@@ -149,8 +149,8 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-41"><code><span class="comment">	// send — including pings, acks and content requests — blocks here. Tracing</span></code></span>
 <span class="codeline" id="line-42"><code><span class="comment">	// the lock acquisition separately lets us distinguish "stuck on exchange</span></code></span>
 <span class="codeline" id="line-43"><code><span class="comment">	// lock" from "stuck on transport send".</span></code></span>
-<span class="codeline" id="line-44"><code>	<label for="r10" class="ident">c</label>.<a href="conn.go.html#line-127" class="ident">exchangeLock</a>.<a href="../../../../sync/rwmutex.go.html#line-67" class="ident">RLock</a>()</code></span>
-<span class="codeline" id="line-45"><code>	<span class="keyword">defer</span> <label for="r10" class="ident">c</label>.<a href="conn.go.html#line-127" class="ident">exchangeLock</a>.<a href="../../../../sync/rwmutex.go.html#line-114" class="ident">RUnlock</a>()</code></span>
+<span class="codeline" id="line-44"><code>	<label for="r10" class="ident">c</label>.<a href="conn.go.html#line-130" class="ident">exchangeLock</a>.<a href="../../../../sync/rwmutex.go.html#line-67" class="ident">RLock</a>()</code></span>
+<span class="codeline" id="line-45"><code>	<span class="keyword">defer</span> <label for="r10" class="ident">c</label>.<a href="conn.go.html#line-130" class="ident">exchangeLock</a>.<a href="../../../../sync/rwmutex.go.html#line-114" class="ident">RUnlock</a>()</code></span>
 <span class="codeline" id="line-46"><code>	<span class="keyword">if</span> <label for="r18" class="ident">err</label> := <label for="r12" class="ident">ctx</label>.<a href="../../../../context/context.go.html#line-115" class="ident">Err</a>(); <label for="r18" class="ident">err</label> != <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-47"><code>		<span class="comment">// Canceled while waiting for the lock, e.g. a retry of a request that</span></code></span>
 <span class="codeline" id="line-48"><code><span class="comment">		// was reset with its session during key exchange.</span></code></span>
@@ -209,8 +209,8 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-101"><code>}</code></span>
 <span class="codeline" id="line-102"><code></code></span>
 <span class="codeline" id="line-103"><code><span class="keyword">func</span> (<label for="r31" class="ident">c</label> *<a href="conn.go.html#line-51" class="ident">Conn</a>) <label for="r32" class="ident"><a href="../../../../../use/github.com/gotd/td/mtproto..Conn.nextMsgSeq^2db17.html" class="ident">nextMsgSeq</a></label>(<label for="r33" class="ident">content</label> <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) (<label for="r34" class="ident">msgID</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>, <label for="r35" class="ident">seqNo</label> <a href="../../../../../pkg/builtin.html#name-int32" class="ident">int32</a>) {</code></span>
-<span class="codeline" id="line-104"><code>	<label for="r31" class="ident">c</label>.<a href="conn.go.html#line-99" class="ident">reqMux</a>.<a href="../../../../sync/mutex.go.html#line-45" class="ident">Lock</a>()</code></span>
-<span class="codeline" id="line-105"><code>	<span class="keyword">defer</span> <label for="r31" class="ident">c</label>.<a href="conn.go.html#line-99" class="ident">reqMux</a>.<a href="../../../../sync/mutex.go.html#line-64" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-104"><code>	<label for="r31" class="ident">c</label>.<a href="conn.go.html#line-102" class="ident">reqMux</a>.<a href="../../../../sync/mutex.go.html#line-45" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-105"><code>	<span class="keyword">defer</span> <label for="r31" class="ident">c</label>.<a href="conn.go.html#line-102" class="ident">reqMux</a>.<a href="../../../../sync/mutex.go.html#line-64" class="ident">Unlock</a>()</code></span>
 <span class="codeline" id="line-106"><code></code></span>
 <span class="codeline" id="line-107"><code>	<label for="r34" class="ident">msgID</label> = <label for="r31" class="ident">c</label>.<a href="message_id.go.html#line-5" class="ident">newMessageID</a>()</code></span>
 <span class="codeline" id="line-108"><code></code></span>
@@ -218,10 +218,10 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-110"><code><span class="comment">	// This should be serialized with new message id generation.</span></code></span>
 <span class="codeline" id="line-111"><code><span class="comment">	//</span></code></span>
 <span class="codeline" id="line-112"><code><span class="comment">	// See https://github.com/gotd/td/issues/245 for reference.</span></code></span>
-<span class="codeline" id="line-113"><code>	<label for="r35" class="ident">seqNo</label> = <label for="r31" class="ident">c</label>.<a href="conn.go.html#line-98" class="ident">sentContentMessages</a> * <span class="lit-number">2</span></code></span>
+<span class="codeline" id="line-113"><code>	<label for="r35" class="ident">seqNo</label> = <label for="r31" class="ident">c</label>.<a href="conn.go.html#line-101" class="ident">sentContentMessages</a> * <span class="lit-number">2</span></code></span>
 <span class="codeline" id="line-114"><code>	<span class="keyword">if</span> <label for="r33" class="ident">content</label> {</code></span>
 <span class="codeline" id="line-115"><code>		<label for="r35" class="ident">seqNo</label>++</code></span>
-<span class="codeline" id="line-116"><code>		<label for="r31" class="ident">c</label>.<a href="conn.go.html#line-98" class="ident">sentContentMessages</a>++</code></span>
+<span class="codeline" id="line-116"><code>		<label for="r31" class="ident">c</label>.<a href="conn.go.html#line-101" class="ident">sentContentMessages</a>++</code></span>
 <span class="codeline" id="line-117"><code>	}</code></span>
 <span class="codeline" id="line-118"><code></code></span>
 <span class="codeline" id="line-119"><code>	<span class="keyword">return</span></code></span>
@@ -230,7 +230,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-122"><code><span class="comment">// beforeSession reports whether msgID was allocated before the current</span></code></span>
 <span class="codeline" id="line-123"><code><span class="comment">// session was started by resetSession.</span></code></span>
 <span class="codeline" id="line-124"><code><span class="keyword">func</span> (<label for="r36" class="ident">c</label> *<a href="conn.go.html#line-51" class="ident">Conn</a>) <label for="r37" class="ident"><a href="../../../../../use/github.com/gotd/td/mtproto..Conn.beforeSession^a667d.html" class="ident">beforeSession</a></label>(<label for="r38" class="ident">msgID</label> <a href="../../../../../pkg/builtin.html#name-int64" class="ident">int64</a>) <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
-<span class="codeline" id="line-125"><code>	<span class="keyword">return</span> <label for="r38" class="ident">msgID</label> &lt; <label for="r36" class="ident">c</label>.<a href="conn.go.html#line-102" class="ident">sessionStartMsgID</a>.<a href="../../../../go.uber.org/atomic/int64.go.html#line-44" class="ident">Load</a>()</code></span>
+<span class="codeline" id="line-125"><code>	<span class="keyword">return</span> <label for="r38" class="ident">msgID</label> &lt; <label for="r36" class="ident">c</label>.<a href="conn.go.html#line-105" class="ident">sessionStartMsgID</a>.<a href="../../../../go.uber.org/atomic/int64.go.html#line-44" class="ident">Load</a>()</code></span>
 <span class="codeline" id="line-126"><code>}</code></span>
 </pre><pre id="footer">
 <table><tr><td><img src="../../../../../png/zigo101-twitter.png"></td>
